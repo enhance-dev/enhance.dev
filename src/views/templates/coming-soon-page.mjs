@@ -1,4 +1,4 @@
-export default function EmailThankPage({ html }) {
+export default function ComingSoon({ html }) {
   return html`
     <style>
       .max-h-sm {
@@ -11,11 +11,14 @@ export default function EmailThankPage({ html }) {
     <link rel="stylesheet" href="/components/styles.css" />
     <div class="bg-p2 text-p1">
       <nav-bar></nav-bar>
-      <div class="m-auto max-w-lg h-screen">
+      <div class="m-auto max-w-lg h-screen ">
         <page-header>
-          <span slot="title">Thank You!</span>
+          <span slot="title">Enhance</span>
           <span slot="subtitle">
-            We will let you know when Enhance is ready to try out!
+            An HTML first framework for building Functional Web Apps.
+            <br />
+            Stop chasing breaking changes in your framework and build apps that
+            will work as long as the web does.
           </span>
         </page-header>
       </div>

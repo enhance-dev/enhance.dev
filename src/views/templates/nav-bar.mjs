@@ -83,7 +83,7 @@ export default function NavBarTemplate({ html, state = {} }) {
     <header class="bg-p0">
       <nav class="m-auto p0">
         <div
-          class="mobile-menu hidden-lg w-full p6 flex items-center justify-between border-b border-p1">
+          class="mobile-menu hidden-lg w-full flex items-center justify-between border-b border-p1">
           <div>
             <a
               style="height:2rem;"

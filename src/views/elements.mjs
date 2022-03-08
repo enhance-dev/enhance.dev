@@ -7,7 +7,9 @@ import LandingPage from './templates/landing-page.mjs'
 import TabContainer from './templates/tab-container.mjs'
 import EmailSignup from './templates/email-signup.mjs'
 import EmailThankPage from './templates/email-thank-page.mjs'
+import ComingSoon from './templates/coming-soon-page.mjs'
 export default {
+  'coming-soon': ComingSoon,
   'email-signup': EmailSignup,
   'email-thank-page': EmailThankPage,
   'content-container': ContentContainer,

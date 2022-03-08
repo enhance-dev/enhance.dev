@@ -28,7 +28,7 @@ export default function EmailSignup({ html, state = {} }) {
     <div class=" font-sans text-center ">
       <div class="">
         <div class="">
-          <h2>Sign up for the waiting list.</h2>
+          <h2>Sign up for the wait list.</h2>
           <p class="">
             We will let you know as soon as enhance is ready to try!
           </p>
@@ -50,7 +50,7 @@ export default function EmailSignup({ html, state = {} }) {
                 <button
                   type="submit"
                   class="text0 bg-p0 m-1 pt-3 pb-3 pl0 pr0 radius0">
-                  Notify me
+                  Sign up
                 </button>
               </div>
             </div>
