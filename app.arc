@@ -8,6 +8,8 @@ folder public
 @http
 get /  #Landing page
 get /components/* #Fingerprinted Modules and components
+post /email/interest/add
+get /email/thank
 
 @tables
 data
@@ -17,5 +19,5 @@ data
 
 @aws
 runtime nodejs14.x
-region us-east-1
-profile enhance-dev
+region us-west-2
+profile smallwins
