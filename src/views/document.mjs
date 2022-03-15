@@ -15,11 +15,15 @@ export default function Document(body='') {
       .heading-size {
         font-size: clamp(2.5rem, 15vw, 8rem);
       }
-      .subheading-size {
-        font-size: clamp(1rem, 2vw, 3rem);
+      .bg-hover-dark-purple:hover {
+        background-color: var(--dark-purple);
       }
-      .bg-purple {
+      .bg-purple,
+      .bg-purple:active {
         background-color: var(--purple);
+      }
+      .color-hover-white:hover {
+        color: var(--white);
       }
       .color-light {
         color: var(--light);
@@ -28,7 +32,9 @@ export default function Document(body='') {
         border-image: var(--bg-gradient);
         border-image-slice: 1;
       }
-
+      .max-w-form {
+        max-width: 21.78rem;
+      }
     </style>
   </head>
   <body class="font-sans">

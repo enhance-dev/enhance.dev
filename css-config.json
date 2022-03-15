@@ -9,6 +9,9 @@
   },
   "properties": [
     {
+      "white": "#ffffff"
+    },
+    {
       "light": "#efefef"
     },
     {
@@ -22,6 +25,9 @@
     },
     {
       "purple": "#8753c6"
+    },
+    {
+      "dark-purple": "#7327ce"
     },
     {
       "blue": "#1f74d6"

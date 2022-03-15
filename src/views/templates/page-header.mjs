@@ -5,6 +5,7 @@ export default function PageHeaderTemplate({ html }) {
         flex
         flex-col
         justify-center
+        items-center
         m-auto
         p1
         p2-lg
@@ -12,7 +13,7 @@ export default function PageHeaderTemplate({ html }) {
     >
       <h1
         class="
-          mb1
+          mb0
           bg-gradient
           bg-clip-text
           select-none
@@ -27,9 +28,9 @@ export default function PageHeaderTemplate({ html }) {
       </h1>
       <p
         class="
+          text0
+          text1-lg
           subheading-size
-          ml-none
-          ml2-lg
           text-center
           font-thin
         "

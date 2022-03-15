@@ -15,6 +15,8 @@ export default function LandingPage({ html }) {
           max-w-lg
           pt2
           pt4-lg
+          pr1
+          pl1
         "
       >
         <page-header>
@@ -23,7 +25,13 @@ export default function LandingPage({ html }) {
             The Web Native framework for your Functional Web App
           </span>
         </page-header>
-        <email-signup></email-signup>
+        <email-signup
+          class="
+            max-w-form
+            block
+            m-auto
+          "
+        ></email-signup>
       </div>
     </div>
   `
