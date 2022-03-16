@@ -1,4 +1,4 @@
-export default function ErrorPage(html, state = {}) {
+export default function ErrorPage({ html, state = {} }) {
   const { error = '' } = state.attrs
   return html`
     <h1>Oops, something went wrong 😕</h1>
