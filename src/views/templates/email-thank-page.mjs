@@ -10,12 +10,19 @@ export default function EmailThankPage({ html }) {
     </style>
     <link rel="stylesheet" href="/components/styles.css" />
     <div class="bg-p2 text-p1">
-      <nav-bar></nav-bar>
-      <div class="m-auto max-w-lg h-screen">
+      <div
+        class="
+          m-auto
+          max-w-lg
+          h-screen
+          pt2
+          pt4-lg
+        "
+      >
         <page-header>
-          <span slot="title">Thank You!</span>
+          <span slot="title">Thanks!</span>
           <span slot="subtitle">
-            We will let you know when Enhance is ready to try out!
+            We'll keep you posted
           </span>
         </page-header>
       </div>

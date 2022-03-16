@@ -1,28 +1,10 @@
-import enhance from '@enhance/ssr'
-import layout from '@architect/views/page-layout.mjs'
-const { top, bottom } = layout
-import elements from '@architect/views/elements.mjs'
-let html = enhance()
+import html from '@architect/views/render.mjs'
 
 export default async function HTML() {
   try {
-    html = enhance({
-      elements
-      // initialState: {
-      //   loggedIn: false,
-      //   location: '/',
-      //   menuLinks: [
-      //     { name: 'Docs', location: '/docs' },
-      //     { name: 'Tutorial', location: '/tutorial' },
-      //     { name: 'Playground', location: '/playground' }
-      //   ]
-      // }
-    })
     return {
       statusCode: 200,
-      html: html` ${top()}
-        <email-thank-page></email-thank-page>
-        ${bottom}`
+      html: html`<email-thank-page></email-thank-page>`
     }
   } catch (err) {
     console.log(err)

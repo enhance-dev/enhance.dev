@@ -1,157 +1,42 @@
 {
   "base": 18,
   "scale": {
-    "ratio": "perfectFourth",
-    "steps": 16
+    "ratio": "goldenSection",
+    "steps": 8
   },
   "grid": {
-    "steps": 6,
-    "heights": [
-      160
-    ]
+    "steps": 6
   },
-  "colors": {
-    "primary": [
-      {
-        "label": "E-Orange",
-        "value": "#ff6600"
-      },
-      {
-        "label": "Light Orange",
-        "value": "#fde6d7"
-      },
-      {
-        "label": "Dark Slate Gray",
-        "value": "#232b31"
-      },
-      {
-        "label": "Medium Aquamarine light",
-        "value": "#2CDD93"
-      },
-      {
-        "label": "Bright Navy Blue light",
-        "value": "#1F74D6"
-      },
-      {
-        "label": "Royal Purple light",
-        "value": "hsl(267, 50%, 55%)"
-      },
-      {
-        "label": "Barbie Pink light",
-        "value": "#E21893"
-      },
-      {
-        "label": "Bittersweet Orange light",
-        "value": "#FF6263"
-      },
-      {
-        "label": "Royal purple",
-        "value": "hsl(267, 75%, 45%)"
-      }
-    ],
-    "greyscale": [
-      {
-        "label": "#FBFBFB",
-        "value": "#FBFBFB"
-      },
-      {
-        "label": "#E5E5E5",
-        "value": "#E5E5E5"
-      },
-      {
-        "label": "#CFCFCF",
-        "value": "#CFCFCF"
-      },
-      {
-        "label": "#BABABA",
-        "value": "#BABABA"
-      },
-      {
-        "label": "#A4A4A4",
-        "value": "#A4A4A4"
-      },
-      {
-        "label": "#8E8E8E",
-        "value": "#8E8E8E"
-      },
-      {
-        "label": "#797979",
-        "value": "#797979"
-      },
-      {
-        "label": "#636363",
-        "value": "#636363"
-      },
-      {
-        "label": "#4D4D4D",
-        "value": "#4D4D4D"
-      },
-      {
-        "label": "#383838",
-        "value": "#383838"
-      },
-      {
-        "label": "#222222",
-        "value": "#222222"
-      }
-    ],
-    "hover": [
-      {
-        "label": "Medium Aquamarine",
-        "value": "#3EE09C"
-      },
-      {
-        "label": "Bright Navy Blue",
-        "value": "#2a80e0"
-      },
-      {
-        "label": "Royal Purple Hover",
-        "value": "hsl(267, 90%, 55%)"
-      },
-      {
-        "label": "Barbie Pink",
-        "value": "#DE1792"
-      },
-      {
-        "label": "Bittersweet Orange",
-        "value": "#FF4747"
-      },
-      {
-        "label": "Minion Yellow",
-        "value": "#FAE05D"
-      }
-    ],
-    "active": [
-      {
-        "label": "#A4A4A4",
-        "value": "#A4A4A4"
-      },
-      {
-        "label": "#8E8E8E",
-        "value": "#8E8E8E"
-      }
-    ],
-    "disabled": [
-      {
-        "label": "#797979",
-        "value": "#797979"
-      },
-      {
-        "label": "#636363",
-        "value": "#636363"
-      }
-    ]
-  },
-  "gradient": [
+  "properties": [
     {
-      "label": "outrun",
-      "type": "linear",
-      "direction": "0.4turn",
-      "stops": [
-        "#0100ca",
-        "#00e5ff",
-        "#f50057"
-      ]
+      "white": "#ffffff"
+    },
+    {
+      "light": "#efefef"
+    },
+    {
+      "dark": "#222222"
+    },
+    {
+      "orange": "#ff6263"
+    },
+    {
+      "magenta": "#e21893"
+    },
+    {
+      "purple": "#8753c6"
+    },
+    {
+      "dark-purple": "#7327ce"
+    },
+    {
+      "blue": "#1f74d6"
+    },
+    {
+      "green": "#2cdd93"
+    },
+    {
+      "bg-gradient": "linear-gradient(125deg, var(--orange), var(--magenta), var(--purple))"
     }
   ],
   "queries": {
@@ -159,18 +44,11 @@
   },
   "borders": {
     "widths": [
-      1,
-      2,
-      4,
-      8,
-      16,
-      32
+      1
     ]
   },
   "radii": [
-    4,
-    6,
-    15,
+    2,
     9999
   ]
 }

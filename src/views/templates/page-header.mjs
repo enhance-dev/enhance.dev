@@ -1,10 +1,40 @@
 export default function PageHeaderTemplate({ html }) {
   return html`
-    <div class="flex flex-col justify-center font-sans m-auto p1 p2-lg">
-      <h1 class="text4 text6-lg text-center font-bold">
+    <div
+      class="
+        flex
+        flex-col
+        justify-center
+        items-center
+        m-auto
+        p1
+        p2-lg
+      "
+    >
+      <h1
+        class="
+          mb0
+          bg-gradient
+          bg-clip-text
+          select-none
+          text4
+          text6-lg
+          text-center
+          font-bold
+          heading-size
+        "
+      >
         <slot name="title"></slot>
       </h1>
-      <p class="text1 text-center font-thin">
+      <p
+        class="
+          text0
+          text1-lg
+          subheading-size
+          text-center
+          font-thin
+        "
+      >
         <slot name="subtitle"></slot>
       </p>
     </div>
