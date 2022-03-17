@@ -5,11 +5,13 @@
     "scripts": {
         "start": "ARC_TABLES_PORT=5555 arc sandbox",
         "lint": "eslint src --ignore-pattern node_modules --fix",
-        "test": "ARC_TABLES_PORT=5555 cross-env tape 'test/**/*-test.js' --verbose | tap-arc ",
-        "styles": "enhance ./css-config.json > ./public/css/styles.css"
+        "test": "echo 'add tests'",
+        "test:unit": "ARC_TABLES_PORT=5555 cross-env tape 'test/**/*-test.js' --verbose | tap-arc ",
+        "styles": "enhance ./css-config.json > ./public/components/css/styles.css"
     },
     "devDependencies": {
         "@architect/eslint-config": "^2.0.1",
+        "cross-env": "^7.0.3",
         "eslint": "^8.4.1",
         "eslint-config-prettier": "^8.3.0",
         "eslint-plugin-prettier": "^4.0.0",
