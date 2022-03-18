@@ -8,7 +8,6 @@ export default function EmailThankPage({ html }) {
         max-width: 48rem;
       }
     </style>
-    <link rel="stylesheet" href="/components/styles.css" />
     <div class="bg-p2 text-p1">
       <div
         class="
@@ -27,5 +26,15 @@ export default function EmailThankPage({ html }) {
         </page-header>
       </div>
     </div>
+    <script type="module">
+      class EmailThankPage extends HTMLElement {
+        connectedCallback() {
+          window.setTimeout(() => {
+            window.location.href = '/'
+          }, 3000)
+        }
+      }
+      customElements.define('email-thank-page', EmailThankPage)
+    </script>
   `
 }
