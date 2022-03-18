@@ -15,6 +15,10 @@ export default function Document(body = '') {
       .heading-size {
         font-size: clamp(2.5rem, 15vw, 8rem);
       }
+      .sparkle-size {
+        font-size: clamp(0rem, 10vw, 4rem);
+      }
+
       .bg-hover-dark-purple:hover {
         background-color: var(--dark-purple);
       }
@@ -29,8 +33,7 @@ export default function Document(body = '') {
         color: var(--light);
       }
       .border-gradient {
-        border-image: var(--bg-gradient);
-        border-image-slice: 1;
+        border-color: var(--purple);
       }
       .max-w-form {
         max-width: 21.78rem;
