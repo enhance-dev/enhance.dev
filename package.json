@@ -2,6 +2,7 @@
     "name": "enhance.dev",
     "version": "1.0.0-alpha.1",
     "description": "Enhance landing page docs and tutorial",
+    "type": "module",
     "scripts": {
         "start": "ARC_TABLES_PORT=5555 arc sandbox",
         "lint": "eslint 'src/**/**.*js' --ignore-pattern node_modules  --fix",
@@ -27,7 +28,7 @@
         "@begin/data": "^4.0.0-RC.2",
         "@enhance/ssr": "^2.0.1",
         "@enhance/styles": "^1.0.0",
-        "arc-plugin-oauth": "^0.0.8",
+        "arc-plugin-oauth": "^0.0.11",
         "css": "^3.0.0",
         "xss": "^1.0.8"
     },
