@@ -9,8 +9,7 @@ export default function PageHeaderTemplate({ html }) {
         m-auto
         p1
         p2-lg
-      "
-    >
+      ">
       <h1
         class="
           mb0
@@ -22,8 +21,7 @@ export default function PageHeaderTemplate({ html }) {
           text-center
           font-bold
           heading-size
-        "
-      >
+        ">
         <slot name="title"></slot>
       </h1>
       <p
@@ -33,8 +31,7 @@ export default function PageHeaderTemplate({ html }) {
           subheading-size
           text-center
           font-thin
-        "
-      >
+        ">
         <slot name="subtitle"></slot>
       </p>
     </div>

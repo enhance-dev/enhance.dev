@@ -6,10 +6,19 @@ fingerprint true
 folder public
 
 @http
-get /  #Landing page
+get /
+get /waitlist 
 get /components/* #Fingerprinted Modules and components
 post /email/interest/add
 get /email/thank
+
+@plugins
+arc-plugin-oauth
+
+@oauth
+use-mock true 
+allow-list allow.mjs 
+un-auth-redirect /waitlist
 
 @tables
 data

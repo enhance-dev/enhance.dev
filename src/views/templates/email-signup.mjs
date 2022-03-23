@@ -1,16 +1,10 @@
-import buildScoper from '../scope-css.mjs'
-export default function EmailSignup({ html, state = {} }) {
-  const scope = buildScoper({
-    scopeTo: 'email-signup',
-    disable: !state?.store?.scopedCSS
-  })
+export default function EmailSignup({ html }) {
   return html`
     <div
       class="
         font-sans
         text-center
-      "
-    >
+      ">
       <form
         method="POST"
         action="/email/interest/add"
@@ -24,16 +18,14 @@ export default function EmailSignup({ html, state = {} }) {
           border1
           border-gradient
           mb0
-        "
-      >
+        ">
         <label
           for="email-address"
           class="
             flex
             flex-grow
             overflow-hidden
-          "
-        >
+          ">
           <input
             name="email-address"
             type="email"
@@ -44,8 +36,7 @@ export default function EmailSignup({ html, state = {} }) {
               p0
               text0
             "
-            placeholder="Add your email to the waitlist"
-          />
+            placeholder="Add your email to the waitlist" />
         </label>
         <button
           type="submit"
@@ -58,14 +49,11 @@ export default function EmailSignup({ html, state = {} }) {
             color-light
             font-bold
             radius-l-none
-          "
-        >
+          ">
           Sign up
         </button>
       </form>
-      <p class="text-1">
-        *We hate SPAM. You won't get any from us.
-      </p>
+      <p class="text-1">*We hate SPAM. You won't get any from us.</p>
     </div>
   `
 }
