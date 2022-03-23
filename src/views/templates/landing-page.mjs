@@ -17,8 +17,7 @@ export default function LandingPage({ html }) {
           pt4-lg
           pr1
           pl1
-        "
-      >
+        ">
         <page-header>
           <span slot="title">✨enhance</span>
           <span slot="subtitle">
@@ -30,8 +29,7 @@ export default function LandingPage({ html }) {
             max-w-form
             block
             m-auto
-          "
-        ></email-signup>
+          "></email-signup>
       </div>
     </div>
   `

@@ -17,13 +17,10 @@ export default function EmailThankPage({ html }) {
           h-screen
           pt2
           pt4-lg
-        "
-      >
+        ">
         <page-header>
           <span slot="title">Thanks!</span>
-          <span slot="subtitle">
-            We'll keep you posted
-          </span>
+          <span slot="subtitle"> We'll keep you posted </span>
         </page-header>
       </div>
     </div>

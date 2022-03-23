@@ -3,7 +3,7 @@
 .DS_Store
 .vscode
 node_modules
-public/css/*
+public/css/styles.css
 sam.json
 sam.yaml
 preferences.arc
