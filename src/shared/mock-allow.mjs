@@ -1,9 +1,5 @@
 export default {
   mockProviderAccounts: {
-    'Ryan Bethel': {
-      login: 'ryanbethel',
-      name: 'Ryan Bethel'
-    },
     'John Doe': {
       login: 'johndoe',
       name: 'John Doe'
@@ -14,9 +10,6 @@ export default {
     }
   },
   appAccounts: {
-    ryanbethel: {
-      name: 'Ryan Bethel'
-    },
     johndoe: {
       name: 'John Doe'
     }
