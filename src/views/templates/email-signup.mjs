@@ -12,20 +12,27 @@ export default function EmailSignup({ html }) {
           flex
           flex-col
           flex-row-lg
-          justify-center
+          justify-between
           radius0
           border-solid
           border1
           border-gradient
           mb0
         ">
-        <label for="email-address">
+        <label
+          for="email-address"
+          class="
+            flex
+            flex-grow
+            overflow-hidden
+          ">
           <input
             name="email-address"
             type="email"
             autocomplete="email"
             required
             class="
+              flex-grow
               p0
               text0
             "
