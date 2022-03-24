@@ -28,7 +28,7 @@
         "@begin/data": "^4.0.0-RC.2",
         "@enhance/ssr": "^2.0.1",
         "@enhance/styles": "^1.0.0",
-        "arc-plugin-oauth": "^0.0.13",
+        "arc-plugin-oauth": "^0.0.14",
         "css": "^3.0.0",
         "xss": "^1.0.8"
     },
