@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/no-unresolved
-import Store from 'https://unpkg.com/@begin/store'
+import Store from '/_importmap/store'
 const store = Store()
 
 const CREATE = 'create'
@@ -10,7 +10,7 @@ const LIST = 'list'
 let worker
 export default function API() {
   if (!worker) {
-    worker = new Worker('/components/data/worker.mjs')
+    worker = new Worker('/_importmap/worker.mjs')
     worker.onmessage = mutate
   }
 

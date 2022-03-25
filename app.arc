@@ -8,12 +8,25 @@ folder public
 @http
 get /
 get /waitlist 
-get /components/* #Fingerprinted Modules and components
 post /email/interest/add
 get /email/thank
 
 @plugins
 arc-plugin-oauth
+plugin-importmap
+
+@importmap
+api './src/components/data/api.mjs'
+worker './src/components/data/worker.mjs'
+socket './src/components/data/socket.mjs'
+store './node_modules/@enhance/store/index.mjs'
+#codemirror 
+#enhance 
+#parse5 
+#prism
+#beautify_js
+#beautify_html
+#beautify_css
 
 @oauth
 use-mock true 

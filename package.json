@@ -8,7 +8,7 @@
         "lint": "eslint 'src/**/**.*js' --ignore-pattern node_modules  --fix",
         "test": "echo 'add tests'",
         "test:unit": "ARC_TABLES_PORT=5555 cross-env tape 'test/**/*-test.js' --verbose | tap-arc ",
-        "styles": "mkdir -p public/components/css && enhance ./css-config.json > ./public/components/css/styles.css"
+        "styles": "mkdir -p src/components/css && enhance ./css-config.json > ./src/components/css/styles.css"
     },
     "devDependencies": {
         "@architect/eslint-config": "^2.0.1",
@@ -27,9 +27,11 @@
         "@architect/functions": "^5.0.4",
         "@begin/data": "^4.0.0-RC.2",
         "@enhance/ssr": "^2.0.1",
+        "@enhance/store": "^1.0.0",
         "@enhance/styles": "^1.0.0",
-        "arc-plugin-oauth": "^0.0.14",
+        "arc-plugin-oauth": "^0.0.15",
         "css": "^3.0.0",
+        "plugin-importmap": "^0.0.1-alpha.0",
         "xss": "^1.0.8"
     },
     "eslintConfig": {
