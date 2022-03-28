@@ -1,7 +1,6 @@
 import html from '@architect/views/render.mjs'
 
-export default async function HTML(req) {
-  console.log(req.session)
+export default async function HTML() {
   try {
     return {
       statusCode: 200,

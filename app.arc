@@ -16,9 +16,8 @@ arc-plugin-oauth
 plugin-importmap
 
 @importmap
-api './src/components/data/api.mjs'
-worker './src/components/data/worker.mjs'
-socket './src/components/data/socket.mjs'
+api './src/module/data/api.mjs'
+worker './src/module/data/worker.mjs'
 store './node_modules/@enhance/store/index.mjs'
 #codemirror 
 #enhance 

@@ -1,5 +1,5 @@
-// eslint-disable-next-line import/no-unresolved
-import Store from '/_importmap/store'
+import map from '../../http/get-index/node_modules/@architect/importmap/browser/index.mjs'
+import Store from '@enhance/store'
 const store = Store()
 
 const CREATE = 'create'
@@ -10,7 +10,7 @@ const LIST = 'list'
 let worker
 export default function API() {
   if (!worker) {
-    worker = new Worker('/_importmap/worker.mjs')
+    worker = new Worker(map.worker)
     worker.onmessage = mutate
   }
 
