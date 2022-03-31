@@ -8,7 +8,6 @@ export default function NavBarTemplate({ html, state = {} }) {
     disable: !state?.store?.scopedCSS
   })
   return html`
-    <link rel="stylesheet" href="/components/styles.css" />
     ${scope`
     <style enh-scope="component">
 

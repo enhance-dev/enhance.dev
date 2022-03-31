@@ -1,7 +1,6 @@
 import scopeCSS from '../scope-css.mjs'
 export default function ContentContainerTemplate({ html }) {
   return html`
-    <link rel="stylesheet" href="/components/styles.css" />
     <style>
       ${scopeCSS({
         scopeTo: 'content-container',

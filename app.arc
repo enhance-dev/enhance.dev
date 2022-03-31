@@ -10,6 +10,12 @@ get /
 get /waitlist 
 post /email/interest/add
 get /email/thank
+get /playground
+post /repl
+
+@events
+repl-secure-sandbox
+
 
 @plugins
 arc-plugin-oauth
@@ -19,13 +25,13 @@ plugin-importmap
 api './src/module/data/api.mjs'
 worker './src/module/data/worker.mjs'
 store './node_modules/@enhance/store/index.mjs'
-#codemirror 
-#enhance 
+codemirror 'src/module/codemirror6.mjs' 
+enhance  './node_modules/@enhance/ssr/index.mjs'
 #parse5 
-#prism
-#beautify_js
-#beautify_html
-#beautify_css
+prism './node_modules/prismjs/prism.js'
+beautify './node_modules/js-beautify/js/index.js'
+#beautify_html included in js above
+#beautify_css included in js above
 
 @oauth
 use-mock true 
