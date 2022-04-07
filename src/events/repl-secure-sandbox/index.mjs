@@ -33,7 +33,7 @@ async function process(event) {
 
   const now = new Date()
   const ttl = Math.round(now.getTime() / 1000) + 24 * 60 * 60
-  await data.set({
+  const result = await data.set({
     key,
     ttl,
     table: 'repl',
@@ -44,9 +44,12 @@ async function process(event) {
         .replace(/"/g, '&quot;'),
       entrySrc: event.entrySrc,
       component1Src: event.component1Src,
-      component2Src: event.component2Src
+      component2Src: event.component2Src,
+      openEditor: event.openEditor || 1,
+      openPreview: event.openPreview || 1
     }
   })
+  console.log('event data set', result)
 }
 
 // if args needed they go before function string new AsyncFunction("arg1",funcString)

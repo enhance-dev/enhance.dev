@@ -7,11 +7,15 @@ folder public
 
 @http
 get /
+get /docs
 get /waitlist 
 post /email/interest/add
 get /email/thank
 get /playground
+post /playground
 post /repl
+
+get /testtag
 
 @events
 repl-secure-sandbox
@@ -27,11 +31,8 @@ worker './src/module/data/worker.mjs'
 store './node_modules/@enhance/store/index.mjs'
 codemirror 'src/module/codemirror6.mjs' 
 enhance  './node_modules/@enhance/ssr/index.mjs'
-#parse5 
 prism './node_modules/prismjs/prism.js'
 beautify './node_modules/js-beautify/js/index.js'
-#beautify_html included in js above
-#beautify_css included in js above
 
 @oauth
 use-mock true 
@@ -39,6 +40,8 @@ allow-list allow.mjs
 un-auth-redirect /waitlist
 
 @tables
+repl
+  seshId *String
 data
   scopeID *String
   dataID **String

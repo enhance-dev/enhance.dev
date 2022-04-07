@@ -4,6 +4,9 @@ export default function PlaygroundPage({ html, state }) {
     scopeTo: 'playground-page',
     disable: !state?.store?.scopedCSS
   })
+  const key = state.store?.replKey || ''
+  const openEditor = state.store?.repl?.openEditor || 1
+  const openPreview = state.store?.repl?.openPreview || 1
   return html`
     ${scope`
     <style>
@@ -16,24 +19,42 @@ export default function PlaygroundPage({ html, state }) {
       <nav-bar></nav-bar>
       <div class="m-auto ">
         <noscript>
-          <button form="run-repl" type="submit">Run REPL</button>
+          <button
+            class=" text0 border1 border-dark border-solid radius0 p-4 "
+            form="run-repl"
+            type="submit">
+            Run REPL
+          </button>
         </noscript>
-        <modal-dialog></modal-dialog>
+        <button
+          type="submit"
+          class=" text0 border1 border-dark border-solid radius0 p-4 "
+          form="run-repl"
+          formmethod="POST"
+          formaction="/playground?key=${key}">
+          Save
+        </button>
         <div
           class="grid  col-1  col-2-lg flow-row text1 m1 m-none-lg justify-between">
-          <tab-container quantity="3" add-tabs="true" class=" w-full h-screen ">
+          <tab-container
+            quantity="3"
+            tab-group-name="openEditor"
+            tab-state-form="run-repl"
+            add-tabs="true"
+            default-tab="${openEditor}"
+            class=" w-full h-screen ">
             <span slot="title1">index</span>
             <code-editor
               slot="content1"
               form-name="run-repl"
               doc-name="entrySrc">
             </code-editor>
-            <span slot="title2">template-1</span>
+            <span slot="title2">Comp-1</span>
             <code-editor
               slot="content2"
               form-name="run-repl"
               doc-name="component1Src"></code-editor>
-            <span slot="title3">template-2</span>
+            <span slot="title3">Comp-2</span>
             <code-editor
               slot="content3"
               form-name="run-repl"
@@ -44,7 +65,13 @@ export default function PlaygroundPage({ html, state }) {
               <code-editor slot="content"> </code-editor>
             </div>
           </tab-container>
-          <tab-container quantity="2" class=" w-full h-screen ">
+
+          <tab-container
+            tab-group-name="openPreview"
+            default-tab="${openPreview}"
+            tab-state-form="run-repl"
+            quantity="2"
+            class=" w-full h-screen ">
             <span slot="title1">Preview</span>
             <enhance-preview slot="content1" doc-src="previewDoc">
             </enhance-preview>

@@ -35,6 +35,9 @@ export default function Document(body = '', arcStatic = () => '') {
       .border-gradient {
         border-color: var(--purple);
       }
+      .border-dark{
+        border-color: var(--dark);
+      }
       .max-w-form {
         max-width: 21.78rem;
       }

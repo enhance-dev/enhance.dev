@@ -5,7 +5,7 @@ export default async function HTML() {
   try {
     return {
       statusCode: 200,
-      html: html`<landing-page></landing-page>`
+      html: html`<modal-dialog> </modal-dialog>`
     }
   } catch (err) {
     console.log(err)

@@ -4,6 +4,12 @@ export default function TabContainerTemplate({ html, state = {} }) {
   const id = Math.random().toString(32).slice(2)
   const quantity = parseInt(state?.attrs?.quantity, 10) || 1
   const defaultTab = parseInt(state?.attrs['default-tab'], 10) || 1
+  const tabStateForm = state.attrs?.['tab-state-form'] || ''
+  const tabGroupNameAttr = state.attrs?.['tab-group-name'] || ''
+  const tabGroupName = `${
+    tabGroupNameAttr ? tabGroupNameAttr : `tab-group-${id}`
+  }`
+  const replKey = state.store?.replKey || ''
   const scope = buildScoper({
     instance: id,
     scopeTo: 'tab-container',
@@ -19,7 +25,7 @@ export default function TabContainerTemplate({ html, state = {} }) {
       ::slotted([slot^="title"]){
         color:var(--p2);
         font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-        font-size: 1.333rem;
+        font-size: 1rem;
       }
 
       .tabs {
@@ -29,16 +35,26 @@ export default function TabContainerTemplate({ html, state = {} }) {
         margin: 25px 0;
       }
       .tab {
-        float: left;
+     float:left;
+        white-space:nowrap;
+       
       }
-      .tab label {
+      .tab input[type=radio] + label {
         background: white; 
+        display:grid;
+      grid-template-columns: auto auto;
+        
+
+        justify-content:start;
         padding: .5rem; 
         border: 1px solid red;
         cursor: pointer;
         margin-left: -1px; 
       }
-      .tab:first-child label {
+      .tab input[type=radio] + label * {
+       justify-self:start;
+      }
+      .tab:first-child input[type=radio] + label {
         margin-left: 0;
       }
       .tab input[type=radio] {
@@ -57,18 +73,22 @@ export default function TabContainerTemplate({ html, state = {} }) {
         border: 1px solid #ccc;
         display: none;
       }
-      input[type=radio][name="tab-group-${id}"]:checked ~ label {
+      input[type=radio][name="${tabGroupName}"]:checked + label {
         background: white;
         border-bottom: 1px solid white;
       }
     
      
-       input[type=radio][name="tab-group-${id}"]:not(:checked) ~ label {
+       input[type=radio][name="${tabGroupName}"]:not(:checked) + label {
         background: gray;
         border-bottom: 1px solid white;
       }
-      input[type=radio][name="tab-group-${id}"]:checked ~ label ~ .tab-content {
+      input[type=radio][name="${tabGroupName}"]:checked + label + .tab-content {
         display: block;
+      }
+      .inline-icon{
+        width:24px;
+        height:24px;
       }
     </style>
       `}
@@ -78,23 +98,34 @@ export default function TabContainerTemplate({ html, state = {} }) {
         .map(
           (_, i) => `
       <div class="tab">
-        <input type="radio" id="tab${i + 1}-${id}" name="tab-group-${id}" ${
-            i + 1 === defaultTab ? 'checked' : ''
-          } />
+        <input type="radio" id="tab${
+          i + 1
+        }-${id}" name="${tabGroupName}" value="${i + 1}" ${
+            tabStateForm ? `form="${tabStateForm}" ` : ''
+          } ${i + 1 === defaultTab ? 'checked' : ''} />
         <label for="tab${i + 1}-${id}"><slot name="title${i + 1}">tab${
             i + 1
           }</slot>
           ${
             addTabs && i > 0
-              ? `
-          <button type="button" >
-            <svg
-             width="1.5rem"
-             height="1.5rem"
-           xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-  <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-</svg>
-        </button>`
+              ? ` <modal-dialog>
+              <span class="text0 inline-icon" slot="trigger">
+                <svg class="inline-icon" xmlns="http://www.w3.org/2000/svg"  fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                </svg>
+              </span>
+              <button
+              class=" text0 border1 border-dark border-solid radius0 p-4 "
+              slot="action"
+              form="run-repl"
+              formmethod="POST"
+              formaction="/playground?${
+                replKey ? `key=${replKey}` : ''
+              }&deleteTab=${i}"
+              type="submit"
+             >Delete Tab</button> 
+             <span slot="message">Do you want to delete this tab and it's contents? This cannot be undone.</span>
+              </modal-dialog>`
               : ''
           }
           </label>

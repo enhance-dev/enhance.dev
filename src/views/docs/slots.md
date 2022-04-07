@@ -1,0 +1,2 @@
+- Only use unnamed slots with simple elements
+- If you are trying to style the slotted element naming it is much easier

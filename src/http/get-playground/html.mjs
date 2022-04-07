@@ -45,14 +45,16 @@ const templateBoilerplate = `
  `
 
 export default async function HTML(req) {
-  const key = req?.query?.key
+  const key = req.query?.key
   try {
     let repl = {
       enhancedMarkup: '',
       previewDoc: '',
       entrySrc: entryBoilerplate,
       component1Src: templateBoilerplate,
-      component2Src: ''
+      component2Src: '',
+      openEditor: 1,
+      openPreview: 1
     }
     if (key) {
       const result = await poll(
@@ -61,8 +63,9 @@ export default async function HTML(req) {
         100
       ).catch((e) => console.log(e))
       repl = result?.repl ? result.repl : repl
+      console.log('get previous:', result)
     }
-    html = initRender({
+    const initialState = {
       scopedCSS: true,
       repl,
       loggedIn: false,
@@ -72,7 +75,9 @@ export default async function HTML(req) {
         { name: 'Tutorial', location: '/tutorial' },
         { name: 'Playground', location: '/playground' }
       ]
-    })
+    }
+    if (key) initialState.replKey = key
+    html = initRender(initialState)
 
     return {
       statusCode: 200,

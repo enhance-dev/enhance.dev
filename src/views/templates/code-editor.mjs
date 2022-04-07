@@ -61,7 +61,7 @@ ${initialDoc}</textarea
     </div>
     <button
       type="button"
-      class="js-format text1 border border-solid radius1 p-5">
+      class="js-format text0 border1 border-dark border-solid radius0 p-4 ">
       Format
     </button>
 
