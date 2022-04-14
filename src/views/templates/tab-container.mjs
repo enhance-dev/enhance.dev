@@ -138,10 +138,15 @@ export default function TabContainerTemplate({ html, state = {} }) {
         .join('')}
       ${addTabs
         ? `
-      <button
-        class="js-add-tab border-solid font-extrabold p-5 ml0 border border-solid radius3"
-        type="button">
-        <svg
+        <button
+          form="run-repl"
+          formmethod="POST"
+          formaction="/playground?${
+            replKey ? `key=${replKey}` : ''
+          }&addTab=true"
+          type="submit"
+          class="js-add-tab border-solid font-extrabold p-5 ml0 border border-solid radius3">
+          <svg
           width="1.5rem"
           height="1.5rem"
           xmlns="http://www.w3.org/2000/svg"
@@ -178,7 +183,6 @@ export default function TabContainerTemplate({ html, state = {} }) {
           }
         }
         get addTabs() {
-          console.log('checking add-tabs')
           return this.getAttribute('add-tabs')
         }
         connectedCallback() {}
@@ -186,19 +190,36 @@ export default function TabContainerTemplate({ html, state = {} }) {
           console.log('trying to add')
           const id = Math.random().toString(32).slice(2)
           const group = this.querySelector('input').getAttribute('name')
-          const newTabHTML = (id, title, content, group) => \`
+          //TODO: Fix replKey
+          const newTabHTML = (
+            id,
+            title,
+            content,
+            group,
+            replKey = 'no-key'
+          ) => \`
       <div class="tab">
         <input type="radio" id="tab-\${id}" name="\${group}"  />
         <label for="tab-\${id}">
-          \${title} 
-          <button type="button" >
-            <svg
-             width="1.5rem"
-             height="1.5rem"
-           xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-  <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-</svg>
-        </button>
+          \${title}
+            <modal-dialog>
+              <span class="text0 inline-icon" slot="trigger">
+                <svg class="inline-icon" xmlns="http://www.w3.org/2000/svg"  fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                </svg>
+              </span>
+              <button
+              class=" text0 border1 border-dark border-solid radius0 p-4 "
+              slot="action"
+              form="run-repl"
+              formmethod="POST"
+              formaction="/playground?\${
+                replKey ? \`key=\${replKey}\` : ''
+              }&deleteTab=\${id}"
+              type="submit"
+             >Delete Tab</button>
+             <span slot="message">Do you want to delete this tab and it's contents? This cannot be undone.</span>
+              </modal-dialog>
         </label>
         <div class="tab-content">
           \${content}

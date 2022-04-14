@@ -7,13 +7,21 @@ folder public
 
 @http
 get /
-get /docs
+
+#Waitlist
 get /waitlist 
 post /email/interest/add
 get /email/thank
+
+#REPL
 get /playground
 post /playground
 post /repl
+
+#Docs
+get /docs
+get /docs/:lang/*
+get /docs/*
 
 get /testtag
 
@@ -40,8 +48,6 @@ allow-list allow.mjs
 un-auth-redirect /waitlist
 
 @tables
-repl
-  seshId *String
 data
   scopeID *String
   dataID **String

@@ -1,4 +1,4 @@
-import initRender from '@architect/views/render.mjs'
+import { initRender } from '@architect/views/render.mjs'
 const html = initRender()
 
 export default async function HTML() {

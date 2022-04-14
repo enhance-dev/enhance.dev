@@ -9,13 +9,14 @@ export const handler = arc.events.subscribe(process)
 async function process(event) {
   const key = event?.key
   const entryFunction = funkifyEntry(event.entrySrc)
-  const component1Function = funkifyComponent(event.component1Src)
-  const tagName1 = getTagName(event.component1Src)
-  const component2Function = funkifyComponent(event.component2Src)
-  const tagName2 = getTagName(event.component2Src)
+  const componentTabs = Object.keys(event).filter((i) => i.startsWith('tab-'))
+
   const elements = {}
-  if (tagName1) elements[tagName1] = component1Function()
-  if (tagName2) elements[tagName2] = component2Function()
+  componentTabs.forEach((i) => {
+    const componentFunction = funkifyComponent(event[i])
+    const tagName = getTagName(event[i])
+    if (tagName) elements[tagName] = componentFunction()
+  })
   const html = enhance({ elements })
   const handler = await entryFunction({ html, elements, enhance })
   const previewDoc = await handler()
@@ -31,25 +32,24 @@ async function process(event) {
     'markup'
   )
 
+  let repl = {
+    enhancedMarkup,
+    previewDoc: previewDoc.document
+      .replace(/&/g, '&amp;')
+      .replace(/"/g, '&quot;'),
+    entrySrc: event.entrySrc,
+    openEditor: event.openEditor || 1,
+    openPreview: event.openPreview || 1
+  }
+  componentTabs.forEach((i) => (repl[i] = event[i]))
   const now = new Date()
   const ttl = Math.round(now.getTime() / 1000) + 24 * 60 * 60
   const result = await data.set({
     key,
     ttl,
-    table: 'repl',
-    repl: {
-      enhancedMarkup,
-      previewDoc: previewDoc.document
-        .replace(/&/g, '&amp;')
-        .replace(/"/g, '&quot;'),
-      entrySrc: event.entrySrc,
-      component1Src: event.component1Src,
-      component2Src: event.component2Src,
-      openEditor: event.openEditor || 1,
-      openPreview: event.openPreview || 1
-    }
+    repl,
+    table: 'repl'
   })
-  console.log('event data set', result)
 }
 
 // if args needed they go before function string new AsyncFunction("arg1",funcString)

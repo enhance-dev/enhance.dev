@@ -1,4 +1,4 @@
-import initRender from '@architect/views/render.mjs'
+import { initRender } from '@architect/views/render.mjs'
 import data from '@begin/data'
 let html = initRender()
 
@@ -51,8 +51,8 @@ export default async function HTML(req) {
       enhancedMarkup: '',
       previewDoc: '',
       entrySrc: entryBoilerplate,
-      component1Src: templateBoilerplate,
-      component2Src: '',
+      'tab-1': templateBoilerplate,
+      'tab-2': templateBoilerplate,
       openEditor: 1,
       openPreview: 1
     }
@@ -63,7 +63,6 @@ export default async function HTML(req) {
         100
       ).catch((e) => console.log(e))
       repl = result?.repl ? result.repl : repl
-      console.log('get previous:', result)
     }
     const initialState = {
       scopedCSS: true,

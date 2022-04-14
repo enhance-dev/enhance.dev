@@ -69,7 +69,7 @@ export default function ({ html, state = {} }) {
 
       markup-preview :not(pre) > code[class*='language-'],
       markup-preview pre[class*='language-'] {
-        background: #f5f2f0;
+        /*background: #f5f2f0;*/
       }
 
       /* Inline code */
@@ -153,8 +153,8 @@ export default function ({ html, state = {} }) {
       }
     </style>
     <pre
-      class="language-html font-mono text-p1 text-1 bg-g0 radius2 border-solid border-p0 border0 text-p2 p0 min-row-height-playground">
-      <code class="language-html font-mono text-p1 text-1 leading1">
+      class="language-html font-mono text-p1 text0 bg-g0 radius2 border-solid border-p0 border0 text-p2 p0 min-row-height-playground">
+      <code class="language-html font-mono text-p1 text0 leading1">
 ${document}</code>
           </pre>
 

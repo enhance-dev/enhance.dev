@@ -29,13 +29,14 @@ export default function EnhanceRunnerTemplate({ html }) {
         }
 
         async update(docs) {
-          const { entrySrc = '', component1Src = '', component2Src = '' } = docs
-
-          const userDoc = await process({
-            entrySrc,
-            component1Src,
-            component2Src
-          })
+          const components = Object.keys(docs).filter((i) =>
+            i.startsWith('tab-')
+          )
+          console.log({ components })
+          const source = { entrySrc: docs.entrySrc }
+          components.forEach((i) => (source[i] = docs[i]))
+          console.log({ source })
+          const userDoc = await process(source, components)
           this.api.repl.update({
             name: 'enhancedMarkup',
             doc: userDoc.enhancedMarkup
@@ -45,15 +46,16 @@ export default function EnhanceRunnerTemplate({ html }) {
             doc: userDoc.iframeSrc
           })
 
-          async function process(repl) {
+          async function process(repl, components) {
             const entryFunction = funkifyEntry(repl.entrySrc)
-            const component1Function = funkifyComponent(repl.component1Src)
-            const tagName1 = getTagName(repl.component1Src)
-            const component2Function = funkifyComponent(repl.component2Src)
-            const tagName2 = getTagName(repl.component2Src)
             const elements = {}
-            if (tagName1) elements[tagName1] = component1Function()
-            if (tagName2) elements[tagName2] = component2Function()
+            components.forEach((i) => {
+              const componentFunction = funkifyComponent(repl[i])
+              const tagName = getTagName(repl[i])
+              if (tagName) elements[tagName] = componentFunction()
+            })
+            console.log({ elements })
+
             const html = enhance({ elements })
             const handler = await entryFunction({ html, elements, enhance })
             const previewDoc = await handler()

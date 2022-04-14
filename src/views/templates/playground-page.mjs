@@ -1,12 +1,17 @@
 import buildScoper from '../scope-css.mjs'
-export default function PlaygroundPage({ html, state }) {
+export default function PlaygroundPage({ html, state = {} }) {
+  const { store = {} } = state
   const scope = buildScoper({
     scopeTo: 'playground-page',
-    disable: !state?.store?.scopedCSS
+    disable: !store?.scopedCSS
   })
-  const key = state.store?.replKey || ''
-  const openEditor = state.store?.repl?.openEditor || 1
-  const openPreview = state.store?.repl?.openPreview || 1
+  const key = store?.replKey || ''
+  const openEditor = store?.repl?.openEditor || 1
+  const openPreview = store?.repl?.openPreview || 1
+  const repl = store?.repl || {}
+  const components = Object.keys(repl)
+    .filter((i) => i.startsWith('tab-'))
+    .sort((a, b) => a - b)
   return html`
     ${scope`
     <style>
@@ -25,19 +30,24 @@ export default function PlaygroundPage({ html, state }) {
             type="submit">
             Run REPL
           </button>
+          <button
+            type="submit"
+            class=" text0 border1 border-dark border-solid radius0 p-4 "
+            form="run-repl"
+            formmethod="POST"
+            formaction="/playground?key=${key}">
+            Save
+          </button>
         </noscript>
         <button
-          type="submit"
           class=" text0 border1 border-dark border-solid radius0 p-4 "
-          form="run-repl"
-          formmethod="POST"
-          formaction="/playground?key=${key}">
-          Save
+          type="button">
+          Share
         </button>
         <div
           class="grid  col-1  col-2-lg flow-row text1 m1 m-none-lg justify-between">
           <tab-container
-            quantity="3"
+            quantity="${components?.length + 1}"
             tab-group-name="openEditor"
             tab-state-form="run-repl"
             add-tabs="true"
@@ -49,17 +59,19 @@ export default function PlaygroundPage({ html, state }) {
               form-name="run-repl"
               doc-name="entrySrc">
             </code-editor>
-            <span slot="title2">Comp-1</span>
-            <code-editor
-              slot="content2"
-              form-name="run-repl"
-              doc-name="component1Src"></code-editor>
-            <span slot="title3">Comp-2</span>
-            <code-editor
-              slot="content3"
-              form-name="run-repl"
-              doc-name="component2Src">
-            </code-editor>
+            ${components
+              .map((name, i) => {
+                const tabNumber = (i + 1).toString()
+                return ` 
+                  <span slot="title${i + 2}">tab-${tabNumber}</span>
+                  <code-editor
+                    slot="content${i + 2}"
+                    form-name="run-repl"
+                    doc-name="tab-${tabNumber}">
+                  </code-editor>
+              `
+              })
+              .join('\n')}
             <div style="display:none" slot="add-tab-content">
               <span slot="title">component</span>
               <code-editor slot="content"> </code-editor>
