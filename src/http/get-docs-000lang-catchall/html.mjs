@@ -2,9 +2,17 @@ import { initRender } from '@architect/views/render.mjs'
 let html = initRender()
 import { readFileSync } from 'fs'
 import { join } from 'path'
-import renderMarkdown from './render-markdown.mjs'
+import arcdown from 'arcdown'
+import renderer from './markdown-render.mjs'
 import toc from '@architect/views/docs/table-of-contents.mjs'
+import markdownItAttrs from 'markdown-it-attrs'
 
+const options = {
+  renderer,
+  plugins: {
+    markdownItAttrs
+  }
+}
 let cache = {}
 
 export default async function HTML(req) {
@@ -32,21 +40,21 @@ export default async function HTML(req) {
       docBody = cache[filePath]
     } else {
       file = readFileSync(filePath, 'utf8')
-      cache[filePath] = renderMarkdown(file)
+      cache[filePath] = await arcdown(file, options)
       docBody = cache[filePath]
     }
 
+    console.log(docBody)
     const html = initRender({
       initialState: {
-        pageBody: docBody.children,
-        tableOfContents: docBody.docOutline
+        pageBody: docBody.html,
+        tableOfContents: docBody.tocHtml
       }
     })
 
     return {
       statusCode: 200,
-      // html: html`<doc-page></doc-page>`
-      html: html``
+      html: html`<doc-page></doc-page>`
     }
   } catch (err) {
     console.log(err)

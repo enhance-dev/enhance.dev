@@ -66,7 +66,14 @@ ${initialDoc}</textarea
     </button>
 
     <script type="module">
-      import codemirror from '${map.codemirror}'
+      import {
+        EditorState,
+        basicSetup,
+        EditorView,
+        keymap,
+        indentWithTab,
+        javascript
+      } from '${map.codemirror}'
       import API from '${map.api}'
       import beautify from '${map.beautify}'
 
@@ -83,14 +90,6 @@ ${initialDoc}</textarea
           this.formatButton.addEventListener('click', this.format)
           this.api.repl.create({ name: this.docName, doc: this.initialDoc })
 
-          const {
-            EditorState,
-            basicSetup,
-            EditorView,
-            keymap,
-            indentWithTab,
-            javascript
-          } = codemirror
           this.editor = new EditorView({
             state: EditorState.create({
               doc: this.initialDoc,
@@ -98,8 +97,8 @@ ${initialDoc}</textarea
               extensions: [
                 basicSetup,
                 keymap.of([indentWithTab]),
-                javascript(),
-                EditorView.updateListener.of(this.update)
+                javascript()
+                //EditorView.updateListener.of(this.update)
               ]
             }),
 

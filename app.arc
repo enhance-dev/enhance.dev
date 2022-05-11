@@ -37,7 +37,7 @@ plugin-importmap
 api './src/module/data/api.mjs'
 worker './src/module/data/worker.mjs'
 store './node_modules/@enhance/store/index.mjs'
-codemirror 'src/module/codemirror6.mjs' 
+codemirror './node_modules/@begin/codemirror/dist/index.js'
 enhance  './node_modules/@enhance/ssr/index.mjs'
 prism './node_modules/prismjs/prism.js'
 beautify './node_modules/js-beautify/js/index.js'

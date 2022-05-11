@@ -129,9 +129,9 @@ function Heading(state = {}) {
 export default function Sidebar(props = {}) {
   let { active, toc } = props
   return `
-<aside
-  id="sidebar"
-  class="
+    <aside
+      id="sidebar"
+      class="
     h-full
     fixed
     left-sidebar
@@ -144,9 +144,8 @@ export default function Sidebar(props = {}) {
     sidebar-w
     transition-x
     bg-g0
-  "
->
-  ${listFromObject({ data: toc, map, path: ['docs', 'en'], active })}
-</aside>
+  ">
+      ${listFromObject({ data: toc, map, path: ['docs', 'en'], active })}
+    </aside>
   `
 }
