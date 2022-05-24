@@ -1,4 +1,3 @@
-import map from '../../http/get-index/node_modules/@architect/importmap/browser/index.mjs'
 export default function EnhancePreviewTemplate({ html, state = {} }) {
   const srcdoc = state?.store?.repl?.previewDoc || ''
   return html`
@@ -8,11 +7,15 @@ export default function EnhancePreviewTemplate({ html, state = {} }) {
     </div>
 
     <script type="module">
-      import API from '${map.api}'
+      import Store from '/_bundles/store.mjs'
+      import API from '/_bundles/api.mjs'
       class EnhancePreview extends HTMLElement {
         constructor() {
           super()
-          this.api = API()
+          this.api = API({
+            worker: new Worker('__WORKER_SCRIPT_URL__'),
+            store: Store()
+          })
           this.update = this.update.bind(this)
           this.iframe = this.querySelector('iframe')
         }

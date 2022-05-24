@@ -1,15 +1,8 @@
-import buildScoper from '../scope-css.mjs'
-import map from '../../http/get-index/node_modules/@architect/importmap/browser/index.mjs'
 export default function CodeEditorTemplate({ html, state = {} }) {
   const formName = state?.attrs['form-name'] || ''
   const docName = state?.attrs['doc-name'] || ''
   const initialDoc = (state?.store?.repl && state.store.repl[docName]) || ''
-  const scope = buildScoper({
-    scopeTo: 'code-editor',
-    disable: !state?.store?.scopedCSS
-  })
   return html`
-    ${scope`
     <style enh-scope="component">
       .min-height-editor {
         min-height: 16rem;
@@ -30,8 +23,8 @@ export default function CodeEditorTemplate({ html, state = {} }) {
       }
       .js-editor .cm-content {
         caret-color: 'red';
-        white-space:pre-wrap;
-        font-size:.75rem;
+        white-space: pre-wrap;
+        font-size: 0.75rem;
       }
       .editor.cm-focused .cm-cursor {
         border-left-color: '#0e9';
@@ -46,7 +39,6 @@ export default function CodeEditorTemplate({ html, state = {} }) {
         border: 'none';
       }
     </style>
-  `}
 
     <div>
       <div class="js-editor hidden font-mono text-p1 text0"></div>
@@ -73,14 +65,18 @@ ${initialDoc}</textarea
         keymap,
         indentWithTab,
         javascript
-      } from '${map.codemirror}'
-      import API from '${map.api}'
-      import beautify from '${map.beautify}'
+      } from '/_bundles/codemirror.mjs'
+      import Store from '/_bundles/store.mjs'
+      import API from '/_bundles/api.mjs'
+      import beautify from '/_bundles/beautify.mjs'
 
       class CodeEditor extends HTMLElement {
         constructor() {
           super()
-          this.api = API()
+          this.api = API({
+            worker: new Worker('__WORKER_SCRIPT_URL__'),
+            store: Store()
+          })
           this.update = this.update.bind(this)
           this.textarea = this.querySelector('textarea.no-js-editor')
           this.editorContainer = this.querySelector('div.js-editor')

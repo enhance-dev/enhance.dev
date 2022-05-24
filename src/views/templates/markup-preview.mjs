@@ -1,4 +1,3 @@
-import map from '../../http/get-index/node_modules/@architect/importmap/browser/index.mjs'
 export default function ({ html, state = {} }) {
   const docName = state?.attrs['doc-name'] || ''
   const document =
@@ -159,11 +158,15 @@ ${document}</code>
           </pre>
 
     <script type="module">
-      import API from '${map.api}'
+      import Store from '/_bundles/store.mjs'
+      import API from '/_bundles/api.mjs'
       class MarkupPreview extends HTMLElement {
         constructor() {
           super()
-          this.api = API()
+          this.api = API({
+            worker: new Worker('__WORKER_SCRIPT_URL__'),
+            store: Store()
+          })
           this.update = this.update.bind(this)
           this.codeBlock = this.querySelector('code')
         }

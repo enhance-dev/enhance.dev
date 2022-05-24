@@ -1,16 +1,8 @@
-import buildScoper from '../scope-css.mjs'
-
 export default function NavBarTemplate({ html, state = {} }) {
   const { menuLinks = [], location = '/' } = state.store
 
-  const scope = buildScoper({
-    scopeTo: 'nav-bar',
-    disable: !state?.store?.scopedCSS
-  })
   return html`
-    ${scope`
     <style enh-scope="component">
-
       .mobile-menu-items a {
         text-decoration: none;
       }
@@ -70,14 +62,11 @@ export default function NavBarTemplate({ html, state = {} }) {
       .menu-toggle ul {
         z-index: 1;
       }
-      
 
       .menu-toggle input:checked ~ ul {
         left: calc(-100vw + 50px);
       }
-
     </style>
-    `}
 
     <header class="bg-p0">
       <nav class="m-auto p0">

@@ -1,10 +1,5 @@
-import buildScoper from '../scope-css.mjs'
 export default function PlaygroundPage({ html, state = {} }) {
   const { store = {} } = state
-  const scope = buildScoper({
-    scopeTo: 'playground-page',
-    disable: !store?.scopedCSS
-  })
   const key = store?.replKey || ''
   const openEditor = store?.repl?.openEditor || 1
   const openPreview = store?.repl?.openPreview || 1
@@ -13,13 +8,11 @@ export default function PlaygroundPage({ html, state = {} }) {
     .filter((i) => i.startsWith('tab-'))
     .sort((a, b) => a - b)
   return html`
-    ${scope`
     <style>
       .min-row-height-playground {
         min-height: 18rem;
       }
     </style>
-      `}
     <div class="bg-p2 text-p1">
       <nav-bar></nav-bar>
       <div class="m-auto ">

@@ -1,30 +1,21 @@
-import buildScoper from '../scope-css.mjs'
-export default function ModalDialogTemplate({ html, state }) {
+export default function ModalDialogTemplate({ html }) {
   const id = Math.random().toString(32).slice(2)
-  const scope = buildScoper({
-    instance: id,
-    scopeTo: 'modal-dialog',
-    disable: !state.store?.scopedCSS
-  })
   return html`
-    ${scope`
     <style enh-scope="component">
-      
       input#modal-${id} {
         position: fixed;
         opacity: 0%;
       }
       input#modal-${id}:focus + label {
-         outline: 1px dashed red;
-
+        outline: 1px dashed red;
       }
       input:not(:checked) + label + button {
-        display:none;
+        display: none;
       }
       input:checked + label + button {
         color: transparent;
         opacity: 10%;
-        background:var(--dark);
+        background: var(--dark);
         position: fixed;
         top: -100vh;
         left: -100vw;
@@ -32,27 +23,25 @@ export default function ModalDialogTemplate({ html, state }) {
         width: 200vw;
         height: 200vh;
       }
-      
+
       input:not(:checked) + label + button + div.modal-body {
-      display:none;
-    }
-      
+        display: none;
+      }
+
       div.modal-body {
         position: fixed;
-        background:white;
+        background: white;
         display: grid;
-        
-        left: calc(50vw - 100px );
+
+        left: calc(50vw - 100px);
         top: calc(15vh - 100px);
         z-index: 1000;
-        align-items:center;
-        align-content:space-between;
-        min-width:200px;
-        min-height:200px;
-        
+        align-items: center;
+        align-content: space-between;
+        min-width: 200px;
+        min-height: 200px;
       }
     </style>
-      `}
 
     <input id="modal-${id}" type="checkbox" form="form-${id}" />
     <label for="modal-${id}"><slot name="trigger">open model</slot></label>

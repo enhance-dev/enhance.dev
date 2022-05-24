@@ -1,16 +1,19 @@
-import map from '../../http/get-index/node_modules/@architect/importmap/browser/index.mjs'
 export default function EnhanceRunnerTemplate({ html }) {
   return html`
     <script type="module">
-      import API from '${map.api}'
-      import enhance from '${map.enhance}'
-      import beautify from '${map.beautify}'
-      import Prism from '${map.prism}'
+      import Store from '/_bundles/store.mjs'
+      import API from '/_bundles/api.mjs'
+      import enhance from '/_bundles/enhance.mjs'
+      import beautify from '/_bundles/beautify.mjs'
+      import Prism from '/_bundles/prism.mjs'
 
       class EnhanceRunner extends HTMLElement {
         constructor() {
           super()
-          this.api = API()
+          this.api = API({
+            worker: new Worker('__WORKER_SCRIPT_URL__'),
+            store: Store()
+          })
           this.update = this.update.bind(this)
           this.allEditors = document.querySelectorAll('code-editor')
           this.editorNames = []

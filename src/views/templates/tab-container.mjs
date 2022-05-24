@@ -1,4 +1,3 @@
-import buildScoper from '../scope-css.mjs'
 export default function TabContainerTemplate({ html, state = {} }) {
   const addTabs = state?.attrs['add-tabs']
   const id = Math.random().toString(32).slice(2)
@@ -10,21 +9,18 @@ export default function TabContainerTemplate({ html, state = {} }) {
     tabGroupNameAttr ? tabGroupNameAttr : `tab-group-${id}`
   }`
   const replKey = state.store?.replKey || ''
-  const scope = buildScoper({
-    instance: id,
-    scopeTo: 'tab-container',
-    disable: !state?.store?.scopedCSS
-  })
   return html`
-    ${scope`
     <style enh-scope="component">
       :host {
-        display:block;
+        display: block;
       }
 
-      ::slotted([slot^="title"]){
-        color:var(--p2);
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+      ::slotted([slot^='title']) {
+        color: var(--p2);
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+          Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif,
+          'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+          'Noto Color Emoji';
         font-size: 1rem;
       }
 
@@ -35,34 +31,31 @@ export default function TabContainerTemplate({ html, state = {} }) {
         margin: 25px 0;
       }
       .tab {
-     float:left;
-        white-space:nowrap;
-       
+        float: left;
+        white-space: nowrap;
       }
-      .tab input[type=radio] + label {
-        background: white; 
-        display:grid;
-      grid-template-columns: auto auto;
-        
+      .tab input[type='radio'] + label {
+        background: white;
+        display: grid;
+        grid-template-columns: auto auto;
 
-        justify-content:start;
-        padding: .5rem; 
+        justify-content: start;
+        padding: 0.5rem;
         border: 1px solid red;
         cursor: pointer;
-        margin-left: -1px; 
+        margin-left: -1px;
       }
-      .tab input[type=radio] + label * {
-       justify-self:start;
+      .tab input[type='radio'] + label * {
+        justify-self: start;
       }
-      .tab:first-child input[type=radio] + label {
+      .tab:first-child input[type='radio'] + label {
         margin-left: 0;
       }
-      .tab input[type=radio] {
-       position: absolute;
-       opacity:0;
+      .tab input[type='radio'] {
+        position: absolute;
+        opacity: 0;
       }
 
-    
       .tab-content {
         position: absolute;
         top: 2rem;
@@ -73,25 +66,25 @@ export default function TabContainerTemplate({ html, state = {} }) {
         border: 1px solid #ccc;
         display: none;
       }
-      input[type=radio][name="${tabGroupName}"]:checked + label {
+      input[type='radio'][name='${tabGroupName}']:checked + label {
         background: white;
         border-bottom: 1px solid white;
       }
-    
-     
-       input[type=radio][name="${tabGroupName}"]:not(:checked) + label {
+
+      input[type='radio'][name='${tabGroupName}']:not(:checked) + label {
         background: gray;
         border-bottom: 1px solid white;
       }
-      input[type=radio][name="${tabGroupName}"]:checked + label + .tab-content {
+      input[type='radio'][name='${tabGroupName}']:checked
+        + label
+        + .tab-content {
         display: block;
       }
-      .inline-icon{
-        width:24px;
-        height:24px;
+      .inline-icon {
+        width: 24px;
+        height: 24px;
       }
     </style>
-      `}
 
     <div class="tabs">
       ${[...Array(quantity)]

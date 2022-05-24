@@ -1,4 +1,12 @@
-import html from '@architect/views/render.mjs'
+import { initRender } from '@architect/views/render.mjs'
+import data from '@begin/data'
+import importTransform from '@enhance/import-transform'
+import tempImportTransform from '@architect/shared/script-regex-transform.mjs'
+import map from '@architect/views/_bundles/map.mjs'
+const transform = importTransform({ map })
+let html = initRender({
+  scriptTransforms: [tempImportTransform({ map })]
+})
 
 export default async function HTML() {
   try {

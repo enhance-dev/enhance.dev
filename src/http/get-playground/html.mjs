@@ -76,7 +76,9 @@ export default async function HTML(req) {
       ]
     }
     if (key) initialState.replKey = key
-    html = initRender(initialState)
+    html = initRender({
+      initialState
+    })
 
     return {
       statusCode: 200,
