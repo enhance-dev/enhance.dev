@@ -10,9 +10,10 @@ export default function TabContainerTemplate({ html, state = {} }) {
   }`
   const replKey = state.store?.replKey || ''
   return html`
-    <style enh-scope="component">
+    <style>
       :host {
         display: block;
+        overflow: hidden;
       }
 
       ::slotted([slot^='title']) {
@@ -26,9 +27,10 @@ export default function TabContainerTemplate({ html, state = {} }) {
 
       .tabs {
         position: relative;
-        height: 100vh;
+        /*height: 100vh;*/
+        min-height: 300px;
         width: 100%;
-        margin: 25px 0;
+        /*margin: 25px 0;*/
       }
       .tab {
         float: left;
@@ -102,23 +104,36 @@ export default function TabContainerTemplate({ html, state = {} }) {
           ${
             addTabs && i > 0
               ? ` <modal-dialog>
-              <span class="text0 inline-icon" slot="trigger">
-                <svg class="inline-icon" xmlns="http://www.w3.org/2000/svg"  fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                </svg>
-              </span>
-              <button
-              class=" text0 border1 border-dark border-solid radius0 p-4 "
-              slot="action"
-              form="run-repl"
-              formmethod="POST"
-              formaction="/playground?${
-                replKey ? `key=${replKey}` : ''
-              }&deleteTab=${i}"
-              type="submit"
-             >Delete Tab</button> 
-             <span slot="message">Do you want to delete this tab and it's contents? This cannot be undone.</span>
-              </modal-dialog>`
+                  <span class="text0 inline-icon" slot="trigger">
+                    <svg
+                      class="inline-icon"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      stroke-width="2">
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                    </svg>
+                  </span>
+                  <button
+                    class=" text0 border1 border-dark border-solid radius0 p-4 "
+                    slot="action"
+                    form="run-repl"
+                    formmethod="POST"
+                    formaction="/playground?${
+                      replKey ? `key=${replKey}` : ''
+                    }&deleteTab=${i}"
+                    type="submit">
+                    Delete Tab
+                  </button>
+                  <span slot="message"
+                    >Do you want to delete this tab and it's contents? This
+                    cannot be undone.</span
+                  >
+                </modal-dialog>`
               : ''
           }
           </label>

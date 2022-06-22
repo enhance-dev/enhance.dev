@@ -1,11 +1,11 @@
 export default function EnhanceRunnerTemplate({ html }) {
   return html`
     <script type="module">
-      import Store from '/_bundles/store.mjs'
-      import API from '/_bundles/api.mjs'
-      import enhance from '/_bundles/enhance.mjs'
-      import beautify from '/_bundles/beautify.mjs'
-      import Prism from '/_bundles/prism.mjs'
+      import Store from '/_static/bundles/store.mjs'
+      import API from '/_static/bundles/api.mjs'
+      import enhance from '/_static/bundles/enhance.mjs'
+      import beautify from '/_static/bundles/beautify.mjs'
+      import Prism from '/_static/bundles/prism.mjs'
 
       class EnhanceRunner extends HTMLElement {
         constructor() {

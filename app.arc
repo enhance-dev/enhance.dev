@@ -13,6 +13,10 @@ get /waitlist
 post /email/interest/add
 get /email/thank
 
+get /tutorial
+post /tutorial
+post /tutorialrepl
+
 #REPL
 get /playground
 post /playground

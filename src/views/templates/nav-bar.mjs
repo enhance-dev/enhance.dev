@@ -2,7 +2,7 @@ export default function NavBarTemplate({ html, state = {} }) {
   const { menuLinks = [], location = '/' } = state.store
 
   return html`
-    <style enh-scope="component">
+    <style>
       .mobile-menu-items a {
         text-decoration: none;
       }

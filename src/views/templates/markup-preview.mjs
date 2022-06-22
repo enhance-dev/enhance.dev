@@ -158,8 +158,8 @@ ${document}</code>
           </pre>
 
     <script type="module">
-      import Store from '/_bundles/store.mjs'
-      import API from '/_bundles/api.mjs'
+      import Store from '/_static/bundles/store.mjs'
+      import API from '/_static/bundles/api.mjs'
       class MarkupPreview extends HTMLElement {
         constructor() {
           super()

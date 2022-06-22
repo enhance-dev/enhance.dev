@@ -7,8 +7,8 @@ export default function EnhancePreviewTemplate({ html, state = {} }) {
     </div>
 
     <script type="module">
-      import Store from '/_bundles/store.mjs'
-      import API from '/_bundles/api.mjs'
+      import Store from '/_static/bundles/store.mjs'
+      import API from '/_static/bundles/api.mjs'
       class EnhancePreview extends HTMLElement {
         constructor() {
           super()

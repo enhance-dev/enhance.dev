@@ -2,14 +2,13 @@ import enhance from '@enhance/ssr'
 import elements from './elements.mjs'
 import Document from './document.mjs'
 import arc from '@architect/functions'
-import importTransform from './script-regex-transform.mjs'
-import map from './_bundles/map.mjs'
-import { styleTransform } from './style-scope-transform.mjs'
+import importTransform from '@enhance/import-transform'
+import styleTransform from '@enhance/enhance-style-transform'
 
 export default function html(str, ...values) {
   const html = enhance({
     elements,
-    scriptTransforms: [importTransform({ map })],
+    scriptTransforms: [importTransform({ lookup: arc.static })],
     styleTransforms: [styleTransform]
   })
   return Document(html(str, ...values), arc.static)
@@ -17,7 +16,7 @@ export default function html(str, ...values) {
 export function initRender({ initialState = '' } = {}) {
   let options = {
     elements,
-    scriptTransforms: [importTransform({ map })],
+    scriptTransforms: [importTransform({ lookup: arc.static })],
     styleTransforms: [styleTransform]
   }
   if (initialState) options.initialState = initialState

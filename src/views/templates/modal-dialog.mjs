@@ -1,7 +1,7 @@
 export default function ModalDialogTemplate({ html }) {
   const id = Math.random().toString(32).slice(2)
   return html`
-    <style enh-scope="component">
+    <style>
       input#modal-${id} {
         position: fixed;
         opacity: 0%;

@@ -14,6 +14,13 @@ import EnhancePreview from './templates/enhance-preview.mjs'
 import EnhanceRunner from './templates/enhance-runner.mjs'
 import MarkupPreview from './templates/markup-preview.mjs'
 import ModalDialog from './templates/modal-dialog.mjs'
+import TutorialPage from './templates/tutorial-page.mjs'
+import TutorialLayout from './templates/tutorial-layout.mjs'
+import MyTheme from './templates/my-theme.mjs'
+import TabsTabs from './templates/tabs-tabs.mjs'
+import AppWrap from './templates/app-wrap.mjs'
+import ModalClose from './templates/modal-close.mjs'
+import ModalTrigger from './templates/modal-trigger.mjs'
 export default {
   'coming-soon': ComingSoon,
   'email-signup': EmailSignup,
@@ -30,5 +37,12 @@ export default {
   'enhance-preview': EnhancePreview,
   'enhance-runner': EnhanceRunner,
   'modal-dialog': ModalDialog,
+  'tutorial-page': TutorialPage,
+  'tutorial-layout': TutorialLayout,
+  'my-theme': MyTheme,
+  'tabs-tabs': TabsTabs,
+  'app-wrap': AppWrap,
+  'modal-close': ModalClose,
+  'modal-trigger': ModalTrigger,
   'markup-preview': MarkupPreview
 }

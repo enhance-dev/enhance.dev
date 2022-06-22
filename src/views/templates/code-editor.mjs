@@ -3,7 +3,7 @@ export default function CodeEditorTemplate({ html, state = {} }) {
   const docName = state?.attrs['doc-name'] || ''
   const initialDoc = (state?.store?.repl && state.store.repl[docName]) || ''
   return html`
-    <style enh-scope="component">
+    <style>
       .min-height-editor {
         min-height: 16rem;
       }
@@ -65,10 +65,10 @@ ${initialDoc}</textarea
         keymap,
         indentWithTab,
         javascript
-      } from '/_bundles/codemirror.mjs'
-      import Store from '/_bundles/store.mjs'
-      import API from '/_bundles/api.mjs'
-      import beautify from '/_bundles/beautify.mjs'
+      } from '/_static/bundles/codemirror.mjs'
+      import Store from '/_static/bundles/store.mjs'
+      import API from '/_static/bundles/api.mjs'
+      import beautify from '/_static/bundles/beautify.mjs'
 
       class CodeEditor extends HTMLElement {
         constructor() {
@@ -93,8 +93,8 @@ ${initialDoc}</textarea
               extensions: [
                 basicSetup,
                 keymap.of([indentWithTab]),
-                javascript()
-                //EditorView.updateListener.of(this.update)
+                javascript(),
+                EditorView.updateListener.of(this.update)
               ]
             }),
 
