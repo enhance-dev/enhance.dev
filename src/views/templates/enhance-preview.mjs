@@ -13,7 +13,7 @@ export default function EnhancePreviewTemplate({ html, state = {} }) {
         constructor() {
           super()
           this.api = API({
-            worker: new Worker('__WORKER_SCRIPT_URL__'),
+            worker: new Worker('__API_WORKER__'),
             store: Store()
           })
           this.update = this.update.bind(this)

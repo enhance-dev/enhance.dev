@@ -137,7 +137,7 @@ export default function AppWrap({ html, state = {} }) {
       // TODO: set aria-hidden on main
       // TODO: change main to inert and not display none when dialog open
       // TODO: change trigger to activate with space or enter rather than arrow and change role to button
-      //TODO: add return to last focussed element on close
+      // TODO: add return to last focussed element on close
       class AppWrap extends HTMLElement {
         constructor() {
           super()

@@ -16,7 +16,12 @@ export default function html(str, ...values) {
 export function initRender({ initialState = '' } = {}) {
   let options = {
     elements,
-    scriptTransforms: [importTransform({ lookup: arc.static })],
+    scriptTransforms: [
+      importTransform({
+        lookup: arc.static,
+        workers: [{ label: '__API_WORKER__', path: 'worker.mjs' }]
+      })
+    ],
     styleTransforms: [styleTransform]
   }
   if (initialState) options.initialState = initialState

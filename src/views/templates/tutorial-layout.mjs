@@ -4,6 +4,11 @@ export default function TutorialLayout({ html, state = {} }) {
     <style>
       :host {
         display: block;
+        overflow: hidden;
+      }
+      :host > .wrapper > label {
+        align-self: center;
+        justify-self: center;
       }
 
       input[name='show-docs'] {
@@ -32,22 +37,27 @@ export default function TutorialLayout({ html, state = {} }) {
       }
       ::slotted([slot='docs']) {
         grid-area: docs;
+        overflow-y: scroll;
       }
       ::slotted([slot='code-source']) {
         grid-area: code-source;
+        overflow-y: scroll;
       }
       ::slotted([slot='code-output']) {
         grid-area: code-output;
+        overflow-y: scroll;
       }
 
       :host > div.wrapper > div.container {
         grid-area: container;
+        overflow: hidden;
       }
       :host > div.wrapper {
         display: grid;
-        min-height: calc(100vh - var(--header-height));
-        grid-template-columns: '1px 1fr 1px 1fr 1px 1fr';
-        grid-template-rows: '1fr auto';
+        /*min-height: calc(100vh - var(--header-height));*/
+        height: 100%;
+        grid-template-columns: 1px 1fr 1px 1fr 1px 1fr;
+        grid-template-rows: 1fr minmax(2rem, auto);
         grid-template-areas:
           'container container container container container container'
           'docs-input docs-label source-input source-label output-input output-label';
@@ -57,7 +67,9 @@ export default function TutorialLayout({ html, state = {} }) {
       }
       :host > div.wrapper > div.container {
         display: grid;
-        min-height: calc(100vh - var(--header-height) - 2rem);
+        height: 100%;
+        /*min-height: calc(100vh - var(--header-height) - 2rem);*/
+
         grid-template-columns: 1fr;
         grid-template-rows: 1fr;
         grid-template-areas: 'docs ';
@@ -96,7 +108,7 @@ export default function TutorialLayout({ html, state = {} }) {
       input#show-output:checked
         ~ div.container
         > ::slotted([slot='code-output']) {
-        display: block;
+        display: grid;
       }
       @media (min-width: ${store.theme?.['lg-screen'] || '960px'}) {
         input#show-docs:not(:checked)
@@ -108,7 +120,7 @@ export default function TutorialLayout({ html, state = {} }) {
         input#show-output:not(:checked)
           ~ div.container
           > ::slotted([slot='code-output']) {
-          display: block;
+          display: grid;
         }
         :host > div.wrapper > label {
           display: none;
@@ -119,6 +131,7 @@ export default function TutorialLayout({ html, state = {} }) {
         :host > div.wrapper > div.container {
           /*min-height: calc(100vh - var(--header-height));*/
           grid-template-columns: minmax(450px, 33%) auto;
+          overflow-y: scroll;
           grid-template-rows: 1fr 1fr;
           grid-template-areas:
             'docs code-source'
@@ -138,11 +151,11 @@ export default function TutorialLayout({ html, state = {} }) {
       }
     </style>
     <div class="wrapper">
-      <label for="show-docs">Docs</label>
+      <label class="text0" for="show-docs">Docs</label>
       <input name="show-group" id="show-docs" type="radio" checked />
-      <label for="show-source">Source</label>
+      <label class="text0" for="show-source">Source</label>
       <input name="show-group" id="show-source" type="radio" />
-      <label for="show-output">Output</label>
+      <label class="text0" for="show-output">Output</label>
       <input name="show-group" id="show-output" type="radio" />
       <div class="container">
         <slot name="docs"></slot>

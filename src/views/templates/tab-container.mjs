@@ -12,8 +12,10 @@ export default function TabContainerTemplate({ html, state = {} }) {
   return html`
     <style>
       :host {
-        display: block;
+        display: grid;
         overflow: hidden;
+        /*height: 100%;
+        width: 100%;*/
       }
 
       ::slotted([slot^='title']) {
@@ -27,25 +29,31 @@ export default function TabContainerTemplate({ html, state = {} }) {
 
       .tabs {
         position: relative;
-        /*height: 100vh;*/
+        display: grid;
+        grid-template-columns: repeat(6, 1fr) auto;
+        height: auto;
         min-height: 300px;
-        width: 100%;
         /*margin: 25px 0;*/
       }
       .tab {
-        float: left;
         white-space: nowrap;
       }
-      .tab input[type='radio'] + label {
+      .tab > input[type='radio'] + label {
         background: white;
         display: grid;
+
         grid-template-columns: auto auto;
 
-        justify-content: start;
+        justify-content: space-around;
+        grid-gap: 0.2rem;
         padding: 0.5rem;
         border: 1px solid red;
         cursor: pointer;
         margin-left: -1px;
+
+        justify-items: center;
+        align-items: center;
+        text-align: center;
       }
       .tab input[type='radio'] + label * {
         justify-self: start;
@@ -60,6 +68,7 @@ export default function TabContainerTemplate({ html, state = {} }) {
 
       .tab-content {
         position: absolute;
+        overflow-y: scroll;
         top: 2rem;
         left: 0;
         right: 0;
@@ -67,6 +76,9 @@ export default function TabContainerTemplate({ html, state = {} }) {
         background: white;
         border: 1px solid #ccc;
         display: none;
+      }
+      ::slotted([slot^='content']) {
+        display: grid;
       }
       input[type='radio'][name='${tabGroupName}']:checked + label {
         background: white;
@@ -83,27 +95,31 @@ export default function TabContainerTemplate({ html, state = {} }) {
         display: block;
       }
       .inline-icon {
-        width: 24px;
-        height: 24px;
+        width: 16px;
+        height: 16px;
+      }
+      .js-add-tab {
+        align-self: start;
       }
     </style>
 
     <div class="tabs">
       ${[...Array(quantity)]
         .map(
-          (_, i) => `
-      <div class="tab">
-        <input type="radio" id="tab${
-          i + 1
-        }-${id}" name="${tabGroupName}" value="${i + 1}" ${
-            tabStateForm ? `form="${tabStateForm}" ` : ''
-          } ${i + 1 === defaultTab ? 'checked' : ''} />
-        <label for="tab${i + 1}-${id}"><slot name="title${i + 1}">tab${
-            i + 1
-          }</slot>
-          ${
-            addTabs && i > 0
-              ? ` <modal-dialog>
+          (_, i) => /* html*/ `
+            <div class="tab">
+              <input
+                type="radio"
+                id="tab${i + 1}-${id}"
+                name="${tabGroupName}"
+                value="${i + 1}"
+                ${tabStateForm ? `form="${tabStateForm}" ` : ''}
+                ${i + 1 === defaultTab ? 'checked' : ''} />
+              <label for="tab${i + 1}-${id}"
+                ><slot name="title${i + 1}">tab${i + 1}</slot>
+                ${
+                  addTabs && i > 0
+                    ? /* html*/ ` <modal-dialog>
                   <span class="text0 inline-icon" slot="trigger">
                     <svg
                       class="inline-icon"
@@ -134,41 +150,40 @@ export default function TabContainerTemplate({ html, state = {} }) {
                     cannot be undone.</span
                   >
                 </modal-dialog>`
-              : ''
-          }
-          </label>
-        <div class="tab-content">
-          <slot name="content${i + 1}">text ${i + 1}</slot>
-        </div>
-      </div>
-      `
+                    : ''
+                }
+              </label>
+              <div class="tab-content">
+                <slot name="content${i + 1}">text ${i + 1}</slot>
+              </div>
+            </div>
+          `
         )
         .join('')}
       ${addTabs
-        ? `
-        <button
-          form="run-repl"
-          formmethod="POST"
-          formaction="/playground?${
-            replKey ? `key=${replKey}` : ''
-          }&addTab=true"
-          type="submit"
-          class="js-add-tab border-solid font-extrabold p-5 ml0 border border-solid radius3">
-          <svg
-          width="1.5rem"
-          height="1.5rem"
-          xmlns="http://www.w3.org/2000/svg"
-          class="h-6 w-6"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          stroke-width="2">
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M12 4v16m8-8H4" />
-        </svg>
-      </button>`
+        ? /* html*/ ` <button
+            form="run-repl"
+            formmethod="POST"
+            formaction="/playground?${
+              replKey ? `key=${replKey}` : ''
+            }&addTab=true"
+            type="submit"
+            class="js-add-tab border-solid font-extrabold p-5 ml0 border border-solid radius3">
+            <svg
+              width="1.5rem"
+              height="1.5rem"
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M12 4v16m8-8H4" />
+            </svg>
+          </button>`
         : ''}
       <slot name="add-tab-content"></slot>
     </div>

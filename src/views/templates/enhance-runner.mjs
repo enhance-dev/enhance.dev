@@ -11,7 +11,7 @@ export default function EnhanceRunnerTemplate({ html }) {
         constructor() {
           super()
           this.api = API({
-            worker: new Worker('__WORKER_SCRIPT_URL__'),
+            worker: new Worker('__API_WORKER__'),
             store: Store()
           })
           this.update = this.update.bind(this)
@@ -25,6 +25,7 @@ export default function EnhanceRunnerTemplate({ html }) {
         }
 
         connectedCallback() {
+          console.log('enhanceRunner')
           this.api.subscribe(this.update, this.allDocs)
         }
         disconnectedCallback() {

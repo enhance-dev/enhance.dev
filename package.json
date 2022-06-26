@@ -29,7 +29,7 @@
         "@begin/codemirror": "^0.0.3",
         "@begin/data": "^4.0.0-RC.2",
         "@enhance/enhance-style-transform": "github:enhance-dev/enhance-style-transform",
-        "@enhance/import-transform": "^3.0.0",
+        "@enhance/import-transform": "^4.0.0",
         "@enhance/ssr": "^2.3.2",
         "@enhance/store": "^1.0.0",
         "@enhance/styles": "^1.0.0",

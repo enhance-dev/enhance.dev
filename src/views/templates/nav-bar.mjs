@@ -3,6 +3,10 @@ export default function NavBarTemplate({ html, state = {} }) {
 
   return html`
     <style>
+      :host {
+        display: block;
+        overflow-x: clip;
+      }
       .mobile-menu-items a {
         text-decoration: none;
       }
@@ -15,11 +19,11 @@ export default function NavBarTemplate({ html, state = {} }) {
 
       .menu-toggle input {
         display: block;
-        width: 30px;
-        height: 30px;
         position: absolute;
+        /*        width: 30px;
+        height: 30px; 
         top: -7px;
-        left: -5px;
+        left: -5px;*/
         padding: 0;
         cursor: pointer;
         opacity: 0;
@@ -27,11 +31,15 @@ export default function NavBarTemplate({ html, state = {} }) {
         -webkit-touch-callout: none;
       }
 
+      .mobile-logo {
+        z-index: 3;
+      }
+
       .menu-toggle label {
         position: relative;
         display: block;
-        width: 30px;
-        height: 30px;
+        /*  width: 30px;
+        height: 30px;*/
         z-index: 2;
       }
       .menu-toggle label span {
@@ -45,7 +53,7 @@ export default function NavBarTemplate({ html, state = {} }) {
       .mobile-menu-items {
         position: absolute;
         width: 100vw;
-        margin: -100px 0 0 0;
+        margin: -48px 0 0 0;
         padding: 50px;
         padding-top: 125px;
         list-style-type: none;
@@ -61,10 +69,12 @@ export default function NavBarTemplate({ html, state = {} }) {
 
       .menu-toggle ul {
         z-index: 1;
+        background: gray;
+        width: 100vw;
       }
 
       .menu-toggle input:checked ~ ul {
-        left: calc(-100vw + 50px);
+        left: calc(-100vw + 42px);
       }
     </style>
 
@@ -72,7 +82,7 @@ export default function NavBarTemplate({ html, state = {} }) {
       <nav class="m-auto p0">
         <div
           class="mobile-menu hidden-lg w-full flex items-center justify-between border-b border-p1">
-          <div>
+          <div class="mobile-logo">
             <a
               style="height:2rem;"
               href="/"
@@ -92,8 +102,8 @@ export default function NavBarTemplate({ html, state = {} }) {
             </a>
           </div>
           <div class="text-p2 menu-toggle">
-            <input name="toggle" type="checkbox" />
-            <label for="toggle">
+            <input name="nav-toggle" type="checkbox" />
+            <label for="nav-toggle">
               <span>menu</span>
               <svg
                 height="24"
@@ -110,11 +120,11 @@ export default function NavBarTemplate({ html, state = {} }) {
                   d="M4 6h16M4 12h16M4 18h16" />
               </svg>
             </label>
-            <ul class="bg-p2 font-sans font-bold mobile-menu-items">
+            <ul class="bg-p2 font-sans mobile-menu-items">
               ${menuLinks
                 .map(
                   (l) => `
-              <a class="text-p1 text2 font-bold" ${
+              <a class="text-p1 text1" ${
                 l.location !== location ? `href="${l.location}"` : ''
               }><li>${l.name}</li></a>
               `
@@ -123,7 +133,7 @@ export default function NavBarTemplate({ html, state = {} }) {
             </ul>
           </div>
         </div>
-        <div class="hidden flex-lg flex-row justify-between">
+        <div class="hidden flex-lg flex-row items-center justify-between">
           <div>
             <a
               style="height:2rem;"
@@ -140,7 +150,7 @@ export default function NavBarTemplate({ html, state = {} }) {
                   stroke-width="2"
                   d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
               </svg>
-              <span class="text2">Enhance</span>
+              <span class="text1">Enhance</span>
             </a>
           </div>
           <div class="">
@@ -148,7 +158,7 @@ export default function NavBarTemplate({ html, state = {} }) {
               ${menuLinks
                 .map(
                   (l) => `
-              <div  class="text-p2 text1 font-sans  font-bold mr0 ml0"><a class="text-p2 no-underline"${
+              <div  class="text-p2 text0 font-sans align-center font-bold mr0 ml0"><a class="text-p2 no-underline"${
                 l.location !== location ? `href="${l.location}"` : ''
               }>${l.name}</a></div>
               `

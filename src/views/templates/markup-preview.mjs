@@ -12,8 +12,8 @@ export default function ({ html, state = {} }) {
        * @author Lea Verou
        */
 
-      markup-preview code[class*='language-'],
-      markup-preview pre[class*='language-'] {
+      code[class*='language-'],
+      pre[class*='language-'] {
         color: black;
         background: none;
         text-shadow: 0 1px white;
@@ -36,25 +36,25 @@ export default function ({ html, state = {} }) {
               hyphens: none;*/
       }
 
-      markup-preview pre[class*='language-']::-moz-selection,
-      markup-preview pre[class*='language-'] ::-moz-selection,
-      markup-preview code[class*='language-']::-moz-selection,
-      markup-preview code[class*='language-'] ::-moz-selection {
+      pre[class*='language-']::-moz-selection,
+      pre[class*='language-'] ::-moz-selection,
+      code[class*='language-']::-moz-selection,
+      code[class*='language-'] ::-moz-selection {
         text-shadow: none;
         background: #b3d4fc;
       }
 
-      markup-preview pre[class*='language-']::selection,
-      markup-preview pre[class*='language-'] ::selection,
-      markup-preview code[class*='language-']::selection,
-      markup-preview code[class*='language-'] ::selection {
+      pre[class*='language-']::selection,
+      pre[class*='language-'] ::selection,
+      *='language-']::selection,
+      code[class*='language-'] ::selection {
         text-shadow: none;
         background: #b3d4fc;
       }
 
       @media print {
-        markup-preview code[class*='language-'],
-        markup-preview pre[class*='language-'] {
+        code[class*='language-'],
+        pre[class*='language-'] {
           text-shadow: none;
         }
       }
@@ -66,8 +66,8 @@ export default function ({ html, state = {} }) {
               overflow: auto;
             }*/
 
-      markup-preview :not(pre) > code[class*='language-'],
-      markup-preview pre[class*='language-'] {
+      :not(pre) > code[class*='language-'],
+      pre[class*='language-'] {
         /*background: #f5f2f0;*/
       }
 
@@ -78,84 +78,81 @@ export default function ({ html, state = {} }) {
               white-space: normal;
             }*/
 
-      markup-preview .token.comment,
-      markup-preview .token.prolog,
-      markup-preview .token.doctype,
-      markup-preview .token.cdata {
+      .token.comment,
+      .token.prolog,
+      .token.doctype,
+      .token.cdata {
         color: slategray;
       }
 
-      markup-preview .token.punctuation {
+      .token.punctuation {
         color: #999;
       }
 
-      markup-preview .token.namespace {
+      .token.namespace {
         opacity: 0.7;
       }
 
-      markup-preview .token.property,
-      markup-preview .token.tag,
-      markup-preview .token.boolean,
-      markup-preview .token.number,
-      markup-preview .token.constant,
-      markup-preview .token.symbol,
-      markup-preview .token.deleted {
+      .token.property,
+      .token.tag,
+      .token.boolean,
+      .token.number,
+      .token.constant,
+      .token.symbol,
+      .token.deleted {
         color: #905;
       }
 
-      markup-preview .token.selector,
-      markup-preview .token.attr-name,
-      markup-preview .token.string,
-      markup-preview .token.char,
-      markup-preview .token.builtin,
-      markup-preview .token.inserted {
+      .token.selector,
+      .token.attr-name,
+      .token.string,
+      .token.char,
+      .token.builtin,
+      .token.inserted {
         color: #690;
       }
 
-      markup-preview .token.operator,
-      markup-preview .token.entity,
-      markup-preview .token.url,
-      markup-preview .language-css .token.string,
-      markup-preview .style .token.string {
+      .token.operator,
+      .token.entity,
+      .token.url,
+      .language-css .token.string,
+      .style .token.string {
         color: #9a6e3a;
         /* This background color was intended by the author of this theme. */
         background: hsla(0, 0%, 100%, 0.5);
       }
 
-      markup-preview .token.atrule,
-      markup-preview .token.attr-value,
-      markup-preview .token.keyword {
+      .token.atrule,
+      .token.attr-value,
+      .token.keyword {
         color: #07a;
       }
 
-      markup-preview .token.function,
-      markup-preview .token.class-name {
+      .token.function,
+      .token.class-name {
         color: #dd4a68;
       }
 
-      markup-preview .token.regex,
-      markup-preview .token.important,
-      markup-preview .token.variable {
+      .token.regex,
+      .token.important,
+      .token.variable {
         color: #e90;
       }
 
-      markup-preview .token.important,
-      markup-preview .token.bold {
+      .token.important,
+      .token.bold {
         font-weight: bold;
       }
-      markup-preview .token.italic {
+      .token.italic {
         font-style: italic;
       }
 
-      markup-preview .token.entity {
+      .token.entity {
         cursor: help;
       }
     </style>
     <pre
-      class="language-html font-mono text-p1 text0 bg-g0 radius2 border-solid border-p0 border0 text-p2 p0 min-row-height-playground">
-      <code class="language-html font-mono text-p1 text0 leading1">
-${document}</code>
-          </pre>
+      class="language-html font-mono text-p1 text0 bg-g0 radius2 border-solid border-p0 border0 text-p2 p0 min-row-height-playground"><code class="language-html font-mono text-p1 text0 leading1">${document}</code></pre>
 
     <script type="module">
       import Store from '/_static/bundles/store.mjs'
@@ -164,7 +161,7 @@ ${document}</code>
         constructor() {
           super()
           this.api = API({
-            worker: new Worker('__WORKER_SCRIPT_URL__'),
+            worker: new Worker('__API_WORKER__'),
             store: Store()
           })
           this.update = this.update.bind(this)

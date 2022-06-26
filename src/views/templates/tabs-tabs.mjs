@@ -1,7 +1,5 @@
-export default function TabsTabs({ html, state = {} }) {
+export default function TabsTabs({ html }) {
   const id = Math.random().toString(32).slice(9)
-  const addTabs = true
-  const replKey = ''
   return html`
     <style>
       :host {
@@ -110,31 +108,7 @@ export default function TabsTabs({ html, state = {} }) {
       <input name="group-${id}" id="show-2-${id}" type="radio" />
       <label part="tab" for="show-3-${id}"><slot name="tab3"></slot></label>
       <input name="group-${id}" id="show-3-${id}" type="radio" />
-      ${addTabs
-        ? /* html*/ ` <button
-            form="run-repl"
-            formmethod="POST"
-            formaction="/playground?${
-              replKey ? `key=${replKey}` : ''
-            }&addTab=true"
-            type="submit"
-            class="js-add-tab border-solid font-extrabold p-5 ml0 border border-solid radius3">
-            <svg
-              width="1.5rem"
-              height="1.5rem"
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              stroke-width="2">
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M12 4v16m8-8H4" />
-            </svg>
-          </button>`
-        : ''}
+
       <div class="container">
         <slot name="content-1"></slot>
         <slot name="content-2"></slot>

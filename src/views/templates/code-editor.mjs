@@ -4,6 +4,10 @@ export default function CodeEditorTemplate({ html, state = {} }) {
   const initialDoc = (state?.store?.repl && state.store.repl[docName]) || ''
   return html`
     <style>
+      :host {
+        display: grid;
+        grid-template-rows: 1fr auto;
+      }
       .min-height-editor {
         min-height: 16rem;
       }
@@ -14,33 +18,38 @@ export default function CodeEditorTemplate({ html, state = {} }) {
       }
 
       .js-editor {
-        color: '#232b31';
-        min-height: '100vh';
-        background-color: 'white';
+        color: #232b31;
+        /*height: 100%;*/
+        background-color: white;
+      }
+      .cm-editor {
+        /* height: 100%;*/
       }
       .cm-scroller {
-        overflow: 'auto';
+        overflow: auto;
       }
       .js-editor .cm-content {
-        caret-color: 'red';
+        caret-color: red;
         white-space: pre-wrap;
         font-size: 0.75rem;
       }
       .editor.cm-focused .cm-cursor {
-        border-left-color: '#0e9';
+        border-left-color: #0e9;
       }
       .js-editor.cm-focused .cm-selectionBackground,
       ::selection {
-        background-color: '#074';
+        background-color: #074;
       }
       .cm-gutters {
-        background-color: '#045';
-        color: '#ddd';
-        border: 'none';
+        background-color: #045;
+        color: #ddd;
+        border: none;
+      }
+      .js-format {
+        justify-self: start;
       }
     </style>
-
-    <div>
+    <div class="grid">
       <div class="js-editor hidden font-mono text-p1 text0"></div>
       <textarea
         class="no-js-editor block  h-screen p0 w-full h-full font-mono text0  text-p2 leading1"
@@ -50,13 +59,12 @@ export default function CodeEditorTemplate({ html, state = {} }) {
         spellcheck="false">
 ${initialDoc}</textarea
       >
+      <!--<button
+        type="button"
+        class="js-format text0 border1 border-dark border-solid radius0 p-4">
+        Format
+      </button>-->
     </div>
-    <button
-      type="button"
-      class="js-format text0 border1 border-dark border-solid radius0 p-4 ">
-      Format
-    </button>
-
     <script type="module">
       import {
         EditorState,
@@ -74,7 +82,7 @@ ${initialDoc}</textarea
         constructor() {
           super()
           this.api = API({
-            worker: new Worker('__WORKER_SCRIPT_URL__'),
+            worker: new Worker('__API_WORKER__'),
             store: Store()
           })
           this.update = this.update.bind(this)
@@ -83,7 +91,7 @@ ${initialDoc}</textarea
           this.initialDoc = this.textarea.textContent
           this.format = this.format.bind(this)
           this.formatButton = this.querySelector('.js-format')
-          this.formatButton.addEventListener('click', this.format)
+          this?.formatButton?.addEventListener('click', this.format)
           this.api.repl.create({ name: this.docName, doc: this.initialDoc })
 
           this.editor = new EditorView({
@@ -117,7 +125,9 @@ ${initialDoc}</textarea
         }
 
         get text() {
-          return this.editor.state.doc.text.join('\\n')
+          // return this.editor.state.doc.text.join('\\n')
+          const doc = this.editor.state.sliceDoc(0, this.length)
+          return doc
         }
 
         connectedCallback() {

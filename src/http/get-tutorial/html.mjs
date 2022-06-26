@@ -1,5 +1,6 @@
 import { initRender } from '@architect/views/render.mjs'
 import data from '@begin/data'
+import render from 'arcdown'
 let html = initRender()
 
 const entryBoilerplate = `
@@ -45,6 +46,181 @@ const templateBoilerplate = `
  `
 
 export default async function HTML(req) {
+  const doc = `
+---
+title: Hello World
+category: Examples
+---
+
+## Foo bar
+
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+lorem ipsum _dolor_ sit **amet**
+
+### Baz
+
+[Architect](https://arc.codes/)
+`
+
+  const {
+    frontmatter, // attributes from frontmatter
+    html: tutorialDoc, // the good stuff: HTML!
+    slug, // a URL-friendly slug
+    title, // document title from the frontmatter
+    tocHtml // an HTML table of contents
+  } = await render(doc)
   const key = req.query?.key
   try {
     let repl = {
@@ -74,7 +250,8 @@ export default async function HTML(req) {
         { name: 'Docs', location: '/docs' },
         { name: 'Tutorial', location: '/tutorial' },
         { name: 'Playground', location: '/playground' }
-      ]
+      ],
+      tutorialDoc
     }
     if (key) initialState.replKey = key
     html = initRender({
