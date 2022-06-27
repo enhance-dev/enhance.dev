@@ -1,7 +1,7 @@
 export default function CodeEditorTemplate({ html, state = {} }) {
-  const formName = state?.attrs['form-name'] || ''
-  const docName = state?.attrs['doc-name'] || ''
-  const initialDoc = (state?.store?.repl && state.store.repl[docName]) || ''
+  const formName = state?.attrs?.['form-name'] || ''
+  const docName = state?.attrs?.['doc-name'] || ''
+  const initialDoc = state?.store?.repl?.[docName] || ''
   return html`
     <style>
       :host {
@@ -31,7 +31,7 @@ export default function CodeEditorTemplate({ html, state = {} }) {
       .js-editor .cm-content {
         caret-color: red;
         white-space: pre-wrap;
-        font-size: 0.75rem;
+        font-size: 1rem;
       }
       .editor.cm-focused .cm-cursor {
         border-left-color: #0e9;
@@ -125,9 +125,7 @@ ${initialDoc}</textarea
         }
 
         get text() {
-          // return this.editor.state.doc.text.join('\\n')
-          const doc = this.editor.state.sliceDoc(0, this.length)
-          return doc
+          return this.editor.state.sliceDoc(0, this.length)
         }
 
         connectedCallback() {

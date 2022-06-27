@@ -4,7 +4,7 @@ export default {
   <div>but I'm not</div>
   \`
 `,
-  tab1: `
+  'tab-1': `
   export default function({html}){
   return html\`
     <style>

@@ -13,7 +13,7 @@ get /waitlist
 post /email/interest/add
 get /email/thank
 
-get /tutorial
+get /tutorial/*
 post /tutorial
 post /tutorialrepl
 

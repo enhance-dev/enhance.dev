@@ -38,6 +38,7 @@ export default function TutorialLayout({ html, state = {} }) {
       ::slotted([slot='docs']) {
         grid-area: docs;
         overflow-y: scroll;
+        padding: 1.5rem;
       }
       ::slotted([slot='code-source']) {
         grid-area: code-source;
@@ -101,7 +102,9 @@ export default function TutorialLayout({ html, state = {} }) {
         > ::slotted([slot='code-output']) {
         display: none;
       }
-      input#show-docs:checked ~ div.container > ::slotted([slot='docs']),
+      input#show-docs:checked ~ div.container > ::slotted([slot='docs']) {
+        display: block;
+      }
       input#show-source:checked
         ~ div.container
         > ::slotted([slot='code-source']),
@@ -113,7 +116,9 @@ export default function TutorialLayout({ html, state = {} }) {
       @media (min-width: ${store.theme?.['lg-screen'] || '960px'}) {
         input#show-docs:not(:checked)
           ~ div.container
-          > ::slotted([slot='docs']),
+          > ::slotted([slot='docs']) {
+          display: block;
+        }
         input#show-source:not(:checked)
           ~ div.container
           > ::slotted([slot='code-source']),
