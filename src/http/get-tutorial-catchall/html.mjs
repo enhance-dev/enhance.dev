@@ -6,7 +6,7 @@ import classMap from './class-mapping.mjs'
 import { initRender } from '@architect/views/render.mjs'
 let html = initRender()
 
-const cache = {} // cheap warm cache
+const cache = {}
 
 const entryBoilerplate = `
  //import enhance from '@enhance/ssr'
@@ -87,18 +87,17 @@ export default async function HTML(req) {
   }
 
   const key = req.query?.key
+  let repl
   try {
-    const srcCode = (await import(codeFilePath)).default
-    console.log(srcCode)
-    let repl = {
-      enhancedMarkup: '',
-      previewDoc: '',
-      entrySrc: srcCode?.entry || '',
-      'tab-1': srcCode?.['tab-1'] || '',
-      'tab-2': srcCode?.['tab-2'] || '',
-      openEditor: 1,
-      openPreview: 1
-    }
+    // let repl = {
+    //   enhancedMarkup: '',
+    //   previewDoc: '',
+    //   entrySrc: srcCode?.entry || '',
+    //   'tab-1': srcCode?.['tab-1'] || '',
+    //   'tab-2': srcCode?.['tab-2'] || '',
+    //   openEditor: 1,
+    //   openPreview: 1
+    // }
 
     if (key) {
       const result = await poll(
@@ -106,10 +105,12 @@ export default async function HTML(req) {
         2000,
         50
       ).catch((e) => console.log(e))
-      repl = result?.repl ? result.repl : repl
+      repl = result?.repl ? result.repl : (await import(codeFilePath)).default
+    } else {
+      repl = (await import(codeFilePath)).default
     }
+
     const initialState = {
-      scopedCSS: true,
       repl,
       loggedIn: false,
       theme: { ['lg-screen']: '48em' },
@@ -122,6 +123,7 @@ export default async function HTML(req) {
       tutorialDoc: docBody
     }
     if (key) initialState.replKey = key
+
     html = initRender({
       initialState
     })

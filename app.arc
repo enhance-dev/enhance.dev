@@ -22,10 +22,6 @@ get /playground
 post /playground
 post /repl
 
-#Docs
-get /docs
-get /docs/:lang/*
-get /docs/*
 
 get /testtag
 

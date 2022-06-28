@@ -1,9 +1,9 @@
 export default function TutorialPage({ html, state = {} }) {
   const { store = {} } = state
   const key = store?.replKey || ''
-  const openEditor = store?.repl?.openEditor || 1
-  const openPreview = store?.repl?.openPreview || 1
-  const repl = store?.repl || {}
+  const repl = store?.repl?.replState || {}
+  const openEditor = repl?.openEditor || 1
+  const openPreview = repl?.openPreview || 1
   const components = Object.keys(repl)
     .filter((i) => i.startsWith('tab-'))
     .sort((a, b) => a - b)
