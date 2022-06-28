@@ -6,6 +6,10 @@ export default function EnhanceRunnerTemplate({ html }) {
       import enhance from '/_static/bundles/enhance.mjs'
       import beautify from '/_static/bundles/beautify.mjs'
       import Prism from '/_static/bundles/prism.mjs'
+      import styleTransform from '/_static/bundles/transform.mjs'
+      import hljs from '/_static/bundles/hljs.mjs'
+      import hljsXML from '/_static/bundles/hljsXML.mjs'
+      hljs.registerLanguage('xml', hljsXML)
 
       class EnhanceRunner extends HTMLElement {
         constructor() {
@@ -60,7 +64,10 @@ export default function EnhanceRunnerTemplate({ html }) {
             })
             console.log({ elements })
 
-            const html = enhance({ elements })
+            const html = enhance({
+              elements,
+              styleTransforms: [styleTransform]
+            })
             const handler = await entryFunction({ html, elements, enhance })
             const previewDoc = await handler()
             //  const prettyMarkup = prettier
@@ -70,20 +77,30 @@ export default function EnhanceRunnerTemplate({ html }) {
             //    })
             //    .replace(new RegExp('&', 'g'), '&amp;')
             //    .replace(new RegExp('<', 'g'), '&lt;')
-            const prettyMarkup = beautify.html_beautify(previewDoc.document)
-            const enhancedMarkup = Prism.highlight(
-              prettyMarkup,
-              Prism.languages.markup,
-              'markup'
-            )
+            const prettyMarkup = beautify.html_beautify(previewDoc.document, {
+              indent_size: 2,
+              space_in_empty_paren: true
+            })
+            //.replace(new RegExp('&', 'g'), '&amp;')
+            //.replace(new RegExp('<', 'g'), '&lt;')
+
+            //const enhancedMarkup = Prism.highlight(
+            //  prettyMarkup,
+            //  Prism.languages.markup,
+            //  'markup'
+            //)
+            const enhancedMarkup = hljs.highlight(prettyMarkup, {
+              language: 'xml'
+            }).value
             return {
               enhancedMarkup: enhancedMarkup,
               //enhancedMarkup: previewDoc.document
-              //  .replace(new RegExp('&', 'g'), '&amp;')
-              //  .replace(new RegExp('<', 'g'), '&lt;'),
+              //.replace(new RegExp('&', 'g'), '&amp;')
+              //.replace(new RegExp('<', 'g'), '&lt;'),
               iframeSrc: previewDoc.document
-                .replace(/&/g, '&amp;')
-                .replace(/"/g, '&quot;')
+              //.replace(/&/g, '&amp;')
+              // .replace(/"/g, '&quot;')
+              //.replace(/'/g, '&#39;')
             }
           }
 
@@ -95,10 +112,26 @@ export default function EnhanceRunnerTemplate({ html }) {
               /import(?:["'\\s]*([\\w*\${}\\n\\r\\t, ]+)from\\s*)?["'\\s]["'\\s](.*[@\\w_-]+)["'\\s].*;?$/,
               'mg'
             )
-            const funcString = str
-              ?.replace(/export default/, 'return ')
-              ?.replace(/^\\s*import\\s*enhance\\s*from.*$/gm, '')
-              ?.replace(patternImport, "const $1= (await import('$2')).default")
+            const isHandler = /export\\s*default/.test(str)
+            console.log({ isHandler })
+
+            let funcString
+            if (isHandler) {
+              funcString = str
+                ?.replace(/export\\s*default/, 'return ')
+                ?.replace(/^\\s*import\\s*enhance\\s*from.*$/gm, '')
+                ?.replace(
+                  patternImport,
+                  "const $1= (await import('$2')).default"
+                )
+            } else {
+              funcString =
+                'return  async function handler() {  return { document: html\`' +
+                str +
+                '\`}}'
+            }
+            console.log(str)
+            console.log(funcString)
             const funcStringWithScope =
               ' const {enhance={},html={},elements={}}= args; return (async function(){ ' +
               funcString +
@@ -106,9 +139,17 @@ export default function EnhanceRunnerTemplate({ html }) {
             const newFunc = new AsyncFunction('args', funcStringWithScope)
             return newFunc
           }
+          /*
+return  async function handler() {
+
+     return {
+       document: html\`<div style="color:red;">"hello" & "goodbye" </div>\`
+       //<login-page></login-page>
+     }
+ }*/
 
           function funkifyComponent(str) {
-            const funcString = str?.replace(/export default/, 'return ')
+            const funcString = str?.replace(/export\\s*default/, 'return ')
             const newFunc = new Function(funcString)
             return newFunc
           }
