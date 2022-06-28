@@ -44,13 +44,10 @@ store './node_modules/@enhance/store/index.mjs'
 codemirror './node_modules/@begin/codemirror/dist/index.js'
 enhance  './node_modules/@enhance/ssr/index.mjs'
 beautify './node_modules/js-beautify/js/index.js'
-prism './node_modules/prismjs/prism.js'
 transform './node_modules/@enhance/enhance-style-transform/src/style-transform.mjs'
 hljs './node_modules/highlight.js/lib/core.js'
 hljsXML './node_modules/highlight.js/lib/languages/xml.js'
 
-# @importmap
-# prism './node_modules/prismjs/prism.js'
 
 @oauth
 use-mock true 

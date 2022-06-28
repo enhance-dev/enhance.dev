@@ -51,7 +51,6 @@ const templateBoilerplate = `
  `
 
 export default async function HTML(req) {
-  console.log(req)
   const { pathParameters } = req
   const { proxy } = pathParameters
   const parts = proxy.split('/')

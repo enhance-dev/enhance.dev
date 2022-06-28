@@ -2,11 +2,12 @@ import arc from '@architect/functions'
 import { nanoid } from 'nanoid'
 import data from '@begin/data'
 
-export const handler = arc.http.async(savePlayground)
+export const handler = arc.http.async(saveTutorial)
 
-async function savePlayground(req) {
+async function saveTutorial(req) {
   const body = req.body
 
+  const returnPath = req.query?.path
   const previousKey = req.query?.key
   const deleteTab = req.query?.deleteTab
   const addTab = req.query?.addTab
@@ -45,6 +46,6 @@ async function savePlayground(req) {
   })
   return {
     statusCode: 302,
-    location: `/playground?key=${newKey}`
+    location: `/tutorial${returnPath ? `/${returnPath}` : ''}?key=${newKey}`
   }
 }

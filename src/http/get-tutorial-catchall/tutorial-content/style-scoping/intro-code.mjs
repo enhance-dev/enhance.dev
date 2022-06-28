@@ -41,12 +41,12 @@ export default {
         color:red;
       }
     </style>
-    <div class="container>
+    <div class="container">
       <slot></slot>
     </div>
     <script>
     /*
-    //customElements.define('my-div',MyDiv)
+    customElements.define('my-div',MyDiv)
     */
    </script>
   \`

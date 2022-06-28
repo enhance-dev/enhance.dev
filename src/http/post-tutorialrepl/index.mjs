@@ -5,6 +5,7 @@ export const handler = arc.http.async(sendUserCode)
 
 async function sendUserCode(req) {
   const body = req.body
+  const returnPath = req.query?.path
   const key = nanoid(10)
   const payload = { ...body, key }
 
@@ -14,6 +15,6 @@ async function sendUserCode(req) {
   })
   return {
     statusCode: 302,
-    location: `/playground?key=${key}`
+    location: `/tutorial${returnPath ? `/${returnPath}` : ''}?key=${key}`
   }
 }

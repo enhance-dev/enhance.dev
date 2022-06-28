@@ -5,7 +5,6 @@ export default function EnhanceRunnerTemplate({ html }) {
       import API from '/_static/bundles/api.mjs'
       import enhance from '/_static/bundles/enhance.mjs'
       import beautify from '/_static/bundles/beautify.mjs'
-      import Prism from '/_static/bundles/prism.mjs'
       import styleTransform from '/_static/bundles/transform.mjs'
       import hljs from '/_static/bundles/hljs.mjs'
       import hljsXML from '/_static/bundles/hljsXML.mjs'
@@ -29,7 +28,6 @@ export default function EnhanceRunnerTemplate({ html }) {
         }
 
         connectedCallback() {
-          console.log('enhanceRunner')
           this.api.subscribe(this.update, this.allDocs)
         }
         disconnectedCallback() {
@@ -40,10 +38,8 @@ export default function EnhanceRunnerTemplate({ html }) {
           const components = Object.keys(docs).filter((i) =>
             i.startsWith('tab-')
           )
-          console.log({ components })
           const source = { entrySrc: docs.entrySrc }
           components.forEach((i) => (source[i] = docs[i]))
-          console.log({ source })
           const userDoc = await process(source, components)
           this.api.repl.update({
             name: 'enhancedMarkup',
@@ -62,7 +58,6 @@ export default function EnhanceRunnerTemplate({ html }) {
               const tagName = getTagName(repl[i])
               if (tagName) elements[tagName] = componentFunction()
             })
-            console.log({ elements })
 
             const html = enhance({
               elements,
@@ -70,13 +65,6 @@ export default function EnhanceRunnerTemplate({ html }) {
             })
             const handler = await entryFunction({ html, elements, enhance })
             const previewDoc = await handler()
-            //  const prettyMarkup = prettier
-            //    .format(previewDoc.document, {
-            //      parser: 'babel',
-            //      plugins: [parserBabel, parserHtml]
-            //    })
-            //    .replace(new RegExp('&', 'g'), '&amp;')
-            //    .replace(new RegExp('<', 'g'), '&lt;')
             const prettyMarkup = beautify.html_beautify(previewDoc.document, {
               indent_size: 2,
               space_in_empty_paren: true
@@ -84,23 +72,16 @@ export default function EnhanceRunnerTemplate({ html }) {
             //.replace(new RegExp('&', 'g'), '&amp;')
             //.replace(new RegExp('<', 'g'), '&lt;')
 
-            //const enhancedMarkup = Prism.highlight(
-            //  prettyMarkup,
-            //  Prism.languages.markup,
-            //  'markup'
-            //)
             const enhancedMarkup = hljs.highlight(prettyMarkup, {
               language: 'xml'
             }).value
             return {
               enhancedMarkup: enhancedMarkup,
-              //enhancedMarkup: previewDoc.document
               //.replace(new RegExp('&', 'g'), '&amp;')
               //.replace(new RegExp('<', 'g'), '&lt;'),
               iframeSrc: previewDoc.document
               //.replace(/&/g, '&amp;')
               // .replace(/"/g, '&quot;')
-              //.replace(/'/g, '&#39;')
             }
           }
 
@@ -113,7 +94,6 @@ export default function EnhanceRunnerTemplate({ html }) {
               'mg'
             )
             const isHandler = /export\\s*default/.test(str)
-            console.log({ isHandler })
 
             let funcString
             if (isHandler) {
@@ -130,8 +110,6 @@ export default function EnhanceRunnerTemplate({ html }) {
                 str +
                 '\`}}'
             }
-            console.log(str)
-            console.log(funcString)
             const funcStringWithScope =
               ' const {enhance={},html={},elements={}}= args; return (async function(){ ' +
               funcString +
@@ -139,14 +117,6 @@ export default function EnhanceRunnerTemplate({ html }) {
             const newFunc = new AsyncFunction('args', funcStringWithScope)
             return newFunc
           }
-          /*
-return  async function handler() {
-
-     return {
-       document: html\`<div style="color:red;">"hello" & "goodbye" </div>\`
-       //<login-page></login-page>
-     }
- }*/
 
           function funkifyComponent(str) {
             const funcString = str?.replace(/export\\s*default/, 'return ')
