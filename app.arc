@@ -8,20 +8,23 @@ folder public
 @http
 get /
 
-#Waitlist
-get /waitlist 
+# Docs
+get /docs/*
+
+# Waitlist
+get /waitlist
 post /email/interest/add
 get /email/thank
 
+# Tutorial
 get /tutorial/*
 post /tutorial
 post /tutorialrepl
 
-#REPL
+# REPL
 get /playground
 post /playground
 post /repl
-
 
 get /testtag
 
@@ -46,8 +49,8 @@ hljsXML './node_modules/highlight.js/lib/languages/xml.js'
 
 
 @oauth
-use-mock true 
-allow-list allow.mjs 
+use-mock true
+allow-list allow.mjs
 un-auth-redirect /waitlist
 
 @tables
