@@ -68,7 +68,7 @@ small {
       "   .    main  ";
   }
 
-  aside {
+  docs-sidebar, doc-outline {
     position: sticky;
     top: 1rem;
   }

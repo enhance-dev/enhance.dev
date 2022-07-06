@@ -79,8 +79,10 @@ function parseItems(items, root, activePath) {
 export default function DocsSidebar({ html, state }) {
   const { attrs } = state
   const { 'docs-route': docsRoute, 'active-path': activePath } = attrs
-  let tabNav = '<div class="tab-labels">'
-  let tabs = '<div class="tabs">'
+
+  let tabLabels = ''
+  let tabs = ''
+  let tabStyles = []
 
   const testForActive = (i) => i.active || i.items?.some(testForActive)
 
@@ -92,46 +94,51 @@ export default function DocsSidebar({ html, state }) {
           (index === 0 && `/${docsRoute}/` === activePath) ||
           tab.items.some(testForActive)
 
-        tabNav += `
-<div class="tab-label ${tab.active ? 'active' : ''}">
-  ${tab.label}
-</div>`
+        tabLabels += `
+          <input
+            type="radio"
+            name="tabs"
+            id="tab-control-${tab.slug}"
+            ${tab.active ? 'checked' : ''}
+          >
+          <label for="tab-control-${tab.slug}">${tab.label}</label>`
 
         tabs += `
-<div class="tab ${tab.active ? 'active' : ''}" label="${tab.slug}">
-  ${List(tab.items)}
-</div>`
-      })
+          <div class="tab-content" label="${tab.slug}">
+            ${List(tab.items)}
+          </div>`
 
-  tabNav += '</div>'
-  tabs += '</div>'
+        // This is probably temporary, requires inputs to be sibling of tab-content
+        tabStyles.push(
+          `#tab-control-${tab.slug}:checked ~ .tab-content[label='${tab.slug}']`
+        )
+      })
 
   return html`
     <style>
-      #sidebar .tab-labels {
-        display: flex;
-        justify-content: space-around;
-        margin-bottom: 1rem;
+      .tab-content {
+        display: none;
       }
-      #sidebar .tab-label {
-        flex-basis: 50%;
+      ${tabStyles.join(', ')} {
+        display: block;
+      }
+      #sidebar input[type='radio'] + label {
+        display: inline-block;
+        cursor: pointer;
         text-align: center;
         line-height: 1.25rem;
         font-weight: bold;
         font-size: 1.15rem;
-        padding: 0 0 0.5rem 0.5rem;
-        margin-bottom: 0.5rem;
+        padding: 0 1rem 0.5rem;
+        margin-bottom: 0.25rem;
         border-bottom: 2px solid SeaShell;
         color: Crimson;
       }
-      #sidebar .tab-label.active {
+      #sidebar input[type='radio'] {
+        display: none;
+      }
+      #sidebar input:checked + label {
         border-bottom: 2px solid LightSalmon;
-      }
-      #sidebar .tab {
-        opacity: 0.5;
-      }
-      #sidebar .tab.active {
-        opacity: 1;
       }
       #sidebar li a {
         padding: 0.2rem 0;
@@ -165,7 +172,7 @@ export default function DocsSidebar({ html, state }) {
       }
     </style>
 
-    <aside id="sidebar">${tabNav} ${tabs}</aside>
+    <aside id="sidebar">${tabLabels} ${tabs}</aside>
 
     <script type="module">
       class DocsSidebar extends HTMLElement {

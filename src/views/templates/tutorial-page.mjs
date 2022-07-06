@@ -48,7 +48,7 @@ export default function TutorialPage({ html, state = {} }) {
                 ${components
                   .map((name, i) => {
                     const tabNumber = (i + 1).toString()
-                    return ` 
+                    return `
                   <span slot="title${i + 2}">tab-${tabNumber}</span>
                   <code-editor
                     slot="content${i + 2}"
@@ -92,9 +92,9 @@ export default function TutorialPage({ html, state = {} }) {
               class=" text0 border1 border-dark border-solid radius0 p-4 "punctuation
               form="run-repl"
               formmethod="POST"
-              formaction="/tutorial?${
-                key ? `key=${key}` : ''
-              }&deleteTab=${tabName}"
+              formaction="/tutorial?${key ? `key=${key}` : ''}&deleteTab=${
+    /* tabName */ key
+  }"
               type="submit"
              >Delete Tab</button>
              <span>Do you want to delete this tab and it's contents? This cannot be undone.</span></div>

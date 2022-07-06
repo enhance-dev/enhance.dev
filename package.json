@@ -15,7 +15,7 @@
         "@architect/plugin-bundles": "^3.0.1",
         "@begin/codemirror": "^0.0.3",
         "@begin/data": "^4.0.0-RC.2",
-        "@enhance/enhance-style-transform": "github:enhance-dev/enhance-style-transform",
+        "@enhance/enhance-style-transform": "0.0.1-alpha.1",
         "@enhance/import-transform": "^4.0.0",
         "@enhance/ssr": "^2.3.3",
         "@enhance/store": "^1.0.0",
@@ -25,11 +25,11 @@
         "css": "^3.0.0",
         "highlight.js": "^11.5.1",
         "html-beautify": "^1.0.4",
-        "js-beautify": "^1.14.1",
-        "nanoid": "^3.3.2",
+        "js-beautify": "^1.14.4",
+        "nanoid": "^4.0.0",
         "prismjs": "^1.27.0",
         "ulid": "^2.3.0",
-        "xss": "^1.0.8"
+        "xss": "^1.0.13"
     },
     "devDependencies": {
         "@architect/architect": "^10.3.3",
