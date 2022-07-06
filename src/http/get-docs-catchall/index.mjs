@@ -22,12 +22,12 @@ async function http(request) {
   const docMarkdown = readFileSync(docURL.pathname, 'utf-8')
   const doc = await render(docMarkdown, {
     pluginOverrides: {
-      markdownItTocAndAnchor: { tocClassName: 'list-none' }
-    }
+      markdownItTocAndAnchor: { tocClassName: 'list-none' },
+    },
   })
 
   return {
-    html: html`${document(doc, mountedRoute, activePath)}`
+    html: html`${document(doc, mountedRoute, activePath)}`,
   }
 }
 

@@ -59,7 +59,7 @@ function parseItems(items, root, activePath) {
         type: 'doc',
         slug: item,
         path: `/${root}/${item}`,
-        label: unslug(item)
+        label: unslug(item),
       }
     } else {
       if (!item.type) item.type = 'doc'

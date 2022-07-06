@@ -1,4 +1,4 @@
-export default function DocsOutline({ html }) {
+export default function DocOutline({ html }) {
   return html`
     <style>
       #outline {

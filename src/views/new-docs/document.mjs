@@ -18,16 +18,16 @@ export default function document(doc, mountedRoute, activePath) {
     active-path="${activePath}"
   ></docs-sidebar>
 
-  <main>
-    <article>
+  <doc-content>
+    <article slot="doc">
       ${doc.title ? `<h1>${doc.title}</h1>` : ''}
       ${doc.html}
-    <article>
-  </main>
+    </article>
+  </doc-content>
 
-  <docs-doc-outline>
+  <doc-outline>
     <div class="toc" slot="toc">${doc.tocHtml}</div>
-  </docs-doc-outline>
+  </doc-outline>
 </body>
 </html>
       `

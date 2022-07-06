@@ -1,9 +1,11 @@
+import DocContent from './DocContent.mjs'
 import DocOutline from './DocOutline.mjs'
 import Header from './DocsHeader.mjs'
 import Sidebar from './DocsSidebar.mjs'
 
 export default {
-  'docs-sidebar': Sidebar,
+  'doc-content': DocContent,
+  'doc-outline': DocOutline,
   'docs-header': Header,
-  'docs-doc-outline': DocOutline,
+  'docs-sidebar': Sidebar,
 }

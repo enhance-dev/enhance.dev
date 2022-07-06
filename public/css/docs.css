@@ -4,8 +4,8 @@
 
 docs-header  { grid-area: header }
 docs-sidebar { grid-area: sidebar }
-main         { grid-area: main }
-docs-outline { grid-area: toc }
+doc-content  { grid-area: main }
+doc-outline  { grid-area: outline }
 
 body {
   display: grid;
@@ -33,16 +33,6 @@ strong {
 
 small {
   color: DarkGray;
-}
-
-main article {
-  max-width: 55rem;
-  margin: auto;
-}
-
-main article h1 {
-  margin: 0 0 2rem 0;
-  font-size: 2rem;
 }
 
 .list-none {
@@ -74,8 +64,8 @@ main article h1 {
     grid-template-columns: 20rem 1fr;
     grid-template-areas:
       "header  header"
-      "sidebar main"
-      ".       main";
+      "sidebar main  "
+      "   .    main  ";
   }
 
   aside {
@@ -88,8 +78,8 @@ main article h1 {
   body {
     grid-template-columns: 20rem 1fr 18rem;
     grid-template-areas:
-      "header  header header"
-      "sidebar main   toc"
-      ".       main   .";
+      "header  header  header"
+      "sidebar  main  outline"
+      "   .     main    .   ";
   }
 }
