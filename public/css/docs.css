@@ -2,10 +2,10 @@
   box-sizing: border-box;
 }
 
-header   { grid-area: header }
-#sidebar { grid-area: sidebar }
-main     { grid-area: main }
-#toc     { grid-area: toc }
+docs-header  { grid-area: header }
+docs-sidebar { grid-area: sidebar }
+main         { grid-area: main }
+docs-outline { grid-area: toc }
 
 body {
   display: grid;
@@ -15,7 +15,7 @@ body {
     "main   ";
   margin: 0;
   padding: 0 1rem;
-  gap: 1.5rem;
+  gap: 0 1.5rem;
   font-family: system-ui;
   font-size: 16px;
   line-height: 1.5rem;
@@ -35,107 +35,14 @@ small {
   color: DarkGray;
 }
 
-header {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-header h1 a {
-  display: inline-block;
-  transition: transform ease 0.2s;
-}
-
-header h1 a:hover {
-  transform: rotate(2deg);
-}
-
-header h1 a.enhance-link {
-  color: DarkOrchid;
-}
-
-header h1 a.docs-link {
-  color: DarkSalmon;
-}
-
 main article {
   max-width: 55rem;
   margin: auto;
 }
 
-#sidebar .tab-labels {
-  display: flex;
-  justify-content: space-around;
-  margin-bottom: 1rem;
-}
-
-#sidebar .tab-label {
-  flex-basis: 50%;
-  text-align: center;
-  line-height: 1.25rem;
-  font-weight: bold;
-  font-size: 1.15rem;
-  padding: 0 0 0.5rem 0.5rem;
-  margin-bottom: 0.5rem;
-  border-bottom: 2px solid SeaShell;
-  color: Crimson;
-}
-
-#sidebar .tab-label.active {
-  border-bottom: 2px solid LightSalmon;
-}
-
-#sidebar .tab {
-  opacity: 0.5;
-}
-
-#sidebar .tab.active {
-  opacity: 1;
-}
-
-#sidebar li a {
-  padding: 0.2rem 0;
-  display: block;
-  padding-left: 0.3rem;
-}
-
-#sidebar li a:hover {
-  border-left: 2px solid LightSteelBlue;
-  margin-left: -2px;
-  background-color: Azure;
-  text-decoration: none;
-}
-
-#sidebar li a.active {
-  border-left: 2px solid CornflowerBlue;
-  margin-left: -2px;
-  background-color: AliceBlue;
-}
-
-#sidebar .category-label {
-  margin-top: 1rem;
-}
-
-#sidebar .category-label {
-  line-height: 1.2rem;
-  text-transform: uppercase;
-  font-weight: bold;
-  border-bottom: 1px solid WhiteSmoke;
-}
-
-#sidebar .description {
-  line-height: 1rem;
-  font-size: 0.75rem;
-  color: DarkGray;
-}
-
-#toc {
-  display: none;
-}
-
-#toc>ul {
-  margin-bottom: 2rem;
+main article h1 {
+  margin: 0 0 2rem 0;
+  font-size: 2rem;
 }
 
 .list-none {
@@ -184,9 +91,5 @@ main article {
       "header  header header"
       "sidebar main   toc"
       ".       main   .";
-  }
-
-  #toc {
-    display: block;
   }
 }
