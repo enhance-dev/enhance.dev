@@ -1,15 +1,15 @@
 import { readFileSync } from 'fs'
 import { URL } from 'url'
 import arc from '@architect/functions'
-import render from 'arcdown'
+import renderMd from 'arcdown'
 import enhance from '@enhance/ssr'
 
-import document from '@architect/views/new-docs/document.mjs'
-import elements from '@architect/views/new-docs/elements/index.mjs'
+import document from '@architect/views/docs/document.mjs'
+import elements from '@architect/views/docs/elements/index.mjs'
 
 // Configuration
 const mountedRoute = 'docs' // this should match app.arc catchall
-const docsRoot = `./node_modules/@architect/views/new-docs/md`
+const docsRoot = `./node_modules/@architect/views/docs/md`
 
 const html = enhance({ elements })
 
@@ -20,7 +20,7 @@ async function http(request) {
 
   const docURL = new URL(`${docsRoot}/${docPath}.md`, import.meta.url)
   const docMarkdown = readFileSync(docURL.pathname, 'utf-8')
-  const doc = await render(docMarkdown, {
+  const doc = await renderMd(docMarkdown, {
     pluginOverrides: {
       markdownItTocAndAnchor: { tocClassName: 'list-none' },
     },

@@ -92,9 +92,7 @@ export default function TutorialPage({ html, state = {} }) {
               class=" text0 border1 border-dark border-solid radius0 p-4 "punctuation
               form="run-repl"
               formmethod="POST"
-              formaction="/tutorial?${key ? `key=${key}` : ''}&deleteTab=${
-    /* tabName */ key
-  }"
+              formaction="/tutorial?${key ? `key=${key}` : ''}&deleteTab=${key}"
               type="submit"
              >Delete Tab</button>
              <span>Do you want to delete this tab and it's contents? This cannot be undone.</span></div>
