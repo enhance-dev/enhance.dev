@@ -1,5 +1,3 @@
-import sidebarData from '../sidebarData.mjs'
-
 function Category(item) {
   return `
 <div class="group-label">
@@ -45,55 +43,18 @@ function Description(item) {
     : ''
 }
 
-function unslug(string) {
-  return string
-    .replace(/-/g, ' ')
-    .replace(/(^\w{1})|(\s+\w{1})/g, (l) => l.toUpperCase())
-}
-
-function parseItems(items, root, activePath) {
-  return items.map((item) => {
-    if (typeof item === 'string') {
-      // create full item from shorthand item
-      item = {
-        type: 'doc',
-        slug: item,
-        path: `/${root}/${item}`,
-        label: unslug(item),
-      }
-    } else {
-      if (!item.type) item.type = 'doc'
-      if (!item.path) item.path = `/${root}/${item.slug}`
-      if (!item.label && item.slug) item.label = unslug(item.slug)
-    }
-
-    if (item.items)
-      item.items = parseItems(item.items, `${root}/${item.slug}`, activePath)
-
-    item.active = item.path === activePath
-
-    return item
-  })
-}
-
 export default function DocsSidebar({ html, state }) {
-  const { attrs } = state
-  const { 'docs-route': docsRoute, 'active-path': activePath } = attrs
+  const { store } = state
+  const { sidebarData } = store
 
   let tabLabels = ''
   let tabs = ''
   let tabStyles = []
 
-  const testForActive = (i) => i.active || i.items?.some(testForActive)
-
   if (sidebarData?.length > 0)
-    parseItems(sidebarData, docsRoute, activePath)
+    sidebarData
       .filter((i) => i.type === 'tab')
-      .forEach((tab, index) => {
-        tab.active =
-          (index === 0 && `/${docsRoute}/` === activePath) ||
-          tab.items.some(testForActive)
-
+      .forEach((tab) => {
         tabLabels += `
           <input
             type="radio"
@@ -173,15 +134,5 @@ export default function DocsSidebar({ html, state }) {
     </style>
 
     <aside id="sidebar">${tabLabels} ${tabs}</aside>
-
-    <script type="module">
-      class DocsSidebar extends HTMLElement {
-        constructor() {
-          super()
-        }
-      }
-
-      customElements.define('docs-sidebar', DocsSidebar)
-    </script>
   `
 }

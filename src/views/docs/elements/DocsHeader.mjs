@@ -1,4 +1,18 @@
-export default function DocsHeader({ html }) {
+export default function DocsHeader({ html, state }) {
+  const { store } = state
+  const { sidebarData } = store
+
+  const navItems = []
+
+  if (sidebarData?.length > 0)
+    sidebarData
+      .filter((i) => i.type === 'tab')
+      .forEach((tab) => {
+        navItems.push(
+          `<li ${tab.active ? 'class="active"' : ''}>${tab.label}</li>`
+        )
+      })
+
   return html`
     <style>
       header {
@@ -20,15 +34,36 @@ export default function DocsHeader({ html }) {
       header h1 a.docs-link {
         color: DarkSalmon;
       }
+
+      header nav ul {
+        list-style: none;
+      }
+      header nav ul li {
+        display: inline-block;
+        cursor: pointer;
+        text-align: center;
+        font-weight: bold;
+        font-size: 1.15rem;
+        padding: 0 1rem 0.25rem;
+        margin-bottom: 0.25rem;
+        border-bottom: 2px solid SeaShell;
+        color: Crimson;
+      }
+      header nav ul li.active {
+        border-bottom: 2px solid LightSalmon;
+      }
     </style>
 
     <header>
+      <h1>
+        ✨
+        <a href="/" class="enhance-link">Enhance</a>
+        <a href="/docs/" class="docs-link">Docs</a>
+      </h1>
       <nav>
-        <h1>
-          ✨
-          <a href="/" class="enhance-link">Enhance</a>
-          <a href="/docs/" class="docs-link">Docs</a>
-        </h1>
+        <ul>
+          ${navItems.join('\n')}
+        </ul>
       </nav>
       <input type="search" placeholder="Search..." />
     </header>

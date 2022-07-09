@@ -1,7 +1,6 @@
 export default function DocsLayout({ html, state }) {
-  const { attrs, store } = state
+  const { store } = state
   const { doc = {} } = store
-  const { 'docs-route': docsRoute, 'active-path': activePath } = attrs
 
   return html`
     <style>
@@ -58,8 +57,7 @@ export default function DocsLayout({ html, state }) {
 
     <docs-header></docs-header>
 
-    <docs-sidebar docs-route="${docsRoute}" active-path="${activePath}">
-    </docs-sidebar>
+    <docs-sidebar></docs-sidebar>
 
     <main>
       <article>${doc.title ? `<h1>${doc.title}</h1>` : ''} ${doc.html}</article>

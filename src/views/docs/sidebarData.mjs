@@ -6,7 +6,7 @@ const TYPE = {
   tab: 'tab',
 }
 
-export default [
+export const data = [
   // only tabs allowed at top level
   {
     type: TYPE.tab,
@@ -130,3 +130,53 @@ export default [
     ],
   },
 ]
+
+function unslug(string) {
+  return string
+    .replace(/-/g, ' ')
+    .replace(/(^\w{1})|(\s+\w{1})/g, (l) => l.toUpperCase())
+}
+
+function testForActive(i) {
+  return i.active || i.items?.some(testForActive)
+}
+
+function parseItems(items, root, activePath) {
+  const parsedItems = items.map((item) => {
+    if (typeof item === 'string') {
+      // create full item from shorthand item
+      item = {
+        type: 'doc',
+        slug: item,
+        path: `/${root}/${item}`,
+        label: unslug(item),
+      }
+    } else {
+      if (!item.type) item.type = 'doc'
+      if (!item.path) item.path = `/${root}/${item.slug}`
+      if (!item.label && item.slug) item.label = unslug(item.slug)
+    }
+
+    if (item.items)
+      item.items = parseItems(item.items, `${root}/${item.slug}`, activePath)
+
+    item.active = item.path === activePath
+
+    return item
+  })
+
+  // lazily mark tab as active
+  parsedItems
+    .filter((i) => i.type === 'tab')
+    .forEach((tab, index) => {
+      tab.active =
+        (index === 0 && `/${root}/` === activePath) ||
+        tab.items.some(testForActive)
+    })
+
+  return parsedItems
+}
+
+export default function (docsRoute, activePath) {
+  return parseItems(data, docsRoute, activePath)
+}

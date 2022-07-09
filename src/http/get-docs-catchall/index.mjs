@@ -4,6 +4,7 @@ import arc from '@architect/functions'
 import renderMd from 'arcdown'
 import enhance from '@enhance/ssr'
 import elements from '@architect/views/docs/elements/index.mjs'
+import sidebarDataLoader from '@architect/views/docs/sidebarData.mjs'
 
 // Configuration
 const docsRoute = 'docs' // this should match app.arc catchall
@@ -11,7 +12,7 @@ const docsRoute = 'docs' // this should match app.arc catchall
 async function http(request) {
   const { path: activePath, pathParameters } = request
   let docPath = pathParameters?.proxy || 'index'
-  if (docPath.match(/\/$/)) docPath += 'index'
+  if (docPath.match(/\/$/)) docPath += 'index' // trailing slash == index.md file
 
   const docURL = new URL(
     `./node_modules/@architect/views/docs/md/${docPath}.md`,
@@ -25,7 +26,13 @@ async function http(request) {
     },
   })
 
-  const html = enhance({ elements, initialState: { doc } })
+  const html = enhance({
+    elements,
+    initialState: {
+      doc,
+      sidebarData: sidebarDataLoader(docsRoute, activePath),
+    },
+  })
 
   return {
     html: html`
@@ -43,8 +50,7 @@ async function http(request) {
           <link rel="stylesheet" href="${arc.static('css/docs.css')}" />
         </head>
         <body>
-          <docs-layout active-path="${activePath}" docs-route="${docsRoute}">
-          </docs-layout>
+          <docs-layout></docs-layout>
         </body>
       </html>
     `,
