@@ -170,6 +170,7 @@ function parseItems(items, root, activePath) {
     .filter((i) => i.type === 'tab')
     .forEach((tab, index) => {
       tab.active =
+        `${tab.path}/` === activePath ||
         (index === 0 && `/${root}/` === activePath) ||
         tab.items.some(testForActive)
     })

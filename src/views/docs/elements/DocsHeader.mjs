@@ -9,7 +9,9 @@ export default function DocsHeader({ html, state }) {
       .filter((i) => i.type === 'tab')
       .forEach((tab) => {
         navItems.push(
-          `<li ${tab.active ? 'class="active"' : ''}>${tab.label}</li>`
+          `<li ${tab.active ? 'class="active"' : ''}>
+            <a href="${tab.path}/">${tab.label}</a>
+          </li>`
         )
       })
 
@@ -47,6 +49,8 @@ export default function DocsHeader({ html, state }) {
         padding: 0 1rem 0.25rem;
         margin-bottom: 0.25rem;
         border-bottom: 2px solid SeaShell;
+      }
+      header nav ul li a {
         color: Crimson;
       }
       header nav ul li.active {
