@@ -21,7 +21,7 @@
         "@enhance/store": "^1.0.0",
         "@enhance/styles": "^1.1.0",
         "arc-plugin-oauth": "^0.0.15",
-        "arcdown": "^0.3.2",
+        "arcdown": "^0.4.0",
         "css": "^3.0.0",
         "highlight.js": "^11.5.1",
         "html-beautify": "^1.0.4",

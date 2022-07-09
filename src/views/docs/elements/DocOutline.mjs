@@ -1,4 +1,25 @@
-export default function DocOutline({ html }) {
+function FurtherReading(links) {
+  const items = links.map((link) => {
+    let item
+    for (const label in link) {
+      item = `<li><a href="${link[label]}" target="_blank">${label}</a></li>`
+    }
+    return item
+  })
+
+  return /* html */ `
+    <strong>Further Reading</strong>
+    <ul class="list-none">
+      ${items.join('')}
+    </ul>
+  `
+}
+
+export default function DocOutline({ html, state }) {
+  const {
+    store: { doc },
+  } = state
+
   return html`
     <style>
       #outline {
@@ -18,10 +39,9 @@ export default function DocOutline({ html }) {
       <strong>On this page</strong>
       <slot name="toc"></slot>
 
-      <strong>Further Reading</strong>
-      <ul class="list-none">
-        <li>@enhance/ssr Reference</li>
-      </ul>
+      ${doc?.frontmatter?.links?.length > 0
+        ? FurtherReading(doc.frontmatter.links)
+        : ''}
 
       <strong>Contribute</strong>
       <ul class="list-none">
