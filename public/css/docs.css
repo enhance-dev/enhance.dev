@@ -2,20 +2,9 @@
   box-sizing: border-box;
 }
 
-docs-header  { grid-area: header }
-docs-sidebar { grid-area: sidebar }
-doc-content  { grid-area: main }
-doc-outline  { grid-area: outline }
-
 body {
-  display: grid;
-  grid-template-areas:
-    "header "
-    "sidebar"
-    "main   ";
   margin: 0;
   padding: 0 1rem;
-  gap: 0 1.5rem;
   font-family: system-ui;
   font-size: 16px;
   line-height: 1.5rem;
@@ -57,29 +46,4 @@ small {
 .hljs {
   padding: 1rem;
   white-space: pre-wrap;
-}
-
-@media only screen and (min-width: 50em) {
-  body {
-    grid-template-columns: 20rem 1fr;
-    grid-template-areas:
-      "header  header"
-      "sidebar main  "
-      "   .    main  ";
-  }
-
-  docs-sidebar, doc-outline {
-    position: sticky;
-    top: 1rem;
-  }
-}
-
-@media (min-width: 72rem) {
-  body {
-    grid-template-columns: 20rem 1fr 18rem;
-    grid-template-areas:
-      "header  header  header"
-      "sidebar  main  outline"
-      "   .     main    .   ";
-  }
 }
