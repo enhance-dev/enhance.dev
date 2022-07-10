@@ -50,7 +50,19 @@ export default function DocOutline({ html, state }) {
 
       <strong>Community</strong>
       <ul class="list-none">
+        <li>
+          <a href="https://github.com/orgs/enhance-dev" target="_blank"
+            >GitHub</a
+          >
+        </li>
         <li>Blog</li>
+        <li>
+          <a
+            href="https://github.com/orgs/enhance-dev/discussions"
+            target="_blank"
+            >Discussions</a
+          >
+        </li>
         <li>Discord</li>
       </ul>
     </aside>

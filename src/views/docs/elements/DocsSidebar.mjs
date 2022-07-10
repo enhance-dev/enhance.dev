@@ -85,6 +85,8 @@ export default function DocsSidebar({ html, state }) {
       }
       #sidebar input[type='radio'] + label {
         display: inline-block;
+        /* Hide tabs in favor of top nav */
+        display: none;
         cursor: pointer;
         text-align: center;
         line-height: 1.25rem;

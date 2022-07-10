@@ -10,7 +10,7 @@ export const data = [
   // only tabs allowed at top level
   {
     type: TYPE.tab,
-    label: 'Learn',
+    label: '🎓 Learn',
     slug: 'learn',
     items: [
       {
@@ -29,7 +29,8 @@ export const data = [
             path: '/docs/quick-start', // optional, absolute
             slug: 'quick-start',
           },
-          'install', // shorthand
+          'installation', // shorthand
+          'editor-setup',
         ],
       },
       {
@@ -99,7 +100,7 @@ export const data = [
   },
   {
     type: TYPE.tab,
-    label: 'Reference',
+    label: '📚 Reference',
     slug: 'reference',
     items: [
       {
@@ -126,6 +127,26 @@ export const data = [
             items: [{ slug: 'api', label: 'API' }],
           },
         ],
+      },
+    ],
+  },
+  {
+    type: TYPE.tab,
+    label: '🛠 By Example',
+    slug: 'by-example',
+    items: [
+      {
+        type: TYPE.category,
+        slug: 'progressive-enhancement',
+        items: [
+          { slug: 'smart-forms' },
+          { slug: 'navigation', label: 'Navigation & Menus' },
+        ],
+      },
+      {
+        type: TYPE.category,
+        slug: 'integrations',
+        items: [{ slug: 'fastify' }, { slug: 'astro' }],
       },
     ],
   },
