@@ -1,4 +1,6 @@
-# Why Enhance?
+---
+title: Why Enhance?
+---
 
 When we set out to build our first Functional Web Apps we reached for the "obvious" choice and went with a modern, compiler based, virtual DOM centric, JavaScript framework.
 
