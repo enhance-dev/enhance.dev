@@ -10,7 +10,7 @@ export default function DocsLayout({ html, state }) {
         grid-template-areas:
           'header '
           'sidebar'
-          'main   ';
+          'content';
         gap: 0 1.5rem;
       }
       docs-layout docs-header {
@@ -19,8 +19,8 @@ export default function DocsLayout({ html, state }) {
       docs-layout docs-sidebar {
         grid-area: sidebar;
       }
-      docs-layout main {
-        grid-area: main;
+      docs-layout doc-content {
+        grid-area: content;
       }
       docs-layout doc-outline {
         grid-area: outline;
@@ -31,9 +31,9 @@ export default function DocsLayout({ html, state }) {
         docs-layout {
           grid-template-columns: 20rem 1fr;
           grid-template-areas:
-            'header  header'
-            'sidebar main  '
-            '   .    main  ';
+            'header   header'
+            'sidebar content'
+            '   .    content';
         }
 
         docs-sidebar,
@@ -48,9 +48,9 @@ export default function DocsLayout({ html, state }) {
         docs-layout {
           grid-template-columns: 20rem 1fr 18rem;
           grid-template-areas:
-            'header  header  header'
-            'sidebar  main  outline'
-            '   .     main    .   ';
+            'header  header   header'
+            'sidebar content outline'
+            '   .    content    .   ';
         }
       }
     </style>
@@ -59,9 +59,11 @@ export default function DocsLayout({ html, state }) {
 
     <docs-sidebar></docs-sidebar>
 
-    <main>
-      <article>${doc.title ? `<h1>${doc.title}</h1>` : ''} ${doc.html}</article>
-    </main>
+    <doc-content>
+      <article slot="doc">
+        ${doc.title ? `<h1>${doc.title}</h1>` : ''} ${doc.html}
+      </article>
+    </doc-content>
 
     <doc-outline>
       <div slot="toc">${doc.tocHtml}</div>
