@@ -1,4 +1,3 @@
-/* eslint-disable filenames/match-regex */
 const TYPE = {
   category: 'category',
   doc: 'doc',

@@ -1,13 +1,13 @@
-import DocContent from './DocContent.mjs'
-import DocOutline from './DocOutline.mjs'
-import DocsLayout from './DocsLayout.mjs'
-import Header from './DocsHeader.mjs'
-import Sidebar from './DocsSidebar.mjs'
+import Content from './doc-content.mjs'
+import Header from './docs-header.mjs'
+import Layout from './docs-layout.mjs'
+import Outline from './doc-outline.mjs'
+import Sidebar from './docs-sidebar.mjs'
 
 export default {
-  'doc-content': DocContent,
-  'doc-outline': DocOutline,
+  'doc-content': Content,
+  'doc-outline': Outline,
   'docs-header': Header,
-  'docs-layout': DocsLayout,
+  'docs-layout': Layout,
   'docs-sidebar': Sidebar,
 }

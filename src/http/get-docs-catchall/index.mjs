@@ -4,7 +4,7 @@ import arc from '@architect/functions'
 import renderMd from 'arcdown'
 import enhance from '@enhance/ssr'
 import elements from '@architect/views/docs/elements/index.mjs'
-import sidebarDataLoader from '@architect/views/docs/sidebarData.mjs'
+import sidebarDataLoader from '@architect/views/docs/sidebar-data.mjs'
 
 // Configuration
 const docsRoute = 'docs' // this should match app.arc catchall
