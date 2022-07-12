@@ -40,7 +40,7 @@
         "eslint-plugin-prettier": "^4.2.1",
         "prettier": "^2.7.1",
         "prettier-eslint": "^15.0.1",
-        "tap-arc": "^0.3.4",
+        "tap-arc": "^0.3.5",
         "tape": "^5.5.3",
         "tiny-json-http": "^7.4.2"
     },

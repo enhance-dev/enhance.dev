@@ -10,6 +10,7 @@ get /
 
 # Docs
 get /docs/*
+get /docs # redirects to /docs/
 
 # Waitlist
 get /waitlist
