@@ -5,7 +5,7 @@ export default function DocsLayout({ html, state }) {
   return html`
     <style>
       /* mobile-ish */
-      docs-layout {
+      :host {
         display: grid;
         grid-template-areas:
           'header '
@@ -13,22 +13,23 @@ export default function DocsLayout({ html, state }) {
           'content';
         gap: 0 1.5rem;
       }
-      docs-layout docs-header {
+      :host docs-header {
         grid-area: header;
       }
-      docs-layout docs-sidebar {
+      :host docs-sidebar {
         grid-area: sidebar;
       }
-      docs-layout doc-content {
+      :host doc-content {
         grid-area: content;
       }
-      docs-layout doc-outline {
+      :host doc-outline {
         grid-area: outline;
+        display: none;
       }
 
       @media only screen and (min-width: 50em) {
         /* tablet-ish */
-        docs-layout {
+        :host {
           grid-template-columns: 20rem 1fr;
           grid-template-areas:
             'header   header'
@@ -45,12 +46,15 @@ export default function DocsLayout({ html, state }) {
 
       @media (min-width: 72rem) {
         /* widescreen */
-        docs-layout {
+        :host {
           grid-template-columns: 20rem 1fr 18rem;
           grid-template-areas:
             'header  header   header'
             'sidebar content outline'
             '   .    content    .   ';
+        }
+        doc-outline {
+          display: block;
         }
       }
     </style>

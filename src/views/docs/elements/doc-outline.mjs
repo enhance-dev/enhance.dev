@@ -21,21 +21,7 @@ export default function DocOutline({ html, state }) {
   } = state
 
   return html`
-    <style>
-      #outline {
-        display: none;
-      }
-      #outline > * {
-        margin-bottom: 2rem;
-      }
-      @media (min-width: 72rem) {
-        #outline {
-          display: block;
-        }
-      }
-    </style>
-
-    <aside id="outline">
+    <aside>
       <strong>On this page</strong>
       <slot name="toc"></slot>
 

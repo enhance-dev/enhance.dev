@@ -17,30 +17,30 @@ export default function DocsHeader({ html, state }) {
 
   return html`
     <style>
-      header {
+      :host header {
         width: 100%;
         display: flex;
         justify-content: space-between;
         align-items: center;
       }
-      header h1 a {
+      :host h1 a {
         display: inline-block;
         transition: transform ease 0.2s;
       }
-      header h1 a:hover {
+      :host h1 a:hover {
         transform: rotate(5deg);
       }
-      header h1 a.enhance-link {
+      :host h1 a.enhance-link {
         color: DarkOrchid;
       }
-      header h1 a.docs-link {
+      :host h1 a.docs-link {
         color: DarkSalmon;
       }
 
-      header nav ul {
+      :host nav ul {
         list-style: none;
       }
-      header nav ul li {
+      :host nav ul li {
         display: inline-block;
         cursor: pointer;
         text-align: center;
@@ -50,10 +50,10 @@ export default function DocsHeader({ html, state }) {
         margin-bottom: 0.25rem;
         border-bottom: 2px solid SeaShell;
       }
-      header nav ul li a {
+      :host nav ul li a {
         color: Crimson;
       }
-      header nav ul li.active {
+      :host nav ul li.active {
         border-bottom: 2px solid LightSalmon;
       }
     </style>

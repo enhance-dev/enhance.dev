@@ -3,6 +3,7 @@ import { URL } from 'url'
 import arc from '@architect/functions'
 import renderMd from 'arcdown'
 import enhance from '@enhance/ssr'
+import styleTransform from '@enhance/enhance-style-transform'
 import elements from '@architect/views/docs/elements/index.mjs'
 import sidebarDataLoader from '@architect/views/docs/sidebar-data.mjs'
 
@@ -32,6 +33,7 @@ async function http(request) {
       doc,
       sidebarData: sidebarDataLoader(docsRoute, activePath),
     },
+    styleTransforms: [styleTransform],
   })
 
   return {

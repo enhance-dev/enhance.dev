@@ -77,13 +77,13 @@ export default function DocsSidebar({ html, state }) {
 
   return html`
     <style>
-      .tab-content {
+      :host .tab-content {
         display: none;
       }
       ${tabStyles.join(', ')} {
         display: block;
       }
-      #sidebar input[type='radio'] + label {
+      :host input[type='radio'] + label {
         display: inline-block;
         /* Hide tabs in favor of top nav */
         display: none;
@@ -97,44 +97,44 @@ export default function DocsSidebar({ html, state }) {
         border-bottom: 2px solid SeaShell;
         color: Crimson;
       }
-      #sidebar input[type='radio'] {
+      :host input[type='radio'] {
         display: none;
       }
-      #sidebar input:checked + label {
+      :host input:checked + label {
         border-bottom: 2px solid LightSalmon;
       }
-      #sidebar li a {
+      :host li a {
         padding: 0.2rem 0;
         display: block;
         padding-left: 0.3rem;
       }
-      #sidebar li a:hover {
+      :host li a:hover {
         border-left: 2px solid LightSteelBlue;
         margin-left: -2px;
         background-color: Azure;
         text-decoration: none;
       }
-      #sidebar li a.active {
+      :host li a.active {
         border-left: 2px solid CornflowerBlue;
         margin-left: -2px;
         background-color: AliceBlue;
       }
-      #sidebar .category-label {
+      :host .category-label {
         margin-top: 1rem;
       }
-      #sidebar .category-label {
+      :host .category-label {
         line-height: 1.2rem;
         text-transform: uppercase;
         font-weight: bold;
         border-bottom: 1px solid WhiteSmoke;
       }
-      #sidebar .description {
+      :host .description {
         line-height: 1rem;
         font-size: 0.75rem;
         color: DarkGray;
       }
     </style>
 
-    <aside id="sidebar">${tabLabels} ${tabs}</aside>
+    <aside>${tabLabels} ${tabs}</aside>
   `
 }
