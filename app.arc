@@ -32,7 +32,6 @@ get /testtag
 @events
 repl-secure-sandbox
 
-
 @plugins
 arc-plugin-oauth
 architect/plugin-bundles
@@ -47,7 +46,6 @@ beautify './node_modules/js-beautify/js/index.js'
 transform './node_modules/@enhance/enhance-style-transform/src/style-transform.mjs'
 hljs './node_modules/highlight.js/lib/core.js'
 hljsXML './node_modules/highlight.js/lib/languages/xml.js'
-
 
 @oauth
 use-mock true

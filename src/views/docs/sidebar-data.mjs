@@ -76,7 +76,7 @@ export const data = [
             path: '/docs/learn/practices/base-element/',
             items: ['light', 'shady', 'shadow'],
           },
-          'css-utility-classes',
+          { slug: 'css-utility-classes', label: 'CSS Utility Classes' },
           'bundling-plugin',
           'progressive-enhancement',
           { slug: 'ssg', label: 'SSG' },
@@ -117,12 +117,16 @@ export const data = [
         label: 'Complementary Libraries',
         slug: 'libraries',
         items: [
+          'enhance-style-transform',
+          'enhance-import-transform',
           {
             slug: 'enhance-styles',
+            path: '/docs/reference/libraries/enhance-styles/',
             items: [{ slug: 'api', label: 'API' }, 'examples'],
           },
           {
             slug: 'enhance-data',
+            path: '/docs/reference/libraries/enhance-data/',
             items: [{ slug: 'api', label: 'API' }],
           },
         ],
