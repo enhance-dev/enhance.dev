@@ -45,7 +45,7 @@ export default function TutorialPage({ html, state = {} }) {
                 </code-editor>
                 ${components
                   .map((component, i) => {
-                    return ` 
+                    return `
                   <span slot="title${i + 2}">${component.name}</span>
                   <code-editor
                     slot="content${i + 2}"

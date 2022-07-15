@@ -1,7 +1,7 @@
 {
     "name": "enhance.dev",
     "version": "1.0.0-alpha.1",
-    "description": "Enhance landing page docs and tutorial",
+    "description": "Enhance landing page, docs, and tutorial",
     "type": "module",
     "scripts": {
         "start": "ARC_TABLES_PORT=5555 arc sandbox",
@@ -10,41 +10,39 @@
         "test:unit": "ARC_TABLES_PORT=5555 cross-env tape 'test/**/*-test.js' --verbose | tap-arc ",
         "styles": "mkdir -p public/css && enhance ./css-config.json > ./public/css/styles.css"
     },
+    "dependencies": {
+        "@architect/functions": "^5.2.1",
+        "@architect/plugin-bundles": "^3.0.1",
+        "@begin/codemirror": "^0.0.3",
+        "@begin/data": "^4.0.0-RC.2",
+        "@enhance/enhance-style-transform": "0.0.1-alpha.1",
+        "@enhance/import-transform": "^4.0.0",
+        "@enhance/ssr": "^2.3.3",
+        "@enhance/store": "^1.0.0",
+        "@enhance/styles": "^1.1.0",
+        "arc-plugin-oauth": "^0.0.15",
+        "arcdown": "^0.5.0",
+        "css": "^3.0.0",
+        "highlight.js": "^11.5.1",
+        "html-beautify": "^1.0.4",
+        "js-beautify": "^1.14.4",
+        "nanoid": "^4.0.0",
+        "prismjs": "^1.27.0",
+        "ulid": "^2.3.0",
+        "xss": "^1.0.13"
+    },
     "devDependencies": {
         "@architect/architect": "^10.3.3",
         "@architect/eslint-config": "^2.0.1",
         "cross-env": "^7.0.3",
-        "eslint": "^8.4.1",
-        "eslint-config-prettier": "^8.3.0",
-        "eslint-plugin-prettier": "^4.0.0",
-        "prettier": "^2.5.1",
-        "prettier-eslint": "^13.0.0",
-        "tap-arc": "^0.1.1",
-        "tape": "^5.5.2",
-        "tiny-json-http": "^7.3.0"
-    },
-    "dependencies": {
-        "@architect/functions": "^5.0.4",
-        "@architect/plugin-bundles": "^3.0.1",
-        "@begin/codemirror": "^0.0.3",
-        "@begin/data": "^4.0.0-RC.2",
-        "@enhance/enhance-style-transform": "github:enhance-dev/enhance-style-transform",
-        "@enhance/import-transform": "^4.0.0",
-        "@enhance/ssr": "^2.3.2",
-        "@enhance/store": "^1.0.0",
-        "@enhance/styles": "^1.0.0",
-        "arc-plugin-oauth": "^0.0.15",
-        "arcdown": "^0.2.0",
-        "css": "^3.0.0",
-        "highlight.js": "^11.5.1",
-        "html-beautify": "^1.0.4",
-        "js-beautify": "^1.14.1",
-        "markdown-it": "^12.3.2",
-        "markdown-it-attrs": "^4.1.3",
-        "nanoid": "^3.3.2",
-        "prismjs": "^1.27.0",
-        "ulid": "^2.3.0",
-        "xss": "^1.0.8"
+        "eslint": "^8.19.0",
+        "eslint-config-prettier": "^8.5.0",
+        "eslint-plugin-prettier": "^4.2.1",
+        "prettier": "^2.7.1",
+        "prettier-eslint": "^15.0.1",
+        "tap-arc": "^0.3.5",
+        "tape": "^5.5.3",
+        "tiny-json-http": "^7.4.2"
     },
     "eslintConfig": {
         "extends": [
@@ -62,7 +60,7 @@
                     "singleQuote": true,
                     "tabWidth": 2,
                     "useTabs": false,
-                    "trailingComma": "none",
+                    "trailingComma": "es5",
                     "bracketSameLine": true
                 }
             ]
