@@ -35,12 +35,10 @@ export default function EnhanceRunnerTemplate({ html }) {
         }
 
         async update(docs) {
-          const components = Object.keys(docs).filter((i) =>
-            i.startsWith('tab-')
-          )
-          const source = { entrySrc: docs.entrySrc }
+          const components = Object.keys(docs).filter((i) => i !== 'entry')
+          const source = { entrySrc: docs.entry }
           components.forEach((i) => (source[i] = docs[i]))
-          const userDoc = await process(source, components)
+          const userDoc = await process(source, this.editorNames)
           this.api.repl.update({
             name: 'enhancedMarkup',
             doc: userDoc.enhancedMarkup
@@ -55,8 +53,9 @@ export default function EnhanceRunnerTemplate({ html }) {
             const elements = {}
             components.forEach((i) => {
               const componentFunction = funkifyComponent(repl[i])
-              const tagName = getTagName(repl[i])
-              if (tagName) elements[tagName] = componentFunction()
+              //const tagName = getTagName(repl[i])
+              //if (tagName) elements[tagName] = componentFunction()
+              if (i) elements[i] = componentFunction()
             })
 
             const html = enhance({

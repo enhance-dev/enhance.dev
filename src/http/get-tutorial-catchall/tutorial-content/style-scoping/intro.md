@@ -22,7 +22,7 @@ export default function({html}){
         color:red;
       }
     </style>
-    <div class="container>
+    <div class="container">
       <slot></slot>
     </div>
   `
@@ -42,5 +42,5 @@ export default function({html}){
 </style>
 ```
 
-
+<show-solution></show-solution>
 

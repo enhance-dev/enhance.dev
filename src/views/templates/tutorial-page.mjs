@@ -4,9 +4,7 @@ export default function TutorialPage({ html, state = {} }) {
   const repl = store?.repl?.replState || {}
   const openEditor = repl?.openEditor || 1
   const openPreview = repl?.openPreview || 1
-  const components = Object.keys(repl)
-    .filter((i) => i.startsWith('tab-'))
-    .sort((a, b) => a - b)
+  const components = repl?.source?.components
   return html`
     <style>
       :host {
@@ -43,17 +41,16 @@ export default function TutorialPage({ html, state = {} }) {
                 <code-editor
                   slot="content1"
                   form-name="run-repl"
-                  doc-name="entrySrc">
+                  doc-name="entry">
                 </code-editor>
                 ${components
-                  .map((name, i) => {
-                    const tabNumber = (i + 1).toString()
+                  .map((component, i) => {
                     return ` 
-                  <span slot="title${i + 2}">tab-${tabNumber}</span>
+                  <span slot="title${i + 2}">${component.name}</span>
                   <code-editor
                     slot="content${i + 2}"
                     form-name="run-repl"
-                    doc-name="tab-${tabNumber}">
+                    doc-name="${component.name}">
                   </code-editor>
               `
                   })
@@ -92,9 +89,9 @@ export default function TutorialPage({ html, state = {} }) {
               class=" text0 border1 border-dark border-solid radius0 p-4 "punctuation
               form="run-repl"
               formmethod="POST"
-              formaction="/tutorial?${
-                key ? `key=${key}` : ''
-              }&deleteTab=${tabName}"
+              formaction="/tutorial?${key ? `key=${key}` : ''}&deleteTab=${
+    components[0].name
+  }"
               type="submit"
              >Delete Tab</button>
              <span>Do you want to delete this tab and it's contents? This cannot be undone.</span></div>

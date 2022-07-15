@@ -8,50 +8,8 @@ let html = initRender()
 
 const cache = {}
 
-const entryBoilerplate = `
- //import enhance from '@enhance/ssr'
- //import elements from '@architect/views/elements.mjs'
-
- export default async function handler() {
-  // const html = enhance({
-  //   elements,
-  //   initialState: {}
-  // })
-
-     return {
-       document: html\`<div>hello</div>\`
-       //<login-page></login-page>
-     }
- }
- `
-
-const templateBoilerplate = `
- export default function LoginPage({html,state = {}}) {
-   return  html\`
-     <a href="#">
-       <button>Login with GitHub</button>
-     </a>
-     <pre><code>
-
- </code></pre>
-
-     <script type="module">
-       class LoginPage extends HTMLElement {
-         constructor() {
-           super()
-         }
-
-         connectedCallback() {}
-       }
-
-       customElements.define('login-page', LoginPage)
-     </script>
-   \`
- }
- `
-
 export default async function HTML(req) {
-  const { pathParameters } = req
+  const { pathParameters, query } = req
   const { proxy } = pathParameters
   const parts = proxy.split('/')
   const docName = parts.pop()
@@ -86,19 +44,13 @@ export default async function HTML(req) {
     docBody = cache[docFilePath] = result.html
   }
 
-  const key = req.query?.key
+  const key = query?.key
+  const solution =
+    query.hasOwnProperty('solution') &&
+    query.solution !== false &&
+    query.solution !== 'false'
   let repl
   try {
-    // let repl = {
-    //   enhancedMarkup: '',
-    //   previewDoc: '',
-    //   entrySrc: srcCode?.entry || '',
-    //   'tab-1': srcCode?.['tab-1'] || '',
-    //   'tab-2': srcCode?.['tab-2'] || '',
-    //   openEditor: 1,
-    //   openPreview: 1
-    // }
-
     if (key) {
       const result = await poll(
         async () => data.get({ table: 'repl', key }),
@@ -109,12 +61,13 @@ export default async function HTML(req) {
     } else {
       repl = (await import(codeFilePath)).default
     }
-
+    console.log({ proxy })
     const initialState = {
       repl,
+      solution: solution ? true : false,
       loggedIn: false,
       theme: { ['lg-screen']: '48em' },
-      location: '/tutorial',
+      location: `/tutorial/${proxy}`,
       menuLinks: [
         { name: 'Docs', location: '/docs' },
         { name: 'Tutorial', location: '/tutorial' },

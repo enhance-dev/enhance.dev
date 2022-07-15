@@ -1,7 +1,18 @@
 export default function CodeEditorTemplate({ html, state = {} }) {
+  const store = state?.store || {}
+  const solution = store.solution
+  console.log({ solution })
   const formName = state?.attrs?.['form-name'] || ''
   const docName = state?.attrs?.['doc-name'] || ''
-  const initialDoc = state?.store?.repl?.[docName] || ''
+  let initialDoc
+  if (docName === 'entry')
+    initialDoc =
+      store?.repl?.[solution ? 'solutionState' : 'replState']?.source?.entry
+        ?.code || ''
+  else
+    initialDoc = store?.repl?.[
+      solution ? 'solutionState' : 'replState'
+    ]?.source?.components?.find((i) => i.name === docName)?.code
   return html`
     <style>
       :host {

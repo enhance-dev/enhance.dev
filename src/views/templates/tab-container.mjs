@@ -118,7 +118,7 @@ export default function TabContainerTemplate({ html, state = {} }) {
               <label for="tab${i + 1}-${id}"
                 ><slot name="title${i + 1}">tab${i + 1}</slot>
                 ${
-                  addTabs && i > 0
+                  false && addTabs && i > 0
                     ? /* html*/ ` <modal-dialog>
                   <span class="text0 inline-icon" slot="trigger">
                     <svg
@@ -210,7 +210,6 @@ export default function TabContainerTemplate({ html, state = {} }) {
         }
         connectedCallback() {}
         addTab() {
-          console.log('trying to add')
           const id = Math.random().toString(32).slice(2)
           const group = this.querySelector('input').getAttribute('name')
           //TODO: Fix replKey

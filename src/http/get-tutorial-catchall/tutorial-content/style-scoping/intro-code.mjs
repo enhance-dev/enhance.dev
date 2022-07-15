@@ -45,13 +45,14 @@ export default {
         code: `
 export default async function handler() {
   return {
-    document: html\`<div style="color:red;">"hello" "goodbye" <div>\`
+    document: html\`<div style="color:red;">"hello" "goodbye" </div>\`
   }
 }`
       },
-      tabs: [
+      components: [
         {
-          'login-page': `
+          name: 'login-page',
+          code: `
 export default function LoginPage({html,state = {}}) {
   return  html\`
     <button>Login</button>
@@ -67,7 +68,8 @@ export default function LoginPage({html,state = {}}) {
       }`
         },
         {
-          'my-div': `
+          name: 'my-div',
+          code: `
 export default function MyDiv({html,state = {}}) {
   return  html\`
     <style>
@@ -97,7 +99,7 @@ export default async function handler() {
   }
 }`
       },
-      tabs: [
+      components: [
         {
           'login-page': `
 export default function LoginPage({html,state = {}}) {

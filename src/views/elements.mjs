@@ -21,6 +21,7 @@ import TabsTabs from './templates/tabs-tabs.mjs'
 import AppWrap from './templates/app-wrap.mjs'
 import ModalClose from './templates/modal-close.mjs'
 import ModalTrigger from './templates/modal-trigger.mjs'
+import ShowSolution from './templates/show-solution.mjs'
 export default {
   'coming-soon': ComingSoon,
   'email-signup': EmailSignup,
@@ -44,5 +45,6 @@ export default {
   'app-wrap': AppWrap,
   'modal-close': ModalClose,
   'modal-trigger': ModalTrigger,
+  'show-solution': ShowSolution,
   'markup-preview': MarkupPreview
 }
