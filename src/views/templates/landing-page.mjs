@@ -19,9 +19,7 @@ export default function LandingPage({ html }) {
           pl1
         ">
         <page-header>
-          <span slot="title">
-            ✨enhance
-          </span>
+          <span slot="title"> ✨enhance </span>
           <span slot="subtitle">
             The Web Native framework for your Functional Web App
           </span>

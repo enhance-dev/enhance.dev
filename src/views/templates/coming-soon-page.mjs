@@ -8,7 +8,6 @@ export default function ComingSoon({ html }) {
         max-width: 48rem;
       }
     </style>
-    <link rel="stylesheet" href="/components/styles.css" />
     <div class="bg-p2 text-p1">
       <nav-bar></nav-bar>
       <div class="m-auto max-w-lg h-screen ">

@@ -7,30 +7,49 @@ folder public
 
 @http
 get /
-get /waitlist 
+
+# Docs
+get /docs/*
+get /docs # redirects to /docs/
+
+# Waitlist
+get /waitlist
 post /email/interest/add
 get /email/thank
 
+# Tutorial
+get /tutorial/*
+post /tutorial
+post /tutorialrepl
+
+# REPL
+get /playground
+post /playground
+post /repl
+
+get /testtag
+
+@events
+repl-secure-sandbox
+
 @plugins
 arc-plugin-oauth
-plugin-importmap
+architect/plugin-bundles
 
-@importmap
-api './src/components/data/api.mjs'
-worker './src/components/data/worker.mjs'
-socket './src/components/data/socket.mjs'
+@bundles
+api './src/module/data/api.mjs'
+worker './src/module/data/worker.mjs'
 store './node_modules/@enhance/store/index.mjs'
-#codemirror 
-#enhance 
-#parse5 
-#prism
-#beautify_js
-#beautify_html
-#beautify_css
+codemirror './node_modules/@begin/codemirror/dist/index.js'
+enhance  './node_modules/@enhance/ssr/index.mjs'
+beautify './node_modules/js-beautify/js/index.js'
+transform './node_modules/@enhance/enhance-style-transform/src/style-transform.mjs'
+hljs './node_modules/highlight.js/lib/core.js'
+hljsXML './node_modules/highlight.js/lib/languages/xml.js'
 
 @oauth
-use-mock true 
-allow-list allow.mjs 
+use-mock true
+allow-list allow.mjs
 un-auth-redirect /waitlist
 
 @tables

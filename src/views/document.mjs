@@ -8,6 +8,7 @@ export default function Document(body = '', arcStatic = () => '') {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="${arcStatic('/css/styles.css')}"/>
+    <link rel="stylesheet" href="${arcStatic('/css/syntax.css')}"/>
     <style>
       .bg-gradient {
         background-image: var(--bg-gradient)
@@ -34,6 +35,9 @@ export default function Document(body = '', arcStatic = () => '') {
       }
       .border-gradient {
         border-color: var(--purple);
+      }
+      .border-dark{
+        border-color: var(--dark);
       }
       .max-w-form {
         max-width: 21.78rem;
