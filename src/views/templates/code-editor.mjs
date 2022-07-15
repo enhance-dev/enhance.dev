@@ -1,7 +1,6 @@
 export default function CodeEditorTemplate({ html, state = {} }) {
   const store = state?.store || {}
-  const solution = store.solution
-  console.log({ solution })
+  const solution = store?.solution || ''
   const formName = state?.attrs?.['form-name'] || ''
   const docName = state?.attrs?.['doc-name'] || ''
   let initialDoc
@@ -83,7 +82,7 @@ ${initialDoc}</textarea
         EditorView,
         keymap,
         indentWithTab,
-        javascript
+        javascript,
       } from '/_static/bundles/codemirror.mjs'
       import Store from '/_static/bundles/store.mjs'
       import API from '/_static/bundles/api.mjs'
@@ -94,7 +93,7 @@ ${initialDoc}</textarea
           super()
           this.api = API({
             worker: new Worker('__API_WORKER__'),
-            store: Store()
+            store: Store(),
           })
           this.update = this.update.bind(this)
           this.textarea = this.querySelector('textarea.no-js-editor')
@@ -113,11 +112,11 @@ ${initialDoc}</textarea
                 basicSetup,
                 keymap.of([indentWithTab]),
                 javascript(),
-                EditorView.updateListener.of(this.update)
-              ]
+                EditorView.updateListener.of(this.update),
+              ],
             }),
 
-            parent: this.editorContainer
+            parent: this.editorContainer,
           })
         }
 
@@ -129,8 +128,8 @@ ${initialDoc}</textarea
             changes: {
               from: 0,
               to: this.editor.state.doc.length,
-              insert: beautify.js_beautify(this.text)
-            }
+              insert: beautify.js_beautify(this.text),
+            },
           })
           this.editor.dispatch(formatted)
         }

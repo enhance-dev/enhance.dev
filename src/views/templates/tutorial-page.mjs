@@ -4,7 +4,7 @@ export default function TutorialPage({ html, state = {} }) {
   const repl = store?.repl?.replState || {}
   const openEditor = repl?.openEditor || 1
   const openPreview = repl?.openPreview || 1
-  const components = repl?.source?.components
+  const components = repl?.source?.components || []
   return html`
     <style>
       :host {
@@ -90,7 +90,7 @@ export default function TutorialPage({ html, state = {} }) {
               form="run-repl"
               formmethod="POST"
               formaction="/tutorial?${key ? `key=${key}` : ''}&deleteTab=${
-    components[0].name
+    components[0]?.name
   }"
               type="submit"
              >Delete Tab</button>
