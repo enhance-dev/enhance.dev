@@ -32,7 +32,9 @@ const doc = await renderMd(docMarkdown
 So the source authored in .md looks like:
 
 ````html
-<doc-code>
+<!-- the lang attr defaults to "javascript -->
+<!-- the lang attr isn't used yet -->
+<doc-code lang="javascript">
 
 ```javascript
 const { path: activePath, pathParameters } = request
@@ -50,21 +52,44 @@ const doc = await renderMd(docMarkdown
 </doc-code>
 ````
 
-### Without the custom element
+Try some Markdown...
 
-And without the `<doc-code>` element, it renders as:
+<!-- the lang attr isn't used yet -->
+<doc-code lang="markdown">
 
-```javascript
-const { path: activePath, pathParameters } = request
-let docPath = pathParameters?.proxy || 'index'
-if (docPath.match(/\/$/)) docPath += 'index' // trailing slash == index.md file
+```markdown
+# This is a title
 
-const docURL = new URL(
-  `./node_modules/@architect/views/docs/md/${docPath}.md`,
-  import.meta.url
-)
-const docMarkdown = readFileSync(docURL.pathname, 'utf-8')
-const doc = await renderMd(docMarkdown
+## a subtitle
+
+> blockquote
 ```
 
-Obviously this would work better if we visually matched CodeMirror's styling.
+</doc-code>
+
+and some PHP!
+
+<!-- the lang attr isn't used yet -->
+<doc-code lang="php">
+
+```php
+<?php
+class FooModel
+{
+    protected $db;
+    public function __construct(PDO $db)
+    {
+        $this->db = $db;
+    }
+    public function getAllFoos() {
+        return $this->db->query('SELECT * FROM table');
+    }
+}
+?>
+
+<?php foreach ($fooList as $row): ?>
+    <li><?= $row['field1'] ?> - <?= $row['field1'] ?></li>
+<?php endforeach ?>
+```
+
+</doc-code>
