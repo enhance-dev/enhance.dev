@@ -60,17 +60,24 @@ Try some Markdown...
 ```markdown
 # This is a title
 
+Some _lorem_ **ipsum**...
+
 ## a subtitle
 
 > blockquote
+
+* lists
+* are nice
+* 
+* mostly
 ```
 
 </doc-code>
 
 and some PHP!
 
-<!-- the lang attr isn't used yet -->
-<doc-code lang="php">
+<!-- none of these attributes are used yet -->
+<doc-code lang="php" line-start=15 active-lines="9-11" editable>
 
 ```php
 <?php
