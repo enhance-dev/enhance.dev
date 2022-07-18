@@ -48,13 +48,13 @@ export default function DocsHeader({ html, state }) {
         font-size: 1.15rem;
         padding: 0 1rem 0.25rem;
         margin-bottom: 0.25rem;
-        border-bottom: 2px solid SeaShell;
+        border-bottom: 2px solid var(--color-charlie-lightest);
       }
       :host nav ul li a {
-        color: Crimson;
+        color: var(--color-charlie);
       }
       :host nav ul li.active {
-        border-bottom: 2px solid LightSalmon;
+        border-bottom: 2px solid var(--color-charlie-lighter);
       }
     </style>
 

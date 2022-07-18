@@ -46,10 +46,10 @@ async function http(request) {
             content="width=device-width, minimum-scale=1, initial-scale=1" />
           <title>Enhance Docs${` - "${doc.title}"` || ''}</title>
           <link rel="icon" href="https://fav.farm/✨" />
+          <link rel="stylesheet" href="${arc.static('css/docs.css')}" />
           <link
             rel="stylesheet"
             href="https://unpkg.com/highlight.js@11.5.1/styles/night-owl.css" />
-          <link rel="stylesheet" href="${arc.static('css/docs.css')}" />
         </head>
         <body>
           <docs-layout></docs-layout>

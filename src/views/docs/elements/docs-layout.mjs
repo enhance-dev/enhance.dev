@@ -8,21 +8,21 @@ export default function DocsLayout({ html, state }) {
       :host {
         display: grid;
         grid-template-areas:
-          'header '
+          'header'
           'sidebar'
           'content';
         gap: 0 1.5rem;
       }
-      :host docs-header {
+      docs-header {
         grid-area: header;
       }
-      :host docs-sidebar {
+      docs-sidebar {
         grid-area: sidebar;
       }
-      :host doc-content {
+      doc-content {
         grid-area: content;
       }
-      :host doc-outline {
+      doc-outline {
         grid-area: outline;
         display: none;
       }

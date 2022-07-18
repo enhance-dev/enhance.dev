@@ -1,3 +1,80 @@
+/* Light Theme */
+:root,
+:root[data-force-theme-mode='light'] {
+	color-scheme: light;
+	--background-color: White;
+
+  --color-alpha: DarkSlateGray;
+  --color-alpha-light: SlateGray;
+  --color-alpha-lighter: DarkGray;
+  --color-alpha-lightest: WhiteSmoke;
+
+  --color-bravo: DarkSlateBlue;
+  --color-bravo-light: CornflowerBlue;
+  --color-bravo-lighter: LightSteelBlue;
+  --color-bravo-lightest: AliceBlue;
+
+  --color-charlie: Crimson;
+  --color-charlie-light: DarkSalmon;
+  --color-charlie-lighter: LightSalmon;
+  --color-charlie-lightest: Seashell;
+
+  --color-delta: DarkGray;
+  --color-delta-light: WhiteSmoke;
+  --color-delta-lighter: Snow;
+  --color-delta-lightest: White;
+}
+/* Dark Theme */
+:root[data-force-theme-mode='dark'] {
+  --background-color: #121212;
+
+  --color-alpha: #ddd;
+  --color-alpha-light: DarkGray;
+  --color-alpha-lighter: SlateGray;
+  --color-alpha-lightest: DarkSlateGray;
+
+  --color-bravo: #aae;
+  --color-bravo-light: #3a3a5a;
+  --color-bravo-lighter: #2c2c4c;
+  --color-bravo-lightest: #191939;
+
+  --color-charlie: Crimson;
+  --color-charlie-light: DarkSalmon;
+  --color-charlie-lighter: LightSalmon;
+  --color-charlie-lightest: DarkSlateGray;
+
+  --color-delta: #444;
+  --color-delta-light: #272727;
+  --color-delta-lighter: #191919;
+  --color-delta-lightest: Black;
+}
+/* Dark Theme: System */
+@media (prefers-color-scheme: dark) {
+	:root {
+		--background-color: #121212;
+
+    --color-alpha: #ddd;
+    --color-alpha-light: DarkGray;
+    --color-alpha-lighter: SlateGray;
+    --color-alpha-lightest: DarkSlateGray;
+
+    --color-bravo: #aae;
+    --color-bravo-light: #3a3a5a;
+    --color-bravo-lighter: #2c2c4c;
+    --color-bravo-lightest: #191939;
+
+    --color-charlie: Crimson;
+    --color-charlie-light: DarkSalmon;
+    --color-charlie-lighter: LightSalmon;
+    --color-charlie-lightest: DarkSlateGray;
+
+    --color-delta: #444;
+    --color-delta-light: #272727;
+    --color-delta-lighter: #191919;
+    --color-delta-lightest: Black;
+	}
+}
+
 *, *:before, *:after {
   box-sizing: border-box;
 }
@@ -8,20 +85,21 @@ body {
   font-family: system-ui;
   font-size: 16px;
   line-height: 1.5rem;
-  color: #444;
+  background-color: var(--background-color);
+  color: var(--color-alpha);
 }
 
 a {
   text-decoration: none;
-  color: DarkSlateBlue;
+  color: var(--color-bravo)
 }
 
 strong {
-  color: DarkSlateGray;
+  color: var(--color-alpha);
 }
 
 small {
-  color: DarkGray;
+  color: var(--color-alpha-light);
 }
 
 .list-none {

@@ -47,94 +47,70 @@ export default function DocsSidebar({ html, state }) {
   const { store } = state
   const { sidebarData } = store
 
-  let tabLabels = ''
   let tabs = ''
-  let tabStyles = []
 
   if (sidebarData?.length > 0)
     sidebarData
       .filter((i) => i.type === 'tab')
       .forEach((tab) => {
-        tabLabels += `
-          <input
-            type="radio"
-            name="tabs"
-            id="tab-control-${tab.slug}"
-            ${tab.active ? 'checked' : ''}
-          >
-          <label for="tab-control-${tab.slug}">${tab.label}</label>`
-
         tabs += `
-          <div class="tab-content" label="${tab.slug}">
+          <div
+            class="tab-content${tab.active ? 'active' : ''}"
+            label="${tab.slug}"
+          >
             ${List(tab.items)}
           </div>`
-
-        // This is probably temporary, requires inputs to be sibling of tab-content
-        tabStyles.push(
-          `#tab-control-${tab.slug}:checked ~ .tab-content[label='${tab.slug}']`
-        )
       })
 
   return html`
     <style>
-      :host .tab-content {
+      :host {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+      aside {
+        flex-grow: 1;
+      }
+      .tab-content {
         display: none;
       }
-      ${tabStyles.join(', ')} {
+      .tab-content.active {
         display: block;
       }
-      :host input[type='radio'] + label {
-        display: inline-block;
-        /* Hide tabs in favor of top nav */
-        display: none;
-        cursor: pointer;
-        text-align: center;
-        line-height: 1.25rem;
-        font-weight: bold;
-        font-size: 1.15rem;
-        padding: 0 1rem 0.5rem;
-        margin-bottom: 0.25rem;
-        border-bottom: 2px solid SeaShell;
-        color: Crimson;
-      }
-      :host input[type='radio'] {
-        display: none;
-      }
-      :host input:checked + label {
-        border-bottom: 2px solid LightSalmon;
-      }
-      :host li a {
+      li a {
         padding: 0.2rem 0;
         display: block;
         padding-left: 0.3rem;
       }
-      :host li a:hover {
-        border-left: 2px solid LightSteelBlue;
+      li a:hover {
+        border-left: 2px solid var(--color-bravo-lighter);
         margin-left: -2px;
-        background-color: Azure;
+        background-color: var(--color-bravo-lightest);
         text-decoration: none;
       }
-      :host li a.active {
-        border-left: 2px solid CornflowerBlue;
+      li a.active {
+        border-left: 2px solid var(--color-bravo-light);
         margin-left: -2px;
-        background-color: AliceBlue;
+        background-color: var(--color-bravo-lightest);
       }
-      :host .category-label {
+      .category-label {
         margin-top: 1rem;
       }
-      :host .category-label {
+      .category-label {
         line-height: 1.2rem;
         text-transform: uppercase;
         font-weight: bold;
-        border-bottom: 1px solid WhiteSmoke;
+        border-bottom: 1px solid var(--color-alpha-lightest);
       }
-      :host .description {
+      .description {
         line-height: 1rem;
         font-size: 0.75rem;
-        color: DarkGray;
+        color: var(--color-alpha-light);
       }
     </style>
 
-    <aside>${tabLabels} ${tabs}</aside>
+    <nav>${tabs}</nav>
+    <docs-theme-toggle></docs-theme-toggle>
   `
 }
