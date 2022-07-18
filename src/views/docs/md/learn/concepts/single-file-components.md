@@ -3,35 +3,38 @@ title: Single File Components
 links: # Further Reading
   - JavaScript.info Custom Elements: https://javascript.info/custom-elements
   - 'MDN: Web Components': https://developer.mozilla.org/en-US/docs/Web/Web_Components
+  - "Simon Willison's walk-through": https://til.simonwillison.net/web-components/understanding-single-file-web-component
 ---
 
-Component development has gotten a little out of control. Wouldn't it be nice if you could author components like HTML pages?
+Every modern web framework has the concept of a component. Most require you to learn a non-standard dialect in order to use them though. Enhance enables you to write single file components with the same benefits of co-location and ease of reuse while leveraging the skills you already have.
 
-Well that's what you get with enhance. Single File Components.
+Wouldn't it be nice if you could author components like HTML pages? Well that's what you get with enhance single file components. Let's say you want to make a reusable "hello world" component where the greeting can be changed.
 
-Let's say you want to make a reusable "hello world" component where the greeting can be changed.
+## HTML
 
-Something like this:
+You would author your component as an HTML custom element.
 ```html
 <hello-world greeting="Hello World"></hello-world>
 ```
 
-Your server side template could be as simple as this:
+## Template
+
+The template function that defines what your custom element should expand to is passed an `html` function and a state object containing attributes.
+
 ```javascript
-export default function HelloWorld({ state }) {
+export default function HelloWorld({ html, state }) {
   const { attrs } = state
   const { greeting='Hello World' } = attrs
-  return `
+  return html`
 <h1>${ greeting }</h1>
   `
 }
 
 ```
-Where the greeting attribute you set will be passed to your template function via a state object. Any other attributes you add to your custom element are available in the `attrs` collection.
 
-But what if you want to add some element specific styles? Well if you use the `html` render function passed to your template then enhance will handle that for you.
+## Style
 
-Just add a style tag like this:
+Styles are added by inserting a standard `<style>` tag.
 ```javascript
 export default function HelloWorld({ html, state }) {
   const { attrs } = state
@@ -48,37 +51,28 @@ export default function HelloWorld({ html, state }) {
 
 ```
 
-Any valid css will work, and any style prefixed with your chosen custom element name will be scoped to only that type of element. 
+Any valid css will work, and any style prefixed with your chosen custom element name will be scoped to only that type of element.
 
 > [Skip ahead to *Style Transforms* if you want to use pseudo selectors like `:host` and `:slotted`](/docs/learn/features/css-transforms)
 
-OK so you've got some HTML that renders your greeting server side sweet!
-But what if you want to add additional `<hello-world>` elements dynamically in the browser.
-Your going to need some JavaScript for that, so go ahead and add a `<script>` tag to your component:
 
-```javascript
-export default function HelloWorld({ html, state }) {
-  const { attrs } = state
-  const { greeting='Hello World' } = attrs
-  return html`
-<style>
-  hello-world h1 {
-    color: red;
-  }
-</style>
+## Script
 
-<h1>${ greeting }</h1>
+What we have so far works great for initial render, but what if you want to add additional `<hello-world>` elements dynamically while your app is being used.
+You will need some JavaScript for that. Add a `<script>` tag to your component.
 
+```html
+<!-- ...continued -->
 <script type="module">
   // Custom element class definition
   class HelloWorld extends HTMLElement {
     constructor () {
       super()
-      // Template will be added by enhance with the id ${your-element}-template for easy lookup
+      // Template will be added by enhance with an id ${your-element}-template
       const template = document.getElementById('hello-world-template')
-      // When you add your custom element dynamically the template contents will be added
+      // When your custom element is inserted the template contents will be expanded
       this.replaceChildren(template.content.cloneNode(true))
-      // You can write queries that are scoped to your custom element
+      // You can write queries that are scoped to the internals of your custom element
       this.heading = this.querySelector('h1')
     }
 
@@ -89,21 +83,20 @@ export default function HelloWorld({ html, state }) {
 
     attributeChangedCallback (name, oldValue, newValue) {
       if (name === 'greeting') {
-        // Use the appropriate DOM manipulation function only update what's necessary
+        // Use the appropriate DOM manipulation function to only update what's necessary
         this.heading.textContent = newValue
       }
     }
 
+    // Lifecycle hooks!
     connectedCallback () {
       console.log('Why hello there 👋')
     }
   }
-
+  // Define your custom element tag name and base class
   customElements.define('hello-world', HelloWorld)
 </script>
-  `
-}
-
 ```
 
-You get to author components like individual HTML pages with web standard HTML, CSS and JavaScript while enhance delivers a progressively enhanced experience to your users.
+You get to author components as individual HTML pages with web standard HTML, CSS and JavaScript while enhance delivers a progressively enhanced experience to your users.
+
