@@ -12,7 +12,7 @@ Wouldn't it be nice if you could author components like HTML pages? Well that's 
 
 ## HTML
 
-You would author your component as an HTML custom element.
+Author your component as an HTML custom element.
 ```html
 <hello-world greeting="Hello World"></hello-world>
 ```
