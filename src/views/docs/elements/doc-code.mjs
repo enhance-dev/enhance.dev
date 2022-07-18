@@ -1,3 +1,5 @@
+import arc from '@architect/functions'
+
 export default function DocCode({ html /* state */ }) {
   // const { attrs = {} } = state
   // let {
@@ -22,7 +24,7 @@ export default function DocCode({ html /* state */ }) {
     <div class="editor"></div>
 
     <script type="module">
-      import '/_static/js/elements/doc-code.mjs'
+      import '${arc.static('js/elements/doc-code.mjs')}'
     </script>
   `
 }
