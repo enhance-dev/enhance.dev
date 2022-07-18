@@ -1,52 +1,28 @@
-export default function DocCode({ html }) {
+export default function DocCode({ html /* state */ }) {
+  // const { attrs = {} } = state
+  // let {
+  //   lang = 'javascript',
+  //   editable = false,
+  //   'line-start': lineStart = 1,
+  //   'active-lines': activeLines,
+  // } = attrs
+
+  // editable = typeof editable === 'string'
+  // lineStart = Number(lineStart)
+  // activeLines = activeLines ? activeLines.split('-') : []
+
   return html`
     <style>
-      :host .cm {
+      :host .editor {
         display: none;
       }
     </style>
 
     <slot></slot>
-    <div class="cm"></div>
+    <div class="editor"></div>
 
     <script type="module">
-      import {
-        EditorState,
-        basicSetup,
-        EditorView,
-        javascript,
-      } from '/_static/bundles/codemirror.mjs'
-
-      class DocCode extends HTMLElement {
-        constructor() {
-          super()
-
-          this.cmParent = this.querySelector('div.cm')
-          this.codeParent = this.querySelector('pre')
-          this.codeBlock = this.codeParent.querySelector('code')
-          this.codeText = this.codeBlock.innerText
-          this.codeLang = this.codeBlock.getAttribute('data-language')
-
-          this.editor = new EditorView({
-            state: EditorState.create({
-              doc: this.codeText,
-              lineWrapping: true,
-              extensions: [basicSetup, javascript()],
-            }),
-
-            parent: this.cmParent,
-          })
-        }
-
-        connectedCallback() {
-          if (this.codeParent) {
-            this.codeParent.style.display = 'none'
-            this.cmParent.style.display = 'block'
-          }
-        }
-      }
-
-      customElements.define('doc-code', DocCode)
+      import '/_static/js/elements/doc-code.mjs'
     </script>
   `
 }
