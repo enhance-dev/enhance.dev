@@ -27,30 +27,7 @@ const doc = await renderMd(docMarkdown
 
 </doc-code>
 
-### Markdown Source
-
-So the source authored in .md looks like:
-
-````html
-<!-- the lang attr defaults to "javascript -->
-<!-- the lang attr isn't used yet -->
-<doc-code lang="javascript">
-
-```javascript
-const { path: activePath, pathParameters } = request
-let docPath = pathParameters?.proxy || 'index'
-if (docPath.match(/\/$/)) docPath += 'index' // trailing slash == index.md file
-
-const docURL = new URL(
-  `./node_modules/@architect/views/docs/md/${docPath}.md`,
-  import.meta.url
-)
-const docMarkdown = readFileSync(docURL.pathname, 'utf-8')
-const doc = await renderMd(docMarkdown
-```
-
-</doc-code>
-````
+### Dynamic language import
 
 Try some Markdown...
 
@@ -74,9 +51,11 @@ Some _lorem_ **ipsum**...
 
 </doc-code>
 
+### Options for `editable`, line number start, etc
+
 and some PHP!
 
-<!-- none of these attributes are used yet -->
+<!-- active-lines isn't working yet -->
 <doc-code lang="php" line-start=15 active-lines="9-11" editable>
 
 ```php
@@ -100,3 +79,28 @@ class FooModel
 ```
 
 </doc-code>
+
+## Markdown Source
+
+So the source authored in .md looks like:
+
+````html
+<!-- the lang attr defaults to "javascript -->
+<!-- the lang attr isn't used yet -->
+<doc-code lang="javascript">
+
+```javascript
+const { path: activePath, pathParameters } = request
+let docPath = pathParameters?.proxy || 'index'
+if (docPath.match(/\/$/)) docPath += 'index' // trailing slash == index.md file
+
+const docURL = new URL(
+  `./node_modules/@architect/views/docs/md/${docPath}.md`,
+  import.meta.url
+)
+const docMarkdown = readFileSync(docURL.pathname, 'utf-8')
+const doc = await renderMd(docMarkdown
+```
+
+</doc-code>
+````
