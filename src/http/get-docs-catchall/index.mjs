@@ -49,7 +49,7 @@ async function http(request) {
           <link rel="stylesheet" href="${arc.static('css/docs.css')}" />
           <link
             rel="stylesheet"
-            href="https://unpkg.com/highlight.js@11.5.1/styles/night-owl.css" />
+            href="https://unpkg.com/highlight.js@11.5.1/styles/github.css" />
         </head>
         <body>
           <docs-layout></docs-layout>
