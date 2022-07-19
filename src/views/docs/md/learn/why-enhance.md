@@ -21,9 +21,9 @@ Our goal was to enable everyone to build multi-page, dynamic, Functional Web App
 We decided that if it was worth the time to do it, then we should do it right. So we came up some criteria for success:
 
 
-1. Should Author HTML pages
+1. Pure functions
 
-> We can write components like writing an HTML page.
+> Same input should return the same output.
 
 2. Should only use generally available Web Standards
 

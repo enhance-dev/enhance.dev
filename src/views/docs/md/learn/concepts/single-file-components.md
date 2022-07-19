@@ -58,8 +58,8 @@ Any valid css will work, and any style prefixed with your chosen custom element 
 
 ## Script
 
-Add a `<script>` tag to your component in order to add functionality to your component.
-In order to add additional `<hello-world>` elements dynamically while your app is being used you can register your custom element with the browser.
+Add functionality to your component by adding a `<script>` tag.
+Register your custom element with the browser to inserting additional `<hello-world>` elements dynamically at runtime.
 
 ```html
 <!-- ...continued -->
