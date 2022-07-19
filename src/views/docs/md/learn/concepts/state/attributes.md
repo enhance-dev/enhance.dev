@@ -1,7 +1,15 @@
 ---
-title: Doc Title
+title: Attributes
 ---
 
-## Subtitle
+## Passing state to your template via attributes
 
-A paragraph.
+example custom element with attributes
+
+accessing attribute inside your template
+
+accessing complex types from the store with attributes as keys
+
+handling boolean attributes
+
+talk about utils

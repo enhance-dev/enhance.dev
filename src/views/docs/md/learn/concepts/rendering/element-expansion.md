@@ -1,7 +1,9 @@
 ---
-title: Doc Title
+title: Custom element expansion
 ---
 
-## Subtitle
+## Enhancing custom elements
 
-A paragraph.
+Describe template for server side render
+
+explain output

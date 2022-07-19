@@ -1,7 +1,14 @@
 ---
-title: Doc Title
+title: Store
 ---
 
-## Subtitle
+## Single source of truth
 
-A paragraph.
+Passing InitialState to the enhance store
+
+Accessing store from your template
+
+Accessing data from the store
+
+Using a store in the browser
+
