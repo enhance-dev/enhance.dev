@@ -10,7 +10,7 @@ Every modern web framework has the concept of a component. Most require you to l
 
 Wouldn't it be nice if you could author components like HTML pages? Well that's what you get with enhance single file components. Let's say you want to make a reusable "hello world" component where the greeting can be changed.
 
-## HTML
+## It's just HTML
 
 Author your component as an HTML custom element.
 ```html
@@ -19,7 +19,7 @@ Author your component as an HTML custom element.
 
 ## Template
 
-The template function that defines what your custom element should expand to is passed an `html` function and a state object containing attributes.
+Define a pure function that returns the HTML markup you want your custom element to encapsulate.
 
 ```javascript
 export default function HelloWorld({ html, state }) {
@@ -31,6 +31,7 @@ export default function HelloWorld({ html, state }) {
 }
 
 ```
+The template function that defines what your custom element should expand to is passed an `html` function and a state object containing attributes.
 
 ## Style
 
@@ -50,7 +51,6 @@ export default function HelloWorld({ html, state }) {
 }
 
 ```
-
 Any valid css will work, and any style prefixed with your chosen custom element name will be scoped to only that type of element.
 
 > [Skip ahead to *Style Transforms* if you want to use pseudo selectors like `:host` and `:slotted`](/docs/learn/features/css-transforms)
@@ -58,8 +58,8 @@ Any valid css will work, and any style prefixed with your chosen custom element 
 
 ## Script
 
-What we have so far works great for initial render, but what if you want to add additional `<hello-world>` elements dynamically while your app is being used.
-You will need some JavaScript for that. Add a `<script>` tag to your component.
+Add a `<script>` tag to your component in order to add functionality to your component.
+In order to add additional `<hello-world>` elements dynamically while your app is being used you can register your custom element with the browser.
 
 ```html
 <!-- ...continued -->
