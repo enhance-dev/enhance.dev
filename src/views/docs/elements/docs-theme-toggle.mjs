@@ -44,7 +44,7 @@ export default function DocsThemeToggle({ html }) {
         <input
           id="use-light"
           type="checkbox"
-          name="theme-toggle"
+          name="light-toggle"
           value="light"
           aria-label="Use light theme" />
         <svg
@@ -63,7 +63,7 @@ export default function DocsThemeToggle({ html }) {
         <input
           id="use-dark"
           type="checkbox"
-          name="theme-toggle"
+          name="dark-toggle"
           value="dark"
           aria-label="Use dark theme" />
         <svg

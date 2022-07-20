@@ -20,8 +20,6 @@ The right-side outline is this doc's table of contents. 👉
 
 Syntax highlighting by default.
 
-<doc-code>
-
 ```javascript
 // 👀
 const { path, pathParameters } = request;
@@ -32,8 +30,6 @@ const docURL = new URL(`${docsRoot}/${docPath}.md`, import.meta.url);
 const docMarkdown = readFileSync(docURL.pathname, 'utf-8');
 const doc = await render(docMarkdown);
 ```
-
-</doc-code>
 
 🪧 Be sure to use the **_full_** language name: "`javascript`" instead of "`js`".
 

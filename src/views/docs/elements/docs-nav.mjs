@@ -43,7 +43,7 @@ function Description(item) {
     : ''
 }
 
-export default function DocsSidebar({ html, state }) {
+export default function DocsNav({ html, state }) {
   const { store } = state
   const { sidebarData } = store
 
@@ -55,7 +55,7 @@ export default function DocsSidebar({ html, state }) {
       .forEach((tab) => {
         tabs += `
           <div
-            class="tab-content${tab.active ? 'active' : ''}"
+            class="tab-content ${tab.active ? 'active' : ''}"
             label="${tab.slug}"
           >
             ${List(tab.items)}
@@ -64,14 +64,6 @@ export default function DocsSidebar({ html, state }) {
 
   return html`
     <style>
-      :host {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-      }
-      aside {
-        flex-grow: 1;
-      }
       .tab-content {
         display: none;
       }
@@ -110,7 +102,6 @@ export default function DocsSidebar({ html, state }) {
       }
     </style>
 
-    <nav>${tabs}</nav>
-    <docs-theme-toggle></docs-theme-toggle>
+    ${tabs}
   `
 }

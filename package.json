@@ -10,6 +10,9 @@
         "test:unit": "ARC_TABLES_PORT=5555 cross-env tape 'test/**/*-test.js' --verbose | tap-arc ",
         "styles": "mkdir -p public/css && enhance ./css-config.json > ./public/css/styles.css"
     },
+    "overrides": {
+        "@architect/sandbox": "5.3.1-RC.0"
+    },
     "dependencies": {
         "@architect/functions": "^5.2.1",
         "@architect/plugin-bundles": "^3.0.2",
