@@ -9,7 +9,7 @@ export const data = [
   // only tabs allowed at top level
   {
     type: TYPE.tab,
-    label: '🎓 Learn',
+    label: 'Learn',
     slug: 'learn',
     items: [
       {
@@ -99,7 +99,7 @@ export const data = [
   },
   {
     type: TYPE.tab,
-    label: '📚 Reference',
+    label: 'Reference',
     slug: 'reference',
     items: [
       {
@@ -135,7 +135,7 @@ export const data = [
   },
   {
     type: TYPE.tab,
-    label: '🛠 By Example',
+    label: 'By Example',
     slug: 'by-example',
     items: [
       {

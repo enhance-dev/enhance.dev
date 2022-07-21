@@ -4,72 +4,85 @@ export default function DocsLayout({ html, state }) {
 
   return html`
     <style>
-      /* mobile-ish */
+      /* single col */
       :host {
         display: grid;
         grid-template-areas:
           'header'
-          'sidebar'
           'content';
         gap: 0 1.5rem;
+        margin: 0 1rem;
       }
-      docs-header {
+      #header {
         grid-area: header;
+        margin: 0 -0.5rem 1rem -0.5rem;
       }
-      docs-sidebar {
+      #sidebar {
         grid-area: sidebar;
+        display: none;
       }
-      doc-content {
+      #content {
         grid-area: content;
       }
-      doc-outline {
+      #outline {
         grid-area: outline;
         display: none;
       }
 
       @media only screen and (min-width: 50em) {
-        /* tablet-ish */
+        /* 2-col + */
         :host {
-          grid-template-columns: 20rem 1fr;
+          grid-template-columns: 16rem 1fr;
           grid-template-areas:
             'header   header'
             'sidebar content'
             '   .    content';
         }
 
-        docs-sidebar,
-        doc-outline {
+        #sidebar {
+          display: block;
+        }
+
+        #header,
+        #sidebar,
+        #outline {
           position: sticky;
+        }
+
+        #sidebar,
+        #outline {
           top: 1rem;
         }
       }
 
       @media (min-width: 72rem) {
-        /* widescreen */
+        /* 3-col */
         :host {
-          grid-template-columns: 20rem 1fr 18rem;
+          grid-template-columns: 16rem 1fr 18rem;
           grid-template-areas:
             'header  header   header'
             'sidebar content outline'
             '   .    content    .   ';
         }
-        doc-outline {
+        #outline {
           display: block;
         }
       }
     </style>
 
-    <docs-header></docs-header>
+    <docs-header id="header"></docs-header>
 
-    <docs-sidebar></docs-sidebar>
+    <nav id="sidebar">
+      <docs-nav></docs-nav>
+    </nav>
 
-    <doc-content>
+    <doc-content id="content">
       <article slot="doc">
         ${doc.title ? `<h1>${doc.title}</h1>` : ''} ${doc.html}
       </article>
     </doc-content>
 
-    <doc-outline>
+    <doc-outline id="outline">
       <div slot="toc">${doc.tocHtml}</div>
     </doc-outline>
   `
