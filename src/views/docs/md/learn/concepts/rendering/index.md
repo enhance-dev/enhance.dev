@@ -100,4 +100,4 @@ const output = html`
 `
 ```
 
-When the output is run in the browser you can open devtools and append `<my-element></my-element>` tags to see them expand with your template contents.
+When the output HTML is run in the browser you can open devtools and append `<my-element></my-element>` tags to see them expand with your template contents.
