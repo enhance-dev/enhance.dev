@@ -40,7 +40,7 @@ export default function DocCode({ html }) {
           this.lines = this.codeBlock.querySelectorAll('.code-line')
 
           this.numbered = typeof this.getAttribute('numbered') === 'string'
-          this.lineStart = this.getAttribute('line-start')
+          this.lineStart = this.getAttribute('initial-line-number')
           this.focus = this.getAttribute('focus')
           this.mark = this.getAttribute('mark')
         }
@@ -97,7 +97,7 @@ export default function DocCode({ html }) {
 
         static get observedAttributes() {
           // TODO: respond to these attrs changing
-          return ['numbered', 'line-start', 'focus', 'mark']
+          return ['numbered', 'initial-line-number', 'focus', 'mark']
         }
       }
 
