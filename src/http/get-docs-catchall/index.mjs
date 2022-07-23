@@ -25,7 +25,9 @@ async function http(request) {
     pluginOverrides: {
       markdownItTocAndAnchor: { tocClassName: 'list-none' },
     },
-    hljsPlugins: [new HljsLineWrapper({ className: 'code-line' })],
+    hljs: {
+      plugins: [new HljsLineWrapper({ className: 'code-line' })],
+    },
   })
 
   const html = enhance({
