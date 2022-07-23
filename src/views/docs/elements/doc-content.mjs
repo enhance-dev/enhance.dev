@@ -2,7 +2,7 @@ export default function DocContent({ html }) {
   return html`
     <style>
       :host main article {
-        max-width: 55rem;
+        max-width: 48rem;
         margin: auto;
       }
 

@@ -5,12 +5,12 @@ title: tbeseda testing some things
 
 CodeMirror experiments
 
-## A `<doc-code>` Custom Element
+## A `<doc-code-mirror>` Custom Element
 
 This 👇 code block is rendered and highlighted on the server with arcdown + hljs.
 Then CodeMirror takes over in the browser and re-instantiates it as an editor.
 
-<doc-code>
+<doc-code-mirror>
 
 ```javascript
 const { path: activePath, pathParameters } = request
@@ -25,14 +25,14 @@ const docMarkdown = readFileSync(docURL.pathname, 'utf-8')
 const doc = await renderMd(docMarkdown
 ```
 
-</doc-code>
+</doc-code-mirror>
 
 ### Dynamic language import
 
 Try some Markdown...
 
 <!-- the lang attr isn't used yet -->
-<doc-code lang="markdown">
+<doc-code-mirror lang="markdown">
 
 ```markdown
 # This is a title
@@ -49,14 +49,14 @@ Some _lorem_ **ipsum**...
 * mostly
 ```
 
-</doc-code>
+</doc-code-mirror>
 
 ### Options for `editable`, line number start, etc
 
 and some PHP!
 
 <!-- active-lines isn't working yet -->
-<doc-code lang="php" line-start=15 active-lines="9-11" editable>
+<doc-code-mirror lang="php" line-start=15 active-lines="9-11" editable>
 
 ```php
 <?php
@@ -78,7 +78,7 @@ class FooModel
 <?php endforeach ?>
 ```
 
-</doc-code>
+</doc-code-mirror>
 
 ## Markdown Source
 
@@ -87,7 +87,7 @@ So the source authored in .md looks like:
 ````html
 <!-- the lang attr defaults to "javascript -->
 <!-- the lang attr isn't used yet -->
-<doc-code lang="javascript">
+<doc-code-mirror lang="javascript">
 
 ```javascript
 const { path: activePath, pathParameters } = request
@@ -102,5 +102,5 @@ const docMarkdown = readFileSync(docURL.pathname, 'utf-8')
 const doc = await renderMd(docMarkdown
 ```
 
-</doc-code>
+</doc-code-mirror>
 ````

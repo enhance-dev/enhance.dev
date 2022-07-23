@@ -6,6 +6,7 @@ import enhance from '@enhance/ssr'
 import styleTransform from '@enhance/enhance-style-transform'
 import elements from '@architect/views/docs/elements/index.mjs'
 import sidebarDataLoader from '@architect/views/docs/sidebar-data.mjs'
+import HljsLineWrapper from './hljs-line-wrapper.mjs'
 
 // Configuration
 const docsRoute = 'docs' // this should match app.arc catchall
@@ -23,7 +24,9 @@ async function http(request) {
   const doc = await renderMd(docMarkdown, {
     pluginOverrides: {
       markdownItTocAndAnchor: { tocClassName: 'list-none' },
-      // TODO: add class mappings and other plugin config
+    },
+    hljs: {
+      plugins: [new HljsLineWrapper({ className: 'code-line' })],
     },
   })
 

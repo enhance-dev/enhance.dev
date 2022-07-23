@@ -18,7 +18,7 @@ import {
 import { languages } from 'https://esm.sh/v87/@codemirror/language-data@6.1.0/es2022/language-data.js'
 import { javascript } from 'https://esm.sh/v87/@codemirror/lang-javascript@6.0.1/es2022/lang-javascript.js'
 
-class DocCode extends HTMLElement {
+class DocCodeMirror extends HTMLElement {
   constructor() {
     super()
 
@@ -75,7 +75,7 @@ class DocCode extends HTMLElement {
       // just a smoke test for authors
       console.assert(
         this.highlightedLang === this.codeLang,
-        `Specified lang (${this.codeLang}) on <doc-code> does not match highlighted code (${this.highlightedLang})!`
+        `Specified lang (${this.codeLang}) on <doc-code-mirror> does not match highlighted code (${this.highlightedLang})!`
       )
 
       const foundLang = languages.find((lang) => {
@@ -144,4 +144,4 @@ class DocCode extends HTMLElement {
   }
 }
 
-customElements.define('doc-code', DocCode)
+customElements.define('doc-code-mirror', DocCodeMirror)
