@@ -2,145 +2,48 @@
 title: Getting Started
 ---
 
-> 👋 This doc lives outside of /docs/learn/get-started/, but is linked from that part of the sidebar tree.
+To create a project, run:
 
-It's easy to get started!
+```bash
+npm create @enhance ./myproject -y
+```
 
-## Installation
+After setup is complete, run the following commands to install deps, and start the local dev server:
 
-Install the thing.
+```bash
+cd myproject
+npm install
+npm start
+```
 
-## New project
+## Your first route
 
-Create an all new project with the thing from the previous step.
+We are going to make a new route at `"/about"` URL. Before we do that, let's link to it.
 
-### Make the folders
-
-Folders will hold some files you will create in the next step.
-
-### Add some files
-
-Files should have things in them you want to be in them.
-
-## Run it!
-
-Probably run a command from the thing in the first step.
-
----
-
-This page is artificially long to test sticky sidebar and document table of contents.
+The generated project will have `app/elements/header.mjs` defined. Open it up and modify it to be like this:
 
 ```javascript
-export default function DocsHeader({ html, state }) {
-  const { store } = state
-  const { sidebarData } = store
-
-  const navItems = []
-
-  if (sidebarData?.length > 0)
-    sidebarData
-      .filter((i) => i.type === 'tab')
-      .forEach((tab) => {
-        navItems.push(
-          `<li ${tab.active ? 'class="active"' : ''}>
-            <a href="${tab.path}/">${tab.label}</a>
-          </li>`
-        )
-      })
-
+// app/elements/header.mjs
+export default function Header ({ html }) {
   return html`
-    <style>
-      :host {
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-      :host h1 a {
-        display: inline-block;
-      }
-      :host nav ul {
-        list-style: none;
-      }
-      :host nav ul li {
-        display: inline-block;
-      }
-      :host nav ul li.active {
-        border-bottom: 2px solid LightSalmon;
-      }
-      :host nav ul li a {
-        color: Crimson;
-      }
-    </style>
-
-    <header>
-      <h1>
-        ✨
-        <a href="/" class="enhance-link">Enhance</a>
-        <a href="/docs/" class="docs-link">Docs</a>
-      </h1>
-      <nav>
-        <ul>
-          ${navItems.join('\n')}
-        </ul>
-      </nav>
-      <input type="search" placeholder="Search..." />
-    </header>
-  `
+<header>
+  <h1>Header</h1>
+  <nav>
+    <a href=/>home</a>
+    <a href=/about>about</a>
+  </nav>
+</header>`
 }
 ```
 
-.
+The code above defines a pure function that accepts state and returns the template body for a custom element. In our case, a custom element for the header now has a link to `"/about"`.
 
-.
+Create a new file `app/pages/about.html` with the following HTML markup:
 
-.
+```html
+<!-- hello world! -->
+<el-header></el-header>
+Hello world, I am <i>very</i> <strong>excited</strong> to meet you.
+```      
 
-.
-
-.
-
-.
-
-```javascript
-function parseItems(items, root, activePath) {
-  return items.map((item) => {
-    if (typeof item === 'string') {
-      // create full item from shorthand item
-      item = {
-        type: 'doc',
-        slug: item,
-        path: `/${root}/${item}`,
-        label: unslug(item),
-      };
-    } else {
-      if (!item.type) item.type = 'doc';
-      if (!item.path) item.path = `/${root}/${item.slug}`;
-      if (!item.label && item.slug) item.label = unslug(item.slug);
-    }
-
-    if (item.items)
-      item.items = parseItems(item.items, `${root}/${item.slug}`, activePath);
-
-    item.active = item.path === activePath;
-
-    return item;
-  });
-}
-```
-
-.
-
-.
-
-.
-
-.
-
-.
-
-.
-
-This page is artificially long to test sticky sidebar and document table of contents.
-
-## The bottom
+Reload the app, and navigate to `"/about"` to see your new page in action!
