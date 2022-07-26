@@ -88,11 +88,20 @@ export const data = [
         slug: 'deployment',
         items: [
           {
-            slug: 'beginner',
-            label: 'beginner',
+            slug: 'begin',
+            label: 'Begin',
             description: 'The recommended FWA approach',
           },
-          '11ty',
+          { 
+            slug: '11ty', 
+            label: '11ty',
+            description: 'The choice for static site generation'
+          },
+          { 
+            slug: 'fastify', 
+            label: 'Fastify',
+            description: 'The best Node web server'
+          }
         ],
       },
     ],
