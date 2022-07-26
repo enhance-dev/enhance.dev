@@ -59,7 +59,7 @@ Any valid css will work, and any style prefixed with your chosen custom element 
 ## Script
 
 Add functionality to your component by adding a `<script>` tag.
-Register your custom element with the browser to inserting additional `<hello-world>` elements dynamically at runtime.
+Register your custom element with the browser for inserting additional `<hello-world>` elements dynamically at runtime.
 
 ```html
 <!-- ...continued -->

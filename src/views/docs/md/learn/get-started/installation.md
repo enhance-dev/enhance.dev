@@ -1,7 +1,9 @@
 ---
-title: Doc Title
+title: Installation
 ---
 
-## Subtitle
+## Ways to install
 
-A paragraph.
+`npm install @enhance/enhance-ssr`
+
+

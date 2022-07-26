@@ -2,71 +2,97 @@
 title: Rendering
 ---
 
-Templates are pure functions that return an HTML string. Pure functions mean that given the same input the function will return the same output every time.
+Use the enhance `html` function at the page level to render a fully formed HTML document. Start with just HTML then progressively enhance your application with custom elements as the need for reuse arises. Write reusable [single file components](/docs/learn/concepts/single-file-components) that get expanded to custom elements by the render function.
 
-## Setup
+The important parts to understand are:
+1. `html` render function
+2. `elements` object
+3. `initialState` object
 
-Enhance passes an object to every template which contains an html render function in order to expand custom elements and a state object that contains the attributes from the element and a data store that you populate with initial state.
 
-> In practice initial state would most likely come from your database, but for demonstration purposes we can hard code some data.
+## `html`
 
-Setup your render function by passing an elements collection and optional initial state.
+Call the enhance function to get an initialized `html` render function.
+
 ```javascript
 import enhance from '@enhance/ssr'
-
-const html = enhance({
-  elements: {
-    'my-element': function MyElement({ html, state }) {
-      const { store } = state
-      const message = store?.message || 'Nothing'
-      return html`<h1>${ message }</h1>`
-    }
-  },
-  initialState: { message: '🎶This is how we do it' }
-})
-
-const output = html`
-<head>
-  <title>My Element test</title>
-</head>
-<my-element></my-element>
-`
-console.log('OUTPUT: ', output)
+const html = enhance({})
 ```
 
-> 👆 You can supply your own head tag and contents
+## `elements`
+
+Pass an `elements` object to the enhance function so enhance knows which template to [expand your custom elements](/docs/learn/concepts/rendering/element-expansion) with.
+
+```javascript
+import enhance from '@enhance/ssr'
+const html = enhance({
+  elements: {
+    'my-page': function MyPage({ html }) {
+      return html`<my-greeting greeting="What up!?"></my-greeting>`
+    },
+    'my-greeting': function MyGreeting({ html, state }) {
+      const { attrs } = state
+      const greeting = attrs?.greeting || 'Why hello!'
+      return html`
+        <h1>${ greeting }</h1>
+      `
+    }
+  },
+})
+
+const output = html`<my-page></my-page>`
+```
+
+>  Enhance adds an `attrs` object to `state` where you can find the attributes authored on your custom element.
+
+In your application you can add an elements object for each page in order to only load the templates needed by each individual page.
+
+## `initialState`
+
+Pass a data object to the enhance function as `initialState` to make data available when your single file component renders.
+Data passed as `initialState` is available as `store` from the `state` object passed to your single file component.
+
+```javascript
+import enhance from '@enhance/ssr'
+const html = enhance({
+  elements: {
+    'my-page': function MyPage({ html, state }) {
+      return html`<my-greeting></my-greeting>`
+    },
+    'my-greeting': function MyGreeting({ html, state }) {
+      const { store } = state
+      const greeting = store?.greeting || 'Why hello!'
+      return html`
+        <h1>${ greeting }</h1>
+      `
+    }
+  },
+  initialState: {
+    greeting: 'What up!?'
+  }
+})
+
+const output = html`<my-page></my-page>`
+```
+
+In your application `initialState` would be loaded from your database.
+
 
 ## Initial render
 
-Templates are rendered on the server and do the tedious parts of setting up your component for the browser.
-Enhance will add a `<template>` tag to the resulting HTML document with an id corresponding to your custom element name as well as moving any script tags in your component to the bottom of the document. Enhance will also add a template for any slotted content you author.
+Single file components are rendered on the server where enhance does the tedious work of expanding custom elements as well as setting up your document for progressively enhancing components to dynamic render in the browser.
 
-Initial render is great for when you only need to render once from the server. Lots of components are not updated dynamically in the browser by your code so enhance adds some special handling of `<slot>` elements that allow you to use slots in any template that only renders on the server not just in a Shadow DOM enabled Web Component.
+Enhance adds a `<template>` tag to the resulting HTML document with a corresponding id based on your custom element name. Enhance also moves any script tags in your component to the bottom of the document.
+
+Initial render is great for when you only need to render once from the server. Lots of components are not updated dynamically in the browser by your code. Enhance adds special handling of `<slot>` elements to enable you to use slots in any template for initial rendering.
 
 > ✨[Read more about `slot` handling here](http://localhost:3333/docs/learn/concepts/rendering/slots)
 
-### Enhanced output
-
-Here is what the output of our basic initial render looks like:
-```html
-<html>
-  <head>
-    <title>My Element test</title>
-  </head>
-  <body>
-    <my-element>
-      <h1>🎶This is how we do it</h1>
-    </my-element>
-    <template id="my-element-template">
-      <h1>🎶This is how we do it</h1>
-    </template>
- </body>
-</html>
-```
-
 ## Dynamic render
 
-The initial render output has a `<template>` tag for when you want to add your custom element to the page at runtime with JavaScript. The markup is setup for your custom element script.
+The initial render output has a `<template>` tag for when you want to progressively enhance your custom element for dynamic runtime usage in the browser. The document markup is prepared to work with a custom element script in the page.
+
+In the below example you add two lines of code in the constructor to be able to dynamically add your custom element `<my-element></my-element>` to the page and have it expanded with it's template contents.
 
 ```javascript
 import enhance from '@enhance/ssr'
@@ -92,12 +118,15 @@ const html = enhance({
   },
   initialState: { message: '🎶This is how we do it' }
 })
+
 const output = html`
 <head>
-  <title>My Element test</title>
+  <title>My Element</title>
 </head>
 <my-element></my-element>
 `
 ```
 
-When the output is run in the browser you can open devtools and append `<my-element></my-element>` tags to see them expand with your template contents.
+> You can add your own `<head>` to override the defaults
+
+
