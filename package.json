@@ -35,7 +35,7 @@
         "xss": "^1.0.13"
     },
     "devDependencies": {
-        "@architect/architect": "^10.3.3",
+        "@architect/architect": "^10.3.4",
         "@architect/eslint-config": "^2.0.1",
         "cross-env": "^7.0.3",
         "eslint": "^8.19.0",

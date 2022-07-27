@@ -8,9 +8,11 @@ links: # Further Reading
 
 Every modern web framework has the concept of a component. Most require you to learn a non-standard dialect in order to use them though. Enhance enables you to write single file components with the same benefits of co-location and ease of reuse while leveraging the skills you already have.
 
-Wouldn't it be nice if you could author components like HTML pages? Well that's what you get with enhance single file components. Let's say you want to make a reusable "hello world" component where the greeting can be changed.
+Wouldn't it be nice if you could author components like HTML pages? Well that's what you get with enhance single file components.
 
 ## It's just HTML
+
+Let's say you want to make a reusable "hello world" component where the greeting can be changed.
 
 Author your component as an HTML custom element.
 ```html

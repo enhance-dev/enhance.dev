@@ -33,6 +33,15 @@ export const data = [
       },
       {
         type: TYPE.category,
+        slug: 'starter-project',
+        items: [
+          'structure',
+          'pages',
+          'elements'
+        ],
+      },
+      {
+        type: TYPE.category,
         slug: 'concepts',
         items: [
           { slug: 'single-file-components' },
