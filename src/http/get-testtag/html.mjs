@@ -19,13 +19,13 @@ export default async function HTML() {
           </tab-container>
         </div>
         <div slot="one">test</div>
-      </app-wrap>`
+      </app-wrap>`,
     }
   } catch (err) {
     console.log(err)
     return {
       statusCode: 500,
-      html: html`<error-page error=${err}></error-page>`
+      html: html`<error-page error=${err}></error-page>`,
     }
   }
 }

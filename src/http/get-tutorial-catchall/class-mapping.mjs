@@ -17,7 +17,7 @@ export default {
     'border-r0',
     'border-b0',
     'border-l4',
-    'border-g3'
+    'border-g3',
   ],
   a: ['font-medium', 'text-p1', 'text-h1'],
   hr: ['mt3', 'mb3', 'border-solid', 'border0', 'border-b1'],
@@ -28,7 +28,7 @@ export default {
     'border-collapse',
     'border-solid',
     'border-g3',
-    'border1'
+    'border1',
   ],
   th: [
     'pt-3',
@@ -38,7 +38,7 @@ export default {
     'border-solid',
     'border1',
     'border-g3',
-    'bg-g1'
+    'bg-g1',
   ],
   td: [
     'pt-3',
@@ -48,6 +48,6 @@ export default {
     'border-solid',
     'border-g1',
     'border1',
-    'bg-g0'
-  ]
+    'bg-g0',
+  ],
 }

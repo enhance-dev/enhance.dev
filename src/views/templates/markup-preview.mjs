@@ -162,7 +162,7 @@ export default function ({ html, state = {} }) {
           super()
           this.api = API({
             worker: new Worker('__API_WORKER__'),
-            store: Store()
+            store: Store(),
           })
           this.update = this.update.bind(this)
           this.codeBlock = this.querySelector('code')

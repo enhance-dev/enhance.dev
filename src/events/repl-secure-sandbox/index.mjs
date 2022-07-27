@@ -22,7 +22,7 @@ async function process(event) {
   const previewDoc = await handler()
 
   const prettyMarkup = prettier.format(previewDoc.document, {
-    parser: 'html'
+    parser: 'html',
   })
   // .replace(new RegExp('&', 'g'), '&amp;')
   // .replace(new RegExp('<', 'g'), '&lt;')
@@ -39,7 +39,7 @@ async function process(event) {
       .replace(/"/g, '&quot;'),
     entrySrc: event.entrySrc,
     openEditor: event.openEditor || 1,
-    openPreview: event.openPreview || 1
+    openPreview: event.openPreview || 1,
   }
   componentTabs.forEach((i) => (repl[i] = event[i]))
   const now = new Date()
@@ -48,7 +48,7 @@ async function process(event) {
     key,
     ttl,
     repl,
-    table: 'repl'
+    table: 'repl',
   })
 }
 

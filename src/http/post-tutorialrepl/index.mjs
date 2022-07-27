@@ -11,10 +11,10 @@ async function sendUserCode(req) {
 
   await arc.events.publish({
     name: 'repl-secure-sandbox',
-    payload
+    payload,
   })
   return {
     statusCode: 302,
-    location: `/tutorial${returnPath ? `/${returnPath}` : ''}?key=${key}`
+    location: `/tutorial${returnPath ? `/${returnPath}` : ''}?key=${key}`,
   }
 }

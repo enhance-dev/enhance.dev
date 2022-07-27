@@ -6,6 +6,6 @@ async function email(req) {
   await data.set({ table: 'email', key: email })
   return {
     statusCode: 302,
-    location: '/email/thank'
+    location: '/email/thank',
   }
 }

@@ -56,9 +56,3 @@ Hello world, I am <i>very</i> <strong>excited</strong> to meet you.
 ``` 
 
 Reloading your app will show the new header with working navigation to and from `"/about"`.
-
-## Next steps
-
-- Learn more about how routing works.
-- Learn how to create your own custom elements.
-- Join the community Discord, ask questions, and get help!

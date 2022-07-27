@@ -7,13 +7,13 @@ const exampleObjectShape = {
     source: {
       entry: {
         type: 'handler' /* or 'html'*/,
-        code: ''
+        code: '',
       },
       components: [
         { name: 'tag-name', code: '' },
-        { name: 'another-tag', code: '' }
-      ]
-    }
+        { name: 'another-tag', code: '' },
+      ],
+    },
   },
   solutionState: {
     enhanceMarkup: '',
@@ -23,14 +23,14 @@ const exampleObjectShape = {
     source: {
       entry: {
         type: 'handler' /* or 'html'*/,
-        code: ''
+        code: '',
       },
       components: [
         { name: 'tag-name', code: '' },
-        { name: 'another-tag', code: '' }
-      ]
-    }
-  }
+        { name: 'another-tag', code: '' },
+      ],
+    },
+  },
 }
 
 export default {
@@ -47,7 +47,7 @@ export default async function handler() {
   return {
     document: html\`<div style="color:red;">"hello" "goodbye" </div>\`
   }
-}`
+}`,
       },
       components: [
         {
@@ -65,7 +65,7 @@ export default function LoginPage({html,state = {}}) {
       }
       customElements.define('login-page', LoginPage)
     </script>\`
-      }`
+      }`,
         },
         {
           name: 'my-div',
@@ -79,10 +79,10 @@ export default function MyDiv({html,state = {}}) {
     </style>
     <div><slot></slot></div>
     \`
-      }`
-        }
-      ]
-    }
+      }`,
+        },
+      ],
+    },
   },
   solutionState: {
     enhanceMarkup: '',
@@ -97,7 +97,7 @@ export default async function handler() {
   return {
     document: html\`<div> Solved! <div>\`
   }
-}`
+}`,
       },
       components: [
         {
@@ -114,7 +114,7 @@ export default function LoginPage({html,state = {}}) {
       }
       customElements.define('login-page', LoginPage)
     </script>\`
-      }`
+      }`,
         },
         {
           'my-div': `
@@ -127,9 +127,9 @@ export default function MyDiv({html,state = {}}) {
     </style>
     <div><slot></slot></div>
     \`
-      }`
-        }
-      ]
-    }
-  }
+      }`,
+        },
+      ],
+    },
+  },
 }

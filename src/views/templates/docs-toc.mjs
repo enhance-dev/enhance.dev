@@ -35,7 +35,7 @@ const map = {
   ${depth >= 3 ? '' : children}
 </li>
     `
-  }
+  },
 }
 
 function Anchor(state = {}) {

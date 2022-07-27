@@ -22,7 +22,7 @@ export default function Socket(data = {}) {
           socket.send(
             JSON.stringify({
               type: 'PING',
-              data: 'hi'
+              data: 'hi',
             })
           )
         } else {
@@ -87,6 +87,6 @@ function reconnect() {
       } else {
         ws(data)
       }
-    }
+    },
   })
 }

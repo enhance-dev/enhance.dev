@@ -16,15 +16,15 @@ async function stateMachine({ data }) {
             body: payload,
             credentials: 'same-origin',
             headers: {
-              'Content-Type': 'application/json'
+              'Content-Type': 'application/json',
             },
-            method: 'POST'
+            method: 'POST',
           })
         ).json()
 
         self.postMessage({
           type: CREATE,
-          result
+          result,
         })
       } catch (err) {
         // RESPOND WITH ERROR
@@ -39,15 +39,15 @@ async function stateMachine({ data }) {
             body: payload,
             credentials: 'same-origin',
             headers: {
-              'Content-Type': 'application/json'
+              'Content-Type': 'application/json',
             },
-            method: 'POST'
+            method: 'POST',
           })
         ).json()
 
         self.postMessage({
           type: UPDATE,
-          result
+          result,
         })
       } catch (err) {
         console.error(err)
@@ -60,15 +60,15 @@ async function stateMachine({ data }) {
             body: payload,
             credentials: 'same-origin',
             headers: {
-              'Content-Type': 'application/json'
+              'Content-Type': 'application/json',
             },
-            method: 'POST'
+            method: 'POST',
           })
         ).json()
 
         self.postMessage({
           type: DESTROY,
-          result
+          result,
         })
       } catch (err) {
         // RESPOND WITH ERROR
@@ -81,14 +81,14 @@ async function stateMachine({ data }) {
           await fetch('/app/branches', {
             credentials: 'same-origin',
             headers: {
-              'Content-Type': 'application/json'
+              'Content-Type': 'application/json',
             },
-            method: 'GET'
+            method: 'GET',
           })
         ).json()
         self.postMessage({
           type: LIST,
-          result
+          result,
         })
       } catch (err) {
         // RESPOND WITH ERROR

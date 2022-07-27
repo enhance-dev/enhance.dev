@@ -15,7 +15,7 @@ export default function EnhanceRunnerTemplate({ html }) {
           super()
           this.api = API({
             worker: new Worker('__API_WORKER__'),
-            store: Store()
+            store: Store(),
           })
           this.update = this.update.bind(this)
           this.allEditors = document.querySelectorAll('code-editor')
@@ -41,11 +41,11 @@ export default function EnhanceRunnerTemplate({ html }) {
           const userDoc = await process(source, this.editorNames)
           this.api.repl.update({
             name: 'enhancedMarkup',
-            doc: userDoc.enhancedMarkup
+            doc: userDoc.enhancedMarkup,
           })
           this.api.repl.update({
             name: 'iframeSrc',
-            doc: userDoc.iframeSrc
+            doc: userDoc.iframeSrc,
           })
 
           async function process(repl, components) {
@@ -60,25 +60,25 @@ export default function EnhanceRunnerTemplate({ html }) {
 
             const html = enhance({
               elements,
-              styleTransforms: [styleTransform]
+              styleTransforms: [styleTransform],
             })
             const handler = await entryFunction({ html, elements, enhance })
             const previewDoc = await handler()
             const prettyMarkup = beautify.html_beautify(previewDoc.document, {
               indent_size: 2,
-              space_in_empty_paren: true
+              space_in_empty_paren: true,
             })
             //.replace(new RegExp('&', 'g'), '&amp;')
             //.replace(new RegExp('<', 'g'), '&lt;')
 
             const enhancedMarkup = hljs.highlight(prettyMarkup, {
-              language: 'xml'
+              language: 'xml',
             }).value
             return {
               enhancedMarkup: enhancedMarkup,
               //.replace(new RegExp('&', 'g'), '&amp;')
               //.replace(new RegExp('<', 'g'), '&lt;'),
-              iframeSrc: previewDoc.document
+              iframeSrc: previewDoc.document,
               //.replace(/&/g, '&amp;')
               // .replace(/"/g, '&quot;')
             }

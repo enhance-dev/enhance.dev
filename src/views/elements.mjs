@@ -46,5 +46,5 @@ export default {
   'modal-close': ModalClose,
   'modal-trigger': ModalTrigger,
   'show-solution': ShowSolution,
-  'markup-preview': MarkupPreview
+  'markup-preview': MarkupPreview,
 }

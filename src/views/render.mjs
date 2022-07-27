@@ -9,7 +9,7 @@ export default function html(str, ...values) {
   const html = enhance({
     elements,
     scriptTransforms: [importTransform({ lookup: arc.static })],
-    styleTransforms: [styleTransform]
+    styleTransforms: [styleTransform],
   })
   return Document(html(str, ...values), arc.static)
 }
@@ -19,10 +19,10 @@ export function initRender({ initialState = '' } = {}) {
     scriptTransforms: [
       importTransform({
         lookup: arc.static,
-        workers: [{ label: '__API_WORKER__', path: 'worker.mjs' }]
-      })
+        workers: [{ label: '__API_WORKER__', path: 'worker.mjs' }],
+      }),
     ],
-    styleTransforms: [styleTransform]
+    styleTransforms: [styleTransform],
   }
   if (initialState) options.initialState = initialState
   const html = enhance(options)

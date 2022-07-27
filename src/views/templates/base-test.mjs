@@ -26,8 +26,8 @@ export default function PageHeaderTemplate({ html, state = {} }) {
           disconnected: {},
           adopted: {},
           attributeChanged: {},
-          observedAttributes: []
-        }
+          observedAttributes: [],
+        },
       })
     </script>
   `

@@ -19,7 +19,7 @@ async function savePlayground(req) {
   try {
     previous = await data.get({
       key: previousKey,
-      table: 'repl'
+      table: 'repl',
     })
   } catch (e) {
     console.log(e)
@@ -33,7 +33,7 @@ async function savePlayground(req) {
     openPreview: body?.openPreview || 1,
     enhancedMarkup: previous?.repl?.enhancedMarkup || '',
     previewDoc: previous?.repl?.previewDoc || '',
-    entrySrc: body.entrySrc
+    entrySrc: body.entrySrc,
   }
   components.forEach((i) => (repl[i] = body[i]))
   if (addTab) repl[`tab-${components.length + 1}`] = ''
@@ -41,10 +41,10 @@ async function savePlayground(req) {
     key: newKey,
     table: 'repl',
     repl,
-    ttl
+    ttl,
   })
   return {
     statusCode: 302,
-    location: `/playground?key=${newKey}`
+    location: `/playground?key=${newKey}`,
   }
 }

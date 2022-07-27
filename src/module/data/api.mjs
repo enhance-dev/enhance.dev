@@ -30,7 +30,7 @@ export default function API({ worker, store }) {
 
     update: function ({ name, doc }) {
       store[name] = doc
-    }
+    },
   }
 
   return {
@@ -40,7 +40,7 @@ export default function API({ worker, store }) {
     destroy,
     list,
     subscribe: store.subscribe,
-    unsubscribe: store.unsubscribe
+    unsubscribe: store.unsubscribe,
   }
 
   function mutate(e) {
@@ -94,27 +94,27 @@ export default function API({ worker, store }) {
   function create(branch) {
     worker.postMessage({
       type: CREATE,
-      data: branch
+      data: branch,
     })
   }
 
   function destroy(branch) {
     worker.postMessage({
       type: DESTROY,
-      data: branch
+      data: branch,
     })
   }
 
   function list() {
     worker.postMessage({
-      type: LIST
+      type: LIST,
     })
   }
 
   function update(branch) {
     worker.postMessage({
       type: UPDATE,
-      data: branch
+      data: branch,
     })
   }
 }

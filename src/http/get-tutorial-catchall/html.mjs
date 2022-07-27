@@ -38,7 +38,7 @@ export default async function HTML(req) {
     const file = readFileSync(docFilePath, 'utf8')
     const renderOptions = {
       hljs: { classString: 'hljs mb0 mb1-lg relative' },
-      pluginOverrides: { markdownItClass: classMap }
+      pluginOverrides: { markdownItClass: classMap },
     }
     const result = await arcdown(file, renderOptions)
     docBody = cache[docFilePath] = result.html
@@ -71,25 +71,25 @@ export default async function HTML(req) {
       menuLinks: [
         { name: 'Docs', location: '/docs' },
         { name: 'Tutorial', location: '/tutorial' },
-        { name: 'Playground', location: '/playground' }
+        { name: 'Playground', location: '/playground' },
       ],
-      tutorialDoc: docBody
+      tutorialDoc: docBody,
     }
     if (key) initialState.replKey = key
 
     html = initRender({
-      initialState
+      initialState,
     })
 
     return {
       statusCode: 200,
-      html: html`<tutorial-page></tutorial-page>`
+      html: html`<tutorial-page></tutorial-page>`,
     }
   } catch (err) {
     console.log(err)
     return {
       statusCode: 500,
-      html: html`<error-page error=${err}></error-page>`
+      html: html`<error-page error=${err}></error-page>`,
     }
   }
 }

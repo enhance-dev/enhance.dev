@@ -2,16 +2,16 @@ export default {
   mockProviderAccounts: {
     'John Doe': {
       login: 'johndoe',
-      name: 'John Doe'
+      name: 'John Doe',
     },
     'Dont Authenticate': {
       login: 'dontknow',
-      name: 'Dont Authenticate'
-    }
+      name: 'Dont Authenticate',
+    },
   },
   appAccounts: {
     johndoe: {
-      name: 'John Doe'
-    }
-  }
+      name: 'John Doe',
+    },
+  },
 }

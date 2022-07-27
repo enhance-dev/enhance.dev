@@ -54,7 +54,7 @@ export default async function HTML(req) {
       'tab-1': templateBoilerplate,
       'tab-2': templateBoilerplate,
       openEditor: 1,
-      openPreview: 1
+      openPreview: 1,
     }
     if (key) {
       const result = await poll(
@@ -72,23 +72,23 @@ export default async function HTML(req) {
       menuLinks: [
         { name: 'Docs', location: '/docs' },
         { name: 'Tutorial', location: '/tutorial' },
-        { name: 'Playground', location: '/playground' }
-      ]
+        { name: 'Playground', location: '/playground' },
+      ],
     }
     if (key) initialState.replKey = key
     html = initRender({
-      initialState
+      initialState,
     })
 
     return {
       statusCode: 200,
-      html: html`<playground-page></playground-page>`
+      html: html`<playground-page></playground-page>`,
     }
   } catch (err) {
     console.log(err)
     return {
       statusCode: 500,
-      html: html`<error-page error=${err}></error-page>`
+      html: html`<error-page error=${err}></error-page>`,
     }
   }
 }

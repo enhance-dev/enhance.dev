@@ -28,7 +28,6 @@ export const data = [
             path: '/docs/quick-start', // optional, absolute
             slug: 'quick-start',
           },
-          'installation', // shorthand
           'editor-setup',
         ],
       },
@@ -79,8 +78,6 @@ export const data = [
           { slug: 'css-utility-classes', label: 'CSS Utility Classes' },
           'bundling-plugin',
           'progressive-enhancement',
-          { slug: 'ssg', label: 'SSG' },
-          { slug: 'ssr', label: 'SSR' },
         ],
       },
       {
@@ -92,16 +89,16 @@ export const data = [
             label: 'Begin',
             description: 'The recommended FWA approach',
           },
-          { 
-            slug: '11ty', 
+          {
+            slug: '11ty',
             label: '11ty',
-            description: 'The choice for static site generation'
+            description: 'The choice for static site generation',
           },
-          { 
-            slug: 'fastify', 
+          {
+            slug: 'fastify',
             label: 'Fastify',
-            description: 'The best Node web server'
-          }
+            description: 'The best Node web server',
+          },
         ],
       },
     ],

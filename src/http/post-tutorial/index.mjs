@@ -20,7 +20,7 @@ async function saveTutorial(req) {
   try {
     previous = await data.get({
       key: previousKey,
-      table: 'repl'
+      table: 'repl',
     })
   } catch (e) {
     console.log(e)
@@ -34,7 +34,7 @@ async function saveTutorial(req) {
     openPreview: body?.openPreview || 1,
     enhancedMarkup: previous?.repl?.enhancedMarkup || '',
     previewDoc: previous?.repl?.previewDoc || '',
-    entrySrc: body.entrySrc
+    entrySrc: body.entrySrc,
   }
   components.forEach((i) => (repl[i] = body[i]))
   if (addTab) repl[`tab-${components.length + 1}`] = ''
@@ -42,10 +42,10 @@ async function saveTutorial(req) {
     key: newKey,
     table: 'repl',
     repl,
-    ttl
+    ttl,
   })
   return {
     statusCode: 302,
-    location: `/tutorial${returnPath ? `/${returnPath}` : ''}?key=${newKey}`
+    location: `/tutorial${returnPath ? `/${returnPath}` : ''}?key=${newKey}`,
   }
 }
