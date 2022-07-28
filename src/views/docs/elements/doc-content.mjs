@@ -1,13 +1,12 @@
 export default function DocContent({ html }) {
   return html`
     <style>
-      :host > :first-child {
-        /* slotted? */
+      :host > ::slotted(*) {
         max-width: 51rem;
         margin: auto;
       }
 
-      :host > :first-child > * {
+      :host > ::slotted(*) > * {
         margin: 0 1.5rem 1.25rem 1.5rem;
       }
 
