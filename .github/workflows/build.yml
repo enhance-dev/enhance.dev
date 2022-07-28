@@ -75,9 +75,6 @@ jobs:
       - name: Install
         run: npm i
 
-      - name: Build Styles
-        run: npm run styles
-
       - name: Staging Deploy
         if: github.ref == 'refs/heads/main'
         run: npx arc deploy --staging
