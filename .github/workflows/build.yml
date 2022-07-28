@@ -20,10 +20,10 @@ jobs:
     # Go
     steps:
       - name: Check out repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Set up Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
 
@@ -38,9 +38,6 @@ jobs:
 
       - name: Install
         run: npm install
-
-      - name: Build Styles
-        run: npm run styles
 
       - name: Test
         run: npm test
@@ -68,10 +65,10 @@ jobs:
     # Go
     steps:
       - name: Check out repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Set up Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: 14
 
