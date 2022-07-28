@@ -4,6 +4,8 @@ export default function DocsLayout({ html, state }) {
 
   return html`
     <style>
+      /* Layout */
+
       /* single col */
       :host {
         display: grid;
@@ -70,14 +72,28 @@ export default function DocsLayout({ html, state }) {
       }
     </style>
 
-    <docs-header id="header"></docs-header>
+    <style>
+      /* Colors */
+
+      a {
+        color: var(--color-bravo);
+      }
+      strong {
+        color: var(--color-alpha);
+      }
+      small {
+        color: var(--color-alpha-light);
+      }
+    </style>
+
+    <docs-header id="header" class="p1"></docs-header>
 
     <nav id="sidebar">
       <docs-nav></docs-nav>
     </nav>
 
     <doc-content id="content">
-      <article slot="doc">
+      <article slot="doc" class="leading2">
         ${doc.title ? `<h1>${doc.title}</h1>` : ''} ${doc.html}
       </article>
     </doc-content>

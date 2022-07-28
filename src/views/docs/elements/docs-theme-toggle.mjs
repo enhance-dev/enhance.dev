@@ -3,26 +3,13 @@ export default function DocsThemeToggle({ html }) {
 
   return html`
     <style>
-      :host {
-        display: flex;
-        justify-content: center;
-      }
       :host > div {
-        display: flex;
-        align-items: center;
-        gap: 0 0.75rem;
-        padding: 0.25rem 0.5rem;
-        border-radius: 1rem;
         background-color: var(--color-delta-lighter);
         border: solid 1px var(--color-delta-light);
       }
       label {
-        cursor: pointer;
         height: ${size}px;
         width: ${size}px;
-      }
-      label input {
-        display: none;
       }
       input + svg {
         opacity: 0.5;
@@ -39,10 +26,11 @@ export default function DocsThemeToggle({ html }) {
       }
     </style>
 
-    <div>
-      <label title="Use light theme">
+    <div class="flex gap-2 items-center radius-pill pt-4 pb-4 pr-3 pl-3">
+      <label title="Use light theme" class="cursor-pointer">
         <input
           id="use-light"
+          class="hidden"
           type="checkbox"
           name="light-toggle"
           value="light"
@@ -59,9 +47,10 @@ export default function DocsThemeToggle({ html }) {
             clip-rule="evenodd"></path>
         </svg>
       </label>
-      <label title="Use dark theme">
+      <label title="Use dark theme" class="cursor-pointer">
         <input
           id="use-dark"
+          class="hidden"
           type="checkbox"
           name="dark-toggle"
           value="dark"

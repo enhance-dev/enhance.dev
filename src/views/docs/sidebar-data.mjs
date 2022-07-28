@@ -34,11 +34,7 @@ export const data = [
       {
         type: TYPE.category,
         slug: 'starter-project',
-        items: [
-          'structure',
-          'pages',
-          'elements'
-        ],
+        items: ['structure', 'pages', 'elements'],
       },
       {
         type: TYPE.category,

@@ -1,5 +1,5 @@
 ---
-title: Home 🏠
+title: Docs Home 🏠
 ---
 
 Hey! You're here at the root. Welcome.
@@ -21,7 +21,6 @@ The right-side outline is this doc's table of contents. 👉
 Syntax highlighting by default.
 
 ```javascript
-// 👀
 const { path, pathParameters } = request;
 let docPath = pathParameters?.proxy || 'index';
 if (docPath.match(/\/$/)) docPath += 'index';
@@ -31,11 +30,13 @@ const docMarkdown = readFileSync(docURL.pathname, 'utf-8');
 const doc = await render(docMarkdown);
 ```
 
-🪧 Be sure to use the **_full_** language name: "`javascript`" instead of "`js`".
+> 🪧  Be sure to use the **_full_** language name: "`javascript`" instead of "`js`".
+
+<doc-code numbered focus="11:16">
 
 ```arc
 @app
-arcdown-docs-site
+enhance-dev
 
 @static
 fingerprint true
@@ -44,14 +45,18 @@ prune true
 @http
 get /docs/*
 
-# this doesn't work, but it could!
-@arcdown-site
-mount /docs
-src /md/docs
-layout my-layout.mjs
-config arcdown-config.js
+@plugins
+enhance/arc-plugin-styles
+
+@enhance-styles # ✨
+filename css/styles.css
+config css-config.json
 
 @aws
 runtime nodejs16.x
 architecture arm64
 ```
+
+</doc-code>
+
+There's even a `<doc-code>` custom element! 👆

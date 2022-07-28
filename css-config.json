@@ -1,7 +1,7 @@
 {
   "base": 18,
   "scale": {
-    "ratio": "goldenSection",
+    "ratio": "perfectFourth",
     "steps": 8
   },
   "grid": {

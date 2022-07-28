@@ -8,8 +8,8 @@ function FurtherReading(links) {
   })
 
   return /* html */ `
-    <strong>Further Reading</strong>
-    <ul class="list-none">
+    <h3 class="mb-2 font-semibold">Further Reading</h3>
+    <ul class="mb2 list-none leading2">
       ${items.join('')}
     </ul>
   `
@@ -21,21 +21,28 @@ export default function DocOutline({ html, state }) {
   } = state
 
   return html`
+    <style>
+      li > ul {
+        list-style: none;
+        padding-left: 0.7rem;
+      }
+    </style>
+
     <aside>
-      <strong>On this page</strong>
+      <h3 class="mb-2 font-semibold">On this page</h3>
       <slot name="toc"></slot>
 
       ${doc?.frontmatter?.links?.length > 0
         ? FurtherReading(doc.frontmatter.links)
         : ''}
 
-      <strong>Contribute</strong>
-      <ul class="list-none">
+      <h3 class="mb-2 font-semibold">Contribute</h3>
+      <ul role="list" class="mb2 list-none leading2">
         <li>Edit this page</li>
       </ul>
 
-      <strong>Community</strong>
-      <ul class="list-none">
+      <h3 class="mb-2 font-semibold">Community</h3>
+      <ul role="list" class="mb2 list-none leading2">
         <li>
           <a href="https://github.com/orgs/enhance-dev" target="_blank"
             >GitHub</a

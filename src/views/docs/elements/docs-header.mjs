@@ -8,8 +8,12 @@ export default function DocsHeader({ html, state }) {
       .filter((i) => i.type === 'tab')
       .forEach((tab) => {
         navItems.push(
-          `<li ${tab.active ? 'class="active"' : ''}>
-            <a href="${tab.path}/">${tab.label}</a>
+          `<li class="inline-block pl1 pr1 pb-4 ml-3 mr-3 ${
+            tab.active ? 'active' : ''
+          }">
+            <a class="text-center font-semibold text1" href="${tab.path}/">${
+            tab.label
+          }</a>
           </li>`
         )
       })
@@ -88,30 +92,13 @@ export default function DocsHeader({ html, state }) {
 
     <style>
       /* Basic syles */
-      #logo h1 {
-      }
       #logo a {
-        display: inline-block;
         transition: transform ease 0.2s;
       }
       #logo a:hover {
         transform: rotate(5deg);
       }
-      #main-nav {
-        text-align: center;
-      }
-      #main-nav ul {
-        list-style: none;
-        padding: 0;
-      }
       #main-nav ul li {
-        display: inline-block;
-        cursor: pointer;
-        text-align: center;
-        font-weight: bold;
-        font-size: 1.15rem;
-        padding: 0 0.75rem 0.25rem;
-        margin-bottom: 0.25rem;
         border-bottom: 2px solid var(--color-charlie-lightest);
       }
       #main-nav ul li a {
@@ -123,9 +110,6 @@ export default function DocsHeader({ html, state }) {
       #secondary-nav input {
         width: 75%;
       }
-      #hamburger {
-        cursor: pointer;
-      }
     </style>
 
     <input
@@ -135,12 +119,16 @@ export default function DocsHeader({ html, state }) {
       aria-label="Open navigation" />
 
     <div id="logo">
-      <h1>
+      <h1 class="text2 font-bold">
         ✨
-        <a href="/" class="enhance-link">Enhance</a>
-        <a href="/docs/" class="docs-link">Docs</a>
+        <a href="/" class="inline-block">Enhance</a>
+        <a href="/docs/" class="inline-block">Docs</a>
       </h1>
-      <label id="hamburger" for="burger-control" title="Open navigation">
+      <label
+        id="hamburger"
+        class="curosr-pointer"
+        for="burger-control"
+        title="Open navigation">
         <svg
           height="24"
           width="24"
@@ -158,8 +146,8 @@ export default function DocsHeader({ html, state }) {
       </label>
     </div>
 
-    <nav id="main-nav">
-      <ul>
+    <nav id="main-nav" class="text-center">
+      <ul class="p-none">
         ${navItems.join('\n')}
       </ul>
     </nav>

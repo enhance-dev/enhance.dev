@@ -33,8 +33,13 @@ get /testtag
 repl-secure-sandbox
 
 @plugins
+enhance/arc-plugin-styles
 arc-plugin-oauth
 architect/plugin-bundles
+
+@enhance-styles
+filename css/styles.css
+config css-config.json
 
 @bundles
 api './src/module/data/api.mjs'

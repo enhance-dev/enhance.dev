@@ -43,7 +43,7 @@ begin new page --path boom --type js
 
 ### Back that page with an API route
 
-```bash 
+```bash
 begin new api --path boom
 ```
 > Creates app/api/boom.mjs

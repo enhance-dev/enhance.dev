@@ -23,7 +23,7 @@ async function http(request) {
   const docMarkdown = readFileSync(docURL.pathname, 'utf-8')
   const doc = await renderMd(docMarkdown, {
     pluginOverrides: {
-      markdownItTocAndAnchor: { tocClassName: 'list-none' },
+      markdownItTocAndAnchor: { tocClassName: 'list-none mb2 pl-2 leading2' },
     },
     hljs: {
       plugins: [new HljsLineWrapper({ className: 'code-line' })],
@@ -49,10 +49,21 @@ async function http(request) {
             content="width=device-width, minimum-scale=1, initial-scale=1" />
           <title>Enhance Docs${` - "${doc.title}"` || ''}</title>
           <link rel="icon" href="https://fav.farm/✨" />
-          <link rel="stylesheet" href="${arc.static('css/docs.css')}" />
+          <link rel="stylesheet" href="${arc.static('css/styles.css')}" />
+          <link rel="stylesheet" href="${arc.static('css/docs-colors.css')}" />
           <link
             rel="stylesheet"
             href="https://unpkg.com/highlight.js@11.5.1/styles/github.css" />
+          <link
+            rel="stylesheet"
+            href="https://unpkg.com/highlight.js@11.5.1/styles/github-dark-dimmed.css"
+            media="(prefers-color-scheme: dark)" />
+          <style>
+            body {
+              background-color: var(--background-color);
+              color: var(--color-alpha);
+            }
+          </style>
         </head>
         <body>
           <docs-layout></docs-layout>

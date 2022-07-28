@@ -7,8 +7,7 @@
         "start": "ARC_TABLES_PORT=5555 arc sandbox",
         "lint": "eslint 'src/**/**.*js' --ignore-pattern node_modules  --fix",
         "test": "echo 'add tests'",
-        "test:unit": "ARC_TABLES_PORT=5555 cross-env tape 'test/**/*-test.js' --verbose | tap-arc ",
-        "styles": "mkdir -p public/css && enhance ./css-config.json > ./public/css/styles.css"
+        "test:unit": "ARC_TABLES_PORT=5555 cross-env tape 'test/**/*-test.js' --verbose | tap-arc "
     },
     "overrides": {
         "@architect/sandbox": "5.3.1-RC.0"
@@ -17,14 +16,14 @@
         "@architect/functions": "^5.2.1",
         "@architect/plugin-bundles": "^3.0.2",
         "@begin/codemirror": "^0.0.3",
-        "@begin/data": "^4.0.0-RC.2",
+        "@begin/data": "^4.0.0",
+        "@enhance/arc-plugin-styles": "^0.0.2",
         "@enhance/enhance-style-transform": "0.0.1-alpha.1",
         "@enhance/import-transform": "^4.0.0",
-        "@enhance/ssr": "^2.3.3",
+        "@enhance/ssr": "^2.3.5",
         "@enhance/store": "^1.0.0",
-        "@enhance/styles": "^1.1.0",
         "arc-plugin-oauth": "^0.0.15",
-        "arcdown": "^1.0.0",
+        "arcdown": "^1.0.1",
         "css": "^3.0.0",
         "highlight.js": "^11.5.1",
         "html-beautify": "^1.0.4",
@@ -38,7 +37,7 @@
         "@architect/architect": "^10.3.4",
         "@architect/eslint-config": "^2.0.1",
         "cross-env": "^7.0.3",
-        "eslint": "^8.19.0",
+        "eslint": "^8.20.0",
         "eslint-config-prettier": "^8.5.0",
         "eslint-plugin-prettier": "^4.2.1",
         "prettier": "^2.7.1",

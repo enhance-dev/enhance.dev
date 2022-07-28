@@ -1,4 +1,6 @@
 export default function DocCode({ html }) {
+  // TODO: apply classes to lines server side?
+
   return html`
     <style>
       pre.numbered span.code-line {
