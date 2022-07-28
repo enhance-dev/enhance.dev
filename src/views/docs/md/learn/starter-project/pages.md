@@ -2,7 +2,7 @@
 title: Pages
 ---
 
-Pages are the entry point for enhance rendering. They can be written in standard HTML and the output is setup for progressive enhancement with custom elements in the browser.
+Pages are the entry point for enhance rendering. They can be written in standard HTML and the output is setup for progressive enhancement with custom elements in the browser. Pages live in the `app/pages/` folder of the enhance starter project.
 
 ## Registration
 
