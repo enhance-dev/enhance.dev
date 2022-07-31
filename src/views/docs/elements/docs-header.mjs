@@ -8,10 +8,10 @@ export default function DocsHeader({ html, state }) {
       .filter((i) => i.type === 'tab')
       .forEach((tab) => {
         navItems.push(
-          `<li class="inline-block pl1 pr1 pb-4 ml-3 mr-3 ${
+          `<li class="inline-block whitespace-no-wrap pl1 pr1 pb-4 ml-4 mr-4 ${
             tab.active ? 'active' : ''
           }">
-            <a class="text-center font-semibold text1" href="${tab.path}/">${
+            <a class="text-center font-semibold" href="${tab.path}/">${
             tab.label
           }</a>
           </li>`
@@ -22,37 +22,31 @@ export default function DocsHeader({ html, state }) {
   return html`
     <style>
       /* Layout */
+      /* mobile first */
 
       :host {
         display: grid;
         grid-template-columns: 1fr;
         grid-template-areas:
           'logo'
-          'secondary-nav'
-          'main-nav'
+          'secondary'
+          'main'
           'docs-nav';
       }
 
-      /* mobile first */
-
       #logo {
         grid-area: logo;
-        order: 0;
         display: flex;
-        justify-content: space-between;
-        align-items: center;
       }
 
       #main-nav {
-        grid-area: main-nav;
+        grid-area: main;
         display: none;
       }
 
       #secondary-nav {
-        grid-area: secondary-nav;
+        grid-area: secondary;
         display: none;
-        justify-content: space-around;
-        align-items: center;
       }
 
       #docs-nav {
@@ -74,11 +68,11 @@ export default function DocsHeader({ html, state }) {
       @media only screen and (min-width: 50em) {
         /* 2-col + */
         :host {
-          grid-template-columns: 16rem 1fr 10rem;
-          grid-template-areas: 'logo main-nav secondary-nav';
+          grid-template-columns: 16rem 4fr 1fr;
+          grid-template-areas: 'logo main secondary';
         }
         #main-nav {
-          display: block;
+          display: flex;
         }
         #secondary-nav {
           display: flex;
@@ -107,9 +101,6 @@ export default function DocsHeader({ html, state }) {
       #main-nav ul li.active {
         border-bottom: 2px solid var(--color-charlie-lighter);
       }
-      #secondary-nav input {
-        width: 75%;
-      }
     </style>
 
     <input
@@ -118,11 +109,11 @@ export default function DocsHeader({ html, state }) {
       name="open-burger"
       aria-label="Open navigation" />
 
-    <div id="logo">
-      <h1 class="text2 font-bold">
+    <div id="logo" class="flex justify-between">
+      <h1 class="text1 font-bold">
         ✨
         <a href="/" class="inline-block">Enhance</a>
-        <a href="/docs/" class="inline-block">Docs</a>
+        <a href="/docs/" class="inline-block opacity-50">Docs</a>
       </h1>
       <label
         id="hamburger"
@@ -146,19 +137,32 @@ export default function DocsHeader({ html, state }) {
       </label>
     </div>
 
-    <nav id="main-nav" class="text-center">
-      <ul class="p-none">
+    <nav id="main-nav" class="flex gap-1 items-center ml1">
+      <div id="search" class=""></div>
+      <ul class="flex-auto flex justify-center list-none">
         ${navItems.join('\n')}
       </ul>
     </nav>
 
-    <nav id="secondary-nav">
-      <input type="search" placeholder="Search..." />
+    <nav id="secondary-nav" class="flex gap-1 justify-end">
+      <!-- GitHub -->
+      <!-- Discord -->
       <docs-theme-toggle></docs-theme-toggle>
     </nav>
 
     <nav id="docs-nav">
       <docs-nav></docs-nav>
     </nav>
+
+    <script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
+    <script type="text/javascript">
+      docsearch({
+        appId: '1QR8CXPN0C',
+        apiKey: '781b7bc665ad54b682ab4a31a5ccb55e',
+        indexName: 'enhance',
+        container: '#search',
+        debug: true, // Set debug to true if you want to inspect the modal
+      })
+    </script>
   `
 }

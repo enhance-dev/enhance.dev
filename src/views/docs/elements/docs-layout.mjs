@@ -60,7 +60,7 @@ export default function DocsLayout({ html, state }) {
       @media (min-width: 72rem) {
         /* 3-col */
         :host {
-          grid-template-columns: 16rem 1fr 18rem;
+          grid-template-columns: 16rem 4fr 1fr;
           grid-template-areas:
             'header  header   header'
             'sidebar content outline'

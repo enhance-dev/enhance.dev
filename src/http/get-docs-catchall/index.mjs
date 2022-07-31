@@ -6,6 +6,7 @@ import enhance from '@enhance/ssr'
 import styleTransform from '@enhance/enhance-style-transform'
 import elements from '@architect/views/docs/elements/index.mjs'
 import sidebarDataLoader from '@architect/views/docs/sidebar-data.mjs'
+import document from '@architect/views/docs/document.mjs'
 import HljsLineWrapper from './hljs-line-wrapper.mjs'
 
 // Configuration
@@ -39,38 +40,7 @@ async function http(request) {
     styleTransforms: [styleTransform],
   })
 
-  return {
-    html: html`
-      <!DOCTYPE html>
-      <html lang="en">
-        <head>
-          <meta
-            name="viewport"
-            content="width=device-width, minimum-scale=1, initial-scale=1" />
-          <title>Enhance Docs${` - "${doc.title}"` || ''}</title>
-          <link rel="icon" href="https://fav.farm/✨" />
-          <link rel="stylesheet" href="${arc.static('css/styles.css')}" />
-          <link rel="stylesheet" href="${arc.static('css/docs-colors.css')}" />
-          <link
-            rel="stylesheet"
-            href="https://unpkg.com/highlight.js@11.5.1/styles/github.css" />
-          <link
-            rel="stylesheet"
-            href="https://unpkg.com/highlight.js@11.5.1/styles/github-dark-dimmed.css"
-            media="(prefers-color-scheme: dark)" />
-          <style>
-            body {
-              background-color: var(--background-color);
-              color: var(--color-alpha);
-            }
-          </style>
-        </head>
-        <body>
-          <docs-layout></docs-layout>
-        </body>
-      </html>
-    `,
-  }
+  return { html: html`${document(doc.title)}` }
 }
 
 export const handler = arc.http.async(http)
