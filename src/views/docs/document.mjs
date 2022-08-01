@@ -29,7 +29,7 @@ export default function document(title = '') {
       }
     </style>
   </head>
-  <body>
+  <body class="font-sans">
     <docs-layout></docs-layout>
   </body>
 </html>

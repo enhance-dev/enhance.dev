@@ -1,3 +1,5 @@
+import arc from '@architect/functions'
+
 export default function DocsHeader({ html, state }) {
   const { store } = state
   const { sidebarData } = store
@@ -86,11 +88,17 @@ export default function DocsHeader({ html, state }) {
 
     <style>
       /* Basic syles */
-      #logo a {
+      #logo h1 a {
         transition: transform ease 0.2s;
       }
-      #logo a:hover {
+      #logo h1 a:hover {
         transform: rotate(5deg);
+      }
+      #logo a.enhance-link {
+        color: var(--white);
+      }
+      #logo a.docs-link {
+        color: #f57aff;
       }
       #main-nav ul li {
         border-bottom: 2px solid var(--color-charlie-lightest);
@@ -109,11 +117,11 @@ export default function DocsHeader({ html, state }) {
       name="open-burger"
       aria-label="Open navigation" />
 
-    <div id="logo" class="flex justify-between">
+    <div id="logo" class="flex gap-1 justify-start items-center">
+      <img src="${arc.static('img/svg/chibi.svg')}" />
       <h1 class="text1 font-bold">
-        ✨
-        <a href="/" class="inline-block">Enhance</a>
-        <a href="/docs/" class="inline-block opacity-50">Docs</a>
+        <a href="/" class="enhance-link inline-block ">Enhance</a>
+        <a href="/docs/" class="docs-link inline-block">Docs</a>
       </h1>
       <label
         id="hamburger"
@@ -138,13 +146,13 @@ export default function DocsHeader({ html, state }) {
     </div>
 
     <nav id="main-nav" class="flex gap-1 items-center ml1">
-      <div id="search" class=""></div>
       <ul class="flex-auto flex justify-center list-none">
         ${navItems.join('\n')}
       </ul>
     </nav>
 
     <nav id="secondary-nav" class="flex gap-1 justify-end">
+      <div id="search" class=""></div>
       <!-- GitHub -->
       <!-- Discord -->
       <docs-theme-toggle></docs-theme-toggle>
