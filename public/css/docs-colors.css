@@ -4,10 +4,10 @@
 	color-scheme: light;
 	--background-color: White;
 
-  --color-alpha: DarkSlateGray;
-  --color-alpha-light: SlateGray;
+  --color-alpha: Black;
+  --color-alpha-light: DarkSlateGray;
   --color-alpha-lighter: DarkGray;
-  --color-alpha-lightest: WhiteSmoke;
+  --color-alpha-lightest: White;
 
   --color-bravo: DarkSlateBlue;
   --color-bravo-light: CornflowerBlue;

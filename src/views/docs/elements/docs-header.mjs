@@ -95,7 +95,7 @@ export default function DocsHeader({ html, state }) {
         transform: rotate(5deg);
       }
       #logo a.enhance-link {
-        color: var(--white);
+        color: var(--color-alpha);
       }
       #logo a.docs-link {
         color: #f57aff;
