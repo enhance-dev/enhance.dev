@@ -61,12 +61,19 @@ export const data = [
         slug: 'features',
         items: [
           {
-            label: 'JavaScript Transforms',
-            slug: 'js-transforms',
-          },
-          {
-            label: 'CSS Transforms',
-            slug: 'css-transforms',
+            label: 'Transforms',
+            slug: 'transforms',
+            path: '/docs/learn/features/transforms/',
+            items: [
+              {
+                label: 'JavaScript Transforms',
+                slug: 'js-transforms',
+              },
+              {
+                label: 'CSS Transforms',
+                slug: 'css-transforms',
+              },
+            ],
           },
         ],
       },
