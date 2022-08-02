@@ -21,7 +21,7 @@ The pages folder enables you to add routes to your app by adding files. For inst
 
 ## Elements
 
-The elements folder is where we keep our [single file components](docs/learn/concepts/single-file-components). These are custom element templates that get rendered server side and setup your HTML page for progressive enhancement.
+The elements folder is where we keep our [single file components](/docs/learn/concepts/single-file-components). These are custom element templates that get rendered server side and setup your HTML page for progressive enhancement.
 
 Elements are registered with the app in the `app/elements.mjs` file. This file is responsible for registering your desired tag names with the templates used to [expand your custom elements](/docs/learn/concepts/rendering/element-expansion).
 
