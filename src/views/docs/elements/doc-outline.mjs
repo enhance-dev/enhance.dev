@@ -22,6 +22,9 @@ export default function DocOutline({ html, state }) {
 
   return html`
     <style>
+      ul {
+        list-style: none;
+      }
       li > ul {
         list-style: none;
         padding-left: 0.7rem;

@@ -14,7 +14,10 @@ const docsRoute = 'docs' // this should match app.arc catchall
 
 const arcdown = new Arcdown({
   pluginOverrides: {
-    markdownItToc: { containerClass: 'list-none mb2 pl-2 leading2' },
+    markdownItToc: {
+      containerClass: 'mb2 leading2',
+      listType: 'ul',
+    },
   },
   hljs: {
     plugins: [new HljsLineWrapper({ className: 'code-line' })],
