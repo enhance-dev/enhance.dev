@@ -1,7 +1,7 @@
 import { readFileSync } from 'fs'
 import { URL } from 'url'
+import { Arcdown } from 'arcdown'
 import arc from '@architect/functions'
-import renderMd from 'arcdown'
 import enhance from '@enhance/ssr'
 import styleTransform from '@enhance/enhance-style-transform'
 import elements from '@architect/views/docs/elements/index.mjs'
@@ -11,6 +11,15 @@ import HljsLineWrapper from './hljs-line-wrapper.mjs'
 
 // Configuration
 const docsRoute = 'docs' // this should match app.arc catchall
+
+const arcdown = new Arcdown({
+  pluginOverrides: {
+    markdownItToc: { containerClass: 'list-none mb2 pl-2 leading2' },
+  },
+  hljs: {
+    plugins: [new HljsLineWrapper({ className: 'code-line' })],
+  },
+})
 
 async function http(request) {
   const { path: activePath, pathParameters } = request
@@ -22,14 +31,7 @@ async function http(request) {
     import.meta.url
   )
   const docMarkdown = readFileSync(docURL.pathname, 'utf-8')
-  const doc = await renderMd(docMarkdown, {
-    pluginOverrides: {
-      markdownItTocAndAnchor: { tocClassName: 'list-none mb2 pl-2 leading2' },
-    },
-    hljs: {
-      plugins: [new HljsLineWrapper({ className: 'code-line' })],
-    },
-  })
+  const doc = await arcdown.render(docMarkdown)
 
   const html = enhance({
     elements,
