@@ -20,7 +20,7 @@
         "@enhance/ssr": "^2.3.6",
         "@enhance/store": "^1.0.0",
         "arc-plugin-oauth": "^0.0.15",
-        "arcdown": "^1.0.1",
+        "arcdown": "^2.0.0",
         "css": "^3.0.0",
         "highlight.js": "^11.5.1",
         "html-beautify": "^1.0.4",
