@@ -1,11 +1,23 @@
 {
   "base": 18,
   "scale": {
-    "ratio": "perfectFourth",
-    "steps": 8
+    "ratio": "majorThird",
+    "steps": 10
+  },
+  "fonts": {
+    "mono": "'Roboto Mono', monospace",
+    "sans": "'Rubik', sans-serif",
+    "roboto": "'Roboto Mono', monospace",
+    "rubik": "'Rubik', sans-serif"
   },
   "grid": {
     "steps": 6
+  },
+  "theme": {
+    "denim": "#003451",
+    "princess": "#F57AFF",
+    "purple": "#AD6EF9",
+    "rift": "#01040D"
   },
   "properties": [
     {
@@ -44,7 +56,9 @@
   },
   "borders": {
     "widths": [
-      1
+      1,
+      2,
+      3
     ]
   },
   "radii": [

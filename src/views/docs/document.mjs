@@ -23,13 +23,15 @@ export default function document(title = '') {
       href="https://unpkg.com/highlight.js@11.5.1/styles/github-dark-dimmed.css"
       media="(prefers-color-scheme: dark)" />
     <style>
+      @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Rubik:wght@200;300;400;500;600;700&display=swap');
       body {
         background-color: var(--background-color);
         color: var(--color-alpha);
+        font-family: 'Rubik', sans-serif;
       }
     </style>
   </head>
-  <body class="font-sans">
+  <body class="">
     <docs-layout></docs-layout>
   </body>
 </html>

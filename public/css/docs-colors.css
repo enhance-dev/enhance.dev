@@ -4,73 +4,33 @@
 	color-scheme: light;
 	--background-color: White;
 
-  --color-alpha: Black;
-  --color-alpha-light: DarkSlateGray;
-  --color-alpha-lighter: DarkGray;
-  --color-alpha-lightest: White;
+  --color-echo: white;
+  --color-echo1: white;
+  --color-echo2: white;
+  --color-echo3: white;
 
-  --color-bravo: DarkSlateBlue;
-  --color-bravo-light: CornflowerBlue;
-  --color-bravo-lighter: LightSteelBlue;
-  --color-bravo-lightest: AliceBlue;
+  --color-november: #f57aff;
+  --color-november1: blue;
+  --color-november2: blue;
+  --color-november3: blue;
 
-  --color-charlie: Crimson;
-  --color-charlie-light: DarkSalmon;
-  --color-charlie-lighter: LightSalmon;
-  --color-charlie-lightest: Seashell;
+  --color-hotel: red;
+  --color-hotel1: red;
+  --color-hotel2: red;
+  --color-hotel3: red;
 
-  --color-delta: DarkGray;
-  --color-delta-light: WhiteSmoke;
-  --color-delta-lighter: Snow;
-  --color-delta-lightest: White;
+  --color-alfa: green;
+  --color-alfa1: green;
+  --color-alfa2: green;
+  --color-alfa3: green;
 }
 /* Dark Theme */
 :root[data-force-theme-mode='dark'] {
-  --background-color: #121212;
-
-  --color-alpha: #ddd;
-  --color-alpha-light: DarkGray;
-  --color-alpha-lighter: SlateGray;
-  --color-alpha-lightest: DarkSlateGray;
-
-  --color-bravo: #aae;
-  --color-bravo-light: #3a3a5a;
-  --color-bravo-lighter: #2c2c4c;
-  --color-bravo-lightest: #191939;
-
-  --color-charlie: Crimson;
-  --color-charlie-light: DarkSalmon;
-  --color-charlie-lighter: LightSalmon;
-  --color-charlie-lightest: DarkSlateGray;
-
-  --color-delta: #444;
-  --color-delta-light: #272727;
-  --color-delta-lighter: #191919;
-  --color-delta-lightest: Black;
+  --background-color: #003451;
 }
 /* Dark Theme: System */
 @media (prefers-color-scheme: dark) {
 	:root {
-		--background-color: #121212;
-
-    --color-alpha: #ddd;
-    --color-alpha-light: DarkGray;
-    --color-alpha-lighter: SlateGray;
-    --color-alpha-lightest: DarkSlateGray;
-
-    --color-bravo: #aae;
-    --color-bravo-light: #3a3a5a;
-    --color-bravo-lighter: #2c2c4c;
-    --color-bravo-lightest: #191939;
-
-    --color-charlie: Crimson;
-    --color-charlie-light: DarkSalmon;
-    --color-charlie-lighter: LightSalmon;
-    --color-charlie-lightest: DarkSlateGray;
-
-    --color-delta: #444;
-    --color-delta-light: #272727;
-    --color-delta-lighter: #191919;
-    --color-delta-lightest: Black;
+		--background-color: #003451;
 	}
 }

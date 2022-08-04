@@ -9,9 +9,6 @@
         "test": "echo 'add tests'",
         "test:unit": "ARC_TABLES_PORT=5555 cross-env tape 'test/**/*-test.js' --verbose | tap-arc "
     },
-    "overrides": {
-        "@architect/sandbox": "5.3.1-RC.0"
-    },
     "dependencies": {
         "@architect/functions": "^5.2.1",
         "@architect/plugin-bundles": "^3.0.2",
@@ -34,7 +31,7 @@
         "xss": "^1.0.13"
     },
     "devDependencies": {
-        "@architect/architect": "^10.3.4",
+        "@architect/architect": "^10.4.0-RC",
         "@architect/eslint-config": "^2.0.1",
         "cross-env": "^7.0.3",
         "eslint": "^8.20.0",

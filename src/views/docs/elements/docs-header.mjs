@@ -28,6 +28,7 @@ export default function DocsHeader({ html, state }) {
 
       :host {
         display: grid;
+        align-items: center;
         grid-template-columns: 1fr;
         grid-template-areas:
           'logo'
@@ -88,6 +89,9 @@ export default function DocsHeader({ html, state }) {
 
     <style>
       /* Basic syles */
+      #logo img {
+        margin-top: -0.75rem;
+      }
       #logo h1 a {
         transition: transform ease 0.2s;
       }
@@ -95,10 +99,10 @@ export default function DocsHeader({ html, state }) {
         transform: rotate(5deg);
       }
       #logo a.enhance-link {
-        color: var(--color-alpha);
+        color: var(--denim-500);
       }
       #logo a.docs-link {
-        color: #f57aff;
+        color: var(--princess-500);
       }
       #main-nav ul li {
         border-bottom: 2px solid var(--color-charlie-lightest);
@@ -119,8 +123,8 @@ export default function DocsHeader({ html, state }) {
 
     <div id="logo" class="flex gap-1 justify-start items-center">
       <img src="${arc.static('img/svg/chibi.svg')}" />
-      <h1 class="text1 font-bold">
-        <a href="/" class="enhance-link inline-block ">Enhance</a>
+      <h1 class="text1">
+        <a href="/" class="enhance-link inline-block font-semibold">Enhance</a>
         <a href="/docs/" class="docs-link inline-block">Docs</a>
       </h1>
       <label
