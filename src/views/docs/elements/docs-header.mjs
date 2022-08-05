@@ -100,22 +100,24 @@ export default function DocsHeader({ html, state }) {
         transform: rotate(-3deg);
       }
       #logo a.docs-link {
-        color: var(--color-accent-bravo);
-      }
-      #logo a.docs-link:hover {
-        transform: rotate(3deg);
+        color: #f57aff;
       }
       #main-nav ul li {
         border-bottom: 2px solid var(--color-charlie-lightest);
       }
       #main-nav ul li a {
-        color: var(--color-accent-alpha);
+        color: var(--color-charlie);
       }
       #main-nav ul li.active {
-        border-bottom: 2px solid var(--color-accent-bravo);
+        border-bottom: 2px solid var(--color-charlie-lighter);
       }
-      #main-nav ul li.active a {
-        color: var(--color-accent-bravo);
+      #main-nav ul li.active:after {
+        content: '';
+        display: block;
+        margin: 0 auto;
+        width: 1em;
+        padding-top: 0.25em;
+        border-bottom: 2px solid #f57aff;
       }
     </style>
 
