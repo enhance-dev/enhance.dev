@@ -11,11 +11,9 @@ export default function DocsHeader({ html, state }) {
       .forEach((tab) => {
         navItems.push(
           `<li class="inline-block whitespace-no-wrap pl1 pr1 pb-4 ml-4 mr-4 ${
-            tab.active ? 'active' : ''
+            tab.active ? 'active font-semibold' : ''
           }">
-            <a class="text-center font-semibold" href="${tab.path}/">${
-            tab.label
-          }</a>
+            <a class="text-center" href="${tab.path}/">${tab.label}</a>
           </li>`
         )
       })
@@ -28,6 +26,7 @@ export default function DocsHeader({ html, state }) {
 
       :host {
         display: grid;
+        align-items: center;
         grid-template-columns: 1fr;
         grid-template-areas:
           'logo'
@@ -88,23 +87,35 @@ export default function DocsHeader({ html, state }) {
 
     <style>
       /* Basic syles */
+      #logo img {
+        margin-top: -0.75rem;
+      }
       #logo h1 a {
         transition: transform ease 0.2s;
       }
-      #logo h1 a:hover {
-        transform: rotate(5deg);
-      }
       #logo a.enhance-link {
-        color: var(--color-alpha);
+        color: var(--denim-white);
+      }
+      #logo a.enhance-link:hover {
+        transform: rotate(-3deg);
       }
       #logo a.docs-link {
-        color: #f57aff;
+        color: var(--purple-princess);
       }
+
       #main-nav ul li a {
-        color: var(--color-bravo);
+        color: var(--rift-white);
+      }
+      #main-nav ul li:hover:after {
+        content: '';
+        display: block;
+        margin: 0 auto;
+        width: 1em;
+        padding-top: 0.25em;
+        border-bottom: 2px solid var(--purple-princess);
       }
       #main-nav ul li.active a {
-        color: #f57aff;
+        color: var(--purple-princess);
       }
       #main-nav ul li.active:after {
         content: '';
@@ -112,7 +123,7 @@ export default function DocsHeader({ html, state }) {
         margin: 0 auto;
         width: 1em;
         padding-top: 0.25em;
-        border-bottom: 2px solid #f57aff;
+        border-bottom: 2px solid var(--purple-princess);
       }
     </style>
 
@@ -124,8 +135,8 @@ export default function DocsHeader({ html, state }) {
 
     <div id="logo" class="flex gap-1 justify-start items-center">
       <img src="${arc.static('img/svg/chibi.svg')}" />
-      <h1 class="text1 font-bold">
-        <a href="/" class="enhance-link inline-block ">Enhance</a>
+      <h1 class="text1">
+        <a href="/" class="enhance-link inline-block font-semibold">Enhance</a>
         <a href="/docs/" class="docs-link inline-block">Docs</a>
       </h1>
       <label

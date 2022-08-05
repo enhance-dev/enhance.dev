@@ -5,7 +5,7 @@ import arc from '@architect/functions'
 import enhance from '@enhance/ssr'
 import styleTransform from '@enhance/enhance-style-transform'
 import elements from '@architect/views/docs/elements/index.mjs'
-import sidebarDataLoader from '@architect/views/docs/sidebar-data.mjs'
+import navDataLoader from '@architect/views/docs/nav-data.mjs'
 import document from '@architect/views/docs/document.mjs'
 import HljsLineWrapper from './hljs-line-wrapper.mjs'
 
@@ -15,7 +15,7 @@ const docsRoute = 'docs' // this should match app.arc catchall
 const arcdown = new Arcdown({
   pluginOverrides: {
     markdownItToc: {
-      containerClass: 'mb2 leading2',
+      containerClass: 'toc mb2 ml-2',
       listType: 'ul',
     },
   },
@@ -27,7 +27,9 @@ const arcdown = new Arcdown({
 async function http(request) {
   const { path: activePath, pathParameters } = request
   let docPath = pathParameters?.proxy || 'index'
-  if (docPath.match(/\/$/)) docPath += 'index' // trailing slash == index.md file
+  if (docPath.match(/\/$/)) {
+    docPath += 'index' // trailing slash == index.md file
+  }
 
   const docURL = new URL(
     `./node_modules/@architect/views/docs/md/${docPath}.md`,
@@ -40,7 +42,7 @@ async function http(request) {
     elements,
     initialState: {
       doc,
-      sidebarData: sidebarDataLoader(docsRoute, activePath),
+      sidebarData: navDataLoader(docsRoute, activePath),
     },
     styleTransforms: [styleTransform],
   })

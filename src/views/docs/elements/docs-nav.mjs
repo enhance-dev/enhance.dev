@@ -1,46 +1,44 @@
-function Category(item) {
+function List(items, classes = []) {
   return `
-<div>
-  <div class="category-label mt-1 mb-4 leading1 uppercase font-semibold">${
-    item.label
-  }</div>
-  ${Description(item)}
-</div>
-${item.items?.length > 0 ? List(item.items) : ''}
-  `.trim()
-}
-
-function List(items) {
-  return `
-<ul role="list" class="list-none pl-1">
+<ul role="list" class="${['list-none pl-1', ...classes].join(' ')}">
   ${items
     .map((item) => {
       return `
-<li class="mb-4">
+<li class="">
   ${item.type === 'doc' || item.type === 'link' ? Link(item) : ''}
   ${item.type === 'category' ? Category(item) : ''}
   ${item.items?.length > 0 && item.type !== 'category' ? List(item.items) : ''}
 </li>
-      `.trim()
+        `.trim()
     })
     .join('\n')}
 </ul>
-  `.trim()
+    `.trim()
 }
 
 function Link(item) {
   return `
-<a href="${item.path}" class="p-4 block ${item.active ? 'active' : ''}">
+<a href="${item.path}" class="p-4 block${item.active ? ' active' : ''}">
   <div class="${item.type}-label">${item.label}</div>
-  ${Description(item)}
+  ${Description(item, ['mt-4'])}
 </a>
-  `.trim()
+    `.trim()
 }
 
-function Description(item) {
+function Category(item) {
+  return `
+<div>
+  <div class="category-label font-medium mb-4 uppercase">${item.label}</div>
+  ${Description(item)}
+</div>
+${item.items?.length > 0 ? List(item.items) : ''}
+    `.trim()
+}
+
+function Description(item, classes = []) {
   return item.description
     ? `
-<div class="description leading-none text-1">
+<div class="${['description text-1', ...classes].join(' ')}">
   ${item.description}
 </div>
       `.trim()
@@ -53,7 +51,7 @@ export default function DocsNav({ html, state }) {
 
   let tabs = ''
 
-  if (sidebarData?.length > 0)
+  if (sidebarData?.length > 0) {
     sidebarData
       .filter((i) => i.type === 'tab')
       .forEach((tab) => {
@@ -64,26 +62,33 @@ export default function DocsNav({ html, state }) {
 >
   ${List(tab.items)}
 </div>
-        `.trim()
+          `.trim()
       })
+  }
 
   return html`
     <style>
+      .tab-content > ul > li {
+        margin-bottom: 2rem;
+      }
+      li a {
+        color: var(--rift-princess);
+      }
       li a:hover {
-        border-left: 2px solid var(--color-bravo-lighter);
-        margin-left: -2px;
-        background-color: var(--color-bravo-lightest);
+        margin-left: -5px;
+        border-left: 5px solid var(--purple-princess);
+        background-color: var(--cloud-ateneo);
       }
       li a.active {
-        border-left: 2px solid var(--color-bravo-light);
-        margin-left: -2px;
-        background-color: var(--color-bravo-lightest);
+        margin-left: -5px;
+        border-left: 5px solid var(--purple-princess);
+        background-color: var(--cloud-ateneo);
       }
       .category-label {
-        border-bottom: 1px solid var(--color-alpha-lightest);
+        color: var(--purple-white);
       }
       .description {
-        color: var(--color-alpha-light);
+        color: var(--inky-lily);
       }
     </style>
 

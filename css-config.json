@@ -1,39 +1,45 @@
 {
-  "base": 18,
+  "base": 16,
   "scale": {
-    "ratio": "perfectFourth",
-    "steps": 8
+    "ratio": "majorThird",
+    "steps": 10
+  },
+  "fonts": {
+    "mono": "'Roboto Mono', monospace",
+    "sans": "'Rubik', sans-serif",
+    "roboto": "'Roboto Mono', monospace",
+    "rubik": "'Rubik', sans-serif"
   },
   "grid": {
     "steps": 6
   },
   "properties": [
     {
-      "white": "#ffffff"
-    },
-    {
-      "light": "#efefef"
-    },
-    {
-      "dark": "#222222"
-    },
-    {
-      "orange": "#ff6263"
-    },
-    {
-      "magenta": "#e21893"
-    },
-    {
-      "purple": "#8753c6"
+      "blue": "#1f74d6"
     },
     {
       "dark-purple": "#7327ce"
     },
     {
-      "blue": "#1f74d6"
+      "dark": "#222222"
     },
     {
       "green": "#2cdd93"
+    },
+    {
+      "light": "#efefef"
+    },
+    {
+      "magenta": "#e21893"
+    },
+    {
+      "orange": "#ff6263"
+    },
+    {
+      "purple": "#8753c6"
+    },
+    {
+      "white": "#ffffff"
     },
     {
       "bg-gradient": "linear-gradient(125deg, var(--orange), var(--magenta), var(--purple))"
@@ -44,7 +50,9 @@
   },
   "borders": {
     "widths": [
-      1
+      1,
+      2,
+      3
     ]
   },
   "radii": [

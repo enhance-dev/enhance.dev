@@ -6,7 +6,7 @@ Hey! You're here at the root. Welcome.
 
 ## Features
 
-All the things in `arcdown` with some fancy file-based routing.
+All the things in [Arcdown](https://github.com/architect/arcdown) with some fancy file-based routing.
 
 ### Navigation
 
@@ -20,19 +20,35 @@ The right-side outline is this doc's table of contents. 👉
 
 Syntax highlighting by default.
 
-```javascript
-const { path, pathParameters } = request;
-let docPath = pathParameters?.proxy || 'index';
-if (docPath.match(/\/$/)) docPath += 'index';
+<doc-code numbered focus="5:14" mark="3">
 
-const docURL = new URL(`${docsRoot}/${docPath}.md`, import.meta.url);
-const docMarkdown = readFileSync(docURL.pathname, 'utf-8');
-const doc = await render(docMarkdown);
+```javascript
+function findLanguages (mdContent) {
+  const foundLangs = new Set()
+  const fenceR = /`{3,4}(?:(.*$))?[\s\S]*?`{3,4}/gm
+  let match
+  do {
+    match = fenceR.exec(mdContent)
+    if (match) {
+      const matched = match[1]
+      if (matched) {
+        const langString = matched.split(' ')
+        foundLangs.add(langString[0])
+      }
+    }
+  } while (match)
+
+  return foundLangs
+}
 ```
+
+</doc-code>
 
 > 🪧  Be sure to use the **_full_** language name: "`javascript`" instead of "`js`".
 
-<doc-code numbered focus="11:16">
+There's even a `<doc-code>` custom element! 👆
+
+<doc-code>
 
 ```arc
 @app
@@ -58,5 +74,3 @@ architecture arm64
 ```
 
 </doc-code>
-
-There's even a `<doc-code>` custom element! 👆

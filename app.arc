@@ -64,6 +64,7 @@ data
   ttl TTL
 
 @aws
-runtime nodejs14.x
+runtime nodejs16.x
+architecture arm64
 region us-west-2
 profile smallwins

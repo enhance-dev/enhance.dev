@@ -17,7 +17,7 @@ export default function DocsLayout({ html, state }) {
       }
       #header {
         grid-area: header;
-        margin: 0 -0.5rem 1rem -0.5rem;
+        margin: 0 -0.5rem;
       }
       #sidebar {
         grid-area: sidebar;
@@ -77,20 +77,6 @@ export default function DocsLayout({ html, state }) {
         #outline {
           display: block;
         }
-      }
-    </style>
-
-    <style>
-      /* Colors */
-
-      a {
-        color: var(--color-bravo);
-      }
-      strong {
-        color: var(--color-alpha);
-      }
-      small {
-        color: var(--color-alpha-light);
       }
     </style>
 

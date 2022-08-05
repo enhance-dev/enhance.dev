@@ -1,76 +1,64 @@
 /* Light Theme */
 :root,
 :root[data-force-theme-mode='light'] {
-	color-scheme: light;
-	--background-color: White;
+  --ateneo: #113A62;
+  --black: #000000;
+  --cloud: #F7F0FE;
+  --denim: #003451;
+  --halite: #00293F;
+  --inky: #4D7185;
+  --lily: #E5EBEE;
+  --indigo: #004163;
+  --princess: #F57AFF;
+  --purple: #AD6EF9;
+  --rift: #01040D;
+  --smoke: #F3F3F3;
+  --white: #FFFFFF;
 
-  --color-alpha: Black;
-  --color-alpha-light: DarkSlateGray;
-  --color-alpha-lighter: DarkGray;
-  --color-alpha-lightest: White;
-
-  --color-bravo: DarkSlateBlue;
-  --color-bravo-light: CornflowerBlue;
-  --color-bravo-lighter: LightSteelBlue;
-  --color-bravo-lightest: AliceBlue;
-
-  --color-charlie: Crimson;
-  --color-charlie-light: DarkSalmon;
-  --color-charlie-lighter: LightSalmon;
-  --color-charlie-lightest: Seashell;
-
-  --color-delta: DarkGray;
-  --color-delta-light: WhiteSmoke;
-  --color-delta-lighter: Snow;
-  --color-delta-lightest: White;
+  --cloud-ateneo: var(--cloud);
+  --denim-white: var(--denim);
+  --inky-lily: var(--inky);
+  --purple-white: var(--purple);
+  --purple-princess: var(--purple);
+  --rift-princess: var(--rift);
+  --rift-white: var(--rift);
+  --black-princess: var(--black);
+  --black-white: var(--black);
+  --smoke-halite: var(--smoke);
+  --smoke-indigo: var(--smoke);
+  --white-denim: var(--white);
 }
+
 /* Dark Theme */
 :root[data-force-theme-mode='dark'] {
-  --background-color: #121212;
-
-  --color-alpha: #ddd;
-  --color-alpha-light: DarkGray;
-  --color-alpha-lighter: SlateGray;
-  --color-alpha-lightest: DarkSlateGray;
-
-  --color-bravo: #aae;
-  --color-bravo-light: #3a3a5a;
-  --color-bravo-lighter: #2c2c4c;
-  --color-bravo-lightest: #191939;
-
-  --color-charlie: Crimson;
-  --color-charlie-light: DarkSalmon;
-  --color-charlie-lighter: LightSalmon;
-  --color-charlie-lightest: DarkSlateGray;
-
-  --color-delta: #444;
-  --color-delta-light: #272727;
-  --color-delta-lighter: #191919;
-  --color-delta-lightest: Black;
+  --cloud-ateneo: var(--ateneo);
+  --denim-white: var(--white);
+  --inky-lily: var(--lily);
+  --purple-white: var(--white);
+  --purple-princess: var(--princess);
+  --rift-princess: var(--princess);
+  --rift-white: var(--white);
+  --black-princess: var(--princess);
+  --black-white: var(--white);
+  --smoke-halite: var(--halite);
+  --smoke-indigo: var(--indigo);
+  --white-denim: var(--denim);
 }
+
 /* Dark Theme: System */
 @media (prefers-color-scheme: dark) {
-	:root {
-		--background-color: #121212;
-
-    --color-alpha: #ddd;
-    --color-alpha-light: DarkGray;
-    --color-alpha-lighter: SlateGray;
-    --color-alpha-lightest: DarkSlateGray;
-
-    --color-bravo: #aae;
-    --color-bravo-light: #3a3a5a;
-    --color-bravo-lighter: #2c2c4c;
-    --color-bravo-lightest: #191939;
-
-    --color-charlie: Crimson;
-    --color-charlie-light: DarkSalmon;
-    --color-charlie-lighter: LightSalmon;
-    --color-charlie-lightest: DarkSlateGray;
-
-    --color-delta: #444;
-    --color-delta-light: #272727;
-    --color-delta-lighter: #191919;
-    --color-delta-lightest: Black;
-	}
+  :root {
+    --cloud-ateneo: var(--ateneo);
+    --denim-white: var(--white);
+    --inky-lily: var(--lily);
+    --purple-white: var(--white);
+    --purple-princess: var(--princess);
+    --rift-princess: var(--princess);
+    --rift-white: var(--white);
+    --black-princess: var(--princess);
+    --black-white: var(--white);
+    --smoke-halite: var(--halite);
+    --smoke-indigo: var(--indigo);
+    --white-denim: var(--denim);
+  }
 }

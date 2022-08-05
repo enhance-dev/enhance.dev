@@ -11,11 +11,15 @@ export default class {
     const safelyTagged = result.value.replace(
       /(<span [^>]+>)|(<\/span>)|(\n)/g,
       (match) => {
-        if (match === '\n')
+        if (match === '\n') {
           return `${'</span>'.repeat(tokens.length)}\n${tokens.join('')}`
+        }
 
-        if (match === '</span>') tokens.pop()
-        else tokens.push(match)
+        if (match === '</span>') {
+          tokens.pop()
+        } else {
+          tokens.push(match)
+        }
 
         return match
       }
