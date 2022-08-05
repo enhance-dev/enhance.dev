@@ -23,7 +23,7 @@ export default function DocOutline({ html, state }) {
   return html`
     <style>
       h3 {
-        color: var(--color-accent-bravo);
+        color: var(--purple-white);
       }
       ul {
         list-style: none;
@@ -33,7 +33,7 @@ export default function DocOutline({ html, state }) {
         padding-left: 0.7rem;
       }
       li a {
-        color: var(--color-text-delta);
+        color: var(--rift-princess);
       }
 
       nav.toc ul li {

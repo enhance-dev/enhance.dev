@@ -48,6 +48,8 @@ function findLanguages (mdContent) {
 
 There's even a `<doc-code>` custom element! 👆
 
+<doc-code>
+
 ```arc
 @app
 enhance-dev
@@ -70,3 +72,5 @@ config css-config.json
 runtime nodejs16.x
 architecture arm64
 ```
+
+</doc-code>

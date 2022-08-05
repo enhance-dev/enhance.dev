@@ -3,26 +3,18 @@ export default function DocsThemeToggle({ html }) {
 
   return html`
     <style>
-      :host > div {
-        background-color: var(--color-delta-lighter);
-        border: solid 1px var(--color-delta-light);
-      }
       label {
         height: ${size}px;
         width: ${size}px;
       }
       input + svg {
-        opacity: 0.5;
+        opacity: 0.3;
+        padding-bottom: 2px;
       }
       input:hover + svg,
       input:checked + svg {
         opacity: 1;
-      }
-      input#use-light:checked + svg {
-        color: DarkOrange;
-      }
-      input#use-dark:checked + svg {
-        color: CornFlowerBlue;
+        border-bottom: 1px solid var(--black-princess);
       }
     </style>
 

@@ -27,18 +27,12 @@ export default function document(title = '') {
 
       /* Colors */
       body {
-        background-color: var(--color-bg-alpha);
-        color: var(--color-text-alpha);
+        background-color: var(--white-denim);
+        color: var(--rift-white);
         font-family: 'Rubik', sans-serif;
       }
       a {
-        color: var(--color-accent-bravo);
-      }
-      strong {
-        color: var(--color-text-bravo);
-      }
-      small {
-        color: var(--color-text-echo);
+        color: var(--purple-white);
       }
     </style>
   </head>

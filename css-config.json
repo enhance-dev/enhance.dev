@@ -1,5 +1,5 @@
 {
-  "base": 18,
+  "base": 16,
   "scale": {
     "ratio": "majorThird",
     "steps": 10
@@ -13,40 +13,33 @@
   "grid": {
     "steps": 6
   },
-  "theme": {
-    "denim": "#003451",
-    "princess": "#F57AFF",
-    "purple": "#AD6EF9",
-    "rift": "#01040D",
-    "white": "#FFFFFF"
-  },
   "properties": [
     {
-      "white": "#ffffff"
-    },
-    {
-      "light": "#efefef"
-    },
-    {
-      "dark": "#222222"
-    },
-    {
-      "orange": "#ff6263"
-    },
-    {
-      "magenta": "#e21893"
-    },
-    {
-      "purple": "#8753c6"
+      "blue": "#1f74d6"
     },
     {
       "dark-purple": "#7327ce"
     },
     {
-      "blue": "#1f74d6"
+      "dark": "#222222"
     },
     {
       "green": "#2cdd93"
+    },
+    {
+      "light": "#efefef"
+    },
+    {
+      "magenta": "#e21893"
+    },
+    {
+      "orange": "#ff6263"
+    },
+    {
+      "purple": "#8753c6"
+    },
+    {
+      "white": "#ffffff"
     },
     {
       "bg-gradient": "linear-gradient(125deg, var(--orange), var(--magenta), var(--purple))"

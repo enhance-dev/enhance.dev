@@ -28,7 +28,7 @@ function Link(item) {
 function Category(item) {
   return `
 <div>
-  <div class="category-label font-medium mb-2 uppercase">${item.label}</div>
+  <div class="category-label font-medium mb-4 uppercase">${item.label}</div>
   ${Description(item)}
 </div>
 ${item.items?.length > 0 ? List(item.items) : ''}
@@ -72,23 +72,23 @@ export default function DocsNav({ html, state }) {
         margin-bottom: 2rem;
       }
       li a {
-        color: var(--color-text-delta);
+        color: var(--rift-princess);
       }
       li a:hover {
         margin-left: -5px;
-        border-left: 5px solid var(--color-accent-charlie);
-        background-color: var(--color-bg-foxtrot);
+        border-left: 5px solid var(--purple-princess);
+        background-color: var(--cloud-ateneo);
       }
       li a.active {
         margin-left: -5px;
-        border-left: 5px solid var(--color-accent-charlie);
-        background-color: var(--color-bg-foxtrot);
+        border-left: 5px solid var(--purple-princess);
+        background-color: var(--cloud-ateneo);
       }
       .category-label {
-        color: var(--color-accent-bravo);
+        color: var(--purple-white);
       }
       .description {
-        color: var(--color-text-echo);
+        color: var(--inky-lily);
       }
     </style>
 

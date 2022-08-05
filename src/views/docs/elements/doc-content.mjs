@@ -30,9 +30,16 @@ export default function DocContent({ html }) {
         font-size: 1.2rem;
       }
 
+      strong {
+        color: var(--black-white);
+      }
+      small {
+        color: var(--inky-lily);
+      }
+
       blockquote {
         padding: 0.8rem 0.6rem 0.6rem;
-        background-color: var(--color-bg-delta);
+        background-color: var(--smoke-indigo);
         box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 1px 0px;
         border-radius: 0.333rem;
       }
@@ -41,13 +48,13 @@ export default function DocContent({ html }) {
         padding: 0.1rem 0.2rem;
         line-height: 1rem;
         overflow-wrap: break-word;
-        background-color: var(--color-bg-echo);
+        background-color: var(--smoke-denim4);
         font-family: Menlo, Monaco, Consolas, monospace;
         border-radius: 0.25rem;
       }
 
       blockquote :not(pre) > code {
-        background-color: var(--color-bg-echo);
+        background-color: var(--smoke-denim4);
       }
 
       pre.hljs {
