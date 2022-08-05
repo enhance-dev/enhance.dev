@@ -3,6 +3,10 @@ export default function DocCode({ html }) {
 
   return html`
     <style>
+      span.code-line {
+        display: inline-block;
+        width: 100%;
+      }
       pre.numbered span.code-line {
         counter-increment: lineNo;
       }
@@ -26,7 +30,7 @@ export default function DocCode({ html }) {
 
       pre span.code-line.marked {
         opacity: 1;
-        background: #ff9b94;
+        background: rgb(0, 143, 223, 0.3);
       }
     </style>
 

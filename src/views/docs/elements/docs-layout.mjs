@@ -72,20 +72,6 @@ export default function DocsLayout({ html, state }) {
       }
     </style>
 
-    <style>
-      /* Colors */
-
-      a {
-        color: var(--denim-500);
-      }
-      strong {
-        color: var(--rift-500);
-      }
-      small {
-        color: var(--denim-400);
-      }
-    </style>
-
     <docs-header id="header" class="p1"></docs-header>
 
     <nav id="sidebar">

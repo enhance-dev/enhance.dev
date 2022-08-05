@@ -1,36 +1,28 @@
 /* Light Theme */
 :root,
 :root[data-force-theme-mode='light'] {
-	color-scheme: light;
-	--background-color: White;
-
-  --color-echo: white;
-  --color-echo1: white;
-  --color-echo2: white;
-  --color-echo3: white;
-
-  --color-november: #f57aff;
-  --color-november1: blue;
-  --color-november2: blue;
-  --color-november3: blue;
-
-  --color-hotel: red;
-  --color-hotel1: red;
-  --color-hotel2: red;
-  --color-hotel3: red;
-
-  --color-alfa: green;
-  --color-alfa1: green;
-  --color-alfa2: green;
-  --color-alfa3: green;
+  color-scheme: light;
+  --color-bg-alpha: var(--white-500);
+  --color-bg-bravo: var(--white-900);
+  --color-bg-charlie: var(--princess-300);
+  --color-bg-delta: #f9f9f9;
+  --color-bg-echo: #eee;
+  --color-text-alpha: var(--rift-500);
+  --color-text-bravo: var(--rift-900);
+  --color-text-charlie: var(--grey-600);
+  --color-accent-alpha: var(--denim-500);
+  --color-accent-bravo: var(--purple-500);
 }
+
 /* Dark Theme */
 :root[data-force-theme-mode='dark'] {
-  --background-color: #003451;
+  --color-bg-alpha: var(--denim-500);
+  --color-text-alpha: var(--white-500);
 }
+
 /* Dark Theme: System */
 @media (prefers-color-scheme: dark) {
-	:root {
-		--background-color: #003451;
-	}
+  :root {
+    --color-bg-alpha: var(--denim-500);
+  }
 }

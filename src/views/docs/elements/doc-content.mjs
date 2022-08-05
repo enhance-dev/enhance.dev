@@ -31,7 +31,7 @@ export default function DocContent({ html }) {
 
       blockquote {
         padding: 0.8rem 0.6rem 0.6rem;
-        background-color: var(--color-delta-light);
+        background-color: var(--color-bg-delta);
         box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 1px 0px;
         border-radius: 0.333rem;
       }
@@ -40,13 +40,13 @@ export default function DocContent({ html }) {
         padding: 0.1rem 0.2rem;
         line-height: 1rem;
         overflow-wrap: break-word;
-        background-color: var(--color-delta-light);
+        background-color: var(--color-bg-echo);
         font-family: Menlo, Monaco, Consolas, monospace;
         border-radius: 0.25rem;
       }
 
       blockquote :not(pre) > code {
-        background-color: var(--color-delta-lightest);
+        background-color: var(--color-bg-echo);
       }
 
       pre.hljs {

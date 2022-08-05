@@ -15,7 +15,7 @@ export const data = [
       {
         slug: 'why-enhance',
         label: 'Why Enhance?',
-        description: 'The core philosophy of Enhance.',
+        description: 'Our core philosophy',
       },
       {
         type: TYPE.category,
@@ -44,8 +44,7 @@ export const data = [
           {
             slug: 'rendering',
             path: '/docs/learn/concepts/rendering/',
-            description:
-              'String template literals and the HTML render function',
+            description: 'The HTML render function',
             items: ['element-expansion', 'slots'],
           },
           {

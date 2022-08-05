@@ -24,10 +24,21 @@ export default function document(title = '') {
       media="(prefers-color-scheme: dark)" />
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Rubik:wght@200;300;400;500;600;700&display=swap');
+
+      /* Colors */
       body {
-        background-color: var(--background-color);
-        color: var(--color-alpha);
+        background-color: var(--color-bg-alpha);
+        color: var(--color-text-alpha);
         font-family: 'Rubik', sans-serif;
+      }
+      a {
+        color: var(--color-accent-bravo);
+      }
+      strong {
+        color: var(--color-text-bravo);
+      }
+      small {
+        color: var(--color-text-charlie);
       }
     </style>
   </head>

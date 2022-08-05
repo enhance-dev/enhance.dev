@@ -11,11 +11,9 @@ export default function DocsHeader({ html, state }) {
       .forEach((tab) => {
         navItems.push(
           `<li class="inline-block whitespace-no-wrap pl1 pr1 pb-4 ml-4 mr-4 ${
-            tab.active ? 'active' : ''
+            tab.active ? 'active font-semibold' : ''
           }">
-            <a class="text-center font-semibold" href="${tab.path}/">${
-            tab.label
-          }</a>
+            <a class="text-center" href="${tab.path}/">${tab.label}</a>
           </li>`
         )
       })
@@ -95,23 +93,29 @@ export default function DocsHeader({ html, state }) {
       #logo h1 a {
         transition: transform ease 0.2s;
       }
-      #logo h1 a:hover {
-        transform: rotate(5deg);
-      }
       #logo a.enhance-link {
-        color: var(--denim-500);
+        color: var(--color-accent-alpha);
+      }
+      #logo a.enhance-link:hover {
+        transform: rotate(-3deg);
       }
       #logo a.docs-link {
-        color: var(--princess-500);
+        color: var(--color-accent-bravo);
+      }
+      #logo a.docs-link:hover {
+        transform: rotate(3deg);
       }
       #main-nav ul li {
         border-bottom: 2px solid var(--color-charlie-lightest);
       }
       #main-nav ul li a {
-        color: var(--color-charlie);
+        color: var(--color-accent-alpha);
       }
       #main-nav ul li.active {
-        border-bottom: 2px solid var(--color-charlie-lighter);
+        border-bottom: 2px solid var(--color-accent-bravo);
+      }
+      #main-nav ul li.active a {
+        color: var(--color-accent-bravo);
       }
     </style>
 
