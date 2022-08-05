@@ -34,11 +34,15 @@ export default function DocsLayout({ html, state }) {
       @media only screen and (min-width: 50em) {
         /* 2-col + */
         :host {
+          position: fixed;
+          overflow: auto;
+          height: 100vh;
+
           grid-template-columns: 16rem 1fr;
           grid-template-areas:
             'header   header'
             'sidebar content'
-            '   .    content';
+            'sidebar content';
         }
 
         #sidebar {
@@ -60,11 +64,15 @@ export default function DocsLayout({ html, state }) {
       @media (min-width: 72rem) {
         /* 3-col */
         :host {
+          position: fixed;
+          overflow: auto;
+          height: 100vh;
+
           grid-template-columns: 16rem 4fr 1fr;
           grid-template-areas:
             'header  header   header'
             'sidebar content outline'
-            '   .    content    .   ';
+            'sidebar content outline';
         }
         #outline {
           display: block;
@@ -88,18 +96,37 @@ export default function DocsLayout({ html, state }) {
 
     <docs-header id="header" class="p1"></docs-header>
 
-    <nav id="sidebar">
+    <nav id="sidebar" class="overflow-y-auto-lg">
       <docs-nav></docs-nav>
     </nav>
 
-    <doc-content id="content">
+    <doc-content id="content" class="overflow-y-auto-lg">
       <article slot="doc" class="leading2">
         ${doc.title ? `<h1>${doc.title}</h1>` : ''} ${doc.html}
       </article>
     </doc-content>
 
-    <doc-outline id="outline">
+    <doc-outline id="outline" class="overflow-y-auto-lg">
       <div slot="toc">${doc.tocHtml}</div>
     </doc-outline>
+
+    <script type="module">
+      class Layout extends HTMLElement {
+        constructor() {
+          super()
+          let sidebar = this.querySelector('#sidebar')
+
+          let top = sessionStorage.getItem('docs-sidebar-scroll')
+          if (top !== null) {
+            sidebar.scrollTop = parseInt(top, 10)
+          }
+
+          window.addEventListener('beforeunload', () => {
+            sessionStorage.setItem('docs-sidebar-scroll', sidebar.scrollTop)
+          })
+        }
+      }
+      customElements.define('docs-layout', Layout)
+    </script>
   `
 }
