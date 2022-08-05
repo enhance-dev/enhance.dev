@@ -100,14 +100,19 @@ export default function DocsHeader({ html, state }) {
       #logo a.docs-link {
         color: #f57aff;
       }
-      #main-nav ul li {
-        border-bottom: 2px solid var(--color-charlie-lightest);
-      }
       #main-nav ul li a {
-        color: var(--color-charlie);
+        color: var(--color-bravo);
       }
-      #main-nav ul li.active {
-        border-bottom: 2px solid var(--color-charlie-lighter);
+      #main-nav ul li.active a {
+        color: #f57aff;
+      }
+      #main-nav ul li.active:after {
+        content: '';
+        display: block;
+        margin: 0 auto;
+        width: 1em;
+        padding-top: 0.25em;
+        border-bottom: 2px solid #f57aff;
       }
     </style>
 
