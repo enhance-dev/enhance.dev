@@ -38,7 +38,7 @@ export default function document(title = '') {
         color: var(--color-text-bravo);
       }
       small {
-        color: var(--color-text-charlie);
+        color: var(--color-text-echo);
       }
     </style>
   </head>

@@ -6,8 +6,9 @@ export default function DocContent({ html }) {
         margin: auto;
       }
 
+      /* margin-x for everything except code blocks */
       :host > ::slotted(*) > * {
-        margin: 0 1.5rem 1.25rem 1.5rem;
+        margin: 0 5rem 1rem 5rem;
       }
 
       h1 {
@@ -51,7 +52,6 @@ export default function DocContent({ html }) {
 
       pre.hljs {
         padding: 0.8rem 1rem;
-        margin: 0 0 1rem 0;
         white-space: pre-wrap;
         box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 4px 0px,
           rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;

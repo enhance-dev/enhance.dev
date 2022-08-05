@@ -7,17 +7,33 @@
   --color-bg-charlie: var(--princess-300);
   --color-bg-delta: #f9f9f9;
   --color-bg-echo: #eee;
+  --color-bg-foxtrot: #F7F0FE;
   --color-text-alpha: var(--rift-500);
   --color-text-bravo: var(--rift-900);
   --color-text-charlie: var(--grey-600);
+  --color-text-delta: var(--rift-500);
+  --color-text-echo: #4D7185;
   --color-accent-alpha: var(--denim-500);
   --color-accent-bravo: var(--purple-500);
+  --color-accent-charlie: var(--purple-500);
 }
 
 /* Dark Theme */
 :root[data-force-theme-mode='dark'] {
-  --color-bg-alpha: var(--denim-500);
-  --color-text-alpha: var(--white-500);
+  /* 🔺 */ --color-bg-alpha: var(--denim-500);
+  --color-bg-bravo: var(--white-900);
+  --color-bg-charlie: var(--princess-300);
+  --color-bg-delta: #f9f9f9;
+  --color-bg-echo: #eee;
+  /* 🔺 */ --color-bg-foxtrot: #113A62;
+  /* 🔺 */ --color-text-alpha: var(--white-500);
+  /* 🔺 */ --color-text-bravo: var(--rift-900);
+  --color-text-charlie: var(--grey-600);
+  /* 🔺 */ --color-text-delta: var(--purple-500);
+  /* 🔺 */ --color-text-echo: #E5EBEE;
+  --color-accent-alpha: var(--denim-500);
+  /* 🔺 */ --color-accent-bravo: var(--white-500);
+  /* 🔺 */ --color-accent-charlie: var(--purple-500);
 }
 
 /* Dark Theme: System */

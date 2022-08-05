@@ -72,23 +72,23 @@ export default function DocsNav({ html, state }) {
         margin-bottom: 2rem;
       }
       li a {
-        color: var(--color-text-alpha);
+        color: var(--color-text-delta);
       }
       li a:hover {
         margin-left: -5px;
-        border-left: 5px solid var(--color-accent-bravo);
-        background-color: var(--color-bg-charlie);
+        border-left: 5px solid var(--color-accent-charlie);
+        background-color: var(--color-bg-foxtrot);
       }
       li a.active {
         margin-left: -5px;
-        border-left: 5px solid var(--color-accent-bravo);
-        background-color: var(--color-bg-charlie);
+        border-left: 5px solid var(--color-accent-charlie);
+        background-color: var(--color-bg-foxtrot);
       }
       .category-label {
         color: var(--color-accent-bravo);
       }
       .description {
-        color: var(--color-text-charlie);
+        color: var(--color-text-echo);
       }
     </style>
 

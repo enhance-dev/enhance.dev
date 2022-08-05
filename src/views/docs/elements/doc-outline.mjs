@@ -33,7 +33,7 @@ export default function DocOutline({ html, state }) {
         padding-left: 0.7rem;
       }
       li a {
-        color: var(--color-text-alpha);
+        color: var(--color-text-delta);
       }
 
       nav.toc ul li {
