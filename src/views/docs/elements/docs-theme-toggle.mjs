@@ -14,7 +14,8 @@ export default function DocsThemeToggle({ html }) {
       input:hover + svg,
       input:checked + svg {
         opacity: 1;
-        border-bottom: 1px solid var(--black-princess);
+        border-bottom: 2px solid var(--black-princess);
+        color: var(--black-princess);
       }
     </style>
 
