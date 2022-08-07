@@ -46,7 +46,8 @@
     }
   ],
   "queries": {
-    "lg": "48em"
+    "lg": "48em",
+    "xl": "72em"
   },
   "borders": {
     "widths": [

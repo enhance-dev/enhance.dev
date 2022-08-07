@@ -2,32 +2,33 @@ export default function DocContent({ html }) {
   return html`
     <style>
       :host > ::slotted(*) {
-        max-width: 51rem;
+        max-width: 52rem;
         margin: auto;
       }
 
-      /* margin-x for everything except code blocks */
       :host > ::slotted(*) > * {
-        margin: 0 5rem 1rem 5rem;
+        margin-bottom: 1.25rem;
+        /* margin-x for everything except code blocks */
+        /* margin: 0 5rem 1.25rem 5rem; */
       }
 
       h1 {
-        font-size: 2rem;
+        font-size: 1.953rem;
         font-weight: 500;
       }
 
       h2 {
-        font-size: 1.5rem;
+        font-size: 1.563rem;
         font-weight: 500;
       }
 
       h3 {
-        font-size: 1.3rem;
+        font-size: 1.25rem;
         font-weight: 500;
       }
 
       h4 {
-        font-size: 1.2rem;
+        font-size: 1rem;
       }
 
       strong {

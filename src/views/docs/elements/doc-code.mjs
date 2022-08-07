@@ -3,7 +3,15 @@ export default function DocCode({ html }) {
 
   return html`
     <style>
-      span.code-line {
+      :host {
+        display: block;
+      }
+
+      pre.numbered {
+        padding-right: 0;
+        padding-left: 0;
+      }
+      pre.numbered span.code-line {
         display: inline-block;
         width: 100%;
       }
@@ -13,12 +21,11 @@ export default function DocCode({ html }) {
       pre.numbered span.code-line:before {
         content: counter(lineNo);
         display: inline-block;
-        width: 2.1rem;
-        padding: 0 0.5em;
-        margin-right: 0.5em;
+        width: 2rem;
+        padding: 0 0.25em;
+        margin: 0 0.5em;
         text-align: right;
-        border-right: 1px solid #ddd;
-        color: #888;
+        color: var(--inky);
       }
 
       pre.focused span.code-line {

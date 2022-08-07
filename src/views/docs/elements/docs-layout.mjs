@@ -12,12 +12,11 @@ export default function DocsLayout({ html, state }) {
         grid-template-areas:
           'header'
           'content';
-        gap: 0 1.5rem;
+        gap: 0 1rem;
         margin: 0 1rem;
       }
       #header {
         grid-area: header;
-        margin: 0 -0.5rem;
       }
       #sidebar {
         grid-area: sidebar;
@@ -31,7 +30,7 @@ export default function DocsLayout({ html, state }) {
         display: none;
       }
 
-      @media only screen and (min-width: 50em) {
+      @media only screen and (min-width: 48em) {
         /* 2-col + */
         :host {
           position: fixed;
@@ -61,7 +60,7 @@ export default function DocsLayout({ html, state }) {
         }
       }
 
-      @media (min-width: 72rem) {
+      @media (min-width: 72em) {
         /* 3-col */
         :host {
           position: fixed;
@@ -80,7 +79,7 @@ export default function DocsLayout({ html, state }) {
       }
     </style>
 
-    <docs-header id="header" class="p1"></docs-header>
+    <docs-header id="header" class="mt1 mb1"></docs-header>
 
     <nav id="sidebar" class="overflow-y-auto-lg">
       <docs-nav></docs-nav>

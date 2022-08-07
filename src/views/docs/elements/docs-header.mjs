@@ -10,7 +10,7 @@ export default function DocsHeader({ html, state }) {
       .filter((i) => i.type === 'tab')
       .forEach((tab) => {
         navItems.push(
-          `<li class="inline-block whitespace-no-wrap pl1 pr1 pb-4 ml-4 mr-4 ${
+          `<li class="inline-block whitespace-no-wrap ml3 mr3 ${
             tab.active ? 'active font-semibold' : ''
           }">
             <a class="text-center" href="${tab.path}/">${tab.label}</a>
@@ -66,7 +66,7 @@ export default function DocsHeader({ html, state }) {
         display: flex;
       }
 
-      @media only screen and (min-width: 50em) {
+      @media only screen and (min-width: 48em) {
         /* 2-col + */
         :host {
           grid-template-columns: 16rem 4fr 1fr;
@@ -87,9 +87,6 @@ export default function DocsHeader({ html, state }) {
 
     <style>
       /* Basic syles */
-      #logo img {
-        margin-top: -0.75rem;
-      }
       #logo h1 a {
         transition: transform ease 0.2s;
       }
@@ -133,9 +130,9 @@ export default function DocsHeader({ html, state }) {
       name="open-burger"
       aria-label="Open navigation" />
 
-    <div id="logo" class="flex gap-1 justify-start items-center">
+    <div id="logo" class="flex gap-1 justify-start items-end">
       <img src="${arc.static('img/svg/chibi.svg')}" />
-      <h1 class="text1">
+      <h1 class="text1 mb-2">
         <a href="/" class="enhance-link inline-block font-semibold">Enhance</a>
         <a href="/docs/" class="docs-link inline-block">Docs</a>
       </h1>
@@ -161,7 +158,7 @@ export default function DocsHeader({ html, state }) {
       </label>
     </div>
 
-    <nav id="main-nav" class="flex gap-1 items-center ml1">
+    <nav id="main-nav" class="flex items-center">
       <ul class="flex-auto flex justify-center list-none">
         ${navItems.join('\n')}
       </ul>
