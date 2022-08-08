@@ -45,7 +45,6 @@ export default function DocOutline({ html, state }) {
     </style>
 
     <aside>
-      <h3 class="mb-2 font-medium">On this page</h3>
       <slot name="toc"></slot>
 
       ${doc?.frontmatter?.links?.length > 0
