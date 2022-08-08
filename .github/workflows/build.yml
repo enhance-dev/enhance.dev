@@ -11,11 +11,7 @@ jobs:
   # Test the build
   build:
     # Setup
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        node-version: [16]
-        os: [ubuntu-latest]
+    runs-on: ubuntu-latest
 
     # Go
     steps:
@@ -25,7 +21,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: 16
 
       - name: Env
         run: |
@@ -46,8 +42,7 @@ jobs:
 
       - name: Notify
         uses: homoluctus/slatify@master
-        # Only fire alert once
-        if: github.ref == 'refs/heads/main' && failure() && matrix.node-version == '14.x' && matrix.os == 'ubuntu-latest'
+        if: github.ref == 'refs/heads/main' && failure()
         with:
           type: ${{ job.status }}
           job_name: "*Build*"
