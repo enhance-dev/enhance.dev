@@ -73,6 +73,7 @@
     --hl-symbol: var(--dk-lolly);
     --hl-namespace: var(--dk-pink);
 
+    --hl-highlight-line: var(--dk-highlight);
     --hl-deletion: #de7176;
     --hl-addition: #76c490;
   }
