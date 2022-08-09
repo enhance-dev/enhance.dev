@@ -84,9 +84,8 @@ pre.hljs {
   padding: 0.7rem 0.9rem;
   color: var(--hl-color);
   background: var(--hl-bg);
+  white-space: pre-wrap;
   tab-size: 2;
-  overflow-x: auto;
-  /* white-space: pre-wrap; */
 }
 
 pre.hljs code {

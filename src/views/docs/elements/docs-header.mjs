@@ -30,8 +30,7 @@ export default function DocsHeader({ html, state }) {
         grid-template-columns: 1fr;
         grid-template-areas:
           'logo'
-          'secondary'
-          'main'
+          'menu'
           'docs-nav';
       }
 
@@ -40,13 +39,8 @@ export default function DocsHeader({ html, state }) {
         display: flex;
       }
 
-      #main-nav {
-        grid-area: main;
-        display: none;
-      }
-
-      #secondary-nav {
-        grid-area: secondary;
+      #menu {
+        grid-area: menu;
         display: none;
       }
 
@@ -62,7 +56,7 @@ export default function DocsHeader({ html, state }) {
       #burger-control:checked ~ #docs-nav {
         display: block;
       }
-      #burger-control:checked ~ #secondary-nav {
+      #burger-control:checked ~ #menu {
         display: flex;
       }
 
@@ -70,12 +64,12 @@ export default function DocsHeader({ html, state }) {
         /* 2-col + */
         :host {
           grid-template-columns: 16rem 4fr 1fr;
-          grid-template-areas: 'logo main secondary';
+          grid-template-areas: 'logo main menu';
         }
         #main-nav {
           display: flex;
         }
-        #secondary-nav {
+        #menu {
           display: flex;
         }
         #hamburger,
@@ -98,29 +92,6 @@ export default function DocsHeader({ html, state }) {
       }
       #logo a.docs-link {
         color: var(--purple-princess);
-      }
-
-      #main-nav ul li a {
-        color: var(--rift-white);
-      }
-      #main-nav ul li:hover:after {
-        content: '';
-        display: block;
-        margin: 0 auto;
-        width: 1em;
-        padding-top: 0.25em;
-        border-bottom: 2px solid var(--purple-princess);
-      }
-      #main-nav ul li.active a {
-        color: var(--purple-princess);
-      }
-      #main-nav ul li.active:after {
-        content: '';
-        display: block;
-        margin: 0 auto;
-        width: 1em;
-        padding-top: 0.25em;
-        border-bottom: 2px solid var(--purple-princess);
       }
     </style>
 
@@ -158,17 +129,11 @@ export default function DocsHeader({ html, state }) {
       </label>
     </div>
 
-    <nav id="main-nav" class="flex items-center">
-      <ul class="flex-auto flex justify-center list-none">
-        ${navItems.join('\n')}
-      </ul>
-    </nav>
-
-    <nav id="secondary-nav" class="flex gap-1 justify-end">
-      <div id="search" class=""></div>
+    <nav id="menu" class="flex gap-1 justify-end">
+      <docs-theme-toggle></docs-theme-toggle>
       <!-- GitHub -->
       <!-- Discord -->
-      <docs-theme-toggle></docs-theme-toggle>
+      <div id="search" class=""></div>
     </nav>
 
     <nav id="docs-nav">
