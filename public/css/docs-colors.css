@@ -1,8 +1,12 @@
 /* Light Theme */
 :root,
 :root[data-force-theme-mode='light'] {
-  --ateneo: #113A62;
+  --white: #FFFFFF;
   --black: #000000;
+  --light: #EFEFEF;
+  --dark: #222222;
+
+  --ateneo: #113A62;
   --cloud: #F7F0FE;
   --denim: #003451;
   --halite: #00293F;
@@ -13,7 +17,6 @@
   --purple: #AD6EF9;
   --rift: #01040D;
   --smoke: #F3F3F3;
-  --white: #FFFFFF;
 
   --cloud-ateneo: var(--cloud);
   --denim-white: var(--denim);

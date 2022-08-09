@@ -57,16 +57,6 @@ export default function DocContent({ html }) {
       blockquote :not(pre) > code {
         background-color: var(--smoke-denim4);
       }
-
-      pre.hljs {
-        padding: 0.8rem 1rem;
-        white-space: pre-wrap;
-        box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 4px 0px,
-          rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
-      }
-      pre.hljs code {
-        font-family: 'Roboto Mono', monospace;
-      }
     </style>
 
     <slot name="doc"></slot>

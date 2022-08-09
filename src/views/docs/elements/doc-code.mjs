@@ -25,7 +25,8 @@ export default function DocCode({ html }) {
         padding: 0 0.25em;
         margin: 0 0.5em;
         text-align: right;
-        color: var(--inky);
+        color: #8d8d8d;
+        /* background: #262626; */
       }
 
       pre.focused span.code-line {
@@ -37,7 +38,7 @@ export default function DocCode({ html }) {
 
       pre span.code-line.marked {
         opacity: 1;
-        background: rgb(0, 143, 223, 0.3);
+        background: var(--hl-highlight-line);
       }
     </style>
 

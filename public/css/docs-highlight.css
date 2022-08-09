@@ -1,0 +1,176 @@
+/* Requires css/docs-colors.css */
+
+/* Light Theme */
+:root,
+:root[data-force-theme-mode='light'] {
+  /* from the design */
+  --lt-green: #26AF26;
+  --lt-iris: #1AB4C6;
+  --lt-blue: #0071FC;
+  --lt-grape: #8126FF;
+  --lt-magenta: #FC0BE9;
+  --lt-pink: #FF6393;
+  --lt-highlight: #F3DBF6;
+  --dk-spring: #00F500;
+  --dk-blue: #74F1FF;
+  --dk-princess: var(--princess);
+  --dk-yellow: #FFF43A;
+  --dk-lolly: #FF9B94;
+  --dk-pink: var(--lt-pink);
+  --dk-highlight: #463955;
+
+  /* basics */
+  --hl-bg: var(--smoke);
+  --hl-color: var(--denim);
+  --hl-comment: var(--inky);
+  --hl-punctuation: var(--denim);
+
+  /* fun stuff */
+  --hl-variable: var(--lt-green);
+  --hl-literal: var(--lt-iris);
+  --hl-keyword: var(--lt-blue);
+  --hl-attribute: var(--lt-grape);
+  --hl-symbol: var(--lt-magenta);
+  --hl-namespace: var(--lt-pink);
+
+  /* extra */
+  --hl-highlight-line: var(--lt-highlight);
+  --hl-deletion: #c02d2e;
+  --hl-addition: #8dad98;
+}
+
+/* Dark Theme */
+:root[data-force-theme-mode='dark'] {
+  --hl-bg: var(--dark);
+  --hl-color: var(--white);
+  --hl-comment: var(--inky);
+  --hl-punctuation: var(--light);
+
+  --hl-variable: var(--dk-spring);
+  --hl-literal: var(--dk-blue);
+  --hl-keyword: var(--dk-princess);
+  --hl-attribute: var(--dk-yellow);
+  --hl-symbol: var(--dk-lolly);
+  --hl-namespace: var(--dk-pink);
+
+  --hl-highlight-line: var(--dk-highlight);
+  --hl-deletion: #de7176;
+  --hl-addition: #76c490;
+}
+
+/* Dark Theme: System */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --hl-bg: var(--dark);
+    --hl-color: var(--white);
+    --hl-comment: #999999;
+    --hl-punctuation: var(--light);
+
+    --hl-variable: var(--dk-spring);
+    --hl-literal: var(--dk-blue);
+    --hl-keyword: var(--dk-princess);
+    --hl-attribute: var(--dk-yellow);
+    --hl-symbol: var(--dk-lolly);
+    --hl-namespace: var(--dk-pink);
+
+    --hl-deletion: #de7176;
+    --hl-addition: #76c490;
+  }
+}
+
+pre.hljs {
+  margin: 0 0 1.5rem 0;
+  padding: 0.7rem 0.9rem;
+  color: var(--hl-color);
+  background: var(--hl-bg);
+  tab-size: 2;
+  overflow-x: auto;
+  /* white-space: pre-wrap; */
+}
+
+pre.hljs code {
+  font-family: 'Roboto Mono', monospace;
+}
+
+.hljs-subst {
+  color: var(--hl-color);
+}
+
+.hljs-comment {
+  color: var(--hl-comment);
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-meta .hljs-keyword,
+.hljs-doctag,
+.hljs-section {
+  color: var(--hl-keyword);
+}
+
+.hljs-attr {
+  color: var(--hl-attribute);
+}
+
+.hljs-attribute {
+  color: var(--hl-symbol);
+}
+
+.hljs-name,
+.hljs-type,
+.hljs-number,
+.hljs-selector-id,
+.hljs-quote,
+.hljs-template-tag {
+  color: var(--hl-namespace);
+}
+
+.hljs-selector-class {
+  color: var(--hl-keyword);
+}
+
+.hljs-string,
+.hljs-regexp,
+.hljs-symbol,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-link,
+.hljs-selector-attr {
+  color: var(--hl-variable);
+}
+
+.hljs-meta,
+.hljs-selector-pseudo {
+  color: var(--hl-keyword);
+}
+
+.hljs-built_in,
+.hljs-title,
+.hljs-literal {
+  color: var(--hl-literal);
+}
+
+.hljs-bullet,
+.hljs-code {
+  color: var(--hl-punctuation);
+}
+
+.hljs-meta .hljs-string {
+  color: var(--hl-variable);
+}
+
+.hljs-deletion {
+  color: var(--hl-deletion);
+}
+
+.hljs-addition {
+  color: var(--hl-addition);
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}

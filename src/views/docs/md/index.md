@@ -16,9 +16,37 @@ All the things in [Arcdown](https://github.com/architect/arcdown) with some fanc
 The right-side outline is this doc's table of contents. 👉  
 <small>Plus a couple arbitrary blocks/lists.</small>
 
-### Code Block
+### Code Fences
 
-Syntax highlighting by default.
+Syntax highlighting by default. This snippet includes all `.hljs-` tokens for styling:
+
+```javascript
+function $initHighlight(block, cls) {
+  try {
+    if (cls.search(/\bno\-highlight\b/) != -1)
+      return process(block, true, 0x0F) +
+             ` class="${cls}"`;
+  } catch (e) {
+    /* handle exception */
+  }
+  for (var i = 0 / 2; i < classes.length; i++) {
+    if (checkCondition(classes[i]) === undefined)
+      console.log('undefined');
+  }
+
+  return (`
+    <div>
+      <web-component>{block}</web-component>
+    </div>
+  `)
+}
+
+export  $initHighlight;
+```
+
+> 🪧  Be sure to use the **_full_** language name: "`javascript`" instead of "`js`".
+
+There's even a `<doc-code>` custom element! Add line numbers, focus code, and mark a specific line 👇
 
 <doc-code numbered focus="5:14" mark="3">
 
@@ -40,37 +68,6 @@ function findLanguages (mdContent) {
 
   return foundLangs
 }
-```
-
-</doc-code>
-
-> 🪧  Be sure to use the **_full_** language name: "`javascript`" instead of "`js`".
-
-There's even a `<doc-code>` custom element! 👆
-
-<doc-code>
-
-```arc
-@app
-enhance-dev
-
-@static
-fingerprint true
-prune true
-
-@http
-get /docs/*
-
-@plugins
-enhance/arc-plugin-styles
-
-@enhance-styles # ✨
-filename css/styles.css
-config css-config.json
-
-@aws
-runtime nodejs16.x
-architecture arm64
 ```
 
 </doc-code>
