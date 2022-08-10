@@ -26,7 +26,7 @@ export default function document(title = '') {
         font-family: 'Rubik', sans-serif;
       }
       a {
-        color: var(--purple-white);
+        color: var(--purple-princess);
       }
     </style>
   </head>

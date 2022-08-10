@@ -1,4 +1,26 @@
-export default function DocContent({ html }) {
+function CommunityLinks(links) {
+  const items = links.map((link) => {
+    return /* html */ `
+<dt><a href="${link.url}" target="_blank">${link.label}</a></dt>
+<dd class="mb-4">${link.description}</dd>
+      `
+  })
+
+  return /* html */ `
+<aside class="community-links">
+  <h3 class="mb-2">Community Resources</h3>
+  <dl class="ml-2 list-none leading2">
+    ${items.join('')}
+  </dl>
+</aside>
+    `
+}
+
+export default function DocContent({ html, state }) {
+  const {
+    store: { otherLinks },
+  } = state
+
   return html`
     <style>
       :host > ::slotted(*) {
@@ -57,8 +79,22 @@ export default function DocContent({ html }) {
       blockquote :not(pre) > code {
         background-color: var(--smoke-denim4);
       }
+
+      .community-links {
+        opacity: 0.8; /* TODO: not this */
+        width: 85%;
+        margin: 5rem auto 0;
+        padding: 1rem;
+        background-color: var(--cloud-ateneo);
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
+          rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+      }
     </style>
 
     <slot name="doc"></slot>
+
+    ${otherLinks?.community?.items?.length > 0
+      ? CommunityLinks(otherLinks.community.items)
+      : ''}
   `
 }

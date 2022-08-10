@@ -5,7 +5,9 @@ import arc from '@architect/functions'
 import enhance from '@enhance/ssr'
 import styleTransform from '@enhance/enhance-style-transform'
 import elements from '@architect/views/docs/elements/index.mjs'
-import navDataLoader from '@architect/views/docs/nav-data.mjs'
+import navDataLoader, {
+  other as otherLinks,
+} from '@architect/views/docs/nav-data.mjs'
 import document from '@architect/views/docs/document.mjs'
 import HljsLineWrapper from './hljs-line-wrapper.mjs'
 
@@ -43,6 +45,7 @@ async function http(request) {
     initialState: {
       doc,
       sidebarData: navDataLoader(docsRoute, activePath),
+      otherLinks,
     },
     styleTransforms: [styleTransform],
   })

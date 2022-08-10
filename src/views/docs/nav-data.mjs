@@ -172,6 +172,30 @@ export const data = [
   },
 ]
 
+export const other = {
+  community: {
+    label: 'Community',
+    items: [
+      {
+        label: 'GitHub',
+        url: 'https://github.com/enhance-dev',
+        description: 'Visit Enhance on GitHub.',
+      },
+      {
+        label: 'Discussions',
+        url: 'https://github.com/orgs/enhance-dev/discussions',
+        description: 'Browse and participate in Enhance tech discussions.',
+      },
+      {
+        label: 'Discord',
+        url: 'https://discord.gg',
+        description:
+          'Join our Discord server to chat about development and get help from the community.',
+      },
+    ],
+  },
+}
+
 function unslug(string) {
   return string
     .replace(/-/g, ' ')
@@ -193,13 +217,20 @@ function parseItems(items, root, activePath) {
         label: unslug(item),
       }
     } else {
-      if (!item.type) item.type = 'doc'
-      if (!item.path) item.path = `/${root}/${item.slug}`
-      if (!item.label && item.slug) item.label = unslug(item.slug)
+      if (!item.type) {
+        item.type = 'doc'
+      }
+      if (!item.path) {
+        item.path = `/${root}/${item.slug}`
+      }
+      if (!item.label && item.slug) {
+        item.label = unslug(item.slug)
+      }
     }
 
-    if (item.items)
+    if (item.items) {
       item.items = parseItems(item.items, `${root}/${item.slug}`, activePath)
+    }
 
     item.active = item.path === activePath
 
