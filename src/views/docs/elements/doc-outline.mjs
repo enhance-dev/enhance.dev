@@ -15,9 +15,22 @@ function FurtherReading(links) {
   `
 }
 
+function CommunityLinks(links) {
+  const items = links.map((link) => {
+    return `<li class="mb-4"><a href="${link.url}" target="_blank">${link.label}</a></li>`
+  })
+
+  return /* html */ `
+    <h3 class="mb-2 font-semibold">Community</h3>
+    <ul class="mb2 ml-2 list-none leading2">
+      ${items.join('')}
+    </ul>
+  `
+}
+
 export default function DocOutline({ html, state }) {
   const {
-    store: { doc },
+    store: { doc, gitHubLink, otherLinks },
   } = state
 
   return html`
@@ -47,32 +60,24 @@ export default function DocOutline({ html, state }) {
     <aside>
       <slot name="toc"></slot>
 
+      <!-- "Further Reading" -->
       ${doc?.frontmatter?.links?.length > 0
         ? FurtherReading(doc.frontmatter.links)
         : ''}
 
-      <h3 class="mb-2 font-medium">Contribute</h3>
-      <ul role="list" class="mb2 ml-2 list-none leading2">
-        <li>Edit this page</li>
-      </ul>
+      <!-- "Edit this page" -->
+      ${gitHubLink
+        ? /* html  */ `
+        <p class="mb2">
+          <a href="${gitHubLink}" target="_blank">Edit this page</a>
+        </p>
+          `
+        : ''}
 
-      <h3 class="mb-2 font-medium">Community</h3>
-      <ul role="list" class="mb2 ml-2 list-none leading2">
-        <li class="mb-4">
-          <a href="https://github.com/orgs/enhance-dev" target="_blank"
-            >GitHub</a
-          >
-        </li>
-        <li class="mb-4">Blog</li>
-        <li class="mb-4">
-          <a
-            href="https://github.com/orgs/enhance-dev/discussions"
-            target="_blank"
-            >Discussions</a
-          >
-        </li>
-        <li>Discord</li>
-      </ul>
+      <!-- "Community" -->
+      ${otherLinks?.community?.items?.length > 0
+        ? CommunityLinks(otherLinks.community.items)
+        : ''}
     </aside>
   `
 }

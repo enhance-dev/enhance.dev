@@ -5,8 +5,6 @@
     "steps": 10
   },
   "fonts": {
-    "mono": "'Roboto Mono', monospace",
-    "sans": "'Rubik', sans-serif",
     "roboto": "'Roboto Mono', monospace",
     "rubik": "'Rubik', sans-serif"
   },
