@@ -30,7 +30,7 @@ function CommunityLinks(links) {
 
 export default function DocOutline({ html, state }) {
   const {
-    store: { doc, otherLinks },
+    store: { doc, gitHubLink, otherLinks },
   } = state
 
   return html`
@@ -63,9 +63,13 @@ export default function DocOutline({ html, state }) {
       ${doc?.frontmatter?.links?.length > 0
         ? FurtherReading(doc.frontmatter.links)
         : ''}
-
-      <p class="mb2">Edit this page</p>
-
+      ${gitHubLink
+        ? /* html  */ `
+        <p class="mb2">
+          <a href="${gitHubLink}" target="_blank">Edit this page</a>
+        </p>
+          `
+        : ''}
       ${otherLinks?.community?.items?.length > 0
         ? CommunityLinks(otherLinks.community.items)
         : ''}

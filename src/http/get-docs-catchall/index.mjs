@@ -40,12 +40,16 @@ async function http(request) {
   const docMarkdown = readFileSync(docURL.pathname, 'utf-8')
   const doc = await arcdown.render(docMarkdown)
 
+  let gitHubLink = 'https://github.com/enhance-dev/enhance.dev/tree/main/src/'
+  gitHubLink += `views/docs/md/${docPath}.md`
+
   const html = enhance({
     elements,
     initialState: {
       doc,
-      sidebarData: navDataLoader(docsRoute, activePath),
+      gitHubLink,
       otherLinks,
+      sidebarData: navDataLoader(docsRoute, activePath),
     },
     styleTransforms: [styleTransform],
   })
