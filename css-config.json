@@ -35,7 +35,6 @@
   },
   "properties": [
     {
-      "test": "var(--black)",
       "bg-gradient": "linear-gradient(125deg, var(--orange), var(--magenta), var(--purple))"
     }
   ],
