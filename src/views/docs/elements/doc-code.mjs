@@ -7,6 +7,13 @@ export default function DocCode({ html }) {
         display: block;
       }
 
+      .filename {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        color: var(--hl-comment);
+        background: var(--hl-bg);
+      }
+
       pre.numbered {
         padding-right: 0;
         padding-left: 0;
@@ -54,14 +61,27 @@ export default function DocCode({ html }) {
           this.lines = this.codeBlock.querySelectorAll('.code-line')
 
           this.numbered = typeof this.getAttribute('numbered') === 'string'
+          this.filename = this.getAttribute('filename')
           this.lineStart = this.getAttribute('initial-line-number')
           this.focus = this.getAttribute('focus')
           this.mark = this.getAttribute('mark')
         }
 
+        createFilenameTab(name) {
+          const filenameElem = document.createElement('span')
+          filenameElem.classList.add('filename')
+          filenameElem.textContent = this.filename
+
+          this.prepend(filenameElem)
+        }
+
         render() {
           if (this.numbered) {
             this.codeParent.classList.add('numbered')
+          }
+
+          if (this.filename) {
+            this.createFilenameTab(this.filename)
           }
 
           if (this.focus) {

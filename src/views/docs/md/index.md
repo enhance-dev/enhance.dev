@@ -48,7 +48,7 @@ export  $initHighlight;
 
 There's even a `<doc-code>` custom element! Add line numbers, focus code, and mark a specific line 👇
 
-<doc-code numbered focus="5:14" mark="3">
+<doc-code numbered filename="./src/lib/find-language.js" focus="5:14" mark="3">
 
 ```javascript
 function findLanguages (mdContent) {
