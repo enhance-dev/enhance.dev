@@ -11,35 +11,31 @@
   "grid": {
     "steps": 6
   },
+  "color": {
+    "white": "#FFFFFF",
+    "black": "#000000",
+    "light": "#EFEFEF",
+    "dark": "#222222",
+    "ateneo": "#113A62",
+    "blue": "#1F74D6",
+    "cloud": "#F7F0FE",
+    "dark-purple": "#7327CE",
+    "denim": "#003451",
+    "green": "#2CDD93",
+    "halite": "#00293F",
+    "indigo": "#004163",
+    "inky": "#4D7185",
+    "lily": "#E5EBEE",
+    "magenta": "#E21893",
+    "orange": "#FF6263",
+    "princess": "#F57AFF",
+    "purple": "#AD6EF9",
+    "rift": "#01040D",
+    "smoke": "#F3F3F3"
+  },
   "properties": [
     {
-      "blue": "#1f74d6"
-    },
-    {
-      "dark-purple": "#7327ce"
-    },
-    {
-      "dark": "#222222"
-    },
-    {
-      "green": "#2cdd93"
-    },
-    {
-      "light": "#efefef"
-    },
-    {
-      "magenta": "#e21893"
-    },
-    {
-      "orange": "#ff6263"
-    },
-    {
-      "purple": "#8753c6"
-    },
-    {
-      "white": "#ffffff"
-    },
-    {
+      "test": "var(--black)",
       "bg-gradient": "linear-gradient(125deg, var(--orange), var(--magenta), var(--purple))"
     }
   ],

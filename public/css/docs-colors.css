@@ -1,23 +1,6 @@
 /* Light Theme */
 :root,
-:root[data-force-theme-mode='light'] {
-  --white: #FFFFFF;
-  --black: #000000;
-  --light: #EFEFEF;
-  --dark: #222222;
-
-  --ateneo: #113A62;
-  --cloud: #F7F0FE;
-  --denim: #003451;
-  --halite: #00293F;
-  --inky: #4D7185;
-  --lily: #E5EBEE;
-  --indigo: #004163;
-  --princess: #F57AFF;
-  --purple: #AD6EF9;
-  --rift: #01040D;
-  --smoke: #F3F3F3;
-
+:root[data-force-theme='light'] {
   --cloud-ateneo: var(--cloud);
   --denim-white: var(--denim);
   --inky-lily: var(--inky);
@@ -33,7 +16,7 @@
 }
 
 /* Dark Theme */
-:root[data-force-theme-mode='dark'] {
+:root[data-force-theme='dark'] {
   --cloud-ateneo: var(--ateneo);
   --denim-white: var(--white);
   --inky-lily: var(--lily);

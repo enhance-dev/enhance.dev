@@ -94,14 +94,11 @@ export default function DocsThemeToggle({ html }) {
             this.mode = newMode
 
             if (['dark', 'light'].includes(newMode)) {
-              document.documentElement.setAttribute(
-                'data-force-theme-mode',
-                newMode
-              )
+              document.documentElement.setAttribute('data-force-theme', newMode)
 
               window.localStorage.setItem('theme-mode', newMode)
             } else if (newMode === 'system') {
-              document.documentElement.removeAttribute('data-force-theme-mode')
+              document.documentElement.removeAttribute('data-force-theme')
               window.localStorage.removeItem('theme-mode')
             }
           }

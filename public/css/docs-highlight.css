@@ -1,8 +1,6 @@
-/* Requires css/docs-colors.css */
-
 /* Light Theme */
 :root,
-:root[data-force-theme-mode='light'] {
+:root[data-force-theme='light'] {
   /* from the design */
   --lt-green: #26AF26;
   --lt-iris: #1AB4C6;
@@ -40,7 +38,7 @@
 }
 
 /* Dark Theme */
-:root[data-force-theme-mode='dark'] {
+:root[data-force-theme='dark'] {
   --hl-bg: var(--dark);
   --hl-color: var(--white);
   --hl-comment: var(--inky);
