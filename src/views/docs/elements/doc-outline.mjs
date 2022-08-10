@@ -63,7 +63,6 @@ export default function DocOutline({ html, state }) {
             >GitHub</a
           >
         </li>
-        <li class="mb-4">Blog</li>
         <li class="mb-4">
           <a
             href="https://github.com/orgs/enhance-dev/discussions"
