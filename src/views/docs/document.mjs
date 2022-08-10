@@ -23,14 +23,13 @@ export default function document(title = '') {
       body {
         background-color: var(--white-denim);
         color: var(--rift-white);
-        font-family: 'Rubik', sans-serif;
       }
       a {
         color: var(--purple-princess);
       }
     </style>
   </head>
-  <body class="">
+  <body class="font-rubik">
     <docs-layout></docs-layout>
   </body>
 </html>
