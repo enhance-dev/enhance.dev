@@ -60,9 +60,12 @@ export default function DocOutline({ html, state }) {
     <aside>
       <slot name="toc"></slot>
 
+      <!-- "Further Reading" -->
       ${doc?.frontmatter?.links?.length > 0
         ? FurtherReading(doc.frontmatter.links)
         : ''}
+
+      <!-- "Edit this page" -->
       ${gitHubLink
         ? /* html  */ `
         <p class="mb2">
@@ -70,6 +73,8 @@ export default function DocOutline({ html, state }) {
         </p>
           `
         : ''}
+
+      <!-- "Community" -->
       ${otherLinks?.community?.items?.length > 0
         ? CommunityLinks(otherLinks.community.items)
         : ''}
