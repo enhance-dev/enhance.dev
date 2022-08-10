@@ -1,10 +1,16 @@
 import data from '@begin/data'
 import { readFileSync } from 'fs'
 import { join } from 'path'
-import arcdown from 'arcdown'
+import { Arcdown } from 'arcdown'
 import classMap from './class-mapping.mjs'
 import { initRender } from '@architect/views/render.mjs'
+
 let html = initRender()
+
+const arcdown = new Arcdown({
+  hljs: { classString: 'hljs mb0 mb1-lg relative' },
+  pluginOverrides: { markdownItClass: classMap },
+})
 
 const cache = {}
 
@@ -36,11 +42,7 @@ export default async function HTML(req) {
     docBody = cache[docFilePath]
   } else {
     const file = readFileSync(docFilePath, 'utf8')
-    const renderOptions = {
-      hljs: { classString: 'hljs mb0 mb1-lg relative' },
-      pluginOverrides: { markdownItClass: classMap },
-    }
-    const result = await arcdown(file, renderOptions)
+    const result = await arcdown.render(file)
     docBody = cache[docFilePath] = result.html
   }
 
