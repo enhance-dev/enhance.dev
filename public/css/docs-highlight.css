@@ -63,7 +63,7 @@
   :root {
     --hl-bg: var(--dark);
     --hl-color: var(--white);
-    --hl-comment: #999999;
+    --hl-comment: var(--inky);
     --hl-punctuation: var(--light);
 
     --hl-variable: var(--dk-spring);
