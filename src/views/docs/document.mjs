@@ -13,9 +13,7 @@ export default function document(title = '') {
     <link rel="stylesheet" href="${arc.static('css/styles.css')}" />
     <link rel="stylesheet" href="${arc.static('css/docs-colors.css')}" />
     <link rel="stylesheet" href="${arc.static('css/docs-highlight.css')}" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@docsearch/css@3" />
+    <link rel="stylesheet" href="${arc.static('css/algolia-styles.css')}" />
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Rubik:wght@200;300;400;500;600;700&display=swap');
 

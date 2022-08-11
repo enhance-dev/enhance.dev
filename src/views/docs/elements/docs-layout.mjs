@@ -66,8 +66,9 @@ export default function DocsLayout({ html, state }) {
           position: fixed;
           overflow: auto;
           height: 100vh;
+          width: 100vw;
 
-          grid-template-columns: 16rem 4fr 1fr;
+          grid-template-columns: 16rem 4fr 16rem;
           grid-template-areas:
             'header  header   header'
             'sidebar content outline'
