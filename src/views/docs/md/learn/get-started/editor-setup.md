@@ -6,7 +6,7 @@ links:
   - GH Discussion: https://github.com/orgs/enhance-dev/discussions/20
 ---
 
-Enhance components get passed a tagged template literal function <code>html``</code> for defining HTML templates; this can make formatting, highlighting, and linting a little weird. We recommend the following editor extensions to improve the authoring experience.
+Enhance components get passed a tagged template literal function <code>html``</code> for defining HTML templates; this can be challenging for some editors to highlight so we recommend the following editor extensions to improve the authoring experience.
 
 ## VS Code Extensions
 

@@ -16,24 +16,51 @@ npm install
 npm start
 ```
 
-## Add routes
+## Index route
 
-We are going to make a new route at `"/about"` URL. Create a new file `app/pages/about.html` with the following HTML markup:
+Once you app starts up, navigate to [http://localhost:3333](http://localhost:3333).
+The source for the index page can be found in your app at `app/pages/index.html`.
 
+```
+app
+└── pages ............. file based routing
+    └── index.html
+```
+
+## Add a route
+
+Add a new route at the `"/about"` URL by creating a new file called `about.html` in the `pages` folder at `app/pages/about.html`
+
+You can add something like this:
 ```html
 <!-- app/pages/about.html -->
 Hello world, I am <i>very</i> <strong>excited</strong> to meet you.
-```     
+```
 
-Reload the app, and navigate to `"/about"` to see your new page in action!
+Reload the app, and navigate to [`http://localhost:3333/about`](http://localhost:3333/about) to see your new page in action!
 
 ## Reuse code with custom elements
 
-The generated project will have `app/elements/header.mjs` defined. Open it up and modify it to be like this:
+Add an `"elements"` folder to your app at `app/elements`.
 
+Your project should now look like this:
+```
+app
+├── elements .......... define pure functions that return custom elements
+└── pages ............. file based routing
+    ├── about.html
+    └── index.html
+```
+
+Add a pure function that returns an html string.
+Your function will be passed an object containing an `html` render function for expanding custom elements.
+
+Add a `my-header.mjs` file in the `app/elements/` folder.
+
+The contents of `my-header.mjs` should look like this:
 ```javascript
-// app/elements/header.mjs
-export default function Header ({ html }) {
+// app/elements/my-header.mjs
+export default function MyHeader({ html }) {
   return html`
 <header>
   <h1>Header</h1>
@@ -45,14 +72,26 @@ export default function Header ({ html }) {
 }
 ```
 
-The code above defines a pure function that accepts state, and returns an HTML string which will become the template body for a custom element. In our case, the header custom element now has a link to `"/about"`.
+Your project should now look like this:
+```
+app
+├── elements .......... define pure functions that return custom elements
+│   └── my-header.mjs
+└── pages ............. file based routing
+    ├── about.html
+    └── index.html
+```
 
-Modify `app/pages/about.html` to include the custom element:
+Modify `app/pages/about.html` to include your new custom element header:
 
 ```html
 <!-- app/pages/about.html -->
-<el-header></el-header>
+<my-header></my-header>
 Hello world, I am <i>very</i> <strong>excited</strong> to meet you.
-``` 
+```
 
 Reloading your app will show the new header with working navigation to and from `"/about"`.
+
+## That's it
+
+You are off to a great start! You now know how to add routes, pages, and elements.
