@@ -80,7 +80,7 @@ export default function DocsLayout({ html, state }) {
       }
     </style>
 
-    <docs-header id="header" class="mt1 mb1"></docs-header>
+    <docs-header id="header" class="m1"></docs-header>
 
     <nav id="sidebar" class="overflow-y-auto-lg">
       <docs-nav></docs-nav>

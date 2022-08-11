@@ -30,8 +30,7 @@ export default function DocsHeader({ html, state }) {
         grid-template-columns: 1fr;
         grid-template-areas:
           'logo'
-          'menu'
-          'docs-nav';
+          'menu';
       }
 
       #logo {
@@ -55,6 +54,11 @@ export default function DocsHeader({ html, state }) {
         -webkit-transition: left 0.2s ease;
         transition: left 0.2s ease;
       }
+      /*#docs-nav > docs-nav {
+      #docs-nav {
+        height: calc(100vh-107px);
+        overflow-y: scroll;
+      }*/
 
       #burger-control {
         display: block;
@@ -148,11 +152,11 @@ export default function DocsHeader({ html, state }) {
       </label>
     </div>
 
-    <nav id="menu" class="flex gap-1 justify-end">
+    <nav id="menu" class="flex gap-1 justify-end ">
       <docs-theme-toggle></docs-theme-toggle>
       <!-- GitHub -->
       <!-- Discord -->
-      <div id="search" class="mr1"></div>
+      <div id="search" class="flex-grow flex-grow-0-lg"></div>
     </nav>
 
     <nav id="docs-nav">

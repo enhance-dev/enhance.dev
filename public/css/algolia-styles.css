@@ -50,7 +50,7 @@ html[data-theme=dark] {
   align-items: center;
   background: var(--docsearch-searchbox-background);
   border: 0;
-  border-radius: 40px;
+  border-radius: 10px;
   color: var(--docsearch-muted-color);
   cursor: pointer;
   display: flex;
@@ -59,7 +59,8 @@ html[data-theme=dark] {
   justify-content: space-between;
   margin: 0 0 0 16px;
   padding: 0 8px;
-  user-select: none
+  user-select: none;
+  width: 100%;
 }
 
 .DocSearch-Button:active,
@@ -109,14 +110,6 @@ html[data-theme=dark] {
   border: 0;
   top: -1px;
   width: 20px
-}
-
-@media (max-width:768px) {
-
-  .DocSearch-Button-Keys,
-  .DocSearch-Button-Placeholder {
-    display: none
-  }
 }
 
 .DocSearch--active {
