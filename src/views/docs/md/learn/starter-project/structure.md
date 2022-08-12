@@ -18,7 +18,7 @@ The pages folder enables file based routing. To add a route just add an HTML fil
 
 ## Elements
 
-The elements folder is where we keep our [single file components](/docs/learn/concepts/single-file-components). These are custom element templates that get rendered server side and setup your HTML page for progressive enhancement.
+The elements folder is where you keep your [single file components](/docs/learn/concepts/single-file-components). These are custom element templates that get rendered server side and setup your HTML page for progressive enhancement.
 
 Elements must be named with one or more words separated by a dash `my-header.mjs` which corresponds to the tag name you author in your html pages `<my-header></my-header>`.
 

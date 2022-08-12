@@ -60,7 +60,7 @@ Any valid css will work.
 
 Add functionality to your component by adding a `<script>` tag.
 You can either author JavaScript directly in this script tag or link to an external source.
-The `/public` folder in enhance projects is preconfigured to server files from `/_static`.
+The `/public` folder in enhance projects is preconfigured to serve files from `/_static`.
 
 ```html
 <script src="/_static/my-script.mjs"></script>
