@@ -6,7 +6,7 @@ The enhance starter project is setup to enable you to create dynamic multi-page 
 
 ```bash
 app
-├── elements .......... define pure functions that return custom elements
+├── elements .......... custom element pure functions
 │   └── my-header.mjs
 └── pages ............. file based routing
     └── index.html

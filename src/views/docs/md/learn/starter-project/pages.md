@@ -6,7 +6,7 @@ Pages are the entry point for enhance rendering. They can be written in standard
 
 ## File based routing
 
-Pages in the enhance starter project enable file based routing, so adding a `app/pages/about.html` for instance will make it available at `/about` in your browser.
+Pages in the enhance starter project enable file based routing. Meaning that adding a `app/pages/about.html` for instance will make it available at `/about` in your browser.
 
 ## HTML by default
 
