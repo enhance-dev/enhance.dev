@@ -48,17 +48,14 @@ export default function DocsHeader({ html, state }) {
         display: block;
         position: fixed;
         background: var(--white-denim);
-        top: 107px;
+        top: 147px;
         left: -100vw;
+        bottom: 0;
+        overflow-y: auto;
         width: 100vw;
         -webkit-transition: left 0.2s ease;
         transition: left 0.2s ease;
       }
-      /*#docs-nav > docs-nav {
-      #docs-nav {
-        height: calc(100vh-107px);
-        overflow-y: scroll;
-      }*/
 
       #burger-control {
         display: block;

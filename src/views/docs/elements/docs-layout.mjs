@@ -14,6 +14,7 @@ export default function DocsLayout({ html, state }) {
           'content';
         gap: 0 1rem;
         margin: 0 1rem;
+        height: 100vh;
       }
       #header {
         grid-area: header;
@@ -24,6 +25,12 @@ export default function DocsLayout({ html, state }) {
       }
       #content {
         grid-area: content;
+        /*position: fixed;
+        overflow-y: auto;
+        top: 109px;
+        bottom: 0;*/
+        overflow-y: auto;
+        height: calc(100vh-109px);
       }
       #outline {
         grid-area: outline;
@@ -80,7 +87,7 @@ export default function DocsLayout({ html, state }) {
       }
     </style>
 
-    <docs-header id="header" class="m1"></docs-header>
+    <docs-header id="header" class="mt1 mb1 mr1-xl gap-1"></docs-header>
 
     <nav id="sidebar" class="overflow-y-auto-lg">
       <docs-nav></docs-nav>
