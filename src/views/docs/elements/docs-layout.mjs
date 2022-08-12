@@ -25,12 +25,7 @@ export default function DocsLayout({ html, state }) {
       }
       #content {
         grid-area: content;
-        /*position: fixed;
         overflow-y: auto;
-        top: 109px;
-        bottom: 0;*/
-        overflow-y: auto;
-        height: calc(100vh-109px);
       }
       #outline {
         grid-area: outline;
