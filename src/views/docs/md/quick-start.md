@@ -46,7 +46,7 @@ Add an `"elements"` folder to your app at `app/elements`.
 Your project should now look like this:
 ```
 app
-├── elements .......... define pure functions that return custom elements
+├── elements .......... custom element pure functions
 └── pages ............. file based routing
     ├── about.html
     └── index.html
@@ -75,7 +75,7 @@ export default function MyHeader({ html }) {
 Your project should now look like this:
 ```
 app
-├── elements .......... define pure functions that return custom elements
+├── elements .......... custom element pure functions
 │   └── my-header.mjs
 └── pages ............. file based routing
     ├── about.html
