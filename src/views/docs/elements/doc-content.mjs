@@ -71,13 +71,13 @@ export default function DocContent({ html, state }) {
         padding: 0.1rem 0.2rem;
         line-height: 1rem;
         overflow-wrap: break-word;
-        background-color: var(--smoke-denim4);
+        background-color: var(--smoke-indigo);
         font-family: Menlo, Monaco, Consolas, monospace;
         border-radius: 0.25rem;
       }
 
       blockquote :not(pre) > code {
-        background-color: var(--smoke-denim4);
+        background-color: var(--smoke-denim);
       }
 
       .community-links {
