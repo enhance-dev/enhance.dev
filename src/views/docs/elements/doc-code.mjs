@@ -47,6 +47,15 @@ export default function DocCode({ html }) {
         opacity: 1;
         background: var(--hl-highlight-line);
       }
+
+      pre mark {
+        color: var(--hl-color);
+        background-color: var(--hl-highlight-line);
+        border: 1px solid var(--hl-symbol);
+        border-radius: 0.25rem;
+        padding-inline: 0.2rem;
+        margin-inline: 0.25rem;
+      }
     </style>
 
     <slot></slot>
@@ -64,7 +73,8 @@ export default function DocCode({ html }) {
           this.filename = this.getAttribute('filename')
           this.lineStart = this.getAttribute('initial-line-number')
           this.focus = this.getAttribute('focus')
-          this.mark = this.getAttribute('mark')
+          this.mark = this.getAttribute('mark-line')
+          this.callout = this.getAttribute('callout')
         }
 
         createFilenameTab(name) {
@@ -122,6 +132,27 @@ export default function DocCode({ html }) {
             const lineStart = Number(this.lineStart)
             const firstLine = this.lines[0]
             firstLine.style = 'counter-set: lineNo ' + lineStart
+          }
+
+          if (this.callout) {
+            const callouts = this.callout.split(',')
+            for (const callout of callouts) {
+              const calloutParts = callout.split('-')
+              const calloutLineNo = Number(calloutParts[0])
+              const calloutString = calloutParts[1]
+              const lineElem = this.lines[calloutLineNo - 1]
+
+              if (!lineElem) continue
+
+              const lineHtml = lineElem.innerHTML
+
+              const result = lineHtml.replace(
+                calloutString,
+                '<mark>' + calloutString + '</mark>'
+              )
+
+              lineElem.innerHTML = result
+            }
           }
         }
 

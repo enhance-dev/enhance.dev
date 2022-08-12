@@ -10,16 +10,18 @@ This 👇 code block is rendered and highlighted on the server with arcdown + hl
 
 ```html
 <doc-code
-  numbered
-  filename="hljs-line-wrapper.mjs"
-  focus="7,18:23"
+  numbered 
+  filename="hljs-line-wrapper.mjs" 
+  focus="7,5:17,420" 
+  mark-line=21 
+  callout="15-match" 
   initial-line-number=11
-  mark=12>
+  >
 ```
 
 around some sample JS creates...
 
-<doc-code filename="hljs-line-wrapper.mjs" numbered focus="7,18:23,420" mark=12 initial-line-number=11>
+<doc-code numbered filename="hljs-line-wrapper.mjs" focus="7,5:17,420" callout="15-match" mark-line=21 initial-line-number=11>
 
 ```javascript
 class HljsLineWrapper {
@@ -48,5 +50,8 @@ class HljsLineWrapper {
   }
 }
 ```
+
+> ⚠️  The `callout` attribute doesn't work for strings that span hljs tokens.  
+So, `callout="15-return match"` would not work above. "return" is tokenized while " match" is not.
 
 </doc-code>
