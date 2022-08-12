@@ -63,8 +63,8 @@ export default function DocsHeader({ html, state }) {
         opacity: 0;
       }
       #burger-control:focus-visible ~ #logo > #hamburger {
-        /*TODO: fix the styles here to match focus*/
-        outline: 2px solid white;
+        outline: 1px solid white;
+        border: 2px solid var(--lt-blue);
         border-radius: 3px;
       }
       #burger-control:checked ~ #main-nav {
@@ -116,6 +116,7 @@ export default function DocsHeader({ html, state }) {
       class="absolute block opacity-0 z-1"
       type="checkbox"
       name="open-burger"
+      autocomplete="off"
       aria-label="Open navigation" />
     <div id="logo" class="flex gap-1 justify-between items-center">
       <div class="flex flex-row items-center">
