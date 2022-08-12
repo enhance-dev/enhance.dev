@@ -30,8 +30,7 @@ export default function DocsHeader({ html, state }) {
         grid-template-columns: 1fr;
         grid-template-areas:
           'logo'
-          'menu'
-          'docs-nav';
+          'menu';
       }
 
       #logo {
@@ -41,20 +40,39 @@ export default function DocsHeader({ html, state }) {
 
       #menu {
         grid-area: menu;
-        display: none;
+        display: flex;
       }
 
       #docs-nav {
         grid-area: docs-nav;
-        display: none;
+        display: block;
+        position: fixed;
+        background: var(--white-denim);
+        top: 147px;
+        left: -100vw;
+        bottom: 0;
+        overflow-y: auto;
+        width: 100vw;
+        -webkit-transition: left 0.2s ease;
+        transition: left 0.2s ease;
       }
 
       #burger-control {
-        display: none;
+        display: block;
+        position: absolute;
+        opacity: 0;
       }
-      #burger-control:checked ~ #main-nav,
+      #burger-control:focus-visible ~ #logo > #hamburger {
+        /*TODO: fix the styles here to match focus*/
+        outline: 2px solid white;
+        border-radius: 3px;
+      }
+      #burger-control:checked ~ #main-nav {
+        display: block;
+      }
       #burger-control:checked ~ #docs-nav {
         display: block;
+        left: 0vw;
       }
       #burger-control:checked ~ #menu {
         display: flex;
@@ -63,15 +81,13 @@ export default function DocsHeader({ html, state }) {
       @media only screen and (min-width: 48em) {
         /* 2-col + */
         :host {
-          grid-template-columns: 16rem 4fr 1fr;
-          grid-template-areas: 'logo main menu';
+          grid-template-columns: 1fr 1fr;
+          grid-template-areas: 'logo menu';
         }
         #main-nav {
           display: flex;
         }
-        #menu {
-          display: flex;
-        }
+
         #hamburger,
         #docs-nav {
           display: none !important; /* even when :checked */
@@ -80,7 +96,7 @@ export default function DocsHeader({ html, state }) {
     </style>
 
     <style>
-      /* Basic syles */
+      /* Basic styles */
       #logo h1 a {
         transition: transform ease 0.2s;
       }
@@ -97,19 +113,23 @@ export default function DocsHeader({ html, state }) {
 
     <input
       id="burger-control"
+      class="absolute block opacity-0 z-1"
       type="checkbox"
       name="open-burger"
       aria-label="Open navigation" />
-
-    <div id="logo" class="flex gap-1 justify-start items-end">
-      <img src="${arc.static('img/svg/chibi.svg')}" />
-      <h1 class="text1 mb-2">
-        <a href="/" class="enhance-link inline-block font-semibold">Enhance</a>
-        <a href="/docs/" class="docs-link inline-block">Docs</a>
-      </h1>
+    <div id="logo" class="flex gap-1 justify-between items-center">
+      <div class="flex flex-row items-center">
+        <img src="${arc.static('img/svg/chibi.svg')}" />
+        <h1 class="text1 ml1">
+          <a href="/" class="enhance-link inline-block font-semibold"
+            >Enhance</a
+          >
+          <a href="/docs/" class="docs-link inline-block">Docs</a>
+        </h1>
+      </div>
       <label
         id="hamburger"
-        class="curosr-pointer"
+        class="cursor-pointer relative"
         for="burger-control"
         title="Open navigation">
         <svg
@@ -129,11 +149,11 @@ export default function DocsHeader({ html, state }) {
       </label>
     </div>
 
-    <nav id="menu" class="flex gap-1 justify-end">
+    <nav id="menu" class="flex gap-1 justify-end ">
       <docs-theme-toggle></docs-theme-toggle>
       <!-- GitHub -->
       <!-- Discord -->
-      <div id="search" class=""></div>
+      <div id="search" class="flex-grow flex-grow-0-lg"></div>
     </nav>
 
     <nav id="docs-nav">
