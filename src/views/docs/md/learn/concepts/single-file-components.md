@@ -41,6 +41,11 @@ export default function HelloWorld({ html, state }) {
   const { attrs } = state
   const { greeting='Hello World' } = attrs
   return html`
+<style scope="global">
+  body {
+    color: #222;
+  }
+</style>
 <style>
   hello-world h1 {
     color: red;
