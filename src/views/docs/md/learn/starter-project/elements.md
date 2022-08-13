@@ -30,7 +30,7 @@ This `state` object is comprised of `attrs`; an object of key value pairs repres
 export default function MyHeader({ html, state={} }) {
   const { attrs={}, store={} } = state
   const { heading='Default' } = attrs
-  const { href='' } = store?.aboutPath
+  const href = store.aboutPath
   return html`
 <header>
   <h1>

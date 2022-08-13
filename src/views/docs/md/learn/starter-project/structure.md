@@ -27,7 +27,7 @@ Elements must be named with one or more words separated by a dash `my-header.mjs
 [ 🔥 Read more about elements here → ]( /docs/learn/starter-project/elements )
 
 ## Api
-The api folder is preconfigured to expose data to your file based routes. Meaning the file `app/api/index.mjs` will automatically pass state to `app/pages/index.mjs` as well as expose an endpoint for standard REST verbs like `get` and `post`
+The `api` folder is preconfigured to expose data to your file based routes. Meaning the file `app/api/index.mjs` will automatically pass state to `app/pages/index.mjs` as well as expose an endpoint for standard REST verbs like `get` and `post`
 
 
-[ 🪄 Read more about api routes here → ]( /docs/learn/starter-project/api )
+[ 🪄 Read more about `api` routes here → ]( /docs/learn/starter-project/api )
