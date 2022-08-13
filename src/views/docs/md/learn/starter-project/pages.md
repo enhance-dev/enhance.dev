@@ -14,10 +14,10 @@ Pages are written in HTML and can be composed of many dynamic custom elements. P
 
 ## Dynamic if need be
 
-If you decide that you absolutely need to handle state in your page element then you have the ability to turn it into a single file component as well.
+Elements added to a page will be passed  state, but if you decide that you absolutely need to handle state in your page then you have the ability to turn it into a single file component as well.
 
 > 🙌 Read about [single file components here](/docs/learn/concepts/single-file-components)
 
 
-You'll find that working this way will allow you to start with working HTML then incrementally create custom element components as the need for reuse arises.
+You'll find that working this way will allow you to start with standard HTML then incrementally create custom element components as the need for reuse arises.
 

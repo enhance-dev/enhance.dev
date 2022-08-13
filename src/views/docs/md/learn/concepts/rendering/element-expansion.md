@@ -1,5 +1,5 @@
 ---
-title: Custom element expansion
+title: Element expansion
 ---
 
 Custom element expansion allows you to write pure functions that return the contents of a custom element tag.
@@ -42,4 +42,4 @@ This is my index page
 
 Notice how the custom element is expanded with the output of your pure function. This sets your page up for progressive enhancement.
 
-[🎰 Next read how enhance expands `<slot>` tags →](http://localhost:3333/docs/learn/concepts/rendering/slots)
+[🎰 Next read how enhance expands `<slot>` tags →](/docs/learn/concepts/rendering/slots)
