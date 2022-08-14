@@ -29,28 +29,32 @@ export default function DocContent({ html, state }) {
       }
 
       :host > ::slotted(*) > * {
-        margin-bottom: 1.25rem;
-        /* margin-x for everything except code blocks */
-        /* margin: 0 5rem 1.25rem 5rem; */
+        margin-bottom: 1.5rem;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        margin-bottom: 0.75rem;
+        font-weight: 500;
       }
 
       h1 {
         font-size: 1.953rem;
-        font-weight: 500;
       }
 
       h2 {
         font-size: 1.563rem;
-        font-weight: 500;
       }
 
       h3 {
         font-size: 1.25rem;
-        font-weight: 500;
       }
 
       h4 {
         font-size: 1rem;
+        font-weight: normal;
       }
 
       strong {
