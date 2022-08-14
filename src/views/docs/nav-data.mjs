@@ -34,7 +34,12 @@ export const data = [
       {
         type: TYPE.category,
         slug: 'starter-project',
-        items: ['structure', 'pages', 'elements', 'api'],
+        items: [
+          'structure',
+          'pages',
+          'elements',
+          { slug: 'api', label: 'API' },
+        ],
       },
       {
         type: TYPE.category,
