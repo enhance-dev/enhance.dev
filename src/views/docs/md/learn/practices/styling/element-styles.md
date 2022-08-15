@@ -2,7 +2,7 @@
 title: Element styles
 ---
 
-## Element specific styles
+## Specific styles
 
 A paragraph.
 

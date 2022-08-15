@@ -67,7 +67,7 @@ export const data = [
           {
             slug: 'styling',
             path: '/docs/learn/practices/styling/',
-            items: ['element-styles', 'utility-classes'],
+            items: ['utility-classes', 'element-styles'],
           },
           'api-routes',
           'testing',
