@@ -28,6 +28,7 @@ export default function document(title = '') {
     </style>
   </head>
   <body class="font-rubik">
+    <docs-symbols></docs-symbols>
     <docs-layout></docs-layout>
   </body>
 </html>

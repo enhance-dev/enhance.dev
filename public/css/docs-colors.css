@@ -10,6 +10,7 @@
   --rift-white: var(--rift);
   --black-princess: var(--black);
   --black-white: var(--black);
+  --smoke-denim: var(--smoke);
   --smoke-halite: var(--smoke);
   --smoke-indigo: var(--smoke);
   --white-denim: var(--white);
@@ -26,6 +27,7 @@
   --rift-white: var(--white);
   --black-princess: var(--princess);
   --black-white: var(--white);
+  --smoke-denim: var(--denim);
   --smoke-halite: var(--halite);
   --smoke-indigo: var(--indigo);
   --white-denim: var(--denim);
@@ -43,6 +45,7 @@
     --rift-white: var(--white);
     --black-princess: var(--princess);
     --black-white: var(--white);
+    --smoke-denim: var(--denim);
     --smoke-halite: var(--halite);
     --smoke-indigo: var(--indigo);
     --white-denim: var(--denim);

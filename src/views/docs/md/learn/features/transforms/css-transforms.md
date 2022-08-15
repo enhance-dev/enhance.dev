@@ -30,7 +30,7 @@ The return value from the transform is the new string contents of the style tag.
 This style transform is an example for deploying to [arc.codes](arc.codes). 
 
 ### Input
-```JavaScript
+```javascript
 //Renderer handler.mjs
 import enhance from '@enhance/ssr'
 import styleTransform from '@enhance/enhance-style-transform'
@@ -42,7 +42,7 @@ const html = enhance({
 const myDoc = html`<my-tag>Something</my-tag>`
 ```
 
-```JavaScript
+```javascript
 //<my-tag> component definition
 export default function MyTag({html}){
   return html`
@@ -97,7 +97,7 @@ Basic component scoping is done by adding a component selector to every rule. Th
 #### `:host` `:host()` `:host-context()`
 The `:host` selector lets you add styles to the outer element itself, but it only works with the shadowDOM. The transform solves this by converting these selectors. `:host` itself is a selector stand in for the element. The function form of `:host()` is [required](https://drafts.csswg.org/css-scoping/#host-selector:~:text=it%20takes%20a%20selector%20argument%20for%20syntactic%20reasons%20(we%20can%E2%80%99t%20say%20that%20%3Ahost.foo%20matches%20but%20.foo%20doesn%E2%80%99t)%2C%20but%20is%20otherwise%20identical%20to%20just%20using%20%3Ahost%20followed%20by%20a%20selector.) to specify a class or attribute on the host itself. In order to select the context outside of host you can use the `:host-context()` form.
 
-```CSS
+```css
 /* Scoping without host */
 div { color: red; }
 /* Becomes */
@@ -133,7 +133,7 @@ Global unscoped styles can be added to components if desired. A `scope=global` a
 </style>
 ```
 A style tag inside a component that is not a direct child will not be transformed or collected at all.
-```JavaScript
+```javascript
 export default Component({html}){
   return html`
     <div>Hello World</div>
