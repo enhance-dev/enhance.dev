@@ -6,7 +6,7 @@ title: Styling
 An important part of both user experience and developer experience is applying styles to your app. There are a lot of solutions for approaching `css`, but very few that are designed for both the user and the developer in mind. Enhance projects are set-up in a way to enable developers to add styles without compromising user experience via slow load times or flash of unstyled content. This is done by returning to first principles and thinking about what a developer could do by hand that would be both optimal and specific. Enhance [single file components](/docs/learn/concepts/single-file-components) allow you to co-locate your styles with your markup but enhance projects also come preconfigured with a customizable utility class system. This enables you to reuse [†](#footnote)utility classes without bloating your stylesheets for general styling but also use element styling for specific css that utility classes are not designed for.
 
 ## Utility classes
-A quick look at utility classes in practice
+A quick look at applying general utility classes
 ```javascript
 export default function MyParagraph({ html }) {
   return html`
