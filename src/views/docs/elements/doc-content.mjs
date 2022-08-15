@@ -117,7 +117,6 @@ export default function DocContent({ html, state }) {
       }
 
       .community-links {
-        opacity: 0.8; /* TODO: not this */
         width: 100%;
         padding: 1rem;
         color: var(--inky-lily);
