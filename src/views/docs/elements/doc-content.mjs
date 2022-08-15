@@ -23,13 +23,19 @@ export default function DocContent({ html, state }) {
 
   return html`
     <style>
-      :host > ::slotted(*) {
+      :host {
+        padding: 1rem;
+      }
+      :host > * {
         max-width: 52rem;
         margin: auto;
       }
+      li {
+        list-style-position: inside;
+      }
 
-      :host > ::slotted(*) > * {
-        margin-bottom: 1.25rem;
+      :host > ::slotted([slot]) > * {
+        margin-bottom: 1rem;
         /* margin-x for everything except code blocks */
         /* margin: 0 5rem 1.25rem 5rem; */
       }
@@ -82,8 +88,8 @@ export default function DocContent({ html, state }) {
 
       .community-links {
         opacity: 0.8; /* TODO: not this */
-        width: 85%;
-        margin: 5rem auto 0;
+        width: 100%;
+        /*margin: 5rem auto 0;*/
         padding: 1rem;
         background-color: var(--cloud-ateneo);
         box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,

@@ -28,6 +28,7 @@ export default function DocsHeader({ html, state }) {
         display: grid;
         align-items: center;
         grid-template-columns: 1fr;
+        padding: 1rem;
         grid-template-areas:
           'logo'
           'menu';

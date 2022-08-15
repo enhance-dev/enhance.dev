@@ -13,7 +13,7 @@ export default function DocsLayout({ html, state }) {
           'header'
           'content';
         gap: 0 1rem;
-        margin: 0 1rem;
+        /*margin: 0 1rem;*/
         height: 100vh;
       }
       #header {
@@ -82,7 +82,7 @@ export default function DocsLayout({ html, state }) {
       }
     </style>
 
-    <docs-header id="header" class="mt1 mb1 mr1-xl gap-1"></docs-header>
+    <docs-header id="header" class="mt1 mb1 gap-1"></docs-header>
 
     <nav id="sidebar" class="overflow-y-auto-lg">
       <docs-nav></docs-nav>
