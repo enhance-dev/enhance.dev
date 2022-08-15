@@ -14,6 +14,12 @@
   --smoke-halite: var(--smoke);
   --smoke-indigo: var(--smoke);
   --white-denim: var(--white);
+
+  --callout-note: var(--smoke);
+  --callout-tip: rgb(230, 246, 230);
+  --callout-info: rgb(238, 249, 253);
+  --callout-caution: rgb(255, 248, 230);
+  --callout-danger: rgb(255, 235, 236);
 }
 
 /* Dark Theme */
@@ -31,9 +37,16 @@
   --smoke-halite: var(--halite);
   --smoke-indigo: var(--indigo);
   --white-denim: var(--denim);
+
+  --callout-note: rgb(71, 71, 72);
+  --callout-tip: rgb(0, 49, 0);
+  --callout-info: rgb(25, 60, 71);
+  --callout-caution: rgb(77, 56, 0);
+  --callout-danger: rgb(75, 17, 19);
 }
 
 /* Dark Theme: System */
+/* This should be a copy of the above block */
 @media (prefers-color-scheme: dark) {
   :root {
     --cloud-ateneo: var(--ateneo);
@@ -49,5 +62,11 @@
     --smoke-halite: var(--halite);
     --smoke-indigo: var(--indigo);
     --white-denim: var(--denim);
+
+    --callout-note: rgb(71, 71, 72);
+    --callout-tip: rgb(0, 49, 0);
+    --callout-info: rgb(25, 60, 71);
+    --callout-caution: rgb(77, 56, 0);
+    --callout-danger: rgb(75, 17, 19);
   }
 }
