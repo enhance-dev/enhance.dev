@@ -57,7 +57,6 @@ export const data = [
             path: '/docs/learn/concepts/state/',
             items: ['attributes', 'store'],
           },
-          'document-output',
         ],
       },
       {
@@ -85,14 +84,10 @@ export const data = [
         type: TYPE.category,
         slug: 'practices',
         items: [
-          {
-            slug: 'base-element',
-            label: 'BaseElement',
-            path: '/docs/learn/practices/base-element/',
-            items: ['light', 'shady', 'shadow'],
-          },
-          { slug: 'css-utility-classes', label: 'CSS Utility Classes' },
-          'bundling-plugin',
+          'styling',
+          'api-routes',
+          'testing',
+          'third-party-modules',
           'progressive-enhancement',
         ],
       },
