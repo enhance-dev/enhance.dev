@@ -63,7 +63,7 @@ Refresh your [index page](http://localhost:3333/) in your browser to see your me
 ## That's it
 You now know how to pass data to your pages. You can start with hard-coded data to get going then progress to storing and retrieving data from your apps database when the need arises.
 
-> 💾  [ Read more about using data with your app → ]( # )
+> 💾  [ Read more about using data with your app → ](/docs/learn/practices/api-routes)
 
 
 
