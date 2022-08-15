@@ -70,6 +70,23 @@ export default function DocContent({ html, state }) {
         color: var(--inky-lily);
       }
 
+      table {
+        border: 1px solid var(--smoke-indigo);
+      }
+      table thead th,
+      table tfoot th {
+        color: var(--inky-lily);
+        background: var(--smoke-indigo);
+      }
+      table caption {
+        padding: 0.5rem;
+      }
+      table th,
+      table td {
+        padding: 0.5rem;
+        border: 1px solid var(--smoke-indigo);
+      }
+
       blockquote {
         padding: 0.8rem 0.6rem 0.6rem;
         background-color: var(--smoke-indigo);
