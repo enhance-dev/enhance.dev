@@ -8,6 +8,11 @@ Pages are the entry point for enhance rendering. They can be written in standard
 ## File based routing
 Pages in the enhance starter project enable file based routing. Meaning that adding a `app/pages/about.html` for instance will make it available at `/about` in your browser.
 
+```
+app/pages/index.html → https://yoursite.com/
+app/pages/about.html → https://yoursite.com/about
+```
+
 ## HTML by default
 Pages are written in HTML and can be composed of many dynamic custom elements. Pages are meant to be rendered once server-side.
 
