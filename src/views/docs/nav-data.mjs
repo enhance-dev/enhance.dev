@@ -47,16 +47,28 @@ export const data = [
         items: [
           { slug: 'single-file-components' },
           {
-            slug: 'rendering',
+            slug: 'html',
+            label: 'html',
             path: '/docs/learn/concepts/rendering/',
             description: 'The HTML render function',
-            items: ['element-expansion', 'slots'],
+            items: ['elements', 'slots'],
           },
           {
             slug: 'state',
             path: '/docs/learn/concepts/state/',
             items: ['attributes', 'store'],
           },
+        ],
+      },
+      {
+        type: TYPE.category,
+        slug: 'practices',
+        items: [
+          'styling',
+          'api-routes',
+          'testing',
+          'third-party-modules',
+          'progressive-enhancement',
         ],
       },
       {
@@ -78,17 +90,6 @@ export const data = [
               },
             ],
           },
-        ],
-      },
-      {
-        type: TYPE.category,
-        slug: 'practices',
-        items: [
-          'styling',
-          'api-routes',
-          'testing',
-          'third-party-modules',
-          'progressive-enhancement',
         ],
       },
       {
