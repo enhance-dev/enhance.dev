@@ -64,7 +64,11 @@ export const data = [
         type: TYPE.category,
         slug: 'practices',
         items: [
-          'styling',
+          {
+            slug: 'styling',
+            path: '/docs/learn/practices/styling/',
+            items: ['element-styles', 'utility-classes'],
+          },
           'api-routes',
           'testing',
           'third-party-modules',

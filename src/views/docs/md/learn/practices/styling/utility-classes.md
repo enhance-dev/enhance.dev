@@ -1,5 +1,5 @@
 ---
-title: Doc Title
+title: Utility classes
 ---
 
 ## Subtitle
