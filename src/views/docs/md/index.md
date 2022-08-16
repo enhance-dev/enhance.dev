@@ -18,7 +18,7 @@ npm start
 
 ## Index route
 
-Once you app starts up, navigate to [http://localhost:3333](http://localhost:3333).
+Once your app starts up, navigate to [http://localhost:3333](http://localhost:3333).
 The source for the index page can be found in your app at `app/pages/index.html`.
 
 ```
@@ -32,10 +32,14 @@ app
 Add a new route at the `"/about"` URL by creating a new file called `about.html` in the `pages` folder at `app/pages/about.html`
 
 You can add something like this:
+
+<doc-code filename="app/pages/about.html" >
+
 ```html
-<!-- app/pages/about.html -->
 Hello world, I am <i>very</i> <strong>excited</strong> to meet you.
 ```
+
+</doc-code>
 
 Reload the app, and navigate to [`http://localhost:3333/about`](http://localhost:3333/about) to see your new page in action!
 
@@ -58,8 +62,10 @@ Your function will be passed an object containing an `html` render function for 
 Add a `my-header.mjs` file in the `app/elements/` folder.
 
 The contents of `my-header.mjs` should look like this:
+
+<doc-code filename="app/elements/my-header.mjs" >
+
 ```javascript
-// app/elements/my-header.mjs
 export default function MyHeader({ html }) {
   return html`
 <header>
@@ -71,6 +77,8 @@ export default function MyHeader({ html }) {
 </header>`
 }
 ```
+
+</doc-code>
 
 Your project should now look like this:
 ```
@@ -84,11 +92,14 @@ app
 
 Modify `app/pages/about.html` to include your new custom element header:
 
+<doc-code filename="app/pages/about.html" >
+
 ```html
-<!-- app/pages/about.html -->
 <my-header></my-header>
 Hello world, I am <i>very</i> <strong>excited</strong> to meet you.
 ```
+
+</doc-code>
 
 Reloading your app will show the new header with working navigation to and from `"/about"`.
 
