@@ -25,7 +25,7 @@ export const data = [
             // verbose
             type: TYPE.doc, // default
             label: 'Quick Start',
-            path: '/docs/quick-start', // optional, absolute
+            path: '/docs/', // optional, absolute
             slug: 'quick-start',
           },
           'editor-setup',
@@ -85,12 +85,12 @@ export const data = [
             path: '/docs/learn/features/transforms/',
             items: [
               {
-                label: 'JavaScript Transforms',
-                slug: 'js-transforms',
+                label: 'Script Transforms',
+                slug: 'script-transforms',
               },
               {
-                label: 'CSS Transforms',
-                slug: 'css-transforms',
+                label: 'Style Transforms',
+                slug: 'style-transforms',
               },
             ],
           },
