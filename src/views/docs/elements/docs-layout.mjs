@@ -9,6 +9,7 @@ export default function DocsLayout({ html, state }) {
       /* single col */
       :host {
         display: grid;
+        grid-template-rows: minmax(auto, 10rem) auto;
         grid-template-areas:
           'header'
           'content';
