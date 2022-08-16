@@ -23,12 +23,18 @@ export default function DocContent({ html, state }) {
 
   return html`
     <style>
-      :host > ::slotted(*) {
+      :host {
+        padding: 1rem;
+      }
+      :host > * {
         max-width: 52rem;
         margin: auto;
       }
+      li {
+        list-style-position: inside;
+      }
 
-      :host > ::slotted(*) > * {
+      :host > ::slotted([slot]) > * {
         margin-bottom: 1.5rem;
       }
 
@@ -62,6 +68,23 @@ export default function DocContent({ html, state }) {
       }
       small {
         color: var(--inky-lily);
+      }
+
+      table {
+        border: 1px solid var(--smoke-indigo);
+      }
+      table thead th,
+      table tfoot th {
+        color: var(--inky-lily);
+        background: var(--smoke-indigo);
+      }
+      table caption {
+        padding: 0.5rem;
+      }
+      table th,
+      table td {
+        padding: 0.5rem;
+        border: 1px solid var(--smoke-indigo);
       }
 
       blockquote {
@@ -111,6 +134,7 @@ export default function DocContent({ html, state }) {
       }
 
       .community-links {
+        width: 100%;
         padding: 1rem;
         color: var(--inky-lily);
         background-color: var(--cloud-ateneo);

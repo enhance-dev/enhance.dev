@@ -28,6 +28,7 @@ export default function DocsHeader({ html, state }) {
         display: grid;
         align-items: center;
         grid-template-columns: 1fr;
+        padding: 1rem;
         grid-template-areas:
           'logo'
           'menu';
@@ -157,7 +158,7 @@ export default function DocsHeader({ html, state }) {
       <div id="search" class="flex-grow flex-grow-0-lg"></div>
     </nav>
 
-    <nav id="docs-nav">
+    <nav id="docs-nav" class="z1">
       <docs-nav></docs-nav>
     </nav>
 

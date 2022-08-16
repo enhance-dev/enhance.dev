@@ -1,3 +1,4 @@
+import Callout from './doc-callout.mjs'
 import Code from './doc-code.mjs'
 // import CodeMirror from './doc-code-mirror.mjs'
 import Content from './doc-content.mjs'
@@ -9,6 +10,7 @@ import Symbols from './docs-symbols.mjs'
 import ThemeToggle from './docs-theme-toggle.mjs'
 
 export default {
+  'doc-callout': Callout,
   'doc-code': Code,
   // 'doc-code-mirror': CodeMirror,
   'doc-content': Content,
