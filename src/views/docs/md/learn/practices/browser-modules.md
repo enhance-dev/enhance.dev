@@ -1,5 +1,5 @@
 ---
-title: Third party modules
+title: Browser modules
 ---
 
 
@@ -9,8 +9,8 @@ Enhance projects empower you to share modules with the browser via bundles. The 
 ## Node modules
 Inevitably you will want to install a dependency from `npm` for use in the browser. Good news is enhance projects are preconfigured to handle this as well.
 
-## Export bundles
-To enable this for a node module you will need to set the name and path to in your `.arc` file.
+## Exporting bundles
+To export modules you will need to set the name and path in your `.arc` file under the `@bundles` pragma.
 
 ```arc
 

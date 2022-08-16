@@ -40,6 +40,6 @@ export default function MyElement({ html, state }) {
 ## That's it
 You now know how to pass application data to your elements to be used in pages. Read more about enhance projects `api` and `api` routes to learn how to incorporate data.
 
-[ 🚏  Read about enhance projects `api` →](docs/learn/starter-project/api)
+[ 🚏  Read about enhance projects `api` →](/docs/learn/starter-project/api)
 
 [ 🛣  Read about `api` routes →](/docs/learn/practices/api-routes)

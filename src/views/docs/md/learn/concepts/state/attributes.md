@@ -54,4 +54,4 @@ export default function MyButton({ html, state={} }) {
 }
 ```
 
->  [ Next Read about how to use the `store` to pass complex types → ](/docs/learn/concepts/state/store)
+>  [ 🏪  Next Read about how to use the `store` to pass complex types → ](/docs/learn/concepts/state/store)

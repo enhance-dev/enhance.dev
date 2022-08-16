@@ -8,6 +8,8 @@ import Outline from './doc-outline.mjs'
 import Nav from './docs-nav.mjs'
 import Symbols from './docs-symbols.mjs'
 import ThemeToggle from './docs-theme-toggle.mjs'
+import Footer from './docs-footer.mjs'
+// import Increment from './docs-increment.mjs'
 
 export default {
   'doc-callout': Callout,
@@ -20,4 +22,6 @@ export default {
   'docs-nav': Nav,
   'docs-symbols': Symbols,
   'docs-theme-toggle': ThemeToggle,
+  'docs-footer': Footer,
+  // 'docs-increment': Increment,
 }

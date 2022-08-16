@@ -1,21 +1,3 @@
-function CommunityLinks(links) {
-  const items = links.map((link) => {
-    return /* html */ `
-<dt><a href="${link.url}" target="_blank">${link.label}</a></dt>
-<dd class="mb-4">${link.description}</dd>
-      `
-  })
-
-  return /* html */ `
-<aside class="community-links">
-  <h3 class="mb-2">Community Resources</h3>
-  <dl class="ml-2 list-none leading2">
-    ${items.join('')}
-  </dl>
-</aside>
-    `
-}
-
 export default function DocContent({ html, state }) {
   const {
     store: { otherLinks },
@@ -133,23 +115,13 @@ export default function DocContent({ html, state }) {
         border-color: var(--smoke-indigo);
       }
 
-      .community-links {
-        width: 100%;
-        padding: 1rem;
-        color: var(--inky-lily);
-        background-color: var(--cloud-ateneo);
-        box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
-          rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
-      }
     </style>
 
     <slot name="doc"></slot>
 
     <hr class="block mt3 mb3 border1" />
 
-    ${otherLinks?.community?.items?.length > 0
-      ? CommunityLinks(otherLinks.community.items)
-      : ''}
+    <docs-footer></docs-footer>
 
     <script>
       const codeBlocks = document.querySelectorAll('pre.hljs')

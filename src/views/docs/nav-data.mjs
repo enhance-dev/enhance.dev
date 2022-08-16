@@ -49,7 +49,7 @@ export const data = [
           {
             slug: 'html',
             label: 'html',
-            path: '/docs/learn/concepts/rendering/',
+            path: '/docs/learn/concepts/html/',
             description: 'The HTML render function',
             items: ['elements', 'slots'],
           },
@@ -71,7 +71,7 @@ export const data = [
           },
           'api-routes',
           'testing',
-          'third-party-modules',
+          'browser-modules',
           'progressive-enhancement',
         ],
       },

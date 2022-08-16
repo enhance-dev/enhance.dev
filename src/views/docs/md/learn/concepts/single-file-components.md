@@ -58,7 +58,7 @@ export default function HelloWorld({ html, state }) {
 ```
 Any valid css will work.
 
-> Skip ahead to [Style Transforms](/docs/learn/features/css-transforms) to see how it works. You can also use pseudo selectors like `:host` and `:slotted`
+> Skip ahead to [Style Transforms](/docs/learn/features/transforms/style-transforms) to see how it works. You can also use pseudo selectors like `:host` and `:slotted`
 
 
 ## Script

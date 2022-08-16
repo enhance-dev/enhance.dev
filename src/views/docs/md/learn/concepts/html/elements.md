@@ -42,4 +42,4 @@ This is my index page
 
 Notice how the custom element is expanded with the output of your pure function. This sets your page up for progressive enhancement.
 
-[🎰 Next read how enhance expands `<slot>` tags →](/docs/learn/concepts/rendering/slots)
+[🎰 Next read how enhance expands `<slot>` tags →](/docs/learn/concepts/html/slots)

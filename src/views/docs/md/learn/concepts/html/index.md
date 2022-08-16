@@ -17,7 +17,7 @@ Server side render is great for when you have mostly static content. Lots of com
 ## Standards based reuse
 Repeated markup authored as custom elements enables reuse but enhance also adds special handling of `<slot>` elements following the [Web Component standard](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_templates_and_slots#adding_flexibility_with_slots). This powerful feature enables you to reuse layouts and components by substituting their internals while maintaining core functionality.
 
-> ✨  [Read more about custom element expansion →](/docs/learn/concepts/rendering/element-expansion)
+> ✨  [Read more about custom element expansion →](/docs/learn/concepts/html/elements)
 
-> 🎰  [Read more about `slot` handling →](/docs/learn/concepts/rendering/slots)
+> 🎰  [Read more about `slot` handling →](/docs/learn/concepts/html/slots)
 
