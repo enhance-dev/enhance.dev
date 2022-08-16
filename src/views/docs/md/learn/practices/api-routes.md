@@ -12,13 +12,13 @@ API routes always receive a `request` object:
 
 | key     | type     | description
 |---------|----------|---
-| body    | `object` | Automatically parsed if present; `{}` if request has no body
+| body    | `object` | `{}` if request has no body
 | headers | `object` | Request headers
 | method  | `string` | Request method: `GET`, `POST`, `PATCH`, `PUT`, or `DELETE`
-| params  | `object` | URL params (e.g. product in `/app/api/shop/$product.mjs`); `{}` if request has no params
+| params  | `object` | URL params (e.g. 'cat' in `/app/api/cats/$cat.mjs`)
 | path    | `string` | Root-relative path of the request URL 
-| query   | `object` | Request querystring params; `{}` if request has none
-| session | `object` | Read of the request cookie; `{}` when empty
+| query   | `object` | Request querystring parameters
+| session | `object` | Read of the request cookie
 
 ## Response
 
@@ -26,7 +26,7 @@ API routes always return a `response` object:
 
 | key          | type     | description
 |--------------|----------|---
-| json         | `object` | Plain JS object that will returned as a JSON response (or initial state for `text/html` requests)
+| json         | `object` | Plain JS object returned as a JSON response, or initial state for a `text/html` request
 | location     | `string` | Redirect path to send client
 | statusCode   | `number` | Set the HTTP status code (default: `200`, aliases: `code`, and `status` )
 | cacheControl | `string` | Set the `cache-control` header
@@ -43,8 +43,9 @@ To demonstrate building out dynamic API routes and then progressively enhancing 
 
 2. Create a form for incrementing at `app/elements/form-counter.mjs`: 
 
+<doc-code filename="app/elements/form-counter.mjs" numbered>
+
 ```javascript
-// app/elements/form-counter.mjs
 export default function counter ({ html, state }) {
   return html`<form action=/count method=post>
     <button>+1</button>
@@ -52,20 +53,24 @@ export default function counter ({ html, state }) {
   <pre>${ JSON.stringify(state, null, 2) }</pre>`
 }
 ```
+</doc-code>
 
-> Note the handy `<pre>` debugger
+> Note the handy `<pre>` debugger on line 5!
 
 And add the new custom element to `app/pages/index.html`:
 
+<doc-code filename="app/pages/index.html" numbered>
+
 ```html
-<!-- app/pages/index.html -->
 <form-counter></form-counter>
 ```
+</doc-code>
 
 3. Create an API route to read the current count at `app/api/index.mjs` with the following contents:
 
+<doc-code filename="app/api/index.mjs" numbered>
+
 ```javascript
-// app/api/index.mjs
 export async function get (req) {
   let count = req.session.count || 0
   return {
@@ -73,11 +78,13 @@ export async function get (req) {
   }
 }
 ```
+</doc-code>
 
 4. Create an API route to handle `POST /count` by creating a file `app/api/count.mjs` with the following:
 
+<doc-code filename="app/api/count.mjs" numbered>
+
 ```javascript
-// app/api/count.mjs
 export async function post (req) {
   let count = req.session.count || 0
   count += 1
@@ -87,6 +94,7 @@ export async function post (req) {
   }
 }
 ```
+</doc-code>
 
 The function above reads the count from the session or sets a default value, increments `count`, and then writes the session, and redirects to `/`. Always redirect after a form post to prevent double form submission, and proper back-button behavior.
 
@@ -98,8 +106,9 @@ The form functions even when client JS isn't available. This is the moment where
 
 1. Add a JSON result to `app/api/count.mjs`
 
+<doc-code mark-line=6 filename="app/api/count.mjs" numbered>
+
 ```javascript
-// app/api/count.mjs
 export async function post (req) {
   let count = req.session.count || 0
   count += 1
@@ -110,10 +119,13 @@ export async function post (req) {
   }
 }
 ```
+</doc-code>
 
 Now anytime `POST /count` receives a request for JSON it will get `{ count }`.
 
-Create a completely vanilla client JS file `public/form-counter.mjs`:
+Create a completely vanilla JS upgrade for the custom element:
+
+<doc-code filename="public/form-count.mjs" numbered>
 
 ```javascript
 export class Counter extends HTMLElement {
@@ -140,5 +152,21 @@ export class Counter extends HTMLElement {
 
 customElements.define('form-counter', Counter)
 ```
+</doc-code>
 
-Add `<script type=module src=/_static/form-counter.mjs></script>` to `app/pages/index.html` and reload to see the enhanced version.
+> 🍦 Note: any framework or library could be used but this example is to show those are optional; the nice thing about working with the low level code is there are no dependencies and this will work in all browsers forevermore
+
+Add the client script to the custom element, and reload to see the enhanced version.
+
+<doc-code mark-line=6 filename="app/elements/form-counter.mjs" numbered>
+
+```javascript
+export default function counter ({ html, state }) {
+  return html`<form action=/count method=post>
+    <button>+1</button>
+  </form>
+  <pre>${ JSON.stringify(state, null, 2) }</pre>
+  <script type=module src=/_static/form-counter.mjs></script>`
+}
+```
+</doc-code>
