@@ -21,6 +21,6 @@ These pseudo classes give you the ability to style the outer Custom Element tag 
 </style>
 ```
 
-[🦾 Read more about style transforms →](/docs/learn/features/transforms/css-transforms)
+[🦾 Read more about style transforms →](/docs/learn/features/transforms/style-transforms)
 
 
