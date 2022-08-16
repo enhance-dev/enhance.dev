@@ -1,11 +1,10 @@
 ---
-title: CSS Transforms
+title: Style Transforms
 links:
   - enhance-style-transform: https://github.com/enhance-dev/enhance-style-transform
 ---
 
-## CSS Transformations
-
+## Consistent styling
 Enhance is designed to deliver working HTML that is improved when JavaScript loads. If the shadowDOM is used this means the initial markup is replaced later. The goal is to write styles once that will work before and after that happens. And to use a consistent approach to styling all components.
 
 Style transforms make this possible. When the page is rendered styles are transformed and relocated to optimize performance.
@@ -27,7 +26,7 @@ The return value from the transform is the new string contents of the style tag.
 
 
 ## Basic Usage
-This style transform is an example for deploying to [arc.codes](arc.codes). 
+This style transform is an example for deploying to [arc.codes](arc.codes).
 
 ### Input
 ```javascript
@@ -89,7 +88,7 @@ export default function MyTag({html}){
 </body>
 ```
 ## Enhance Style plugin
-The [@enhance/enhance-style-transform](https://github.com/enhance-dev/enhance-style-transform) is recommended for use with Enhance. 
+The [@enhance/enhance-style-transform](https://github.com/enhance-dev/enhance-style-transform) is recommended for use with Enhance.
 
 ### Component scoping
 Basic component scoping is done by adding a component selector to every rule. This effectively sets the upper bound to all rules so styles cannot leak outside the component. The rule `div {background: red}` becomes `my-tag div {background: red}`. This sets a firm upper bound on styles but does not limit deep selecting for anything nested inside the component. Combining this technique with utility classes helps limit deep selection by minimizing the number of rules that need to be written for each component.

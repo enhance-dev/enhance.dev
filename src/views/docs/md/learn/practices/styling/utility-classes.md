@@ -26,9 +26,9 @@ export default function MyParagraph({ html }) {
 
 ## Customize
 It is possible to completely customize your project's utility classes. To do so you will need to do two things:
-1. Add a `styleguide.json` file to the root of your project. <br>
-     [ 📄 You can copy this one to get started →](https://raw.githubusercontent.com/enhance-dev/enhance-styles/main/config.json)
-2. Edit your project's `.arc` file to tell it where to grab the config
+- Add a `styleguide.json` file to the root of your project
+  - [ 📄 You can copy this one to get started →](https://raw.githubusercontent.com/enhance-dev/enhance-styles/main/config.json)
+- Edit your project's `.arc` file to tell it where to grab the config
 
 Add these lines at the bottom of your `.arc` file in the root of your project.
 ```arc
@@ -37,3 +37,4 @@ Add these lines at the bottom of your `.arc` file in the root of your project.
 config styleguide.json
 ```
 
+> [ 💅🏽  Read more about the available styleguide customizations →](https://github.com/enhance-dev/enhance-styles)
