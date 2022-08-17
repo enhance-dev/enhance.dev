@@ -22,7 +22,7 @@ Author this HTML
 ```
 
 Create this single file component
-```html
+```javascript
 export default function MyMessage({ html, state }) {
   const { attrs } = state
   const { message='' } = attrs
@@ -55,13 +55,13 @@ customElements.define('my-message', MyMessage)
 ```
 With scoped DOM queries and low level DOM apis you can perform optimal surgical updates to your element.
 
-†You would need to add a template to this class in order to expand the `<my-message>` tag when dynamically added to the document via JavaScript. [See this version →](https://gist.github.com/kristoferjoseph/dd5d22018a0f7feedd4ee18f25a040a8)
+<small>†You would need to add a template to this class in order to expand the `<my-message>` tag when dynamically added to the document via JavaScript. [See this version →](https://gist.github.com/kristoferjoseph/dd5d22018a0f7feedd4ee18f25a040a8)</small>
 
 ## Externalize scripts
 If your script outgrows your single file component you can link to it. Another way you can incrementally progress your elements to support your needs.
 
 Move your script to the `/public` folder
-```html
+
 Create this single file component
 ```html
 export default function MyMessage({ html, state }) {
