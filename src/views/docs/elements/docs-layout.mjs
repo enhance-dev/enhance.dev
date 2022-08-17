@@ -89,7 +89,7 @@ export default function DocsLayout({ html, state }) {
       <docs-nav></docs-nav>
     </nav>
 
-    <doc-content id="content" class="overflow-y-auto-lg pb2">
+    <doc-content id="content" class="overflow-y-auto-lg p1 pb2">
       <article slot="doc" class="block leading2">
         ${doc.title ? `<h1>${doc.title}</h1>` : ''} ${doc.html}
       </article>
