@@ -58,7 +58,7 @@ Add your `<my-message></my-message>` element to your `app/pages/index.html`
 <my-message></my-message>
 ```
 
-Refresh your [index page](http://localhost:3333/) in your browser to see your message displayed
+Refresh your local site [http://localhost:3333/](http://localhost:3333/) in your browser to see your message displayed
 
 ## That's it
 You now know how to pass data to your pages. You can start with hard-coded data to get going then progress to storing and retrieving data from your apps database when the need arises.
