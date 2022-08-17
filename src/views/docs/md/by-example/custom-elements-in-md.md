@@ -44,6 +44,8 @@ Custom HTML elements in Markdown are awesome!
 Hey, that's pretty neat!
 ```
 
+</doc-code>
+
 ### 3. Render order matters
 
 It is probably best to render HTML from Markdown and then render the final HTML with Enhance.
