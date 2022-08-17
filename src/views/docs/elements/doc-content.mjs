@@ -1,8 +1,4 @@
-export default function DocContent({ html, state }) {
-  const {
-    store: { otherLinks },
-  } = state
-
+export default function DocContent({ html }) {
   return html`
     <style>
       :host {
@@ -114,12 +110,9 @@ export default function DocContent({ html, state }) {
       hr {
         border-color: var(--smoke-indigo);
       }
-
     </style>
 
     <slot name="doc"></slot>
-
-    <hr class="block mt3 mb3 border1" />
 
     <docs-footer></docs-footer>
 

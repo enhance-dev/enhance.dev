@@ -2,7 +2,7 @@ import arc from '@architect/functions'
 
 export default function DocsHeader({ html, state }) {
   const { store } = state
-  const { sidebarData } = store
+  const { searchTerm, sidebarData } = store
 
   const navItems = []
   if (sidebarData?.length > 0) {
@@ -169,7 +169,7 @@ export default function DocsHeader({ html, state }) {
         apiKey: '781b7bc665ad54b682ab4a31a5ccb55e',
         indexName: 'enhance',
         container: '#search',
-        debug: true, // Set debug to true if you want to inspect the modal
+        initialQuery: ${searchTerm ? `'${searchTerm}'` : 'null'},
       })
     </script>
   `

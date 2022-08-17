@@ -49,26 +49,12 @@ export default function DocsNav({ html, state }) {
   const { store } = state
   const { sidebarData } = store
 
-  let tabs = ''
-
-  if (sidebarData?.length > 0) {
-    sidebarData
-      .filter((i) => i.type === 'tab')
-      .forEach((tab) => {
-        tabs += `
-<div
-  class="tab-content ${tab.active ? 'active' : 'hidden'}"
-  label="${tab.slug}"
->
-  ${List(tab.items)}
-</div>
-          `.trim()
-      })
-  }
+  const tabs = sidebarData.filter((i) => i.type === 'tab')
+  const activeTab = tabs.find((tab) => tab.active) || tabs[0]
 
   return html`
     <style>
-      .tab-content > ul > li {
+      nav > ul > li {
         margin-bottom: 2rem;
       }
       li a {
@@ -92,6 +78,6 @@ export default function DocsNav({ html, state }) {
       }
     </style>
 
-    ${tabs}
+    <nav>${List(activeTab.items)}</nav>
   `
 }

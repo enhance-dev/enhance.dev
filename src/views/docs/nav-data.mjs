@@ -201,7 +201,7 @@ export const other = {
   },
 }
 
-function unslug(string) {
+export function unslug(string) {
   return string
     .replace(/-/g, ' ')
     .replace(/(^\w{1})|(\s+\w{1})/g, (l) => l.toUpperCase())

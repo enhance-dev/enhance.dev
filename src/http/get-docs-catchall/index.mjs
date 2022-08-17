@@ -6,13 +6,11 @@ import enhance from '@enhance/ssr'
 import styleTransform from '@enhance/enhance-style-transform'
 import elements from '@architect/views/docs/elements/index.mjs'
 import navDataLoader, {
+  unslug,
   other as otherLinks,
 } from '@architect/views/docs/nav-data.mjs'
 import document from '@architect/views/docs/document.mjs'
 import HljsLineWrapper from './hljs-line-wrapper.mjs'
-
-// Configuration
-const docsRoute = 'docs' // this should match app.arc catchall
 
 const arcdown = new Arcdown({
   pluginOverrides: {
@@ -29,7 +27,7 @@ const arcdown = new Arcdown({
 async function http(request) {
   const { path: activePath, pathParameters } = request
   let docPath = pathParameters?.proxy || 'index'
-  if (docPath.match(/\/$/)) {
+  if (docPath.endsWith('/')) {
     docPath += 'index' // trailing slash == index.md file
   }
 
@@ -37,7 +35,40 @@ async function http(request) {
     `./node_modules/@architect/views/docs/md/${docPath}.md`,
     import.meta.url
   )
-  const docMarkdown = readFileSync(docURL.pathname, 'utf-8')
+
+  const sidebarData = navDataLoader('docs', activePath)
+
+  let docMarkdown
+  try {
+    docMarkdown = readFileSync(docURL.pathname, 'utf-8')
+  } catch (error) {
+    let searchTerm = null
+    if (!docPath.endsWith('/index')) {
+      const docPathParts = docPath.split('/')
+      searchTerm = docPathParts.pop()
+      searchTerm = unslug(searchTerm)
+    }
+    const html = enhance({
+      elements,
+      initialState: {
+        doc: {
+          title: '404',
+          html: /* html */ `
+            <docs-404
+              path="${docPath}"
+              ${searchTerm ? `term="${searchTerm}"` : ''}>
+            </docs-404>
+          `,
+        },
+        otherLinks,
+        sidebarData,
+        searchTerm,
+      },
+      styleTransforms: [styleTransform],
+    })
+    return { status: 404, html: html`${document('404')}` }
+  }
+
   const doc = await arcdown.render(docMarkdown)
 
   let gitHubLink = 'https://github.com/enhance-dev/enhance.dev/tree/main/src/'
@@ -49,7 +80,7 @@ async function http(request) {
       doc,
       gitHubLink,
       otherLinks,
-      sidebarData: navDataLoader(docsRoute, activePath),
+      sidebarData,
     },
     styleTransforms: [styleTransform],
   })

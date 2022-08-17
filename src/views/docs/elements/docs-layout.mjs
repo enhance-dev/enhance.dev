@@ -96,7 +96,7 @@ export default function DocsLayout({ html, state }) {
     </doc-content>
 
     <doc-outline id="outline" class="overflow-y-auto-lg">
-      ${doc.tocHtml.indexOf('<li>') > 0
+      ${doc.tocHtml?.indexOf('<li>') > 0
         ? /* html */ `
       <div slot="toc">
         <h3 class="mb-2 font-medium">On this page</h3>
