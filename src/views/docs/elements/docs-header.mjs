@@ -31,7 +31,7 @@ export default function DocsHeader({ html, state }) {
         grid-template-areas:
           'logo'
           'menu';
-        box-shadow: 0px 1px 2px var(--grey-100);
+        box-shadow: 0px 1px 2px var(--smoke-indigo);
       }
 
       #logo {
@@ -101,8 +101,8 @@ export default function DocsHeader({ html, state }) {
         }
 
         #docs-nav {
-          -webkit-transition: left 0.2s ease;
-          transition:  0.2s ease;
+          -webkit-transition: initial;
+          transition:  initial;
         }
       }
     </style>
