@@ -27,9 +27,14 @@ export default class {
 
     result.value = safelyTagged
       .split('\n')
-      .map((line) => {
-        return `<span class="${this.className || 'hljs-line'}">${line}</span>`
-      })
+      .reduce((result, line) => {
+        if (line.length > 0) {
+          result.push(
+            `<span class="${this.className || 'hljs-line'}">${line}</span>`
+          )
+        }
+        return result
+      }, [])
       .join('\n')
   }
 }

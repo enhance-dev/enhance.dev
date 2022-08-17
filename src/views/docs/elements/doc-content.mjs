@@ -49,6 +49,7 @@ export default function DocContent({ html }) {
       }
 
       table {
+        width: 100%;
         border: 1px solid var(--smoke-indigo);
       }
       table thead th,

@@ -69,7 +69,7 @@ export const data = [
             path: '/docs/learn/practices/styling/',
             items: ['utility-classes', 'element-styles'],
           },
-          'api-routes',
+          { slug: 'api-routes', label: 'API Routes' },
           'testing',
           'browser-modules',
           'progressive-enhancement',
