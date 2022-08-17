@@ -14,7 +14,7 @@ Progressively enhancing Custom Elements ensures that you are only adding the Jav
 ## Dependency free
 The platform supplies everything you need to progressively enhance a Custom Element, it's all built into the browser. No longer do you need to load megabytes of JavaScript to render one button. It is possible to build an entire app with just what ships in the browser.
 
-Here is what it would take to progressively enhance a `my-messge` element.
+Here is what it would take to progressively enhance a `my-message` element.
 
 Author this HTML
 ```html
