@@ -123,9 +123,12 @@ export default function DocCode({ html }) {
           }
 
           if (this.mark) {
-            const mark = Number(this.mark)
-            const markedLine = this.lines[mark - 1]
-            if (markedLine) markedLine.classList.add('marked')
+            const marks = this.mark.split(',')
+            for (const mark of marks) {
+              const markNo = Number(mark)
+              const markedLine = this.lines[markNo - 1]
+              if (markedLine) markedLine.classList.add('marked')
+            }
           }
 
           if (this.lineStart) {

@@ -19,6 +19,8 @@ export default function Callout({ html, state }) {
       }
       .callout {
         padding: 1rem;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 0px 1px 0px;
+        border-radius: 0.333rem;
       }
       ${styles}
     </style>

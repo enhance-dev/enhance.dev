@@ -27,8 +27,9 @@ export default class {
 
     result.value = safelyTagged
       .split('\n')
-      .reduce((result, line) => {
-        if (line.length > 0) {
+      .reduce((result, line, index, lines) => {
+        const lastLine = index + 1 === lines.length
+        if (!(lastLine && line.length === 0)) {
           result.push(
             `<span class="${this.className || 'hljs-line'}">${line}</span>`
           )
