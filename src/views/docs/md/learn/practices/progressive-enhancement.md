@@ -14,13 +14,22 @@ Progressively enhancing Custom Elements ensures that you are only adding the Jav
 ## Dependency free
 The platform supplies everything you need to progressively enhance a Custom Element, it's all built into the browser. No longer do you need to load megabytes of JavaScript to render one button. It is possible to build an entire app with just what ships in the browser.
 
-Here is what it would take to progressively enhance the `my-messge` element
+Here is what it would take to progressively enhance a `my-message` element.
 
+Author this HTML
 ```html
 <my-message message="Progressive"></my-message>
 ```
 
+Create this single file component
 ```javascript
+export default function MyMessage({ html, state }) {
+  const { attrs } = state
+  const { message='' } = attrs
+  return html`
+<h1>${ message }</h1>
+
+<script type="module">
 class MyMessage extends HTMLElement {
   constructor() {
     super()
@@ -39,13 +48,36 @@ class MyMessage extends HTMLElement {
     }
   }
 }
-
 customElements.define('my-message', MyMessage)
+</script>
+`
+}
 ```
 With scoped DOM queries and low level DOM apis you can perform optimal surgical updates to your element.
 
+<small>†You would need to add a template to this class in order to expand the `<my-message>` tag when dynamically added to the document via JavaScript. [See this version →](https://gist.github.com/kristoferjoseph/dd5d22018a0f7feedd4ee18f25a040a8)</small>
+
+## Externalize scripts
+If your script outgrows your single file component you can link to it. Another way you can incrementally progress your elements to support your needs.
+
+Move your script to the `/public` folder
+
+Create this single file component
+```html
+export default function MyMessage({ html, state }) {
+  const { attrs } = state
+  const { message='' } = attrs
+  return html`
+<h1>${ message }</h1>
+<script type="module" src="/_static/my-message.mjs"></script>
+`
+}
+
+```
+
 ## Just a spoonful
-Adding some sugar to the syntax.
+Adding minimal sugar to the syntax starts to look more familiar to users coming from other non-standards based front-end frameworks. The trade-off is losing the power of optimized DOM updates, but you can always start with what you are comfortable with and eject to the platform if the need for optimal performance arises.
+
 ```javascript
 import enhance from '@enhance/enhance'
 enhance(
@@ -55,7 +87,7 @@ enhance(
     init(el) {
       el.heading = el.querySelector('h1')
     },
-    render({html, state }) {
+    render({ html, state }) {
       const { attrs } = state
       const { message } = attrs
       return html`
@@ -66,5 +98,6 @@ enhance(
 )
 ```
 
-
 ## Many choices
+Starting with working HTML doesn't limit how you add user interactions to your front-end. You could progressively enhance your elements in a number of ways. Working with the platform gives you many paths to success.
+
