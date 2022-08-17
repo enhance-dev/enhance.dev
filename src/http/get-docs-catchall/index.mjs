@@ -71,7 +71,7 @@ async function http(request) {
 
   const doc = await arcdown.render(docMarkdown)
 
-  let gitHubLink = 'https://github.com/enhance-dev/enhance.dev/tree/main/src/'
+  let gitHubLink = 'https://github.com/enhance-dev/enhance.dev/edit/main/src/'
   gitHubLink += `views/docs/md/${docPath}.md`
 
   const html = enhance({
