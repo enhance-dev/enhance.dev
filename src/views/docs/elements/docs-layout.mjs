@@ -9,12 +9,11 @@ export default function DocsLayout({ html, state }) {
       /* single col */
       :host {
         display: grid;
-        grid-template-rows: minmax(auto, 10rem) auto;
+        grid-template-rows: minmax(auto, 8rem) auto;
         grid-template-areas:
           'header'
           'content';
         gap: 0 1rem;
-        /*margin: 0 1rem;*/
         height: 100vh;
       }
       #header {
@@ -41,6 +40,7 @@ export default function DocsLayout({ html, state }) {
           height: 100vh;
 
           grid-template-columns: 16rem 1fr;
+          grid-template-rows: minmax(auto, 4.5rem) auto;
           grid-template-areas:
             'header   header'
             'sidebar content'
@@ -83,19 +83,19 @@ export default function DocsLayout({ html, state }) {
       }
     </style>
 
-    <docs-header id="header" class="mt1 mb1 gap-1"></docs-header>
+    <docs-header id="header" class="pt0 pr1 pb0 pl1"></docs-header>
 
-    <nav id="sidebar" class="overflow-y-auto-lg">
+    <nav id="sidebar" class="pt1-lg overflow-y-auto-lg">
       <docs-nav></docs-nav>
     </nav>
 
-    <doc-content id="content" class="overflow-y-auto-lg p1 pb2">
+    <doc-content id="content" class="overflow-y-auto-lg p1-lg pb2">
       <article slot="doc" class="block leading2">
         ${doc.title ? `<h1>${doc.title}</h1>` : ''} ${doc.html}
       </article>
     </doc-content>
 
-    <doc-outline id="outline" class="overflow-y-auto-lg">
+    <doc-outline id="outline" class="pt1-lg overflow-y-auto-lg">
       ${doc.tocHtml?.indexOf('<li>') > 0
         ? /* html */ `
       <div slot="toc">

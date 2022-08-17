@@ -28,10 +28,10 @@ export default function DocsHeader({ html, state }) {
         display: grid;
         align-items: center;
         grid-template-columns: 1fr;
-        padding: 1rem;
         grid-template-areas:
           'logo'
           'menu';
+        box-shadow: 0px 1px 2px var(--grey-100);
       }
 
       #logo {
@@ -62,6 +62,8 @@ export default function DocsHeader({ html, state }) {
         display: block;
         position: absolute;
         opacity: 0;
+        height: 0.0001px;
+        width: 0.0001px;
       }
       #burger-control:focus-visible ~ #logo > #hamburger {
         outline: 1px solid white;
@@ -79,6 +81,10 @@ export default function DocsHeader({ html, state }) {
         display: flex;
       }
 
+      .chibi {
+        margin-top: -1rem;
+      }
+
       @media only screen and (min-width: 48em) {
         /* 2-col + */
         :host {
@@ -92,6 +98,11 @@ export default function DocsHeader({ html, state }) {
         #hamburger,
         #docs-nav {
           display: none !important; /* even when :checked */
+        }
+
+        #docs-nav {
+          -webkit-transition: left 0.2s ease;
+          transition:  0.2s ease;
         }
       }
     </style>
@@ -114,14 +125,14 @@ export default function DocsHeader({ html, state }) {
 
     <input
       id="burger-control"
-      class="absolute block opacity-0 z-1"
+      class="absolute opacity-0 z-1"
       type="checkbox"
       name="open-burger"
       autocomplete="off"
       aria-label="Open navigation" />
     <div id="logo" class="flex gap-1 justify-between items-center">
-      <div class="flex flex-row items-center">
-        <img src="${arc.static('img/svg/chibi.svg')}" />
+      <div class="flex items-center">
+        <img class="chibi" src="${arc.static('img/svg/chibi.svg')}" />
         <h1 class="text1 ml1">
           <a href="/" class="enhance-link inline-block font-semibold"
             >Enhance</a
