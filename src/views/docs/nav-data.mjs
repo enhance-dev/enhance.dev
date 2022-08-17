@@ -162,16 +162,12 @@ export const data = [
     items: [
       {
         type: TYPE.category,
-        slug: 'progressive-enhancement',
+        label: 'Examples',
+        slug: 'examples',
         items: [
-          { slug: 'smart-forms' },
-          { slug: 'navigation', label: 'Navigation & Menus' },
+          'browser-testing',
+          { slug: 'custom-elements-in-md', label: 'Custom Elements in .md' },
         ],
-      },
-      {
-        type: TYPE.category,
-        slug: 'integrations',
-        items: [{ slug: 'fastify' }, { slug: 'astro' }],
       },
     ],
   },
