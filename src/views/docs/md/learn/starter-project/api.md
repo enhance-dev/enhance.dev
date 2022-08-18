@@ -27,6 +27,8 @@ export async function get(req) {
   }
 }
 ```
+> 🙌 Your `api` routes get called _before_ your page so that state is available at render time
+
 
 ## Create a display element
 Create `app/elements/my-message.mjs` to display your hard-coded data
