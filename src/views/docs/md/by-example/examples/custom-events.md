@@ -19,13 +19,11 @@ However, it's totally possible to use JavaScript's built in primitives as descri
 
 </doc-callout>
 
-## Recommended reading
-
-Check the sidebar for helpful reference and guide links 👉
-
 ## A simple example
 
 Suppose you have a `<horse-element>` that listens for the `giddyup` event.
+
+<doc-code focus="5:7" callout="5-'giddyup'">
 
 ```javascript
 export default function HorseElem({ html, state }) {
@@ -43,6 +41,8 @@ export default function HorseElem({ html, state }) {
 }
 ```
 
+</doc-code>
+
 This custom element would render as:
 
 ```html
@@ -51,10 +51,14 @@ This custom element would render as:
 
 And you can broadcast that event from elsewhere in your HTML document.
 
+<doc-code callout="1-'giddyup'">
+
 ```javascript 
 const giddyupEvent = new CustomEvent('giddyup', { direction: 'west' })
 window.horse.dispatchEvent(giddyup)
 ```
+
+</doc-code>
 
 ## In depth
 
@@ -65,3 +69,7 @@ window.horse.dispatchEvent(giddyup)
 We're still building out a complete example demonstrating this technique.
 
 </doc-callout>
+
+## Recommended reading
+
+Check the sidebar for helpful reference and guide links 👉
