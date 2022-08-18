@@ -2,7 +2,7 @@
 title: Element expansion
 ---
 
-Custom element expansion allows you to write pure functions that return the contents of a custom element tag.
+Custom element expansion allows you to write [pure functions](https://en.wikipedia.org/wiki/Pure_function) that return the contents of a custom element tag.
 
 ## Dependency free
 Enhance single file components are designed to be used without needing to import dependencies. Dependency free components means less unplanned work and fewer breaking changes.

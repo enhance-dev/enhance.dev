@@ -3,7 +3,7 @@ title: Testing
 ---
 
 ## Element tests
-Testing can be a daunting task if you let it. One benefit of Custom Element pure functions is that they return a string that you can test against an expected output. It doesn't need to get any more complicated than that.
+Testing can be a daunting task if you let it. One benefit of Custom Element [pure functions](https://en.wikipedia.org/wiki/Pure_function) is that they return a string that you can test against an expected output. It doesn't need to get any more complicated than that.
 
 ```javascript
 import test from 'tape'

@@ -2,7 +2,7 @@
 title: Begin
 ---
 
-Begin deploys Function Web Apps ([FWA](https://fwa.dev)) which are dynamic web applications composed entirely of pure functions. Enhance on Begin gives you the ability to build a frontend completely in basic HTML, and browser native custom elements, and the backend completely in pure cloud functions. No messy build steps. No servers to scale or maintain.
+Begin deploys Function Web Apps ([FWA](https://fwa.dev)) which are dynamic web applications composed entirely of [pure functions](https://en.wikipedia.org/wiki/Pure_function). Enhance on Begin gives you the ability to build a frontend completely in basic HTML, and browser native custom elements, and the backend completely in pure cloud functions. No messy build steps. No servers to scale or maintain.
 
 ## Quickstart
 
@@ -30,7 +30,7 @@ begin dev
 ### Add a new HTML page
 
 ```bash
-begin new page --path hello/world 
+begin new page --path hello/world
 ```
 > Creates app/pages/hello/world.html
 
