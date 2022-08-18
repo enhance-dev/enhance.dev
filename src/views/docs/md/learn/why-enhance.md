@@ -22,7 +22,7 @@ Our criteria for success are:
 
 > We start with working HTML then layer on enhancements in a way that lets you incrementally progress from prototype to production.
 
-Now we spend more time adding new features and less time chasing breaking changes from dependencies. Our app can grow without build times and JavaScript payloads growing faster.
+Now we spend more time adding new features and less time chasing breaking changes from dependencies. Our app can grow without build times and JavaScript payloads growing fatter.
 
 With full access to all the browsers APIs (like forms) there is no need to cobble together libraries to make a real app of any size.
 
