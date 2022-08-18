@@ -49,7 +49,7 @@ export default function DocsHeader({ html, state }) {
         display: block;
         position: fixed;
         background: var(--white-denim);
-        top: 147px;
+        top: 128px;
         left: -100vw;
         bottom: 0;
         overflow-y: auto;
