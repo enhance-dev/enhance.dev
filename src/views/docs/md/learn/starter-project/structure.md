@@ -4,9 +4,9 @@ title: Structure
 
 The enhance starter project is set-up to enable you to create dynamic multi-page applications with as little friction as possible. It comes preconfigured with everything you need to work with file based routing and standards based components.
 
-```bash
+```
 app
-├── api .......... data routes
+├── api ............... data routes
 │   └── index.mjs
 ├── elements .......... custom element pure functions
 │   └── my-header.mjs
