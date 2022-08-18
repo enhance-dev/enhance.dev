@@ -22,6 +22,9 @@ Author this HTML
 ```
 
 Create this single file component
+
+<doc-code filename="app/elements/my-message.mjs" numbered>
+
 ```javascript
 export default function MyMessage({ html, state }) {
   const { attrs } = state
@@ -53,6 +56,9 @@ customElements.define('my-message', MyMessage)
 `
 }
 ```
+
+</doc-code>
+
 With scoped DOM queries and low level DOM apis you can perform optimal surgical updates to your element.
 
 <small>†You would need to add template support to this class if you wanted to add `<my-message>` tags to your page with JavaScript in the browser at runtime. [See this version →](https://gist.github.com/kristoferjoseph/dd5d22018a0f7feedd4ee18f25a040a8)</small>
@@ -63,7 +69,10 @@ If your script outgrows your single file component you can link to it. Another w
 Move your script to the `/public` folder
 
 Create this single file component
-```html
+
+<doc-code mark-line=6 filename="app/elements/my-message.mjs" numbered>
+
+```javascript
 export default function MyMessage({ html, state }) {
   const { attrs } = state
   const { message='' } = attrs
@@ -72,8 +81,10 @@ export default function MyMessage({ html, state }) {
 <script type="module" src="/_static/my-message.mjs"></script>
 `
 }
-
 ```
+
+</doc-code>
+
 
 ## Just a spoonful
 Adding minimal sugar to the syntax starts to look more familiar to users coming from other non-standards based front-end frameworks. The trade-off is losing the power of optimized DOM updates, but you can always start with what you are comfortable with and eject to the platform if the need for optimal performance arises.
