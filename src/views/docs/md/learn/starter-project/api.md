@@ -10,7 +10,7 @@ To pass data to a page create a file with the same name as an existing file in y
 Create an `api` route that passes data to your `index.html` page.
 ```bash
 app
-├── api .......... data routes
+├── api ............... data routes
 │   └── index.mjs
 └── pages ............. file based routing
     └── index.html
