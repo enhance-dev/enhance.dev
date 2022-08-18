@@ -1,32 +1,32 @@
 ---
 title: Why Enhance?
 ---
+Years of experience building FWAs have shown us that many modern JavaScript frameworks brought us more problems than they solved; they route around the web platform to create defaults that are difficult to unravel. Enhance provides solid fundamentals built on standards-based web platform features, allowing developers to create web applications that are lightweight, flexible, and future-proof.
 
-Enhance came from our experience building a large Functional Web App. We first chose a modern JavaScript framework that brought more problems than it solved. Slowly unraveling that decision helped us find a better way.
+Initially, we began with a first principles approach, knowing we needed a component system with life-cycle hooks, which led us to conclude that now with Web Components, we can rely entirely on the web platform. We were only missing a reasonable way to server-render these components.
 
-From a first principles approach all we really wanted was a component system with life-cycle hooks. With the [Web Components spec](https://developer.mozilla.org/en-US/docs/Web/Web_Components) this is now built right into the browser. The only thing lacking is a reasonable way to server render these components.
-
-Our goal is to enable anyone to build multi-page dynamic web apps while staying as close to the platform as possible. Enhance fills in just a few gaps to make this experience as smooth as possible.
+Our goal is to enable anyone to build multi-page dynamic web apps while staying as close to the platform as possible. Enhance fills in the gaps to make this experience seamless.
 
 Our criteria for success are:
 
 1. Author and deliver HTML pages
 
-> Write components as [pure functions](https://en.wikipedia.org/wiki/Pure_function) that return HTML. Then we render them on the server to deliver working HTML.
+> Enhance should allow developers to write components as pure functions that return HTML. Then render them on the server to deliver complete HTML immediately available to the end user.
 
-2. Use generally available Web Standards
 
-> Enhance takes care of the tedious parts, which allows you to more efficiently use the Web Platform standards that exist today. There may be standards to replace parts of enhance in the future, but we are building things now.
+2. Use Web Standards
+
+> Enhance should take care of the tedious parts, allowing you to use today's Web Platform standards more efficiently. As new standards and platform features become generally available, Enhance will make way for them.
 
 3. Progressively enhance working HTML
 
-> We start with working HTML then layer on enhancements in a way that lets you incrementally progress from prototype to production.
+> Enhance should allow for easy progressive enhancement so that working HTML can be further developed to add additional functionality with JavaScript.
 
-Now we spend more time adding new features and less time chasing breaking changes from dependencies. Our app can grow without build times and JavaScript payloads growing fatter.
+Now we spend more time adding new features and less time chasing breaking changes from dependencies. Your app can scale without ever-increasing build times and JavaScript payloads.
 
-With full access to all the browsers APIs (like forms) there is no need to cobble together libraries to make a real app of any size.
+With direct access to all available browser APIs (like forms, validation, and style encapsulation), there is no need to cobble together libraries and polyfills to develop a complex application.
+Skeleton screens and spinners be gone. Flashes of unstyled content ( FOUC ) or layout shifts from delayed JavaScript don't belong anymore.
 
-No skeleton screens and loaders needed. No flash of unstyled content ( FOUC ) and layout shifts from JavaScript load time delays.
+Using just HTML, CSS, and a sprinkling of JavaScript, Enhance can build complex dynamic applications in harmony with the Web Platform, allowing developers to spend their time on interesting domain problems leading to more engaging products with less thrash.
 
-Using just HTML, CSS and a sprinkling of JavaScript we can build complex dynamic applications. Now we solve interesting problems instead of constantly looking for solutions to the problems that larger frameworks bring.
 
