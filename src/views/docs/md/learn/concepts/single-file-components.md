@@ -19,7 +19,7 @@ Author your component as an HTML custom element.
 
 ## Pure function
 
-Define a pure function that returns the HTML markup you want your custom element to encapsulate.
+Define a [pure function](https://en.wikipedia.org/wiki/Pure_function) that returns the HTML markup you want your custom element to encapsulate.
 
 ```javascript
 export default function HelloWorld({ html, state }) {

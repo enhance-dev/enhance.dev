@@ -30,9 +30,9 @@ export async function get(req) {
 
 ## Create a display element
 Create `app/elements/my-message.mjs` to display your hard-coded data
-```bash
+```
 app
-├── api .......... data routes
+├── api ............... data routes
 │   └── index.mjs
 ├── elements .......... custom element pure functions
 │   └── my-message.mjs

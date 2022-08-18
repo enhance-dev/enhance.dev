@@ -12,7 +12,7 @@ Our criteria for success are:
 
 1. Author and deliver HTML pages
 
-> Write components as pure functions that return HTML. Then we render them on the server to deliver working HTML.
+> Write components as [pure functions](https://en.wikipedia.org/wiki/Pure_function) that return HTML. Then we render them on the server to deliver working HTML.
 
 2. Use generally available Web Standards
 

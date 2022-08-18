@@ -2,7 +2,7 @@
 title: Elements
 ---
 
-Elements are the reusable building blocks of your enhance application. They are pure functions authored as single file components and can be static or update dynamically to state changes. Elements live in the `app/elements/` folder in the enhance starter project.
+Elements are the reusable building blocks of your enhance application. They are [pure functions](https://en.wikipedia.org/wiki/Pure_function) authored as single file components and can be static or update dynamically to state changes. Elements live in the `app/elements/` folder in the enhance starter project.
 
 The file name of your element will be the tag name you author with. Meaning `app/elements/my-message.mjs` will be authored as `<my-message></my-message>` in your HTML page.
 
