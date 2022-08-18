@@ -5,7 +5,8 @@ links:
   - arc-plugin-enhance: https://github.com/enhance-dev/arc-plugin-enhance
 ---
 
-Testing HTML output from Enhance is as [straightforward as comparing strings](/docs/learn/practices/testing). But as your components grow (and cannot be extracted), or you'd like to specifically test client-side JS, it can be helpful to boot an automated browser testing tool.
+Testing HTML output from Enhance is as [straightforward as comparing strings](/docs/learn/practices/testing).
+But as your components grow (and cannot be extracted), or you'd like to specifically test client-side JS, it can be helpful to boot an automated browser testing tool.
 
 **Use this guide when...**
 
@@ -16,11 +17,12 @@ Testing HTML output from Enhance is as [straightforward as comparing strings](/d
 ## Playwright + `arc-plugin-enhance`
 
 [Playwright](https://playwright.dev/) is a cross-browser test runner commonly used for end-to-end (E2E) testing.  
-It works by steering an automated browser to a web server, executing interactions, and then making assertions. All without even having to open a browser window (headless).
+It works by steering an automated browser to a web server, executing interactions, and then making assertions.
+All without even having to open a browser window (headless).
 
 For this approach we'll use [Architect's local Sandbox tooling](https://arc.codes/docs/en/reference/cli/sandbox) powered up with [the Enhance Arc plugin](https://github.com/enhance-dev/arc-plugin-enhance) to provide a smart HTTP server to send our app's components to Playwright.
 
-<doc-callout level="danger">
+<doc-callout level="caution" mark="🛠">
 
 ### Work in progress
 
