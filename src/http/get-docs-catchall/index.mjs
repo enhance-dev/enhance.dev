@@ -20,6 +20,7 @@ const arcdown = new Arcdown({
     },
   },
   hljs: {
+    sublanguages: { javascript:[ 'xml' ] },
     plugins: [new HljsLineWrapper({ className: 'code-line' })],
   },
 })
