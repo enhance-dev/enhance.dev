@@ -13,7 +13,6 @@ export default function EmailSignup({ html }) {
           flex-col
           flex-row-lg
           justify-between
-          radius0
           border-solid
           border1
           border-gradient

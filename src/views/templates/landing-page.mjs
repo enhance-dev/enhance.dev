@@ -1,29 +1,16 @@
 export default function LandingPage({ html }) {
   return html`
     <style>
-      .max-h-sm {
-        max-height: 16rem;
-      }
-      .max-w-lg {
-        max-width: 48rem;
+      :host {
+        display: block;
+        height: 100vh;
+        background: linear-gradient(180deg, #74F1FF 71.87%, #C1FFFB 100%) no-repeat center center fixed;
+        background-size: cover;
       }
     </style>
     <div>
-      <div
-        class="
-          m-auto
-          max-w-lg
-          pt2
-          pt4-lg
-          pr1
-          pl1
-        ">
-        <page-header>
-          <span slot="title"> ✨enhance </span>
-          <span slot="subtitle">
-            The Web Native framework for your Functional Web App
-          </span>
-        </page-header>
+        <enhance-type></enhance-type>
+        <cherub-mascot></cherub-mascot>
         <email-signup
           class="
             max-w-form
