@@ -107,6 +107,16 @@ export default function DocContent({ html }) {
         pointer-events: none;
       }
 
+      pre code {
+        display: block;
+        white-space: pre;
+        -webkit-overflow-scrolling: touch;
+        overflow-x: scroll;
+        max-width: 100%;
+        min-width: 100px;
+        scrollbar-color: var(--rift-white) transparent;
+      }
+
       hr {
         border-color: var(--smoke-indigo);
       }
