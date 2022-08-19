@@ -38,7 +38,6 @@ export default function DocContent({ html }) {
 
       h4 {
         font-size: 1rem;
-        font-weight: normal;
       }
 
       strong {

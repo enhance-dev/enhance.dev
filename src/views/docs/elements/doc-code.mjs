@@ -18,7 +18,7 @@ export default function DocCode({ html }) {
         padding-right: 0;
         padding-left: 0;
       }
-      pre.numbered span.code-line {
+      pre span.code-line {
         display: inline-block;
         width: 100%;
       }
