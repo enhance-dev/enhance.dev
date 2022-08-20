@@ -4,6 +4,7 @@ import { Arcdown } from 'arcdown'
 import arc from '@architect/functions'
 import enhance from '@enhance/ssr'
 import styleTransform from '@enhance/enhance-style-transform'
+import arcStaticImg from 'markdown-it-arc-static-img'
 import elements from '@architect/views/docs/elements/index.mjs'
 import navDataLoader, {
   unslug,
@@ -19,8 +20,9 @@ const arcdown = new Arcdown({
       listType: 'ul',
     },
   },
+  plugins: [arcStaticImg],
   hljs: {
-    sublanguages: { javascript:[ 'xml' ] },
+    sublanguages: { javascript: ['xml'] },
     plugins: [new HljsLineWrapper({ className: 'code-line' })],
   },
 })

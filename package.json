@@ -22,6 +22,7 @@
         "highlight.js": "^11.5.1",
         "html-beautify": "^1.0.4",
         "js-beautify": "^1.14.4",
+        "markdown-it-arc-static-img": "^2.1.0",
         "nanoid": "^4.0.0",
         "prismjs": "^1.27.0"
     },
