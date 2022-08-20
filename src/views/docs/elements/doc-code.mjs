@@ -1,6 +1,4 @@
 export default function DocCode({ html }) {
-  // TODO: apply classes to lines server side?
-
   return html`
     <style>
       :host {

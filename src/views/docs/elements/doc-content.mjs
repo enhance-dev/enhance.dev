@@ -131,8 +131,8 @@ export default function DocContent({ html }) {
 
     <script>
       const codeBlocks = document.querySelectorAll('pre.hljs')
-      const svgCopy = '<svg><use xlink:href="#copy"></use></svg>'
-      const svgCheck = '<svg><use xlink:href="#check"></use></svg>'
+      const svgCopy = '<svg><use xlink:href="#svg-copy"></use></svg>'
+      const svgCheck = '<svg><use xlink:href="#svg-check"></use></svg>'
 
       for (const codeBlock of codeBlocks) {
         codeBlock.classList.add('relative')
