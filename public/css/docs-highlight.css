@@ -77,19 +77,6 @@
   }
 }
 
-pre.hljs {
-  margin: 0 0 1.5rem 0;
-  padding: 0.7rem 0.9rem;
-  color: var(--hl-color);
-  background: var(--hl-bg);
-  white-space: pre-wrap;
-  tab-size: 2;
-}
-
-pre.hljs code {
-  font-family: 'Roboto Mono', monospace;
-}
-
 .hljs-subst {
   color: var(--hl-color);
 }
