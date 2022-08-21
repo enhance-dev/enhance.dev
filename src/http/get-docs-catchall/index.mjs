@@ -22,7 +22,7 @@ const arcdown = new Arcdown({
   },
   plugins: [arcStaticImg],
   hljs: {
-    sublanguages: { javascript: ['xml'] },
+    sublanguages: { javascript: ['xml', 'css'] },
     plugins: [new HljsLineWrapper({ className: 'code-line' })],
   },
 })

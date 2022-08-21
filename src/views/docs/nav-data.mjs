@@ -166,6 +166,10 @@ export const data = [
         label: 'Examples',
         slug: 'examples',
         items: [
+          {
+            slug: 'standalone-enhance',
+            // items: ['initial-state', 'add-transforms'],
+          },
           'browser-testing',
           { slug: 'custom-elements-in-md', label: 'Custom Elements in .md' },
           { slug: 'with-alpinejs', label: 'With Alpine.js' },
