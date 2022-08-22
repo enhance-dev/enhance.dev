@@ -26,6 +26,10 @@ export default function Footer({ html, state }) {
 
   return html`
     <style>
+      :host {
+        display: block;
+      }
+
       :host > footer {
         color: var(--inky-lily);
         background-color: var(--cloud-ateneo);
