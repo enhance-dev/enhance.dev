@@ -31,8 +31,8 @@ It is possible to completely customize your project's utility classes. To do so 
 - Edit your project's `.arc` file to tell it where to grab the config
 
 Add these lines at the bottom of your `.arc` file in the root of your project.
-```arc
 
+```arc
 @enhance-styles
 config styleguide.json
 ```

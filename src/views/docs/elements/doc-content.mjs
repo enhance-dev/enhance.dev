@@ -8,34 +8,27 @@ export default function DocContent({ html }) {
         max-width: 52rem;
         margin: auto;
       }
-      li {
-        list-style-position: inside;
-      }
 
       :host > ::slotted([slot]) > * {
         margin-bottom: 1.5rem;
       }
 
-      h1,
-      h2,
-      h3,
-      h4 {
+      :host > ::slotted([slot]) > h1,
+      :host > ::slotted([slot]) > h2,
+      :host > ::slotted([slot]) > h3,
+      :host > ::slotted([slot]) > h4 {
         margin-bottom: 0.75rem;
         font-weight: 500;
       }
-
       h1 {
         font-size: 1.953rem;
       }
-
       h2 {
         font-size: 1.563rem;
       }
-
       h3 {
         font-size: 1.25rem;
       }
-
       h4 {
         font-size: 1rem;
       }
@@ -45,6 +38,13 @@ export default function DocContent({ html }) {
       }
       small {
         color: var(--inky-lily);
+      }
+
+      li {
+        list-style-position: inside;
+      }
+      li > ul {
+        padding-left: 0.8rem;
       }
 
       table {
