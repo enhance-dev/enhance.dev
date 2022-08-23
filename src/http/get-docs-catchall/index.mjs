@@ -88,7 +88,15 @@ async function http(request) {
     styleTransforms: [styleTransform],
   })
 
-  return { html: html`${document(doc.title)}` }
+  let cacheControl =
+    process.env.ARC_ENV === 'production'
+      ? 'max-age=3600;'
+      : 'no-cache, no-store, must-revalidate, max-age=0, s-maxage=0'
+
+  return {
+    cacheControl,
+    html: html`${document(doc.title)}`,
+  }
 }
 
 export const handler = arc.http.async(http)
