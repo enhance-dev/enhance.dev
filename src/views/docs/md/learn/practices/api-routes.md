@@ -4,7 +4,7 @@ title: API Routes
 
 Enhance API routes are backend JSON routes designed for seamless clientside progressive enhancement. API routes are defined under `app/api` and follow the same file based routing conventions as `app/pages`. JSON response values from API routes are automatically passed to corresponding page routes.
 
-API routes are designed to simultaneously handle requests made for `text/html` and `application/json`.
+API routes are designed to handle requests made for `text/html`, or `application/json` from a single HTTP request handler.
 
 ## Request 
 

@@ -26,32 +26,33 @@ Create this single file component
 ```javascript
 export default function MyMessage({ html, state }) {
   const { attrs } = state
-  const { message='' } = attrs
+  const { message = '' } = attrs
   return html`
 <h1>${ message }</h1>
 
 <script type="module">
-class MyMessage extends HTMLElement {
-  constructor() {
-    super()
-    this.heading = this.querySelector('h1')
-  }
+  class MyMessage extends HTMLElement {
+    constructor() {
+      super()
+      this.heading = this.querySelector('h1')
+    }
 
-  static get observedAttributes() {
-    return [ 'message' ]
-  }
+    static get observedAttributes() {
+      return [ 'message' ]
+    }
 
-  attributeChangedCallback(name, oldValue, newValue) {
-    if (oldValue !== newValue) {
-      if (name === 'message') {
-        this.heading.textContent = newValue
+    attributeChangedCallback(name, oldValue, newValue) {
+      if (oldValue !== newValue) {
+        if (name === 'message') {
+          this.heading.textContent = newValue
+        }
       }
     }
   }
-}
-customElements.define('my-message', MyMessage)
+
+  customElements.define('my-message', MyMessage)
 </script>
-`
+  `
 }
 ```
 
@@ -73,16 +74,16 @@ Create this single file component
 ```javascript
 export default function MyMessage({ html, state }) {
   const { attrs } = state
-  const { message='' } = attrs
+  const { message = '' } = attrs
+  
   return html`
 <h1>${ message }</h1>
 <script type="module" src="/_static/my-message.mjs"></script>
-`
+  `
 }
 ```
 
 </doc-code>
-
 
 ## Just a spoonful
 Adding minimal syntactical sugar makes this look more familiar to users from other non-standards-based front-end frameworks. The trade-off is losing the power of optimized DOM updates, but you can always start with what you are comfortable with and drop down to the platform if the need for optimal performance arises.
@@ -91,6 +92,7 @@ Here is an example of an enhance base class that hides some of the Custom Elemen
 
 ```javascript
 import enhance from '@enhance/enhance'
+
 enhance(
   'my-message',
   {
@@ -101,9 +103,8 @@ enhance(
     render({ html, state }) {
       const { attrs } = state
       const { message } = attrs
-      return html`
-      <h1>${ message }</h1>
-      `
+
+      return html`<h1>${ message }</h1>`
     }
   }
 )

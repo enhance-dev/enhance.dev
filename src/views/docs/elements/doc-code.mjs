@@ -1,6 +1,4 @@
 export default function DocCode({ html }) {
-  // TODO: apply classes to lines server side?
-
   return html`
     <style>
       :host {
@@ -10,15 +8,11 @@ export default function DocCode({ html }) {
       .filename {
         display: inline-block;
         padding: 0.5rem 1rem;
-        color: var(--hl-comment);
+        color: var(--hl-color);
         background: var(--hl-bg);
       }
 
-      pre.numbered {
-        padding-right: 0;
-        padding-left: 0;
-      }
-      pre.numbered span.code-line {
+      pre span.code-line {
         display: inline-block;
         width: 100%;
       }
@@ -28,12 +22,10 @@ export default function DocCode({ html }) {
       pre.numbered span.code-line:before {
         content: counter(lineNo);
         display: inline-block;
-        width: 2rem;
-        padding: 0 0.25em;
-        margin: 0 0.5em;
+        width: 1.5rem;
+        margin-right: 1.25rem;
         text-align: right;
         color: #8d8d8d;
-        /* background: #262626; */
       }
 
       pre.focused span.code-line {

@@ -4,6 +4,7 @@ import { Arcdown } from 'arcdown'
 import arc from '@architect/functions'
 import enhance from '@enhance/ssr'
 import styleTransform from '@enhance/enhance-style-transform'
+import arcStaticImg from 'markdown-it-arc-static-img'
 import elements from '@architect/views/docs/elements/index.mjs'
 import navDataLoader, {
   unslug,
@@ -19,7 +20,9 @@ const arcdown = new Arcdown({
       listType: 'ul',
     },
   },
+  plugins: [arcStaticImg],
   hljs: {
+    sublanguages: { javascript: ['xml', 'css'] },
     plugins: [new HljsLineWrapper({ className: 'code-line' })],
   },
 })
@@ -85,7 +88,15 @@ async function http(request) {
     styleTransforms: [styleTransform],
   })
 
-  return { html: html`${document(doc.title)}` }
+  let cacheControl =
+    process.env.ARC_ENV === 'production'
+      ? 'max-age=3600;'
+      : 'no-cache, no-store, must-revalidate, max-age=0, s-maxage=0'
+
+  return {
+    cacheControl,
+    html: html`${document(doc.title)}`,
+  }
 }
 
 export const handler = arc.http.async(http)

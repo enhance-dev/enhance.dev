@@ -25,10 +25,12 @@ test('expand template', t => {
       'my-paragraph': MyParagraph
     }
   })
+
   const actual = html`
-  ${Head()}
-  <my-paragraph></my-paragraph>
+${Head()}
+<my-paragraph></my-paragraph>
   `
+
   const expected = `
 <!DOCTYPE html>
 <html>
@@ -40,31 +42,29 @@ test('expand template', t => {
 </my-paragraph>
 </body>
 </html>
-`
+  `
+
   t.equal(
     strip(actual),
     strip(expected),
-    'by gum, i do believe that it does expand that template with slotted default content'
+    'By gum, that template was expanded with slotted default content!'
   )
   t.end()
 })
 ```
 
-## Api tests
+## API tests
 To test an `api` route you can spin up a local server then test the response from a route.
 
 ```javascript
 const { get } = require('tiny-json-http')
 const test = require('tape')
 const sandbox = require('@architect/sandbox')
-const port = 6661
-const url = (path) => `http://localhost:${port}${path}`
+const url = (path) => `http://localhost:3333${path}`
 
 test(`Start local server`, async t => {
-  await sandbox.start({
-    quiet: true,
-    port,
-  })
+  await sandbox.start({ quiet: true })
+
   t.pass('local server started')
   t.end()
 })
@@ -73,12 +73,14 @@ test('Api should return expected result', async t => {
   const response = await get({ url: url('/') })
   const actual = response.body
   const expected = { count:  1 }
+
   t.equal(actual, expected, 'API returned expected result')
   t.end()
 })
 
 test('Shut down local server', async t => {
   await sandbox.end()
+
   t.pass('Shut down Sandbox')
   t.end()
 })

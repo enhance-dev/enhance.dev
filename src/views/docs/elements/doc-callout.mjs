@@ -25,8 +25,8 @@ export default function Callout({ html, state }) {
       ${styles}
     </style>
 
-    <div class="callout callout-${level} flex gap-2">
-      <div class="callout-mark">${mark}</div>
+    <div class="callout callout-${level} flex gap-1">
+      <div class="text2 callout-mark">${mark}</div>
       <div class="callout-slot"><slot></slot></div>
     </div>
   `

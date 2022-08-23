@@ -39,7 +39,7 @@ export const data = [
           'pages',
           'elements',
           { slug: 'api', label: 'API' },
-          'head'
+          'head',
         ],
       },
       {
@@ -166,8 +166,13 @@ export const data = [
         label: 'Examples',
         slug: 'examples',
         items: [
+          {
+            slug: 'standalone-enhance',
+            // items: ['initial-state', 'add-transforms'],
+          },
           'browser-testing',
           { slug: 'custom-elements-in-md', label: 'Custom Elements in .md' },
+          { slug: 'with-alpinejs', label: 'With Alpine.js' },
         ],
       },
     ],
@@ -204,10 +209,6 @@ export function unslug(string) {
     .replace(/(^\w{1})|(\s+\w{1})/g, (l) => l.toUpperCase())
 }
 
-function testForActive(i) {
-  return i.active || i.items?.some(testForActive)
-}
-
 function parseItems(items, root, activePath) {
   const parsedItems = items.map((item) => {
     if (typeof item === 'string') {
@@ -238,6 +239,10 @@ function parseItems(items, root, activePath) {
 
     return item
   })
+
+  function testForActive(i) {
+    return i.active || i.items?.some(testForActive)
+  }
 
   // lazily mark tab as active
   parsedItems

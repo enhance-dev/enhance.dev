@@ -8,37 +8,29 @@ export default function DocContent({ html }) {
         max-width: 52rem;
         margin: auto;
       }
-      li {
-        list-style-position: inside;
-      }
 
       :host > ::slotted([slot]) > * {
         margin-bottom: 1.5rem;
       }
 
-      h1,
-      h2,
-      h3,
-      h4 {
+      :host > ::slotted([slot]) > h1,
+      :host > ::slotted([slot]) > h2,
+      :host > ::slotted([slot]) > h3,
+      :host > ::slotted([slot]) > h4 {
         margin-bottom: 0.75rem;
         font-weight: 500;
       }
-
       h1 {
         font-size: 1.953rem;
       }
-
       h2 {
         font-size: 1.563rem;
       }
-
       h3 {
         font-size: 1.25rem;
       }
-
       h4 {
         font-size: 1rem;
-        font-weight: normal;
       }
 
       strong {
@@ -46,6 +38,13 @@ export default function DocContent({ html }) {
       }
       small {
         color: var(--inky-lily);
+      }
+
+      li {
+        list-style-position: inside;
+      }
+      li > ul {
+        padding-left: 0.8rem;
       }
 
       table {
@@ -86,6 +85,19 @@ export default function DocContent({ html }) {
         background-color: var(--smoke-denim);
       }
 
+      pre code {
+        display: block;
+        max-width: 100%;
+        min-width: 100px;
+        padding: 0.7rem 0.9rem;
+        font-family: 'Roboto Mono', monospace;
+        color: var(--hl-color);
+        background-color: var(--hl-bg);
+        white-space: pre;
+        tab-size: 2;
+        -webkit-overflow-scrolling: touch;
+        overflow-x: auto;
+      }
       pre button {
         display: none;
         position: absolute;
@@ -119,8 +131,8 @@ export default function DocContent({ html }) {
 
     <script>
       const codeBlocks = document.querySelectorAll('pre.hljs')
-      const svgCopy = '<svg><use xlink:href="#copy"></use></svg>'
-      const svgCheck = '<svg><use xlink:href="#check"></use></svg>'
+      const svgCopy = '<svg><use xlink:href="#svg-copy"></use></svg>'
+      const svgCheck = '<svg><use xlink:href="#svg-check"></use></svg>'
 
       for (const codeBlock of codeBlocks) {
         codeBlock.classList.add('relative')
