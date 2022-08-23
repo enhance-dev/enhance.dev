@@ -3,30 +3,34 @@ title: Attributes
 ---
 
 ## Passing state
+
 Attributes are the initial way you pass data to your custom elements.
 The Web Component spec uses attributes extensively as a way to know when to update your element.
 Enhance passes your Custom Elements attributes as an object of key value pairs to your [pure function](https://en.wikipedia.org/wiki/Pure_function) at render time.
 
 ## Author attributes
+
 ```html
 <my-message message="Howdy!"></my-message>
 ```
 
 ## Access `attrs`
+
 ```javascript
 export default function MyMessage({ html, state={} }) {
   const { attrs={} } = state
   const { message='' } = attrs
-  return html`
-<p>${ message }</p>
-  `
+
+  return html`<p>${message}</p>`
 }
 ```
 
 ## Handling Booleans
+
 Boolean attributes are not the most straight forward attributes to use. There are a handful of extremely necessary boolean attributes that you find yourself needing for any app such as `required`, `disabled`, `autofocus` etc.  The spec states that the existence of a boolean attribute means `true` and the lack of the attribute means `false` which is contrary to how most frameworks instruct users to interact with boolean attributes. Remember attributes can only be strings.
 
 Test setting the `disabled` attribute in your browser.
+
 ```html
 <!-- TRUE -->
 <button disabled>Disabled?</button>
@@ -42,16 +46,20 @@ Test setting the `disabled` attribute in your browser.
 ```
 
 ### Booleans handled correctly
+
 ```javascript
 export default function MyButton({ html, state={} }) {
   const { attrs={} } = state
   const disabled = Object.keys(attrs).includes('disabled')
     ? 'disabled'
     : ''
-  return html`
-<button ${ disabled }>Disabled?</button>
-  `
+  
+  return html`<button ${disabled}>Disabled?</button>`
 }
 ```
 
->  [ 🏪  Next Read about how to use the `store` to pass complex types → ](/docs/learn/concepts/state/store)
+<doc-callout level="none" mark="🏪">
+
+**[Next Read about how to use the `store` to pass complex types → ](/docs/learn/concepts/state/store)**
+
+</doc-callout>

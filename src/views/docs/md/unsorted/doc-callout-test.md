@@ -14,11 +14,11 @@ This 👇 code block is rendered and highlighted on the server with arcdown + hl
 
 <hr class="block mt3 mb3 border1" />
 
-<doc-callout level="note">
+<doc-callout>
 
-### note
+### note (default)
 
-Wouldn’t it be nice if you could author components like HTML pages? Well that’s what you get with enhance single file components.
+Wouldn’t it be nice if you could author components like HTML pages? Well that’s what you get with Enhance single file components.
 
 </doc-callout>
 
@@ -26,7 +26,7 @@ Wouldn’t it be nice if you could author components like HTML pages? Well that�
 
 ### tip
 
-Add functionality to your component by adding a `<script>` tag. You can either author JavaScript directly in this script tag or link to an external source. The `/public` folder in enhance projects is preconfigured to serve files from `/_static`.
+Add functionality to your component by adding a `<script>` tag. You can either author JavaScript directly in this script tag or link to an external source. The `/public` folder in Enhance projects is preconfigured to serve files from `/_static`.
 
 </doc-callout>
 
@@ -54,5 +54,72 @@ Enhance API Routes are backend JSON routes designed for seamless clientside prog
 - working with session
 - talking to a third party api
 - talking to DynamoDB
+
+</doc-callout>
+
+<doc-callout level="none" mark="👻">
+
+### none
+
+Understanding how to pass and use state is fundamental to building a successful application.
+Luckily Enhance sets you up for success by preconfiguring your app to pass state in a reliable way.
+
+</doc-callout>
+
+<hr class="block mt3 mb3 border1" />
+
+Empty "mark", set `mark="none"`.
+
+<doc-callout level="danger" mark="none">
+
+Not all things need emoji. Most things do, but not all.
+
+</doc-callout>
+
+<hr class="block mt3 mb3 border1" />
+
+Callouts can be "thin", too. Add an empty `thin` attribute.
+
+<doc-callout level="info" thin>
+
+This style is good for one-liners
+
+</doc-callout>
+
+<hr class="block mt3 mb3 border1" />
+
+## `<doc-link-callout>` Test
+
+Desired source:
+
+```html
+<doc-link-callout link="/docs/learn/practices/api-routes" mark="🛣">
+  Read about `api` routes
+</doc-link-callout>
+```
+
+### Tests
+
+With `<slot>`:
+
+<doc-link-callout link="/docs/learn/practices/api-routes" mark="🛣">
+
+Read about `api` routes
+
+</doc-link-callout>
+
+---
+
+With `text=` attr (.md not rendered in this case):
+
+<doc-link-callout text="Read about `api` routes" link="/docs/learn/practices/api-routes" mark="🛣"></doc-link-callout>
+
+### Result
+
+It should look like this `<doc-callout>`:
+
+<doc-callout level="none" mark="🛣">
+
+**[Read about `api` routes →](/docs/learn/practices/api-routes)**
 
 </doc-callout>

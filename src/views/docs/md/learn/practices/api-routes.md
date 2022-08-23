@@ -40,22 +40,27 @@ To demonstrate building out dynamic API routes and then progressively enhancing 
 ### Part 1: basic HTML form handling
 
 1. Create a new Enhance app `npm create @enhance ./counter-app`. This generates a starter project with `app/pages/index.html`, and static assets in `public/`.
-
 2. Create a form for incrementing at `app/elements/form-counter.mjs`: 
 
 <doc-code filename="app/elements/form-counter.mjs" numbered>
 
 ```javascript
 export default function counter ({ html, state }) {
-  return html`<form action=/count method=post>
-    <button>+1</button>
-  </form>
-  <pre>${ JSON.stringify(state, null, 2) }</pre>`
+  return html`
+    <form action=/count method=post>
+      <button>+1</button>
+    </form>
+    <pre>${JSON.stringify(state, null, 2)}</pre>
+  `
 }
 ```
 </doc-code>
 
-> Note the handy `<pre>` debugger on line 5!
+<doc-callout level="tip" mark="🔎">
+
+Note the handy `<pre>` debugger on line 5!
+
+</doc-callout>
 
 And add the new custom element to `app/pages/index.html`:
 
@@ -154,7 +159,11 @@ customElements.define('form-counter', Counter)
 ```
 </doc-code>
 
-> 🍦 Note: any framework or library could be used but this example is to show those are optional; the nice thing about working with the low level code is there are no dependencies and this will work in all browsers forevermore
+<doc-callout level="info" mark="🍦">
+
+Any framework or library could be used but this example is to show those are optional; the nice thing about working with the low level code is there are no dependencies and this will work in all browsers forevermore
+
+</doc-callout>
 
 Add the client script to the custom element, and reload to see the enhanced version.
 
@@ -162,11 +171,13 @@ Add the client script to the custom element, and reload to see the enhanced vers
 
 ```javascript
 export default function counter ({ html, state }) {
-  return html`<form action=/count method=post>
-    <button>+1</button>
-  </form>
-  <pre>${ JSON.stringify(state, null, 2) }</pre>
-  <script type=module src=/_static/form-counter.mjs></script>`
+  return html`
+    <form action=/count method=post>
+      <button>+1</button>
+    </form>
+    <pre>${JSON.stringify(state, null, 2)}</pre>
+    <script type=module src=/_static/form-counter.mjs></script>
+  `
 }
 ```
 </doc-code>

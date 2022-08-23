@@ -3,7 +3,7 @@ title: Progressive enhancement
 ---
 
 ## Prototype to production
-The enhance ethos is to build your app incrementally. Start with working HTML, break out Custom Elements as the need for reuse arises, create apis that return hard-coded data, add database storage and retrieval to your apis, then layer on user interactions in the browser. Progressively enhancing your application from a working prototype to a production-ready product with the same codebase.
+The Enhance ethos is to build your app incrementally. Start with working HTML, break out Custom Elements as the need for reuse arises, create apis that return hard-coded data, add database storage and retrieval to your apis, then layer on user interactions in the browser. Progressively enhancing your application from a working prototype to a production-ready product with the same codebase.
 
 ## Solid foundation
 Custom Elements are a solid foundation for progressive enhancement. Knowing you have correct, accessible, semantic markup with working forms before adding on the user interactions that require JavaScript means your application will work everywhere the web does **forever**. The benefit being your users will be able to use your site even when unforeseen circumstances like a rouge third-party script or a bad connection interfere.
@@ -28,30 +28,30 @@ export default function MyMessage({ html, state }) {
   const { attrs } = state
   const { message = '' } = attrs
   return html`
-<h1>${ message }</h1>
+    <h1>${message}</h1>
 
-<script type="module">
-  class MyMessage extends HTMLElement {
-    constructor() {
-      super()
-      this.heading = this.querySelector('h1')
-    }
+    <script type="module">
+      class MyMessage extends HTMLElement {
+        constructor() {
+          super()
+          this.heading = this.querySelector('h1')
+        }
 
-    static get observedAttributes() {
-      return [ 'message' ]
-    }
+        static get observedAttributes() {
+          return [ 'message' ]
+        }
 
-    attributeChangedCallback(name, oldValue, newValue) {
-      if (oldValue !== newValue) {
-        if (name === 'message') {
-          this.heading.textContent = newValue
+        attributeChangedCallback(name, oldValue, newValue) {
+          if (oldValue !== newValue) {
+            if (name === 'message') {
+              this.heading.textContent = newValue
+            }
+          }
         }
       }
-    }
-  }
 
-  customElements.define('my-message', MyMessage)
-</script>
+      customElements.define('my-message', MyMessage)
+    </script>
   `
 }
 ```
@@ -77,8 +77,8 @@ export default function MyMessage({ html, state }) {
   const { message = '' } = attrs
   
   return html`
-<h1>${ message }</h1>
-<script type="module" src="/_static/my-message.mjs"></script>
+    <h1>${message}</h1>
+    <script type="module" src="/_static/my-message.mjs"></script>
   `
 }
 ```
@@ -88,7 +88,7 @@ export default function MyMessage({ html, state }) {
 ## Just a spoonful
 Adding minimal syntactical sugar makes this look more familiar to users from other non-standards-based front-end frameworks. The trade-off is losing the power of optimized DOM updates, but you can always start with what you are comfortable with and drop down to the platform if the need for optimal performance arises.
 
-Here is an example of an enhance base class that hides some of the Custom Element boilerplate code and adds support for DOM diffing.
+Here is an example of an Enhance base class that hides some of the Custom Element boilerplate code and adds support for DOM diffing.
 
 ```javascript
 import enhance from '@enhance/enhance'
@@ -104,7 +104,7 @@ enhance(
       const { attrs } = state
       const { message } = attrs
 
-      return html`<h1>${ message }</h1>`
+      return html`<h1>${message}</h1>`
     }
   }
 )

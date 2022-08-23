@@ -2,7 +2,7 @@
 title: Elements
 ---
 
-Elements are the reusable building blocks of your enhance application. They are [pure functions](https://en.wikipedia.org/wiki/Pure_function) authored as single file components and can be static or update dynamically to state changes. Elements live in the `app/elements/` folder in the enhance starter project.
+Elements are the reusable building blocks of your Enhance application. They are [pure functions](https://en.wikipedia.org/wiki/Pure_function) authored as single file components and can be static or update dynamically to state changes. Elements live in the `app/elements/` folder in the Enhance starter project.
 
 The file name of your element will be the tag name you author with. Meaning `app/elements/my-message.mjs` will be authored as `<my-message></my-message>` in your HTML page.
 
@@ -11,7 +11,11 @@ app/elements/my-message → <my-message></my-message>
 app/elements/my-link → <my-link></my-link>
 ```
 
-> 📄 [Learn about single file components here](/docs/learn/concepts/single-file-components)
+<doc-callout level="none" mark="📄">
+
+**[Learn about single file components](/docs/learn/concepts/single-file-components)**
+
+</doc-callout>
 
 ## html
 Elements are pure functions meaning given the same input they return the same output every single time.
@@ -20,9 +24,9 @@ Your element function will be passed an arguments object containing an `html` re
 ```javascript
 export default function MyHeader({ html }) {
   return html`
-<header>
-  <my-link href='/about'></my-link>
-</header>
+    <header>
+      <my-link href='/about'></my-link>
+    </header>
   `
 }
 ```
@@ -36,13 +40,14 @@ export default function MyHeader({ html, state={} }) {
   const { attrs={}, store={} } = state
   const { heading='Default' } = attrs
   const href = store.aboutPath
+  
   return html`
-<header>
-  <h1>
-    ${ heading }
-  </h1>
-  <my-link href='${ href }'></my-link>
-</header>
+    <header>
+      <h1>
+        ${heading}
+      </h1>
+      <my-link href='${href}'></my-link>
+    </header>
   `
 }
 ```

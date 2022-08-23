@@ -15,7 +15,7 @@
         "@begin/data": "^4.0.0",
         "@enhance/enhance-style-transform": "0.0.1",
         "@enhance/import-transform": "^4.0.0",
-        "@enhance/ssr": "^3.0.4",
+        "@enhance/ssr": "^3.0.5",
         "@enhance/store": "^1.0.0",
         "arc-plugin-oauth": "^0.0.15",
         "arcdown": "^2.1.0",

@@ -64,10 +64,10 @@ export default function header ({ html }) {
 /** app/elements/footer.mjs */
 export default function footer ({ html, state }) {
   return html`
-  <footer>
-    <p>footer here</p>
-    <pre>${ JSON.stringify(state, null, 2) }</pre>
-  </footer>
+    <footer>
+      <p>footer here</p>
+      <pre>${JSON.stringify(state, null, 2)}</pre>
+    </footer>
   `
 }
 ```
@@ -110,9 +110,9 @@ Add `/fruits` by creating `app/pages/fruits.mjs`:
 ```javascript
 /** app/pages/fruits.mjs */
 export default function fruits ({ html, state }) {
-  let fruit = f => `<li>${ f }</li>`
+  let fruit = f => `<li>${f}</li>`
   let list = state.store.fruits? state.store.fruits.map(fruit).join('') : []
-  return html`yummy fruit<ul>${ list }</ul>`
+  return html`yummy fruit<ul>${list}</ul>`
 }
 ```
 

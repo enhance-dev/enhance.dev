@@ -7,7 +7,7 @@ title: Browser modules
 Enhance projects empower you to share modules with the browser via bundles. The benefit to using the built in bundling system is that your bundles will be shared from your own domain instead of from a third-party registry. No need to fuss over CORS or external downtime.
 
 ## Node modules
-Inevitably you will want to install a dependency from `npm` for use in the browser. Good news is enhance projects are preconfigured to handle this as well.
+Inevitably you will want to install a dependency from `npm` for use in the browser. Good news is Enhance projects are preconfigured to handle this as well.
 
 ## Exporting bundles
 To export modules you will need to set the name and path in your `.arc` file under the `@bundles` pragma.

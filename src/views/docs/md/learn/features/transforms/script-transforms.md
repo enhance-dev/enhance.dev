@@ -5,7 +5,8 @@ title: Script Transforms
 Single file components co-locate scripts  with your Custom Element output for progressive enhancement. All the scripts are collected and moved to the end of the body during render. Enhance supports transform plugins for processing the contents of these scripts if needed.
 
 ## Basic Usage
-Below is an example script transform for use when deploying to [arc.codes](arc.codes). This transform rewrites import paths to point to the proper urls when deployed.
+
+Below is an example script transform for use when deploying with [Architect](https://arc.codes). This transform rewrites import paths to point to the proper urls when deployed.
 
 ```javascript
 import arc from '@architect/functions'
@@ -25,7 +26,9 @@ const myDoc = html`<my-app></my-app>`
 ```
 
 ## API
+
 Script Transforms are passed as an array. Transforms are called with a single object argument with the following properties:
+
 - `raw`: a string with the contents of the script tag
 - `attrs`: with any attributes on the script tag
 - `tagName`: the custom element tagName

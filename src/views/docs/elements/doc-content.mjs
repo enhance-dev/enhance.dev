@@ -34,6 +34,7 @@ export default function DocContent({ html }) {
       }
 
       strong {
+        font-weight: 500;
         color: var(--black-white);
       }
       small {

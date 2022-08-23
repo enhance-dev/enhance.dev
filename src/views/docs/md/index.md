@@ -36,7 +36,7 @@ You can add something like this:
 <doc-code filename="app/pages/about.html" >
 
 ```html
-Hello world, I am <i>very</i> <strong>excited</strong> to meet you.
+Hello world, I am <em>very</em> <strong>excited</strong> to meet you.
 ```
 
 </doc-code>
@@ -48,6 +48,7 @@ Reload the app, and navigate to [`http://localhost:3333/about`](http://localhost
 Add an `"elements"` folder to your app at `app/elements`.
 
 Your project should now look like this:
+
 ```
 app
 ├── elements .......... custom element pure functions
@@ -68,19 +69,21 @@ The contents of `my-header.mjs` should look like this:
 ```javascript
 export default function MyHeader({ html }) {
   return html`
-<header>
-  <h1>Header</h1>
-  <nav>
-    <a href=/>home</a>
-    <a href=/about>about</a>
-  </nav>
-</header>`
+    <header>
+      <h1>Header</h1>
+      <nav>
+        <a href=/>home</a>
+        <a href=/about>about</a>
+      </nav>
+    </header>
+  `
 }
 ```
 
 </doc-code>
 
 Your project should now look like this:
+
 ```
 app
 ├── elements .......... custom element pure functions
@@ -96,12 +99,12 @@ Modify `app/pages/about.html` to include your new custom element header:
 
 ```html
 <my-header></my-header>
-Hello world, I am <i>very</i> <strong>excited</strong> to meet you.
+Hello world, I am <em>very</em> <strong>excited</strong> to meet you.
 ```
 
 </doc-code>
 
-Reloading your app will show the new header with working navigation to and from `"/about"`.
+Reloading your app will show the new header with working navigation to and from "`/about`".
 
 ## That's it
 
