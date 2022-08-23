@@ -1,11 +1,12 @@
 ---
 title: Why Enhance?
 ---
-Years of experience building FWAs have shown us that many modern JavaScript frameworks brought us more problems than they solved; they route around the web platform to create defaults that are difficult to unravel. Enhance provides solid fundamentals built on standards-based web platform features, allowing developers to create web applications that are lightweight, flexible, and future-proof.
 
-Initially, we began with a first principles approach, knowing we needed a component system with life-cycle hooks, which led us to conclude that now with Web Components, we can rely entirely on the web platform. We were only missing a reasonable way to server-render these components.
+Modern JavaScript frameworks bring more problems than they solve; recreating native web platform features at runtime adds unnecessary weight and complexity, which is challenging to unravel. 
 
-Our goal is to enable anyone to build multi-page dynamic web apps while staying as close to the platform as possible. Enhance fills in the gaps to make this experience seamless.
+Enhance provides a dependable foundation built on standards-based web platform features, allowing developers to create web applications that are lightweight, flexible, and future-proof. 
+
+Our mission is to enable anyone to build multi-page dynamic web apps while staying as close to the platform as possible. Enhance fills in the gaps to make building for the backend and the browser a seamless experience for web authors and consumers.
 
 Our criteria for success are:
 
