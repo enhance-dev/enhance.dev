@@ -144,7 +144,7 @@ export default function fruits ({ html, state }) {
 
 Register the new page element by updating `app/elements.mjs`:
 
-<doc-code filename="app/elements.mjs" mark-line="3-add,8-add" numbered>
+<doc-code filename="app/elements.mjs" highlight="3-add,8-add" numbered>
 
 ```javascript
 import header from './elements/header.mjs'

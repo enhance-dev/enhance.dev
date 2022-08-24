@@ -82,7 +82,7 @@ _Be sure dependencies are installed in your mock app._
 
 For example, if you have a `<my-counter>` element that needs some browser testing and your project structure now looks like this:
 
-<doc-code mark-line="4,12">
+<doc-code highlight="4,12">
 
 ```shell
 .

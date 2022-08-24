@@ -69,7 +69,7 @@ Move your script to the `/public` folder
 
 Create this single file component
 
-<doc-code mark-line=6 filename="app/elements/my-message.mjs" numbered>
+<doc-code highlight=6 filename="app/elements/my-message.mjs" numbered>
 
 ```javascript
 export default function MyMessage({ html, state }) {

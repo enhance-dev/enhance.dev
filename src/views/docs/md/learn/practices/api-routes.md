@@ -111,7 +111,7 @@ The form functions even when client JS isn't available. This is the moment where
 
 1. Add a JSON result to `app/api/count.mjs`
 
-<doc-code mark-line=6 filename="app/api/count.mjs" numbered>
+<doc-code highlight=6 filename="app/api/count.mjs" numbered>
 
 ```javascript
 export async function post (req) {
@@ -167,7 +167,7 @@ Any framework or library could be used but this example is to show those are opt
 
 Add the client script to the custom element, and reload to see the enhanced version.
 
-<doc-code mark-line=6 filename="app/elements/form-counter.mjs" numbered>
+<doc-code highlight=6 filename="app/elements/form-counter.mjs" numbered>
 
 ```javascript
 export default function counter ({ html, state }) {

@@ -1,3 +1,6 @@
+import arc from '@architect/functions'
+const moduleUrl = arc.static('js/elements/doc-code.mjs')
+
 export default function DocCode({ html }) {
   return html`
     <style>
@@ -35,14 +38,14 @@ export default function DocCode({ html }) {
         opacity: 1;
       }
 
-      pre span.code-line.marked {
+      pre span.code-line.highlight {
         opacity: 1;
         background: var(--hl-highlight-line);
       }
-      pre span.code-line.marked-add {
+      pre span.code-line.highlight-add {
         background: var(--hl-addition);
       }
-      pre span.code-line.marked-delete {
+      pre span.code-line.highlight-delete {
         background: var(--hl-deletion);
       }
 
@@ -58,124 +61,6 @@ export default function DocCode({ html }) {
 
     <slot></slot>
 
-    <script type="module">
-      class DocCode extends HTMLElement {
-        constructor() {
-          super()
-
-          this.codeParent = this.querySelector('pre')
-          this.codeBlock = this.querySelector('pre code')
-          this.lines = this.codeBlock.querySelectorAll('.code-line')
-
-          this.numbered = typeof this.getAttribute('numbered') === 'string'
-          this.filename = this.getAttribute('filename')
-          this.lineStart = this.getAttribute('initial-line-number')
-          this.focus = this.getAttribute('focus')
-          this.mark = this.getAttribute('mark-line')
-          this.callout = this.getAttribute('callout')
-        }
-
-        createFilenameTab(name) {
-          const filenameElem = document.createElement('span')
-          filenameElem.classList.add('filename')
-          filenameElem.textContent = this.filename
-
-          this.prepend(filenameElem)
-        }
-
-        render() {
-          if (this.numbered) {
-            this.codeParent.classList.add('numbered')
-          }
-
-          if (this.filename) {
-            this.createFilenameTab(this.filename)
-          }
-
-          if (this.focus) {
-            this.codeParent.classList.add('focused')
-
-            let foci = [] // yes, "foci" is plural focus 😉
-            const fociRanges = this.focus.split(',')
-
-            for (const fociRange of fociRanges) {
-              const range = fociRange.split(':')
-
-              if (range.length === 2) {
-                const lower = Number(range[0])
-                const upper = Number(range[1])
-
-                const lines = [...Array(upper - lower + 1)].map(
-                  (_, i) => i + lower
-                )
-                foci = [...foci, ...lines]
-              } else if (range.length === 1) {
-                foci.push(Number(range[0]))
-              }
-            }
-
-            for (const lineNo of foci) {
-              const focusLine = this.lines[lineNo - 1]
-              if (focusLine) focusLine.classList.add('focused')
-            }
-          }
-
-          if (this.mark) {
-            const marks = this.mark.split(',')
-            for (const mark of marks) {
-              const markParts = mark.split('-')
-              const markNo = Number(markParts[0])
-              const markedLine = this.lines[markNo - 1]
-
-              if (markedLine) {
-                const markedClass = ['marked']
-                if (markParts[1]) {
-                  markedClass.push('marked-' + markParts[1])
-                }
-                markedLine.classList.add(...markedClass)
-              }
-            }
-          }
-
-          if (this.lineStart) {
-            const lineStart = Number(this.lineStart)
-            const firstLine = this.lines[0]
-            firstLine.style = 'counter-set: lineNo ' + lineStart
-          }
-
-          if (this.callout) {
-            const callouts = this.callout.split(',')
-            for (const callout of callouts) {
-              const calloutParts = callout.split('-')
-              const calloutLineNo = Number(calloutParts[0])
-              const calloutString = calloutParts[1]
-              const lineElem = this.lines[calloutLineNo - 1]
-
-              if (!lineElem) continue
-
-              const lineHtml = lineElem.innerHTML
-
-              const result = lineHtml.replace(
-                calloutString,
-                '<mark>' + calloutString + '</mark>'
-              )
-
-              lineElem.innerHTML = result
-            }
-          }
-        }
-
-        async connectedCallback() {
-          this.render()
-        }
-
-        static get observedAttributes() {
-          // TODO: respond to these attrs changing
-          return ['numbered', 'initial-line-number', 'focus', 'mark']
-        }
-      }
-
-      customElements.define('doc-code', DocCode)
-    </script>
+    <script type="module" src="${moduleUrl}"></script>
   `
 }

@@ -12,16 +12,16 @@ This 👇 code block is rendered and highlighted on the server with arcdown + hl
 <doc-code
   numbered
   filename="hljs-line-wrapper.mjs"
-  focus="7,5:17,420"
-  callout="12-match,15-match"
-  mark-line="21,7-add,13-delete"
+  focus="1,5:17"
+  callout="6-replace,15-match"
+  highlight="9:10-add,13-delete,20:22"
   initial-line-number=11
 >
 ```
 
 around some sample JS creates...
 
-<doc-code numbered filename="hljs-line-wrapper.mjs" focus="7,5:17,420" callout="12-match,15-match" mark-line="21,7-add,13-delete" initial-line-number=11>
+<doc-code numbered filename="hljs-line-wrapper.mjs" focus="1,5:17" callout="6-replace,15-match" highlight="9:10-add,13-delete,20:22" initial-line-number=11>
 
 ```javascript
 class HljsLineWrapper {

@@ -29,7 +29,7 @@ This will allow HTML tags to be passed through the parser, so they are preserved
 
 When authoring Markdown with custom elements, it is best to add blank lines around opening and closing tags:
 
-<doc-code filename="custom-elems-in-md.md" mark-line="5,11" numbered>
+<doc-code filename="custom-elems-in-md.md" highlight="5,11" numbered>
 
 ```markdown
 # Custom Elements in Markdown
