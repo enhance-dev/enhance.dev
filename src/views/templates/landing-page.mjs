@@ -5,6 +5,7 @@ export default function LandingPage({ html }) {
         height: 100vh;
         background: linear-gradient(180deg, #74F1FF 71.87%, #C1FFFB 100%);
         background-attachment: fixed;
+        background-position: center bottom;
         background-repeat: no-repeat;
         background-size: cover;
       }
@@ -135,7 +136,7 @@ export default function LandingPage({ html }) {
           Enhance
         </h1>
         <h2>
-          Finally, HTML for everyone
+          A framework for HTML
         </h2>
       </div>
       <section
