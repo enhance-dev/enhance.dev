@@ -172,6 +172,7 @@ export const data = [
           },
           'browser-testing',
           { slug: 'custom-elements-in-md', label: 'Custom Elements in .md' },
+          'with-tailwind',
           { slug: 'with-alpinejs', label: 'With Alpine.js' },
         ],
       },
