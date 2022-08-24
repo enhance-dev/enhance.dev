@@ -4,22 +4,15 @@ export default function Document(body = '', arcStatic = () => '') {
 <html>
   <head>
     <meta charset="UTF-8">
-    <link href="data:image/x-icon;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQEAYAAABPYyMiAAAABmJLR0T///////8JWPfcAAAACXBIWXMAAABIAAAASABGyWs+AAAAF0lEQVRIx2NgGAWjYBSMglEwCkbBSAcACBAAAeaR9cIAAAAASUVORK5CYII=" rel="icon" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="${arcStatic('/img/favicon/apple-touch-icon.png')}">
+    <link rel="icon" type="image/png" sizes="32x32" href="${arcStatic('/img/favicon/favicon-32x32.png')}">
+    <link rel="icon" type="image/png" sizes="16x16" href="${arcStatic('/img/favicon/favicon-16x16.png')}">
+    <link rel="manifest" href="${arcStatic('/img/favicon/site.webmanifest')}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="${arcStatic('/css/styles.css')}"/>
     <link rel="stylesheet" href="${arcStatic('/css/syntax.css')}"/>
     <style>
-      .bg-gradient {
-        background-image: var(--bg-gradient)
-      }
-      .heading-size {
-        font-size: clamp(2.5rem, 15vw, 8rem);
-      }
-      .sparkle-size {
-        font-size: clamp(0rem, 10vw, 4rem);
-      }
-
       .bg-hover-dark-purple:hover {
         background-color: var(--dark-purple);
       }
@@ -38,9 +31,6 @@ export default function Document(body = '', arcStatic = () => '') {
       }
       .border-dark{
         border-color: var(--dark);
-      }
-      .max-w-form {
-        max-width: 21.78rem;
       }
     </style>
   </head>
