@@ -2,7 +2,7 @@ export default function EmailSignup({ html }) {
   return html`
     <style scope="global">
       .radius1 {
-        border-radius: 2px;
+        border-radius: 4px;
       }
     </style>
     <div
@@ -56,8 +56,9 @@ export default function EmailSignup({ html }) {
             color-light
             font-bold
             radius-l-none
-          ">
-          Sign up
+          "
+        >
+         yes please
         </button>
       </form>
     </div>

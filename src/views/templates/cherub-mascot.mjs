@@ -3,6 +3,8 @@ export default function CherubMascot({ html }) {
 <style>
   :host {
     display: block;
+    width: 100%;
+    height: 100%;
     max-width: 9rem;
   }
 </style>

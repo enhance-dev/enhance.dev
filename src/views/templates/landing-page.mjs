@@ -1,6 +1,9 @@
 export default function LandingPage({ html }) {
   return html`
     <style scope="global">
+      :host {
+        contain: content;
+      }
       body {
         height: 100vh;
         background: linear-gradient(180deg, #74F1FF 71.87%, #C1FFFB 100%) no-repeat center center fixed;
@@ -9,6 +12,7 @@ export default function LandingPage({ html }) {
     </style>
     <style>
       :host {
+        min-width: 17.75rem;
         height: 100vh;
         display: grid;
         grid-template-columns: 1fr;
@@ -17,7 +21,7 @@ export default function LandingPage({ html }) {
           'header'
           'main'
           'footer';
-        padding-top: 1.5rem;
+        --navy: #003451;
       }
 
       :host > header {
@@ -29,16 +33,20 @@ export default function LandingPage({ html }) {
       }
 
       :host > main {
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-template-rows: 1fr;
         grid-area: main;
         padding: 3rem;
       }
 
+      :host > main > h1 {
+        font-size: 3rem;
+        font-weight: 900;
+        color: var(--navy);
+      }
+
       :host > main > section {
         color: var(--light);
-        background-color: #003451;
+        background-color: var(--navy);
+        border-radius: 4px;
       }
 
       :host > main > section > email-signup {
@@ -47,50 +55,83 @@ export default function LandingPage({ html }) {
 
 
       @media only screen and (min-width:48em) {
+        :host {
+          overflow: hidden;
+        }
 
         :host > main {
-          grid-template-columns: repeat(6, 1fr);
-          grid-template-rows: repeat(3, 1fr);
+          grid-template-columns: repeat(5, 1fr);
+          grid-template-rows: 18rem 5rem 11rem 1fr;
+        }
+
+        :host > main > h1 {
+          width: 50rem;
+          grid-column: 1 / 6;
+          font-size: 4rem;
         }
 
         :host > main > section {
-          background-color: #003451;
-          grid-row: 2;
-          grid-column: 2 / 6;
+          grid-row: 3;
+          grid-column: 2 / 5;
         }
 
         :host > main > cherub-mascot {
-          grid-row: 2;
+          grid-row: 3;
           grid-column: 5;
-          margin: -6rem -3rem 0rem 2rem;
+          margin-top: -6rem;
+          margin-left: -4rem;
         }
       }
 
     </style>
     <header
       class="
-       flex
-       justify-center
-       items-center
+        mb5
+        mb-none-lg
+        pl3
+        pt1
       "
     >
-    <cherub-head class="mr0"></cherub-head>
-    <h2 class="text1 pt-3 font-bold">
-      Enhance
-    </h2>
+      <div
+        class="
+         flex
+         justify-start
+         items-center
+        "
+      >
+        <cherub-head class="mr0"></cherub-head>
+        <h2 class="text1 pt-3 font-bold">
+          Enhance
+        </h2>
+      </div>
     </header>
     <main
         class="
+          flex
+          flex-col
+          grid-lg
+          justify-start
           m-auto
           p2
         "
       >
+      <h1
+        class="
+          text-center
+          self-center
+          mb5
+          m-none-lg
+        "
+      >
+      Enhance <br>
+      HTML for everyone
+      </h1>
       <section
         class="
           flex
           flex-col
+          justify-center
           p3
-          radius1
         "
       >
       <h1
@@ -112,7 +153,15 @@ export default function LandingPage({ html }) {
           "
          ></email-signup>
       </section>
-      <cherub-mascot></cherub-mascot>
+        <cherub-mascot
+          class="
+            block
+            self-end
+            self-start-lg
+            pt5
+            p-none-lg
+          "
+        ></cherub-mascot>
     </main>
     <footer>
       <enhance-land></enhance-land>
