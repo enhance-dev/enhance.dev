@@ -1,9 +1,6 @@
 export default function LandingPage({ html }) {
   return html`
     <style scope="global">
-      :host {
-        contain: content;
-      }
       body {
         height: 100vh;
         background: linear-gradient(180deg, #74F1FF 71.87%, #C1FFFB 100%) no-repeat center center fixed;
