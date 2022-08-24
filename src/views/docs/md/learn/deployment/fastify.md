@@ -30,8 +30,9 @@ Add some handy shortcuts to `scripts` in `package.json`.
 
 Add the following to `index.mjs`:
 
+<doc-code filename="index.mjs" numbered>
+
 ```javascript
-// index.mjs
 import Fastify from 'fastify'
 import Enhance from '@enhance/fastify-plugin'
 
@@ -42,26 +43,35 @@ app.register(Enhance)
 app.listen({ port: 3000 }, console.log)
 ```
 
+</doc-code>
+
 Create `app/pages/index.html`, and write some HTML!
 
+<doc-code filename="app/pages/index.html" numbered>
+
 ```html
-<!-- app/pages/index.html -->
 <my-header></my-header>
 <strong>powerful html here</strong>
 <my-footer></my-footer>
 ```
 
+</doc-code>
+
 Create some custom elements in a folder named `app/elements`.
 
+<doc-code filename="app/elements/header.mjs" numbered>
+
 ```javascript
-/** app/elements/header.mjs */
 export default function header ({ html }) {
   return html`<header> my cool header</header>`
 }
 ```
 
+</doc-code>
+
+<doc-code filename="app/elements/footer.mjs" numbered>
+
 ```javascript
-/** app/elements/footer.mjs */
 export default function footer ({ html, state }) {
   return html`
     <footer>
@@ -72,10 +82,13 @@ export default function footer ({ html, state }) {
 }
 ```
 
+</doc-code>
+
 Create `app/elements.mjs` to define custom element tag names.
 
+<doc-code filename="app/elements.mjs" numbered>
+
 ```javascript
-// app/elements.mjs
 import header from './elements/header.mjs'
 import footer from './elements/footer.mjs'
 
@@ -87,19 +100,23 @@ let elements = {
 export default elements
 ```
 
-Run `npm start`, and preview at `http://localhost:8080`.
+</doc-code>
 
+Run `npm start`, and preview at `http://localhost:8080`.
 
 ## Adding a route as plain basic HTML
 
 Create a new page for `"/about"` by adding `app/pages/about.html`:
 
+<doc-code filename="app/pages/about.html" numbered>
+
 ```html
-<!-- app/pages/about.html -->
 <my-header></my-header>
 this is the "/about" page
 <my-footer></my-footer>
 ```
+
+</doc-code>
 
 ## Adding a route as a custom element
 
@@ -107,19 +124,29 @@ Sometimes we need to access `state` to populate a route. Custom elements are a g
 
 Add `/fruits` by creating `app/pages/fruits.mjs`:
 
+<doc-code filename="app/pages/fruits.mjs" numbered>
+
 ```javascript
-/** app/pages/fruits.mjs */
 export default function fruits ({ html, state }) {
   let fruit = f => `<li>${f}</li>`
-  let list = state.store.fruits? state.store.fruits.map(fruit).join('') : []
-  return html`yummy fruit<ul>${list}</ul>`
+  let list = state.store.fruits
+    ? state.store.fruits.map(fruit).join('') 
+    : []
+  
+  return html`
+    <h1>yummy fruit</h1>
+    <ul>${list}</ul>
+  `
 }
 ```
 
+</doc-code>
+
 Register the new page element by updating `app/elements.mjs`:
 
+<doc-code filename="app/elements.mjs" mark-line="3-add,8-add" numbered>
+
 ```javascript
-// app/elements.mjs
 import header from './elements/header.mjs'
 import footer from './elements/footer.mjs'
 import fruits from './pages/fruits.mjs'
@@ -133,15 +160,20 @@ let elements = {
 export default elements
 ```
 
+</doc-code>
+
 Navigating to `/fruits` will show an empty list. Create an API route to populate it at `app/api/fruits.mjs`:
 
+<doc-code filename="app/api/fruits.mjs" numbered>
+
 ```javascript
-// app/api/fruits.mjs
 export async function get (req) {
   return {
     json: { fruits }
   }
 }
 ```
+
+</doc-code>
 
 Reloading `/fruits` will show the server rendered fruit! API routes can export both `get`, and `post` handlers.

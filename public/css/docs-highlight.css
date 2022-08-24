@@ -33,8 +33,8 @@
 
   /* extra */
   --hl-highlight-line: var(--lt-highlight);
-  --hl-deletion: #c02d2e;
-  --hl-addition: #8dad98;
+  --hl-deletion: #ffd0d0;
+  --hl-addition: #c1ffd7;
 }
 
 /* Dark Theme */
@@ -52,8 +52,8 @@
   --hl-namespace: var(--dk-pink);
 
   --hl-highlight-line: var(--dk-highlight);
-  --hl-deletion: #de7176;
-  --hl-addition: #76c490;
+  --hl-deletion: #673335;
+  --hl-addition: #2e5139;
 }
 
 /* Dark Theme: System */
@@ -72,8 +72,8 @@
     --hl-namespace: var(--dk-pink);
 
     --hl-highlight-line: var(--dk-highlight);
-    --hl-deletion: #de7176;
-    --hl-addition: #76c490;
+    --hl-deletion: #673335;
+    --hl-addition: #2e5139;
   }
 }
 

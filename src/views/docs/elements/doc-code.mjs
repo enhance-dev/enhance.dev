@@ -39,6 +39,12 @@ export default function DocCode({ html }) {
         opacity: 1;
         background: var(--hl-highlight-line);
       }
+      pre span.code-line.marked-add {
+        background: var(--hl-addition);
+      }
+      pre span.code-line.marked-delete {
+        background: var(--hl-deletion);
+      }
 
       pre mark {
         color: var(--hl-color);
@@ -117,9 +123,17 @@ export default function DocCode({ html }) {
           if (this.mark) {
             const marks = this.mark.split(',')
             for (const mark of marks) {
-              const markNo = Number(mark)
+              const markParts = mark.split('-')
+              const markNo = Number(markParts[0])
               const markedLine = this.lines[markNo - 1]
-              if (markedLine) markedLine.classList.add('marked')
+
+              if (markedLine) {
+                const markedClass = ['marked']
+                if (markParts[1]) {
+                  markedClass.push('marked-' + markParts[1])
+                }
+                markedLine.classList.add(...markedClass)
+              }
             }
           }
 
