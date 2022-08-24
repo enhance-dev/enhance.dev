@@ -37,10 +37,15 @@ export default function LandingPage({ html }) {
         padding: 3rem;
       }
 
-      :host > main > h1 {
+      :host > main > .heading > h1  {
         font-size: 3rem;
-        font-weight: 900;
+        font-weight: 700;
         color: var(--navy);
+      }
+
+      :host > main > .heading > h2  {
+        font-size: 1.5rem;
+        font-weight: 100;
       }
 
       :host > main > section {
@@ -64,10 +69,19 @@ export default function LandingPage({ html }) {
           grid-template-rows: 18rem 5rem 11rem 1fr;
         }
 
-        :host > main > h1 {
+        :host > main > .heading {
           width: 50rem;
           grid-column: 1 / 6;
-          font-size: 4rem;
+        }
+
+        :host > main > .heading > h1  {
+          font-size: 6rem;
+          font-weight: 700;
+        }
+
+        :host > main > .heading > h2  {
+          font-size: 2.5rem;
+          font-weight: 100;
         }
 
         :host > main > section {
@@ -115,17 +129,22 @@ export default function LandingPage({ html }) {
           p2
         "
       >
-      <h1
+      <div
         class="
+          heading
           text-center
           self-center
           mb5
           m-none-lg
         "
       >
-      Enhance <br>
-      HTML for everyone
-      </h1>
+        <h1 class="tracking-1">
+          Enhance
+        </h1>
+        <h2>
+          Finally, HTML for everyone
+        </h2>
+      </div>
       <section
         class="
           flex
