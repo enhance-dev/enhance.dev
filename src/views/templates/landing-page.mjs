@@ -4,12 +4,14 @@ export default function LandingPage({ html }) {
       body {
         height: 100vh;
         background: linear-gradient(180deg, #74F1FF 71.87%, #C1FFFB 100%);
+        background-attachment: fixed;
+        background-repeat: no-repeat;
         background-size: cover;
       }
     </style>
     <style>
       :host {
-        min-width: 17.75rem;
+        min-width: 17rem;
         height: 100vh;
         display: grid;
         grid-template-columns: 1fr;
@@ -31,7 +33,6 @@ export default function LandingPage({ html }) {
 
       :host > main {
         grid-area: main;
-        padding: 3rem;
       }
 
       :host > main > .heading > h1  {
@@ -119,7 +120,6 @@ export default function LandingPage({ html }) {
           grid-lg
           justify-start
           m-auto
-          p2
         "
       >
       <div
@@ -143,7 +143,8 @@ export default function LandingPage({ html }) {
           flex
           flex-col
           justify-center
-          p3
+          p1
+          p3-lg
         "
       >
       <h1
