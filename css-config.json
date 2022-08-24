@@ -44,6 +44,11 @@
     "lg": "48em",
     "xl": "72em"
   },
+  "radius": [
+    2,
+    4,
+    6
+  ],
   "borders": {
     "widths": [
       1,
