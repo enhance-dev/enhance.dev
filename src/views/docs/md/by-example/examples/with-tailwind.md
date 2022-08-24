@@ -63,7 +63,7 @@ module.exports = {
 
 ## Use tailwind
 
-### Create tailwind input
+### Create tailwind entry
 
 Tailwind needs an input file to start with.
 The Arc tailwind plugin will look in src/styles/tailwind.css, so we'll use that with the default content:
@@ -153,3 +153,24 @@ filename enhance-styles.css # defaults to styles.css
 Delete old `./public/styles.css`, if it exists.
 
 </doc-callout>
+
+### Project structure
+
+Our project now looks like...
+
+```bash
+.
+├── .arc
+├── app
+│   ├── elements/
+│   ├── head.mjs            # override default head
+│   └── pages/
+├── package.json
+├── public
+│   ├── enhance-styles.css  # created by enhance-styles
+│   └── tailwind.css        # created by arc-plugin-tailwind
+├── src
+│   └── styles
+│       └── tailwind.css    # tailwind entry
+└── tailwind.config.js
+```
