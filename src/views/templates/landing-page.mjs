@@ -3,7 +3,7 @@ export default function LandingPage({ html }) {
     <style scope="global">
       body {
         height: 100vh;
-        background: linear-gradient(180deg, #74F1FF 71.87%, #C1FFFB 100%) no-repeat center center fixed;
+        background: linear-gradient(180deg, #74F1FF 71.87%, #C1FFFB 100%);
         background-size: cover;
       }
     </style>
@@ -42,7 +42,7 @@ export default function LandingPage({ html }) {
 
       :host > main > .heading > h2  {
         font-size: 1.5rem;
-        font-weight: 100;
+        font-weight: 200;
       }
 
       :host > main > section {
@@ -57,10 +57,6 @@ export default function LandingPage({ html }) {
 
 
       @media only screen and (min-width:48em) {
-        :host {
-          overflow: hidden;
-        }
-
         :host > main {
           grid-template-columns: repeat(5, 1fr);
           grid-template-rows: 18rem 5rem 11rem 1fr;
