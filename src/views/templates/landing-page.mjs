@@ -156,7 +156,7 @@ export default function LandingPage({ html }) {
           font-light
         "
       >
-         ✨ Sign up for the waitlist!
+         ✨ Sign up for the waitlist?
         </h1>
         <email-signup
           class="
