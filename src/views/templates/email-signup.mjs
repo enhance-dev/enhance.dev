@@ -40,6 +40,8 @@ export default function EmailSignup({ html }) {
               flex-grow
               p0
               text0
+              text-center
+              text-left-lg
             "
             placeholder="you@email.com"
             />
