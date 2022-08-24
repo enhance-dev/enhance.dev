@@ -1,5 +1,10 @@
 export default function EmailSignup({ html }) {
   return html`
+    <style scope="global">
+      .radius1 {
+        border-radius: 2px;
+      }
+    </style>
     <div
       class="
         font-sans
@@ -13,10 +18,11 @@ export default function EmailSignup({ html }) {
           flex-col
           flex-row-lg
           justify-between
+          mb0
           border-solid
           border1
           border-gradient
-          mb0
+          radius1
         ">
         <label
           for="email-address"
@@ -35,8 +41,10 @@ export default function EmailSignup({ html }) {
               p0
               text0
             "
-            placeholder="Add your email to the waitlist" />
+            placeholder="you@email.com"
+            />
         </label>
+
         <button
           type="submit"
           class="
@@ -52,7 +60,6 @@ export default function EmailSignup({ html }) {
           Sign up
         </button>
       </form>
-      <p class="text-1">*We hate SPAM. You won't get any from us.</p>
     </div>
   `
 }

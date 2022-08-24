@@ -22,7 +22,8 @@ import AppWrap from './templates/app-wrap.mjs'
 import ModalClose from './templates/modal-close.mjs'
 import ModalTrigger from './templates/modal-trigger.mjs'
 import ShowSolution from './templates/show-solution.mjs'
-import EnhanceType from './templates/enhance-type.mjs'
+import EnhanceLand from './templates/enhance-land.mjs'
+import CherubHead from './templates/cherub-head.mjs'
 import CherubMascot from './templates/cherub-mascot.mjs'
 export default {
   'coming-soon': ComingSoon,
@@ -49,6 +50,7 @@ export default {
   'modal-trigger': ModalTrigger,
   'show-solution': ShowSolution,
   'markup-preview': MarkupPreview,
-  'enhance-type': EnhanceType,
+  'cherub-head': CherubHead,
   'cherub-mascot': CherubMascot,
+  'enhance-land': EnhanceLand,
 }
