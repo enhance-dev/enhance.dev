@@ -3,9 +3,10 @@ export default function LandingPage({ html }) {
     <style scope="global">
       body {
         height: 100vh;
-        background: linear-gradient(180deg, #74F1FF 71.87%, #C1FFFB 100%);
+        background-color: #C1FFFB;
+        background-image: linear-gradient(180deg, #74F1FF 71.87%, #C1FFFB 100%);
         background-attachment: fixed;
-        background-position: center bottom;
+        background-position: center center;
         background-repeat: no-repeat;
         background-size: cover;
       }
@@ -13,7 +14,7 @@ export default function LandingPage({ html }) {
     <style>
       :host {
         min-width: 17rem;
-        height: 100vh;
+        height: 100%;
         display: grid;
         grid-template-columns: 1fr;
         grid-template-rows: auto 1fr auto;
