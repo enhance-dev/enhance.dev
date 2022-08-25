@@ -23,13 +23,14 @@ export default function EmailSignup({ html }) {
           border1
           border-gradient
           radius1
-        ">
+          overflow-hidden
+          "
+        >
         <label
           for="email-address"
           class="
             flex
             flex-grow
-            overflow-hidden
           ">
           <input
             name="email-address"
@@ -42,6 +43,10 @@ export default function EmailSignup({ html }) {
               text0
               text-center
               text-left-lg
+              border-none
+              radius0-lg
+              radius-b-none
+              radius-r-none-lg
             "
             placeholder="you@email.com"
             />
