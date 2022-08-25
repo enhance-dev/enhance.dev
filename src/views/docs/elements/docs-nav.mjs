@@ -50,7 +50,7 @@ export default function DocsNav({ html, state }) {
   const { sidebarData } = store
 
   const tabs = sidebarData.filter((i) => i.type === 'tab')
-  const activeTab = tabs.find((tab) => tab.active) || tabs[0]
+  const activeTab = tabs.find((tab) => tab.activeTab) || tabs[0]
 
   return html`
     <style>

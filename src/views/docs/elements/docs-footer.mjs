@@ -39,6 +39,9 @@ export default function Footer({ html, state }) {
     </style>
 
     <hr class="block mt3 mb3 border1" />
+
+    <docs-increment></docs-increment>
+
     <footer class="p0">
       <h3 class="mb-2">Community Resources</h3>
       <dl class="ml-2 list-none leading2">${items}</dl>

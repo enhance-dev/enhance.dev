@@ -120,6 +120,7 @@ export const data = [
       },
     ],
   },
+  /*
   {
     type: TYPE.tab,
     label: 'Reference',
@@ -156,6 +157,7 @@ export const data = [
       },
     ],
   },
+  */
   {
     type: TYPE.tab,
     label: 'By Example',
@@ -256,7 +258,7 @@ function parseItems(items, root, activePath) {
   parsedItems
     .filter((i) => i.type === 'tab')
     .forEach((tab, index) => {
-      tab.active =
+      tab.activeTab =
         `${tab.path}/` === activePath ||
         (index === 0 && `/${root}/` === activePath) ||
         tab.items.some(testForActive)

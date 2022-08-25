@@ -11,7 +11,7 @@ export default function DocsHeader({ html, state }) {
       .forEach((tab) => {
         navItems.push(
           `<li class="inline-block whitespace-no-wrap ml3 mr3 ${
-            tab.active ? 'active font-semibold' : ''
+            tab.activeTab ? 'active font-semibold' : ''
           }">
             <a class="text-center" href="${tab.path}/">${tab.label}</a>
           </li>`
