@@ -6,7 +6,8 @@ const host = 'http://localhost:3333'
 const endpoints = [
   '/docs/',
   '/waitlist',
-  '/playground',
+  // '/waitlist',
+  // '/playground',
   // '/tutorial',
 ]
 
