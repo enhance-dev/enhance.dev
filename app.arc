@@ -7,6 +7,7 @@ folder public
 
 @http
 get /
+get /*
 
 # Docs
 get /docs/*
