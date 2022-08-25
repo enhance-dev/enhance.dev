@@ -132,7 +132,10 @@ export default function DocsHeader({ html, state }) {
       aria-label="Open navigation" />
     <div id="logo" class="flex gap-1 justify-between items-center">
       <div class="flex items-center">
-        <img class="chibi" src="${arc.static('img/svg/chibi.svg')}" />
+        <img
+          class="chibi"
+          src="${arc.static('img/svg/enhance-axol.svg')}"
+          alt="Enhance mascot: Axol" />
         <h1 class="text1 ml1">
           <a href="/" class="enhance-link inline-block font-semibold"
             >Enhance</a
