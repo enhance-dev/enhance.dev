@@ -171,8 +171,15 @@ export const data = [
             // items: ['initial-state', 'add-transforms'],
           },
           'browser-testing',
+        ],
+      },
+      {
+        type: TYPE.category,
+        label: 'Integrations',
+        slug: 'integrations',
+        items: [
           { slug: 'custom-elements-in-md', label: 'Custom Elements in .md' },
-          'with-tailwind',
+          { slug: 'with-tailwind', label: 'With tailwind' },
           { slug: 'with-alpinejs', label: 'With Alpine.js' },
         ],
       },
