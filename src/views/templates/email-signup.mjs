@@ -27,13 +27,13 @@ export default function EmailSignup({ html }) {
           "
         >
         <label
-          for="email-address"
+          for="email"
           class="
             flex
             flex-grow
           ">
           <input
-            name="email-address"
+            name="email"
             type="email"
             autocomplete="email"
             required
