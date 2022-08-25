@@ -1,7 +1,9 @@
 import arc from '@architect/functions'
+import arcOauth from 'arc-plugin-oauth'
+const auth = arcOauth.auth
 import { nanoid } from 'nanoid'
 
-export const handler = arc.http.async(sendUserCode)
+export const handler = arc.http.async(auth, sendUserCode)
 
 async function sendUserCode(req) {
   const body = req.body

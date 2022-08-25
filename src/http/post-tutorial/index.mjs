@@ -1,8 +1,10 @@
 import arc from '@architect/functions'
+import arcOauth from 'arc-plugin-oauth'
+const auth = arcOauth.auth
 import { nanoid } from 'nanoid'
 import data from '@begin/data'
 
-export const handler = arc.http.async(saveTutorial)
+export const handler = arc.http.async(auth, saveTutorial)
 
 async function saveTutorial(req) {
   const body = req.body
