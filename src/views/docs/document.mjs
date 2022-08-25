@@ -9,7 +9,16 @@ export default function document(title = '') {
       name="viewport"
       content="width=device-width, minimum-scale=1, initial-scale=1" />
     <title>Enhance Docs${` - "${title}"` || ''}</title>
-    <link rel="icon" href="https://fav.farm/✨" />
+    <link rel="apple-touch-icon" sizes="180x180" href="${arc.static(
+      '/img/favicon/apple-touch-icon.png'
+    )}">
+    <link rel="icon" type="image/png" sizes="32x32" href="${arc.static(
+      '/img/favicon/favicon-32x32.png'
+    )}">
+    <link rel="icon" type="image/png" sizes="16x16" href="${arc.static(
+      '/img/favicon/favicon-16x16.png'
+    )}">
+    <link rel="manifest" href="${arc.static('/img/favicon/site.webmanifest')}">
     <link rel="stylesheet" href="${arc.static('css/styles.css')}" />
     <link rel="stylesheet" href="${arc.static('css/docs-colors.css')}" />
     <link rel="stylesheet" href="${arc.static('css/docs-highlight.css')}" />
