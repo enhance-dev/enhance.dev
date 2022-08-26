@@ -137,7 +137,7 @@ export default function LandingPage({ html }) {
           Enhance
         </h1>
         <h2>
-          A framework for HTML
+          The HTML framework
         </h2>
       </div>
       <section
