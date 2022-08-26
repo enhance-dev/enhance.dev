@@ -1,37 +1,70 @@
 export default function EmailThankPage({ html }) {
   return html`
-    <style>
-      .max-h-sm {
-        max-height: 16rem;
-      }
-      .max-w-lg {
-        max-width: 48rem;
+    <style scope="global">
+      body {
+        height: 100vh;
+        background-color: #C1FFFB;
+        background-image: linear-gradient(180deg, #74F1FF 71.87%, #C1FFFB 100%);
+        background-attachment: fixed;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
       }
     </style>
-    <div class="bg-p2 text-p1">
-      <div
-        class="
-          m-auto
-          max-w-lg
-          h-screen
-          pt2
-          pt4-lg
-        ">
-        <page-header>
-          <span slot="title">Thanks!</span>
-          <span slot="subtitle"> We'll keep you posted </span>
-        </page-header>
-      </div>
-    </div>
-    <script type="module">
-      class EmailThankPage extends HTMLElement {
-        connectedCallback() {
-          window.setTimeout(() => {
-            window.location.href = '/'
-          }, 3000)
-        }
+    <style>
+      :host {
+        min-width: 17rem;
+        --navy: #003451;
       }
-      customElements.define('email-thank-page', EmailThankPage)
+
+      :host > main {
+        min-width: 17rem;
+        margin: 0 auto;
+      }
+
+      :host > main > h1  {
+        font-size: 3rem;
+        font-weight: 700;
+        color: var(--navy);
+      }
+
+      :host > main > h2  {
+        font-size: 1.5rem;
+        font-weight: 200;
+        color: var(--navy);
+      }
+
+      :host > main > axol-wink {
+        max-width: 20rem;
+      }
+
+      @media only screen and (min-width:48em) {
+
+        :host > main > h1  {
+          font-size: 6rem;
+          font-weight: 700;
+        }
+
+        :host > main > h2  {
+          font-size: 2.5rem;
+          font-weight: 100;
+        }
+
+      }
+    </style>
+    <main class="flex flex-col items-center p3">
+      <h1 class="mb-2">
+        Thanks!
+      </h1>
+      <h2 class="mb5">
+        We'll be in touch
+      </h2>
+      <axol-wink></axol-wink>
+    </main>
+    <script type="module">
+      window.setTimeout(() => {
+        window.location.href = '/'
+      }, 3000)
     </script>
   `
 }

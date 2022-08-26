@@ -25,6 +25,7 @@ import ShowSolution from './templates/show-solution.mjs'
 import EnhanceLand from './templates/enhance-land.mjs'
 import CherubHead from './templates/cherub-head.mjs'
 import CherubMascot from './templates/cherub-mascot.mjs'
+import AxolWink from './templates/axol-wink.mjs'
 export default {
   'coming-soon': ComingSoon,
   'email-signup': EmailSignup,
@@ -53,4 +54,5 @@ export default {
   'cherub-head': CherubHead,
   'cherub-mascot': CherubMascot,
   'enhance-land': EnhanceLand,
+  'axol-wink': AxolWink
 }
