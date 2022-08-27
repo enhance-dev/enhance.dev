@@ -10,6 +10,26 @@ export default function LandingPage({ html }) {
         background-repeat: no-repeat;
         background-size: cover;
       }
+
+      .bg-hover-dark-purple:hover {
+        background-color: var(--dark-purple);
+      }
+      .bg-purple,
+      .bg-purple:active {
+        background-color: var(--purple);
+      }
+      .color-hover-white:hover {
+        color: var(--white);
+      }
+      .color-light {
+        color: var(--light);
+      }
+      .border-gradient {
+        border-color: var(--purple);
+      }
+      .border-dark{
+        border-color: var(--dark);
+      }
     </style>
     <style>
       :host {
@@ -100,6 +120,7 @@ export default function LandingPage({ html }) {
         mb-none-lg
         pl3
         pt1
+        font-sans
       "
     >
       <div
@@ -122,6 +143,7 @@ export default function LandingPage({ html }) {
           grid-lg
           justify-start
           m-auto
+          font-sans
         "
       >
       <div
