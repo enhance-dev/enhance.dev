@@ -67,11 +67,11 @@ export const data = [
           { slug: 'api-routes', label: 'API Routes' },
         ],
       },
-      // {
-      //   type: TYPE.category,
-      //   slug: 'practices',
-      //   items: ['testing', 'browser-modules', 'progressive-enhancement'],
-      // },
+      {
+        type: TYPE.category,
+        slug: 'practices',
+        items: ['testing', 'browser-modules', 'progressive-enhancement'],
+      },
       // {
       //   type: TYPE.category,
       //   slug: 'features',
