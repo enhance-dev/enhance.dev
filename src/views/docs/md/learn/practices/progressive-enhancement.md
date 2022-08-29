@@ -2,8 +2,7 @@
 title: Progressive enhancement
 ---
 
-## Prototype to production
-The Enhance ethos is to build your app incrementally. Start with working HTML, break out Custom Elements as the need for reuse arises, create apis that return hard-coded data, add database storage and retrieval to your apis, then layer on user interactions in the browser. Progressively enhancing your application from a working prototype to a production-ready product with the same codebase.
+The Enhance ethos is to build your app incrementally from prototype to production. Start with working HTML, break out Custom Elements as the need for reuse arises, create apis that return hard-coded data, add database storage and retrieval to your apis, then layer on user interactions in the browser. Progressively enhancing your application from a working prototype to a production-ready product with the same codebase.
 
 ## Solid foundation
 Custom Elements are a solid foundation for progressive enhancement. Knowing you have correct, accessible, semantic markup with working forms before adding on the user interactions that require JavaScript means your application will work everywhere the web does **forever**. The benefit being your users will be able to use your site even when unforeseen circumstances like a rouge third-party script or a bad connection interfere.

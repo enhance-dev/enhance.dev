@@ -70,7 +70,7 @@ export const data = [
       {
         type: TYPE.category,
         slug: 'practices',
-        items: ['testing', 'browser-modules', 'progressive-enhancement'],
+        items: ['progressive-enhancement', 'browser-modules', 'testing'],
       },
       // {
       //   type: TYPE.category,
@@ -97,6 +97,11 @@ export const data = [
         type: TYPE.category,
         slug: 'deployment',
         items: [
+          {
+            slug: 'architect',
+            label: 'Architect',
+            description: 'Deploy to AWS directly',
+          },
           {
             slug: 'begin',
             label: 'Begin',

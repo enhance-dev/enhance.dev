@@ -2,8 +2,6 @@
 title: Browser modules
 ---
 
-## Local modules
-
 Enhance projects empower you to share modules with the browser via bundles. The benefit to using the built in bundling system is that your bundles will be shared from your own domain instead of from a third-party registry. No need to fuss over CORS or external downtime.
 
 ## Node modules
