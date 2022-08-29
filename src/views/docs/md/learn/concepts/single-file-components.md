@@ -35,7 +35,8 @@ export default function HelloWorld({ html, state }) {
 ## Style
 
 Styles are added by inserting a standard `<style>` tag.
-Styles are scoped to your custom element by default or you can add `scope="global"` to it's attributes to give it global scope.
+Styles are scoped to your custom element by default, or you can add `scope="global"` to the style tag to make styles available to the global scope.
+
 ```javascript
 export default function HelloWorld({ html, state }) {
   const { attrs } = state
@@ -44,11 +45,6 @@ export default function HelloWorld({ html, state }) {
     <style scope="global">
       body {
         color: #222;
-      }
-    </style>
-    <style>
-      hello-world h1 {
-        color: red;
       }
     </style>
     <h1>${greeting}</h1>

@@ -59,18 +59,18 @@ export const data = [
             path: '/docs/learn/concepts/state/',
             items: ['attributes', 'store'],
           },
+          {
+            slug: 'styling',
+            path: '/docs/learn/concepts/styling/',
+            items: ['utility-classes', 'element-styles'],
+          },
+          { slug: 'api-routes', label: 'API Routes' }
         ],
       },
       {
         type: TYPE.category,
         slug: 'practices',
         items: [
-          {
-            slug: 'styling',
-            path: '/docs/learn/practices/styling/',
-            items: ['utility-classes', 'element-styles'],
-          },
-          { slug: 'api-routes', label: 'API Routes' },
           'testing',
           'browser-modules',
           'progressive-enhancement',

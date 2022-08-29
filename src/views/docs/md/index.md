@@ -2,7 +2,7 @@
 title: Quick start
 ---
 
-To create a project, run:
+To create a project, ensure you have <a href=https://nodejs.org>Node.js 16.x</a> or higher installed, and run:
 
 ```bash
 npm create @enhance ./myproject -y

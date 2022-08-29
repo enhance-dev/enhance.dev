@@ -19,3 +19,7 @@ Enhance components get passed a tagged template literal function <code>html``</c
 
 - [vim-javascript](https://github.com/pangloss/vim-javascript.git)
 - [vim-html-template-literals](https://github.com/jonsmithers/vim-html-template-literals.git)
+
+## Sublime Text
+
+- [kireerik/refo](https://github.com/kireerik/refo/tree/master/example#sublime-text )

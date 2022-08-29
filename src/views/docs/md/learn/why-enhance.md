@@ -2,11 +2,11 @@
 title: Why Enhance?
 ---
 
-Modern JavaScript frameworks bring more problems than they solve; recreating native web platform features at runtime adds unnecessary weight and complexity, which is challenging to unravel. 
+Our mission is to enable anyone to build multi-page dynamic web apps while staying as close to the platform as possible. Enhance fills in the gaps to make building for the backend, and the browser a seamless experience for web authors and consumers.
+
+Modern JavaScript frameworks bring more problems than they solve; recreating native web platform features adding unnecessary weight and complexity, which is challenging to unravel. 
 
 Enhance provides a dependable foundation built on standards-based web platform features, allowing developers to create web applications that are lightweight, flexible, and future-proof. 
-
-Our mission is to enable anyone to build multi-page dynamic web apps while staying as close to the platform as possible. Enhance fills in the gaps to make building for the backend and the browser a seamless experience for web authors and consumers.
 
 Our criteria for success are:
 
