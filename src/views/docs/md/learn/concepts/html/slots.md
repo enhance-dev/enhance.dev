@@ -2,8 +2,6 @@
 title: Slots
 ---
 
-## Powerful templating
-
 Slots [as defined in the Web Component standard](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_templates_and_slots#adding_flexibility_with_slots), enable flexible templates that allow substitution of internals while maintaining core functionality.
 
 ### Server render

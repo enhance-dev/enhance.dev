@@ -1,3 +1,4 @@
+/* eslint-disable */
 export default function TabContainerTemplate({ html, state = {} }) {
   const addTabs = state?.attrs['add-tabs']
   const id = Math.random().toString(32).slice(2)

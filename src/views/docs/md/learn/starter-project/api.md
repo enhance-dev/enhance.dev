@@ -2,10 +2,8 @@
 title: API
 ---
 
-## Data routes
-
-The `app/api` folder in your project is for adding data routes to your app.
-To pass data to a page create a file with the same name as an existing file in your project's pages folder. Meaning `app/api/index.mjs` will supply data to `app/pages/index.html`
+The `app/api` folder is for adding data to your app.
+To pass data to a page create a file with the same name as an existing file in your project's `app/pages` folder. Meaning `app/api/index.mjs` will supply data to `app/pages/index.html`
 
 ## Create an API route
 

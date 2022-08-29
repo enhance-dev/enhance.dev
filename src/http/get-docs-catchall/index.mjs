@@ -101,6 +101,7 @@ async function http(request) {
   }
 }
 
-export const handler = process.env.ARC_ENV === 'production'
-  ? arc.http.async(auth, http)
-  : arc.http.async(http)
+export const handler =
+  process.env.ARC_ENV === 'production'
+    ? arc.http.async(auth, http)
+    : arc.http.async(http)

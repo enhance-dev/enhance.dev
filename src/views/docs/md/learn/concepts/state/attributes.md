@@ -2,8 +2,6 @@
 title: Attributes
 ---
 
-## Passing state
-
 Attributes are the initial way you pass data to your custom elements.
 The Web Component spec uses attributes extensively as a way to know when to update your element.
 Enhance passes your Custom Elements attributes as an object of key value pairs to your [pure function](https://en.wikipedia.org/wiki/Pure_function) at render time.

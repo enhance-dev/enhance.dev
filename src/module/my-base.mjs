@@ -1,13 +1,4 @@
-/* eslint-disable fp/no-class */
-// import API from '/components/data/api.js'
-
-export default function myBase(tagName,config) {
-  
-  return 
-}
-
-
-
+/* eslint-disable */
 
 export default class EnhanceBase extends HTMLElement {
   constructor() {

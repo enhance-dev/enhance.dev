@@ -44,7 +44,7 @@ async function process(event) {
   componentTabs.forEach((i) => (repl[i] = event[i]))
   const now = new Date()
   const ttl = Math.round(now.getTime() / 1000) + 24 * 60 * 60
-  const result = await data.set({
+  /* const result = */ await data.set({
     key,
     ttl,
     repl,

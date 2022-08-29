@@ -3,8 +3,8 @@ export default function EmailThankPage({ html }) {
     <style scope="global">
       body {
         height: 100vh;
-        background-color: #C1FFFB;
-        background-image: linear-gradient(180deg, #74F1FF 71.87%, #C1FFFB 100%);
+        background-color: #c1fffb;
+        background-image: linear-gradient(180deg, #74f1ff 71.87%, #c1fffb 100%);
         background-attachment: fixed;
         background-position: center center;
         background-repeat: no-repeat;
@@ -22,13 +22,13 @@ export default function EmailThankPage({ html }) {
         margin: 0 auto;
       }
 
-      :host > main > h1  {
+      :host > main > h1 {
         font-size: 3rem;
         font-weight: 700;
         color: var(--navy);
       }
 
-      :host > main > h2  {
+      :host > main > h2 {
         font-size: 1.5rem;
         font-weight: 200;
         color: var(--navy);
@@ -38,27 +38,21 @@ export default function EmailThankPage({ html }) {
         max-width: 20rem;
       }
 
-      @media only screen and (min-width:48em) {
-
-        :host > main > h1  {
+      @media only screen and (min-width: 48em) {
+        :host > main > h1 {
           font-size: 6rem;
           font-weight: 700;
         }
 
-        :host > main > h2  {
+        :host > main > h2 {
           font-size: 2.5rem;
           font-weight: 100;
         }
-
       }
     </style>
     <main class="flex flex-col items-center p3">
-      <h1 class="mb-2">
-        Thanks!
-      </h1>
-      <h2 class="mb5">
-        We'll be in touch
-      </h2>
+      <h1 class="mb-2">Thanks!</h1>
+      <h2 class="mb5">We'll be in touch</h2>
       <axol-wink></axol-wink>
     </main>
     <script type="module">

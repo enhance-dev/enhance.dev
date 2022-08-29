@@ -1,3 +1,4 @@
+/* eslint-disable */
 let socket = undefined
 let reconnectionAttempts = 0
 let maxReconnectionAttempts = 8

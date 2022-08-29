@@ -2,10 +2,7 @@
 title: State
 ---
 
-## Use data in your app
-
-Understanding how to pass and use state is fundamental to building a successful application.
-Luckily Enhance sets you up for success by preconfiguring your app to pass state in a reliable way.
+Understanding how to pass and use state is fundamental to building a dynamic application.
 
 ## State object
 

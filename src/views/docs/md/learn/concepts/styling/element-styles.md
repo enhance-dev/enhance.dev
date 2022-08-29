@@ -2,8 +2,6 @@
 title: Element styles
 ---
 
-## Specific styles
-
 Element styles are for specific styles that can't easily be achieved with utility classes.
 
 ## Element Pseudo classes

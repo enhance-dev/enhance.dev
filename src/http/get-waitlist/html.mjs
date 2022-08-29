@@ -12,8 +12,8 @@ export default async function HTML() {
   try {
     return {
       html: html`
-      ${Head()}
-      <landing-page></landing-page>
+        ${Head()}
+        <landing-page></landing-page>
       `,
     }
   } catch (err) {
@@ -21,10 +21,9 @@ export default async function HTML() {
     return {
       statusCode: 500,
       html: html`
-      ${Head()}
-      <error-page error=${err}></error-page>
+        ${Head()}
+        <error-page error=${err}></error-page>
       `,
     }
   }
 }
-

@@ -2,9 +2,7 @@
 title: Utility classes
 ---
 
-## General styling
-
-Utility classes are an optimal way to apply general styling. They remove large amounts of duplication from your stylesheets and lend visual harmony to your sites.
+Utility classes are an optimal way to apply general styling. They remove large amounts of duplication from your stylesheets and lend visual harmony to your app.
 
 ## Styleguide
 

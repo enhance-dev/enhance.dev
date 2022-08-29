@@ -1,3 +1,4 @@
+/* eslint-disable */
 export default function PageHeaderTemplate({ html, state = {} }) {
   return html`
     <p>test</p>

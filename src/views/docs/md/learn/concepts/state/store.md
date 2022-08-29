@@ -2,9 +2,7 @@
 title: Store
 ---
 
-## Single source of truth
-
-The store is how you get access to complex data types such as `Array` and `Object` inside your Custom Element [pure functions](https://en.wikipedia.org/wiki/Pure_function). This is needed because attributes can only be of type string. Enhance projects are also preconfigured to pass initial state from [api routes](/docs/learn/starter-project/api). This single source of truth is how you pass application data to your Custom Element pure functions.
+The Enhance store is a single source of truth and how you get access to complex data types such as `Array` and `Object` inside your Custom Element [pure functions](https://en.wikipedia.org/wiki/Pure_function). This is needed because attributes can only be of type string. Enhance projects are also preconfigured to pass initial state from [api routes](/docs/learn/starter-project/api). This single source of truth is how you pass application data to your Custom Element pure functions.
 
 ## Access `store`
 

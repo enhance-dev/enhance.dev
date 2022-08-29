@@ -24,8 +24,7 @@ export default function EmailSignup({ html }) {
           border-gradient
           radius1
           overflow-hidden
-          "
-        >
+          ">
         <label
           for="email"
           class="
@@ -48,8 +47,7 @@ export default function EmailSignup({ html }) {
               radius-b-none
               radius-r-none-lg
             "
-            placeholder="you@email.com"
-            />
+            placeholder="you@email.com" />
         </label>
 
         <button
@@ -63,9 +61,8 @@ export default function EmailSignup({ html }) {
             color-light
             font-bold
             radius-l-none
-          "
-        >
-         yes please
+          ">
+          yes please
         </button>
       </form>
     </div>

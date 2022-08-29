@@ -2,8 +2,6 @@
 title: Head
 ---
 
-## Special purpose
-
 The `<head>` tag is a very important point of customization for your app. You are going to want to add things like a custom title favicons, social open graph meta etc.
 
 <doc-callout level="none" mark="💀">

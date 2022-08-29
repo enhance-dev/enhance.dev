@@ -3,8 +3,8 @@ export default function LandingPage({ html }) {
     <style scope="global">
       body {
         height: 100vh;
-        background-color: #C1FFFB;
-        background-image: linear-gradient(180deg, #74F1FF 71.87%, #C1FFFB 100%);
+        background-color: #c1fffb;
+        background-image: linear-gradient(180deg, #74f1ff 71.87%, #c1fffb 100%);
         background-attachment: fixed;
         background-position: center center;
         background-repeat: no-repeat;
@@ -27,7 +27,7 @@ export default function LandingPage({ html }) {
       .border-gradient {
         border-color: var(--purple);
       }
-      .border-dark{
+      .border-dark {
         border-color: var(--dark);
       }
     </style>
@@ -57,13 +57,13 @@ export default function LandingPage({ html }) {
         grid-area: main;
       }
 
-      :host > main > .heading > h1  {
+      :host > main > .heading > h1 {
         font-size: 3rem;
         font-weight: 700;
         color: var(--navy);
       }
 
-      :host > main > .heading > h2  {
+      :host > main > .heading > h2 {
         font-size: 1.5rem;
         font-weight: 200;
       }
@@ -78,8 +78,7 @@ export default function LandingPage({ html }) {
         color: initial;
       }
 
-
-      @media only screen and (min-width:48em) {
+      @media only screen and (min-width: 48em) {
         :host > main {
           grid-template-columns: repeat(5, 1fr);
           grid-template-rows: 15rem 5rem 11rem 1fr;
@@ -90,12 +89,12 @@ export default function LandingPage({ html }) {
           grid-column: 1 / 6;
         }
 
-        :host > main > .heading > h1  {
+        :host > main > .heading > h1 {
           font-size: 6rem;
           font-weight: 700;
         }
 
-        :host > main > .heading > h2  {
+        :host > main > .heading > h2 {
           font-size: 2.5rem;
           font-weight: 100;
         }
@@ -112,7 +111,6 @@ export default function LandingPage({ html }) {
           margin-left: -4rem;
         }
       }
-
     </style>
     <header
       class="
@@ -121,31 +119,26 @@ export default function LandingPage({ html }) {
         pl3
         pt1
         font-sans
-      "
-    >
+      ">
       <div
         class="
          flex
          justify-start
          items-center
-        "
-      >
+        ">
         <cherub-head class="mr0"></cherub-head>
-        <h2 class="text1 pt-3 font-bold">
-          Enhance
-        </h2>
+        <h2 class="text1 pt-3 font-bold">Enhance</h2>
       </div>
     </header>
     <main
-        class="
+      class="
           flex
           flex-col
           grid-lg
           justify-start
           m-auto
           font-sans
-        "
-      >
+        ">
       <div
         class="
           heading
@@ -153,14 +146,9 @@ export default function LandingPage({ html }) {
           self-center
           mb5
           m-none-lg
-        "
-      >
-        <h1 class="tracking-1">
-          Enhance
-        </h1>
-        <h2>
-          The HTML framework
-        </h2>
+        ">
+        <h1 class="tracking-1">Enhance</h1>
+        <h2>The HTML framework</h2>
       </div>
       <section
         class="
@@ -169,36 +157,32 @@ export default function LandingPage({ html }) {
           justify-center
           p1
           p3-lg
-        "
-      >
-      <h1
-        class="
+        ">
+        <h1
+          class="
           mb2
           text2
           text3-lg
           text-center
           font-light
-        "
-      >
-         ✨ Sign up for the waitlist?
+        ">
+          ✨ Sign up for the waitlist?
         </h1>
         <email-signup
           class="
             block
             self-end
             w-full
-          "
-         ></email-signup>
+          "></email-signup>
       </section>
-        <cherub-mascot
-          class="
+      <cherub-mascot
+        class="
             block
             self-end
             self-start-lg
             pt5
             p-none-lg
-          "
-        ></cherub-mascot>
+          "></cherub-mascot>
     </main>
     <footer>
       <enhance-land></enhance-land>

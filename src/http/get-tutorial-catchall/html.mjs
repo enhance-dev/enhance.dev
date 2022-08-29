@@ -48,7 +48,7 @@ export default async function HTML(req) {
 
   const key = query?.key
   const solution =
-    query.hasOwnProperty('solution') &&
+    query.hasOwnProperty('solution') && // eslint-disable-line
     query.solution !== false &&
     query.solution !== 'false'
   let repl

@@ -54,5 +54,5 @@ export default {
   'cherub-head': CherubHead,
   'cherub-mascot': CherubMascot,
   'enhance-land': EnhanceLand,
-  'axol-wink': AxolWink
+  'axol-wink': AxolWink,
 }
