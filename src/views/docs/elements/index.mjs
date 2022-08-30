@@ -5,7 +5,7 @@ import Content from './doc-content.mjs'
 import Footer from './docs-footer.mjs'
 import FourOh4 from './docs-404.mjs'
 import Header from './docs-header.mjs'
-import Increment from './docs-increment.mjs'
+import Pager from './docs-pager.mjs'
 import Layout from './docs-layout.mjs'
 import LinkCallout from './doc-link-callout.mjs'
 import Nav from './docs-nav.mjs'
@@ -22,7 +22,7 @@ export default {
   'docs-404': FourOh4,
   'docs-footer': Footer,
   'docs-header': Header,
-  'docs-increment': Increment,
+  'docs-pager': Pager,
   'docs-layout': Layout,
   'docs-nav': Nav,
   'docs-symbols': Symbols,

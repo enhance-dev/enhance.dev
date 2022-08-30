@@ -40,7 +40,7 @@ export default function Footer({ html, state }) {
 
     <hr class="block mt3 mb3 border1" />
 
-    <docs-increment></docs-increment>
+    <docs-pager></docs-pager>
 
     <footer class="p0">
       <h3 class="mb-2">Community Resources</h3>

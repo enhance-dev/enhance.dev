@@ -1,7 +1,11 @@
-export default function Increment({ html, state }) {
+export default function DocsPager({ html, state }) {
   const {
-    store: { sidebarData = [] },
+    store: { sidebarData = [], doc },
   } = state
+
+  if (doc?.frontmatter?.['docs-pager'] === false) {
+    return ''
+  }
 
   function flattenItems(items) {
     return items
@@ -17,7 +21,7 @@ export default function Increment({ html, state }) {
   }
 
   const flattenedItems = flattenItems(
-    sidebarData.find((tab) => tab.activeTab).items
+    sidebarData.find((tab) => tab.activeTab)?.items
   )
   const activeIndex = flattenedItems.findIndex((i) => i.active)
   let prevDoc

@@ -3,6 +3,7 @@ title: Custom Elements in Markdown
 links:
   - markdown-it: https://www.npmjs.com/package/markdown-it
   - Arcdown: https://github.com/architect/arcdown
+docs-pager: false
 ---
 
 It is totally possible to include custom HTML elements in Markdown source files and then have the generated markup rendered by Enhance SSR.
