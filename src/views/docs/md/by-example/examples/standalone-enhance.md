@@ -2,6 +2,7 @@
 title: Standalone Enhance SSR
 links:
   - enhance-ssr: https://github.com/enhance-dev/enhance-ssr
+docs-pager: false
 ---
 
 The core of an Enhance application is the `enhance-ssr` module that enables features like custom element expansion, state management, style transforms, etc.

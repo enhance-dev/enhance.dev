@@ -2,6 +2,7 @@
 title: With Alpine.js
 links:
   - Alpine.js: https://alpinejs.dev
+docs-pager: false
 ---
 
 Since Enhance renders "just" HTML, you can use other tools that work with vanilla HTML.  

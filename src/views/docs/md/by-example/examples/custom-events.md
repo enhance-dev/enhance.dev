@@ -4,6 +4,7 @@ links:
   - "MDN: CustomEvent()": https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent/CustomEvent
   - "MDN: Creating events": https://developer.mozilla.org/en-US/docs/Web/Events/Creating_and_triggering_events
   - Dispatching Custom Events: https://javascript.info/dispatch-events
+docs-pager: false
 ---
 
 HTML (custom) elements natively support event publishing and subscribing.

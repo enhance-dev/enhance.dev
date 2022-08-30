@@ -4,6 +4,7 @@ links:
   - tailwindcss.com: https://tailwindcss.com/
   - arc-plugin-tailwind: https://github.com/andybee/arc-plugin-tailwindcss
   - "@enhance/arc-plugin-styles": https://github.com/enhance-dev/arc-plugin-styles
+docs-pager: false
 ---
 
 Use [tailwindcss](https://tailwindcss.com/) in an Enhance Start Project.

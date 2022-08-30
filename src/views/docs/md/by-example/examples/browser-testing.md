@@ -2,7 +2,13 @@
 title: Browser Testing
 links:
   - Playwright Docs: https://playwright.dev/docs/intro
-  - Example app: https://github.com/enhance-dev/
+  - Example Repo: https://github.com/enhance-dev/ # TODO: publish example
+read-next:
+  label: Read more about testing Enhance output
+  mark: 🔬
+  path: /docs/learn/practices/testing
+  description: Enhance custom elements return strings on the server, making them easy to test for expected output.
+docs-pager: false
 ---
 
 Testing HTML output from Enhance is as [straightforward as comparing strings](/docs/learn/practices/testing).
