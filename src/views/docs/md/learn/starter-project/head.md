@@ -52,6 +52,6 @@ Since you have access to the entire `req` object you can populate your head with
 
 <doc-callout level="none" mark="🚏">
 
-**[Read more about the `req` object →](/docs/learn/practices/api-routes)**
+**[Read more about the `req` object →](/docs/learn/concepts/apii-routes)**
 
 </doc-callout>

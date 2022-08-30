@@ -51,6 +51,6 @@ You now know how to pass application data to your elements to be used in pages. 
 
 <doc-callout level="none" mark="🛣">
 
-**[Read about `api` routes →](/docs/learn/practices/api-routes)**
+**[Read about `api` routes →](/docs/learn/concepts/apii-routes)**
 
 </doc-callout>

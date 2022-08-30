@@ -29,7 +29,7 @@ export default function MyParagraph({ html }) {
 
 <doc-callout level="none" mark="🖍️">
 
-**[Read more about Enhance utility classes →](/docs/learn/practices/styling/utility-classes)**
+**[Read more about Enhance utility classes →](/docs/learn/concepts/styling/utility-classes)**
 
 </doc-callout>
 
@@ -55,6 +55,6 @@ export default function MyParagraph({ html }) {
 
 <doc-callout level="none" mark="🎨">
 
-**[Read more about element styles →](/docs/learn/practices/styling/element-styles)**
+**[Read more about element styles →](/docs/learn/concepts/styling/element-styles)**
 
 </doc-callout>
