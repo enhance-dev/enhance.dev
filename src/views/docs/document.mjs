@@ -8,7 +8,7 @@ export default function document(title = '') {
     <meta
       name="viewport"
       content="width=device-width, minimum-scale=1, initial-scale=1" />
-    <title>Enhance Docs${` - "${title}"` || ''}</title>
+    <title>Enhance docs${` - ${title}` || ''}</title>
     <link rel="apple-touch-icon" sizes="180x180" href="${arc.static(
       '/img/favicon/apple-touch-icon.png'
     )}">
