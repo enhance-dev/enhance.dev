@@ -49,3 +49,15 @@ begin new api --path boom
 > Creates app/api/boom.mjs
 
 ### Generate CRUDL routes
+
+Create a real HTML form for CRUDL (create, read, update, destroy, and list) backed by DynamoDB.
+
+```bash
+begin generate scaffold Cat name:string birthday:date email
+```
+
+### Deploy
+
+```bash
+begin deploy
+```
