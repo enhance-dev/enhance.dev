@@ -12,7 +12,7 @@ The `<head>` tag is a very important point of customization for your app. You ar
 
 ## Not headless
 
-Enhance projects come with basic default head content to get you started.  
+Enhance projects come with basic default head content to get you started.
 The default head content below is the bare minimum and should be the basis for your own customizations.
 
 ```html
@@ -52,6 +52,6 @@ Since you have access to the entire `req` object you can populate your head with
 
 <doc-callout level="none" mark="🚏">
 
-**[Read more about the `req` object →](/docs/learn/concepts/apii-routes)**
+**[Read more about the `req` object →](/docs/learn/concepts/api-routes)**
 
 </doc-callout>
