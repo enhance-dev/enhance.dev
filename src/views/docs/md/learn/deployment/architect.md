@@ -20,6 +20,7 @@ npm create @enhance ./my-enhance-project
 
 ```bash
 cd my-enhance-project
+npm install
 npm start
 ```
 
