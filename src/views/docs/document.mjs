@@ -56,6 +56,13 @@ export default function document(title = '') {
     <docs-symbols></docs-symbols>
     <docs-layout></docs-layout>
   </body>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FQHNPN78V3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-FQHNPN78V3');
+  </script>
 </html>
   `
 }
