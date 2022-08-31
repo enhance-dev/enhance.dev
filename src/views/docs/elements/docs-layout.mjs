@@ -83,7 +83,7 @@ export default function DocsLayout({ html, state }) {
       }
     </style>
 
-    <docs-header id="header" class="pt0 pr1 pb0 pl1"></docs-header>
+    <docs-header id="header" class="pt0 pr1 pb0 pl-1"></docs-header>
 
     <nav id="sidebar" class="pt1-lg overflow-y-auto-lg">
       <docs-nav></docs-nav>

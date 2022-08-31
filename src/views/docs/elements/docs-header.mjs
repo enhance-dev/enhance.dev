@@ -81,8 +81,8 @@ export default function DocsHeader({ html, state }) {
         display: flex;
       }
 
-      .chibi {
-        margin-top: -1rem;
+      .axol {
+        margin-top: -0.65rem;
       }
 
       @media only screen and (min-width: 48em) {
@@ -133,10 +133,10 @@ export default function DocsHeader({ html, state }) {
     <div id="logo" class="flex gap-1 justify-between items-center">
       <div class="flex items-center">
         <img
-          class="chibi"
+          class="axol"
           src="${arc.static('img/svg/enhance-axol.svg')}"
           alt="Enhance mascot: Axol" />
-        <h1 class="text1 ml1">
+        <h1 class="text1 ml-1">
           <a href="/" class="enhance-link inline-block font-semibold"
             >Enhance</a
           >
