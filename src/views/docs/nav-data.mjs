@@ -199,11 +199,11 @@ export const other = {
         url: 'https://github.com/enhance-dev',
         description: 'Visit Enhance on GitHub.',
       },
-      {
+      /* {
         label: 'Discussions',
         url: 'https://github.com/orgs/enhance-dev/discussions',
         description: 'Browse and participate in Enhance tech discussions.',
-      },
+      }, */
       {
         label: 'Discord',
         url: 'https://discord.gg/UWauMMtt',
