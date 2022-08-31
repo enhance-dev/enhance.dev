@@ -42,6 +42,13 @@ export default function Document(body = '', arcStatic = () => '') {
   </head>
   <body class="font-sans">
   ${body}
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FQHNPN78V3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-FQHNPN78V3');
+  </script>
   </body>
 </html>
   `
