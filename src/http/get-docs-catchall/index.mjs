@@ -12,8 +12,6 @@ import navDataLoader, {
 } from '@architect/views/docs/nav-data.mjs'
 import document from '@architect/views/docs/document.mjs'
 import HljsLineWrapper from './hljs-line-wrapper.mjs'
-import arcOauth from 'arc-plugin-oauth'
-const auth = arcOauth.auth
 
 const arcdown = new Arcdown({
   pluginOverrides: {
@@ -101,7 +99,4 @@ async function http(request) {
   }
 }
 
-export const handler =
-  process.env.ARC_ENV === 'production'
-    ? arc.http.async(auth, http)
-    : arc.http.async(http)
+export const handler = arc.http.async(http)
