@@ -65,15 +65,6 @@ export default function DocOutline({ html, state }) {
         ? FurtherReading(doc.frontmatter.links)
         : ''}
 
-      <!-- "Edit this page" -->
-      ${gitHubLink
-        ? /* html  */ `
-        <p class="mb2">
-          <a href="${gitHubLink}" target="_blank">Edit this page</a>
-        </p>
-          `
-        : ''}
-
       <!-- "Community" -->
       ${otherLinks?.community?.items?.length > 0
         ? CommunityLinks(otherLinks.community.items)
