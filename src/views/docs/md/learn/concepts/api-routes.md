@@ -6,7 +6,7 @@ Enhance API routes are backend JSON routes designed for seamless clientside prog
 
 API routes are designed to handle requests made for `text/html`, or `application/json` from a single HTTP request handler.
 
-## Request 
+## Request
 
 API routes always receive a `request` object:
 
@@ -16,7 +16,7 @@ API routes always receive a `request` object:
 | headers | `object` | Request headers
 | method  | `string` | Request method: `GET`, `POST`, `PATCH`, `PUT`, or `DELETE`
 | params  | `object` | URL params (e.g. 'cat' in `/app/api/cats/$cat.mjs`)
-| path    | `string` | Root-relative path of the request URL 
+| path    | `string` | Root-relative path of the request URL
 | query   | `object` | Request querystring parameters
 | session | `object` | Read of the request cookie
 
@@ -40,7 +40,7 @@ To demonstrate building out dynamic API routes and then progressively enhancing 
 ### Part 1: basic HTML form handling
 
 1. Create a new Enhance app `npm create @enhance ./counter-app`. This generates a starter project with `app/pages/index.html`, and static assets in `public/`.
-2. Create a form for incrementing at `app/elements/form-counter.mjs`: 
+2. Create a form for incrementing at `app/elements/form-counter.mjs`:
 
 <doc-code filename="app/elements/form-counter.mjs" numbered>
 
@@ -94,7 +94,7 @@ export async function post (req) {
   let count = req.session.count || 0
   count += 1
   return {
-    session: { count }, 
+    session: { count },
     location: '/'
   }
 }
@@ -118,8 +118,8 @@ export async function post (req) {
   let count = req.session.count || 0
   count += 1
   return {
-    session: { count }, 
-    json: { count }, 
+    session: { count },
+    json: { count },
     location: '/'
   }
 }
@@ -167,7 +167,7 @@ Any framework or library could be used but this example is to show those are opt
 
 Add the client script to the custom element, and reload to see the enhanced version.
 
-<doc-code highlight=6 filename="app/elements/form-counter.mjs" numbered>
+<doc-code highlight=7 filename="app/elements/form-counter.mjs" numbered>
 
 ```javascript
 export default function counter ({ html, state }) {
