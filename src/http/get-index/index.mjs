@@ -1,6 +1,11 @@
 import arc from '@architect/functions'
 import html from './html.mjs'
-import arcOauth from 'arc-plugin-oauth'
-const auth = arcOauth.auth
 
-export const handler = arc.http.async(auth, html)
+export const handler = arc.http.async(docs)
+
+async function docs() {
+  return {
+    statusCode: 301,
+    location: '/docs/'
+  }
+}
