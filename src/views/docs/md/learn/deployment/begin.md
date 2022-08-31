@@ -12,8 +12,6 @@ Install the Begin CLI by opening your terminal and entering the following comman
   - Then follow the printed instructions to add Begin to your `$PATH`.
 - Windows: `iwr https://dl.begin.com/install.ps1 -useb | iex`
 
-> Alternatively, you can install with npm: `npm i -g @begin/cli`.
-
 ### Generate a new project
 
 ```bash
