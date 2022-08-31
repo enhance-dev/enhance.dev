@@ -2,6 +2,12 @@
 title: Quick start
 ---
 
+### Welcome!
+
+Enhance is a web standards-based HTML framework designed to provide a dependable foundation for building lightweight, flexible, and future-proof web applications.
+
+## Get started
+
 To create a project, ensure you have <a href=https://nodejs.org>Node.js 16.x</a> or higher installed, and run:
 
 ```bash
