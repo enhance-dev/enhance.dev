@@ -4,7 +4,7 @@ title: Quick start
 
 ### Welcome!
 
-Enhance is a web standards-based HTML framework designed to provide a dependable foundation for building lightweight, flexible, and future-proof web applications.
+Enhance is a web standards-based HTML framework. It's designed to provide a dependable foundation for building lightweight, flexible, and future-proof web applications. ([Learn more about the Enhance philosophy](/docs/learn/why-enhance).)
 
 ## Get started
 
