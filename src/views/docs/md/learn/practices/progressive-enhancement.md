@@ -2,7 +2,10 @@
 title: Progressive enhancement
 ---
 
-The Enhance ethos is to build your app incrementally from prototype to production. Start with working HTML, break out Custom Elements as the need for reuse arises, create apis that return hard-coded data, add database storage and retrieval to your apis, then layer on user interactions in the browser. Progressively enhancing your application from a working prototype to a production-ready product with the same codebase.
+The Enhance ethos is to build your app incrementally from prototype to production. First, start with working HTML. Next, break out Custom Elements as the need for reuse arises. Develop against your own APIs by returning hard-coded data until you’re ready to invest the time to hook up your database. Once you know what the data returned from your API should look like, add reading and writing from your database—finally, layer on user input interactions and data reactivity in the browser. Progressively enhance your application from a working prototype to a production-ready product with the same codebase.
+
+tl;dr With Enhance projects, you get all you need to ship your web app, and you can work incrementally from a rapid prototype to an actual product.
+
 
 ## Stable foundations
 
@@ -10,11 +13,11 @@ Custom Elements are a stable foundation for progressive enhancement. Knowing you
 
 ## Just what's needed
 
-Progressively enhancing Custom Elements ensures that you only add the JavaScript necessary for your user interactions. There is no need to back every element with JavaScript, just what you need to update based on user interactions and data changes.
+Progressively enhancing Custom Elements backed by SSR ensures that you only add the JavaScript necessary for your user interactions. There is no need to back every element with JavaScript, just what you need to update based on user interactions and data changes.
 
 ## Dependency free
 
-The platform supplies everything you need to enhance a Custom Element progressively; it's all built into the browser. You no longer need to load megabytes of JavaScript to render one button. It is possible to make an entire app with just what ships in the browser.Here is what it would take to progressively enhance a `my-message` element.
+The platform supplies everything you need to enhance a Custom Element progressively; it's all built into the browser. You no longer need to load megabytes of JavaScript to render one button. It is possible to make an entire app with just what ships in the browser. Here is what it would take to progressively enhance a `my-message` element.
 
 Author this HTML
 ```html
@@ -77,7 +80,7 @@ Create this single file component
 export default function MyMessage({ html, state }) {
   const { attrs } = state
   const { message = '' } = attrs
-  
+
   return html`
     <h1>${message}</h1>
     <script type="module" src="/_static/my-message.mjs"></script>

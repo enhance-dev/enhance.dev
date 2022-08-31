@@ -24,14 +24,14 @@ Then author an element with a matching `slot` attribute as a direct descendent.
 <my-layout>
   <header slot="header">
     <h1>
-      Look Ma' I permutated
+      I'm in the header slot
     </h1>
   </header>
 </my-layout>
 ```
 
 ### Unnamed slots
-Unnamed slots are a catchall container that collects **all** child nodes without a `slot` attribute. These make your Custom Elements behave like native browser elements. For instance `<h1>YOLO!</h1>`.
+Unnamed slots are a catchall container that collects **all** child nodes without a `slot` attribute. These make your Custom Elements behave like native browser elements. For instance, imagine your Custom Element having the same slotting behavior as a heading tag `<h1>Axol</h1>`.
 
 ```javascript
 export default function MyButton({ html }) {
@@ -99,7 +99,7 @@ Per the spec slots are only available when using Web Components in conjunction w
 
 ## `as` attribute
 
-One feature Enhance adds to slots is you can add an `as` attribute to specify what type of element you would like Enhance to replace the unused slot with.
+One feature Enhance adds to slots is you can use an `as` attribute to specify what type of element you would like Enhance to replace the unused slot with.
 
 The way to use the `as` attribute is to supply a valid element name.
 
