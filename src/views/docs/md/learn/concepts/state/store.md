@@ -28,7 +28,7 @@ export default function MyElement({ html, state }) {
   const { attrs, store } = state
   const { message='', bookId='' } = attrs
   const { books={} } = store
-  const book = books.bookId
+  const book = books[bookId]
   const bookTitle = book.title || ''
 
   return html`
