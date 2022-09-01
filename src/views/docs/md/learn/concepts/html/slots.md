@@ -31,6 +31,7 @@ Then author an element with a matching `slot` attribute as a direct descendent.
 ```
 
 ### Unnamed slots
+
 Unnamed slots are a catchall container that collects **all** child nodes without a `slot` attribute. These make your Custom Elements behave like native browser elements. For instance, imagine your Custom Element having the same slotting behavior as a heading tag `<h1>Axol</h1>`.
 
 ```javascript
@@ -74,7 +75,7 @@ export default function MyLayout({ html }) {
 Author your contents
 
 ```html
-<main-layout>
+<my-layout>
   <my-header slot="header">
     <h1 class="font-medium">
       Enhanced!
@@ -90,7 +91,7 @@ Author your contents
       Copyright &copy; ${new Date().getFullYear()}
     </p>
   </my-footer>
-</main-layout>
+</my-layout>
 ```
 
 ### Special handling
