@@ -58,7 +58,7 @@ export default function counter ({ html, state }) {
 
 <doc-callout level="tip" mark="🔎">
 
-Note the handy `<pre>` debugger on line 5!
+Note the handy `<pre>` debugger on line 6!
 
 </doc-callout>
 

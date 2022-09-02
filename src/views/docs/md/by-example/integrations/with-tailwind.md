@@ -2,7 +2,7 @@
 title: With tailwindcss
 links:
   - tailwindcss.com: https://tailwindcss.com/
-  - arc-plugin-tailwind: https://github.com/andybee/arc-plugin-tailwindcss
+  - arc-plugin-tailwindcss: https://github.com/andybee/arc-plugin-tailwindcss
   - "@enhance/arc-plugin-styles": https://github.com/enhance-dev/arc-plugin-styles
 docs-pager: false
 ---
@@ -18,7 +18,7 @@ Shout out to [@andybee](https://github.com/andybee) for writing the Arc communit
 ## Install [Arc tailwind plugin](https://github.com/andybee/arc-plugin-tailwindcss)
 
 ```
-npm i -D arc-plugin-tailwind
+npm i -D arc-plugin-tailwindcss
 ```
 
 ## Configuration
@@ -169,7 +169,7 @@ Our project now looks like...
 ├── package.json
 ├── public
 │   ├── enhance-styles.css  # created by enhance-styles
-│   └── tailwind.css        # created by arc-plugin-tailwind
+│   └── tailwind.css        # created by arc-plugin-tailwindcss
 ├── src
 │   └── styles
 │       └── tailwind.css    # tailwind entry
