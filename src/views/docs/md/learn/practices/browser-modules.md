@@ -14,7 +14,7 @@ Under the hood, the Enhance starter project uses the backend framework <a href=h
 
 ```arc
 @bundles
-todo-item './app/elements/todo-item.mjs'
+todo-item 'public/todo-item.mjs'
 store './node_modules/@enhance/store/index.mjs'
 router './node_modules/@enhance/router/index.mjs'
 ```
