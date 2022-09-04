@@ -93,7 +93,7 @@ This style is good for one-liners
 Desired source:
 
 ```html
-<doc-link-callout link="/docs/learn/concepts/apii-routes" mark="🛣">
+<doc-link-callout link="/docs/learn/concepts/api-routes" mark="🛣">
   Read about `api` routes
 </doc-link-callout>
 ```
@@ -102,7 +102,7 @@ Desired source:
 
 With `<slot>`:
 
-<doc-link-callout link="/docs/learn/concepts/apii-routes" mark="🛣">
+<doc-link-callout link="/docs/learn/concepts/api-routes" mark="🛣">
 
 Read about `api` routes
 
@@ -112,7 +112,7 @@ Read about `api` routes
 
 With `text=` attr (.md not rendered in this case):
 
-<doc-link-callout text="Read about `api` routes" link="/docs/learn/concepts/apii-routes" mark="🛣"></doc-link-callout>
+<doc-link-callout text="Read about `api` routes" link="/docs/learn/concepts/api-routes" mark="🛣"></doc-link-callout>
 
 ### Result
 
@@ -120,6 +120,6 @@ It should look like this `<doc-callout>`:
 
 <doc-callout level="none" mark="🛣">
 
-**[Read about `api` routes →](/docs/learn/concepts/apii-routes)**
+**[Read about `api` routes →](/docs/learn/concepts/api-routes)**
 
 </doc-callout>
