@@ -16,6 +16,8 @@ Enhance projects come with basic default head content to get you started.
 The default head content below is the bare minimum and should be the basis for your own customizations.
 
 ```html
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -37,6 +39,8 @@ export default function Head(req={}) {
   const { path } = req
   const title = `My app — ${path}`
   return `
+    <!DOCTYPE html>
+    <html lang="en">
     <head>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
