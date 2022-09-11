@@ -206,7 +206,7 @@ export const other = {
       }, */
       {
         label: 'Discord',
-        url: 'https://discord.gg/J8bUSfKs8W',
+        url: '/discord',
         description:
           'Join our Discord server to chat about development and get help from the community.',
       },

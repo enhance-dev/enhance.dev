@@ -18,6 +18,7 @@ get /waitlist
 post /email/interest/add
 get /email/thank
 
+get /discord
 
 @plugins
 enhance/arc-plugin-styles
