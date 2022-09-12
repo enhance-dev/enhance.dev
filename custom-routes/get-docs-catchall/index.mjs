@@ -5,12 +5,12 @@ import arc from '@architect/functions'
 import enhance from '@enhance/ssr'
 import styleTransform from '@enhance/enhance-style-transform'
 import arcStaticImg from 'markdown-it-arc-static-img'
-import elements from '@architect/views/docs/elements/index.mjs'
+import elements from './docs-data/elements/index.mjs'
 import navDataLoader, {
   unslug,
   other as otherLinks,
-} from '@architect/views/docs/nav-data.mjs'
-import document from '@architect/views/docs/document.mjs'
+} from './docs-data/nav-data.mjs'
+import document from './docs-data/document.mjs'
 import HljsLineWrapper from './hljs-line-wrapper.mjs'
 
 const arcdown = new Arcdown({
@@ -34,10 +34,7 @@ async function http(request) {
     docPath += 'index' // trailing slash == index.md file
   }
 
-  const docURL = new URL(
-    `./node_modules/@architect/views/docs/md/${docPath}.md`,
-    import.meta.url
-  )
+  const docURL = new URL(`./docs-data/md/${docPath}.md`, import.meta.url)
 
   const sidebarData = navDataLoader('docs', activePath)
 

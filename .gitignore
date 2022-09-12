@@ -9,6 +9,7 @@ sam.yaml
 
 static.json
 public/css/styles.css
+public/bundles
 
 .DS_Store
 .vscode
