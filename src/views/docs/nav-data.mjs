@@ -70,7 +70,12 @@ export const data = [
       {
         type: TYPE.category,
         slug: 'practices',
-        items: ['progressive-enhancement', 'browser-modules', 'testing'],
+        items: [
+          'progressive-enhancement',
+          'browser-modules',
+          'testing',
+          { slug: 'types', label: 'Type Definitions' },
+        ],
       },
       // {
       //   type: TYPE.category,
@@ -181,7 +186,6 @@ export const data = [
         label: 'Integrations',
         slug: 'integrations',
         items: [
-          // { slug: 'with-typescript', label: 'With TypeScript' },
           { slug: 'custom-elements-in-md', label: 'Custom Elements in .md' },
           { slug: 'with-tailwind', label: 'With tailwind' },
           { slug: 'with-alpinejs', label: 'With Alpine.js' },
