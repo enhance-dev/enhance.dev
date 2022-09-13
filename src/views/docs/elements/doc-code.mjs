@@ -53,9 +53,9 @@ export default function DocCode({ html }) {
         color: var(--hl-color);
         background-color: var(--hl-highlight-line);
         border: 1px solid var(--hl-symbol);
-        border-radius: 0.25rem;
+        border-radius: 0.2rem;
         padding-inline: 0.2rem;
-        margin-inline: 0.25rem;
+        margin-inline: 0.1rem;
       }
     </style>
 
