@@ -59,7 +59,7 @@ Access your data from the state store
 export default function MyMessage({ html, state={} }) {
   const { store={} } = state
   const { message='' } = store
-  
+
   return html`<p>${message}</p>`
 }
 ```
@@ -72,7 +72,7 @@ Add your `<my-message></my-message>` element to your `app/pages/index.html`
 <my-message></my-message>
 ```
 
-Refresh your local site [http://localhost:3333/](http://localhost:3333/) in your browser to see your message displayed
+Your [local site](http://localhost:3333/) should automatically refresh with your API's message (but if not, it will after a refresh).
 
 ## That's it
 
