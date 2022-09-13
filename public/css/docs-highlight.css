@@ -32,9 +32,9 @@
   --hl-namespace: var(--lt-pink);
 
   /* extra */
-  --hl-highlight-line: var(--lt-highlight);
-  --hl-deletion: #ffd0d0;
-  --hl-addition: #c1ffd7;
+  --hl-highlight-line: #e2ecf5;
+  --hl-deletion: #fddddd;
+  --hl-addition: #d5f9e2;
 }
 
 /* Dark Theme */
@@ -51,9 +51,9 @@
   --hl-symbol: var(--dk-lolly);
   --hl-namespace: var(--dk-pink);
 
-  --hl-highlight-line: var(--dk-highlight);
-  --hl-deletion: #673335;
-  --hl-addition: #2e5139;
+  --hl-highlight-line: #202641;
+  --hl-deletion: #461e1f;
+  --hl-addition: #14301d;
 }
 
 /* Dark Theme: System */
@@ -71,9 +71,9 @@
     --hl-symbol: var(--dk-lolly);
     --hl-namespace: var(--dk-pink);
 
-    --hl-highlight-line: var(--dk-highlight);
-    --hl-deletion: #673335;
-    --hl-addition: #2e5139;
+    --hl-highlight-line: #202641;
+    --hl-deletion: #461e1f;
+    --hl-addition: #14301d;
   }
 }
 
