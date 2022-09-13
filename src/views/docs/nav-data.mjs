@@ -181,6 +181,7 @@ export const data = [
         label: 'Integrations',
         slug: 'integrations',
         items: [
+          // { slug: 'with-typescript', label: 'With TypeScript' },
           { slug: 'custom-elements-in-md', label: 'Custom Elements in .md' },
           { slug: 'with-tailwind', label: 'With tailwind' },
           { slug: 'with-alpinejs', label: 'With Alpine.js' },
