@@ -33,7 +33,7 @@ API routes always return a `response` object:
 | headers      | `object` | Set response headers as key/value pairs
 | session      | `object` | Writes passed object to the session
 
-## Life cycle Tutorial: incrementing a counter
+## Lifecycle tutorial: incrementing a counter
 
 To demonstrate building out dynamic API routes and then progressively enhancing them we'll build an incrementing counter. First rough in the HTML.
 
