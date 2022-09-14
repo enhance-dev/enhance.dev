@@ -90,7 +90,7 @@ This style is good for one-liners
 
 ## `<doc-link-callout>` Test
 
-Desired source:
+### Source
 
 ```html
 <doc-link-callout link="/docs/learn/concepts/api-routes" mark="🛣">
@@ -100,26 +100,8 @@ Desired source:
 
 ### Tests
 
-With `<slot>`:
-
 <doc-link-callout link="/docs/learn/concepts/api-routes" mark="🛣">
 
 Read about `api` routes
 
 </doc-link-callout>
-
----
-
-With `text=` attr (.md not rendered in this case):
-
-<doc-link-callout text="Read about `api` routes" link="/docs/learn/concepts/api-routes" mark="🛣"></doc-link-callout>
-
-### Result
-
-It should look like this `<doc-callout>`:
-
-<doc-callout level="none" mark="🛣">
-
-**[Read about `api` routes →](/docs/learn/concepts/api-routes)**
-
-</doc-callout>

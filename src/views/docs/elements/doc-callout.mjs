@@ -1,8 +1,8 @@
 const LEVELS = ['note', 'tip', 'info', 'caution', 'danger']
 const MARKS = ['📝', '💡', 'ℹ️', '⚠️', '🔥']
-const styles = LEVELS.map(
+const generatedStyles = LEVELS.map(
   (level) => `
-.callout.callout-${level} {
+callout-container.callout-${level} {
   background-color: var(--callout-${level})
 }`
 ).join('\n')
@@ -18,24 +18,30 @@ export default function Callout({ html, state }) {
       :host {
         display: block;
       }
-      .callout {
+
+      callout-container {
         padding: 0.8rem 1rem;
         box-shadow: rgba(0, 0, 0, 0.35) 0px 0px 1px 0px;
         border-radius: 0.333rem;
       }
-      .callout.callout-none {
+      callout-container.callout-none {
         box-shadow: none;
         padding: 0;
       }
-      .callout.callout-thin {
+      callout-container.callout-thin {
         padding: 0.35rem 0.5rem;
       }
-      ${styles}
+
+      callout-mark {
+        background-color: transparent;
+        text-shadow: 0 1px 2px #555;
+      }
+
+      ${generatedStyles}
     </style>
 
-    <div
+    <callout-container
       class="
-        callout
         callout-${level}
         ${thin ? 'callout-thin' : ''}
         flex
@@ -43,11 +49,11 @@ export default function Callout({ html, state }) {
         items-center
       ">
       ${mark.length > 0 && mark !== 'none'
-        ? `<div class="text2 self-start">${mark}</div>`
+        ? `<callout-mark class="text2 self-start">${mark}</callout-mark>`
         : ''}
       <div>
         <slot></slot>
       </div>
-    </div>
+    </callout-container>
   `
 }

@@ -2,9 +2,13 @@
 title: Browser Modules
 ---
 
+<doc-callout level="info" mark="🧺">
+
 Enhance projects let you share modules with the browser via ***"bundles"***.
 Using the built in bundling system serves code via your own domain instead of from a third-party registry.  
 No need to fuss over CORS or external downtime.
+
+</doc-callout>
 
 Under the hood, the Enhance Starter Project uses the [Architect](https://arc.codes) framework.
 Architect projects have a manifest file: `.arc`.  
@@ -17,7 +21,7 @@ The `@bundles` feature combines all of a module's dependencies into a single pay
 
 ### Simple Example
 
-If you have written a bit of JS for your app that has an external dependency, you'll likely want to bundle that program with its dependency.
+If you have written a bit of JS for your app that has an external dependency, you'll likely want to bundle your script with its dependency.
 
 Let's use [Algolia's autocomplete](https://github.com/algolia/autocomplete) as an example.
 
