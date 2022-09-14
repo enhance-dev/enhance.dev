@@ -1,17 +1,13 @@
+/* eslint-disable filenames/match-regex */
 import { readFileSync } from 'fs'
 import { URL } from 'url'
 import { Arcdown } from 'arcdown'
-import arc from '@architect/functions'
-import enhance from '@enhance/ssr'
-import styleTransform from '@enhance/enhance-style-transform'
 import arcStaticImg from 'markdown-it-arc-static-img'
-import elements from './docs-data/elements/index.mjs'
 import navDataLoader, {
   unslug,
   other as otherLinks,
-} from './docs-data/nav-data.mjs'
-import document from './docs-data/document.mjs'
-import HljsLineWrapper from './hljs-line-wrapper.mjs'
+} from '../../docs/nav-data.mjs'
+import HljsLineWrapper from '../../docs/hljs-line-wrapper.mjs'
 
 const arcdown = new Arcdown({
   pluginOverrides: {
@@ -27,14 +23,14 @@ const arcdown = new Arcdown({
   },
 })
 
-async function http(request) {
+export async function get(request) {
   const { path: activePath, pathParameters } = request
-  let docPath = pathParameters?.proxy || 'index'
+  let docPath = pathParameters?.proxy.replace(/^\/?docs\//, '') || 'index'
   if (docPath.endsWith('/')) {
     docPath += 'index' // trailing slash == index.md file
   }
 
-  const docURL = new URL(`./docs-data/md/${docPath}.md`, import.meta.url)
+  const docURL = new URL(`../../docs/md/${docPath}.md`, import.meta.url)
 
   const sidebarData = navDataLoader('docs', activePath)
 
@@ -48,42 +44,30 @@ async function http(request) {
       searchTerm = docPathParts.pop()
       searchTerm = unslug(searchTerm)
     }
-    const html = enhance({
-      elements,
-      initialState: {
-        doc: {
-          title: '404',
-          html: /* html */ `
-            <docs-404
-              path="${docPath}"
-              ${searchTerm ? `term="${searchTerm}"` : ''}>
-            </docs-404>
-          `,
-        },
-        otherLinks,
-        sidebarData,
-        searchTerm,
+    const initialState = {
+      doc: {
+        title: '404',
+        path: docPath,
+        term: searchTerm || '',
       },
-      styleTransforms: [styleTransform],
-    })
-    return { status: 404, html: html`${document('404')}` }
-  }
+      otherLinks,
+      sidebarData,
+      searchTerm,
+    }
 
+    return { status: 404, json: initialState }
+  }
   const doc = await arcdown.render(docMarkdown)
 
   let gitHubLink = 'https://github.com/enhance-dev/enhance.dev/edit/main/src/'
   gitHubLink += `views/docs/md/${docPath}.md`
 
-  const html = enhance({
-    elements,
-    initialState: {
-      doc,
-      gitHubLink,
-      otherLinks,
-      sidebarData,
-    },
-    styleTransforms: [styleTransform],
-  })
+  const initialState = {
+    doc,
+    gitHubLink,
+    otherLinks,
+    sidebarData,
+  }
 
   let cacheControl =
     process.env.ARC_ENV === 'production'
@@ -92,8 +76,6 @@ async function http(request) {
 
   return {
     cacheControl,
-    html: html`${document(doc.title)}`,
+    json: initialState,
   }
 }
-
-export const handler = arc.http.async(http)

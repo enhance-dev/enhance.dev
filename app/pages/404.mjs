@@ -1,6 +1,8 @@
 export default function FourOh4({ html, state }) {
   const {
-    attrs: { path = null, term = null },
+    store: {
+      doc: { path = null, term = null },
+    },
   } = state
 
   return html`
