@@ -11,13 +11,7 @@
     },
     "dependencies": {
         "@architect/functions": "^5.2.1",
-        "@begin/codemirror": "^0.0.3",
-        "@begin/data": "^4.0.0",
-        "@enhance/enhance-style-transform": "0.0.1",
-        "@enhance/import-transform": "^4.0.0",
-        "@enhance/ssr": "^3.0.5",
-        "@enhance/store": "^1.0.0",
-        "arc-plugin-oauth": "^0.0.15",
+        "@enhance/arc-plugin-enhance": "https://github.com/enhance-dev/arc-plugin-enhance/tree/catchall",
         "arcdown": "^2.1.0",
         "markdown-it-arc-static-img": "^2.1.0"
     },

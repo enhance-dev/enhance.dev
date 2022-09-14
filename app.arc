@@ -4,7 +4,7 @@ enhance-dev
 @http
 get /discord
   method get
-  src custom-routes/get-docs-catchall
+  src custom-routes/get-discord
 
 @plugins
 enhance/arc-plugin-enhance
