@@ -29,7 +29,7 @@
     "devDependencies": {
         "@architect/architect": "^10.6.0",
         "@architect/eslint-config": "^2.0.1",
-        "@architect/plugin-bundles": "^3.0.5",
+        "@architect/plugin-bundles": "^3.1.0",
         "@architect/sandbox": "^5.3.4",
         "@enhance/arc-plugin-styles": "^0.0.10",
         "eslint": "^8.23.1",
