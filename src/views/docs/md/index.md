@@ -6,6 +6,17 @@ title: Quick start
 
 Enhance is a web standards-based HTML framework. It's designed to provide a dependable foundation for building lightweight, flexible, and future-proof web applications. ([Learn more about the Enhance philosophy](/docs/learn/why-enhance).)
 
+<div class="relative h-0 overflow-auto" style="padding: var(--video-padding)"
+>
+  <iframe
+    class="absolute top0 left0 w-full h-full video-padding"
+    src="https://www.youtube.com/embed/fC7hJ2kQhQM"
+    title="Enhance Quickstart"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen></iframe>
+</div>
+
 ## Get started
 
 To create a project, ensure you have <a href=https://nodejs.org>Node.js 16.x</a> or higher installed, and run:
