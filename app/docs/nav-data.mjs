@@ -70,7 +70,12 @@ export const data = [
       {
         type: TYPE.category,
         slug: 'practices',
-        items: ['progressive-enhancement', 'browser-modules', 'testing'],
+        items: [
+          'progressive-enhancement',
+          'browser-modules',
+          'testing',
+          { slug: 'types', label: 'Type Definitions' },
+        ],
       },
       // {
       //   type: TYPE.category,
@@ -206,7 +211,7 @@ export const other = {
       }, */
       {
         label: 'Discord',
-        url: 'https://discord.gg/UWauMMtt',
+        url: '/discord',
         description:
           'Join our Discord server to chat about development and get help from the community.',
       },

@@ -40,7 +40,9 @@ Inspect this output
 
 ```html
 <my-header heading="Welcome">
-  <h1>Welcome</h1>
+  <header>
+    <h1>Welcome</h1>
+  </header>
 </my-header>
 
 This is my index page
