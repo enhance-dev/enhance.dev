@@ -4,7 +4,22 @@ title: API Routes
 
 Enhance API routes are backend JSON routes designed for seamless clientside progressive enhancement. API routes are defined under `app/api` and follow the same file based routing conventions as `app/pages`. JSON response values from API routes are automatically passed to corresponding page routes.
 
-API routes are designed to handle requests made for `text/html`, or `application/json` from a single HTTP request handler.
+API routes are designed to handle requests made for `text/html`, or `application/json` from a single HTTP request handler. API routes by default should always export `get` and `post` handlers for working with HTML forms. API routes can also optionally export handlers for `put`, `patch`, and `destroy` for use with clientside JavaScript fetch.
+
+## Example
+
+This is an example of a `get` request handler for the index API route.
+
+<doc-code filename="api/index.mjs">
+
+```javascript
+export async function get (req) {
+  return {
+    json: ['coffee crisp', 'smarties']
+  }
+}
+```
+</doc-code>
 
 ## Request
 
@@ -32,6 +47,31 @@ API routes always return a `response` object:
 | cacheControl | `string` | Set the `cache-control` header
 | headers      | `object` | Set response headers as key/value pairs
 | session      | `object` | Writes passed object to the session
+
+## Middleware
+
+API routes have a lightweight middleware concept. Export an array of async function handlers, and they will be run in the order you define. 
+
+```javascript
+export let get = [one, two]
+
+async function one (req) {
+  console.log('hi from one')
+  req.first = true
+}
+
+async function one (req) {
+  console.log('hi from two')
+  let second = false
+  return { json: [req.first, second] }
+}
+```
+
+<doc-callout level="tip" mark="🎩">
+
+Protip: Early exit middleware by returning a response.
+
+</doc-callout>
 
 ## Lifecycle tutorial: incrementing a counter
 
