@@ -8,6 +8,12 @@ enhance/arc-plugin-enhance
 filename css/styles.css
 config css-config.json
 
+@tables
+data
+  scopeID *String
+  dataID **String
+  ttl TTL
+
 @aws
 runtime nodejs16.x
 architecture arm64
