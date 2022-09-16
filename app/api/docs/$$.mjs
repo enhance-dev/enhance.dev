@@ -23,9 +23,10 @@ const arcdown = new Arcdown({
   },
 })
 
+/** @type {import('@enhance/types').EnhanceApiFn} */
 export async function get(request) {
-  const { path: activePath, pathParameters } = request
-  let docPath = pathParameters?.proxy.replace(/^\/?docs\//, '') || 'index'
+  const { path: activePath } = request
+  let docPath = activePath.replace(/^\/?docs\//, '') || 'index'
   if (docPath.endsWith('/')) {
     docPath += 'index' // trailing slash == index.md file
   }
@@ -37,7 +38,7 @@ export async function get(request) {
   let docMarkdown
   try {
     docMarkdown = readFileSync(docURL.pathname, 'utf-8')
-  } catch (error) {
+  } catch (_err) {
     let searchTerm = null
     if (!docPath.endsWith('/index')) {
       const docPathParts = docPath.split('/')
@@ -55,7 +56,7 @@ export async function get(request) {
       searchTerm,
     }
 
-    return { status: 404, json: initialState }
+    return { statusCode: 404, json: initialState }
   }
   const doc = await arcdown.render(docMarkdown)
 
