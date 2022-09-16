@@ -1,17 +1,18 @@
 @app
 enhance-dev
 
-@http
-/discord 
-  method get
-  src custom-routes/get-discord
-
 @plugins
 enhance/arc-plugin-enhance
 
 @enhance-styles
 filename css/styles.css
 config css-config.json
+
+@tables
+data
+  scopeID *String
+  dataID **String
+  ttl TTL
 
 @aws
 runtime nodejs16.x
