@@ -1,6 +1,8 @@
 import arc from '@architect/functions'
 
-export default function Head(title = 'Enhance') {
+/** @type {import('@enhance/types').EnhanceHeadFn} */
+export default function Head() {
+  const title = 'Enhance docs'
   return `
 <!DOCTYPE html>
 <head>
@@ -18,9 +20,9 @@ export default function Head(title = 'Enhance') {
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="${arc.static('/css/styles.css')}"/>
-  <link rel="stylesheet" href="${arc.static('css/docs-colors.css')}" />
-  <link rel="stylesheet" href="${arc.static('css/docs-highlight.css')}" />
-  <link rel="stylesheet" href="${arc.static('css/algolia-styles.css')}" />
+  <link rel="stylesheet" href="${arc.static('/css/docs-colors.css')}" />
+  <link rel="stylesheet" href="${arc.static('/css/docs-highlight.css')}" />
+  <link rel="stylesheet" href="${arc.static('/css/algolia-styles.css')}" />
   <title>${title}</title>
 </head>
 `

@@ -1,4 +1,6 @@
 /* eslint-disable filenames/match-regex */
+
+/** @type {import('@enhance/types').EnhanceElemFn} */
 export default function ({ html }) {
   return html`
     <style scope="global">
