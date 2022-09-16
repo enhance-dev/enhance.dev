@@ -30,7 +30,7 @@ function CommunityLinks(links) {
 
 export default function DocOutline({ html, state }) {
   const {
-    store: { doc, gitHubLink, otherLinks },
+    store: { doc, otherLinks },
   } = state
 
   return html`

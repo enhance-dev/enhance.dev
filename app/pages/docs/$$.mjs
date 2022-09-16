@@ -1,6 +1,7 @@
 /* eslint-disable filenames/match-regex */
 export default function ({ html }) {
-  return html` <style scope="global">
+  return html`
+    <style scope="global">
       @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Rubik:wght@200;300;400;500;600;700&display=swap');
 
       /* Colors */
@@ -29,6 +30,7 @@ export default function ({ html }) {
         background-color: var(--grey-greyer);
       }
     </style>
+
     <docs-symbols></docs-symbols>
     <docs-layout></docs-layout>
 
@@ -42,5 +44,6 @@ export default function ({ html }) {
       }
       gtag('js', new Date())
       gtag('config', 'G-FQHNPN78V3')
-    </script>`
+    </script>
+  `
 }
