@@ -1,15 +1,14 @@
 export default function FourOh4({ html, state }) {
-  const {
-    store: {
-      doc: { path = null, term = null },
-    },
-  } = state
+  const term = state.store?.doc?.term
 
   return html`
     <style>
       button {
         color: var(--white-denim);
         background-color: var(--purple-princess);
+      }
+      a {
+        color: var(--purple-princess);
       }
     </style>
 
@@ -126,8 +125,6 @@ export default function FourOh4({ html, state }) {
       }
     </style>
 
-    <h2 class="mb1 text1">Unable to find "${path}"</h2>
-
     <header
       class="
         mb5
@@ -164,7 +161,7 @@ export default function FourOh4({ html, state }) {
           m-none-lg
         ">
         <h1 class="tracking-1">Not Found - 404</h1>
-        <h2>We couldn't to find anything at "/${path}"</h2>
+        <h2>Sorry we can't find that.</h2>
       </div>
       <section
         class="
@@ -174,7 +171,7 @@ export default function FourOh4({ html, state }) {
           p1
           p3-lg
         ">
-        <h1
+        <p
           class="
           mb2
           text2
@@ -182,12 +179,15 @@ export default function FourOh4({ html, state }) {
           text-center
           font-light
         ">
-          Do you want to search?
-        </h1>
+          ${term
+            ? 'Do you want to search?'
+            : '<p>Do you want to see the <a href=/docs/>Docs</a>?'}
+        </p>
         ${term
           ? `<button class="radius-2 pt-2 pr1 pb-2 pl1 font-semibold">
           Search for "${term}"
-        </button>`
+        </button>
+        `
           : ''}
       </section>
       <cherub-mascot
