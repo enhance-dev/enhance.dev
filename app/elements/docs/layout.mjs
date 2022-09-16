@@ -95,7 +95,7 @@ export default function DocsLayout({ html, state }) {
       </article>
     </doc-content>
 
-    <doc-outline id="outline" class="pt1-lg overflow-y-auto-lg">
+    <docs-outline id="outline" class="pt1-lg overflow-y-auto-lg">
       ${doc.tocHtml?.indexOf('<li>') > 0
         ? /* html */ `
       <div slot="toc">
@@ -103,7 +103,7 @@ export default function DocsLayout({ html, state }) {
         ${doc.tocHtml}
       </div>`
         : ''}
-    </doc-outline>
+    </docs-outline>
 
     <script type="module">
       class Layout extends HTMLElement {
