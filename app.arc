@@ -2,7 +2,7 @@
 enhance-dev
 
 @http
-get /discord
+/discord 
   method get
   src custom-routes/get-discord
 
