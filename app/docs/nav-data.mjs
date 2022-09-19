@@ -40,6 +40,7 @@ export const data = [
           'elements',
           { slug: 'api', label: 'API' },
           'head',
+          '404-errors',
         ],
       },
       {
