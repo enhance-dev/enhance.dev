@@ -8,30 +8,27 @@ export default function DocVideo({ html, state }) {
       :host {
         display: block;
         width: 100%;
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-          Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
       }
       .video-placeholder {
         display: block;
-        min-height: 400px; /* need a 16:9 responsive element */
+        width: 100%100%;
+        min-height: 200px;
+        aspect-ratio: 16 / 9;
         background-color: var(--grey-greyer);
       }
+
       mux-player {
         display: none;
       }
 
-      p {
-        margin-top: 0.5rem;
+      cite {
+        display: block;
+        width: 100%;
+        margin-top: 0.25rem;
         text-align: right;
-        color: var(--grey-greyer);
-      }
-      p a {
-        font-family: 'Menlo', monospace;
-        display: inline-flex;
-      }
-      p a img {
-        display: inline-block;
-        height: 1.1rem;
+        color: var(--inky-lily);
+        font-style: normal;
+        font-size: 0.9rem;
       }
     </style>
 
@@ -42,14 +39,12 @@ export default function DocVideo({ html, state }) {
       playback-id="${playbackId}"
       metadata-video-title="${title}"></mux-player>
 
-    <p>
+    <cite>
       Powered by
       <a target="_blank" href="https://docs.mux.com/guides/video/mux-player">
-        <span>&lt;</span>
-        <img src="/_static/img/mux.png" />
-        <span>-player&gt;</span>
+        &lt;mux-player&gt;
       </a>
-    </p>
+    </cite>
 
     <script type="module" src="/_static/bundles/mux-player.mjs"></script>
 

@@ -8,7 +8,8 @@ Enhance is a web standards-based HTML framework. It's designed to provide a depe
 
 ## Video Walkthrough
 
-<doc-video playback-id="ADl6wSlpxTpJKym2OhPd2TQsB64nW01x5dygkSEAfNdU"></doc-video>
+<doc-video playback-id="ADl6wSlpxTpJKym2OhPd2TQsB64nW01x5dygkSEAfNdU" title="Enhance Quick Start">
+</doc-video>
 
 ## Get started
 
