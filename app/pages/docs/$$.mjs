@@ -2,7 +2,6 @@
 
 /** @type {import('@enhance/types').EnhanceElemFn} */
 export default function ({ html, state }) {
-  console.log(state)
   return html`
     <style scope="global">
       @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Rubik:wght@200;300;400;500;600;700&display=swap');
