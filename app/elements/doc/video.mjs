@@ -11,7 +11,7 @@ export default function DocVideo({ html, state }) {
       }
       .video-placeholder {
         display: block;
-        width: 100%100%;
+        width: 100%;
         min-height: 200px;
         aspect-ratio: 16 / 9;
         background-color: var(--grey-greyer);
