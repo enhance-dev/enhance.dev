@@ -38,9 +38,6 @@
   "properties": [
     {
       "bg-gradient": "linear-gradient(125deg, var(--orange), var(--magenta), var(--purple))"
-    },
-    {
-      "video-padding": "65.25% 0 0 30px"
     }
   ],
   "queries": {

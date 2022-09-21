@@ -8,6 +8,9 @@ enhance/arc-plugin-enhance
 filename css/styles.css
 config css-config.json
 
+@bundles
+mux-player 'node_modules/@mux/mux-player'
+
 @aws
 runtime nodejs16.x
 architecture arm64
