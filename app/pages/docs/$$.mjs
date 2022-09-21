@@ -1,7 +1,7 @@
 /* eslint-disable filenames/match-regex */
 
 /** @type {import('@enhance/types').EnhanceElemFn} */
-export default function ({ html }) {
+export default function ({ html, state }) {
   return html`
     <style scope="global">
       @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Rubik:wght@200;300;400;500;600;700&display=swap');
@@ -35,17 +35,6 @@ export default function ({ html }) {
 
     <docs-symbols></docs-symbols>
     <docs-layout></docs-layout>
-
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-FQHNPN78V3"></script>
-    <script>
-      window.dataLayer = window.dataLayer || []
-      function gtag() {
-        dataLayer.push(arguments)
-      }
-      gtag('js', new Date())
-      gtag('config', 'G-FQHNPN78V3')
-    </script>
+    <google-analytics code="${ state.store.gacode }"></google-analytics>
   `
 }
