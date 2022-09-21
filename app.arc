@@ -1,6 +1,9 @@
 @app
 enhance-dev-new
 
+@static
+fingerprint true
+
 @plugins
 enhance/arc-plugin-enhance
 
