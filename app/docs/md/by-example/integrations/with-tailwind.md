@@ -88,6 +88,8 @@ Enhance provides a simple `<head>` element without configuration, but to include
 ```javascript
 export default function Head() {
   return `
+  <!DOCTYPE html>
+  <html lang="en">
     <head>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
