@@ -35,6 +35,6 @@ export default function ({ html, state }) {
 
     <docs-symbols></docs-symbols>
     <docs-layout></docs-layout>
-    <google-analytics code="${ state.store.gacode }"></google-analytics>
+    <google-analytics code="${state.store.gacode}"></google-analytics>
   `
 }

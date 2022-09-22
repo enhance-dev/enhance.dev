@@ -31,7 +31,8 @@ export async function get(request) {
     docPath += 'index' // trailing slash == index.md file
   }
 
-  const gacode = process.env.ARC_ENV === 'production'? 'G-FQHNPN78V3' : 'G-0ES194BJQ6'
+  const gacode =
+    process.env.ARC_ENV === 'production' ? 'G-FQHNPN78V3' : 'G-0ES194BJQ6'
 
   const docURL = new URL(`../../docs/md/${docPath}.md`, import.meta.url)
 
@@ -56,7 +57,7 @@ export async function get(request) {
       otherLinks,
       sidebarData,
       searchTerm,
-      gacode
+      gacode,
     }
 
     return { statusCode: 404, json: initialState }
@@ -71,7 +72,7 @@ export async function get(request) {
     gitHubLink,
     otherLinks,
     sidebarData,
-    gacode
+    gacode,
   }
 
   let cacheControl =
