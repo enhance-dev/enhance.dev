@@ -76,7 +76,7 @@ export const data = [
           'browser-modules',
           'testing',
           { slug: 'types', label: 'Type Definitions' },
-          { slug: 'env-vars', label: 'Environemnt Variables' },
+          { slug: 'env-vars', label: 'Environment Variables' },
         ],
       },
       // {
