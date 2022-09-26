@@ -44,7 +44,9 @@ export default function DocVideo({ html, state }) {
 
     <cite>
       Powered by
-      <a target="_blank" href="https://docs.mux.com/guides/video/mux-player">
+      <a
+        target="_blank"
+        href="https://www.mux.com/player?utm_source=enhance-docs">
         &lt;mux-player&gt;
       </a>
     </cite>
