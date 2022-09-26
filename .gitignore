@@ -1,0 +1,16 @@
+node_modules
+
+.arc-env
+.env
+preferences.arc
+prefs.arc
+sam.json
+sam.yaml
+
+static.json
+public/css/styles.css
+public/bundles
+
+.DS_Store
+.vscode
+*-lock.yaml
