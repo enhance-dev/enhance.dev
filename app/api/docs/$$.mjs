@@ -64,8 +64,8 @@ export async function get(request) {
   }
   const doc = await arcdown.render(docMarkdown)
 
-  let gitHubLink = 'https://github.com/enhance-dev/enhance.dev/edit/main/src/'
-  gitHubLink += `views/docs/md/${docPath}.md`
+  let gitHubLink = 'https://github.com/enhance-dev/enhance.dev/edit/main/'
+  gitHubLink += `app/docs/md/${docPath}.md`
 
   const initialState = {
     doc,
