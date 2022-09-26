@@ -1,7 +1,10 @@
+import arc from '@architect/functions'
+
 export default function DocVideo({ html, state }) {
   const { attrs } = state
   const playbackId = attrs['playback-id']
   const title = attrs.title || 'Enhance Video'
+  const scriptTag = arc.static('/bundles/mux-player.mjs')
 
   return html`
     <style>
@@ -46,7 +49,7 @@ export default function DocVideo({ html, state }) {
       </a>
     </cite>
 
-    <script type="module" src="/_static/bundles/mux-player.mjs"></script>
+    <script type="module" src="${scriptTag}"></script>
 
     <script type="module">
       class DocVideo extends HTMLElement {
