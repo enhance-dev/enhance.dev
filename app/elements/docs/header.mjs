@@ -171,8 +171,8 @@ export default function DocsHeader({ html, state }) {
       <docs-nav></docs-nav>
     </nav>
 
-    <script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
-    <script type="text/javascript">
+    <script type="module">
+      import docsearch from '${arc.static('/bundles/docsearch-js.mjs')}'
       docsearch({
         appId: '1QR8CXPN0C',
         apiKey: '781b7bc665ad54b682ab4a31a5ccb55e',

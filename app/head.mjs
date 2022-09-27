@@ -22,7 +22,7 @@ export default function Head() {
   <link rel="stylesheet" href="${arc.static('/css/styles.css')}"/>
   <link rel="stylesheet" href="${arc.static('/css/docs-colors.css')}" />
   <link rel="stylesheet" href="${arc.static('/css/docs-highlight.css')}" />
-  <link rel="stylesheet" href="${arc.static('/css/algolia-styles.css')}" />
+  <link rel="stylesheet" href="${arc.static('/bundles/docsearch-css.css')}" />
   <title>${title}</title>
 </head>
 `

@@ -11,6 +11,7 @@
     },
     "dependencies": {
         "@architect/functions": "^5.2.2",
+        "@docsearch/js": "^3.2.1",
         "@enhance/arc-plugin-enhance": "^1.0.37",
         "@mux/mux-player": "^1.0.0-beta.0",
         "arcdown": "^2.1.0",

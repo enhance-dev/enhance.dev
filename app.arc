@@ -13,6 +13,8 @@ config css-config.json
 
 @bundles
 mux-player 'node_modules/@mux/mux-player'
+docsearch-js 'node_modules/@docsearch/js'
+docsearch-css 'node_modules/@docsearch/css/dist/style.css'
 
 @aws
 runtime nodejs16.x
