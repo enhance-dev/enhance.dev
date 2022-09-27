@@ -59,11 +59,11 @@ export default function DocVideo({ html, state }) {
           super()
           this.placeholder = this.querySelector('.video-placeholder')
           this.player = this.querySelector('mux-player')
+        }
 
-          this.player.addEventListener('canplay', () => {
-            this.placeholder.style.display = 'none'
-            this.player.style.display = 'block'
-          })
+        connectedCallback() {
+          this.placeholder.style.display = 'none'
+          this.player.style.display = 'block'
         }
       }
 
