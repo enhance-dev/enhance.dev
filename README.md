@@ -1,6 +1,6 @@
 # Enhance.dev Website
 
-Powered by HTML ([Enhance](https://enhance.dev)), cloud functions ([Architect](https://arc.codes)), and Markdown ([Arcdown](https://github.coms/architect/arcdown)).
+Powered by HTML ([Enhance](https://enhance.dev)), cloud functions ([Architect](https://arc.codes)), and Markdown ([Arcdown](https://github.com/architect/arcdown)).
 
 ## Writing docs
 
