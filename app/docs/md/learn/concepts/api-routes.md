@@ -60,7 +60,7 @@ async function one (req) {
   req.first = true
 }
 
-async function one (req) {
+async function two (req) {
   console.log('hi from two')
   let second = false
   return { json: [req.first, second] }
