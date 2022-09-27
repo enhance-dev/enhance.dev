@@ -76,6 +76,7 @@ export default function Head(state) {
 You are not limited to using Custom Elements when rendering your document server-side. You can define a template for pre-defined HTML tags as follows:
 
 <doc-code filename="/app/templates/twitter-meta.mjs">
+
 ```javascript
 export default function TwitterMeta(state) {
   const { title, description, image, card } = state
@@ -87,11 +88,13 @@ export default function TwitterMeta(state) {
   `
 }
 ```
+
 </doc-code>
 
 
-<doc-code filename="/app/head.mjs">
 You can then use this meta content template in your `head.mjs` like so:
+
+<doc-code filename="/app/head.mjs">
 
 ```javascript
 import TwitterMeta from './templates/twitter-meta.mjs'
