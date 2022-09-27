@@ -19,7 +19,7 @@ Pages are written in HTML and can be composed of many dynamic custom elements. P
 
 ## Dynamic if need be
 
-Elements added to a page will be passed  state, but if you decide that you absolutely need to handle state in your page then you have the ability to turn it into a single file component as well.
+Pages can also be written as single file components. The difference is that it allows your page to handle state, but you should not need to do this as your Elements will be passed state. Keeping pages as html cuts down on unnecessary complexity, so we do not recommend this. State handling is a Custom Element concern.
 
 <doc-callout level="none" mark="🙌">
 
