@@ -6,6 +6,8 @@ A few charts illustrating the lifecycle of an HTTP request/response through an a
 
 ## Simplest version
 
+![Overall Enhance flowchart](img/charts/simple-themed.png)
+
 ![Overall Enhance flowchart](img/charts/simple.png)
 
 ## The Request Journey
