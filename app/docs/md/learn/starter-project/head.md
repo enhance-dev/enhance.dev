@@ -43,9 +43,6 @@ Since the `html` function passed to Elements is used to expand Custom Elements, 
 - error: An error message if an error has occurred so you can message your site's users
 - status: A status code to enable you to do the correct handling
 
-
-Your `/app/head.mjs` accepts a `req` object as it's single argument
-
 ```javascript
 export default function Head(state) {
   const { store, status, req, error } = state
