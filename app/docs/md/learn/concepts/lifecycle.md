@@ -8,7 +8,8 @@ The journey of an HTTP request through Enhance isn't complicated, but it's helpf
 
 </doc-callout>
 
-<svg viewBox="0 0 631 256"><use xlink:href="#enhance-diagram"></use></svg>
+<doc-enhance-diagram class="block mb2">
+</doc-enhance-diagram>
 
 ## Routing
 
