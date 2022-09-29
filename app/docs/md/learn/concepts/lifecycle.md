@@ -13,10 +13,11 @@ The journey of an HTTP request through Enhance isn't complicated, but it's helpf
 
 ## Routing
 
-When an HTTP request (GET, POST, etc.) arrives, Enhance decides how to route it. First checking for [a matching API function](/docs/learn/starter-project/api) and then [a Page](/docs/learn/starter-project/pages).
+When an HTTP request (GET, POST, etc.) is initiated by the browser, Enhance decides how to route it.
+First checking for [a matching API function](/docs/learn/starter-project/api) and then [a Page](/docs/learn/starter-project/pages).
 
 ```
-my-rad-app.net/login --> app/api/login.mjs --> /app/pages/login.html
+my-rad-app.net/login --> app/api/login.mjs --> app/pages/login.html
 ```
 
 ### Error Handling
@@ -29,11 +30,12 @@ When a requested route has a matching [`app/api/` file](/docs/learn/starter-proj
 
 ### Return JSON
 
-If there is an API function, but no matching Page or the request's headers includes `Accept: application/json`, the result of the API function will be returned directly to the client as JSON with the correct headers.
+If there is an API function, but no matching Page **or** the request's headers includes `Accept: application/json`, the result of the API function will be returned directly to the client as JSON with the correct headers.
 
 <doc-callout level="tip" mark="🤖">
 
-This is a great way to add JSON API endpoints to your Enhance app! Even if those endpoints have an associated Page.
+This is a great way to add JSON API endpoints to your Enhance app!
+Even if those endpoints have an associated Page: requests that set `Accept: application/json` will get plain JSON without a Page render.
 
 </doc-callout>
 
@@ -42,7 +44,7 @@ This is a great way to add JSON API endpoints to your Enhance app! Even if those
 Regardless of a matching API function, the matching [Page](/docs/learn/starter-project/pages) will be used.
 
 ```
-my-rad-app.net/contact --> /app/pages/contact.html
+my-rad-app.net/contact --> app/pages/contact.[html|mjs]
 ```
 
 ### Custom Elements
@@ -77,6 +79,8 @@ To create the best starting point for the browser, in the fastest way possible, 
 
 ## Not Covered Here
 
-This lifecycle description demonstrates the real-time journey of a request through Enhance as it is being executed.
+This lifecycle description demonstrates the real-time journey of a request through Enhance's web server.  
+It does not include static asset resolution (from `public/` via `_static/`), which has a separate lifecycle for even faster responses for non-dynamic content.
+<!-- TODO: create a "Public" doc under "Starter Project" with a diagram and link here 👆 -->
 
-The core development process is not pictured here: [styles configuration](/docs/learn/concepts/styling/utility-classes#customize), the baked-in [`@bundles` feature](/docs/learn/practices/browser-modules), or deployment.
+Also, the core development process is not pictured here: [styles configuration](/docs/learn/concepts/styling/utility-classes#customize), the baked-in [`@bundles` feature](/docs/learn/practices/browser-modules), or deployment.
