@@ -68,4 +68,4 @@ This component can now be used from any HTML page in your Enhance application.
 
 </doc-code>
   
-![alpine.js collapse example animation](img/gifs/example-alpinejs-collapse.gif)
+![alpine.js collapse example animation](img/gif/example-alpinejs-collapse.gif)
