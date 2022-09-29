@@ -18,7 +18,7 @@ The `.env` file will contain key/value pairs representing the environment variab
 
 <doc-code filename=".env">
 
-```.env
+```
 API_KEY=xxx
 DOMAIN_NAME=https://enhance.dev
 ```

@@ -47,7 +47,7 @@ export const data = [
         type: TYPE.category,
         slug: 'concepts',
         items: [
-          { slug: 'single-file-components' },
+          'single-file-components',
           {
             slug: 'html',
             label: 'html',
@@ -66,6 +66,7 @@ export const data = [
             items: ['utility-classes', 'element-styles'],
           },
           { slug: 'api-routes', label: 'API Routes' },
+          'lifecycle',
         ],
       },
       {
@@ -79,27 +80,29 @@ export const data = [
           { slug: 'env-vars', label: 'Environment Variables' },
         ],
       },
-      // {
-      //   type: TYPE.category,
-      //   slug: 'features',
-      //   items: [
-      //     {
-      //       label: 'Transforms',
-      //       slug: 'transforms',
-      //       path: '/docs/learn/features/transforms/',
-      //       items: [
-      //         {
-      //           label: 'Script Transforms',
-      //           slug: 'script-transforms',
-      //         },
-      //         {
-      //           label: 'Style Transforms',
-      //           slug: 'style-transforms',
-      //         },
-      //       ],
-      //     },
-      //   ],
-      // },
+      /*
+      {
+        type: TYPE.category,
+        slug: 'features',
+        items: [
+          {
+            label: 'Transforms',
+            slug: 'transforms',
+            path: '/docs/learn/features/transforms/',
+            items: [
+              {
+                label: 'Script Transforms',
+                slug: 'script-transforms',
+              },
+              {
+                label: 'Style Transforms',
+                slug: 'style-transforms',
+              },
+            ],
+          },
+        ],
+      },
+      */
       {
         type: TYPE.category,
         slug: 'deployment',
@@ -175,13 +178,7 @@ export const data = [
         type: TYPE.category,
         label: 'Examples',
         slug: 'examples',
-        items: [
-          {
-            slug: 'standalone-enhance',
-            // items: ['initial-state', 'add-transforms'],
-          },
-          'browser-testing',
-        ],
+        items: ['standalone-enhance', 'browser-testing'],
       },
       {
         type: TYPE.category,
