@@ -4,20 +4,20 @@ export default function DocVideo({ html, state }) {
   const { attrs } = state
   const playbackId = attrs['playback-id']
   const title = attrs.title || 'Enhance Video'
-  const scriptTag = arc.static('/bundles/mux-player.mjs')
 
   return html`
     <style>
       :host {
         display: block;
+        position: relative;
         width: 100%;
+        padding-bottom: 1.25rem;
+        /* overall <doc-video> aspect ratio, reduce layout shift */
+        aspect-ratio: 5 / 3;
       }
-      .video-placeholder {
+      video.placeholder {
         display: block;
         width: 100%;
-        min-height: 200px;
-        aspect-ratio: 16 / 9;
-        background-color: var(--grey-greyer);
       }
 
       mux-player {
@@ -25,17 +25,19 @@ export default function DocVideo({ html, state }) {
       }
 
       cite {
-        display: block;
-        width: 100%;
-        margin-top: 0.25rem;
-        text-align: right;
+        position: absolute;
+        bottom: 0;
+        right: 0;
         color: var(--inky-lily);
         font-style: normal;
         font-size: 0.9rem;
       }
     </style>
 
-    <div class="video-placeholder"></div>
+    <video
+      class="placeholder"
+      src="https://stream.mux.com/${playbackId}/medium.mp4"
+      controls></video>
 
     <mux-player
       stream-type="on-demand"
@@ -51,18 +53,20 @@ export default function DocVideo({ html, state }) {
       </a>
     </cite>
 
-    <script type="module" src="${scriptTag}"></script>
+    <script
+      type="module"
+      src="${arc.static('/bundles/mux-player.mjs')}"></script>
 
     <script type="module">
       class DocVideo extends HTMLElement {
         constructor() {
           super()
-          this.placeholder = this.querySelector('.video-placeholder')
+          this.video = this.querySelector('video.placeholder')
           this.player = this.querySelector('mux-player')
         }
 
         connectedCallback() {
-          this.placeholder.style.display = 'none'
+          this.video.remove()
           this.player.style.display = 'block'
         }
       }
