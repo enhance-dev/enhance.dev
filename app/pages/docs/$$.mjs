@@ -31,6 +31,11 @@ export default function ({ html, state }) {
         border-radius: 8px;
         background-color: var(--grey-greyer);
       }
+
+      doc-video {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+      }
     </style>
 
     <docs-symbols></docs-symbols>
