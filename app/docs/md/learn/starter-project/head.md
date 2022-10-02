@@ -2,7 +2,7 @@
 title: Head
 ---
 
-The `<head>` tag is a very important point of customization for your app. You are going to want to add things like a custom title favicons, social open graph meta etc.
+The `<head>` tag is a very important point of customization for your app. You are going to want to add things like a custom title, favicons, social open graph meta, etc.
 
 However, the `<head>` tag *is not a Custom Element*. Furthermore it cannot contain Custom Elements. There are only a subset of existing pre-defined HTML tags that can be included in the `<head>` tag.
 
