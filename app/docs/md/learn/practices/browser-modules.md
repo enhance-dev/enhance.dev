@@ -19,7 +19,7 @@ Set the **name** and **path** under the `@bundles` setting (called "pragmas").
 
 The `@bundles` feature combines all of a module's dependencies into a single payload and makes it available to the browser from `/_static/bundles/your-bundle.mjs`.
 
-### Simple Example
+### Basic Example
 
 If you have written a bit of JS for your app that has an external dependency, you'll likely want to bundle your script with its dependency.
 
