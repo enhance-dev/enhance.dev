@@ -78,7 +78,7 @@ export const data = [
           'testing',
           { slug: 'types', label: 'Type Definitions' },
           { slug: 'env-vars', label: 'Environment Variables' },
-          { slug: 'architect-migration', label: 'Migrating to/from Architect' },
+          { slug: 'architect-migration', label: 'Atchitect Migration' },
         ],
       },
       /*
