@@ -1,6 +1,6 @@
 # Enhance.dev Website
 
-Powered by HTML ([Enhance](https://enhance.dev)), cloud functions ([Architect](https://arc.codes)), and Markdown ([Arcdown](https://github.com/architect/arcdown)).
+Powered by HTML + cloud functions ([Enhance](https://enhance.dev) and [Architect](https://arc.codes)) and Markdown ([Arcdown](https://github.com/architect/arcdown)).
 
 ## Writing docs
 
@@ -23,10 +23,9 @@ Currently redirects to Enhance documentation at "/docs/".
 
 ### Docs engine
 
-The main "/docs/*" HTTP function is `src/http/get-docs-catchall/index.mjs`.  
-(`src/http/get-docs/` redirects "/docs" to "/docs/")
+The main "/docs/*" route lives in `app/api/docs/$$.mjs`.
 
-This function uses the path (accounting for trailing slashes) to look up a .md document and render it to HTML with Arcdown. This HTML is combined with `nav-data` and then handed to `enhance-ssr` to render the full view.
+This route uses the path (accounting for trailing slashes) to look up a .md document and render it to HTML with Arcdown. This document HTML is combined with `nav-data` and passed as state to Enhance to render the full view.
 
 ### Tutorial
 
