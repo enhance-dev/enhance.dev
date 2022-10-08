@@ -23,6 +23,16 @@ VS Code devs may need to disable the [Babel JavaScript extension](https://market
 - [vim-javascript](https://github.com/pangloss/vim-javascript.git)
 - [vim-html-template-literals](https://github.com/jonsmithers/vim-html-template-literals.git)
 
+## Neovim
+
+- [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
+
+<doc-callout level="info">
+
+You will need to install Treesitter’s [HTML](https://github.com/tree-sitter/tree-sitter-html), [CSS](https://github.com/tree-sitter/tree-sitter-css), and [Javascript](https://github.com/tree-sitter/tree-sitter-javascript) language parsers.
+
+</doc-callout>
+
 ## Sublime Text
 
 - [kireerik/refo](https://github.com/kireerik/refo/tree/master/example#sublime-text )
