@@ -181,7 +181,7 @@ export default function FourOh4({ html, state }) {
         ">
           ${term
             ? 'Do you want to search?'
-            : '<p>Do you want to see the <a href=/docs/>Docs</a>?'}
+            : 'Do you want to see the <a href=/docs/>Docs</a>?'}
         </p>
         ${term
           ? `<button class="radius-2 pt-2 pr1 pb-2 pl1 font-semibold">
