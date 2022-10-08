@@ -12,16 +12,16 @@
   "dependencies": {
     "@architect/functions": "^5.2.2",
     "@docsearch/js": "^3.2.1",
-    "@enhance/arc-plugin-enhance": "^2.0.2",
-    "@mux/mux-player": "^1.0.0-beta.0",
+    "@enhance/arc-plugin-enhance": "^2.0.3",
+    "@mux/mux-player": "^1.1.1",
     "arcdown": "^2.1.0",
     "markdown-it-arc-static-img": "^2.1.0"
   },
   "devDependencies": {
-    "@architect/architect": "^10.6.0",
+    "@architect/architect": "^10.7.0",
     "@architect/eslint-config": "^2.0.1",
     "@enhance/types": "^0.4.0",
-    "eslint": "^8.24.0",
+    "eslint": "^8.25.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
     "prettier": "^2.7.1",
