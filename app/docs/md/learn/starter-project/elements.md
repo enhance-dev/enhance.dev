@@ -4,11 +4,21 @@ title: Elements
 
 Elements are the reusable building blocks of your Enhance application. They are [pure functions](https://en.wikipedia.org/wiki/Pure_function) authored as single file components and can be static or update dynamically to state changes. Elements live in the `app/elements/` folder in the Enhance starter project.
 
+## Naming
+
 The file name of your element will be the tag name you author with. Meaning `app/elements/my-message.mjs` will be authored as `<my-message></my-message>` in your HTML page.
 
 ```
 app/elements/my-message → <my-message></my-message>
 app/elements/my-link → <my-link></my-link>
+```
+
+When a project grows to include more elements than can comfortably fit in a single folder, they can be divided into sub-directories inside `app/elements/`.
+The folder name becomes part of the custom element tag name:
+
+```
+app/elements/blog/comment → <blog-comment></blog-comment>
+app/elements/blog/comment-form → <blog-comment-form></blog-comment-form>
 ```
 
 <doc-callout level="none" mark="📄">
