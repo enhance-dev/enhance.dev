@@ -29,8 +29,8 @@ This route uses the path (accounting for trailing slashes) to look up a .md docu
 
 ### Tutorial
 
-WIP `src/http/get-tutorial-catchall/`
+WIP
 
 ### Playground
 
-WIP `src/http/get-playground/`
+WIP
