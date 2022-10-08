@@ -46,6 +46,7 @@ export default function MyParagraph({ html }) {
         min-width: 2rem;
       }
     </style>
+
     <p class="font-serif p1 mb-1">
       <slot></slot>
     </p>

@@ -17,7 +17,7 @@ When an HTTP request (GET, POST, etc.) is initiated by the browser, Enhance deci
 First checking for [a matching API function](/docs/learn/starter-project/api) and then [a Page](/docs/learn/starter-project/pages).
 
 ```
-my-rad-app.net/login --> app/api/login.mjs --> app/pages/login.html
+my-rad-app.net/login → app/api/login.mjs → app/pages/login.html
 ```
 
 ### Error Handling
@@ -44,7 +44,7 @@ Even if those endpoints have an associated Page: requests that set `Accept: appl
 Regardless of a matching API function, the matching [Page](/docs/learn/starter-project/pages) will be used.
 
 ```
-my-rad-app.net/contact --> app/pages/contact.[html|mjs]
+my-rad-app.net/contact → app/pages/contact.[html|mjs]
 ```
 
 ### Custom Elements

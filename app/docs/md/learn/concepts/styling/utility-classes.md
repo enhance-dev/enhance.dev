@@ -1,5 +1,8 @@
 ---
 title: Utility classes
+links:
+  - enhance-styles: https://github.com/enhance-dev/enhance-styles#readme
+  - Sample styleguide.json: https://raw.githubusercontent.com/enhance-dev/enhance-styles/main/config.json
 ---
 
 Utility classes are an optimal way to apply general styling. They remove large amounts of duplication from your stylesheets and lend visual harmony to your app.
@@ -10,7 +13,7 @@ As a basis of styleguides utility classes are unparalleled in providing a usable
 
 ## Ready to go
 
-Enhance comes preconfigured with a [customizable utility class system](https://github.com/enhance-dev/enhance-styles). During development you can use the stylesheet found in `public/styles.css`. For production you can inline this stylesheet into the head of your document since utility class stylesheets tend to be tiny — around ~30k on disk and 9k over the wire.
+Enhance comes preconfigured with a [customizable utility class system](https://github.com/enhance-dev/enhance-styles#readme). During development you can use the stylesheet found in `public/styles.css`. For production you can inline this stylesheet into the head of your document since utility class stylesheets tend to be tiny — around ~30k on disk and 9k over the wire.
 
 ## Usage
 
@@ -29,10 +32,18 @@ export default function MyParagraph({ html }) {
 ## Customize
 
 It is possible to completely customize your project's utility classes. To do so you will need to do two things:
-- Add a `styleguide.json` file to the root of your project
-  - [ 📄 You can copy this one to get started →](https://raw.githubusercontent.com/enhance-dev/enhance-styles/main/config.json)
-- Edit your project's `.arc` file to tell it where to grab the config
 
+### 1. JSON config file
+
+Add a `styleguide.json` file to the root of your project
+
+<doc-link-callout link="https://raw.githubusercontent.com/enhance-dev/enhance-styles/main/config.json" mark="📄">
+  Copy this one to get started
+</doc-link-callout>
+
+### 2. Update `.arc`
+
+Edit your project's `.arc` file to tell it where to grab the config. 
 Add these lines at the bottom of your `.arc` file in the root of your project.
 
 ```arc
@@ -40,8 +51,6 @@ Add these lines at the bottom of your `.arc` file in the root of your project.
 config styleguide.json
 ```
 
-<doc-callout level="none" mark="💅🏽">
-
-**[Read more about the available styleguide customizations →](https://github.com/enhance-dev/enhance-styles)**
-
-</doc-callout>
+<doc-link-callout link="https://github.com/enhance-dev/enhance-styles#readme" mark="💅🏽">
+  Read more about the available styleguide customizations
+</doc-link-callout>

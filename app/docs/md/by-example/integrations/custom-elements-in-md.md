@@ -52,10 +52,10 @@ Hey, that's pretty neat!
 
 ### 3. Render order matters
 
-It is probably best to render HTML from Markdown and then render the final HTML with Enhance.
+It is probably best to render HTML from Markdown and then render the final HTML with Enhance:
 
 ```
-.md --[markdown-it]--> HTML --[Enhance]--> browser
+.md → [markdown-it] → HTML → [Enhance] → browser
 ```
 
 Passing Enhance-rendered HTML with included HTML to a Markdown parser is likely to create invalid HTML documents, if any at all.

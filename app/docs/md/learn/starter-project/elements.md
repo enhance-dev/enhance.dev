@@ -25,7 +25,7 @@ Your element function will be passed an arguments object containing an `html` re
 export default function MyHeader({ html }) {
   return html`
     <header>
-      <my-link href='/about'></my-link>
+      <my-link href="/about"></my-link>
     </header>
   `
 }
@@ -46,7 +46,7 @@ export default function MyHeader({ html, state={} }) {
       <h1>
         ${heading}
       </h1>
-      <my-link href='${href}'></my-link>
+      <my-link href="${href}"></my-link>
     </header>
   `
 }

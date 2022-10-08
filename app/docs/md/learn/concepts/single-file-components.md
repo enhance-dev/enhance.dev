@@ -25,9 +25,8 @@ Define a [pure function](https://en.wikipedia.org/wiki/Pure_function) that retur
 export default function HelloWorld({ html, state }) {
   const { attrs } = state
   const { greeting='Hello World' } = attrs
-  return html`
-    <h1>${greeting}</h1>
-  `
+
+  return html`<h1>${greeting}</h1>`
 }
 
 ```
@@ -47,6 +46,7 @@ export default function HelloWorld({ html, state }) {
         color: #222;
       }
     </style>
+
     <h1>${greeting}</h1>
   `
 }
@@ -54,8 +54,11 @@ export default function HelloWorld({ html, state }) {
 ```
 Any valid css will work.
 
-> Skip ahead to [Style Transforms](/docs/learn/features/transforms/style-transforms) to see how it works. You can also use pseudo selectors like `:host` and `:slotted`
+<doc-callout level="info" thin>
 
+Skip ahead to [Style Transforms](/docs/learn/features/transforms/style-transforms) to learn about how it works and pseudo selectors like `:host` and `::slotted()`.
+
+</doc-callout>
 
 ## Script
 

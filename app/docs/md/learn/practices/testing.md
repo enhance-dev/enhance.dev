@@ -16,7 +16,7 @@ function Head() {
   `
 }
 
-const strip = str => str.replace(/\r?\n|\r|\s\s+/g, '')
+function strip(str) => str.replace(/\r?\n|\r|\s\s+/g, '')
 
 test('expand template', t => {
   const html = enhance({

@@ -10,13 +10,13 @@ If there is a relevant error message it is added as an attribute passed to the s
 
 ```javascript
 export default function FourOhFour({ html, state }) {
-  const error = state.attr?.error
+  const { error } = state.attrs
 
   return html`
     <main>
-        <h1>Not Found - 404</h1>
-        <h2>Sorry we can't find that.</h2>
-        <p>${error && error}</p>
+      <h1>Not Found - 404</h1>
+      <h2>Sorry we can't find that.</h2>
+      <p>${error && error}</p>
     </main>
   `
 }

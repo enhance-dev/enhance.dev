@@ -32,6 +32,7 @@ Create this single file component
 export default function MyMessage({ html, state }) {
   const { attrs } = state
   const { message = '' } = attrs
+
   return html`
     <h1>${message}</h1>
 
@@ -65,7 +66,7 @@ export default function MyMessage({ html, state }) {
 
 With scoped DOM queries and low level DOM apis you can perform optimal surgical updates to your element.
 
-<small>†You would need to add template support to this class if you wanted to add `<my-message>` tags to your page with JavaScript in the browser at runtime. [See this version →](https://gist.github.com/kristoferjoseph/dd5d22018a0f7feedd4ee18f25a040a8)</small>
+<small>† You would need to add template support to this class if you wanted to add `<my-message>` tags to your page with JavaScript in the browser at runtime. [See this version →](https://gist.github.com/kristoferjoseph/dd5d22018a0f7feedd4ee18f25a040a8)</small>
 
 ## Externalize scripts
 
@@ -118,4 +119,5 @@ enhance(
 ```
 
 ## Many choices
-Starting with working HTML doesn't limit how you add user interactions to your front-end. You could progressively enhance your elements in many ways. Working with the platform gives you many paths to success.
+
+Starting with HTML doesn't limit how you add user interactions to your front-end. You can progressively enhance your elements in many ways. Working with the platform gives you many paths to success.

@@ -58,7 +58,10 @@ begin generate scaffold Cat name:string birthday:date email:email
 
 <doc-callout level="caution" mark="🛠️">
 
-The new version of Begin is under active development and not yet generally available. Account registration and `deploy` features will not work. In the meantime, you can still use the `begin` CLI `dev` Sandbox and generators.  
+The new version of Begin is under active development and not yet generally available.
+Account registration and `deploy` features will not work.
+In the meantime, you can still use the `begin` CLI, `dev` Sandbox, and generators.
+
 Sign up for early access at [Begin.com](https://begin.com).
 
 </doc-callout>

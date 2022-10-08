@@ -29,7 +29,7 @@ DOMAIN_NAME=https://enhance.dev
 
 API Routes are a Node.js process; `process.env` lists all environment variables.
 
-<doc-code filename="app/api/debug.mjs" highlight=2 callout=4-env>
+<doc-code filename="app/api/debug.mjs" highlight="2-add" callout="4-env">
 
 ```javascript
 export async function get () {
@@ -46,7 +46,7 @@ export async function get () {
 
 Display the values passed from the API Route.
 
-<doc-code filename="app/pages/debug.mjs" highlight=2>
+<doc-code filename="app/pages/debug.mjs" highlight="2-add">
 
 ```javascript
 export default async function debug ({ html, state }) {

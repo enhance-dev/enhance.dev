@@ -26,8 +26,8 @@ One powerful technique is to use your element's attributes as keys to access com
 ```javascript
 export default function MyElement({ html, state }) {
   const { attrs, store } = state
-  const { message='', bookId='' } = attrs
-  const { books={} } = store
+  const { message = '', bookId = '' } = attrs
+  const { books = {} } = store
   const book = books[bookId]
   const bookTitle = book.title || ''
 

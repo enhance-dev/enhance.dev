@@ -23,9 +23,7 @@ Then author an element with a matching `slot` attribute as a direct descendent.
 ```html
 <my-layout>
   <header slot="header">
-    <h1>
-      I'm in the header slot
-    </h1>
+    <h1>I'm in the header slot</h1>
   </header>
 </my-layout>
 ```
@@ -63,10 +61,13 @@ export default function MyLayout({ html }) {
         top: 0;
       }
     </style>
+
     <slot name="header"></slot>
+
     <main>
       <slot></slot>
     </main>
+
     <slot name="footer"></slot>
   `
 }

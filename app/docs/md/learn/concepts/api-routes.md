@@ -15,7 +15,9 @@ This is an example of a `get` request handler for the index API route.
 ```javascript
 export async function get (req) {
   return {
-    json: ['coffee crisp', 'smarties']
+    json: {
+      favorties: ['coffee crisp', 'smarties']
+    }
   }
 }
 ```
@@ -62,14 +64,15 @@ async function one (req) {
 
 async function two (req) {
   console.log('hi from two')
-  let second = false
+  const second = false
+  
   return { json: [req.first, second] }
 }
 ```
 
 <doc-callout level="tip" mark="🎩">
 
-Protip: Early exit middleware by returning a response.
+Protip: Exit middleware early by `return`ing a response.
 
 </doc-callout>
 
@@ -117,7 +120,8 @@ And add the new custom element to `app/pages/index.html`:
 
 ```javascript
 export async function get (req) {
-  let count = req.session.count || 0
+  const count = req.session.count || 0
+
   return {
     json: { count }
   }
@@ -131,8 +135,9 @@ export async function get (req) {
 
 ```javascript
 export async function post (req) {
-  let count = req.session.count || 0
+  let  count = req.session.count || 0
   count += 1
+  
   return {
     session: { count },
     location: '/'
@@ -151,12 +156,13 @@ The form functions even when client JS isn't available. This is the moment where
 
 1. Add a JSON result to `app/api/count.mjs`
 
-<doc-code highlight=6 filename="app/api/count.mjs" numbered>
+<doc-code highlight="7-add" filename="app/api/count.mjs" numbered>
 
 ```javascript
 export async function post (req) {
-  let count = req.session.count || 0
+  const count = req.session.count || 0
   count += 1
+  
   return {
     session: { count },
     json: { count },
@@ -174,7 +180,6 @@ Create a completely vanilla JS upgrade for the custom element:
 
 ```javascript
 export class Counter extends HTMLElement {
-
   constructor () {
     super()
     this.form = this.querySelector('form')
@@ -184,13 +189,14 @@ export class Counter extends HTMLElement {
 
   async addOne (e) {
     e.preventDefault()
-    let res = await fetch('/count', {
-      headers: {
-        'accept': 'application/json'
-      },
+    
+    const res = await fetch('/count', {
+      headers: { 'accept': 'application/json' },
       method: 'post'
     })
-    let json = await res.json()
+    
+    const json = await res.json()
+    
     this.pre.innerHTML = JSON.stringify(json, null, 2)
   }
 }
@@ -201,13 +207,13 @@ customElements.define('form-counter', Counter)
 
 <doc-callout level="info" mark="🍦">
 
-Any framework or library could be used but this example is to show those are optional; the nice thing about working with the low level code is there are no dependencies and this will work in all browsers forevermore
+Any framework or library could be used but this example is to show those are optional; the nice thing about working with the low level code is there are no dependencies and this will work in all browsers forevermore.
 
 </doc-callout>
 
 Add the client script to the custom element, and reload to see the enhanced version.
 
-<doc-code highlight=7 filename="app/elements/form-counter.mjs" numbered>
+<doc-code highlight="7-add" filename="app/elements/form-counter.mjs" numbered>
 
 ```javascript
 export default function counter ({ html, state }) {

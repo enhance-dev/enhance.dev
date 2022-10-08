@@ -35,7 +35,7 @@ A typical handler for this route looks like the following. By convention it is l
 <doc-code filename="src/http/get-notes/index.mjs">
 
 ```javascript
-//Architect route handler
+// Architect route handler
 import arc from '@architect/functions'
 import enhance from '@enhance/enhance-ssr'
 import notesPage from './notes-page.mjs'
@@ -45,11 +45,13 @@ async function notes(req) {
   const html = enhance({
     initialState:data,
     elements:{'notes-page':notesPage}
-    })
+  })
+
   return {
     html: html`<notes-page>${data.note}</notes-page>`
   }
 }
+
 export const handler = arc.http.async(notes)
 ```
 </doc-code>
@@ -162,7 +164,8 @@ get /books
 - If you remove all @http routes before adding the enhance plugin the app DNS address will be released and DNS setting will need to be updated.
 - Begin data is included in the Enhance plugin. It may cause problems and potential data loss if the enhance plugin is added to an app that is already using begin data. Backup all data to avoid critical data loss.
 
-## Which is better
+## Which is better?
+
 There are reasons to chose either. There is no need to convert or transition a working app from one to the other. Both approaches will be maintained and updated moving forward. That being said many developers will likely find it extremely fast and convenient to start a greenfield project with Enhances file based routing.
 
 If you have an existing app that you want to use Enhances SSR with it you can add the enhance-ssr package inside any route handler.
