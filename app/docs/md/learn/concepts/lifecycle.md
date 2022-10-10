@@ -32,7 +32,7 @@ When a requested route has a matching [`app/api/` file](/docs/learn/starter-proj
 
 If there is an API function, but no matching Page **or** the request's headers includes `Accept: application/json`, the result of the API function will be returned directly to the client as JSON with the correct headers.
 
-<doc-callout level="tip" mark="🤖">
+<doc-callout level="tip" mark="{...}">
 
 This is a great way to add JSON API endpoints to your Enhance app!
 Even if those endpoints have an associated Page: requests that set `Accept: application/json` will get plain JSON without a Page render.

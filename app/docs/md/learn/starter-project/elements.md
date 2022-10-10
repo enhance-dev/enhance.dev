@@ -46,9 +46,9 @@ Your element function is also passed a `state` object in the arguments object.
 This `state` object is comprised of `attrs`; an object of key value pairs representing the attributes added to your custom element tag and `store`; an object containing application state.
 
 ```javascript
-export default function MyHeader({ html, state={} }) {
-  const { attrs={}, store={} } = state
-  const { heading='Default' } = attrs
+export default function MyHeader({ html, state }) {
+  const { attrs, store } = state
+  const { heading = 'Default' } = attrs
   const href = store.aboutPath
   
   return html`

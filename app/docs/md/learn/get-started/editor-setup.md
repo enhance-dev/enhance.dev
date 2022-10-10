@@ -35,4 +35,4 @@ You will need to install Treesitter’s [HTML](https://github.com/tree-sitter/tr
 
 ## Sublime Text
 
-- [kireerik/refo](https://github.com/kireerik/refo/tree/master/example#sublime-text )
+Add the "[Ecmascript Syntax](https://github.com/bathos/Ecmascript-Sublime/)" package via Package Control
