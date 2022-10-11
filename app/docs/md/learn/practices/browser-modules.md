@@ -17,7 +17,7 @@ Set the **name** and **path** under the `@bundles` setting (called "pragmas").
 
 ## Bundle Project Browser Code
 
-The `@bundles` feature combines all of a module's dependencies into a single payload and makes it available to the browser from `/_static/bundles/your-bundle.mjs`.
+The `@bundles` feature combines all of a module's dependencies into a single payload and makes it available to the browser from `/_public/bundles/your-bundle.mjs`.
 
 ### Basic Example
 
@@ -47,10 +47,10 @@ Assuming this file is located at `/utils/autocomplete.mjs`, update your `.arc` f
 autocomplete '/utils/autocomplete.mjs'
 ```
 
-The bundled asset will now be available at `/_static/bundles/autocomplete.mjs` and can be imported or referenced in a script tag.
+The bundled asset will now be available at `/_public/bundles/autocomplete.mjs` and can be imported or referenced in a script tag.
 
 ```html
-<script type="module" src="/_static/bundles/autocomplete.mjs">
+<script type="module" src="/_public/bundles/autocomplete.mjs">
 ```
 
 ### Multi-file Source to Single Bundle
@@ -90,7 +90,7 @@ todos '/components/index.mjs'
 These classes can now be imported as needed.
 
 ```javascript
-import { TodoList, TodoItem } from '/_static/bundles/todos.mjs'
+import { TodoList, TodoItem } from '/_public/bundles/todos.mjs'
 ```
 
 
@@ -120,10 +120,10 @@ The name "wc-toast" can be anything you'd like, but we prefer to stick as close 
 
 </doc-callout>
 
-Now, we're able to import bundle, or a named export in this case, from the `/_static/bundles/` endpoint:
+Now, we're able to import bundle, or a named export in this case, from the `/_public/bundles/` endpoint:
 
 ```javascript
-import { toast } from '/_static/bundles/wc-toast.mjs'
+import { toast } from '/_public/bundles/wc-toast.mjs'
 ```
 
 ## TypeScript Web Components
@@ -172,9 +172,9 @@ todo-item /components/todo-item.ts
 Now it can be imported from your custom element or with a script tag:
 
 ```javascript
-import TodoItem from '/_static/bundles/todo-item.mjs'
+import TodoItem from '/_public/bundles/todo-item.mjs'
 ```
 
 ```html
-<script type="module" src="/_static/bundles/todo-item.mjs">
+<script type="module" src="/_public/bundles/todo-item.mjs">
 ```

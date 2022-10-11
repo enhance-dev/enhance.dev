@@ -26,7 +26,7 @@ Wouldnâ€™t it be nice if you could author components like HTML pages? Well thatâ
 
 ### tip
 
-Add functionality to your component by adding a `<script>` tag. You can either author JavaScript directly in this script tag or link to an external source. The `/public` folder in Enhance projects is preconfigured to serve files from `/_static`.
+Add functionality to your component by adding a `<script>` tag. You can either author JavaScript directly in this script tag or link to an external source. The `/public` folder in Enhance projects is preconfigured to serve files from `/_public`.
 
 </doc-callout>
 

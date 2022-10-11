@@ -99,7 +99,7 @@ export default function Head(request) {
     <head>
       <meta charset="utf-8">
       <title>${title}</title>
-      <link rel="stylesheet" href="/_static/styles.css">
+      <link rel="stylesheet" href="/_public/styles.css">
     </head>
   `
 }

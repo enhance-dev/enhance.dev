@@ -17,7 +17,7 @@ const html = enhance({
   scriptTransforms: [
     importTransform({
       lookup: arc.static,
-      workers: [{ label: '__API_WORKER__', path: '/_static/worker.mjs' }]
+      workers: [{ label: '__API_WORKER__', path: '/_public/worker.mjs' }]
     })
   ]
 })

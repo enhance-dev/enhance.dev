@@ -64,10 +64,10 @@ Skip ahead to [Style Transforms](/docs/learn/features/transforms/style-transform
 
 Add functionality to your component by adding a `<script>` tag.
 You can either author JavaScript directly in this script tag or link to an external source.
-The `/public` folder in Enhance projects is preconfigured to serve files from `/_static`.
+The `/public` folder in Enhance projects is preconfigured to serve files from `/_public`.
 
 ```html
-<script src="/_static/my-script.mjs"></script>
+<script src="/_public/my-script.mjs"></script>
 ```
 
 ## That's it

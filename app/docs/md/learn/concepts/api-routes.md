@@ -222,7 +222,7 @@ export default function counter ({ html, state }) {
       <button>+1</button>
     </form>
     <pre>${JSON.stringify(state, null, 2)}</pre>
-    <script type=module src=/_static/form-counter.mjs></script>
+    <script type=module src=/_public/form-counter.mjs></script>
   `
 }
 ```

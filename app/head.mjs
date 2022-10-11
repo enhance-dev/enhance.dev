@@ -3,7 +3,7 @@ import arc from '@architect/functions'
 /** @type {import('@enhance/types').EnhanceHeadFn} */
 export default function Head() {
   const title = 'Enhance docs'
-  return `
+  return /* html */ `
 <!DOCTYPE html>
 <head>
   <meta charset="UTF-8">
