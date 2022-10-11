@@ -45,7 +45,7 @@ Given the structure above, your application can include assets from the `/_publi
 
 ## Automatic "fingerprinting"
 
-<doc-callout level="info">
+<doc-callout level="info" mark="🧬">
 
 File "fingerprinting" is giving static files a unique filename based on that file's contents.
 Typically this uses a computational hash of that file's content as part of the name.  
@@ -65,6 +65,23 @@ The purpose of fingerprinting static files is to provide long cache times to cli
 New file contents == new file name.
 This way clients know to keep their downloaded copy of a file and re-use it on subsequent requests.
 When the content of that file changes, the references to that file change, and the browser downloads and caches the new asset.
+
+### Configuration
+
+Static asset fingerprinting can be controlled in your project's `.arc` file:
+
+```arc
+@static
+  fingerprint true # or false
+```
+
+If the setting is not present, fingerprinting is disabled. However, all new Enhance projects created with `npm init @enhance` automatically get the above configuration.
+
+<doc-callout mark="💁" level="none">
+
+Regardless of `fingerprint` configuration, the `/_public/` route is the most reliable approach to referencing files.
+
+</doc-callout>
 
 ## Combining with `@bundles`
 
