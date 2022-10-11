@@ -72,10 +72,11 @@ Static asset fingerprinting can be controlled in your project's `.arc` file:
 
 ```arc
 @static
-  fingerprint true # or false
+fingerprint true # or false
 ```
 
-If the setting is not present, fingerprinting is disabled. However, all new Enhance projects created with `npm init @enhance` automatically get the above configuration.
+If the setting is not present, fingerprinting is disabled.
+However, all new Enhance projects created with `npm create @enhance` automatically get the above configuration.
 
 <doc-callout mark="💁" level="none">
 
