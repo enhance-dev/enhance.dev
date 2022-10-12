@@ -80,7 +80,7 @@ To create the best starting point for the browser, in the fastest way possible, 
 ## Not Covered Here
 
 This lifecycle description demonstrates the real-time journey of a request through Enhance's web server.  
-It does not include static asset resolution (from `public/` via `_static/`), which has a separate lifecycle for even faster responses for non-dynamic content.
+It does not include static asset resolution (from `public/` via `_public/`), which has a separate lifecycle for even faster responses for non-dynamic content.
 <!-- TODO: create a "Public" doc under "Starter Project" with a diagram and link here 👆 -->
 
 Also, the core development process is not pictured here: [styles configuration](/docs/learn/concepts/styling/utility-classes#customize), the baked-in [`@bundles` feature](/docs/learn/practices/browser-modules), or deployment.

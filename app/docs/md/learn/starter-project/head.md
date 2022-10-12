@@ -26,8 +26,8 @@ The default head content below is the bare minimum and should be the basis for y
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title></title>
-  <link rel="stylesheet" href="/_static/styles.css">
-  <link rel="icon" href="/_static/favicon.svg">
+  <link rel="stylesheet" href="/_public/styles.css">
+  <link rel="icon" href="/_public/favicon.svg">
 </head>
 ```
 
@@ -55,8 +55,8 @@ export default function Head(state) {
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <title>${title}</title>
-      <link rel="stylesheet" href="/_static/styles.css">
-      <link rel="icon" href="/_static/favicon.svg">
+      <link rel="stylesheet" href="/_public/styles.css">
+      <link rel="icon" href="/_public/favicon.svg">
     </head>
   `
 }
@@ -107,8 +107,8 @@ export default function Head(state) {
       <meta name="viewport" content="width=device-width, initial-scale=1">
       ${TwitterMeta(store)}
       <title>${title}</title>
-      <link rel="stylesheet" href="/_static/styles.css">
-      <link rel="icon" href="/_static/favicon.svg">
+      <link rel="stylesheet" href="/_public/styles.css">
+      <link rel="icon" href="/_public/favicon.svg">
     </head>
   `
 }

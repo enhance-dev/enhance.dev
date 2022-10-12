@@ -85,7 +85,7 @@ export default function MyMessage({ html, state }) {
 
   return html`
     <h1>${message}</h1>
-    <script type="module" src="/_static/my-message.mjs"></script>
+    <script type="module" src="/_public/my-message.mjs"></script>
   `
 }
 ```

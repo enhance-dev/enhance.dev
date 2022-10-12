@@ -94,8 +94,8 @@ export default function Head() {
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <title>My Enhance Project</title>
-      <link rel="stylesheet" href="/_static/tailwind.css">
-      <link rel="icon" href="/_static/favicon.svg">
+      <link rel="stylesheet" href="/_public/tailwind.css">
+      <link rel="icon" href="/_public/favicon.svg">
     </head>
   `
 }
