@@ -11,5 +11,5 @@ Most of the videos don't actually work -- it's here to test the series feature i
   <doc-video-prev playback-id="foobarbaz" name="Video pt -1"></doc-video-next>
   <doc-video-prev playback-id="fizzbuzz" name="Video pt 0"></doc-video-next>
   <doc-video-next playback-id="uEucxWZZUxE9BAa02DH00w8C6d89viqBYd4nHU02NFFi7c" name="Video pt 2"></doc-video-next>
-  <doc-video-next playback-id="uEucxWZZUxE9BAa02DH00w8C6d89viqBYd4nHU02NFFi7c" name="Video pt 3"></doc-video-next>
+  <doc-video-next playback-id="ZqjJbownz016Af48YXjrCE02uqdtdGm8HSUulTNAjZyNg" name="Video pt 3"></doc-video-next>
 </doc-video>

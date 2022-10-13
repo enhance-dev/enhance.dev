@@ -192,6 +192,7 @@ export const data = [
           { slug: 'with-alpinejs', label: 'With Alpine.js' },
         ],
       },
+      'videos',
     ],
   },
 ]
