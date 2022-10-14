@@ -160,7 +160,7 @@ The form functions even when client JS isn't available. This is the moment where
 
 ```javascript
 export async function post (req) {
-  const count = req.session.count || 0
+  let count = req.session.count || 0
   count += 1
   
   return {
