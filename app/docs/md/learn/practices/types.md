@@ -51,9 +51,9 @@ export default function TodoItem({
 
 ### API Handler
 
-In this case, we'll mark this "Todos" [API GET handler](/docs/learn/starter-project/api) as the type `EnhanceApiFn` and gain hinting for the `request` and `response` objects:
+In this case, mark this "Todos" [API GET handler](/docs/learn/starter-project/api) as the type `EnhanceApiFn` and gain hinting for the `request` and `response` objects:
 
-<doc-code filename="app/api/todos.mjs" highlight="1-add" callout="2-request, 14-response">
+<doc-code filename="app/api/todos.mjs" highlight="1-add" callout="2-request,14-response">
 
 ```javascript
 /** @type {import('@enhance/types').EnhanceApiFn} */
@@ -89,8 +89,8 @@ Your app's [Head function](/docs/learn/starter-project/head) can also be typed w
 
 ```javascript
 /** @type {import('@enhance/types').EnhanceHeadFn} */
-export default function Head(request) {
-  const { path } = request
+export default function Head({ store, status, req, error }) {
+  const { path } = req
   const title = `Todos — ${path}`
   
   return `

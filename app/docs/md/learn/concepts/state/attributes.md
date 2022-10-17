@@ -15,8 +15,8 @@ Enhance passes your Custom Elements attributes as an object of key value pairs t
 ## Access `attrs`
 
 ```javascript
-export default function MyMessage({ html, state={} }) {
-  const { attrs = {} } = state
+export default function MyMessage({ html, state }) {
+  const { attrs } = state
   const { message = '' } = attrs
 
   return html`<p>${message}</p>`
@@ -46,8 +46,8 @@ Test setting the `disabled` attribute in your browser.
 ### Booleans handled correctly
 
 ```javascript
-export default function MyButton({ html, state={} }) {
-  const { attrs = {} } = state
+export default function MyButton({ html, state }) {
+  const { attrs } = state
   const disabled = Object.keys(attrs).includes('disabled')
     ? 'disabled'
     : ''

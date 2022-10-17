@@ -56,8 +56,8 @@ app
 Access your data from the state store
 
 ```javascript
-export default function MyMessage({ html, state={} }) {
-  const { store={} } = state
+export default function MyMessage({ html, state }) {
+  const { store } = state
   const { message='' } = store
 
   return html`<p>${message}</p>`

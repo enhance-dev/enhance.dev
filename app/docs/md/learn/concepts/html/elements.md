@@ -19,7 +19,7 @@ Write this single file component
 
 ```javascript
 export default function MyHeader({ html, state }) {
-  const { attrs={} } = state
+  const { attrs } = state
   const heading = attrs?.heading || 'Default'
   return html`
     <header>

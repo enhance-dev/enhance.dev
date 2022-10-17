@@ -64,7 +64,7 @@ Enhance uses the filename and folder location to match the handler to the route.
 
 ```javascript
 export default function get(req) {
-  const data = {note: "A note"}
+  const data = { note: "A note" }
 
   return {
     json: data
@@ -78,8 +78,8 @@ The final step of rendering the view is split into the `/app/pages` folder. Thes
 <doc-code filename="app/pages/notes.mjs">
 
 ```javascript
-export default function Notes({ html, state={} }) {
-  const { store={} } = state
+export default function Notes({ html, state }) {
+  const { store } = state
   const { note='' } = store
 
   return html`<notes-page>${note}</notes-page>`

@@ -11,8 +11,8 @@ Every Enhance element [pure function](https://en.wikipedia.org/wiki/Pure_functio
 ```javascript
 export default function MyElement({ html, state }) {
   const { attrs, store } = state
-  const { message='', bookId='' } = attrs
-  const { books={} } = store
+  const { message = '', bookId = '' } = attrs
+  const { books = {} } = store
   const book = books.bookId
   const bookTitle = book.title || ''
 
