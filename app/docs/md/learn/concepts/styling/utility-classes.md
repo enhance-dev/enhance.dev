@@ -19,8 +19,8 @@ During development you can use classes found in `public/styles.css`.
 
 <doc-callout level="caution">
 
-It is not recommended to change `public/styles.css`.
-Changes will be automatically overwritten in development and when deploying.
+Do not change `public/styles.css`.
+Changes will be clobbered in development and when deploying as Enhance Styles rebuilds utility classes based on your configuration.
 
 </doc-callout>
 
