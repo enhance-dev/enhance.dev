@@ -168,6 +168,7 @@ Navigating to `/fruits` will show an empty list. Create an API route to populate
 
 ```javascript
 export async function get (req) {
+  const fruits = ["apples", "mangos", "pears"]
   return {
     json: { fruits }
   }
