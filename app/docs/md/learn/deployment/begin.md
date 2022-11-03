@@ -15,7 +15,7 @@ Install the Begin CLI by opening your terminal and entering the following comman
 ### Generate a new project
 
 ```bash
-begin new project --path ./my-enhance-project
+begin new project my-enhance-project
 ```
 
 ### Preview in your browser
@@ -28,21 +28,21 @@ begin dev
 ### Add a new HTML page
 
 ```bash
-begin new page --path hello/world
+begin generate page --path hello/world
 ```
 > Creates app/pages/hello/world.html
 
 ### Add a dynamic page
 
 ```bash
-begin new page --path boom --type js
+begin generate page --path boom --type js
 ```
 > Creates app/pages/boom.mjs
 
 ### Back that page with an API route
 
 ```bash
-begin new api --path boom
+begin generate api --path boom
 ```
 > Creates app/api/boom.mjs
 
