@@ -15,7 +15,7 @@ Install the Begin CLI by opening your terminal and entering the following comman
 ### Generate a new project
 
 ```bash
-begin new project my-enhance-project
+begin new my-enhance-project
 ```
 
 ### Preview in your browser
