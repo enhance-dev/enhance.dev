@@ -66,8 +66,16 @@ export const data = [
             path: '/docs/learn/concepts/styling/',
             items: ['utility-classes', 'element-styles'],
           },
-          { slug: 'api-routes', label: 'API Routes' },
-          'lifecycle',
+          {
+            slug: 'routing',
+            path: '/docs/learn/concepts/routing/',
+            items: [
+              'lifecycle',
+              { slug: 'dynamic-routes', label: 'Dynamic Routes' },
+              { slug: 'catch-all-routes', label: 'Catch All Routes' },
+              { slug: 'api-routes', label: 'API Routes' },
+            ],
+          },
         ],
       },
       {
