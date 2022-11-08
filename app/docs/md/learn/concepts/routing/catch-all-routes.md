@@ -25,10 +25,11 @@ Routes like `/docs/quickstart` or `/docs/learn/routing` will be matched by `app/
 
 ### Precedence
 
-Hard coded routes take precedence over catch all routes. For example:
+Hard coded routes and dynamic routes take precedence over catch all routes. For example:
 
 ```
 /docs/quickstart → app/pages/docs/quickstart.mjs
-/docs/routing → app/pages/docs/$$.mjs
+/docs/:filename → /docs/routing → app/pages/docs/$filename.mjs
+/docs/:path → /docs/learning/concepts/custom → app/pages/docs/$$.mjs
 ```
 
