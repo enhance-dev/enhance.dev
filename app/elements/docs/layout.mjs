@@ -3,6 +3,36 @@ export default function DocsLayout({ html, state }) {
   const { doc = {} } = store
 
   return html`
+    <style scope="global">
+      @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Rubik:wght@200;300;400;500;600;700&display=swap');
+
+      /* Colors */
+      body {
+        background-color: var(--white-denim);
+        color: var(--rift-white);
+        font-family: rubik;
+      }
+      a {
+        color: var(--purple-princess);
+      }
+
+      /* Scrollbars */
+      body {
+        scrollbar-color: var(--grey-greyer) transparent;
+      }
+      ::-webkit-scrollbar {
+        height: 8px;
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background-color: transparent;
+      }
+      ::-webkit-scrollbar-thumb {
+        border-radius: 8px;
+        background-color: var(--grey-greyer);
+      }
+    </style>
+
     <style>
       /* Layout */
 
@@ -83,6 +113,8 @@ export default function DocsLayout({ html, state }) {
       }
     </style>
 
+    <docs-symbols></docs-symbols>
+
     <docs-header id="header" class="pt0 pr1 pb0 pl-1"></docs-header>
 
     <nav id="sidebar" class="pt1-lg overflow-y-auto-lg">
@@ -104,6 +136,8 @@ export default function DocsLayout({ html, state }) {
       </div>`
         : ''}
     </docs-outline>
+
+    <google-analytics code="${state.store.gacode}"></google-analytics>
 
     <script type="module">
       class Layout extends HTMLElement {

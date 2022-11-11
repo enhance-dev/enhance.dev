@@ -52,7 +52,7 @@ export async function get(request) {
       doc: {
         title: '404',
         path: docPath,
-        term: searchTerm || '',
+        html: `<docs-404 search-term="${searchTerm}"></docs-404>`,
       },
       otherLinks,
       sidebarData,

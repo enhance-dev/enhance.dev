@@ -4,7 +4,7 @@ title: Enhance Routing
 
 Enhance uses a file-system based router. When a file is added to the `pages` or `api` directory, it's automatically available as a route.
 
-<doc-callout level="none" mark="📖">
+<doc-callout level="none" mark="🌱">
 
 **[Read more about Enhance routing lifecycle →](/docs/learn/concepts/routing/lifecycle)**
 
@@ -20,7 +20,7 @@ app/pages/blog/$slug.mjs → /blog/:slug → eg. (/blog/hello-world)
 app/api/users/$id.mjs → /users/:id → eg. (/users/axol)
 ```
 
-<doc-callout level="none" mark="📖">
+<doc-callout level="none" mark="🍱">
 
 **[Read more about dynamic route segments →](/docs/learn/concepts/routing/dynamic-routes)**
 
@@ -35,7 +35,7 @@ app/pages/docs/$$.mjs → /docs/:path → eg. (/docs/concepts/routing/)
 app/pages/docs/$$.mjs → /docs/:path → eg. (/docs/concepts/styling/)
 ```
 
-<doc-callout level="none" mark="📖">
+<doc-callout level="none" mark="💰">
 
 **[Read more about catch all routes →](/docs/learn/concepts/routing/catch-all-routes)**
 

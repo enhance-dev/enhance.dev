@@ -1,5 +1,7 @@
 export default function FourOh4({ html, state }) {
-  const term = state.store?.doc?.term
+  const hasSearchTerm = state.store?.searchTerm
+
+  if (hasSearchTerm) return html`<docs-layout></docs-layout>`
 
   return html`
     <style>
@@ -179,16 +181,8 @@ export default function FourOh4({ html, state }) {
           text-center
           font-light
         ">
-          ${term
-            ? 'Do you want to search?'
-            : 'Do you want to see the <a href=/docs/>Docs</a>?'}
+          Do you want to see the <a href=/docs/>Docs</a>?
         </p>
-        ${term
-          ? `<button class="radius-2 pt-2 pr1 pb-2 pl1 font-semibold">
-          Search for "${term}"
-        </button>
-        `
-          : ''}
       </section>
       <cherub-mascot
         class="
@@ -202,28 +196,5 @@ export default function FourOh4({ html, state }) {
     <footer>
       <enhance-land></enhance-land>
     </footer>
-
-    <script type="module">
-      class FourOh4 extends HTMLElement {
-        constructor() {
-          super()
-          this.term = this.getAttribute('term')
-          this.searchButton = this.querySelector('button')
-        }
-
-        async connectedCallback() {
-          if (this.term && this.searchButton && window.search) {
-            const algoliaButton = window.search.querySelector('button')
-            if (algoliaButton) {
-              this.searchButton.addEventListener('click', (e) => {
-                algoliaButton.click()
-              })
-            }
-          }
-        }
-      }
-
-      customElements.define('docs-404', FourOh4)
-    </script>
   `
 }
