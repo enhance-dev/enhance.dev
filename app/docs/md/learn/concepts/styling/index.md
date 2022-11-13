@@ -12,7 +12,7 @@ This is done by returning to first principles and thinking about what a develope
 
 Enhance [single-file components](/docs/learn/concepts/single-file-components) allow you to co-locate your styles (using `<style>` tags) with your markup. 
 Enhance projects also come preconfigured with [a customizable utility class system](/docs/learn/concepts/styling/utility-classes).  
-This enables you to reuse utility classes without bloating your stylesheets for general styling while also use element styling for specific css that utility classes are not designed for.
+This enables you to reuse utility classes without bloating your stylesheets for general styling while also use element styling for specific CSS that utility classes are not designed for.
 
 ## Utility classes
 

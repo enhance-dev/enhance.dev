@@ -52,7 +52,7 @@ Enhance API Routes are backend JSON routes designed for seamless client-side pro
 
 - when to redirect
 - working with session
-- talking to a third party api
+- talking to a third party API
 - talking to DynamoDB
 
 </doc-callout>

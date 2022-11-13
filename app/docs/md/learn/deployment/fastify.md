@@ -51,7 +51,7 @@ Create `app/pages/index.html`, and write some HTML!
 
 ```html
 <my-header></my-header>
-<strong>powerful html here</strong>
+<strong>powerful HTML here</strong>
 <my-footer></my-footer>
 ```
 
