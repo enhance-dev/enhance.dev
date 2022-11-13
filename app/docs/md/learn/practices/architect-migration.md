@@ -166,7 +166,7 @@ get /books
 
 ## Which is better?
 
-There are reasons to chose either. There is no need to convert or transition a working app from one to the other. Both approaches will be maintained and updated moving forward. That being said many developers will likely find it extremely fast and convenient to start a greenfield project with Enhances file based routing.
+There are reasons to choose either. There is no need to convert or transition a working app from one to the other. Both approaches will be maintained and updated moving forward. That being said many developers will likely find it extremely fast and convenient to start a greenfield project with Enhances file based routing.
 
 If you have an existing app that you want to use Enhances SSR with it you can add the enhance-ssr package inside any route handler.
 
