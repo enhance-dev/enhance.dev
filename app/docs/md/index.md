@@ -70,7 +70,7 @@ app
     └── index.html
 ```
 
-Add a [pure function](https://en.wikipedia.org/wiki/Pure_function) that returns an html string.
+Add a [pure function](https://en.wikipedia.org/wiki/Pure_function) that returns an HTML string.
 Your function will be passed an object containing an `html` render function for expanding custom elements.
 
 Add a `my-header.mjs` file in the `app/elements/` folder.
