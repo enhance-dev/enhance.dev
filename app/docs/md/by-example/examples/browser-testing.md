@@ -7,7 +7,7 @@ read-next:
   label: Read more about testing Enhance output
   mark: 🔬
   path: /docs/learn/practices/testing
-  description: Enhance custom elements return strings on the server, making them easy to test for expected output.
+  description: Enhance's custom elements return strings on the server, making them easy to test for expected output.
 docs-pager: false
 ---
 

@@ -18,7 +18,7 @@ This 👇 code block is rendered and highlighted on the server with arcdown + hl
 
 ### note (default)
 
-Wouldn’t it be nice if you could author components like HTML pages? Well that’s what you get with Enhance single-file components.
+Wouldn’t it be nice if you could author components like HTML pages? Well that’s what you get with Enhance's single-file components.
 
 </doc-callout>
 
@@ -34,7 +34,7 @@ Add functionality to your component by adding a `<script>` tag. You can either a
 
 ### info
 
-Enhance API routes support other HTTP verbs such as `PUT`, `PATCH`, and `DESTROY`; these route handlers should return JSON values as browser HTML forms cannot issue these sorts of HTTP requests.
+Enhance's API routes support other HTTP verbs such as `PUT`, `PATCH`, and `DESTROY`; these route handlers should return JSON values as browser HTML forms cannot issue these sorts of HTTP requests.
 
 </doc-callout>
 
@@ -42,7 +42,7 @@ Enhance API routes support other HTTP verbs such as `PUT`, `PATCH`, and `DESTROY
 
 ### caution
 
-Enhance API Routes are backend JSON routes designed for seamless client-side progressive enhancement. API routes are defined under app/api and follow the same file-based routing conventions as app/pages. JSON response values from API routes are automatically passed to corresponding page routes.
+Enhance's API Routes are backend JSON routes designed for seamless client-side progressive enhancement. API routes are defined under app/api and follow the same file-based routing conventions as app/pages. JSON response values from API routes are automatically passed to corresponding page routes.
 
 </doc-callout>
 
