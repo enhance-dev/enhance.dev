@@ -61,5 +61,3 @@ export default function MyHeader({ html, state }) {
   `
 }
 ```
-
-

@@ -52,7 +52,7 @@ API routes always return a `response` object:
 
 ## Middleware
 
-API routes have a lightweight middleware concept. Export an array of async function handlers, and they will be run in the order you define. 
+API routes have a lightweight middleware concept. Export an array of async function handlers, and they will be run in the order you define.
 
 ```javascript
 export let get = [one, two]

@@ -49,7 +49,7 @@ my-rad-app.net/contact → app/pages/contact.[html|mjs]
 
 ### Custom Elements
 
-Pages are the main entry point and usually contain one or more of your app's [custom elements](/docs/learn/concepts/single-file-components).  
+Pages are the main entry point and usually contain one or more of your app's [custom elements](/docs/learn/concepts/single-file-components).
 Enhance will assemble the Page by recursively [expanding custom elements](/docs/learn/concepts/html/elements), using your single-file-components in the `app/elements/` directory.
 
 If there is no custom element definition in `app/elements/`, Enhance will render it as is and move on.
@@ -72,14 +72,14 @@ These `<script>`s are where you write the front end JavaScript to [progressively
 
 <doc-callout level="caution" mark="✨">
 
-The yellow areas in the above diagram represent the JavaScript that will be run in a browser.  
+The yellow areas in the above diagram represent the JavaScript that will be run in a browser.
 To create the best starting point for the browser, in the fastest way possible, the rest of your code is executed on the server.
 
 </doc-callout>
 
 ## Not Covered Here
 
-This lifecycle description demonstrates the real-time journey of a request through Enhance's web server.  
+This lifecycle description demonstrates the real-time journey of a request through Enhance's web server.
 It does not include static asset resolution (from `public/` via `_public/`), which has a separate lifecycle for even faster responses for non-dynamic content.
 <!-- TODO: create a "Public" doc under "Starter Project" with a diagram and link here 👆 -->
 

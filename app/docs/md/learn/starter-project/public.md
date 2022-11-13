@@ -48,7 +48,7 @@ Given the structure above, your application can include assets from the `/_publi
 <doc-callout level="info" mark="🧬">
 
 File "fingerprinting" is giving static files a unique filename based on that file's contents.
-Typically this uses a computational hash of that file's content as part of the name.  
+Typically this uses a computational hash of that file's content as part of the name.
 `logo.png` becomes `logo-cd94b3594d.png`.
 
 </doc-callout>
@@ -90,7 +90,7 @@ The `/_public` route does not provide any sort of concatenation or compilation o
 However, it does play nicely with another Enhance feature: the `@bundles` pragma.
 
 <doc-link-callout link="/docs/learn/practices/browser-modules" mark="🧺">
-  
+
 Learn about bundling browser modules (JS, CSS, + TS) with `@bundles`
 
 </doc-link-callout>

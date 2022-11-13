@@ -6,7 +6,7 @@ Architect deploys Function Web Apps ([FWA](https://fwa.dev)) that are dynamic we
 
 ## Quickstart
 
-Install the Architect CLI with npm: `npm i -g @architect/architect`. 
+Install the Architect CLI with npm: `npm i -g @architect/architect`.
 
 > 🔬 [Detailed instructions for setting up your AWS credentials.](https://arc.codes/docs/en/get-started/detailed-aws-setup)
 

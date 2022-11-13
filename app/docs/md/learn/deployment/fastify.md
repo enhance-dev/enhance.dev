@@ -2,7 +2,7 @@
 title: Fastify
 ---
 
-Fastify is a very fast, beautifully designed, and well maintained app server for Node. `@enhance/fastify-plugin` gives you the ability to build your frontend completely in HTML, and pure custom elements. 
+Fastify is a very fast, beautifully designed, and well maintained app server for Node. `@enhance/fastify-plugin` gives you the ability to build your frontend completely in HTML, and pure custom elements.
 
 Fastify can be deployed to any cloud vendor that supports deploying a Node web server; the most popular choices are [AWS](https://aws.amazon.com/getting-started/hands-on/deploy-nodejs-web-app/), [Azure](https://docs.microsoft.com/en-us/azure/app-service/quickstart-nodejs?tabs=linux&pivots=development-environment-vscode), and [GCP](https://cloud.google.com/run/docs/quickstarts/build-and-deploy/deploy-nodejs-service).
 
@@ -11,7 +11,7 @@ Fastify can be deployed to any cloud vendor that supports deploying a Node web s
 Create a project.
 
 ```bash
-mkdir -p myproject 
+mkdir -p myproject
 cd myproject
 npm init -y
 npm install fastify @enhance/fastify-plugin
@@ -130,7 +130,7 @@ Add `/fruits` by creating `app/pages/fruits.mjs`:
 export default function fruits ({ html, state }) {
   let fruit = f => `<li>${f}</li>`
   let list = state.store.fruits
-    ? state.store.fruits.map(fruit).join('') 
+    ? state.store.fruits.map(fruit).join('')
     : []
   
   return html`

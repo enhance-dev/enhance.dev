@@ -5,13 +5,13 @@ title: Browser Modules
 <doc-callout level="info" mark="🧺">
 
 Enhance projects let you share modules with the browser via ***"bundles"***.
-Using the built in bundling system serves code via your own domain instead of from a third-party registry.  
+Using the built in bundling system serves code via your own domain instead of from a third-party registry.
 No need to fuss over CORS or external downtime.
 
 </doc-callout>
 
 Under the hood, the Enhance Starter Project uses the [Architect](https://arc.codes) framework.
-Architect projects have a manifest file: `.arc`.  
+Architect projects have a manifest file: `.arc`.
 To bundle code for the browser, simply add an entry to your `.arc` file.
 Set the **name** and **path** under the `@bundles` setting (called "pragmas").
 
@@ -93,7 +93,6 @@ These classes can now be imported as needed.
 import { TodoList, TodoItem } from '/_public/bundles/todos.mjs'
 ```
 
-
 ## Bundling External Modules
 
 You may want to install an external dependency for use in the browser.
@@ -161,7 +160,7 @@ customElements.define("todo-item", TodoItem);
 
 </doc-code>
 
-This example doesn't do a whole lot yet, but it's a good starting place.  
+This example doesn't do a whole lot yet, but it's a good starting place.
 To have our `todo-item.ts` transpiled and served to our front end, just give it a name and a path in the project's `.arc` file:
 
 ```arc

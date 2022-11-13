@@ -30,7 +30,7 @@ We're still experimenting with the ideal setup before publishing findings and an
 
 ## Playwright + Enhance
 
-[Playwright](https://playwright.dev/) is a cross-browser test runner commonly used for end-to-end (E2E) testing.  
+[Playwright](https://playwright.dev/) is a cross-browser test runner commonly used for end-to-end (E2E) testing.
 It works by steering an automated browser to a web server, executing interactions, and then making assertions.
 All without even having to open a browser window (headless).
 

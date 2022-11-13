@@ -43,5 +43,3 @@ The `api` folder is preconfigured to expose data to your file-based routes. Mean
 **[Read more about `api` routes here →](/docs/learn/starter-project/api)**
 
 </doc-callout>
-
-
