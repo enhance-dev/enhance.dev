@@ -80,6 +80,6 @@ You now know how to pass data to your pages. You can start with hard-coded data 
 
 <doc-callout level="none" mark="💾">
 
-**[Read more about using data with your app →](/docs/learn/concepts/api-routes)**
+**[Read more about using data with your app →](/docs/learn/concepts/routing/api-routes)**
 
 </doc-callout>

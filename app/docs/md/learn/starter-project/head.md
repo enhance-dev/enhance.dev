@@ -38,8 +38,8 @@ To supply your own custom head content add a file `/app/head.mjs` to your projec
 Since the `<head>` tag *is not a Custom Element, nor can it be* the arguments passed to `head.mjs` are not the same as Elements in your Enhance project.
 
 Since the `html` function passed to Elements is used to expand Custom Elements, which are not allowed inside the `<head>` tag there is no reason to pass it as an argument. Instead your `head.mjs` template will be passed a `state` object containing:
-- store: [The API data mapped to the current page](/docs/learn/concepts/api-routes)
-- req: [A standard request Object](/docs/learn/concepts/api-routes#request)
+- store: [The API data mapped to the current page](/docs/learn/concepts/routing/api-routes)
+- req: [A standard request Object](/docs/learn/concepts/routing/api-routes#request)
 - error: An error message if an error has occurred so you can message your site's users
 - status: A status code to enable you to do the correct handling
 
@@ -64,7 +64,7 @@ export default function Head(state) {
 
 <doc-callout level="none" mark="🚏">
 
-**[Read more about the `req` request object →](/docs/learn/concepts/api-routes#request)**
+**[Read more about the `req` request object →](/docs/learn/concepts/routing/api-routes#request)**
 
 </doc-callout>
 

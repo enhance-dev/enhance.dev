@@ -93,14 +93,14 @@ This style is good for one-liners
 ### Source
 
 ```html
-<doc-link-callout link="/docs/learn/concepts/api-routes" mark="🛣">
+<doc-link-callout link="/docs/learn/concepts/routing/api-routes" mark="🛣">
   Read about `api` routes
 </doc-link-callout>
 ```
 
 ### Tests
 
-<doc-link-callout link="/docs/learn/concepts/api-routes" mark="🛣">
+<doc-link-callout link="/docs/learn/concepts/routing/api-routes" mark="🛣">
 
 Read about `api` routes
 
