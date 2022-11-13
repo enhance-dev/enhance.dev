@@ -39,7 +39,7 @@ This will let us test components in isolation and/or in combination without boot
 
 ### Install Playwright
 
-In an establised Enhance app, we'll follow [Playwright's Getting Started guide](https://playwright.dev/docs/intro).
+In an established Enhance app, we'll follow [Playwright's Getting Started guide](https://playwright.dev/docs/intro).
 
 ```shell
 npm init playwright@latest
