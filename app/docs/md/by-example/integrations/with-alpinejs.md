@@ -5,7 +5,7 @@ links:
 docs-pager: false
 ---
 
-Since Enhance renders "just" HTML, you can use other tools that work with vanilla HTML.  
+Since Enhance renders "just" HTML, you can use other tools that work with vanilla HTML.
 [Alpine.js](https://alpinejs.dev) is a minimal, but powerful, framework for adding interactivity to your application without writing much actual JavaScript.
 
 <doc-callout level="info">
@@ -67,5 +67,5 @@ This component can now be used from any HTML page in your Enhance application.
 ```
 
 </doc-code>
-  
+
 ![alpine.js collapse example animation](img/gif/example-alpinejs-collapse.gif)

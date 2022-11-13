@@ -17,7 +17,7 @@ But targeting [the conventional /app file structure](/docs/learn/starter-project
 
 <doc-callout level="tip" mark="📢">
 
-**If you've built a novel way to add whole-project compilation to Enhance, let us know!**  
+**If you've built a novel way to add whole-project compilation to Enhance, let us know!**
 And if you see any opportunities for improving the official types or this doc, feel free to file issues and/or open a PR.
 We're always open to outside contribution, especially from domain experts.
 
@@ -33,7 +33,7 @@ Some options for transpiling your TypeScript to JavaScript for Node.js:
 
 <doc-callout level="caution">
 
-Be wary of build tools that are intended for client side projects. With an "HTML first" principle, most of Enhance is executing in a server-side Node.js environment.  
+Be wary of build tools that are intended for client side projects. With an "HTML first" principle, most of Enhance is executing in a server-side Node.js environment.
 Read more about [using TS to build Web Component definitions for the browser with `@bundles`](/docs/learn/practices/browser-modules#typescript-web-components).
 
 </doc-callout>

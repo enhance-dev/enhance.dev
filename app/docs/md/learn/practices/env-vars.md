@@ -2,10 +2,10 @@
 title: Environment Variables
 ---
 
-It is a good practice to store runtime configuration data, such as API keys, in environment variables. When working locally Enhance supports loading environment variables ith a `.env` file. 
+It is a good practice to store runtime configuration data, such as API keys, in environment variables. When working locally Enhance supports loading environment variables ith a `.env` file.
 
 <doc-callout mark="🔎">
-To provision environment variables for production deployment please consult the documentation for the different deployment providers. 
+To provision environment variables for production deployment please consult the documentation for the different deployment providers.
 </doc-callout>
 
 ## Local Dev Environment Variable Tutorial
@@ -34,8 +34,8 @@ API Routes are a Node.js process; `process.env` lists all environment variables.
 ```javascript
 export async function get () {
   const env = process.env
-  return { 
-    json: { env } 
+  return {
+    json: { env }
   }
 }
 ```
@@ -51,7 +51,7 @@ Display the values passed from the API Route.
 ```javascript
 export default async function debug ({ html, state }) {
   const env = state.store?.env
-  return html`<pre>${ env }</pre>` 
+  return html`<pre>${ env }</pre>`
 }
 ```
 

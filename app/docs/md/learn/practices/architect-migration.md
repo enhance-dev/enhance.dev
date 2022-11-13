@@ -14,8 +14,6 @@ Enhance project routes are in effect an Architect route handler with the data AP
 ## Shared code (shared, views, models, and app)
 If you are familiar with Architect apps they use the convention of a `src/views` and `src/shared` folder to share code between handlers. View code is available only to `GET` routes and shared is available to all handlers. Enhance renames these folders so that views becomes `/app` and shared becomes `/models`.
 
-
-
 ## Convert routes from Architect and Enhance
 An Architect route is defined in the `app.arc` manifest.
 

@@ -2,7 +2,6 @@
 title: Rendering
 ---
 
-
 Enhance gives you the ability to write HTML pages comprised of custom elements authored as [single-file components](/docs/learn/concepts/single-file-components) that get expanded on demand.
 
 ## Less tedium

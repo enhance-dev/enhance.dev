@@ -88,7 +88,6 @@ export default function TwitterMeta(state) {
 
 </doc-code>
 
-
 You can then use this meta content template in your `head.mjs` like so:
 
 <doc-code filename="/app/head.mjs">

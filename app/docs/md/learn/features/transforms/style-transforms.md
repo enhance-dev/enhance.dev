@@ -24,7 +24,6 @@ Style Transforms are passed as an array. They are called with a single object ar
 
 The return value from the transform is the new string contents of the style tag.
 
-
 ## Basic Usage
 This style transform is an example for deploying to [arc.codes](arc.codes).
 
@@ -156,5 +155,3 @@ This approach doesn't completely avoid unintentional deep selection of nested el
 - Use specific selectors to avoid deep selecting.
   It is better to use the `>` child selector rather than the general descendent selector when possible(i.e. `:host > div` ).
 - With slotted and part be specific enough to avoid over selection
-
-

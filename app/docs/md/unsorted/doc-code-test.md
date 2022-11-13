@@ -55,7 +55,7 @@ class HljsLineWrapper {
 
 <doc-callout level="caution">
 
-The `callout` attribute doesn't work for strings that span hljs tokens.  
+The `callout` attribute doesn't work for strings that span hljs tokens.
 So, `callout="15-return match"` would not work above. "return" is tokenized while " match" is not.
 
 </doc-callout>

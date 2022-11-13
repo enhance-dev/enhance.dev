@@ -54,7 +54,7 @@ And you can broadcast that event from elsewhere in your HTML document.
 
 <doc-code callout="1-'giddyup'">
 
-```javascript 
+```javascript
 const giddyupEvent = new CustomEvent('giddyup', { direction: 'west' })
 window.horse.dispatchEvent(giddyup)
 ```

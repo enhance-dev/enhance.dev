@@ -4,7 +4,7 @@ title: Doc Video
 
 ## Video Walkthrough
 
-This is a set of 5 videos that starts at the third in the series.  
+This is a set of 5 videos that starts at the third in the series.
 Most of the videos don't actually work -- it's here to test the series feature in the player
 
 <doc-video playback-id="ADl6wSlpxTpJKym2OhPd2TQsB64nW01x5dygkSEAfNdU" name="Video pt 1: Tutorial">
