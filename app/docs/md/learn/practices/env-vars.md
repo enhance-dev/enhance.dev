@@ -10,7 +10,7 @@ To provision environment variables for production deployment please consult the 
 
 ## Local Dev Environment Variable Tutorial
 
-In this walkthrough we will setup environment variables, and display them on an example debug page. Please note, a `.env` file *should not* be checked-in to revision control because it will often contain sensitive information. Environment variables normally should never be leaked, or displayed to the end web consumer: this is an example to help demonstrate the lifecycle.
+In this walkthrough we will set up environment variables, and display them on an example debug page. Please note, a `.env` file *should not* be checked-in to revision control because it will often contain sensitive information. Environment variables normally should never be leaked, or displayed to the end web consumer: this is an example to help demonstrate the lifecycle.
 
 ### 1. Create a `.env` file
 

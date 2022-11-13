@@ -36,7 +36,7 @@ The source for the index page can be found in your app at `app/pages/index.html`
 
 ```
 app
-└── pages ............. file based routing
+└── pages ............. file-based routing
     └── index.html
 ```
 
@@ -65,7 +65,7 @@ Your project should now look like this:
 ```
 app
 ├── elements .......... custom element pure functions
-└── pages ............. file based routing
+└── pages ............. file-based routing
     ├── about.html
     └── index.html
 ```
@@ -101,7 +101,7 @@ Your project should now look like this:
 app
 ├── elements .......... custom element pure functions
 │   └── my-header.mjs
-└── pages ............. file based routing
+└── pages ............. file-based routing
     ├── about.html
     └── index.html
 ```

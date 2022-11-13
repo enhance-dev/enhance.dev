@@ -16,7 +16,7 @@ Similar to how a `<button>` might listen for a click event, your web component (
 
 This particular `CustomEvent` approach has a narrow use-case if you're already leveraging Enhance in your project.
 You can likely solve any pub/sub challenge with Enhance's features with less code.
-However, it's totally possible to use JavaScript's built in primitives as described here.
+However, it's totally possible to use JavaScript's built-in primitives as described here.
 
 </doc-callout>
 

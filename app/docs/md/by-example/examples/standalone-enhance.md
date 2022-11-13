@@ -19,7 +19,7 @@ This approach to using Enhance is essentially string munging (albeit very sophis
 In this guide we'll create a single-file module that exports a handler function leveraging `enhance-ssr` to compose an HTML document with a component where state is carried from the request to the custom element.
 We'll use the familiar method signature of `(request, <reply>)` to handle incoming requests. 
 
-### Setup the basics
+### Set up the basics
 
 <doc-code filename="get-index.js" numbered>
 

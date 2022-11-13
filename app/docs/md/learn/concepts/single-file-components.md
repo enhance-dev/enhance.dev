@@ -6,9 +6,9 @@ links: # Further Reading
   - "Simon Willison's walk-through": https://til.simonwillison.net/web-components/understanding-single-file-web-component
 ---
 
-Every modern web framework has the concept of a component. Most require you to learn a non-standard dialect in order to use them though. Enhance enables you to write single file components with the same benefits of co-location and ease of reuse while leveraging the skills you already have.
+Every modern web framework has the concept of a component. Most require you to learn a non-standard dialect in order to use them though. Enhance enables you to write single-file components with the same benefits of co-location and ease of reuse while leveraging the skills you already have.
 
-Wouldn't it be nice if you could author components like HTML pages? Well that's what you get with Enhance single file components.
+Wouldn't it be nice if you could author components like HTML pages? Well that's what you get with Enhance single-file components.
 
 ## It's just HTML
 
