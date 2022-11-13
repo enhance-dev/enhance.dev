@@ -19,7 +19,7 @@ livereload true
 
 ### Main site
 
-Currently redirects to Enhance documentation at "/docs/".
+Currently redirects to the Enhance documentation at "/docs/".
 
 ### Docs engine
 
