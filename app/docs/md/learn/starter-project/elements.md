@@ -2,7 +2,7 @@
 title: Elements
 ---
 
-Elements are the reusable building blocks of your Enhance application. They are [pure functions](https://en.wikipedia.org/wiki/Pure_function) authored as single file components and can be static or update dynamically to state changes. Elements live in the `app/elements/` folder in the Enhance starter project.
+Elements are the reusable building blocks of your Enhance application. They are [pure functions](https://en.wikipedia.org/wiki/Pure_function) authored as single-file components and can be static or update dynamically to state changes. Elements live in the `app/elements/` folder in the Enhance starter project.
 
 ## Naming
 
@@ -23,7 +23,7 @@ app/elements/blog/comment-form → <blog-comment-form></blog-comment-form>
 
 <doc-callout level="none" mark="📄">
 
-**[Learn about single file components](/docs/learn/concepts/single-file-components)**
+**[Learn about single-file components](/docs/learn/concepts/single-file-components)**
 
 </doc-callout>
 

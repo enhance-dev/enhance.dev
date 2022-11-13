@@ -2,7 +2,7 @@
 title: Script Transforms
 ---
 
-Single file components co-locate scripts  with your Custom Element output for progressive enhancement. All the scripts are collected and moved to the end of the body during render. Enhance supports transform plugins for processing the contents of these scripts if needed.
+Single-file components co-locate scripts  with your Custom Element output for progressive enhancement. All the scripts are collected and moved to the end of the body during render. Enhance supports transform plugins for processing the contents of these scripts if needed.
 
 ## Basic Usage
 

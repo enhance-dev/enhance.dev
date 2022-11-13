@@ -138,13 +138,13 @@ For this example, we'll add pages/counter.html:
 <doc-callout level="caution">
 
 Don't delete tests/mock/app/pages/index.html.
-Playwright is configured to check the root of our webserver to make sure it has booted before running tests.
+Playwright is configured to check the root of our web server to make sure it has booted before running tests.
 
 </doc-callout>
 
 #### 4. Run the mock app
 
-We can verify our set up by running `npm start` in mock/ and visiting localhost:3333/counter.
+We can verify our setup by running `npm start` in mock/ and visiting localhost:3333/counter.
 In this case, we will see our component rendered once.
 
 ### Write a test

@@ -2,7 +2,7 @@
 title: Enhance Routing
 ---
 
-Enhance uses a file-system based router. When a file is added to the `pages` or `api` directory, it's automatically available as a route.
+Enhance uses a filesystem-based router. When a file is added to the `pages` or `api` directory, it's automatically available as a route.
 
 <doc-callout level="none" mark="🌱">
 
@@ -43,7 +43,7 @@ app/pages/docs/$$.mjs → /docs/:path → eg. (/docs/concepts/styling/)
 
 ## API Routes
 
-Enhance API routes are backend JSON routes designed for seamless clientside progressive enhancement. API routes are defined under `app/api` and follow the same file based routing conventions as `app/pages`.
+Enhance API routes are backend JSON routes designed for seamless client-side progressive enhancement. API routes are defined under `app/api` and follow the same file-based routing conventions as `app/pages`.
 
 <doc-code filename="api/index.mjs">
 

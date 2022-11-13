@@ -12,7 +12,7 @@ It does not add new syntax. It sets firm upper bound so component styles can't b
 The shadowDOM gives full encapsulation of styles, but breaks other things like forms. When building with components what we want is some reasonable tools to help scope styles to those components. More like caution tape than chain-link fence. If the shadowDOM is used styles can be written once that will work before and after the shadowDOM initializes.
 
 ## limitations
-This approach doesn't completely avoid deep selection of nested elements. It makes tradeoffs to improve scoping without creating other problems. Transformed shadow selectors can also select some unintended elements if they are written to too broadly (i.e. `::slotted(*)` will select all children). If you prefer a bullet proof style encapsulation and are willing to accept the downsides (broken forms, FOUC, etc.) use the shadowDOM.   
+This approach doesn't completely avoid deep selection of nested elements. It makes tradeoffs to improve scoping without creating other problems. Transformed shadow selectors can also select some unintended elements if they are written to too broadly (i.e. `::slotted(*)` will select all children). If you prefer a bullet-proof style encapsulation and are willing to accept the downsides (broken forms, FOUC, etc.) use the shadowDOM.   
 ## Other Recommendations
 - Use with utility classes.
   This transform works well with utility class styles. We recommend writing most styles as utility classes directly on the elements in your template. This only leaves styles that cannot be written as utility classes which can be added to the component.

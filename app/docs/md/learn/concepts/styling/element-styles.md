@@ -44,7 +44,7 @@ Authoring the above `<my-header>` element will result in the following CSS in yo
 
 Enhance projects come preconfigured with a styling system that lets you use pseudo classes like `:host` and `::slotted()`.
 These pseudo classes give you the ability to style the outer Custom Element tag as well as slotted elements.
-This enables you to write scoped styles co-located inside your single file component.
+This enables you to write scoped styles co-located inside your single-file component.
 
 ```html
 <style>

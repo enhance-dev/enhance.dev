@@ -24,7 +24,7 @@ Author this HTML
 <my-message message="Progressive"></my-message>
 ```
 
-Create this single file component
+Create this single-file component
 
 <doc-code filename="app/elements/my-message.mjs" numbered>
 
@@ -70,11 +70,11 @@ With scoped DOM queries and low level DOM apis you can perform optimal surgical 
 
 ## Externalize scripts
 
-If your script outgrows your single file component you can link to it. Another way you can incrementally progress your elements to support your needs.
+If your script outgrows your single-file component you can link to it. Another way you can incrementally progress your elements to support your needs.
 
 Move your script to the `/public` folder
 
-Create this single file component
+Create this single-file component
 
 <doc-code highlight="7-add" filename="app/elements/my-message.mjs" numbered>
 

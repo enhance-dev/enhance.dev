@@ -13,7 +13,7 @@ Create an `api` route that passes data to your `index.html` page.
 app
 ├── api ............... data routes
 │   └── index.mjs
-└── pages ............. file based routing
+└── pages ............. file-based routing
     └── index.html
 ```
 
@@ -47,7 +47,7 @@ app
 │   └── index.mjs
 ├── elements .......... custom element pure functions
 │   └── my-message.mjs
-└── pages ............. file based routing
+└── pages ............. file-based routing
     └── index.html
 ```
 
