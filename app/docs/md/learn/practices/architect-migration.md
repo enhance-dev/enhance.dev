@@ -157,18 +157,16 @@ get /books
 ```
 </doc-code>
 
-
 ## Caveats
 
 - Enhance takes over the root catchall. Enhance uses `get /*` for its file-based routing. If you combine both Architect routes with Enhance routes you cannot define a new root catchall in the .arc manifest or none of the Enhance routes will work.
-- If you remove all @http routes before adding the enhance plugin the app DNS address will be released and DNS setting will need to be updated.
+- If you remove all @http routes before adding the enhance plugin, the app DNS address will be released and DNS setting will need to be updated.
 - Begin data is included in the Enhance plugin. It may cause problems and potential data loss if the enhance plugin is added to an app that is already using begin data. Backup all data to avoid critical data loss.
 
 ## Which is better?
 
 There are reasons to choose either. There is no need to convert or transition a working app from one to the other. Both approaches will be maintained and updated moving forward. That being said many developers will likely find it extremely fast and convenient to start a greenfield project with Enhances file-based routing.
 
-If you have an existing app that you want to use Enhances SSR with it you can add the enhance-ssr package inside any route handler.
+If you have an existing app that you want to use Enhances SSR with, you can add the `enhance-ssr` package inside any route handler.
 
 Even if you start with Enhances project structure to take advantage of many of the DX improvements as your app grows there will likely come a time when one route grows large or needs to be customized in some way. At that point the best option is to create an Architect style handler for just that route out.
-

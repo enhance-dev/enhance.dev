@@ -42,7 +42,7 @@ Enhance's API routes support other HTTP verbs such as `PUT`, `PATCH`, and `DESTR
 
 ### caution
 
-Enhance's API Routes are backend JSON routes designed for seamless client-side progressive enhancement. API routes are defined under app/api and follow the same file-based routing conventions as app/pages. JSON response values from API routes are automatically passed to corresponding page routes.
+Enhance's API Routes are backend JSON routes designed for seamless client-side progressive enhancement. API routes are defined under `app/api` and follow the same file-based routing conventions as `app/pages`. JSON response values from API routes are automatically passed to corresponding page routes.
 
 </doc-callout>
 
