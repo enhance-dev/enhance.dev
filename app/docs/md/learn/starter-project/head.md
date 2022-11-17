@@ -26,7 +26,7 @@ The default head content below is the bare minimum and should be the basis for y
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title></title>
-  <link rel="stylesheet" href="/_public/styles.css">
+  <link rel="stylesheet" href="/enhance-styles.css">
   <link rel="icon" href="/_public/favicon.svg">
 </head>
 ```
@@ -44,6 +44,8 @@ Since the `html` function passed to Elements is used to expand Custom Elements, 
 - status: A status code to enable you to do the correct handling
 
 ```javascript
+import { getLinkTag } from '@enhance/arc-plugin-styles/get-styles'
+
 export default function Head(state) {
   const { store, status, req, error } = state
   const { path } = req
@@ -55,7 +57,7 @@ export default function Head(state) {
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <title>${title}</title>
-      <link rel="stylesheet" href="/_public/styles.css">
+      ${getLinkTag()}
       <link rel="icon" href="/_public/favicon.svg">
     </head>
   `
@@ -94,7 +96,9 @@ You can then use this meta content template in your `head.mjs` like so:
 <doc-code filename="/app/head.mjs">
 
 ```javascript
+import { getLinkTag } from '@enhance/arc-plugin-styles/get-styles'
 import TwitterMeta from './templates/twitter-meta.mjs'
+
 export default function Head(state) {
   const { store, status, req, error } = state
   const { path } = req
@@ -107,7 +111,7 @@ export default function Head(state) {
       <meta name="viewport" content="width=device-width, initial-scale=1">
       ${TwitterMeta(store)}
       <title>${title}</title>
-      <link rel="stylesheet" href="/_public/styles.css">
+      ${getLinkTag()}
       <link rel="icon" href="/_public/favicon.svg">
     </head>
   `

@@ -88,6 +88,8 @@ Your app's [Head function](/docs/learn/starter-project/head) can also be typed w
 <doc-code filename="app/head.mjs" highlight="1-add" callout="2-request">
 
 ```javascript
+import { getLinkTag } from '@enhance/arc-plugin-styles/get-styles'
+
 /** @type {import('@enhance/types').EnhanceHeadFn} */
 export default function Head({ store, status, req, error }) {
   const { path } = req
@@ -99,7 +101,7 @@ export default function Head({ store, status, req, error }) {
     <head>
       <meta charset="utf-8">
       <title>${title}</title>
-      <link rel="stylesheet" href="/_public/styles.css">
+      ${getLinkTag()}
     </head>
   `
 }

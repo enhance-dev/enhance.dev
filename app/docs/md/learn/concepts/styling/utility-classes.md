@@ -6,7 +6,8 @@ links:
 ---
 
 Utility classes are an optimized way to apply general styling.
-They remove large amounts of duplication from your stylesheets and lend visual harmony to your app.
+They remove large amounts of duplication from your stylesheets and lend visual harmony to your app.  
+Utility class stylesheets tend to be tiny — around ~30k on disk and 9k over the wire.
 
 ## Styleguide
 
@@ -15,16 +16,14 @@ As a basis of styleguides, utility classes are unparalleled in providing a usabl
 ## Ready to go
 
 Enhance comes preconfigured with a [customizable utility class system](https://github.com/enhance-dev/enhance-styles#readme).
-During development you can use classes found in `public/styles.css`.
+During development a stylesheet is served via `/enhance-styles.css` and automatically included in your document's `<head>` section.
 
 <doc-callout level="caution">
 
-Do not change `public/styles.css`.
-Changes will be clobbered in development and when deploying as Enhance Styles rebuilds utility classes based on your configuration.
+If you use a [custom Head function](/docs/learn/starter-project/head), `enhance-styles.css` will **not** be included by default.  
+To add Enhance Styles utility classes with a custom headm.mjs, it is recommended to use the helper function [described below](#getstyles) to include Enhance Styles.
 
 </doc-callout>
-
-For production you can inline this stylesheet into the head of your document since utility class stylesheets tend to be tiny — around ~30k on disk and 9k over the wire.
 
 ## Usage
 
@@ -66,3 +65,34 @@ config styleguide.json
 <doc-link-callout link="https://github.com/enhance-dev/enhance-styles#readme" mark="💅🏽">
   Read more about the available styleguide customizations
 </doc-link-callout>
+
+## `getStyles`
+
+By default Enhance Styles is automatically included in HTML documents rendered by Enhance.
+However, you may want to include these utility classes elsewhere or in a [custom Head function](/docs/learn/starter-project/head).
+
+A utility function is provided to access your generated stylesheet.
+
+```javascript
+import getStyles from '@enhance/arc-plugin-styles/get-styles'
+
+const styles = getStyles()
+
+styles.link    // a <link rel="stylesheet"> tag
+styles.style   // a <style> tag for inline styles
+styles.path    // root-relative path to the .css file
+```
+
+Furthermore, individual methods can be imported:
+
+```javascript
+import {
+  getLinkTag,
+  getStyleTag,
+  getPath,
+} from '@enhance/arc-plugin-styles/get-styles'
+
+getLinkTag()   // a <link rel="stylesheet"> tag
+getStyleTag()  // a <style> tag for inline styles
+getPath()      // root-relative path to the .css file
+```
