@@ -16,7 +16,7 @@ As a basis of styleguides, utility classes are unparalleled in providing a usabl
 ## Ready to go
 
 Enhance comes preconfigured with a [customizable utility class system](https://github.com/enhance-dev/enhance-styles#readme).
-During development a stylesheet is served via `/enhance-styles.css` and automatically included in your document's `<head>` section.
+During development a stylesheet is generated and served via `/enhance-styles.css` and automatically included in your document's `<head>` section.
 
 <doc-callout level="caution">
 
@@ -38,6 +38,13 @@ export default function MyParagraph({ html }) {
   `
 }
 ```
+
+## `generated.css`
+
+Enhance Styles stores a copy of generated styles at the root `/tmp/generated.css`.
+This file can be used as a helpful reference for class names available to your HTML.
+
+This `/tmp` directory should be ignored from your project's version control.
 
 ## Customize
 
