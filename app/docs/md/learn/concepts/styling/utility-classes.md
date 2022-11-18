@@ -96,3 +96,17 @@ getLinkTag()   // a <link rel="stylesheet"> tag
 getStyleTag()  // a <style> tag for inline styles
 getPath()      // root-relative path to the .css file
 ```
+
+<doc-callout level="info">
+
+Though `@enhance/arc-plugin-styles` is already a dependency of Enhance, you may want to declare it as a direct dependency of you project:
+
+<div class="mt-1">
+
+```bash
+npm i @enhance/arc-plugin-styles
+```
+
+</div>
+
+</doc-callout>

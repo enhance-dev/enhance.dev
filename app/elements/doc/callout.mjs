@@ -31,6 +31,9 @@ export default function Callout({ html, state }) {
       callout-container.callout-thin {
         padding: 0.35rem 0.5rem;
       }
+      callout-container pre code {
+        border-radius: 0.333rem;
+      }
 
       callout-mark {
         background-color: transparent;
