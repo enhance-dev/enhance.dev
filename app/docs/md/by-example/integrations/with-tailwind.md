@@ -3,7 +3,6 @@ title: With tailwindcss
 links:
   - tailwindcss.com: https://tailwindcss.com/
   - arc-plugin-tailwindcss: https://github.com/andybee/arc-plugin-tailwindcss
-  - "@enhance/arc-plugin-styles": https://github.com/enhance-dev/arc-plugin-styles
 docs-pager: false
 ---
 
@@ -83,7 +82,7 @@ The Arc tailwind plugin will look in src/styles/tailwind.css, so we'll use that 
 
 Enhance provides a simple `<head>` element without configuration, but to include our generated tailwind.css, we'll need to override with our own [Head function](/docs/learn/starter-project/head):
 
-<doc-code filename="app/head.mjs" highlight="7">
+<doc-code filename="app/head.mjs" highlight="9">
 
 ```javascript
 export default function Head() {
@@ -126,40 +125,9 @@ When the development server is fired up tailwind will build a stylesheet based o
 npm start
 ```
 
-<hr class="block mt3 mb3 border1" />
-
-## Bonus: Change `@enhance-styles`
-
-The included Enhance styles plugin will still operate, but we can delegate the output to a more specific file called `enhance-styles.css`:
-
-<doc-code filename="/.arc" highlight="11:12-add">
-
-```arc
-@app
-enhance-with-tailwind
-
-@plugins
-enhance/arc-plugin-enhance
-arc-plugin-tailwindcss
-
-@tailwindcss                # the added styles plugin
-build public/tailwind.css   # compiled tailwindcss output
-
-@enhance-styles             # the existing styles plugin
-filename enhance-styles.css # defaults to styles.css
-```
-
-</doc-code>
-
-<doc-callout level="danger" mark="🗑️" thin>
-
-Delete old `./public/styles.css`, if it exists.
-
-</doc-callout>
-
 ### Project structure
 
-Our project now looks like...
+Upon running our development server (or when deploying), our project now looks like...
 
 ```bash
 .
@@ -170,7 +138,6 @@ Our project now looks like...
 │   └── pages/
 ├── package.json
 ├── public
-│   ├── enhance-styles.css  # created by enhance-styles
 │   └── tailwind.css        # created by arc-plugin-tailwindcss
 ├── src
 │   └── styles

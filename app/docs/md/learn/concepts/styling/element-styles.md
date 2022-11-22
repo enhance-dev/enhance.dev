@@ -2,7 +2,43 @@
 title: Element styles
 ---
 
-Element styles are for specific styles that can't easily be achieved with utility classes.
+Element styles are for specific styles that _can't_ easily be achieved with utility classes.
+This approach gives developers the convenience of writing style rules right next to the elements those rules affect.
+
+## Local, Scoped Styling
+
+Adding a `<style>` tag to your single-file element definition's HTML will be scoped to that element when it is automatically hoisted to the document's `<head>`.
+
+<doc-code highlight="4">
+
+```javascript
+export default function MyHeader({ html }) { 
+  return html`
+    <style>
+      h1 { color: Crimson; }
+    </style>
+
+    <h1>My Web App</h1>
+  `
+}
+```
+
+</doc-code>
+
+Authoring the above `<my-header>` element will result in the following CSS in your document's inline stylesheet:
+
+<doc-code highlight="4">
+
+```html
+<head>
+  <!-- ... -->
+  <style>
+    my-header h1 { color: Crimson; }
+  </style>
+</head>
+```
+
+</doc-code>
 
 ## Element Pseudo classes
 
