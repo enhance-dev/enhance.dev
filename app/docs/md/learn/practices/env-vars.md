@@ -49,7 +49,7 @@ Display the values passed from the API Route.
 <doc-code filename="app/pages/debug.mjs" highlight="2-add">
 
 ```javascript
-export default async function debug ({ html, state }) {
+export default function debug ({ html, state }) {
   const env = state.store?.env
   return html`<pre>${ env }</pre>` 
 }
