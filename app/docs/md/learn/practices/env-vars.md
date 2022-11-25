@@ -35,7 +35,7 @@ API Routes are a Node.js process; `process.env` lists all environment variables.
 export async function get () {
   const env = process.env
   return { 
-    json: { env } 
+    json: { JSON.stringify(env) } 
   }
 }
 ```
