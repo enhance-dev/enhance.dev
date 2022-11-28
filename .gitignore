@@ -1,4 +1,5 @@
 node_modules
+tmp
 
 .arc-env
 .env
@@ -8,7 +9,6 @@ sam.json
 sam.yaml
 
 static.json
-public/css/styles.css
 public/bundles
 
 .DS_Store

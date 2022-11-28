@@ -19,7 +19,7 @@ export default function Head() {
   <link rel="manifest" href="${arc.static('/img/favicon/site.webmanifest')}">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="${arc.static('/css/styles.css')}"/>
+  <link rel="stylesheet" href="/enhance-styles.css"/>
   <link rel="stylesheet" href="${arc.static('/css/docs-colors.css')}" />
   <link rel="stylesheet" href="${arc.static('/css/docs-highlight.css')}" />
   <link rel="stylesheet" href="${arc.static('/bundles/docsearch-css.css')}" />
