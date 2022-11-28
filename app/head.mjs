@@ -1,4 +1,6 @@
 import arc from '@architect/functions'
+// eslint-disable-next-line import/no-unresolved
+import { getLinkTag } from '@enhance/arc-plugin-styles/get-styles'
 
 /** @type {import('@enhance/types').EnhanceHeadFn} */
 export default function Head() {
@@ -19,7 +21,7 @@ export default function Head() {
   <link rel="manifest" href="${arc.static('/img/favicon/site.webmanifest')}">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="/enhance-styles.css"/>
+  ${getLinkTag()}
   <link rel="stylesheet" href="${arc.static('/css/docs-colors.css')}" />
   <link rel="stylesheet" href="${arc.static('/css/docs-highlight.css')}" />
   <link rel="stylesheet" href="${arc.static('/bundles/docsearch-css.css')}" />

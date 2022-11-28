@@ -13,6 +13,7 @@
     "@architect/functions": "^5.3.0",
     "@docsearch/js": "^3.3.0",
     "@enhance/arc-plugin-enhance": "^4.0.0",
+    "@enhance/arc-plugin-styles": "^2.0.3-rc.0",
     "@mux/mux-player": "^1.4.0",
     "arcdown": "^2.1.0",
     "markdown-it-arc-static-img": "^2.1.0"
