@@ -4,6 +4,10 @@ export default function DocsHeader({ html, state }) {
   const { store } = state
   const { searchTerm, sidebarData } = store
 
+  // check if today is Nov 30: Blue Beanie Day
+  const today = new Date()
+  const isBlueBeanieDay = today.getMonth() === 11 - 1 && today.getDate() === 30
+
   const navItems = []
   if (sidebarData?.length > 0) {
     sidebarData
@@ -81,10 +85,6 @@ export default function DocsHeader({ html, state }) {
         display: flex;
       }
 
-      .axol {
-        margin-top: -0.65rem;
-      }
-
       @media only screen and (min-width: 48em) {
         /* 2-col + */
         :host {
@@ -109,6 +109,19 @@ export default function DocsHeader({ html, state }) {
 
     <style>
       /* Basic styles */
+
+      .axol {
+        margin-top: -0.65rem;
+      }
+      .axol-accessory {
+        position: absolute;
+      }
+      .axol-accessory.bluebeanie {
+        left: 12px;
+        top: -3px;
+        width: 38px;
+      }
+
       #logo h1 a {
         transition: transform ease 0.2s;
       }
@@ -132,10 +145,17 @@ export default function DocsHeader({ html, state }) {
       aria-label="Open navigation" />
     <div id="logo" class="flex gap-1 justify-between items-center">
       <div class="flex items-center">
-        <img
-          class="axol"
-          src="${arc.static('img/svg/enhance-axol.svg')}"
-          alt="Enhance mascot: Axol" />
+        <div class="relative axol-and-accessories">
+          <img
+            class="axol"
+            src="${arc.static('img/svg/enhance-axol.svg')}"
+            alt="Enhance mascot: Axol" />
+          ${isBlueBeanieDay &&
+          `<img
+              class="axol-accessory bluebeanie"
+              src="${arc.static('img/bluebeanie.png')}"
+              alt="Axol's blue beanie" />`}
+        </div>
         <h1 class="text1 ml-1">
           <a href="/" class="enhance-link inline-block font-semibold"
             >Enhance</a
