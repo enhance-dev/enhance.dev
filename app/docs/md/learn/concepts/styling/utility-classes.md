@@ -87,9 +87,9 @@ However, you may want to include these utility classes elsewhere or in a [custom
 A utility function is provided to access your generated stylesheet.
 
 ```javascript
-import getStyles from '@enhance/arc-plugin-styles/get-styles'
+import { getStyles } from '@enhance/arc-plugin-styles'
 
-const styles = getStyles()
+const styles = getStyles.all()
 
 styles.link    // a <link rel="stylesheet"> tag
 styles.style   // a <style> tag for inline styles
@@ -99,15 +99,11 @@ styles.path    // root-relative path to the .css file
 Furthermore, individual methods can be imported:
 
 ```javascript
-import {
-  getLinkTag,
-  getStyleTag,
-  getPath,
-} from '@enhance/arc-plugin-styles/get-styles'
+import { getStyles } from '@enhance/arc-plugin-styles'
 
-getLinkTag()   // a <link rel="stylesheet"> tag
-getStyleTag()  // a <style> tag for inline styles
-getPath()      // root-relative path to the .css file
+getStyles.linkTag()   // a <link rel="stylesheet"> tag
+getStyles.styleTag()  // a <style> tag for inline styles
+getStyles.path()      // root-relative path to the .css file
 ```
 
 <doc-callout level="info">
