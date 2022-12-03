@@ -10,10 +10,10 @@
     "test": "npm run lint && npm run tape"
   },
   "dependencies": {
-    "@architect/functions": "^5.3.0",
+    "@architect/functions": "^5.3.1",
     "@docsearch/js": "^3.3.0",
-    "@enhance/arc-plugin-enhance": "^4.0.0",
-    "@enhance/arc-plugin-styles": "^2.0.3-rc.0",
+    "@enhance/arc-plugin-enhance": "^4.1.0",
+    "@enhance/arc-plugin-styles": "^2.2.0",
     "@mux/mux-player": "^1.4.0",
     "arcdown": "^2.1.0",
     "markdown-it-arc-static-img": "^2.1.0"
@@ -21,6 +21,7 @@
   "devDependencies": {
     "@architect/architect": "^10.7.3",
     "@architect/eslint-config": "^2.0.1",
+    "@architect/sandbox": "^5.4.1",
     "@enhance/types": "^0.4.0",
     "eslint": "^8.28.0",
     "eslint-config-prettier": "^8.5.0",
