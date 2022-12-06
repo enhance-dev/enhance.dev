@@ -19,11 +19,11 @@
     "markdown-it-arc-static-img": "^2.1.0"
   },
   "devDependencies": {
-    "@architect/architect": "^10.7.3",
+    "@architect/architect": "^10.8.1",
     "@architect/eslint-config": "^2.0.1",
     "@architect/sandbox": "^5.4.1",
     "@enhance/types": "^0.4.0",
-    "eslint": "^8.28.0",
+    "eslint": "^8.29.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
     "prettier": "^2.8.0",
