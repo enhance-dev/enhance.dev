@@ -71,11 +71,12 @@ export const data = [
             path: '/docs/learn/concepts/routing/',
             items: [
               'lifecycle',
-              { slug: 'dynamic-routes', label: 'Dynamic Routes' },
-              { slug: 'catch-all-routes', label: 'Catch All Routes' },
+              'dynamic-routes',
+              'catch-all-routes',
               { slug: 'api-routes', label: 'API Routes' },
             ],
           },
+          'glossary',
         ],
       },
       {
