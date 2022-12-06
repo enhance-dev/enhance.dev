@@ -1,5 +1,4 @@
 import arc from '@architect/functions'
-// eslint-disable-next-line import/no-unresolved
 import { getStyles } from '@enhance/arc-plugin-styles'
 
 /** @type {import('@enhance/types').EnhanceHeadFn} */
