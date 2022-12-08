@@ -6,7 +6,7 @@ links:
 ---
 
 Utility classes are an optimized way to apply general styling.
-They remove large amounts of duplication from your stylesheets and lend visual harmony to your app.  
+They remove large amounts of duplication from your stylesheets and lend visual harmony to your app.
 Utility class stylesheets tend to be tiny — around ~30k on disk and 9k over the wire.
 
 ## Styleguide
@@ -20,7 +20,7 @@ During development a stylesheet is generated and served via `/enhance-styles.css
 
 <doc-callout level="caution">
 
-If you use a [custom Head function](/docs/learn/starter-project/head), `enhance-styles.css` will **not** be included by default.  
+If you use a [custom Head function](/docs/learn/starter-project/head), `enhance-styles.css` will **not** be included by default.
 To add Enhance Styles utility classes with a custom headm.mjs, it is recommended to use the helper function [described below](#getstyles) to include Enhance Styles.
 
 </doc-callout>
@@ -41,14 +41,14 @@ export default function MyParagraph({ html }) {
 
 ## `generated.css`
 
-Enhance Styles stores a copy of generated styles at the root `/tmp/generated.css`.
+Enhance Styles stores a copy of generated styles at the root `/.enhance/generated.css`.
 This file can be used as a helpful reference for class names available to your HTML.
 
 We're working on providing a dynamic, project-specific stylguide that will contain this reference. Stay tuned 📡
 
 <doc-callout slim mark="😶‍🌫️">
 
-This `/tmp` directory should be ignored from your project's version control.
+This `/.enhance` directory should be ignored from your project's version control.
 
 </doc-callout>
 
