@@ -80,6 +80,7 @@ export default function DocContent({ html }) {
         background-color: var(--smoke-indigo);
         font-family: Menlo, Monaco, Consolas, monospace;
         border-radius: 0.25rem;
+        font-size: 0.9em; /* Gets x-height closer to body text's size */
       }
 
       blockquote :not(pre) > code {

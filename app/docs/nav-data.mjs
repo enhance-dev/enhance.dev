@@ -46,6 +46,11 @@ export const data = [
       },
       {
         type: TYPE.category,
+        slug: 'components',
+        items: ['image'],
+      },
+      {
+        type: TYPE.category,
         slug: 'concepts',
         items: [
           'single-file-components',
