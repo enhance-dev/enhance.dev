@@ -16,6 +16,9 @@ The Enhance image component is designed to help alleviate these issues for image
   <dt class='font-medium mt0'>Generated sizing attributes</dt>
   <dd>For each image variant you provide, the image component will generate corresponding <code>width</code> and <code>height</code> attributes to prevent layout shift from occurring.</dd>
 
+  <dt class='font-medium mt0'>Caching of generated images</dt>
+  <dd>Generated variations of your source images are cached server side to improve subsequent loading speeds.</dd>
+
   <dt class='font-medium mt0'>Lazy loading</dt>
   <dd>Images that aren’t critical for a page’s initial render can be lazy loaded to improve the <a href='https://developer.mozilla.org/en-US/docs/Web/Performance/Critical_rendering_path'>critical rendering path</a>.</dd>
 </dl>
@@ -67,7 +70,7 @@ This element is used to specify a variation of your source image. This is where 
   </doc-callout></dd>
 
   <dt class='font-bold mt0'><code>quality</code></dt>
-  <dd>The quality setting controls the amount of compression to apply to the generated image. Acceptsa numeric string from <code>0</code> to <code>100</code>. Higher numbers result in higher quality and less compression, at the expense of larger file size. Defaults to full quality. TODO: which formats is this available for?</dd>
+  <dd>The quality setting controls the amount of compression to apply to the generated image. Accepts a numeric string from <code>0</code> to <code>100</code>. Higher numbers result in higher quality and less compression, at the expense of larger file size. Defaults to full quality. TODO: which formats is this available for?</dd>
 
   <dt class='font-bold mt0'><code>width</code></dt>
   <dd>The desired <a href='https://developer.mozilla.org/en-US/docs/Glossary/Intrinsic_Size'>intrinsic width</a> of the generated image. Accepts a unitless numeric string, to specify the width in pixels. Defaults to the source image width.
@@ -88,7 +91,7 @@ This element is used to specify a variation of your source image. This is where 
 <doc-code>
 
 ```html
-<enhance-image src='/_public/axol.png' alt='Illustration of Axol, the friendly axolotl that is Enhance’s mascot.'>
+<enhance-image src='/_public/axol.png' alt='Illustration of Axol'>
   <enhance-image-variant width='600' format='jpg' quality='60'></enhance-image-variant>
 </enhance-image>
 ```
@@ -119,7 +122,7 @@ The image will only be loaded as it approaches the viewport. Note that no varian
 <doc-code>
 
 ```html
-<enhance-image src='/_public/axol.jpg' alt='Illustration of Axol, the friendly axolotl that is Enhance’s mascot.'>
+<enhance-image src='/_public/axol.jpg' alt='Illustration of Axol'>
   <enhance-image-variant media='(min-width: 90em)' width='600'></enhance-image-variant>
   <enhance-image-variant media='(min-width: 48em)' width='400'></enhance-image-variant>
   <enhance-image-variant width='200'></enhance-image-variant>
@@ -141,7 +144,7 @@ If you instead wish to specify variants using `max-width` media conditions, the 
 <doc-code>
 
 ```html
-<enhance-image src='/_public/axol.jpg' alt='Illustration of Axol, the friendly axolotl that is Enhance’s mascot.'>
+<enhance-image src='/_public/axol.jpg' alt='Illustration of Axol'>
   <enhance-image-variant media='(max-width: 20em)' width='200'></enhance-image-variant>
   <enhance-image-variant media='(max-width: 48em)' width='400'></enhance-image-variant>
   <enhance-image-variant width='600'></enhance-image-variant>
@@ -159,7 +162,7 @@ Images can of course be generated for media conditions beyond viewport widths. F
 <doc-code>
 
 ```html
-<enhance-image src='/_public/axol.jpg' alt='Illustration of Axol, the friendly axolotl that is Enhance’s mascot.'>
+<enhance-image src='/_public/axol.jpg' alt='Illustration of Axol'>
   <enhance-image-variant media='(min-resolution: 300dpi)' width='1200'></enhance-image-variant>
   <enhance-image-variant media='(min-resolution: 150dpi)' width='800'></enhance-image-variant>
   <enhance-image-variant width='400'></enhance-image-variant>
