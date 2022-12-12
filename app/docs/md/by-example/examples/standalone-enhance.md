@@ -42,7 +42,7 @@ At the end of the file, write a simple custom element to replace our "Hello, wor
 ```javascript
 function HelloWorld({ html, state }) {
   const name = state.attrs?.name || 'world'
-  
+
   return html`
     <style>
       h1 { color: SteelBlue }
@@ -101,7 +101,7 @@ export default async function handler(request, reply) {
 
 function HelloWorld({ html, state }) {
   const name = state.attrs?.name || 'world'
-  
+
   return html`
     <style>
       h1 { color: SteelBlue }
@@ -114,7 +114,7 @@ function HelloWorld({ html, state }) {
 
 </doc-code>
 
-In this case, Enhance will provide the bare minimum doctype and `<html>` tags to create a valid document.
+In this case, Enhance will provide the bare minimum `doctype` and `<html>` tags to create a valid document.
 So you may want to add a layout wrapper function that can be used like:
 
 ```javascript

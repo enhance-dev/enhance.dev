@@ -44,7 +44,7 @@ export default function MyParagraph({ html }) {
 Enhance Styles stores a copy of generated styles at the root `/.enhance/generated.css`.
 This file can be used as a helpful reference for class names available to your HTML.
 
-We're working on providing a dynamic, project-specific stylguide that will contain this reference. Stay tuned 📡
+We're working on providing a dynamic, project-specific styleguide that will contain this reference. Stay tuned 📡
 
 <doc-callout slim mark="😶‍🌫️">
 

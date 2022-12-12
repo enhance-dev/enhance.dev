@@ -52,7 +52,7 @@ export default function HelloWorld({ html, state }) {
 }
 
 ```
-Any valid css will work.
+Any valid CSS will work.
 
 <doc-callout level="info" thin>
 

@@ -4,7 +4,7 @@ title: Progressive enhancement
 
 The Enhance ethos is to build your app incrementally from prototype to production. First, start with working HTML. Next, break out Custom Elements as the need for reuse arises. Develop against your own APIs by returning hard-coded data until you’re ready to invest the time to hook up your database. Once you know what the data returned from your API should look like, add reading and writing from your database—finally, layer on user input interactions and data reactivity in the browser. Progressively enhance your application from a working prototype to a production-ready product with the same codebase.
 
-tl;dr With Enhance projects, you get all you need to ship your web app, and you can work incrementally from a rapid prototype to an actual product.
+TLDR With Enhance projects, you get all you need to ship your web app, and you can work incrementally from a rapid prototype to an actual product.
 
 ## Stable foundations
 
@@ -64,7 +64,7 @@ export default function MyMessage({ html, state }) {
 
 </doc-code>
 
-With scoped DOM queries and low level DOM apis you can perform optimal surgical updates to your element.
+With scoped DOM queries and low level DOM APIs you can perform optimal surgical updates to your element.
 
 <small>† You would need to add template support to this class if you wanted to add `<my-message>` tags to your page with JavaScript in the browser at runtime. [See this version →](https://gist.github.com/kristoferjoseph/dd5d22018a0f7feedd4ee18f25a040a8)</small>
 

@@ -27,7 +27,7 @@ app/elements/blog/comment-form → <blog-comment-form></blog-comment-form>
 
 </doc-callout>
 
-## html
+## `html`
 Elements are pure functions meaning given the same input they return the same output every single time.
 Your element function will be passed an arguments object containing an `html` render function that is used to expand nested custom elements.
 
@@ -50,7 +50,7 @@ export default function MyHeader({ html, state }) {
   const { attrs, store } = state
   const { heading = 'Default' } = attrs
   const href = store.aboutPath
-  
+
   return html`
     <header>
       <h1>

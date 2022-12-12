@@ -15,11 +15,11 @@ npm i -D @enhance/types
 
 ## Usage Examples
 
-If your editor supports autocomplete and error detection (like [VS Code's Intellisense](https://code.visualstudio.com/docs/editor/intellisense)) via commented types, you can indicate that a function adheres to a certain type.
+If your editor supports auto-complete and error detection (like [VS Code's Intellisense](https://code.visualstudio.com/docs/editor/intellisense)) via commented types, you can indicate that a function adheres to a certain type.
 
 ### Custom Element
 
-Use the `EnhanceElemFn` type when definiting [custom elements](/docs/learn/starter-project/elements) in /app/elements/. This will provide hinting for the argument passed to your function, including the `html` function and `state` object.
+Use the `EnhanceElemFn` type when defining [custom elements](/docs/learn/starter-project/elements) in /app/elements/. This will provide hinting for the argument passed to your function, including the `html` function and `state` object.
 
 <doc-code filename="app/elements/todo-item.mjs" highlight="1:3-add" callout="6-state,11-html">
 
@@ -94,7 +94,7 @@ import { getLinkTag } from '@enhance/arc-plugin-styles/get-styles'
 export default function Head({ store, status, req, error }) {
   const { path } = req
   const title = `Todos — ${path}`
-  
+
   return `
     <!DOCTYPE html>
     <html>

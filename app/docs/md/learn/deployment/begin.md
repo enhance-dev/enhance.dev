@@ -44,7 +44,7 @@ begin generate page --path boom --type js
 ```bash
 begin generate api --path boom
 ```
-> Creates app/api/boom.mjs
+> Creates `app/api/boom.mjs`
 
 ### Generate CRUDL routes
 

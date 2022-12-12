@@ -25,10 +25,10 @@ We're always open to outside contribution, especially from domain experts.
 
 Some options for transpiling your TypeScript to JavaScript for Node.js:
 
-- [esbuild](https://esbuild.github.io/) - fast/scriptable; used by [Enhance `@bundles`](/docs/learn/practices/browser-modules) for *browswer* code
+- [esbuild](https://esbuild.github.io/) - fast/scriptable; used by [Enhance `@bundles`](/docs/learn/practices/browser-modules) for *browser* code
 - [Speedy Web Compiler](https://swc.rs/) (aka SWC) - super fast and scriptable
 - [Parcel](https://parceljs.org/languages/typescript/) - uses SWC under the hood
-- [Webpack](https://webpack.js.org/guides/typescript/) - ol' reliable
+- [Webpack](https://webpack.js.org/guides/typescript/) - old reliable
 - [Compile with VS Code](https://code.visualstudio.com/docs/typescript/typescript-compiling) 🤯
 
 <doc-callout level="caution">

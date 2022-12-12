@@ -6,7 +6,7 @@ Catch all routes are a special case of dynamic routes where the remainder of the
 
 ## Example
 
-Consider the following api `app/api/docs/$$.mjs`:
+Consider the following API `app/api/docs/$$.mjs`:
 
 <doc-code filename="app/api/docs/$$.mjs">
 

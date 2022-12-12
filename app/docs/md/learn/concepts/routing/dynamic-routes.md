@@ -6,7 +6,7 @@ Predefined paths are not always enough for complex applications. In Enhance you 
 
 ## Example
 
-Consider the following api `app/api/users/$id.mjs`:
+Consider the following API `app/api/users/$id.mjs`:
 
 <doc-code filename="app/api/users/$id.mjs">
 

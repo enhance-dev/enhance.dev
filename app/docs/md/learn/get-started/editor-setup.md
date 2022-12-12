@@ -29,10 +29,10 @@ VS Code devs may need to disable the [Babel JavaScript extension](https://market
 
 <doc-callout level="info">
 
-You will need to install Treesitter’s [HTML](https://github.com/tree-sitter/tree-sitter-html), [CSS](https://github.com/tree-sitter/tree-sitter-css), and [Javascript](https://github.com/tree-sitter/tree-sitter-javascript) language parsers.
+You will need to install Treesitter’s [HTML](https://github.com/tree-sitter/tree-sitter-html), [CSS](https://github.com/tree-sitter/tree-sitter-css), and [JavaScript](https://github.com/tree-sitter/tree-sitter-javascript) language parsers.
 
 </doc-callout>
 
 ## Sublime Text
 
-Add the "[Ecmascript Syntax](https://github.com/bathos/Ecmascript-Sublime/)" package via Package Control
+Add the "[ECMAScript Syntax](https://github.com/bathos/Ecmascript-Sublime/)" package via Package Control

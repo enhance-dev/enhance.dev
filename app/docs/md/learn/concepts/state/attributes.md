@@ -27,7 +27,7 @@ export default function MyMessage({ html, state }) {
 
 Generally, HTML attributes are `lowercase`. We recommend following suit for attributes for your custom elements. However, `kebab-case` and `snake_case` are also valid. Unfortunately, `camelCase` is not recommended as the web component lifecycle event `attributeChangedCallback` doesn't fire for `camelCase` attributes.
 
-| case | attribute | JS access | attributeChangedCallback |
+| case | attribute | JS access | `attributeChangedCallback` |
 |---|---|---|:-:|
 | lower | `imagewidth` | `comp.imagewidth` | ✅ |
 | kebab | `image-width` | `comp['image-width']` | ✅ |

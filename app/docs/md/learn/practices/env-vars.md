@@ -2,7 +2,7 @@
 title: Environment Variables
 ---
 
-It is a good practice to store runtime configuration data, such as API keys, in environment variables. When working locally Enhance supports loading environment variables ith a `.env` file.
+It is a good practice to store runtime configuration data, such as API keys, in environment variables. When working locally Enhance supports loading environment variables with a `.env` file.
 
 <doc-callout mark="🔎">
 To provision environment variables for production deployment please consult the documentation for the different deployment providers.

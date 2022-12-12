@@ -34,7 +34,7 @@ API routes always receive a `request` object:
 | method  | `string` | Request method: `GET`, `POST`, `PATCH`, `PUT`, or `DELETE`
 | params  | `object` | URL params (e.g. 'cat' in `/app/api/cats/$cat.mjs`)
 | path    | `string` | Root-relative path of the request URL
-| query   | `object` | Request querystring parameters
+| query   | `object` | Request `querystring` parameters
 | session | `object` | Read of the request cookie
 
 ## Response
@@ -43,12 +43,12 @@ API routes always return a `response` object:
 
 | key          | type     | description
 |--------------|----------|---
-| json         | `object` | Plain JS object returned as a JSON response, or initial state for a `text/html` request
-| location     | `string` | Redirect path to send client
-| statusCode   | `number` | Set the HTTP status code (default: `200`, aliases: `code`, and `status` )
-| cacheControl | `string` | Set the `cache-control` header
-| headers      | `object` | Set response headers as key/value pairs
-| session      | `object` | Writes passed object to the session
+| `json`         | `object` | Plain JS object returned as a JSON response, or initial state for a `text/html` request
+| `location`     | `string` | Redirect path to send client
+| `statusCode`   | `number` | Set the HTTP status code (default: `200`, aliases: `code`, and `status` )
+| `cacheControl` | `string` | Set the `cache-control` header
+| `headers`      | `object` | Set response headers as key/value pairs
+| `session`      | `object` | Writes passed object to the session
 
 ## Middleware
 
@@ -65,7 +65,7 @@ async function one (req) {
 async function two (req) {
   console.log('hi from two')
   const second = false
-  
+
   return { json: [req.first, second] }
 }
 ```
@@ -137,7 +137,7 @@ export async function get (req) {
 export async function post (req) {
   let  count = req.session.count || 0
   count += 1
-  
+
   return {
     session: { count },
     location: '/'
@@ -162,7 +162,7 @@ The form functions even when client JS isn't available. This is the moment where
 export async function post (req) {
   let count = req.session.count || 0
   count += 1
-  
+
   return {
     session: { count },
     json: { count },
@@ -189,14 +189,14 @@ export class Counter extends HTMLElement {
 
   async addOne (e) {
     e.preventDefault()
-    
+
     const res = await fetch('/count', {
       headers: { 'accept': 'application/json' },
       method: 'post'
     })
-    
+
     const json = await res.json()
-    
+
     this.pre.innerHTML = JSON.stringify(json, null, 2)
   }
 }
