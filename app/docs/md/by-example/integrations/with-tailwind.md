@@ -37,7 +37,7 @@ enhance/arc-plugin-enhance
 arc-plugin-tailwindcss      # enable the plugin
 
 @tailwindcss                # tailwind plugin options
-src src/styles/tailwind.css
+src src/styles/tailwind.css # tailwind directives
 build public/tailwind.css   # compiled tailwindcss output
 ```
 
