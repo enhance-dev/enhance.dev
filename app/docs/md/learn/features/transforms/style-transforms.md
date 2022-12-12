@@ -153,5 +153,5 @@ This approach doesn't completely avoid unintentional deep selection of nested el
 - Use with utility classes.
   This transform works well in combination with utility class styles. We recommend writing most styles as utility classes directly on the elements in your template. This only leaves styles that cannot be written as utility classes which can be added to the component.
 - Use specific selectors to avoid deep selecting.
-  It is better to use the `>` child selector rather than the general descendent selector when possible(i.e. `:host > div` ).
+  It is better to use the `>` child selector rather than the general descendant selector when possible(i.e. `:host > div` ).
 - With slotted and part be specific enough to avoid over selection

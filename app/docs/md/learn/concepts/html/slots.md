@@ -18,7 +18,7 @@ export default function MyLayout({ html }) {
 }
 ```
 
-Then author an element with a matching `slot` attribute as a direct descendent.
+Then author an element with a matching `slot` attribute as a direct descendant.
 
 ```html
 <my-layout>
