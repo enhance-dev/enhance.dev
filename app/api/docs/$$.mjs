@@ -1,5 +1,5 @@
 /* eslint-disable filenames/match-regex */
-import { readFileSync } from 'fs'
+import { existsSync, readFileSync } from 'fs'
 import { URL } from 'url'
 import { Arcdown } from 'arcdown'
 import arcStaticImg from 'markdown-it-arc-static-img'
@@ -34,7 +34,10 @@ export async function get(request) {
   const gacode =
     process.env.ARC_ENV === 'production' ? 'G-FQHNPN78V3' : 'G-0ES194BJQ6'
 
-  const docURL = new URL(`../../docs/md/${docPath}.md`, import.meta.url)
+  let docURL = new URL(`../../docs/md/${docPath}.md`, import.meta.url)
+  if (!existsSync(docURL.pathname)) {
+    docURL = new URL(`../../docs/md/${docPath}/index.md`, import.meta.url)
+  }
 
   const sidebarData = navDataLoader('docs', activePath)
 
