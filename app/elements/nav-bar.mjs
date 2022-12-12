@@ -21,7 +21,7 @@ export default function NavBarTemplate({ html, state = {} }) {
         display: block;
         position: absolute;
         /*        width: 30px;
-        height: 30px; 
+        height: 30px;
         top: -7px;
         left: -5px;*/
         padding: 0;
@@ -79,7 +79,7 @@ export default function NavBarTemplate({ html, state = {} }) {
     </style>
 
     <header class="bg-p0">
-      <nav class="m-auto p0">
+      <nav class="m-auto p0" aria-label="mobile menu">
         <div
           class="mobile-menu hidden-lg w-full flex items-center justify-between border-b border-p1">
           <div class="mobile-logo">
