@@ -6,6 +6,7 @@
   "scripts": {
     "start": "arc sandbox",
     "lint": "eslint 'app/**/**.*js' --fix",
+    "spellcheck": "npx spellchecker --config ./scripts/spellcheckerrc.json",
     "tape": "tape 'test/**/*-test.mjs' | tap-arc",
     "test": "npm run lint && npm run tape"
   },
@@ -22,12 +23,14 @@
     "@architect/architect": "^10.8.1",
     "@architect/eslint-config": "^2.0.1",
     "@architect/sandbox": "^5.4.1",
+    "@architect/spellcheck-dictionary": "github:architect/spellcheck-dictionary#v0.1.7",
     "@enhance/types": "^0.4.0",
     "eslint": "^8.29.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
     "prettier": "^2.8.0",
     "prettier-eslint": "^15.0.1",
+    "spellchecker-cli": "^6.1.0",
     "tap-arc": "^0.3.5",
     "tape": "^5.6.1",
     "tiny-json-http": "^7.4.2"

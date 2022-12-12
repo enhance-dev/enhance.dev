@@ -1,0 +1,23 @@
+{
+    "files": [ "./app/docs/md/**/*.md", "!./app/docs/md/unsorted/**/*.md", "!./app/docs/md/learn/get-started/editor-setup.md" ],
+    "quiet": true,
+    "noSuggestions": true,
+    "dictionaries": [
+      "./scripts/dictionary.txt",
+      "./node_modules/@architect/spellcheck-dictionary/index.js"
+    ],
+    "plugins": [
+      "spell",
+      "indefinite-article",
+      "repeated-words",
+      "syntax-mentions",
+      "syntax-urls",
+      "frontmatter"
+    ],
+    "frontmatterKeys": [
+      "title",
+      "category",
+      "description",
+      "sections"
+    ]
+  }
