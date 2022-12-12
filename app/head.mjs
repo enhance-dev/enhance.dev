@@ -3,8 +3,10 @@ import arc from '@architect/functions'
 import { getStyles } from '@enhance/arc-plugin-styles'
 
 /** @type {import('@enhance/types').EnhanceHeadFn} */
-export default function Head() {
-  const title = 'Enhance docs'
+export default function Head(state) {
+  const { store } = state
+  const { doc = {} } = store
+  const { title } = doc
   return /* html */ `
 <!DOCTYPE html>
 <head>
@@ -25,7 +27,7 @@ export default function Head() {
   <link rel="stylesheet" href="${arc.static('/css/docs-colors.css')}" />
   <link rel="stylesheet" href="${arc.static('/css/docs-highlight.css')}" />
   <link rel="stylesheet" href="${arc.static('/bundles/docsearch-css.css')}" />
-  <title>${title}</title>
+  <title>${title ? `${title} - Enhance` : `Enhance docs`}</title>
 </head>
 `
 }

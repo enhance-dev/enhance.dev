@@ -37,6 +37,12 @@ export async function get(request) {
   let docURL = new URL(`../../docs/md/${docPath}.md`, import.meta.url)
   if (!existsSync(docURL.pathname)) {
     docURL = new URL(`../../docs/md/${docPath}/index.md`, import.meta.url)
+    if (existsSync(docURL.pathname)) {
+      return {
+        status: 302,
+        location: `${activePath}/`,
+      }
+    }
   }
 
   const sidebarData = navDataLoader('docs', activePath)
