@@ -8,7 +8,7 @@
     "lint": "eslint 'app/**/**.*js' --fix",
     "spellcheck": "npx spellchecker --config ./scripts/spellcheckerrc.json",
     "tape": "tape 'test/**/*-test.mjs' | tap-arc",
-    "test": "npm run lint && npm run tape"
+    "test": "npm run spellcheck && npm run lint && npm run tape"
   },
   "dependencies": {
     "@architect/functions": "^5.3.1",
