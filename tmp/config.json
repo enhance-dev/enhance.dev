@@ -1,0 +1,59 @@
+{
+  "base": 16,
+  "scale": {
+    "ratio": "majorThird",
+    "steps": 10
+  },
+  "fonts": {
+    "sans": "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
+    "mono": "Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace",
+    "roboto": "'Roboto Mono', monospace",
+    "rubik": "'Rubik', sans-serif"
+  },
+  "grid": {
+    "steps": 6
+  },
+  "color": {
+    "white": "#FFFFFF",
+    "black": "#000000",
+    "light": "#EFEFEF",
+    "dark": "#222222",
+    "ateneo": "#113A62",
+    "blue": "#1F74D6",
+    "cloud": "#F7F0FE",
+    "dark-purple": "#7327CE",
+    "denim": "#003451",
+    "green": "#2CDD93",
+    "halite": "#00293F",
+    "indigo": "#004163",
+    "inky": "#4D7185",
+    "lily": "#E5EBEE",
+    "magenta": "#E21893",
+    "orange": "#FF6263",
+    "princess": "#F57AFF",
+    "purple": "#AD6EF9",
+    "rift": "#01040D",
+    "smoke": "#F3F3F3"
+  },
+  "properties": [
+    {
+      "bg-gradient": "linear-gradient(125deg, var(--orange), var(--magenta), var(--purple))"
+    }
+  ],
+  "queries": {
+    "lg": "48em",
+    "xl": "72em"
+  },
+  "radius": [
+    2,
+    4,
+    6
+  ],
+  "borders": {
+    "widths": [
+      1,
+      2,
+      3
+    ]
+  }
+}
