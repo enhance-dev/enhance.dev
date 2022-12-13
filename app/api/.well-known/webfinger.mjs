@@ -37,11 +37,10 @@ export async function get({ query }) {
         headers: {
           'Content-Type': 'application/jrd+json; charset=utf-8',
         },
-        json: axol,
+        body: JSON.stringify(axol),
       }
     : {
-        headers: { 'Content-Type': 'text/plain' },
-        body: 'Not found',
+        text: 'Not found',
         statusCode: 404,
       }
 }
