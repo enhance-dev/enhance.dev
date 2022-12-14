@@ -51,7 +51,7 @@ Display the values passed from the API Route.
 ```javascript
 export default function debug ({ html, state }) {
   const env = state.store?.env
-  return html`<pre>${ env }</pre>`
+  return html`<pre>${ JSON.stringify(env) }</pre>`
 }
 ```
 
