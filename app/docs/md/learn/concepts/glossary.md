@@ -7,7 +7,7 @@ links: # Further Reading
 
 ## General Terminology
 
-### Progresive Enhancement
+### Progressive Enhancement
 
 Progressive enhancement is a design philosophy that focuses on providing a baseline experience to all users, directly from the server, without any browser JavaScript.
 This baseline experience is then enhanced by client-side features as the browser supports them.
@@ -23,7 +23,7 @@ This is made possible by Enhance's built-in rendering engine.
 
 Scoped styles are styles that are scoped to a specific component.
 This means that the styles will only apply to the component and its children.
-Scoped styles are defined in the `<style>` tag of a element.
+Scoped styles are defined in the `<style>` tag of an element.
 
 ### Cloud Functions
 

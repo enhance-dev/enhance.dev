@@ -8,6 +8,7 @@ Algolia's
 autocomplete
 Booleans
 CodeMirror
+CommonJS
 CRUDL
 customizations
 DOM
@@ -26,6 +27,7 @@ pre-defined
 preconfigured
 scriptable
 shadowDOM
+SFC(s)
 SSR
 SWC
 Tada
