@@ -11,11 +11,11 @@
     "test": "npm run spellcheck && npm run lint && npm run tape"
   },
   "dependencies": {
-    "@architect/functions": "^5.3.2",
+    "@architect/functions": "^5.3.3",
     "@docsearch/js": "^3.3.0",
     "@enhance/arc-plugin-enhance": "^4.2.1",
     "@enhance/arc-plugin-styles": "^2.2.1",
-    "@mux/mux-player": "^1.4.0",
+    "@mux/mux-player": "^1.5.0",
     "arcdown": "^2.1.0",
     "markdown-it-arc-static-img": "^2.1.0"
   },

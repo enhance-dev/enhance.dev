@@ -9,7 +9,8 @@ sam.json
 sam.yaml
 
 static.json
-public/bundles
+public/bundles/
+public/pages/
 
 .DS_Store
 .vscode
