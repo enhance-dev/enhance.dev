@@ -2,9 +2,9 @@
 title: Browser
 ---
 
-The `app/browser` directory is where JavaScript files for the browser live. These JavaScript files can import other modules from your project as well as any installed packages that can run in the browser. Files in the `app/browser` directory will be bundled to the `/public/page/` directory in your project and will be exposed the to browser at `/_public/page/` for loading by script tags.
+The `app/browser` directory is where JavaScript files for the browser live. These JavaScript files can import other modules from your project as well as any installed packages that can run in the browser. Files in the `app/browser` directory will be bundled to the `/public/pages/` directory in your project and will be exposed the to browser at `/_public/pages/` for loading by script tags.
 ```javascript
-<script type="module" src="/_public/page/my-file.mjs"></script>
+<script type="module" src="/_public/pages/my-file.mjs"></script>
 ```
 
 ## Add a browser bundle

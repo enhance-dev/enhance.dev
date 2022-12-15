@@ -84,7 +84,6 @@ export const data = [
         slug: 'practices',
         items: [
           'progressive-enhancement',
-          'browser-modules',
           'testing',
           { slug: 'types', label: 'Type Definitions' },
           { slug: 'env-vars', label: 'Environment Variables' },
