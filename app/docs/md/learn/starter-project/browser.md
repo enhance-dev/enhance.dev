@@ -3,6 +3,7 @@ title: Browser
 ---
 
 The `app/browser` directory is where JavaScript files for the browser live. These JavaScript files can import other modules from your project as well as any installed packages that can run in the browser. Files in the `app/browser` directory will be bundled to the `/public/pages/` directory in your project and will be exposed the to browser at `/_public/pages/` for loading by script tags.
+
 ```javascript
 <script type="module" src="/_public/pages/my-file.mjs"></script>
 ```
@@ -11,32 +12,38 @@ The `app/browser` directory is where JavaScript files for the browser live. Thes
 
 Create a JavaScript file for the browser.
 
-```bash
+```
 app
-├── api ............... data routes
+├── browser ........... browser JavaScript
 │   └── index.mjs
-└── browser ........... browser JavaScript
-    └── index.mjs
+└── pages ............. file-based routing
+    └── index.html
 ```
 
+<doc-code filename="app/browser/index.mjs">
+
 ```javascript
-// Inside `app/browser/index.mjs`
 const message = document.getElementById('message')
 message.innerHTML = '👋 Hello from your bundle!'
 ```
+
+</doc-code>
 
 ## Source a bundle in a page
 
 Add a script tag and load it from `/_public/pages/index.mjs`
 
+<doc-code filename="app/pages/index.html">
+
 ```html
 <main>
-<h1>My awesome page</h1>
-<p id="message"></p>
+  <h1>My awesome page</h1>
+  <p id="message"></p>
 </main>
 <script type="module" src="/_public/pages/index.mjs"></script>
 ```
 
+</doc-code>
 
 <doc-callout level="info" mark="💭">
 
@@ -52,33 +59,38 @@ Now that you get the basics of the browser bundle workflow let's look at how you
 
 Add the file `app/elements/my-message.mjs`
 
-```bash
+```
 app
-├── api ............... data routes
-│   └── index.mjs
 ├── browser ........... browser JavaScript
 │   └── index.mjs
-└── elements .......... custom element pure functions
-    └── my-message.mjs
+├── elements .......... custom element pure functions
+│   └── my-message.mjs
+└── pages ............. file-based routing
+    └── index.html
 ```
 
 ## Write a custom element pure function
 
 Write a pure function for returning the HTML markup for the `my-message.mjs` custom element.
 
+<doc-code filename="app/elements/my-message.mjs">
+
 ```javascript
 export default function MyMessage({ html, state }) {
   const { attrs } = state
   const { message='' } = attrs
-  return html`
-<h1>${ message }</h1>
-`
+
+  return html`<h1>${ message }</h1>`
 }
 ```
+
+</doc-code>
 
 ## Reuse your pure function in the browser
 
 Import the `my-message.mjs` element in the `app/browser/index.mjs` file to reuse your pure function in the browser.
+
+<doc-code filename="app/browser/index.mjs">
 
 ```javascript
 import enhance from '@enhance/element'
@@ -88,18 +100,22 @@ enhance('my-message', {
   attrs: [ 'message' ],
   render: MyMessage
 })
-
 ```
 
+</doc-code>
 
 ## Add the script to your page
 
-All that's left now is to add a script tag to `app/pages/index.mjs`  that sources your browser bundle.
+All that's left now is to add a script tag to `app/pages/index.html`  that sources your browser bundle.
+
+<doc-code filename="app/pages/index.html">
 
 ```html
 <my-message message="Howdy!"></my-message>
 <script type="module" src="/_public/pages/index.mjs"></script>
 ```
+
+</doc-code>
 
 <doc-callout level="info" mark="🤯">
 
