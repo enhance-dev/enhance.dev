@@ -77,7 +77,7 @@ Write a pure function for returning the HTML markup for the `my-message.mjs` cus
 
 ```javascript
 export default function MyMessage({ html, state }) {
-  const { attrs } = state
+  const { attrs=[] } = state
   const { message='' } = attrs
 
   return html`<h1>${ message }</h1>`
@@ -91,6 +91,58 @@ export default function MyMessage({ html, state }) {
 Import the `my-message.mjs` element in the `app/browser/index.mjs` file to reuse your pure function in the browser.
 
 <doc-code filename="app/browser/index.mjs">
+
+```javascript
+import MyMessage from '../elements/my-message.mjs'
+
+class MyMessageElement extends HTMLElement {
+  constructor() {
+    super()
+    const templateID = `${this.tagName.toLowerCase()}-template`
+    const template = document.getElementById(templateID)
+    if (template) {
+      this.template = template
+    }
+    else {
+      this.template = document.createElement('template')
+      this.template.innerHTML = MyMessage({
+         html: this.html,
+         state: {}
+      })
+      this.template.setAttribute('id', templateID)
+    }
+    this.replaceChildren(this.template.content.cloneNode(true))
+
+    this.heading = this.querySelector('h1')
+  }
+
+  html(strings, ...values) {
+    const collect = []
+    for (let i = 0; i < strings.length - 1; i++) {
+      collect.push(strings[i], values[i])
+    }
+    collect.push(strings[strings.length - 1])
+    return collect.join('')
+  }
+
+  static get observedAttributes() {
+    return [ 'message' ]
+  }
+
+  attributeChangedCallback(name, oldValue, newValue) {
+    if (oldValue !== newValue) {
+      if (name === 'message') {
+        this.heading.textContent = newValue
+      }
+    }
+  }
+}
+customElements.define('my-message', MyMessageElement)
+```
+
+## Using Enhance Element
+
+Here is doing the same thing but with `@enhance/element`
 
 ```javascript
 import enhance from '@enhance/element'
