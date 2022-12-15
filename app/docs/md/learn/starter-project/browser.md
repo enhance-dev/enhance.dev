@@ -40,7 +40,7 @@ Add a script tag and load it from `/_public/pages/index.mjs`
 
 <doc-callout level="info" mark="💭">
 
-The `/_public` endpoint is created for you so that Enhance can do the tedious work of replacing your authored file name with a fingerprinted one to avoid cacheing issues.
+The `/_public` endpoint is created for you so that Enhance can do the tedious work of replacing your authored file name with a fingerprinted one to avoid caching issues.
 
 </doc-callout>
 
