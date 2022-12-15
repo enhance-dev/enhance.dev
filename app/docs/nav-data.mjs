@@ -39,6 +39,7 @@ export const data = [
           'pages',
           'elements',
           { slug: 'api', label: 'API' },
+          'browser',
           'public',
           'head',
           '404-errors',

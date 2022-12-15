@@ -8,6 +8,8 @@ The Enhance starter project is set up to enable you to create dynamic multi-page
 app
 ├── api ............... data routes
 │   └── index.mjs
+├── browser ........... browser JavaScript
+│   └── index.mjs
 ├── elements .......... custom element pure functions
 │   └── my-header.mjs
 └── pages ............. file-based routing
@@ -36,10 +38,20 @@ Elements must be [named](https://html.spec.whatwg.org/multipage/custom-elements.
 
 ## API
 
-The `api` folder is preconfigured to expose data to your file-based routes. Meaning the file `app/api/index.mjs` will automatically pass state to `app/pages/index.mjs` as well as expose an endpoint for standard REST verbs like `get` and `post`
+The `api` folder is preconfigured to expose data to your file-based routes. Meaning the file `app/api/index.mjs` will automatically pass state to `app/pages/index.mjs` as well as expose an endpoint for standard REST verbs like `get` and `post`.
 
 <doc-callout level="none" mark="🪄">
 
 **[Read more about `api` routes here →](/docs/learn/starter-project/api)**
+
+</doc-callout>
+
+## Browser
+
+The `browser` folder is preconfigured to output a bundle to be used when progressively enhancing your pages in the browser. Files in `app/browser` are bundled to `/public/pages/`. Meaning `app/browser/index.mjs` will be bundled with any imported dependencies to `/public/pages/index.mjs` and available to be loaded by a script tag at `/_public/pages/index.mjs`.
+
+<doc-callout level="none" mark="🦄">
+
+**[Read more about `browser` routes here →](/docs/learn/starter-project/browser)**
 
 </doc-callout>
