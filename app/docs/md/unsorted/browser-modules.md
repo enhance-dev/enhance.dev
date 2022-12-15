@@ -2,23 +2,6 @@
 title: Browser Modules
 ---
 
-<doc-callout level="info" mark="🧺">
-
-Enhance projects let you share modules with the browser via ***"bundles"***.
-Using the built in bundling system serves code via your own domain instead of from a third-party registry.
-No need to fuss over CORS or external downtime.
-
-</doc-callout>
-
-Under the hood, the Enhance Starter Project uses the [Architect](https://arc.codes) framework.
-Architect projects have a manifest file: `.arc`.
-To bundle code for the browser, simply add an entry to your `.arc` file.
-Set the **name** and **path** under the `@bundles` setting (called "pragmas").
-
-## Bundle Project Browser Code
-
-The `@bundles` feature combines all of a module's dependencies into a single payload and makes it available to the browser from `/_public/bundles/your-bundle.mjs`.
-
 ### Basic Example
 
 If you have written a bit of JS for your app that has an external dependency, you'll likely want to bundle your script with its dependency.

@@ -39,6 +39,7 @@ export const data = [
           'pages',
           'elements',
           { slug: 'api', label: 'API' },
+          'browser',
           'public',
           'head',
           '404-errors',
@@ -84,7 +85,6 @@ export const data = [
         slug: 'practices',
         items: [
           'progressive-enhancement',
-          'browser-modules',
           'testing',
           { slug: 'types', label: 'Type Definitions' },
           { slug: 'env-vars', label: 'Environment Variables' },
