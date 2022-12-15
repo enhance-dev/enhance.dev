@@ -52,6 +52,6 @@ The `browser` folder is preconfigured to output a bundle to be used when progres
 
 <doc-callout level="none" mark="🦄">
 
-**[Read more about `browser` routes here →](/docs/learn/starter-project/browser)**
+**[Read more about `browser` bundles here →](/docs/learn/starter-project/browser)**
 
 </doc-callout>
