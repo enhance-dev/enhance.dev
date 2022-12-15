@@ -215,16 +215,17 @@ export const other = {
         url: 'https://github.com/enhance-dev',
         description: 'Visit Enhance on GitHub.',
       },
-      /* {
-        label: 'Discussions',
-        url: 'https://github.com/orgs/enhance-dev/discussions',
-        description: 'Browse and participate in Enhance tech discussions.',
-      }, */
       {
         label: 'Discord',
         url: '/discord',
         description:
           'Join our Discord server to chat about development and get help from the community.',
+      },
+      {
+        label: 'Mastodon',
+        url: 'https://fosstodon.org/@enhance_dev',
+        description:
+          "Follow Enhance in the Fediverse. We're huge fans of the IndieWeb!",
       },
     ],
   },
