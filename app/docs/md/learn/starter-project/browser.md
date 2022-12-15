@@ -140,9 +140,14 @@ class MyMessageElement extends HTMLElement {
 customElements.define('my-message', MyMessageElement)
 ```
 
+</doc-code>
+
+
 ## Using Enhance Element
 
-Here is doing the same thing but with `@enhance/element`
+Same thing as above but with `@enhance/element`
+
+<doc-code filename="app/browser/index.mjs">
 
 ```javascript
 import enhance from '@enhance/element'
