@@ -3,7 +3,6 @@
 (s|S)?tyleshee(t|ts)?
 (w|W)?alkthrough
 \d+(k)
-11ty
 Algolia's
 autocomplete
 Booleans

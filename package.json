@@ -13,9 +13,9 @@
   "dependencies": {
     "@architect/functions": "^5.3.3",
     "@docsearch/js": "^3.3.0",
-    "@enhance/arc-plugin-enhance": "^4.2.1",
+    "@enhance/arc-plugin-enhance": "^4.3.2",
     "@enhance/arc-plugin-styles": "^2.2.1",
-    "@mux/mux-player": "^1.5.0",
+    "@mux/mux-player": "^1.5.1",
     "arcdown": "^2.1.0",
     "markdown-it-arc-static-img": "^2.1.0"
   },
@@ -25,7 +25,7 @@
     "@architect/sandbox": "^5.4.1",
     "@architect/spellcheck-dictionary": "github:architect/spellcheck-dictionary#v0.1.7",
     "@enhance/types": "^0.5.0",
-    "eslint": "^8.29.0",
+    "eslint": "^8.30.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
     "prettier": "^2.8.1",

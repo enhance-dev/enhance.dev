@@ -129,11 +129,6 @@ export const data = [
             description: 'The recommended FWA approach',
           },
           {
-            slug: '11ty',
-            label: '11ty',
-            description: 'The choice for static site generation',
-          },
-          {
             slug: 'fastify',
             label: 'Fastify',
             description: 'The best Node web server',
