@@ -17,7 +17,9 @@ function FurtherReading(links) {
 
 function CommunityLinks(links) {
   const items = links.map((link) => {
-    return `<li class="mb-4"><a href="${link.url}" target="_blank">${link.label}</a></li>`
+    return `<li class="mb-4"><a href="${link.url}" target="_blank" ${
+      link.rel ? `rel=${link.rel}` : ''
+    }>${link.label}</a></li>`
   })
 
   return /* html */ `
