@@ -221,6 +221,7 @@ export const other = {
         url: 'https://fosstodon.org/@enhance_dev',
         description:
           "Follow Enhance in the Fediverse. We're huge fans of the IndieWeb!",
+        rel: 'me',
       },
     ],
   },
