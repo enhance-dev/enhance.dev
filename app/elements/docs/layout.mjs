@@ -4,8 +4,6 @@ export default function DocsLayout({ html, state }) {
 
   return html`
     <style scope="global">
-      @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Rubik:wght@200;300;400;500;600;700&display=swap');
-
       /* Colors */
       body {
         background-color: var(--white-denim);
