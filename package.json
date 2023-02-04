@@ -55,7 +55,8 @@
           "trailingComma": "es5",
           "bracketSameLine": true
         }
-      ]
+      ],
+      "filenames/match-regex": "off"
     },
     "parserOptions": {
       "ecmaVersion": 2020,
