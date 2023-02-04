@@ -17,7 +17,8 @@
     "@enhance/arc-plugin-styles": "^2.2.1",
     "@mux/mux-player": "^1.5.1",
     "arcdown": "^2.1.0",
-    "markdown-it-arc-static-img": "^2.1.0"
+    "markdown-it-arc-static-img": "^2.1.0",
+    "qrcode": "^1.5.1"
   },
   "devDependencies": {
     "@architect/architect": "^10.8.2",
