@@ -10,6 +10,7 @@ export async function get(req) {
     json: {
       dataUrl,
       gacode,
+      doc: { title: `${event} CTA` },
     },
   }
 }
