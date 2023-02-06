@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@architect/functions": "^5.3.3",
+    "@begin/data": "^4.0.2",
     "@docsearch/js": "^3.3.0",
     "@enhance/arc-plugin-enhance": "^4.3.2",
     "@enhance/arc-plugin-styles": "^2.2.1",
