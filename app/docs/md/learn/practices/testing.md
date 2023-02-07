@@ -85,7 +85,7 @@ test('Shut down local server', async t => {
 })
 ```
 
-## Component Testing
+## Component testing
 
 If you like to run functional component tests, we recommend to use [WebdriverIO](https://webdriver.io/) as browser automation framework. The benefits of using an actual browser compared to JSDOM outweigh the minimal speed detriment that comes with spinning up a browser instance. Furthermore WebdriverIO is based on [WebDriver](https://www.w3.org/TR/webdriver/) as browser automation web standard which guarantees you interact with your component as close as possible as a user would do.
 
