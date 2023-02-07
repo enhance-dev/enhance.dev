@@ -1,5 +1,5 @@
 @app
-enhance-dev-new
+enhance-dev
 
 @static
 fingerprint true
