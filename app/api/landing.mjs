@@ -1,16 +1,12 @@
 /** @type {import('@enhance/types').EnhanceApiFn} */
-export async function get(request) {
-  const {
-    query: { newui },
-  } = request
+export async function get({ query }) {
+  const { newui } = query
 
-  // if (typeof newui === 'undefined')
-  //   return {
-  //     statusCode: 302,
-  //     location: '/docs/',
-  //   }
+  if (typeof newui === 'undefined')
+    return {
+      statusCode: 302,
+      location: '/docs/',
+    }
 
-  return {
-    json: { newui, request },
-  }
+  return {}
 }
