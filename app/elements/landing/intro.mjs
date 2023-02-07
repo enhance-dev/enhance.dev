@@ -1,4 +1,4 @@
-export default function LandingIntro({ html }) {
+export default function LandingIntro({ html, state }) {
   return html`
     <style>
       :host {
@@ -172,5 +172,7 @@ export default function LandingIntro({ html }) {
       src="/_public/img/landing/cloud-purple-section-bottom.svg"
       alt=""
       class="w-full" />
+
+    <pre class="hidden">${JSON.stringify(state.store, null, 2)}</pre>
   `
 }
