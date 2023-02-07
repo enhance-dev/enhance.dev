@@ -16,10 +16,12 @@ DX
 Fastify
 filesystem-based
 GCP
+Gitter
 htmx
 ing
 Intellisense
 JSDoc
+JSDOM
 natively
 Netlify
 polyfills
@@ -39,3 +41,5 @@ tradeoffs
 unscoped
 unstyled
 urls
+WebdriverIO
+WebDriver

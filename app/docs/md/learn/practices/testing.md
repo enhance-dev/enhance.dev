@@ -95,7 +95,7 @@ To add the WebdriverIO test harness to your project, run:
 npm init wdio@latest ./
 ```
 
-The command initialises a configuration wizard that helps you set-up the test harness. Make sure to select on the first question: "_Where should your tests be launched?_" the answer: "_browser - for unit and component testing in the browser_".
+The command initializes a configuration wizard that helps you set-up the test harness. Make sure to select on the first question: "_Where should your tests be launched?_" the answer: "_browser - for unit and component testing in the browser_".
 
 An example test file should be created, replace the content with e.g.:
 
