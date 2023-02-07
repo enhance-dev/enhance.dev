@@ -27,6 +27,19 @@ export default function Head(state) {
   <link rel="stylesheet" href="${arc.static('/css/docs-highlight.css')}" />
   <link rel="stylesheet" href="${arc.static('/bundles/docsearch-css.css')}" />
   <title>${title ? `${title} - Enhance` : `Enhance docs`}</title>
+  <style>
+    @font-face {
+      font-family: "Rubik";
+      src: url("/_public/font/rubik-var.woff2") format("woff2-variations");
+      font-weight: 400 900;
+    }
+    @font-face {
+      font-family: "Rubik";
+      src: url("/_public/font/rubik-italic-var.woff2") format("woff2-variations");
+      font-weight: 400 900;
+      font-style: italic;
+    }
+  </style>
 </head>
 `
 }
