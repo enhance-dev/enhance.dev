@@ -114,7 +114,7 @@ describe('Enhance Framework', () => {
       }
     })
     const actual = document.createElement('div')
-    actual.innerHTML = (html`<my-header></my-header>`).replace(/<(\/*)(html|head|body)>/g, '')
+    actual.innerHTML = (html`<my-header></my-header>`).replace(/<\/?\s*(html|head|body)>/g, '')
     document.body.appendChild(actual)
     expect(await $$('img').length).toBe(2)
   })
