@@ -85,7 +85,11 @@ export const data = [
         slug: 'practices',
         items: [
           'progressive-enhancement',
-          'testing',
+          {
+            slug: 'testing',
+            path: '/docs/learn/practices/testing/',
+            items: [{ slug: 'webdriverio', label: 'WebdriverIO' }],
+          },
           { slug: 'types', label: 'Type Definitions' },
           { slug: 'env-vars', label: 'Environment Variables' },
           'architect-migration',
