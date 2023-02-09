@@ -87,7 +87,7 @@ test('Shut down local server', async t => {
 
 ## Component testing
 
-Running component tests allow you to mount, render and interact with a single Enhance component in isolation. To ensure that test conditions are as close as possible to the real world, we recommend to run them in actual browser rather than using e.g. [JSDOM](https://github.com/jsdom/jsdom) which is just a JavaScript implementation of web standards browser offer. To run Enhance component tests you can use [WebdriverIO](https://webdriver.io/) as a browser automation framework. It is based on the [WebDriver](https://www.w3.org/TR/webdriver/) protocol which is a browser automation web standard which guarantees that your tests interact with your components as closely as possible to how a user would.
+Running component tests allow you to mount, render and interact with a single Enhance component in isolation. To ensure that test conditions are as close as possible to the real world, we recommend to run them in actual browser rather than using e.g. [JSDOM](https://github.com/jsdom/jsdom) which is just a JavaScript implementation of web standards provided by browsers. To run Enhance component tests you can use [WebdriverIO](https://webdriver.io/) as a browser automation framework. It is based on the [WebDriver](https://www.w3.org/TR/webdriver/) protocol, a browser automation web standard which guarantees that your tests interact with your components as closely as possible to how a user would.
 
 To add a WebdriverIO test harness to your project, run:
 
