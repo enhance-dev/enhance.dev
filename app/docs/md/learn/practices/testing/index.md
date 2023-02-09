@@ -89,4 +89,4 @@ test('Shut down local server', async t => {
 
 You can use the following alternative testing methods:
 
-- [Component Testing With WebdriverIO](/)
+- [Component Testing With WebdriverIO](/docs/learn/practices/testing/webdriverio)
