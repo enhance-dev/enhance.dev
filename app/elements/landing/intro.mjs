@@ -75,11 +75,29 @@ export default function LandingIntro({ html }) {
 
       .marquee {
         gap: var(--marquee-gap);
+        min-width: 100%;
       }
 
-      @media not (prefers-reduced-motion) {
+      .marquee:last-of-type {
+        display: none;
+      }
+
+      @media (prefers-reduced-motion: no-preference) {
+        @keyframes scroll {
+          from {
+            transform: translateX(0);
+          }
+          to {
+            transform: translateX(calc(-100% - var(--marquee-gap)));
+          }
+        }
+
         .marquee {
           animation: scroll 12s linear infinite;
+        }
+
+        .marquee:last-of-type {
+          display: flex;
         }
       }
 
@@ -90,22 +108,14 @@ export default function LandingIntro({ html }) {
       }
 
       .marquee img {
+        display: none;
         height: 6vw;
       }
 
       /* Don't show star graphic between marquee instances if it's not animated */
-      @media (prefers-reduced-motion) {
+      @media (prefers-reduced-motion: no-preference) {
         .marquee img {
-          display: none;
-        }
-      }
-
-      @keyframes scroll {
-        from {
-          transform: translateX(0);
-        }
-        to {
-          transform: translateX(calc(-100% - var(--marquee-gap)));
+          display: block;
         }
       }
     </style>
@@ -157,20 +167,15 @@ export default function LandingIntro({ html }) {
       <div class="marquee-wrapper pt0 pb0 flex overflow-hidden">
         <div class="marquee flex flex-shrink-0 items-center justify-around">
           <span class="font-extrabold uppercase">HTML&nbsp;First </span>
-          <img src="/_public/img/landing/star-4pt-outline.svg" alt="" />
+          <img src="/_public/img/landing/star-white-outline.svg" alt="" />
         </div>
         <div
-          class="marquee flex flex-shrink-0 items-center justify-around"
+          class="marquee flex-shrink-0 items-center justify-around"
           aria-hidden="true">
           <span class="font-extrabold uppercase">HTML&nbsp;First </span>
-          <img src="/_public/img/landing/star-4pt-outline.svg" alt="" />
+          <img src="/_public/img/landing/star-white-outline.svg" alt="" />
         </div>
       </div>
     </figure>
-
-    <img
-      src="/_public/img/landing/cloud-purple-section-bottom.svg"
-      alt=""
-      class="w-full" />
   `
 }
