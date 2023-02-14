@@ -3,7 +3,7 @@ export default function NoJsRequired({ html }) {
     <style>
       h2 {
         color: var(--mid-purple);
-        font-size: var(--text-2);
+        font-size: var(--text-3);
         padding-block: var(--space-l);
       }
 
@@ -93,7 +93,7 @@ export default function NoJsRequired({ html }) {
       .unless-banner {
         background: var(--pale-cyan);
         color: var(--mid-purple);
-        font-size: 4.25vw;
+        font-size: 3vw;
         padding-block: 1vw;
         padding-inline: 4vw;
       }

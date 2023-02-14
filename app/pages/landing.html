@@ -11,7 +11,7 @@
     --space-2xl: clamp(4rem, calc(1.74rem + 11.3vw), 10.5rem);
     --space-3xl: clamp(5rem, calc(2.17rem + 14.13vw), 13.13rem);
 
-    /* Fluid type */
+      /* Fluid type */
     --text-0: clamp(1.00rem, calc(0.83rem + 0.87vw), 1.50rem);
     --text-1: clamp(1.20rem, calc(0.83rem + 1.83vw), 2.25rem);
     --text-2: clamp(1.44rem, calc(0.77rem + 3.37vw), 3.38rem);
@@ -20,12 +20,21 @@
     --text-5: clamp(2.49rem, calc(-0.61rem + 15.48vw), 11.39rem);
   }
 
-  html,
   body {
     font-family: Rubik, sans-serif;
     overflow-x: hidden;
   }
 
+  .clip {
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: inset(50%);
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+  }
 </style>
 
 <landing-intro class='block relative z1'></landing-intro>
@@ -38,4 +47,5 @@
 
   <landing-swinging-axols></landing-swinging-axols>
   <landing-no-js-required></landing-no-js-required>
+  <landing-ssr-web-components></landing-ssr-web-components>
 </landing-cyan-to-indigo>

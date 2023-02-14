@@ -5,7 +5,7 @@ export default function LandingIntro({ html }) {
         --marquee-gap: 1rem;
       }
 
-      section {
+      .intro {
         background: linear-gradient(to bottom, #c9ecff, #fff0fe);
         color: var(--mid-purple);
         padding-top: var(--space-l);
@@ -120,7 +120,7 @@ export default function LandingIntro({ html }) {
       }
     </style>
 
-    <section>
+    <div class="intro">
       <div class="relative">
         <img
           src="/_public/img/landing/cloud-purple-chunky.svg"
@@ -138,8 +138,9 @@ export default function LandingIntro({ html }) {
       <h1>
         <img
           src="/_public/img/landing/enhance-type.svg"
-          alt="Enhance"
+          alt=""
           class="enhance-type m-auto" />
+        <span class="clip">Enhance</span>
       </h1>
 
       <figure class="middle-clouds relative">
@@ -161,7 +162,7 @@ export default function LandingIntro({ html }) {
           Functional Web App
         </p>
       </figure>
-    </section>
+    </div>
 
     <figure>
       <div class="marquee-wrapper pt0 pb0 flex overflow-hidden">
