@@ -30,9 +30,10 @@ export default function WebNative({ html }) {
       }
 
       h2 {
-        font-size: 16vw;
+        font-size: min(16rem, 16vw);
         margin-top: var(--space-l);
         margin-bottom: var(--space-m);
+        margin-left: -0.025em;
       }
 
       .container p:first-of-type {
@@ -85,7 +86,7 @@ export default function WebNative({ html }) {
     </figure>
 
     <div class="container m-auto">
-      <h2 class="uppercase font-extrabold">
+      <h2 class="uppercase font-extrabold tracking-1">
         Web<br />
         Native
       </h2>
