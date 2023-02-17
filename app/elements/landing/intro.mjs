@@ -1,10 +1,6 @@
 export default function LandingIntro({ html }) {
   return html`
     <style>
-      :host {
-        --marquee-gap: 1rem;
-      }
-
       .intro {
         background: linear-gradient(to bottom, #c9ecff, #fff0fe);
         color: var(--mid-purple);
@@ -66,57 +62,18 @@ export default function LandingIntro({ html }) {
         transform: translateY(-33%);
       }
 
-      .marquee-wrapper {
+      landing-marquee {
         background-color: var(--mid-purple);
-        gap: var(--marquee-gap);
-        /* Prevent subpixel rendering showing a thin bleed through of surrounding background */
-        margin-block: -1px;
       }
 
-      .marquee {
-        gap: var(--marquee-gap);
-        min-width: 100%;
-      }
-
-      .marquee:last-of-type {
-        display: none;
-      }
-
-      @media (prefers-reduced-motion: no-preference) {
-        @keyframes scroll {
-          from {
-            transform: translateX(0);
-          }
-          to {
-            transform: translateX(calc(-100% - var(--marquee-gap)));
-          }
-        }
-
-        .marquee {
-          animation: scroll 12s linear infinite;
-        }
-
-        .marquee:last-of-type {
-          display: flex;
-        }
-      }
-
-      .marquee span {
+      landing-marquee [slot='text'] {
         -webkit-text-stroke: 0.33vw white;
         color: transparent;
         font-size: 15vw;
       }
 
-      .marquee img {
-        display: none;
+      landing-marquee [slot='image'] {
         height: 6vw;
-      }
-
-      /* Don't show star graphic between marquee instances if it's not animated */
-      @media (prefers-reduced-motion: no-preference) {
-        .marquee img {
-          display: block;
-        }
       }
     </style>
 
@@ -164,19 +121,12 @@ export default function LandingIntro({ html }) {
       </figure>
     </div>
 
-    <figure>
-      <div class="marquee-wrapper pt0 pb0 flex overflow-hidden">
-        <div class="marquee flex flex-shrink-0 items-center justify-around">
-          <span class="font-extrabold uppercase">HTML&nbsp;First </span>
-          <img src="/_public/img/landing/star-white-outline.svg" alt="" />
-        </div>
-        <div
-          class="marquee flex-shrink-0 items-center justify-around"
-          aria-hidden="true">
-          <span class="font-extrabold uppercase">HTML&nbsp;First </span>
-          <img src="/_public/img/landing/star-white-outline.svg" alt="" />
-        </div>
-      </div>
-    </figure>
+    <landing-marquee class="pt0 pb0">
+      <span slot="text">HTML&nbsp;First</span>
+      <img
+        slot="image"
+        src="/_public/img/landing/star-white-outline.svg"
+        alt="" />
+    </landing-marquee>
   `
 }

@@ -21,7 +21,8 @@ export default function WebNative({ html }) {
       .cloud-wide {
         aspect-ratio: 675 / 209;
         width: 50vw;
-        transform: translateY(-75%) translateX(50%);
+        transform: translateX(50%);
+        margin-top: -10%;
       }
 
       .container {
@@ -30,6 +31,7 @@ export default function WebNative({ html }) {
 
       h2 {
         font-size: 16vw;
+        margin-top: var(--space-l);
         margin-bottom: var(--space-m);
       }
 
@@ -45,8 +47,23 @@ export default function WebNative({ html }) {
       }
 
       .axol-rainbow-cloud > img {
-        width: 50vw;
+        aspect-ratio: 789 / 550;
+        width: 40vw;
         transform: translateX(20%);
+        margin-top: 1rem;
+      }
+
+      @media screen and (min-width: 52em) {
+        .axol-rainbow-cloud > img {
+          width: 50vw;
+          margin-top: -20%;
+        }
+      }
+
+      .cloud-triad {
+        width: 20vw;
+        transform: translateX(-10%);
+        margin-top: -10%;
       }
     </style>
 
@@ -87,5 +104,10 @@ export default function WebNative({ html }) {
     <figure class="axol-rainbow-cloud flex justify-end">
       <img src="/_public/img/landing/axol-rainbow-cloud.svg" alt="" />
     </figure>
+
+    <img
+      src="/_public/img/landing/cloud-purple-triad.svg"
+      alt=""
+      class="cloud-triad" />
   `
 }
