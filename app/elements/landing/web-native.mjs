@@ -26,7 +26,7 @@ export default function WebNative({ html }) {
       }
 
       .container {
-        max-width: 75vw;
+        max-width: 80vw;
       }
 
       h2 {

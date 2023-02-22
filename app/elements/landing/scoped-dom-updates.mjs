@@ -62,7 +62,7 @@ export default function ScopedDOMUpdates({ html }) {
         src="/_public/img/landing/cloud-and-code.svg"
         alt=""
         class="cloud-and-code w-full" />
-      <div class="pr5-lg pb5-lg m-auto m-none-lg">
+      <div class="pl0 pr0 pl-none-lg pr5-lg pb5-lg m-auto m-none-lg">
         <p class="leading2 mb0">
           No need for a full page render to update one&nbsp;element.
         </p>

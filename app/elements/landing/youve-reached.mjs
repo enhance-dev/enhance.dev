@@ -3,11 +3,18 @@ export default function YouveReached({ html }) {
     <style>
       :host {
         display: block;
-        max-width: 80vw;
+        padding-inline: 1rem;
         margin-inline: auto;
         padding-bottom: var(--space-3xl);
         position: relative;
         z-index: 1;
+      }
+
+      @media screen and (min-width: 48em) {
+        :host {
+          max-width: 80vw;
+          padding-inline: 0;
+        }
       }
 
       h2 {
@@ -49,7 +56,13 @@ export default function YouveReached({ html }) {
 
       .axol {
         width: min(650px, 30vw);
-        right: -5vw;
+        right: 5vw;
+      }
+
+      @media screen and (min-width: 48em) {
+        .axol {
+          right: -5vw;
+        }
       }
 
       @media (prefers-reduced-motion: no-preference) {

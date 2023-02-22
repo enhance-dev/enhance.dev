@@ -9,14 +9,34 @@ export default function LandingLinkButton({ html, state }) {
       }
 
       a {
-        background-color: var(--mid-purple);
+        background: var(--mid-purple);
         border-radius: 5px;
         color: var(--pale-cyan);
-        font-size: var(--text-0);
+      }
+
+      a:after {
+        content: '';
+        position: absolute;
+        inset: -2px;
+        box-shadow: 0 0 0 2px var(--mid-purple);
+        border-radius: 6px;
+        opacity: 0;
+        transform: scale(0.75);
+        transition: opacity 150ms linear, transform 150ms linear;
+      }
+
+      a:focus {
+        outline: none;
+      }
+
+      a:hover:after,
+      a:focus:after {
+        opacity: 1;
+        transform: scale(1);
       }
     </style>
     <a
-      class="inline-block uppercase tracking1 pt0 pb0 pr5 pl5 font-medium"
+      class="inline-block relative uppercase tracking1 pt0 pb0 pr5 pl5 font-medium"
       href="${href}">
       <slot></slot>
     </a>
