@@ -8,8 +8,6 @@ export default function Marquee({ html }) {
 
       .marquee-wrapper {
         gap: var(--marquee-gap);
-        /* Prevent subpixel rendering showing a thin bleed through of surrounding background */
-        margin-block: -1px;
       }
 
       .marquee {

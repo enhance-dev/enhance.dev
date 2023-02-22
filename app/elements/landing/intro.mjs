@@ -64,6 +64,8 @@ export default function LandingIntro({ html }) {
 
       landing-marquee {
         background-color: var(--mid-purple);
+        /* Prevent surrounding SVG subpixel gaps at certain viewport sizes :) */
+        margin-block: -1px;
       }
 
       landing-marquee [slot='text'] {
