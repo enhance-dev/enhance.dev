@@ -6,6 +6,13 @@ export default function DocVideo({ html, state }) {
   const name = attrs.name || 'Enhance Video'
 
   return html`
+    <style scope='global'>
+      /* Fix range UI stacking higher than it needs to */
+      mux-player::part(bottom time range) {
+        z-index: initial;
+      }
+    </style>
+
     <style>
       :host {
         display: block;
@@ -26,7 +33,7 @@ export default function DocVideo({ html, state }) {
 
       nav {
         position: absolute;
-        z-index: 100;
+        z-index: 2;
         bottom: 0;
         left: 0;
       }

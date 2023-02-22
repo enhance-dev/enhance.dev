@@ -36,6 +36,8 @@ export default function DocsHeader({ html, state }) {
           'logo'
           'menu';
         box-shadow: 0px 1px 2px var(--smoke-indigo);
+        position: relative;
+        z-index: 3;
       }
 
       #logo {
