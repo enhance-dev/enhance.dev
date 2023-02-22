@@ -114,7 +114,7 @@ export default function TheGround({ html }) {
       }
 
       .footer-trim {
-        aspect-ratio: 1507 / 30;
+        aspect-ratio: 1515 / 25;
         width: 100vw;
       }
     </style>
@@ -179,7 +179,7 @@ export default function TheGround({ html }) {
         </figure>
       </div>
       <img
-        src="/_public/img/landing/footer-background-trim.svg"
+        src="/_public/img/landing/footer-background-trim.png"
         alt=""
         class="footer-trim" />
     </section>

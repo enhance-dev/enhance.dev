@@ -50,7 +50,7 @@ export default function LandingIntro({ html }) {
         aspect-ratio: 1412 / 837;
         background-image: url('/_public/img/landing/cloud-purple-section-top.svg');
         background-repeat: no-repeat;
-        background-size: contain;
+        background-size: 100vw auto;
         /* Tuck bottom clouds slightly under middle clouds */
         margin-top: -18.75%;
       }
