@@ -48,7 +48,7 @@ The `api` folder is preconfigured to expose data to your file-based routes. Mean
 
 ## Browser
 
-The `browser` folder is preconfigured to output a bundle to be used when progressively enhancing your pages in the browser. Files in `app/browser` are bundled to `/public/pages/`. Meaning `app/browser/index.mjs` will be bundled with any imported dependencies to `/public/pages/index.mjs` and available to be loaded by a script tag at `/_public/pages/index.mjs`.
+The `browser` folder is preconfigured to output a bundle to be used when progressively enhancing your pages in the browser. Files in `app/browser` are bundled to `/public/browser/`. Meaning `app/browser/index.mjs` will be bundled with any imported dependencies to `/public/browser/index.mjs` and available to be loaded by a script tag at `/_public/browser/index.mjs`.
 
 <doc-callout level="none" mark="🦄">
 
