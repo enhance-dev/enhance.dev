@@ -2,10 +2,10 @@
 title: Browser
 ---
 
-The `app/browser` directory is where JavaScript files for the browser live. These JavaScript files can import other modules from your project as well as any installed packages that can run in the browser. Files in the `app/browser` directory will be bundled to the `/public/pages/` directory in your project and will be exposed the to browser at `/_public/pages/` for loading by script tags.
+The `app/browser` directory is where JavaScript files for the browser live. These JavaScript files can import other modules from your project as well as any installed packages that can run in the browser. Files in the `app/browser` directory will be bundled to the `/public/browser/` directory in your project and will be exposed the to browser at `/_public/browser/` for loading by script tags.
 
 ```javascript
-<script type="module" src="/_public/pages/my-file.mjs"></script>
+<script type="module" src="/_public/browser/my-file.mjs"></script>
 ```
 
 ## Add a browser bundle
@@ -31,7 +31,7 @@ message.innerHTML = '👋 Hello from your bundle!'
 
 ## Source a bundle in a page
 
-Add a script tag and load it from `/_public/pages/index.mjs`
+Add a script tag and load it from `/_public/browser/index.mjs`
 
 <doc-code filename="app/pages/index.html">
 
@@ -40,7 +40,7 @@ Add a script tag and load it from `/_public/pages/index.mjs`
   <h1>My awesome page</h1>
   <p id="message"></p>
 </main>
-<script type="module" src="/_public/pages/index.mjs"></script>
+<script type="module" src="/_public/browser/index.mjs"></script>
 ```
 
 </doc-code>
@@ -169,7 +169,7 @@ All that's left now is to add a script tag to `app/pages/index.html`  that sourc
 
 ```html
 <my-message message="Howdy!"></my-message>
-<script type="module" src="/_public/pages/index.mjs"></script>
+<script type="module" src="/_public/browser/index.mjs"></script>
 ```
 
 </doc-code>
