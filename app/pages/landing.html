@@ -24,6 +24,7 @@
   body {
     font-family: Rubik, sans-serif;
     overflow-x: hidden;
+    text-rendering: optimizeLegibility;
   }
 
   .clip {
@@ -37,19 +38,28 @@
     position: absolute;
   }
 
+  landing-intro {
+    z-index: 2;
+  }
+
+  .clouds-purple-section-bottom {
+    aspect-ratio: 1493 / 118;
+    width: 100vw;
+  }
+
   .ground-top {
     aspect-ratio: 1514 / 332;
     width: 100vw;
   }
 </style>
 
-<landing-intro class='block relative z1'></landing-intro>
+<landing-intro class='block relative'></landing-intro>
 
-<landing-cyan-to-indigo class='block relative'>
+<landing-cyan-to-indigo class='block relative z1'>
   <img
     src="/_public/img/landing/cloud-purple-section-bottom.svg"
     alt=""
-    class="w-full z1 absolute top0" />
+    class="z1 absolute top0 clouds-purple-section-bottom" />
 
   <landing-swinging-axols></landing-swinging-axols>
   <landing-no-js-required></landing-no-js-required>

@@ -53,6 +53,7 @@ export default function SSRWebComponents({ html }) {
           src="/_public/img/landing/ssr-type.svg"
           alt=""
           class="w-full mb0" />
+        <span class="clip">SSR</span>
         <svg viewBox="0 0 966 75" xmlns="http://www.w3.org/2000/svg">
           <text
             fill="#E8F8FF"
@@ -60,7 +61,6 @@ export default function SSRWebComponents({ html }) {
             font-size="101.48"
             font-weight="800"
             letter-spacing="0em">
-            <tspan class="clip">SSR</tspan>
             <tspan x="-2.75082" y="72.7569">Web Components</tspan>
           </text>
         </svg>
