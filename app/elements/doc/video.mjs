@@ -6,7 +6,7 @@ export default function DocVideo({ html, state }) {
   const name = attrs.name || 'Enhance Video'
 
   return html`
-    <style scope='global'>
+    <style scope="global">
       /* Fix range UI stacking higher than it needs to */
       mux-player::part(bottom time range) {
         z-index: initial;
