@@ -76,7 +76,7 @@ fingerprint true # or false
 ```
 
 If the setting is not present, fingerprinting is disabled.
-However, all new Enhance projects created with `npm create @enhance` automatically get the above configuration.
+However, all new Enhance projects created with `npx "@enhance/create@latest"` automatically get the above configuration.
 
 <doc-callout mark="💁" level="none">
 
