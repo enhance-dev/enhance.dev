@@ -18,7 +18,7 @@ Enhance is a web standards-based HTML framework. It's designed to provide a depe
 To create a project, ensure you have <a href=https://nodejs.org>Node.js 16.x</a> or higher installed, and run:
 
 ```bash
-npx @enhance/create@latest ./myproject -y
+npx "@enhance/create@latest" ./myproject -y
 ```
 
 After setup is complete, run the following commands to install deps, and start the local dev server:
