@@ -89,7 +89,7 @@ Regardless of `fingerprint` configuration, the `/_public/` route is the most rel
 The `/_public` route does not provide any sort of concatenation or compilation of assets.
 However, it does play nicely with another Enhance feature: the `@bundles` pragma.
 
-<doc-link-callout link="/docs/learn/practices/browser-modules" mark="🧺">
+<doc-link-callout link="/docs/unsorted/browser-modules" mark="🧺">
 
 Learn about bundling browser modules (JS, CSS, + TS) with `@bundles`
 
