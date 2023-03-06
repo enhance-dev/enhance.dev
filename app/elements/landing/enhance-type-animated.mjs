@@ -6,6 +6,11 @@ export default function EnhanceTypeAnimated({ html }) {
         justify-content: center;
       }
 
+      svg {
+        width: 100%;
+        aspect-ratio: 1118 / 172;
+      }
+
       @media (prefers-reduced-motion: no-preference) {
         @keyframes float-letters {
           0% {
@@ -51,8 +56,6 @@ export default function EnhanceTypeAnimated({ html }) {
       }
     </style>
     <svg
-      width="1119"
-      height="173"
       viewBox="0 0 1119 173"
       fill="none"
       class="overflow-visible"
