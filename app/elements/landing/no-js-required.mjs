@@ -43,6 +43,33 @@ export default function NoJsRequired({ html }) {
         width: 20vw;
       }
 
+      @media (prefers-reduced-motion: no-preference) {
+        @keyframes heartbeat {
+          0% {
+            transform: scale(1);
+          }
+          33% {
+            transform: scale(1.05);
+          }
+          66% {
+            transform: scale(1);
+          }
+        }
+
+        .heart-left,
+        .heart-right {
+          animation: heartbeat 3s linear infinite;
+        }
+
+        .heart-left {
+          transform-origin: center right;
+        }
+
+        .heart-right {
+          transform-origin: center left;
+        }
+      }
+
       .cloud-pink-thin-extra {
         z-index: -2;
         width: 25vw;
