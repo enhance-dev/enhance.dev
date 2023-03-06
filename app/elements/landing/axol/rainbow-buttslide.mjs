@@ -32,33 +32,6 @@ export default function AxolRainbowButtslide({ html }) {
           transform: scale(1.125) translateY(-2%);
         }
 
-        @keyframes blink {
-          0% {
-            opacity: 1;
-          }
-          20% {
-            opacity: 0;
-          }
-          21% {
-            opacity: 1;
-          }
-          80% {
-            opacity: 0;
-          }
-          81% {
-            opacity: 1;
-          }
-          85% {
-            opacity: 0;
-          }
-          86% {
-            opacity: 1;
-          }
-          100% {
-            opacity: 1;
-          }
-        }
-
         #eye-left,
         #eye-right {
           animation: blink 10s steps(1) infinite;
