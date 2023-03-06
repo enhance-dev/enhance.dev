@@ -47,7 +47,7 @@ export default function WebNative({ html }) {
         max-width: 32ch;
       }
 
-      .axol-rainbow-cloud > img {
+      landing-axol-on-rainbow-and-cloud {
         aspect-ratio: 789 / 550;
         width: 40vw;
         transform: translateX(20%);
@@ -55,7 +55,7 @@ export default function WebNative({ html }) {
       }
 
       @media screen and (min-width: 52em) {
-        .axol-rainbow-cloud > img {
+        landing-axol-on-rainbow-and-cloud {
           width: 50vw;
           margin-top: -20%;
         }
@@ -102,8 +102,8 @@ export default function WebNative({ html }) {
       </p>
     </div>
 
-    <figure class="axol-rainbow-cloud flex justify-end">
-      <img src="/_public/img/landing/axol-rainbow-cloud.svg" alt="" />
+    <figure class="flex justify-end">
+      <landing-axol-on-rainbow-and-cloud></landing-axol-on-rainbow-and-cloud>
     </figure>
 
     <img
