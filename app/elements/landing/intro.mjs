@@ -7,7 +7,7 @@ export default function LandingIntro({ html }) {
         padding-top: var(--space-l);
       }
 
-      .enhance-type {
+      landing-enhance-type-animated {
         padding-top: var(--space-l);
         width: 85vw;
       }
@@ -95,10 +95,8 @@ export default function LandingIntro({ html }) {
       </div>
 
       <h1>
-        <img
-          src="/_public/img/landing/enhance-type.svg"
-          alt=""
-          class="enhance-type m-auto" />
+        <landing-enhance-type-animated
+          class="m-auto"></landing-enhance-type-animated>
         <span class="clip">Enhance</span>
       </h1>
 
