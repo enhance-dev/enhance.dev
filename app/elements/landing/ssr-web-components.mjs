@@ -8,16 +8,10 @@ export default function SSRWebComponents({ html }) {
       }
 
       h2 {
-        color: var(--cloud);
-        font-size: var(--text-4);
-        max-width: 90vw;
+        max-width: 72rem;
       }
 
-      h2 img {
-        aspect-ratio: 1118 / 478;
-      }
-
-      h2 svg {
+      .webComponentsType {
         /* Slight inset to align with SSR cloud type */
         transform: scale(0.9);
       }
@@ -47,14 +41,13 @@ export default function SSRWebComponents({ html }) {
       }
     </style>
     <div class="text-center pl0 pr0">
-      <h2
-        class="font-extrabold uppercase tracking-1 text-center inline-block m-auto">
-        <img
-          src="/_public/img/landing/ssr-type.svg"
-          alt=""
-          class="w-full mb0" />
+      <h2 class="font-extrabold uppercase tracking-1 text-center m-auto">
+        <landing-ssr-type class="w-full mb0"></landing-ssr-type>
         <span class="clip">SSR</span>
-        <svg viewBox="0 0 966 75" xmlns="http://www.w3.org/2000/svg">
+        <svg
+          viewBox="0 0 966 75"
+          xmlns="http://www.w3.org/2000/svg"
+          class="webComponentsType">
           <text
             fill="#E8F8FF"
             font-family="Rubik"

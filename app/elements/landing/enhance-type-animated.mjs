@@ -8,22 +8,10 @@ export default function EnhanceTypeAnimated({ html }) {
 
       svg {
         width: 100%;
-        aspect-ratio: 1118 / 172;
+        aspect-ratio: 1119 / 173;
       }
 
       @media (prefers-reduced-motion: no-preference) {
-        @keyframes float-letters {
-          0% {
-            transform: scale(1);
-          }
-          25% {
-            transform: scale(1.025);
-          }
-          75% {
-            transform: scale(0.975);
-          }
-        }
-
         #E1,
         #N2,
         #H3,
