@@ -63,10 +63,7 @@ export default function ProgressiveByDesign({ html }) {
         class="cloud-wide relative" />
     </figure>
     <figure class="rainbow-top relative">
-      <img
-        src="/_public/img/landing/cloud-and-rainbow-top.svg"
-        id="rainbowTop"
-        alt="" />
+      <img src="/_public/img/landing/cloud-and-rainbow-top.svg" alt="" />
       <landing-axol-rainbow-buttslide
         class="absolute top0 left0"></landing-axol-rainbow-buttslide>
     </figure>

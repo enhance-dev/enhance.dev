@@ -12,10 +12,28 @@ export default function WebNative({ html }) {
         width: 100vw;
       }
 
+      .cloud-and-axol {
+        transform: translateY(66%) translateX(-10%);
+      }
+
       .cloud-blue-chunky {
         aspect-ratio: 765 / 411;
         width: 50vw;
-        transform: translateY(66%) translateX(-10%);
+      }
+
+      /* Axol popout animation tied to buttslide animation, see rainbow-buttslide.mjs */
+      landing-axol-face-front {
+        z-index: -1;
+        transform: translateX(10vw) translateY(50%) rotate(16deg);
+        transition: transform 300ms ease-out;
+      }
+
+      landing-axol-face-front svg {
+        width: 27vw;
+      }
+
+      landing-axol-face-front.popout {
+        transform: translateX(24vw) translateY(-8%) rotate(16deg);
       }
 
       .cloud-wide {
@@ -73,10 +91,15 @@ export default function WebNative({ html }) {
       alt=""
       class="rainbow-bottom" />
 
-    <img
-      src="/_public/img/landing/cloud-cyan-chunky-light.svg"
-      alt=""
-      class="cloud-blue-chunky absolute top0 left0" />
+    <figure class="cloud-and-axol absolute top0 left0">
+      <img
+        src="/_public/img/landing/cloud-cyan-chunky-light.svg"
+        alt=""
+        class="cloud-blue-chunky" />
+
+      <landing-axol-face-front
+        class="absolute top0 left0"></landing-axol-face-front>
+    </figure>
 
     <figure class="flex justify-end">
       <img

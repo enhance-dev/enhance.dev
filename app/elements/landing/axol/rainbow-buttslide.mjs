@@ -29,19 +29,23 @@ export default function AxolRainbowButtslide({ html }) {
         }
 
         @keyframes slide {
-          to {
+          100% {
             motion-offset: 100%;
             offset-distance: 100%;
+            transform: translateX(25%);
           }
         }
 
         #axol-sliding {
-          offset-path: path('M112 168C219 273 439 434.5 1122.5 550.5');
+          offset-path: path(
+            'M112 168C219 273 439 434.5 1122.5 550.5C1280.5 570.5 1418.4 575 1484 577'
+          );
           offset-rotate: 4deg;
         }
 
         #axol-sliding.animated {
-          animation: slide 1.5s cubic-bezier(0.33, 0.8, 0.29, 0.96) forwards;
+          /* Animation duration must match handleObserver's setTimeout duration */
+          animation: slide 2000ms cubic-bezier(0.33, 0.8, 0.29, 0.96) forwards;
         }
 
         .eye {
@@ -62,6 +66,12 @@ export default function AxolRainbowButtslide({ html }) {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             axol.classList.add('animated')
+            setTimeout(() => {
+              // For markup see web-native.mjs
+              document
+                .querySelector('landing-axol-face-front')
+                .classList.add('popout')
+            }, 1500)
           }
         })
       }
