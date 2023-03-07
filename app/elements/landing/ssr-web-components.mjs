@@ -28,15 +28,14 @@ export default function SSRWebComponents({ html }) {
         text-decoration: underline 1px;
       }
 
-      .cloud-and-puffs img:first-child {
+      .cloud-and-puffs img {
         width: 40vw;
         aspect-ratio: 675 / 210;
         transform: translateX(-25%);
       }
 
-      .cloud-and-puffs img:last-child {
+      landing-three-puffs {
         width: 33vw;
-        aspect-ratio: 411 / 186;
         transform: translateX(-33%);
       }
     </style>
@@ -67,7 +66,7 @@ export default function SSRWebComponents({ html }) {
 
       <figure class="cloud-and-puffs flex justify-between">
         <img src="/_public/img/landing/cloud-blue-wide.svg" alt="" />
-        <img src="/_public/img/landing/three-puffs.svg" alt="" />
+        <landing-three-puffs></landing-three-puffs>
       </figure>
     </div>
   `
