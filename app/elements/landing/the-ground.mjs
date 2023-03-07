@@ -81,8 +81,7 @@ export default function TheGround({ html }) {
         transform: scale(1);
       }
 
-      .axol {
-        aspect-ratio: 224 / 258;
+      landing-axol-gills-down {
         width: min(20vw, 12rem);
       }
 
@@ -154,10 +153,7 @@ export default function TheGround({ html }) {
           </div>
         </form>
 
-        <img
-          src="/_public/img/landing/axol-gills-down-alternate.svg"
-          alt=""
-          class="axol m-auto" />
+        <landing-axol-gills-down class="m-auto"></landing-axol-gills-down>
 
         <h2 class="uppercase font-extrabold tracking-1 text-center m-auto">
           Have you met our friends?
