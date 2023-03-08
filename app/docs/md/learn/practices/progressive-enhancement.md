@@ -99,7 +99,7 @@ Adding minimal syntactical sugar makes this look more familiar to users from oth
 Here is an example of an Enhance base class that hides some of the Custom Element boilerplate code and adds support for DOM diffing.
 
 ```javascript
-import enhance from '@enhance/enhance'
+import enhance from '@enhance/element'
 
 enhance(
   'my-message',
