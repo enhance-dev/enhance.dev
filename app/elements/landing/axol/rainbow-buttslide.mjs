@@ -70,7 +70,7 @@ export default function AxolRainbowButtslide({ html }) {
               // For markup see web-native.mjs
               document
                 .querySelector('landing-axol-face-front')
-                .classList.add('popout')
+                .classList.add('js-popout')
             }, 1500)
           }
         })

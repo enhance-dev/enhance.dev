@@ -1,6 +1,10 @@
 export default function NoJsRequired({ html }) {
   return html`
     <style>
+      :host {
+        --axol-unless-offset: 17.5vw;
+      }
+
       h2 {
         color: var(--mid-purple);
         font-size: var(--text-3);
@@ -19,23 +23,19 @@ export default function NoJsRequired({ html }) {
         transform: translateX(-50%) translateY(-100%);
       }
 
-      .no-js-axol-banner {
+      landing-axol-no-js-required {
         transform: translateY(-2vw);
       }
 
-      .no-js-axol {
-        width: 22vw;
-        aspect-ratio: 141 / 162;
-        transform: scale(-1, 1);
-      }
+      @media (prefers-reduced-motion: no-preference) {
+        landing-axol-no-js-required {
+          transform: translateY(2vw) translateX(100%) scale(0.25);
+          transition: transform 1000ms ease-out;
+        }
 
-      .no-js-banner {
-        background: var(--halite);
-        color: white;
-        font-size: 5vw;
-        padding-inline: 5vw;
-        left: -8vw;
-        top: 4vw;
+        landing-axol-no-js-required.js-popout {
+          transform: translateY(-2vw) translateX(0) scale(1);
+        }
       }
 
       .heart-left,
@@ -84,7 +84,22 @@ export default function NoJsRequired({ html }) {
       }
 
       .unless {
-        padding-block: var(--space-l);
+        padding-block: var(--space-xl);
+      }
+
+      landing-axol-unless-you-want-it {
+        left: var(--axol-unless-offset);
+      }
+
+      @media (prefers-reduced-motion: no-preference) {
+        landing-axol-unless-you-want-it {
+          left: -50%;
+          transition: left 500ms ease-out;
+        }
+
+        landing-axol-unless-you-want-it.js-popout {
+          left: var(--axol-unless-offset);
+        }
       }
 
       .unless .cloud-blue-chunky-left,
@@ -93,13 +108,13 @@ export default function NoJsRequired({ html }) {
       }
 
       .unless .cloud-blue-chunky-left {
-        width: 60vw;
+        width: 66vw;
         transform: translateX(-33%);
       }
 
       .unless .cloud-blue-small {
-        width: 5vw;
-        left: 18vw;
+        width: 6vw;
+        left: 21vw;
       }
 
       .unless .cloud-blue-chunky-right {
@@ -107,24 +122,45 @@ export default function NoJsRequired({ html }) {
         width: 30vw;
         transform: translateX(25%);
       }
-
-      .unless-axol-banner {
-        left: 15vw;
-      }
-
-      .unless-axol {
-        width: 15vw;
-        transform: translateY(-12.5%) translateX(-30%);
-      }
-
-      .unless-banner {
-        background: var(--pale-cyan);
-        color: var(--mid-purple);
-        font-size: 3vw;
-        padding-block: 1vw;
-        padding-inline: 4vw;
-      }
     </style>
+
+    <script type="module">
+      // No JS Required
+      const heartCloud = document.querySelector('.js-heart')
+      const axolNoJS = document.querySelector('landing-axol-no-js-required')
+
+      const handleHeartObserver = (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            axolNoJS.classList.add('js-popout')
+          }
+        })
+      }
+
+      const heartObserver = new IntersectionObserver(handleHeartObserver, {
+        threshold: 0.75,
+      })
+      heartObserver.observe(heartCloud)
+
+      // Unless you want it
+      const cloud = document.querySelector('.js-unless-cloud')
+      const axolUnless = document.querySelector(
+        'landing-axol-unless-you-want-it'
+      )
+
+      const handleCloudObserver = (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            axolUnless.classList.add('js-popout')
+          }
+        })
+      }
+
+      const cloudObserver = new IntersectionObserver(handleCloudObserver, {
+        threshold: 0.66,
+      })
+      cloudObserver.observe(cloud)
+    </script>
 
     <section class="relative">
       <h2 class="text-center uppercase">
@@ -143,18 +179,9 @@ export default function NoJsRequired({ html }) {
 
       <landing-star-filled class="absolute"></landing-star-filled>
 
-      <figure class="flex items-center justify-end relative z1">
-        <div class="no-js-axol-banner absolute flex items-center">
-          <img
-            src="/_public/img/landing/axol.svg"
-            alt=""
-            class="no-js-axol relative z1" />
-          <p
-            class="no-js-banner font-bold uppercase pt-2 pb-2 pr0 flex-none relative">
-            No Javascript required
-          </p>
-        </div>
-
+      <figure class="flex items-center justify-end relative z1 js-heart">
+        <landing-axol-no-js-required
+          class="absolute"></landing-axol-no-js-required>
         <img
           src="/_public/img/landing/cloud-pink-heart-left.svg"
           class="heart-left relative z-1"
@@ -170,29 +197,22 @@ export default function NoJsRequired({ html }) {
         <img
           src="/_public/img/landing/cloud-blue-wide.svg"
           alt=""
-          class="cloud-blue-wide absolute bottom0" />
+          class="cloud-blue-wide absolute bottom0 z1" />
       </figure>
 
       <figure class="unless flex relative z1">
-        <img
-          src="/_public/img/landing/cloud-blue-chunky.svg"
-          alt=""
-          class="cloud-blue-chunky-left" />
-
         <img
           src="/_public/img/landing/cloud-blue-small.svg"
           alt=""
           class="cloud-blue-small absolute" />
 
-        <div class="unless-axol-banner absolute z-1 flex items-center">
-          <p class="unless-banner font-bold italic uppercase flex-none">
-            Unless you want it
-          </p>
-          <img
-            src="/_public/img/landing/axol-wink.svg"
-            alt=""
-            class="unless-axol" />
-        </div>
+        <landing-axol-unless-you-want-it
+          class="absolute z-1"></landing-axol-unless-you-want-it>
+
+        <img
+          src="/_public/img/landing/cloud-blue-chunky.svg"
+          alt=""
+          class="cloud-blue-chunky-left js-unless-cloud" />
 
         <img
           src="/_public/img/landing/cloud-blue-chunky.svg"

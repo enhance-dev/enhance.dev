@@ -32,7 +32,7 @@ export default function WebNative({ html }) {
         width: 27vw;
       }
 
-      landing-axol-face-front.popout {
+      landing-axol-face-front.js-popout {
         transform: translateX(24vw) translateY(-8%) rotate(16deg);
       }
 
