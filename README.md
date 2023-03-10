@@ -1,3 +1,5 @@
+![enhance-type](https://user-images.githubusercontent.com/76308/224389400-07b39e01-68c1-4471-aca1-9beb58f146dd.svg)
+
 # Enhance.dev Website
 
 Powered by HTML + cloud functions ([Enhance](https://enhance.dev) and [Architect](https://arc.codes)) and Markdown ([Arcdown](https://github.com/architect/arcdown)).
