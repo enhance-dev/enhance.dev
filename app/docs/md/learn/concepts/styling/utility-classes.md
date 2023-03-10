@@ -16,12 +16,12 @@ As a basis of styleguides, utility classes are unparalleled in providing a usabl
 ## Ready to go
 
 Enhance comes preconfigured with a [customizable utility class system](https://github.com/enhance-dev/enhance-styles#readme).
-During development a stylesheet is generated and served via `/enhance-styles.css` and automatically included in your document's `<head>` section.
+During development a stylesheet is generated and served via `/enhance-styles.css` and included by default in your document's `<head>` section.
 
 <doc-callout level="caution">
 
 If you use a [custom Head function](/docs/learn/starter-project/head), `enhance-styles.css` will **not** be included by default.
-To add Enhance Styles utility classes with a custom head.mjs, it is recommended to use the helper function [described below](#getstyles) to include Enhance Styles.
+To add Enhance Styles utility classes with a custom `head.mjs`, it is recommended to use the helper function [described below](#getstyles) to include Enhance Styles.
 
 </doc-callout>
 
@@ -108,7 +108,7 @@ getStyles.path()      // root-relative path to the .css file
 
 <doc-callout level="info">
 
-Though `@enhance/arc-plugin-styles` is already a dependency of Enhance, you may want to declare it as a direct dependency of you project:
+Though `@enhance/arc-plugin-styles` is already a dependency of Enhance, you may want to declare it as a direct dependency of your project:
 
 <div class="mt-1">
 
