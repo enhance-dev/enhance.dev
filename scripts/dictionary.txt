@@ -14,6 +14,7 @@ dev-tools
 DOM
 DX
 Fastify
+favicon
 filesystem-based
 GCP
 Gitter
@@ -41,5 +42,6 @@ tradeoffs
 unscoped
 unstyled
 urls
+viewport
 WebdriverIO
 WebDriver
