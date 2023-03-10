@@ -67,8 +67,8 @@ export default function ScopedDOMUpdates({ html }) {
           No need for a full page render to update one&nbsp;element.
         </p>
         <p class="leading3 mb5">
-          Manage updates at the component level as the web platform intended for
-          the best performance&nbsp;possible.
+          Author surgical updates at the component level as the web platform
+          intended for the best performance&nbsp;possible.
         </p>
         <landing-link-button href="#"> Try it now! </landing-link-button>
       </div>

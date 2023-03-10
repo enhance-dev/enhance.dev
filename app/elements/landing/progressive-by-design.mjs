@@ -50,10 +50,10 @@ export default function ProgressiveByDesign({ html }) {
     </h2>
     <div class="paragraph-safety">
       <p class="text-center leading3 m-auto">
-        Enhance makes the right way the easy way. Some frameworks claim
-        progressive design but deliver empty app shells and spinners. Start with
-        a version that works everywhere for everyone. Incrementally add advanced
-        features from&nbsp;there.
+        Enhance makes the right way the easy way.<br />
+        Some frameworks claim progressive design but deliver empty app shells
+        and spinners. Start with a version that works everywhere for everyone.
+        Incrementally upgrade features from there.
       </p>
     </div>
     <figure class="flex justify-end">
