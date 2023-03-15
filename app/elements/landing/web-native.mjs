@@ -110,18 +110,17 @@ export default function WebNative({ html }) {
 
     <div class="container m-auto">
       <h2 class="uppercase font-extrabold tracking-1">
-        Web<br />
-        Native
+        Stable<br />
+        Forever
       </h2>
 
       <p class="leading3">
-        Build using web standards so you don’t have to constantly chase
-        breaking&nbsp;changes.
+        The web platform has everything you need and never goes out of fashion
       </p>
 
       <p class="leading3">
-        When you learn Enhance, you’re learning native web standards that will
-        last as long as the web&nbsp;does.
+        When you learn Enhance, you’re learning web standards that will last as
+        long as the web does
       </p>
     </div>
 

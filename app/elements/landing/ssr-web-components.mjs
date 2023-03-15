@@ -60,9 +60,7 @@ export default function SSRWebComponents({ html }) {
 
       <p class="text-center leading3 m-auto">
         Build server rendered custom elements<br />
-        (without the annoying
-        <a href="/FOUC">Flash of Unstyled Content</a>)<br />
-        that seamlessly upgrade to interactive Web&nbsp;Components.
+        that seamlessly upgrade to interactive Web Components
       </p>
 
       <figure class="cloud-and-puffs flex justify-between">

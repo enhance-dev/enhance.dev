@@ -64,11 +64,11 @@ export default function ScopedDOMUpdates({ html }) {
         class="cloud-and-code w-full" />
       <div class="pl0 pr0 pl-none-lg pr5-lg pb5-lg m-auto m-none-lg">
         <p class="leading2 mb0">
-          No need for a full page render to update one&nbsp;element.
+          No need for a full page render to update one element
         </p>
         <p class="leading3 mb5">
-          Author surgical updates at the component level as the web platform
-          intended for the best performance&nbsp;possible.
+          Ditch throbbers and loading screens by authoring only the code
+          necessary for surgical updates
         </p>
         <landing-link-button href="#"> Try it now! </landing-link-button>
       </div>
