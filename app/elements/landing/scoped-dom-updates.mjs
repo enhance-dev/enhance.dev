@@ -67,10 +67,10 @@ export default function ScopedDOMUpdates({ html }) {
           No need for a full page render to update one element
         </p>
         <p class="leading3 mb5">
-          Ditch throbbers and loading screens by authoring only the code
-          necessary for surgical updates
+          Ditch throbbers and loading screens by removing framework bloat and
+          authoring only the code you need
         </p>
-        <landing-link-button href="#"> Try it now! </landing-link-button>
+        <landing-link-button href="/docs/"> Try it now! </landing-link-button>
       </div>
     </div>
 

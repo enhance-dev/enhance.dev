@@ -74,9 +74,10 @@ export default function YouveReached({ html }) {
     </style>
 
     <h2 class="font-extrabold uppercase tracking-1">
-      Deploy<br />
-      when<br />
-      ready!<br />
+      Always<br />
+      Ready<br />
+      for<br />
+      liftoff!<br />
     </h2>
 
     <img
@@ -89,8 +90,12 @@ export default function YouveReached({ html }) {
       alt=""
       class="axol absolute top0 z1" />
 
-    <p class="leading3">Enhance apps are setup to deploy from the get go</p>
+    <p class="leading3">
+      Enhance apps are designed with deployment in mind<br />
+      When you're ready to launch we've got you covered with
+      <a href="https://begin.com" class="underline">Begin</a>!
+    </p>
 
-    <landing-link-button href="#"> Start now! </landing-link-button>
+    <landing-link-button href="/docs/"> Start now! </landing-link-button>
   `
 }

@@ -128,14 +128,14 @@ export default function TheGround({ html }) {
               font-weight="800"
               letter-spacing="0em"
               class="uppercase">
-              <tspan x="-3.62354" y="46.7625">Don’t miss a thing!</tspan>
+              <tspan x="-3.62354" y="46.7625">More on the way!</tspan>
             </text>
           </svg>
         </h2>
 
         <form name="enhance-newsletter-signup" class="m-auto">
           <label for="email" class="inline-block mb-2 font-medium">
-            Enter your email address:
+            Enter your email address so you don't miss out
           </label>
           <div class="form-layout grid flow-col">
             <input
@@ -155,25 +155,6 @@ export default function TheGround({ html }) {
 
         <landing-axol-gills-down class="m-auto"></landing-axol-gills-down>
 
-        <h2 class="uppercase font-extrabold tracking-1 text-center m-auto">
-          Have you met our friends?
-        </h2>
-
-        <figure class="grid flow-col items-center justify-center">
-          <a href="https://arc.codes">
-            <img
-              src="/_public/img/landing/architect-logo.svg"
-              alt="Architect"
-              class="arc-logo" />
-          </a>
-          <a href="https://begin.com">
-            <img
-              src="/_public/img/landing/begin-logo.svg"
-              alt="Begin"
-              class="begin-logo" />
-          </a>
-        </figure>
-      </div>
       <img
         src="/_public/img/landing/footer-background-trim.png"
         alt=""
