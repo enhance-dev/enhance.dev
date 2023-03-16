@@ -74,10 +74,9 @@ export default function YouveReached({ html }) {
     </style>
 
     <h2 class="font-extrabold uppercase tracking-1">
-      You’ve<br />
-      reached<br />
-      the<br />
-      ground!
+      Deploy<br />
+      when<br />
+      ready!<br />
     </h2>
 
     <img
@@ -90,7 +89,7 @@ export default function YouveReached({ html }) {
       alt=""
       class="axol absolute top0 z1" />
 
-    <p class="leading3">Now you’re free to own your own&nbsp;content!</p>
+    <p class="leading3">Enhance apps are setup to deploy from the get go</p>
 
     <landing-link-button href="#"> Start now! </landing-link-button>
   `
