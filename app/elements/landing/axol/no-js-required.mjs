@@ -2,10 +2,10 @@ export default function AxolNoJSRequired({ html }) {
   return html`
     <style>
       .axol {
-        width: 24vw;
+        width: 16vw;
         aspect-ratio: 141 / 162;
         transform: scale(-1, 1);
-        flex: none;
+        top: 0.5rem;
       }
 
       .banner {
@@ -14,15 +14,8 @@ export default function AxolNoJSRequired({ html }) {
         font-size: 5vw;
         padding-block: 0.5vw;
         padding-inline: 5vw;
-        left: -8vw;
+        left: -7vw;
         top: 4vw;
-      }
-
-      @media (prefers-reduced-motion: no-preference) {
-        .banner {
-          font-size: 11vw;
-          padding-block: 0;
-        }
       }
     </style>
     <div class="flex items-center">

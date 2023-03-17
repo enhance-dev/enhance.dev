@@ -24,17 +24,17 @@ export default function NoJsRequired({ html }) {
       }
 
       landing-axol-no-js-required {
-        transform: translateY(-2vw);
+        transform: translateY(-2vw) translateX(-2vw);
       }
 
       @media (prefers-reduced-motion: no-preference) {
         landing-axol-no-js-required {
           transform: translateY(-2vw) translateX(56vw);
-          transition: transform 12s ease-out;
+          transition: transform 4.5s ease-out;
         }
 
         landing-axol-no-js-required.js-popout {
-          transform: translateY(-2vw) translateX(-82vw);
+          transform: translateY(-2vw) translateX(-2vw);
         }
       }
 
@@ -80,7 +80,7 @@ export default function NoJsRequired({ html }) {
         width: 42vw;
         aspect-ratio: 674 / 209;
         left: -12vw;
-        transform: translateY(-1vw);
+        transform: translateY(-3vw);
       }
 
       .unless {
@@ -90,6 +90,7 @@ export default function NoJsRequired({ html }) {
 
       landing-axol-unless-you-want-it {
         left: var(--axol-unless-offset);
+        transform: translateY(10%);
       }
 
       @media (prefers-reduced-motion: no-preference) {
@@ -139,7 +140,7 @@ export default function NoJsRequired({ html }) {
       }
 
       const heartObserver = new IntersectionObserver(handleHeartObserver, {
-        threshold: 0.5,
+        threshold: 0.33,
       })
       heartObserver.observe(heartCloud)
 

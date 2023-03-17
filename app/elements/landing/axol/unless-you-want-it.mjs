@@ -2,16 +2,16 @@ export default function AxolUnlessYouWantIt({ html }) {
   return html`
     <style>
       .axol {
-        width: 17.5vw;
-        transform: translateY(-12.5%) translateX(-30%);
+        width: 12vw;
+        transform: translateY(-18%) translateX(-30%);
       }
 
       .banner {
         background: var(--pale-cyan);
         color: var(--mid-purple);
-        font-size: 4vw;
-        padding-block: 1vw;
-        padding-inline: 4vw;
+        font-size: 3.75vw;
+        padding-block: 0.5vw;
+        padding-inline: 3vw;
       }
     </style>
     <div class="flex items-center">
