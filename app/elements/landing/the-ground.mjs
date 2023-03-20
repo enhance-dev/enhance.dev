@@ -128,14 +128,14 @@ export default function TheGround({ html }) {
               font-weight="800"
               letter-spacing="0em"
               class="uppercase">
-              <tspan x="-3.62354" y="46.7625">More on the way!</tspan>
+              <tspan x="-3.62354" y="46.7625">Don't miss out!</tspan>
             </text>
           </svg>
         </h2>
 
         <form name="enhance-newsletter-signup" class="m-auto">
           <label for="email" class="inline-block mb-2 font-medium">
-            Enter your email address so you don't miss out
+            Stay informed via email:
           </label>
           <div class="form-layout grid flow-col">
             <input

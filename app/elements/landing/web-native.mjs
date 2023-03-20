@@ -115,7 +115,7 @@ export default function WebNative({ html }) {
       </h2>
 
       <p class="leading3">
-        The web platform has everything you need and never goes out of fashion
+        The web platform has what you need and never goes out of fashion
       </p>
 
       <p class="leading3">
