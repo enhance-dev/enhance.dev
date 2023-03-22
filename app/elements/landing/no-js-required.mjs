@@ -3,18 +3,37 @@ export default function NoJsRequired({ html }) {
     <style>
       :host {
         --axol-unless-offset: 17.5vw;
+        color: var(--dark-purple);
+        display: block;
+        position: relative;
+      }
+
+      .container {
+        max-width: 80vw;
       }
 
       h2 {
-        color: var(--mid-purple);
+        font-size: var(--text-2);
+        margin-left: -0.025em;
+        color: var(--dark-purple);
+      }
+
+      .accessible {
         font-size: var(--text-3);
+        margin-top: var(--space-m);
+        margin-bottom: var(--space-l);
         padding-block: var(--space-l);
+        color: var(--mid-purple);
       }
 
       .cloud-pink {
         width: 25vw;
         aspect-ratio: 342 / 105;
         transform: translateX(-2%);
+      }
+
+      .cloud-features {
+        aspect-ratio: 833 / 392;
       }
 
       landing-star-filled {
@@ -164,16 +183,53 @@ export default function NoJsRequired({ html }) {
       cloudObserver.observe(cloud)
     </script>
 
-    <section class="relative">
-      <h2 class="text-center uppercase">
-        Build your entire<br />
-        app
-        <span class="font-semibold">
-          with fully<br />
-          functioning HTML
-        </span>
-      </h2>
+    <h2 class="text-center uppercase accessible">
+      Build your entire app <br />
+      with <span class="font-semibold">accessible</span> HTML
+    </h2>
 
+    <section
+      class="
+        grid
+        gap4
+        gap2-lg
+        items-center
+        col-1
+        col-2-lg
+        pt4
+        pb4
+      ">
+      <div
+        class="
+         pr0 pl0 pr-none-lg pl5-lg pb5-lg m-auto m-none-lg
+        ">
+        <h2
+          class="
+           mb2
+           uppercase
+           font-extrabold
+           tracking-1
+         ">
+          Get productive
+        </h2>
+        <p class="text2 leading3 mb2">
+          Enhance ships with everything you need to build a production ready
+          app<br />
+        </p>
+        <ul class="list-none grid gap2 text1">
+          <li>File-based routing</li>
+          <li>Database backed APIs</li>
+          <li>Composable HTML Custom Elements</li>
+          <li>Web Component progressive enhancement</li>
+        </ul>
+      </div>
+      <img
+        src="/_public/img/landing/cloud-features.svg"
+        alt=""
+        class="cloud-features w-full" />
+    </section>
+
+    <section class="relative">
       <img
         src="/_public/img/landing/cloud-pink-thin.svg"
         alt=""

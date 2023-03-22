@@ -119,8 +119,8 @@ export default function WebNative({ html }) {
       </p>
 
       <p class="leading3">
-        When you learn Enhance, you’re learning web standards that will last as
-        long as the web does
+        When you learn Enhance, you’re learning development approaches that will
+        last as long as the web does
       </p>
     </div>
 
