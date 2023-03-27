@@ -36,7 +36,7 @@ export default function NoJsRequired({ html }) {
         margin: auto;
         background-image: radial-gradient(
           closest-side,
-          hsla(0deg 0% 100% / 75%),
+          hsla(0deg 0% 100% / 66%),
           transparent
         );
         z-index: -1;
@@ -51,7 +51,7 @@ export default function NoJsRequired({ html }) {
         translate: 33% 10%;
         background-image: radial-gradient(
           closest-side,
-          hsla(186deg 100% 82% / 85%),
+          hsla(186deg 100% 82% / 66%),
           transparent
         );
         z-index: -1;
@@ -106,6 +106,19 @@ export default function NoJsRequired({ html }) {
         landing-axol-no-js-required.js-popout {
           transform: translateY(-2vw) translateX(-2vw);
         }
+      }
+
+      .heart:after {
+        content: '';
+        position: absolute;
+        z-index: -2;
+        width: 50vw;
+        aspect-ratio: 1 / 1;
+        background-image: radial-gradient(
+          closest-side,
+          hsla(0deg 0% 100% / 33%),
+          transparent
+        );
       }
 
       .heart-left,
@@ -298,7 +311,7 @@ export default function NoJsRequired({ html }) {
 
       <landing-star-filled class="absolute"></landing-star-filled>
 
-      <figure class="flex items-center justify-end relative z1 js-heart">
+      <figure class="flex items-center justify-end relative z1 heart js-heart">
         <landing-axol-no-js-required
           class="absolute"></landing-axol-no-js-required>
         <img
