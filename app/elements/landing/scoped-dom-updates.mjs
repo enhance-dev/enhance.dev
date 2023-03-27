@@ -28,7 +28,6 @@ export default function ScopedDOMUpdates({ html }) {
       }
 
       p:last-of-type {
-        font-size: var(--text-0);
         max-width: 32ch;
       }
 

@@ -24,7 +24,7 @@ export default function Footer({ html }) {
       }
     </style>
     <footer class="pl0 pr0 m-auto">
-      <h2 class="font-semibold text1 text-center mb4">
+      <h2 class="font-semibold text-center mb4">
         <img src="/_public/img/landing/axol-face.svg" alt="" class="inline" />
         <span class="pl0">Enhance</span>
       </h2>

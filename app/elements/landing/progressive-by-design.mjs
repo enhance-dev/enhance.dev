@@ -23,7 +23,6 @@ export default function ProgressiveByDesign({ html }) {
 
       p {
         color: white;
-        font-size: var(--text-0);
         padding-block: var(--space-l);
         max-width: 52ch;
       }

@@ -35,7 +35,6 @@ export default function YouveReached({ html }) {
 
       p {
         color: var(--mid-purple);
-        font-size: var(--text-0);
         padding-bottom: var(--space-l);
       }
 

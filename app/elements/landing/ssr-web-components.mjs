@@ -18,7 +18,6 @@ export default function SSRWebComponents({ html }) {
 
       p {
         color: white;
-        font-size: var(--text-0);
         padding-inline: 1rem;
         padding-block: var(--space-l);
         max-width: 48ch;

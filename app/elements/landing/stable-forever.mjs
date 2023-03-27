@@ -61,7 +61,6 @@ export default function WebNative({ html }) {
       }
 
       .container p:last-of-type {
-        font-size: var(--text-0);
         max-width: 32ch;
       }
 

@@ -33,11 +33,6 @@ export default function TheGround({ html }) {
         gap: var(--space-3xs);
       }
 
-      label,
-      input {
-        font-size: var(--text-0);
-      }
-
       input {
         background: transparent;
         padding-block: var(--space-xs);

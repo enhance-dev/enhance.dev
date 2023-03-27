@@ -19,21 +19,72 @@ export default function NoJsRequired({ html }) {
       }
 
       .accessible {
-        font-size: var(--text-3);
+        font-size: min(var(--text-3), 7vw);
         margin-top: var(--space-m);
         margin-bottom: var(--space-l);
         padding-block: var(--space-l);
-        color: var(--mid-purple);
+        color: var(--dark-purple);
       }
 
+      .accessible:before {
+        content: '';
+        position: absolute;
+        width: 60vw;
+        aspect-ratio: 1 / 1;
+        inset: 0;
+        translate: -33% 0;
+        margin: auto;
+        background-image: radial-gradient(
+          closest-side,
+          hsla(0deg 0% 100% / 75%),
+          transparent
+        );
+        z-index: -1;
+      }
+
+      .accessible:after {
+        content: '';
+        position: absolute;
+        width: 80vw;
+        aspect-ratio: 3 / 2;
+        inset: 0;
+        translate: 33% 10%;
+        background-image: radial-gradient(
+          closest-side,
+          hsla(186deg 100% 82% / 85%),
+          transparent
+        );
+        z-index: -1;
+      }
       .cloud-pink {
         width: 25vw;
         aspect-ratio: 342 / 105;
         transform: translateX(-2%);
       }
 
+      .get-productive {
+        max-width: 48ch;
+        padding-inline: 1rem;
+      }
+
       .cloud-features {
         aspect-ratio: 833 / 392;
+      }
+
+      @media screen and (min-width: 48em) {
+        .features {
+          padding-bottom: var(--space-3xl);
+        }
+
+        .get-productive {
+          translate: 0 -25%;
+          padding-inline: var(--space-m);
+        }
+
+        .cloud-features {
+          translate: -10% 35%;
+          scale: 120%;
+        }
       }
 
       landing-star-filled {
@@ -62,16 +113,28 @@ export default function NoJsRequired({ html }) {
         width: 20vw;
       }
 
+      /* Heart SVG split in half sometimes shows a gap in subpixel rendering depending on viewport size. */
+      /*
+       * To solve this, each SVG has a 1px overlap with its counterpart. Translating each half by 1/354 (1px over each full width)
+       * creates a continuous shape while negating the subpixel rendering issue.
+       */
+      .heart-left {
+        translate: 0.3% 0;
+      }
+      .heart-right {
+        translate: -0.3% 0;
+      }
+
       @media (prefers-reduced-motion: no-preference) {
         @keyframes heartbeat {
           0% {
-            transform: scale(1);
+            scale: 1;
           }
           33% {
-            transform: scale(1.05);
+            scale: 1.05;
           }
           66% {
-            transform: scale(1);
+            scale: 1;
           }
         }
 
@@ -183,7 +246,7 @@ export default function NoJsRequired({ html }) {
       cloudObserver.observe(cloud)
     </script>
 
-    <h2 class="text-center uppercase accessible">
+    <h2 class="text-center uppercase leading1 relative accessible">
       Build your entire app <br />
       with <span class="font-semibold">accessible</span> HTML
     </h2>
@@ -198,11 +261,9 @@ export default function NoJsRequired({ html }) {
         col-2-lg
         pt4
         pb4
+        features
       ">
-      <div
-        class="
-         pr0 pl0 pr-none-lg pl5-lg pb5-lg m-auto m-none-lg
-        ">
+      <div class="m-auto get-productive">
         <h2
           class="
            mb2
@@ -212,11 +273,11 @@ export default function NoJsRequired({ html }) {
          ">
           Get productive
         </h2>
-        <p class="text2 leading3 mb2">
+        <p class="leading3 mb2">
           Enhance ships with everything you need to build a production ready
-          app<br />
+          app.
         </p>
-        <ul class="list-none grid gap2 text1">
+        <ul class="grid gap-2 pl4 leading3">
           <li>File-based routing</li>
           <li>Database backed APIs</li>
           <li>Composable HTML Custom Elements</li>
