@@ -11,6 +11,7 @@ export default function TheGround({ html }) {
         background-size: 100vw auto;
         background-position: top;
         background-repeat: no-repeat;
+        padding-bottom: var(--space-xl);
       }
 
       h2,
@@ -109,7 +110,10 @@ export default function TheGround({ html }) {
 
       .footer-trim {
         aspect-ratio: 1515 / 25;
-        width: 100vw;
+        margin-top: -1.5%; /* Approximate ratio of width to height */
+        margin-left: -5%; /* Image is slightly oversized to avoid subpixel gaps on L/R edges */
+        max-width: none;
+        width: 110vw;
       }
     </style>
     <section class="ground-bottom">
@@ -150,10 +154,10 @@ export default function TheGround({ html }) {
 
         <landing-axol-gills-down class="m-auto"></landing-axol-gills-down>
 
-      <img
-        src="/_public/img/landing/footer-background-trim.png"
-        alt=""
-        class="footer-trim" />
     </section>
+    <img
+      src="/_public/img/landing/footer-background-trim.svg"
+      alt=""
+      class="footer-trim" />
   `
 }
