@@ -48,10 +48,12 @@ export default function ProgressiveByDesign({ html }) {
       <span class="block">By Design</span>
     </h2>
     <div class="paragraph-safety">
-      <p class="text-center leading3 m-auto">
-        Enhance makes the right way the easy way<br />
-        Start with a version that works everywhere for everyone<br />
-        Incrementally upgrade interactive elements from there
+      <p class="text-center-lg leading3 m-auto">
+        Enhance makes the right way the easy&nbsp;way.
+        <br class="hidden block-lg" />
+        Start with a version that works everywhere for&nbsp;everyone.
+        <br class="hidden block-lg" />
+        Incrementally upgrade interactive elements from&nbsp;there.
       </p>
     </div>
     <figure class="flex justify-end">

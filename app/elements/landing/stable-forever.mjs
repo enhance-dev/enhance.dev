@@ -114,12 +114,12 @@ export default function WebNative({ html }) {
       </h2>
 
       <p class="leading3">
-        The web platform has what you need and never goes out of fashion
+        The web platform has what you need and never goes out of&nbsp;fashion
       </p>
 
       <p class="leading3">
         When you learn Enhance, you’re learning development approaches that will
-        last as long as the web does
+        last as long as the web&nbsp;does.
       </p>
     </div>
 

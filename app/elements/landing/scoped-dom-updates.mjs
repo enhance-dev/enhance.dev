@@ -67,7 +67,7 @@ export default function ScopedDOMUpdates({ html }) {
         </p>
         <p class="leading3 mb5">
           Ditch throbbers and loading screens by removing framework bloat and
-          authoring only the code you need
+          authoring only the code you&nbsp;need.
         </p>
         <landing-link-button href="/docs/"> Try it now! </landing-link-button>
       </div>

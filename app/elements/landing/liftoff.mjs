@@ -1,4 +1,4 @@
-export default function YouveReached({ html }) {
+export default function Liftoff({ html }) {
   return html`
     <style>
       :host {
@@ -90,8 +90,9 @@ export default function YouveReached({ html }) {
       class="axol absolute top0 z1" />
 
     <p class="leading3">
-      Enhance apps are designed with deployment in mind<br />
-      When you're ready to launch we've got you covered with
+      Enhance apps are designed with deployment in mind.
+      <br class="hidden block-lg" />
+      When you're ready to launch, we've got you covered with
       <a href="https://begin.com" class="underline">Begin</a>!
     </p>
 

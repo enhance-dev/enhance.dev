@@ -58,8 +58,8 @@ export default function SSRWebComponents({ html }) {
       </h2>
 
       <p class="text-center leading3 m-auto">
-        Build server rendered custom elements<br />
-        that seamlessly upgrade to interactive Web Components
+        Build server rendered custom elements<br class="hidden block-lg" />
+        that seamlessly upgrade to interactive Web Components.
       </p>
 
       <figure class="cloud-and-puffs flex justify-between">
