@@ -3,18 +3,88 @@ export default function NoJsRequired({ html }) {
     <style>
       :host {
         --axol-unless-offset: 17.5vw;
+        color: var(--dark-purple);
+        display: block;
+        position: relative;
+      }
+
+      .container {
+        max-width: 80vw;
       }
 
       h2 {
-        color: var(--mid-purple);
-        font-size: var(--text-3);
-        padding-block: var(--space-l);
+        font-size: var(--text-2);
+        margin-left: -0.025em;
+        color: var(--dark-purple);
       }
 
+      .accessible {
+        font-size: min(var(--text-3), 7vw);
+        margin-top: var(--space-m);
+        margin-bottom: var(--space-l);
+        padding-block: var(--space-l);
+        color: var(--dark-purple);
+      }
+
+      .accessible:before {
+        content: '';
+        position: absolute;
+        width: 60vw;
+        aspect-ratio: 1 / 1;
+        inset: 0;
+        translate: -33% 0;
+        margin: auto;
+        background-image: radial-gradient(
+          closest-side,
+          hsla(0deg 0% 100% / 66%),
+          transparent
+        );
+        z-index: -1;
+      }
+
+      .accessible:after {
+        content: '';
+        position: absolute;
+        width: 80vw;
+        aspect-ratio: 3 / 2;
+        inset: 0;
+        translate: 33% 10%;
+        background-image: radial-gradient(
+          closest-side,
+          hsla(186deg 100% 82% / 66%),
+          transparent
+        );
+        z-index: -1;
+      }
       .cloud-pink {
         width: 25vw;
         aspect-ratio: 342 / 105;
         transform: translateX(-2%);
+      }
+
+      .get-productive {
+        max-width: 48ch;
+        padding-inline: 1rem;
+      }
+
+      .cloud-features {
+        aspect-ratio: 833 / 392;
+      }
+
+      @media screen and (min-width: 48em) {
+        .features {
+          padding-bottom: var(--space-3xl);
+        }
+
+        .get-productive {
+          translate: 0 -25%;
+          padding-inline: var(--space-m);
+        }
+
+        .cloud-features {
+          translate: -10% 35%;
+          scale: 120%;
+        }
       }
 
       landing-star-filled {
@@ -38,21 +108,46 @@ export default function NoJsRequired({ html }) {
         }
       }
 
+      .heart:after {
+        content: '';
+        position: absolute;
+        z-index: -2;
+        width: 50vw;
+        aspect-ratio: 1 / 1;
+        background-image: radial-gradient(
+          closest-side,
+          hsla(0deg 0% 100% / 33%),
+          transparent
+        );
+      }
+
       .heart-left,
       .heart-right {
         width: 20vw;
       }
 
+      /* Heart SVG split in half sometimes shows a gap in subpixel rendering depending on viewport size. */
+      /*
+       * To solve this, each SVG has a 1px overlap with its counterpart. Translating each half by 1/354 (1px over each full width)
+       * creates a continuous shape while negating the subpixel rendering issue.
+       */
+      .heart-left {
+        translate: 0.3% 0;
+      }
+      .heart-right {
+        translate: -0.3% 0;
+      }
+
       @media (prefers-reduced-motion: no-preference) {
         @keyframes heartbeat {
           0% {
-            transform: scale(1);
+            scale: 1;
           }
           33% {
-            transform: scale(1.05);
+            scale: 1.05;
           }
           66% {
-            transform: scale(1);
+            scale: 1;
           }
         }
 
@@ -164,16 +259,51 @@ export default function NoJsRequired({ html }) {
       cloudObserver.observe(cloud)
     </script>
 
-    <section class="relative">
-      <h2 class="text-center uppercase">
-        Build your entire<br />
-        app
-        <span class="font-semibold">
-          with fully<br />
-          functioning HTML
-        </span>
-      </h2>
+    <h2 class="text-center uppercase leading1 relative accessible">
+      Build your entire app <br />
+      with <span class="font-semibold">accessible</span> HTML
+    </h2>
 
+    <section
+      class="
+        grid
+        gap4
+        gap2-lg
+        items-center
+        col-1
+        col-2-lg
+        pt4
+        pb4
+        features
+      ">
+      <div class="m-auto get-productive">
+        <h2
+          class="
+           mb2
+           uppercase
+           font-extrabold
+           tracking-1
+         ">
+          Get productive
+        </h2>
+        <p class="leading3 mb2">
+          Enhance ships with everything you need to build a production ready
+          app.
+        </p>
+        <ul class="grid gap-2 pl4 leading3">
+          <li>File-based routing</li>
+          <li>Database backed APIs</li>
+          <li>Composable HTML Custom Elements</li>
+          <li>Web Component progressive enhancement</li>
+        </ul>
+      </div>
+      <img
+        src="/_public/img/landing/cloud-features.svg"
+        alt=""
+        class="cloud-features w-full" />
+    </section>
+
+    <section class="relative">
       <img
         src="/_public/img/landing/cloud-pink-thin.svg"
         alt=""
@@ -181,7 +311,7 @@ export default function NoJsRequired({ html }) {
 
       <landing-star-filled class="absolute"></landing-star-filled>
 
-      <figure class="flex items-center justify-end relative z1 js-heart">
+      <figure class="flex items-center justify-end relative z1 heart js-heart">
         <landing-axol-no-js-required
           class="absolute"></landing-axol-no-js-required>
         <img

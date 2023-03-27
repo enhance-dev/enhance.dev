@@ -11,6 +11,7 @@ export default function TheGround({ html }) {
         background-size: 100vw auto;
         background-position: top;
         background-repeat: no-repeat;
+        padding-bottom: var(--space-xl);
       }
 
       h2,
@@ -31,11 +32,6 @@ export default function TheGround({ html }) {
       .form-layout {
         grid-template-columns: 1fr 3rem;
         gap: var(--space-3xs);
-      }
-
-      label,
-      input {
-        font-size: var(--text-0);
       }
 
       input {
@@ -114,7 +110,10 @@ export default function TheGround({ html }) {
 
       .footer-trim {
         aspect-ratio: 1515 / 25;
-        width: 100vw;
+        margin-top: -1.5%; /* Approximate ratio of width to height */
+        margin-left: -5%; /* Image is slightly oversized to avoid subpixel gaps on L/R edges */
+        max-width: none;
+        width: 110vw;
       }
     </style>
     <section class="ground-bottom">
@@ -128,14 +127,14 @@ export default function TheGround({ html }) {
               font-weight="800"
               letter-spacing="0em"
               class="uppercase">
-              <tspan x="-3.62354" y="46.7625">Don’t miss a thing!</tspan>
+              <tspan x="-3.62354" y="46.7625">Don't miss out!</tspan>
             </text>
           </svg>
         </h2>
 
         <form name="enhance-newsletter-signup" class="m-auto">
           <label for="email" class="inline-block mb-2 font-medium">
-            Enter your email address:
+            Stay informed via email:
           </label>
           <div class="form-layout grid flow-col">
             <input
@@ -155,29 +154,10 @@ export default function TheGround({ html }) {
 
         <landing-axol-gills-down class="m-auto"></landing-axol-gills-down>
 
-        <h2 class="uppercase font-extrabold tracking-1 text-center m-auto">
-          Have you met our friends?
-        </h2>
-
-        <figure class="grid flow-col items-center justify-center">
-          <a href="https://arc.codes">
-            <img
-              src="/_public/img/landing/architect-logo.svg"
-              alt="Architect"
-              class="arc-logo" />
-          </a>
-          <a href="https://begin.com">
-            <img
-              src="/_public/img/landing/begin-logo.svg"
-              alt="Begin"
-              class="begin-logo" />
-          </a>
-        </figure>
-      </div>
-      <img
-        src="/_public/img/landing/footer-background-trim.png"
-        alt=""
-        class="footer-trim" />
     </section>
+    <img
+      src="/_public/img/landing/footer-background-trim.svg"
+      alt=""
+      class="footer-trim" />
   `
 }

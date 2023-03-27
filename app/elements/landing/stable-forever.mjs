@@ -61,7 +61,6 @@ export default function WebNative({ html }) {
       }
 
       .container p:last-of-type {
-        font-size: var(--text-0);
         max-width: 32ch;
       }
 
@@ -110,17 +109,16 @@ export default function WebNative({ html }) {
 
     <div class="container m-auto">
       <h2 class="uppercase font-extrabold tracking-1">
-        Web<br />
-        Native
+        Stable<br />
+        Forever
       </h2>
 
       <p class="leading3">
-        Build using web standards so you don’t have to constantly chase
-        breaking&nbsp;changes.
+        The web platform has what you need and never goes out of&nbsp;fashion
       </p>
 
       <p class="leading3">
-        When you learn Enhance, you’re learning native web standards that will
+        When you learn Enhance, you’re learning development approaches that will
         last as long as the web&nbsp;does.
       </p>
     </div>

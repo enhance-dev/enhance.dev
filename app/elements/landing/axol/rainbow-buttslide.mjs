@@ -59,7 +59,7 @@ export default function AxolRainbowButtslide({ html }) {
     </figure>
 
     <script type="module">
-      const nextSection = document.querySelector('landing-web-native')
+      const nextSection = document.querySelector('landing-stable-forever')
       const axol = document.getElementById('axol-sliding')
 
       const handleObserver = (entries) => {
@@ -67,7 +67,7 @@ export default function AxolRainbowButtslide({ html }) {
           if (entry.isIntersecting) {
             axol.classList.add('animated')
             setTimeout(() => {
-              // For markup see web-native.mjs
+              // For markup see stable-forever.mjs
               document
                 .querySelector('landing-axol-face-front')
                 .classList.add('js-popout')

@@ -1,30 +1,41 @@
 <style scope='global'>
   :root {
     /* Fluid space */
-    --space-3xs: clamp(0.25rem, calc(0.1rem + 0.76vw), 0.69rem);
-    --space-2xs: clamp(0.5rem, calc(0.22rem + 1.41vw), 1.31rem);
-    --space-xs: clamp(0.75rem, calc(0.32rem + 2.17vw), 2rem);
-    --space-s: clamp(1rem, calc(0.43rem + 2.83vw), 2.63rem);
-    --space-m: clamp(1.5rem, calc(0.65rem + 4.24vw), 3.94rem);
-    --space-l: clamp(2rem, calc(0.87rem + 5.65vw), 5.25rem);
-    --space-xl: clamp(3rem, calc(1.3rem + 8.48vw), 7.88rem);
-    --space-2xl: clamp(4rem, calc(1.74rem + 11.3vw), 10.5rem);
-    --space-3xl: clamp(5rem, calc(2.17rem + 14.13vw), 13.13rem);
+    --space-3xs: clamp(0.25rem, 0.1rem + 0.76vw, 0.69rem);
+    --space-2xs: clamp(0.5rem, 0.22rem + 1.41vw, 1.31rem);
+    --space-xs: clamp(0.75rem, 0.32rem + 2.17vw, 2rem);
+    --space-s: clamp(1rem, 0.43rem + 2.83vw, 2.63rem);
+    --space-m: clamp(1.5rem, 0.65rem + 4.24vw, 3.94rem);
+    --space-l: clamp(2rem, 0.87rem + 5.65vw, 5.25rem);
+    --space-xl: clamp(3rem, 1.3rem + 8.48vw, 7.88rem);
+    --space-2xl: clamp(4rem, 1.74rem + 11.3vw, 10.5rem);
+    --space-3xl: clamp(5rem, 2.17rem + 14.13vw, 13.13rem);
 
       /* Fluid type */
-    --text-0: clamp(1.00rem, calc(0.83rem + 0.87vw), 1.50rem);
-    --text-1: clamp(1.20rem, calc(0.83rem + 1.83vw), 2.25rem);
-    --text-2: clamp(1.44rem, calc(0.77rem + 3.37vw), 3.38rem);
-    --text-3: clamp(1.73rem, calc(0.57rem + 5.80vw), 5.06rem);
-    --text-4: clamp(2.07rem, calc(0.15rem + 9.60vw), 7.59rem);
-    --text-5: clamp(2.49rem, calc(-0.61rem + 15.48vw), 11.39rem);
+    --text-multiplier: 1.00;
+    --text-0: clamp(1.00rem, 0.83rem + 0.87vw, 1.50rem * var(--text-multiplier));
+    --text-1: clamp(1.20rem, 0.83rem + 1.83vw, 2.25rem * var(--text-multiplier));
+    --text-2: clamp(1.44rem, 0.77rem + 3.37vw, 3.38rem * var(--text-multiplier));
+    --text-3: clamp(1.73rem, 0.57rem + 5.80vw, 5.06rem * var(--text-multiplier));
+    --text-4: clamp(2.07rem, 0.15rem + 9.60vw, 7.59rem * var(--text-multiplier));
+    --text-5: clamp(2.49rem, -0.61rem + 15.48vw, 11.39rem * var(--text-multiplier));
+  }
+
+  @media screen and (min-width: 120em) {
+    :root {
+      --text-multiplier: 1.125;
+    }
   }
 
   html,
   body {
-    font-family: Rubik, sans-serif;
+    font-family: Rubik, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     overflow-x: hidden;
     text-rendering: optimizeLegibility;
+  }
+
+  body {
+    font-size: var(--text-0);
   }
 
   .clip {
@@ -107,9 +118,9 @@
   <landing-progressive-by-design></landing-progressive-by-design>
 </landing-cyan-to-indigo>
 <landing-pink-to-cyan>
-  <landing-web-native></landing-web-native>
+  <landing-stable-forever></landing-stable-forever>
   <landing-scoped-dom-updates></landing-scoped-dom-updates>
-  <landing-youve-reached></landing-youve-reached>
+  <landing-liftoff></landing-liftoff>
   <img src="/_public/img/landing/ground-top.svg" alt="" class="ground-top" />
 </landing-pink-to-cyan>
 <landing-the-ground></landing-the-ground>

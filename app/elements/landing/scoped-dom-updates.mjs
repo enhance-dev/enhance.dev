@@ -28,7 +28,6 @@ export default function ScopedDOMUpdates({ html }) {
       }
 
       p:last-of-type {
-        font-size: var(--text-0);
         max-width: 32ch;
       }
 
@@ -64,13 +63,13 @@ export default function ScopedDOMUpdates({ html }) {
         class="cloud-and-code w-full" />
       <div class="pl0 pr0 pl-none-lg pr5-lg pb5-lg m-auto m-none-lg">
         <p class="leading2 mb0">
-          No need for a full page render to update one&nbsp;element.
+          No need for a full page render to update one element
         </p>
         <p class="leading3 mb5">
-          Manage updates at the component level as the web platform intended for
-          the best performance&nbsp;possible.
+          Ditch throbbers and loading screens by removing framework bloat and
+          authoring only the code you&nbsp;need.
         </p>
-        <landing-link-button href="#"> Try it now! </landing-link-button>
+        <landing-link-button href="/docs/"> Try it now! </landing-link-button>
       </div>
     </div>
 

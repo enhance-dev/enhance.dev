@@ -22,7 +22,7 @@
     "qrcode": "^1.5.1"
   },
   "devDependencies": {
-    "@architect/architect": "^10.10.0",
+    "@architect/architect": "^10.10.3",
     "@architect/eslint-config": "^2.0.1",
     "@architect/sandbox": "^5.4.1",
     "@architect/spellcheck-dictionary": "github:architect/spellcheck-dictionary#v0.1.7",

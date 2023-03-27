@@ -1,4 +1,4 @@
-export default function YouveReached({ html }) {
+export default function Liftoff({ html }) {
   return html`
     <style>
       :host {
@@ -35,7 +35,6 @@ export default function YouveReached({ html }) {
 
       p {
         color: var(--mid-purple);
-        font-size: var(--text-0);
         padding-bottom: var(--space-l);
       }
 
@@ -74,10 +73,10 @@ export default function YouveReached({ html }) {
     </style>
 
     <h2 class="font-extrabold uppercase tracking-1">
-      You’ve<br />
-      reached<br />
-      the<br />
-      ground!
+      Always<br />
+      Ready<br />
+      for<br />
+      liftoff!<br />
     </h2>
 
     <img
@@ -90,8 +89,13 @@ export default function YouveReached({ html }) {
       alt=""
       class="axol absolute top0 z1" />
 
-    <p class="leading3">Now you’re free to own your own&nbsp;content!</p>
+    <p class="leading3">
+      Enhance apps are designed with deployment in mind.
+      <br class="hidden block-lg" />
+      When you're ready to launch, we've got you covered with
+      <a href="https://begin.com" class="underline">Begin</a>!
+    </p>
 
-    <landing-link-button href="#"> Start now! </landing-link-button>
+    <landing-link-button href="/docs/"> Start now! </landing-link-button>
   `
 }

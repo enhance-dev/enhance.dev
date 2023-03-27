@@ -4,7 +4,7 @@ export default function LandingIntro({ html }) {
       .intro {
         background: linear-gradient(to bottom, #c9ecff, #fff0fe);
         color: var(--mid-purple);
-        padding-top: var(--space-l);
+        padding-top: var(--space-xl);
       }
 
       landing-enhance-type-animated {
@@ -44,6 +44,18 @@ export default function LandingIntro({ html }) {
         top: 15%;
         right: 0;
         transform: translateX(40%);
+      }
+
+      .flare-blue {
+        width: 30vw;
+        aspect-ratio: 2 / 1;
+        right: 0;
+        translate: 25% 66%;
+        background: radial-gradient(
+          closest-side,
+          hsla(186deg 100% 82% / 66%),
+          transparent
+        );
       }
 
       .bottom-clouds {
@@ -100,7 +112,7 @@ export default function LandingIntro({ html }) {
         <span class="clip">Enhance</span>
       </h1>
 
-      <figure class="middle-clouds relative">
+      <figure class="middle-clouds relative z1">
         <img
           src="/_public/img/landing/cloud-purple-medium.svg"
           alt=""
@@ -110,13 +122,15 @@ export default function LandingIntro({ html }) {
           src="/_public/img/landing/cloud-purple-wide.svg"
           alt=""
           class="middle-cloud-wide absolute" />
+
+        <div class="flare-blue absolute z-1" />
       </figure>
 
       <figure class="bottom-clouds flex items-center justify-center">
         <p class="font-medium uppercase text-center">
-          The web native<br />
-          framework for your<br />
-          Functional Web App
+          The HTML first<br />
+          Full Stack <br />
+          Web Framework<br />
         </p>
       </figure>
     </div>
