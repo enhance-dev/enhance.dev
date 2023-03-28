@@ -38,6 +38,50 @@
     font-size: var(--text-0);
   }
 
+  nav {
+    background-color: #c9ecff;
+    background-image: linear-gradient(to bottom, white 33%, transparent);
+    color: var(--rift);
+    z-index: 3;
+  }
+
+  .nav-content {
+    width: 85vw;
+  }
+
+  nav h1 img {
+    aspect-ratio: 56 / 51;
+    translate: 0 -6.25%;
+    width: 2.5rem;
+  }
+
+  .get-started {
+    background: var(--dark-purple);
+    border-radius: 5px;
+    color: white;
+  }
+
+  .get-started:after {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    box-shadow: 0 0 0 2px var(--dark-purple);
+    border-radius: 6px;
+    opacity: 0;
+    transform: scale(0.75);
+    transition: opacity 150ms linear, transform 150ms linear;
+  }
+
+  .get-started:focus {
+    outline: none;
+  }
+
+  .get-started:hover:after,
+  .get-started:focus:after {
+    opacity: 1;
+    transform: scale(1);
+  }
+
   .clip {
     clip: rect(1px, 1px, 1px, 1px);
     clip-path: inset(50%);
@@ -103,6 +147,19 @@
     }
   }
 </style>
+
+<nav class='pt-2 pb-2 pt0-lg pb0-lg'>
+  <div class='nav-content m-auto flex items-center'>
+    <h1 class='text0 text1-lg font-medium flex items-center'>
+      <img src="/_public/img/svg/enhance-axol.svg" alt="" class="inline mr-1" />
+      Enhance
+    </h1>
+
+    <a class='relative ml-auto text-1 text0-lg uppercase tracking2 font-medium pt-2 pb-2 pl0 pr0 get-started' href='/docs'>
+      Get Started!
+    </a>
+  </div>
+</nav>
 
 <landing-intro class='block relative'></landing-intro>
 
