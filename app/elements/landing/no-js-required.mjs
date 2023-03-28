@@ -293,8 +293,8 @@ export default function NoJsRequired({ html }) {
         <ul class="grid gap-2 pl4 leading3">
           <li>File-based routing</li>
           <li>Database backed APIs</li>
-          <li>Composable HTML Custom Elements</li>
-          <li>Web Component progressive enhancement</li>
+          <li>SSR composable HTML Custom&nbsp;Elements</li>
+          <li>Web Component progressive&nbsp;enhancement</li>
         </ul>
       </div>
       <img

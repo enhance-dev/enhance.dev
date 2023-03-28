@@ -9,16 +9,16 @@ export default function LandingLinkButton({ html, state }) {
       }
 
       a {
-        background: var(--mid-purple);
+        background: var(--dark-purple);
         border-radius: 5px;
-        color: var(--pale-cyan);
+        color: white;
       }
 
       a:after {
         content: '';
         position: absolute;
         inset: -2px;
-        box-shadow: 0 0 0 2px var(--mid-purple);
+        box-shadow: 0 0 0 2px var(--dark-purple);
         border-radius: 6px;
         opacity: 0;
         transform: scale(0.75);

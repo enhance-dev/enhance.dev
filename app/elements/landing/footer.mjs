@@ -52,6 +52,10 @@ export default function Footer({ html }) {
             alt="GitHub" />
         </a>
       </div>
+
+      <div class="mt4 text-center">
+        <a href="#top" class="underline text0">Back to the top!</a>
+      </div>
     </footer>
   `
 }

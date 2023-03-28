@@ -91,7 +91,7 @@ export default function LandingIntro({ html }) {
       }
     </style>
 
-    <div class="intro">
+    <div id="top" class="intro">
       <div class="relative">
         <img
           src="/_public/img/landing/cloud-purple-chunky.svg"
