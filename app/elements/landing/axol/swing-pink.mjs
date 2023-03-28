@@ -17,6 +17,6 @@ export default function AxolSwingPink({ html }) {
         }
       }
     </style>
-    <img src="/_public/img/landing/axol-swing-pink.svg" alt="" />
+    <img src="/_public/img/landing/axol-swing-pink.svg" alt="" loading="lazy" />
   `
 }

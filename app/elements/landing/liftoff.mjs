@@ -82,11 +82,13 @@ export default function Liftoff({ html }) {
     <img
       src="/_public/img/landing/cloud-blue-chunky.svg"
       alt=""
+      loading="lazy"
       class="cloud absolute z-1" />
 
     <img
       src="/_public/img/landing/axol-balloons.svg"
       alt=""
+      loading="lazy"
       class="axol absolute top0 z1" />
 
     <p class="leading3">

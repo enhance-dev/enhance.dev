@@ -147,7 +147,7 @@ export default function TheGround({ html }) {
               type="submit"
               class="flex items-center justify-center relative">
               <span class="clip">Submit</span>
-              <img src="/_public/img/landing/submit-arrow.svg" alt="" />
+              <img src="/_public/img/landing/submit-arrow.svg" alt="" loading="lazy" />
             </button>
           </div>
         </form>
@@ -158,6 +158,7 @@ export default function TheGround({ html }) {
     <img
       src="/_public/img/landing/footer-background-trim.svg"
       alt=""
+      loading="lazy"
       class="footer-trim" />
   `
 }

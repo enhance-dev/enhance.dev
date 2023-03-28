@@ -63,7 +63,10 @@ export default function SSRWebComponents({ html }) {
       </p>
 
       <figure class="cloud-and-puffs flex justify-between">
-        <img src="/_public/img/landing/cloud-blue-wide.svg" alt="" />
+        <img
+          src="/_public/img/landing/cloud-blue-wide.svg"
+          alt=""
+          loading="lazy" />
         <landing-three-puffs></landing-three-puffs>
       </figure>
     </div>

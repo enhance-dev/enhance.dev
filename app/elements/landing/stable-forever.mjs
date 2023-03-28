@@ -88,12 +88,14 @@ export default function WebNative({ html }) {
     <img
       src="/_public/img/landing/cloud-and-rainbow-bottom.svg"
       alt=""
+      loading="lazy"
       class="rainbow-bottom" />
 
     <figure class="cloud-and-axol absolute top0 left0">
       <img
         src="/_public/img/landing/cloud-cyan-chunky-light.svg"
         alt=""
+        loading="lazy"
         class="cloud-blue-chunky" />
 
       <landing-axol-face-front
@@ -104,6 +106,7 @@ export default function WebNative({ html }) {
       <img
         src="/_public/img/landing/cloud-cyan-wide.svg"
         alt=""
+        loading="lazy"
         class="cloud-wide" />
     </figure>
 
@@ -130,6 +133,7 @@ export default function WebNative({ html }) {
     <img
       src="/_public/img/landing/cloud-purple-triad.svg"
       alt=""
+      loading="lazy"
       class="cloud-triad" />
   `
 }

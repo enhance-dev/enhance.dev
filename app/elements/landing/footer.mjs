@@ -25,7 +25,11 @@ export default function Footer({ html }) {
     </style>
     <footer class="pl0 pr0 m-auto">
       <h2 class="font-semibold text-center mb4">
-        <img src="/_public/img/landing/axol-face.svg" alt="" class="inline" />
+        <img
+          src="/_public/img/landing/axol-face.svg"
+          alt=""
+          class="inline"
+          loading="lazy" />
         <span class="pl0">Enhance</span>
       </h2>
       <div class="flex items-center justify-center">
@@ -35,6 +39,7 @@ export default function Footer({ html }) {
           <img
             src="/_public/img/landing/mastodon-logo.svg"
             class="social-logo m-auto"
+            loading="lazy"
             alt="Mastodon" />
         </a>
 
@@ -42,6 +47,7 @@ export default function Footer({ html }) {
           <img
             src="/_public/img/landing/discord-logo.svg"
             class="social-logo m-auto"
+            loading="lazy"
             alt="Discord" />
         </a>
 
@@ -49,6 +55,7 @@ export default function Footer({ html }) {
           <img
             src="/_public/img/landing/github-logo.svg"
             class="social-logo m-auto"
+            loading="lazy"
             alt="GitHub" />
         </a>
       </div>

@@ -53,6 +53,7 @@ export default function ScopedDOMUpdates({ html }) {
       <img
         slot="image"
         src="/_public/img/landing/star-filled-purple.svg"
+        loading="lazy"
         alt="" />
     </landing-marquee>
 
@@ -60,6 +61,7 @@ export default function ScopedDOMUpdates({ html }) {
       <img
         src="/_public/img/landing/cloud-and-code.svg"
         alt=""
+        loading="lazy"
         class="cloud-and-code w-full" />
       <div class="pl0 pr0 pl-none-lg pr5-lg pb5-lg m-auto m-none-lg">
         <p class="leading2 mb0">
@@ -76,11 +78,13 @@ export default function ScopedDOMUpdates({ html }) {
     <img
       src="/_public/img/landing/cloud-blue-chunky.svg"
       alt=""
+      loading="lazy"
       class="cloud-chunky-left" />
 
     <img
       src="/_public/img/landing/cloud-blue-chunky.svg"
       alt=""
+      loading="lazy"
       class="cloud-chunky-right absolute" />
   `
 }

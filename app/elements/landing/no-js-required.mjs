@@ -300,6 +300,7 @@ export default function NoJsRequired({ html }) {
       <img
         src="/_public/img/landing/cloud-features.svg"
         alt=""
+        loading="lazy"
         class="cloud-features w-full" />
     </section>
 
@@ -307,6 +308,7 @@ export default function NoJsRequired({ html }) {
       <img
         src="/_public/img/landing/cloud-pink-thin.svg"
         alt=""
+        loading="lazy"
         class="cloud-pink" />
 
       <landing-star-filled class="absolute"></landing-star-filled>
@@ -317,18 +319,22 @@ export default function NoJsRequired({ html }) {
         <img
           src="/_public/img/landing/cloud-pink-heart-left.svg"
           class="heart-left relative z-1"
+          loading="lazy"
           alt="" />
         <img
           src="/_public/img/landing/cloud-pink-heart-right.svg"
           class="heart-right relative z1"
+          loading="lazy"
           alt="" />
         <img
           src="/_public/img/landing/cloud-pink-thin-extra.svg"
           alt=""
+          loading="lazy"
           class="cloud-pink-thin-extra absolute bottom0" />
         <img
           src="/_public/img/landing/cloud-blue-wide.svg"
           alt=""
+          loading="lazy"
           class="cloud-blue-wide absolute bottom0 z1" />
       </figure>
 
@@ -336,6 +342,7 @@ export default function NoJsRequired({ html }) {
         <img
           src="/_public/img/landing/cloud-blue-small.svg"
           alt=""
+          loading="lazy"
           class="cloud-blue-small absolute" />
 
         <landing-axol-unless-you-want-it
@@ -344,11 +351,13 @@ export default function NoJsRequired({ html }) {
         <img
           src="/_public/img/landing/cloud-blue-chunky.svg"
           alt=""
+          loading="lazy"
           class="cloud-blue-chunky-left js-unless-cloud" />
 
         <img
           src="/_public/img/landing/cloud-blue-chunky.svg"
           alt=""
+          loading="lazy"
           class="cloud-blue-chunky-right absolute right0" />
       </figure>
     </section>
