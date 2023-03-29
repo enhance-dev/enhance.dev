@@ -8,9 +8,14 @@ export async function get({ query }) {
       location: '/docs/',
     }
 
+  const cacheControl =
+    process.env.ARC_ENV === 'production'
+      ? 'max-age=300'
+      : 'no-cache, no-store, must-revalidate, max-age=0, s-maxage=0'
+
   return {
     headers: {
-      'cache-control': 'max-age=300',
+      'cache-control': cacheControl,
     },
   }
 }
