@@ -23,6 +23,11 @@ export default function Head(state) {
     <link rel="icon" type="image/png" sizes="16x16" href="${arc.static(
       '/img/favicon/favicon-16x16.png'
     )}">
+
+    <meta name="image" content="/_public/img/enhance-open-graph.png" />
+    <meta name="og:image" content="/_public/img/enhance-open-graph.png" />
+    <meta name="og:type" content="website" />
+
     <link rel="manifest" href="${arc.static('/img/favicon/site.webmanifest')}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
