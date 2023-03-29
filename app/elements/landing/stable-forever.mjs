@@ -13,7 +13,7 @@ export default function WebNative({ html }) {
       }
 
       .cloud-and-axol {
-        transform: translateY(66%) translateX(-10%);
+        transform: translateY(66%) translateX(-5%);
       }
 
       .cloud-blue-chunky {
@@ -32,8 +32,47 @@ export default function WebNative({ html }) {
         width: 27vw;
       }
 
-      landing-axol-face-front.js-popout {
+      landing-axol-face-front.animated {
         transform: translateX(24vw) translateY(-8%) rotate(16deg);
+      }
+
+      .rewindButton {
+        background-color: var(--princess);
+        border-radius: 5px;
+        box-shadow: 0 0 12px hsla(0deg 0% 100% / 50%);
+        color: var(--denim);
+        font-size: 0.8em;
+        padding-block: 0.75em;
+        padding-inline: 1em;
+        transition: opacity 1s ease-in-out;
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      .rewindButton.active {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .rewindButton:after {
+        content: '';
+        position: absolute;
+        inset: -2px;
+        box-shadow: 0 0 0 2px var(--princess);
+        border-radius: 6px;
+        opacity: 0;
+        transform: scale(0.75);
+        transition: opacity 150ms linear, transform 150ms linear;
+      }
+
+      .rewindButton:focus {
+        outline: none;
+      }
+
+      .rewindButton:hover:after,
+      .rewindButton:focus:after {
+        opacity: 1;
+        transform: scale(1);
       }
 
       .cloud-wide {
@@ -85,21 +124,38 @@ export default function WebNative({ html }) {
       }
     </style>
 
+    <script type="module">
+      const rewindButton = document.querySelector('.js-rewindButton')
+      const axolSliding = document.getElementById('axol-sliding')
+      const axolFace = document.querySelector('landing-axol-face-front')
+
+      rewindButton.addEventListener('click', () => {
+        rewindButton.classList.remove('active')
+        axolFace.classList.remove('animated')
+        axolSliding.classList.remove('animated')
+      })
+    </script>
+
     <img
       src="/_public/img/landing/cloud-and-rainbow-bottom.svg"
       alt=""
       loading="lazy"
       class="rainbow-bottom" />
 
-    <figure class="cloud-and-axol absolute top0 left0">
+    <figure class="cloud-and-axol absolute top0 left0 flex items-center w-full">
       <img
         src="/_public/img/landing/cloud-cyan-chunky-light.svg"
         alt=""
         loading="lazy"
-        class="cloud-blue-chunky" />
+        class="inline-block flex-none cloud-blue-chunky" />
 
-      <landing-axol-face-front
-        class="absolute top0 left0"></landing-axol-face-front>
+      <landing-axol-face-front class="absolute top0 left0 flex-none">
+      </landing-axol-face-front>
+
+      <button
+        class="relative m-auto flex-none uppercase tracking2 font-medium rewindButton js-rewindButton">
+        &olarr; Rewind!
+      </button>
     </figure>
 
     <figure class="flex justify-end">

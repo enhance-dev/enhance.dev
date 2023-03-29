@@ -1,6 +1,10 @@
 export default function AxolRainbowButtslide({ html }) {
   return html`
     <style>
+      :host {
+        pointer-events: none; /* Required to unblock pointer access to Rewind button */
+      }
+
       figure {
         aspect-ratio: 1488 / 1460; /* Combined aspect ratio of rainbow-top and rainbow-bottom */
         display: flex;
@@ -70,7 +74,9 @@ export default function AxolRainbowButtslide({ html }) {
               // For markup see stable-forever.mjs
               document
                 .querySelector('landing-axol-face-front')
-                .classList.add('js-popout')
+                .classList.add('animated')
+
+              document.querySelector('.js-rewindButton').classList.add('active')
             }, 1500)
           }
         })
