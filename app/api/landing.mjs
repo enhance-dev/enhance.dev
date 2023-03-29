@@ -8,5 +8,9 @@ export async function get({ query }) {
       location: '/docs/',
     }
 
-  return {}
+  return {
+    headers: {
+      'cache-control': 'max-age=300',
+    },
+  }
 }
