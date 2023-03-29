@@ -32,7 +32,7 @@ export default function Footer({ html }) {
           loading="lazy" />
         <span class="pl0">Enhance</span>
       </h2>
-      <div class="flex items-center justify-center">
+      <div class="flex gap-3 items-center justify-center">
         <a href="/docs" class="inline-block font-medium uppercase p0">Docs</a>
 
         <a href="https://fosstodon.org/@enhance_dev" class="inline-block p0">
