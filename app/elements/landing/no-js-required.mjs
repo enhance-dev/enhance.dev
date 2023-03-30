@@ -56,6 +56,12 @@ export default function NoJsRequired({ html }) {
         );
         z-index: -1;
       }
+
+      dd {
+        font-size: 0.75em;
+        margin-bottom: 1lh;
+      }
+
       .cloud-pink {
         width: 25vw;
         aspect-ratio: 342 / 105;
@@ -73,7 +79,7 @@ export default function NoJsRequired({ html }) {
 
       @media screen and (min-width: 48em) {
         .features {
-          padding-bottom: var(--space-3xl);
+          padding-block: var(--space-3xl);
         }
 
         .get-productive {
@@ -290,12 +296,20 @@ export default function NoJsRequired({ html }) {
           Enhance ships with everything you need to build a production ready
           app.
         </p>
-        <ul class="grid gap-2 pl4 leading3">
-          <li>File-based routing</li>
-          <li>Database backed APIs</li>
-          <li>SSR composable HTML Custom&nbsp;Elements</li>
-          <li>Web Component progressive&nbsp;enhancement</li>
-        </ul>
+
+        <dl class="pl4 leading3">
+          <dt class="font-semibold">File-based routing</dt>
+          <dd>Organize your pages as easily as a desktop&nbsp;folder.</dd>
+
+          <dt class="font-semibold">Database-backed APIs</dt>
+          <dd>Access and store data with simple JavaScript&nbsp;functions.</dd>
+
+          <dt class="font-semibold">SSR composable HTML Custom Elements</dt>
+          <dd>Build reusable components with HTML and scoped&nbsp;CSS.</dd>
+
+          <dt class="font-semibold">Web Component progressive enhancement</dt>
+          <dd>Add client-side interaction just where you need&nbsp;it.</dd>
+        </dl>
       </div>
       <img
         src="/_public/img/landing/cloud-features.svg"
