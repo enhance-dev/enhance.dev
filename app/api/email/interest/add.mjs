@@ -7,6 +7,7 @@ export async function post(req) {
   await data.set({ table: 'email', email, timestamp })
   return {
     statusCode: 303,
-    location: '/email/thank',
+    /* Change to `?thanks=true#email-thanks` before launch */
+    location: '/landing?newui&thanks=true#email-thanks',
   }
 }

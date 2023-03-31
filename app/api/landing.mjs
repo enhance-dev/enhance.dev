@@ -1,6 +1,6 @@
 /** @type {import('@enhance/types').EnhanceApiFn} */
 export async function get({ query }) {
-  const { newui } = query
+  const { newui, thanks } = query
 
   if (typeof newui === 'undefined')
     return {
@@ -16,6 +16,9 @@ export async function get({ query }) {
   return {
     headers: {
       'cache-control': cacheControl,
+    },
+    json: {
+      thanks,
     },
   }
 }

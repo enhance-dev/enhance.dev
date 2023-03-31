@@ -1,4 +1,54 @@
-export default function TheGround({ html }) {
+export default function TheGround({ html, state }) {
+  const { store } = state
+  const { thanks = false } = store
+  const emailThanks = thanks === 'true'
+  const emailUpdate = emailThanks
+    ? `
+        <a id="email-thanks"></a>
+        <h2 class="uppercase font-extrabold tracking-1 text-center m-auto">
+          We'll talk soon!
+        </h2>
+        `
+    : `
+        <h2 class="uppercase font-extrabold tracking-1 text-center m-auto">
+          <svg viewBox="0 0 672 48" xmlns="http://www.w3.org/2000/svg">
+            <text
+              fill="#003451"
+              font-family="Rubik"
+              font-size="65"
+              font-weight="800"
+              letter-spacing="0em"
+              class="uppercase">
+              <tspan x="-3.62354" y="46.7625">Don't miss out!</tspan>
+            </text>
+          </svg>
+        </h2>
+        <form
+          action="/email/interest/add"
+          method="POST"
+          name="enhance-newsletter-signup"
+          class="m-auto"
+        >
+          <label for="email" class="inline-block mb-2 font-medium">
+            Stay informed via email:
+          </label>
+          <div class="form-layout grid flow-col">
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="you@your-email.com"
+              class="block w-full pt0 pb0" />
+            <button
+              type="submit"
+              class="flex items-center justify-center relative">
+              <span class="clip">Submit</span>
+              <img src="/_public/img/landing/submit-arrow.svg" alt="" loading="lazy" />
+            </button>
+          </div>
+        </form>
+    `
+
   return html`
     <style>
       :host {
@@ -118,39 +168,8 @@ export default function TheGround({ html }) {
     </style>
     <section class="ground-bottom">
       <div class="pl0 pr0">
-        <h2 class="uppercase font-extrabold tracking-1 text-center m-auto">
-          <svg viewBox="0 0 672 48" xmlns="http://www.w3.org/2000/svg">
-            <text
-              fill="#003451"
-              font-family="Rubik"
-              font-size="65"
-              font-weight="800"
-              letter-spacing="0em"
-              class="uppercase">
-              <tspan x="-3.62354" y="46.7625">Don't miss out!</tspan>
-            </text>
-          </svg>
-        </h2>
 
-        <form name="enhance-newsletter-signup" class="m-auto">
-          <label for="email" class="inline-block mb-2 font-medium">
-            Stay informed via email:
-          </label>
-          <div class="form-layout grid flow-col">
-            <input
-              type="email"
-              id="email"
-              name="email"
-              placeholder="you@your-email.com"
-              class="block w-full pt0 pb0" />
-            <button
-              type="submit"
-              class="flex items-center justify-center relative">
-              <span class="clip">Submit</span>
-              <img src="/_public/img/landing/submit-arrow.svg" alt="" loading="lazy" />
-            </button>
-          </div>
-        </form>
+        ${emailUpdate}
 
         <landing-axol-gills-down class="m-auto"></landing-axol-gills-down>
 
