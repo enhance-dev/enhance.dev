@@ -27,11 +27,9 @@ You can customize the contents of the Head component by editing the included `ap
 ```js
 import { getStyles }  from '@enhance/arc-plugin-styles'
 
-export default function Head () {
-  const styles = process.env.ARC_LOCAL
-    ? getStyles.linkTag()
-    : getStyles.styleTag()
+const { linkTag } = getStyles
 
+export default function Head () {
   return `
     <!DOCTYPE html>
     <html lang="en">
@@ -39,10 +37,10 @@ export default function Head () {
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <title></title>
-      ${styles}
+      ${linkTag()}
       <link rel="icon" href="/_public/favicon.svg">
     </head>
-  `
+`
 }
 ```
 
