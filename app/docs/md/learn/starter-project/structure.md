@@ -12,8 +12,9 @@ app
 │   └── index.mjs
 ├── elements .......... custom element pure functions
 │   └── my-header.mjs
-└── pages ............. file-based routing
-    └── index.html
+├── pages ............. file-based routing
+│   └── index.html
+└── head.mjs .......... custom <head> component
 ```
 
 ## Pages

@@ -14,34 +14,47 @@ As Custom Elements are elements that you the user define they are not included i
 
 </doc-callout>
 
-## Default head component
+## Default Head component
 
-To help you with customizing your `<head>` element, Enhance projects come with basic default head content to get you started.
-The default head content below is the bare minimum and should be the basis for your own customizations.
+Enhance projects come with a default Head component to get you started, but we expect you’ll need to make changes to it. By default, we include [a meta tag for character encoding](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta#attr-charset), [a viewport meta tag](https://developer.mozilla.org/en-US/docs/Web/HTML/Viewport_meta_tag), an empty [document title element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/title), a default favicon, and the [Enhance Styles utility class system](/docs/learn/concepts/styling).
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title></title>
-  <link rel="stylesheet" href="/enhance-styles.css">
-  <link rel="icon" href="/_public/favicon.svg">
-</head>
+### Override the default
+
+You can customize the contents of the Head component by editing the included `app/head.mjs` file in your project. We recommend the following content at a minimum (though you may choose not to include [Enhance Styles’ `getStyles` function](/docs/learn/concepts/styling/utility-classes#getstyles) if you prefer to use a different set of styles):
+
+<doc-code filename='app/head.mjs'>
+
+```js
+import { getStyles }  from '@enhance/arc-plugin-styles'
+
+const { linkTag } = getStyles
+
+export default function Head () {
+  return `
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title></title>
+      ${linkTag()}
+      <link rel="icon" href="/_public/favicon.svg">
+    </head>
+`
+}
 ```
 
-## Override the default
+</doc-code>
 
-To supply your own custom head content add a file `/app/head.mjs` to your project.
+Since the `<head>` tag *is not a Custom Element, nor can it be,* the arguments passed to `head.mjs` are not the same as Elements in your Enhance project.
 
-Since the `<head>` tag *is not a Custom Element, nor can it be* the arguments passed to `head.mjs` are not the same as Elements in your Enhance project.
-
-Since the `html` function passed to Elements is used to expand Custom Elements, which are not allowed inside the `<head>` tag there is no reason to pass it as an argument. Instead your `head.mjs` template will be passed a `state` object containing:
+Since the `html` function passed to Elements is used to expand Custom Elements, which are not allowed inside the `<head>` tag, there is no reason to pass it as an argument. Instead your `head.mjs` template will be passed a `state` object containing:
 - store: [The API data mapped to the current page](/docs/learn/concepts/routing/api-routes)
 - req: [A standard request Object](/docs/learn/concepts/routing/api-routes#request)
 - error: An error message if an error has occurred so you can message your site's users
 - status: A status code to enable you to do the correct handling
+
+The example below demonstrates using some of these properties:
 
 ```javascript
 import { getLinkTag } from '@enhance/arc-plugin-styles/get-styles'
