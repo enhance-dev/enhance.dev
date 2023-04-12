@@ -34,6 +34,7 @@ export default function TheGround({ html, state }) {
           </label>
           <div class="form-layout grid flow-col">
             <input
+              required
               type="email"
               id="email"
               name="email"
