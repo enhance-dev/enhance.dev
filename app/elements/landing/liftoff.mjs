@@ -98,8 +98,11 @@ export default function Liftoff({ html }) {
       <a href="https://begin.com" class="underline">Begin</a>!
     </p>
 
-    <landing-link-button href="https://begin.com/docs">
-      Start now!
-    </landing-link-button>
+    <div class="flex flex-col flex-row-lg gap0">
+      <landing-link-button href="/docs">Check out Enhance</landing-link-button>
+      <landing-link-button href="https://begin.com/docs">
+        Prepare for launch
+      </landing-link-button>
+    </div>
   `
 }
