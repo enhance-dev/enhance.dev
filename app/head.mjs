@@ -9,6 +9,16 @@ export default function Head(state) {
 
   const title = docTitle ? `${docTitle} — Enhance` : 'Enhance'
 
+  const docsCSS = docTitle
+    ? `
+      <link rel="stylesheet" href="${arc.static('/css/docs-colors.css')}" />
+      <link rel="stylesheet" href="${arc.static('/css/docs-highlight.css')}" />
+      <link rel="stylesheet" href="${arc.static(
+        '/bundles/docsearch-css.css'
+      )}" />
+    `
+    : ''
+
   return /* html */ `
 <!DOCTYPE html>
 <html lang='en'>
@@ -27,14 +37,11 @@ export default function Head(state) {
     <meta name="image" content="/_public/img/enhance-open-graph.png" />
     <meta name="og:image" content="/_public/img/enhance-open-graph.png" />
     <meta name="og:type" content="website" />
-
+    ${docsCSS}
     <link rel="manifest" href="${arc.static('/img/favicon/site.webmanifest')}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     ${getStyles.styleTag()}
-    <link rel="stylesheet" href="${arc.static('/css/docs-colors.css')}" />
-    <link rel="stylesheet" href="${arc.static('/css/docs-highlight.css')}" />
-    <link rel="stylesheet" href="${arc.static('/bundles/docsearch-css.css')}" />
     <title>${title}</title>
     <meta name='description' content='The HTML first full stack web framework.' />
     <style>
