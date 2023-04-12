@@ -77,7 +77,7 @@ export default function AxolRainbowButtslide({ html }) {
                 .classList.add('animated')
 
               document.querySelector('.js-rewindButton').classList.add('active')
-            }, 1500)
+            }, 900)
           }
         })
       }
