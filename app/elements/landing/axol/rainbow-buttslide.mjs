@@ -1,3 +1,5 @@
+const slideTransition = '2000ms cubic-bezier(0.33, 0.8, 0.29, 0.96)'
+
 export default function AxolRainbowButtslide({ html }) {
   return html`
     <style>
@@ -32,24 +34,22 @@ export default function AxolRainbowButtslide({ html }) {
           aspect-ratio: 1488 / 1460;
         }
 
-        @keyframes slide {
-          100% {
-            motion-offset: 100%;
-            offset-distance: 100%;
-            transform: translateX(25%);
-          }
-        }
-
         #axol-sliding {
           offset-path: path(
             'M112 168C219 273 439 434.5 1122.5 550.5C1280.5 570.5 1418.4 575 1484 577'
           );
           offset-rotate: 4deg;
+          motion-offset: 0%;
+          offset-distance: 0%;
+          translatex: 0% 0%;
+          transition: motion-offset ${slideTransition},
+            offset-distance ${slideTransition}, translate ${slideTransition};
         }
 
         #axol-sliding.animated {
-          /* Animation duration must match handleObserver's setTimeout duration */
-          animation: slide 2000ms cubic-bezier(0.33, 0.8, 0.29, 0.96) forwards;
+          motion-offset: 100%;
+          offset-distance: 100%;
+          translate: 25% 0%;
         }
 
         .eye {
