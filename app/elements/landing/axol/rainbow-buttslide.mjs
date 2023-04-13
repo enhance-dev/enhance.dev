@@ -41,7 +41,7 @@ export default function AxolRainbowButtslide({ html }) {
           offset-rotate: 4deg;
           motion-offset: 0%;
           offset-distance: 0%;
-          translatex: 0% 0%;
+          translate: 0% 0%;
           transition: motion-offset ${slideTransition},
             offset-distance ${slideTransition}, translate ${slideTransition};
         }
