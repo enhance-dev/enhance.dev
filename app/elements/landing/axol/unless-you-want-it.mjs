@@ -9,7 +9,7 @@ export default function AxolUnlessYouWantIt({ html }) {
       .banner {
         background: var(--pale-cyan);
         color: var(--mid-purple);
-        font-size: 3.75vw;
+        font-size: max(1rem, 3.75vw);
         padding-block: 0.5vw;
         padding-inline: 3vw;
       }

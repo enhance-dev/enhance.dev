@@ -68,8 +68,7 @@ export default function LandingIntro({ html }) {
       }
 
       .bottom-clouds p {
-        /* Won't respond to font/page zoom levels, but it's so big that this shouldn't be an issue */
-        font-size: 5.5vw;
+        font-size: clamp(1rem, 1rem + 3.75vw, 5.5vw);
         /* Offset to ensure text doesn't hit top of clouds */
         transform: translateY(-33%);
         z-index: 2;

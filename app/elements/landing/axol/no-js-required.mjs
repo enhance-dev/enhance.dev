@@ -11,7 +11,7 @@ export default function AxolNoJSRequired({ html }) {
       .banner {
         background: var(--halite);
         color: white;
-        font-size: 5vw;
+        font-size: max(1.125rem, 5vw);
         padding-block: 0.5vw;
         padding-inline: 5vw;
         left: -7vw;
