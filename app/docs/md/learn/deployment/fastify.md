@@ -102,7 +102,7 @@ export default elements
 
 </doc-code>
 
-Run `npm start`, and preview at `http://localhost:8080`.
+Run `npm start`, and preview at `http://localhost:3000`.
 
 ## Adding a route as plain basic HTML
 
