@@ -28,12 +28,13 @@ import MyHeader from '../../app/elements/my-header.mjs'
 describe('Enhance Framework', () => {
   it('should render MyHeader element correctly', async () => {
     const html = enhance({
+      bodyContent: true,
       elements: {
         'my-header': MyHeader
       }
     })
     const actual = document.createElement('div')
-    actual.innerHTML = (html`<my-header></my-header>`).replace(/<\/?\s*(html|head|body)>/g, '')
+    actual.innerHTML = html`<my-header></my-header>`
     document.body.appendChild(actual)
     expect(await $$('img').length).toBe(2)
   })
