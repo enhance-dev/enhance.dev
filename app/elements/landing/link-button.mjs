@@ -12,6 +12,7 @@ export default function LandingLinkButton({ html, state }) {
         background: var(--dark-purple);
         border-radius: 5px;
         color: white;
+        padding-inline: var(--space-s);
       }
 
       a:after {
@@ -36,7 +37,7 @@ export default function LandingLinkButton({ html, state }) {
       }
     </style>
     <a
-      class="inline-block relative uppercase tracking1 pt0 pb0 pr5 pl5 font-medium"
+      class="inline-block relative uppercase pt0 pb0 tracking1 font-medium"
       href="${href}">
       <slot></slot>
     </a>
