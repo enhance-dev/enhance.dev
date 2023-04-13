@@ -72,6 +72,7 @@ export default function LandingIntro({ html }) {
         font-size: 5.5vw;
         /* Offset to ensure text doesn't hit top of clouds */
         transform: translateY(-33%);
+        z-index: 2;
       }
 
       landing-marquee {
@@ -127,7 +128,7 @@ export default function LandingIntro({ html }) {
       </figure>
 
       <figure class="bottom-clouds flex items-center justify-center">
-        <p class="font-medium uppercase text-center">
+        <p class="font-medium uppercase text-center relative">
           The HTML first<br />
           Full Stack <br />
           Web Framework<br />

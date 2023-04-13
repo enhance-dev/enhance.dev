@@ -25,6 +25,7 @@ export default function ProgressiveByDesign({ html }) {
         color: white;
         padding-block: var(--space-l);
         max-width: 52ch;
+        z-index: 2;
       }
 
       .cloud-wide {
@@ -48,7 +49,7 @@ export default function ProgressiveByDesign({ html }) {
       <span class="block">By Design</span>
     </h2>
     <div class="paragraph-safety">
-      <p class="text-center-lg leading3 m-auto">
+      <p class="text-center-lg leading3 m-auto relative">
         Enhance makes the right way the easy&nbsp;way.
         <br class="hidden block-lg" />
         Start with a version that works everywhere for&nbsp;everyone.
