@@ -7,7 +7,7 @@ export default function SSRType({ html }) {
 
       svg {
         width: 100%;
-        aspect-ratio: 1119 / 478;
+        aspect-ratio: 1118 / 478;
       }
 
       @media (prefers-reduced-motion: no-preference) {
@@ -28,7 +28,7 @@ export default function SSRType({ html }) {
       }
     </style>
     <svg
-      viewBox="0 0 1119 478"
+      viewBox="0 0 1118 478"
       fill="none"
       class="overflow-visible"
       xmlns="http://www.w3.org/2000/svg">

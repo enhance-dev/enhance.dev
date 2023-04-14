@@ -13,7 +13,7 @@ export default function SSRWebComponents({ html }) {
 
       .webComponentsType {
         /* Slight inset to align with SSR cloud type */
-        transform: scale(0.9);
+        transform: scale(0.875);
       }
 
       p {
@@ -39,20 +39,15 @@ export default function SSRWebComponents({ html }) {
       }
     </style>
     <div class="text-center pl0 pr0">
-      <h2 class="font-extrabold uppercase tracking-1 text-center m-auto">
+      <h2 class="font-extrabold uppercase m-auto">
         <landing-ssr-type class="w-full mb0"></landing-ssr-type>
         <span class="clip">SSR</span>
         <svg
-          viewBox="0 0 966 75"
+          viewBox="0 0 969 75"
           xmlns="http://www.w3.org/2000/svg"
           class="webComponentsType">
-          <text
-            fill="#E8F8FF"
-            font-family="Rubik"
-            font-size="101.48"
-            font-weight="800"
-            letter-spacing="0em">
-            <tspan x="-2.75082" y="72.7569">Web Components</tspan>
+          <text fill="#E8F8FF" font-family="Rubik" font-size="101.48">
+            <tspan y="72.7569">Web Components</tspan>
           </text>
         </svg>
       </h2>
