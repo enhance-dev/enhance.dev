@@ -46,7 +46,7 @@ export default function SSRWebComponents({ html }) {
           viewBox="0 0 969 75"
           xmlns="http://www.w3.org/2000/svg"
           class="webComponentsType">
-          <text fill="#E8F8FF" font-family="Rubik" font-size="101.48">
+          <text fill="#E8F8FF" font-size="101.48">
             <tspan y="72.7569">Web Components</tspan>
           </text>
         </svg>
