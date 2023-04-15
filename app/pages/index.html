@@ -1,4 +1,4 @@
-<style scope='global'>
+<style scope="global">
   :root {
     /* Fluid space */
     --space-3xs: clamp(0.25rem, 0.1rem + 0.76vw, 0.69rem);
@@ -11,14 +11,22 @@
     --space-2xl: clamp(4rem, 1.74rem + 11.3vw, 10.5rem);
     --space-3xl: clamp(5rem, 2.17rem + 14.13vw, 13.13rem);
 
-      /* Fluid type */
-    --text-multiplier: 1.00;
-    --text-0: clamp(1.00rem, 0.83rem + 0.87vw, 1.50rem * var(--text-multiplier));
-    --text-1: clamp(1.20rem, 0.83rem + 1.83vw, 2.25rem * var(--text-multiplier));
-    --text-2: clamp(1.44rem, 0.77rem + 3.37vw, 3.38rem * var(--text-multiplier));
-    --text-3: clamp(1.73rem, 0.57rem + 5.80vw, 5.06rem * var(--text-multiplier));
-    --text-4: clamp(2.07rem, 0.15rem + 9.60vw, 7.59rem * var(--text-multiplier));
-    --text-5: clamp(2.49rem, -0.61rem + 15.48vw, 11.39rem * var(--text-multiplier));
+    /* Fluid type */
+    --text-multiplier: 1;
+    --text-0: clamp(1rem, 0.83rem + 0.87vw, 1.5rem * var(--text-multiplier));
+    --text-1: clamp(1.2rem, 0.83rem + 1.83vw, 2.25rem * var(--text-multiplier));
+    --text-2: clamp(
+      1.44rem,
+      0.77rem + 3.37vw,
+      3.38rem * var(--text-multiplier)
+    );
+    --text-3: clamp(1.73rem, 0.57rem + 5.8vw, 5.06rem * var(--text-multiplier));
+    --text-4: clamp(2.07rem, 0.15rem + 9.6vw, 7.59rem * var(--text-multiplier));
+    --text-5: clamp(
+      2.49rem,
+      -0.61rem + 15.48vw,
+      11.39rem * var(--text-multiplier)
+    );
   }
 
   @media screen and (min-width: 120em) {
@@ -29,9 +37,12 @@
 
   html,
   body {
-    font-family: Rubik, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: Rubik, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+      Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+      sans-serif;
     overflow-x: hidden;
     text-rendering: optimizeLegibility;
+    scroll-behavior: smooth;
   }
 
   body {
@@ -62,7 +73,7 @@
   }
 
   .get-started:after {
-    content: '';
+    content: "";
     position: absolute;
     inset: -2px;
     box-shadow: 0 0 0 2px var(--dark-purple);
@@ -148,26 +159,30 @@
   }
 </style>
 
-<nav class='pt-2 pb-2 pt0-lg pb0-lg' id='top'>
-  <div class='nav-content m-auto flex items-center'>
-    <h1 class='text0 text1-lg font-medium flex items-center'>
+<nav class="pt-2 pb-2 pt0-lg pb0-lg" id="top">
+  <div class="nav-content m-auto flex items-center">
+    <h1 class="text0 text1-lg font-medium flex items-center">
       <img src="/_public/img/svg/enhance-axol.svg" alt="" class="inline mr-1" />
       Enhance
     </h1>
 
-    <a class='relative ml-auto text-1 text0-lg uppercase tracking2 font-medium pt-2 pb-2 pl0 pr0 get-started' href='/docs'>
+    <a
+      class="relative ml-auto text-1 text0-lg uppercase tracking2 font-medium pt-2 pb-2 pl0 pr0 get-started"
+      href="/docs"
+    >
       Get Started!
     </a>
   </div>
 </nav>
 
-<landing-intro class='block relative'></landing-intro>
+<landing-intro class="block relative"></landing-intro>
 
-<landing-cyan-to-indigo class='block relative z1'>
+<landing-cyan-to-indigo class="block relative z1">
   <img
     src="/_public/img/landing/cloud-purple-section-bottom.svg"
     alt=""
-    class="z1 absolute top0 clouds-purple-section-bottom" />
+    class="z1 absolute top0 clouds-purple-section-bottom"
+  />
 
   <landing-swinging-axols></landing-swinging-axols>
   <landing-no-js-required></landing-no-js-required>
@@ -178,7 +193,12 @@
   <landing-stable-forever></landing-stable-forever>
   <landing-scoped-dom-updates></landing-scoped-dom-updates>
   <landing-liftoff></landing-liftoff>
-  <img src="/_public/img/landing/ground-top.svg" alt="" class="ground-top" loading="lazy" />
+  <img
+    src="/_public/img/landing/ground-top.svg"
+    alt=""
+    class="ground-top"
+    loading="lazy"
+  />
 </landing-pink-to-cyan>
 <landing-the-ground></landing-the-ground>
 <landing-footer></landing-footer>
