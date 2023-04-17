@@ -151,14 +151,6 @@ export default function TheGround({ html, state }) {
         }
       }
 
-      .arc-logo {
-        aspect-ratio: 177 / 33;
-      }
-
-      .begin-logo {
-        aspect-ratio: 142 / 42;
-      }
-
       .footer-trim {
         aspect-ratio: 1515 / 25;
         margin-top: -1.5%; /* Approximate ratio of width to height */

@@ -31,7 +31,7 @@ export default function AxolIntroducing({ html }) {
       }
     </style>
     <figure class="grid items-center">
-      <img src="/_public/img/landing/axol.svg" alt="" class="axol" />
+      <img src="/_public/img/landing/axol.svg" alt="" class="axol w-full" />
       <div>
         <img src="/_public/img/landing/swash.svg" alt="" class="swash m-auto" />
         <span class="block font-semibold uppercase text-center">
@@ -39,7 +39,10 @@ export default function AxolIntroducing({ html }) {
         </span>
         <img src="/_public/img/landing/swash.svg" alt="" class="swash m-auto" />
       </div>
-      <img src="/_public/img/landing/axol.svg" alt="" class="axol mirror" />
+      <img
+        src="/_public/img/landing/axol.svg"
+        alt=""
+        class="axol w-full mirror" />
     </figure>
   `
 }
