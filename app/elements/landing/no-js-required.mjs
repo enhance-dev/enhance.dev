@@ -73,10 +73,6 @@ export default function NoJsRequired({ html }) {
         padding-inline: 1rem;
       }
 
-      .cloud-features {
-        aspect-ratio: 833 / 392;
-      }
-
       @media screen and (min-width: 48em) {
         .features {
           padding-block: var(--space-3xl);
@@ -311,11 +307,8 @@ export default function NoJsRequired({ html }) {
           <dd>Add client-side interaction just where you need&nbsp;it.</dd>
         </dl>
       </div>
-      <img
-        src="/_public/img/landing/cloud-features.svg"
-        alt=""
-        loading="lazy"
-        class="cloud-features w-full" />
+      <landing-cloud-features
+        class="w-full block font-mono"></landing-cloud-features>
     </section>
 
     <section class="relative">

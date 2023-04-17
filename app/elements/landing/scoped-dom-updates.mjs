@@ -14,10 +14,6 @@ export default function ScopedDOMUpdates({ html }) {
         font-size: 8vw;
       }
 
-      .cloud-and-code {
-        aspect-ratio: 780 / 536;
-      }
-
       p {
         color: var(--mid-purple);
       }
@@ -58,11 +54,8 @@ export default function ScopedDOMUpdates({ html }) {
     </landing-marquee>
 
     <div class="grid gap4 gap2-lg items-center col-1 col-2-lg pb4">
-      <img
-        src="/_public/img/landing/cloud-and-code.svg"
-        alt=""
-        loading="lazy"
-        class="cloud-and-code w-full" />
+      <landing-cloud-and-code
+        class="block w-full font-mono"></landing-cloud-and-code>
       <div class="pl0 pr0 pl-none-lg pr5-lg pb5-lg m-auto m-none-lg">
         <p class="leading2 mb0">
           No need for a full page render to update one element
