@@ -34,21 +34,16 @@ export default function CloudFeatures({ html }) {
         fill="#003451"
         stroke="#9E4EFF"
         stroke-width="3" />
-      <text
-        fill="white"
-        xml:space="preserve"
-        style="white-space: pre"
-        font-size="15"
-        letter-spacing="0em">
-        <tspan x="259.889" y="37.8264">app</tspan>
-        <tspan x="259.889" y="61.8264"> ├── api ............... data routes</tspan>
-        <tspan x="259.889" y="85.8264"> │    └── index.mjs</tspan>
-        <tspan x="259.889" y="109.826"> ├── browser ........... Web Components</tspan>
-        <tspan x="259.889" y="133.826"> │    └── index.mjs</tspan>
-        <tspan x="259.889" y="157.826"> ├── elements .......... Custom Elements</tspan>
-        <tspan x="259.889" y="181.826"> │    └── my-header.mjs</tspan>
-        <tspan x="259.889" y="205.826"> └── pages ............. HTML file-based routing</tspan>
-        <tspan x="259.889" y="229.826">      └── index.html</tspan>
+      <text fill="white" xml:space="preserve" font-size="15">
+        <tspan x="259.889" y="37.8264" xml:space="preserve">app</tspan>
+        <tspan x="259.889" y="61.8264" xml:space="preserve"> ├── api ............... data routes</tspan>
+        <tspan x="259.889" y="85.8264" xml:space="preserve"> │    └── index.mjs</tspan>
+        <tspan x="259.889" y="109.826" xml:space="preserve"> ├── browser ........... Web Components</tspan>
+        <tspan x="259.889" y="133.826" xml:space="preserve"> │    └── index.mjs</tspan>
+        <tspan x="259.889" y="157.826" xml:space="preserve"> ├── elements .......... Custom Elements</tspan>
+        <tspan x="259.889" y="181.826" xml:space="preserve"> │    └── my-header.mjs</tspan>
+        <tspan x="259.889" y="205.826" xml:space="preserve"> └── pages ............. HTML file-based routing</tspan>
+        <tspan x="259.889" y="229.826" xml:space="preserve">      └── index.html</tspan>
       </text>
       <path
         d="M251.327 63.6582C242.391 71.3822 232.459 63.4689 228.609 58.5467C225.771 62.1355 219.52 66.8847 213.273 68.2099C207.026 69.5351 196.804 67.074 190.368 57.419C188.666 68.2099 162.538 69.9138 165.189 51.3609C167.309 36.5186 181.722 38.1088 188.664 40.7593C187.717 37.4129 186.107 27.8802 195.669 22.3906C205.892 16.5213 214.095 22.7693 217.25 27.1234C219.017 24.0944 224.596 18.9072 232.774 22.3906C240.953 25.8739 240.725 34.5678 239.59 38.4793C240.725 37.7851 244.663 36.8133 251.327 38.4793C259.657 40.5618 262.497 54.0031 251.327 63.6582Z"

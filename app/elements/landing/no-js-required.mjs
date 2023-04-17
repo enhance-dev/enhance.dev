@@ -59,7 +59,7 @@ export default function NoJsRequired({ html }) {
 
       dd {
         font-size: 0.75em;
-        margin-bottom: 1lh;
+        margin-bottom: 1.5rem;
       }
 
       .cloud-pink {
