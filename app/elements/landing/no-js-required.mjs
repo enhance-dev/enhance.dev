@@ -183,6 +183,7 @@ export default function NoJsRequired({ html }) {
         padding-bottom: var(--space-xl);
       }
 
+      /* Custom properties manipulated when JS available and animation permitted; see script tag below. */
       landing-axol-unless-you-want-it {
         --initial-offset: 17.5vw;
         --animation-offset: -50%;
