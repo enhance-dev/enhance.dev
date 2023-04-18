@@ -2,7 +2,6 @@ export default function NoJsRequired({ html }) {
   return html`
     <style>
       :host {
-        --axol-unless-offset: 17.5vw;
         color: var(--dark-purple);
         display: block;
         position: relative;
@@ -95,18 +94,17 @@ export default function NoJsRequired({ html }) {
         transform: translateX(-50%) translateY(-100%);
       }
 
+      /* Custom properties manipulated when JS available and animation permitted; see script tag below. */
       landing-axol-no-js-required {
-        transform: translateY(-2vw) translateX(-2vw);
+        --initial-offset: -2vw;
+        --animation-offset: 56vw;
+        --active-offset: var(--initial-offset);
+        translate: var(--active-offset) -2vw;
       }
 
       @media (prefers-reduced-motion: no-preference) {
         landing-axol-no-js-required {
-          transform: translateY(-2vw) translateX(56vw);
-          transition: transform 4.5s ease-out;
-        }
-
-        landing-axol-no-js-required.js-popout {
-          transform: translateY(-2vw) translateX(-2vw);
+          transition: translate 4.5s ease-out;
         }
       }
 
@@ -186,18 +184,16 @@ export default function NoJsRequired({ html }) {
       }
 
       landing-axol-unless-you-want-it {
-        left: var(--axol-unless-offset);
+        --initial-offset: 17.5vw;
+        --animation-offset: -50%;
+        --active-offset: var(--initial-offset);
+        left: var(--active-offset);
         transform: translateY(10%);
       }
 
       @media (prefers-reduced-motion: no-preference) {
         landing-axol-unless-you-want-it {
-          left: -50%;
           transition: left 500ms ease-out;
-        }
-
-        landing-axol-unless-you-want-it.js-popout {
-          left: var(--axol-unless-offset);
         }
       }
 
@@ -227,11 +223,17 @@ export default function NoJsRequired({ html }) {
       // No JS Required
       const heartCloud = document.querySelector('.js-heart')
       const axolNoJS = document.querySelector('landing-axol-no-js-required')
+      const noJSStyle = getComputedStyle(axolNoJS)
+      const noJSInitialOffset = noJSStyle.getPropertyValue('--initial-offset')
+      const noJSAnimationOffset =
+        noJSStyle.getPropertyValue('--animation-offset')
+
+      axolNoJS.style.setProperty('--active-offset', noJSAnimationOffset)
 
       const handleHeartObserver = (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            axolNoJS.classList.add('js-popout')
+            axolNoJS.style.setProperty('--active-offset', noJSInitialOffset)
           }
         })
       }
@@ -246,11 +248,18 @@ export default function NoJsRequired({ html }) {
       const axolUnless = document.querySelector(
         'landing-axol-unless-you-want-it'
       )
+      const unlessStyle = getComputedStyle(axolUnless)
+      const unlessInitialOffset =
+        unlessStyle.getPropertyValue('--initial-offset')
+      const unlessAnimationOffset =
+        unlessStyle.getPropertyValue('--animation-offset')
+
+      axolUnless.style.setProperty('--active-offset', unlessAnimationOffset)
 
       const handleCloudObserver = (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            axolUnless.classList.add('js-popout')
+            axolUnless.style.setProperty('--active-offset', unlessInitialOffset)
           }
         })
       }
