@@ -13,6 +13,7 @@ export default function AxolRainbowButtslide({ html }) {
         width: 100vw;
       }
 
+      /* Figure and SVG visibility toggled via JS, see script below; thus, if JS fails, the non animated version is shown. */
       figure img {
         aspect-ratio: 237 / 317;
         width: 20vw;
@@ -24,12 +25,7 @@ export default function AxolRainbowButtslide({ html }) {
       }
 
       @media (prefers-reduced-motion: no-preference) {
-        figure {
-          display: none;
-        }
-
         svg {
-          display: block;
           width: 100vw;
           aspect-ratio: 1488 / 1460;
         }
@@ -58,39 +54,56 @@ export default function AxolRainbowButtslide({ html }) {
       }
     </style>
 
-    <figure class="items-center justify-center">
+    <script type="module">
+      const allowAnimation = window.matchMedia(
+        '(prefers-reduced-motion: no-preference)'
+      ).matches
+
+      // This script handles animations. The following shouldn't be executed if the user has indicated they prefer reduced motion.
+      if (allowAnimation) {
+        const nextSection = document.querySelector('landing-stable-forever')
+        const axol = document.getElementById('axol-sliding')
+
+        // Swap the static Axol for the animation-ready one
+        document.getElementById('axol-sliding-static').style.display = 'none'
+        document.getElementById('axol-sliding-animated').style.display = 'block'
+
+        const handleObserver = (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              axol.classList.add('animated')
+              setTimeout(() => {
+                // For markup see stable-forever.mjs
+                document
+                  .querySelector('landing-axol-face-front')
+                  .classList.add('animated')
+
+                document
+                  .querySelector('.js-rewindButton')
+                  .classList.add('active')
+              }, 900)
+            }
+          })
+        }
+
+        const options = {
+          threshold: 0.2,
+        }
+
+        const observer = new IntersectionObserver(handleObserver, options)
+        observer.observe(nextSection)
+      }
+    </script>
+
+    <figure id="axol-sliding-static" class="items-center justify-center">
       <img src="/_public/img/landing/axol-sliding.svg" alt="" />
     </figure>
 
-    <script type="module">
-      const nextSection = document.querySelector('landing-stable-forever')
-      const axol = document.getElementById('axol-sliding')
-
-      const handleObserver = (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            axol.classList.add('animated')
-            setTimeout(() => {
-              // For markup see stable-forever.mjs
-              document
-                .querySelector('landing-axol-face-front')
-                .classList.add('animated')
-
-              document.querySelector('.js-rewindButton').classList.add('active')
-            }, 900)
-          }
-        })
-      }
-
-      const options = {
-        threshold: 0.2,
-      }
-
-      const observer = new IntersectionObserver(handleObserver, options)
-      observer.observe(nextSection)
-    </script>
-
-    <svg viewBox="0 0 1488 1460" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg
+      id="axol-sliding-animated"
+      viewBox="0 0 1488 1460"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg">
       <g id="axol-sliding">
         <path
           id="Vector"

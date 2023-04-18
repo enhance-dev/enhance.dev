@@ -94,20 +94,6 @@ export default function NoJsRequired({ html }) {
         transform: translateX(-50%) translateY(-100%);
       }
 
-      /* Custom properties manipulated when JS available and animation permitted; see script tag below. */
-      landing-axol-no-js-required {
-        --initial-offset: -2vw;
-        --animation-offset: 56vw;
-        --active-offset: var(--initial-offset);
-        translate: var(--active-offset) -2vw;
-      }
-
-      @media (prefers-reduced-motion: no-preference) {
-        landing-axol-no-js-required {
-          transition: translate 4.5s ease-out;
-        }
-      }
-
       .heart:after {
         content: '';
         position: absolute;
@@ -183,17 +169,28 @@ export default function NoJsRequired({ html }) {
         padding-bottom: var(--space-xl);
       }
 
-      /* Custom properties manipulated when JS available and animation permitted; see script tag below. */
+      /* Custom properties manipulated when JS available and animation permitted; see media query and script tag below. */
+      landing-axol-no-js-required {
+        --initial-offset: -2vw;
+        --active-offset: var(--initial-offset);
+        translate: var(--active-offset) -2vw;
+      }
+
       landing-axol-unless-you-want-it {
         --initial-offset: 17.5vw;
-        --animation-offset: -50%;
         --active-offset: var(--initial-offset);
         left: var(--active-offset);
         transform: translateY(10%);
       }
 
       @media (prefers-reduced-motion: no-preference) {
+        landing-axol-no-js-required {
+          --animation-offset: 56vw;
+          transition: translate 4.5s ease-out;
+        }
+
         landing-axol-unless-you-want-it {
+          --animation-offset: -50%;
           transition: left 500ms ease-out;
         }
       }
@@ -221,54 +218,66 @@ export default function NoJsRequired({ html }) {
     </style>
 
     <script type="module">
-      // No JS Required
-      const heartCloud = document.querySelector('.js-heart')
-      const axolNoJS = document.querySelector('landing-axol-no-js-required')
-      const noJSStyle = getComputedStyle(axolNoJS)
-      const noJSInitialOffset = noJSStyle.getPropertyValue('--initial-offset')
-      const noJSAnimationOffset =
-        noJSStyle.getPropertyValue('--animation-offset')
+      const allowAnimation = window.matchMedia(
+        '(prefers-reduced-motion: no-preference)'
+      ).matches
 
-      axolNoJS.style.setProperty('--active-offset', noJSAnimationOffset)
+      // This script handles animations. The following shouldn't be executed if the user has indicated they prefer reduced motion.
+      if (allowAnimation) {
+        // No JS Required
+        const heartCloud = document.querySelector('.js-heart')
+        const axolNoJS = document.querySelector('landing-axol-no-js-required')
 
-      const handleHeartObserver = (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            axolNoJS.style.setProperty('--active-offset', noJSInitialOffset)
-          }
+        const noJSStyle = getComputedStyle(axolNoJS)
+        const noJSInitialOffset = noJSStyle.getPropertyValue('--initial-offset')
+        const noJSAnimationOffset =
+          noJSStyle.getPropertyValue('--animation-offset')
+
+        axolNoJS.style.setProperty('--active-offset', noJSAnimationOffset)
+
+        const handleHeartObserver = (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              axolNoJS.style.setProperty('--active-offset', noJSInitialOffset)
+            }
+          })
+        }
+
+        const heartObserver = new IntersectionObserver(handleHeartObserver, {
+          threshold: 0.33,
         })
-      }
+        heartObserver.observe(heartCloud)
 
-      const heartObserver = new IntersectionObserver(handleHeartObserver, {
-        threshold: 0.33,
-      })
-      heartObserver.observe(heartCloud)
+        // Unless you want it
+        const cloud = document.querySelector('.js-unless-cloud')
+        const axolUnless = document.querySelector(
+          'landing-axol-unless-you-want-it'
+        )
 
-      // Unless you want it
-      const cloud = document.querySelector('.js-unless-cloud')
-      const axolUnless = document.querySelector(
-        'landing-axol-unless-you-want-it'
-      )
-      const unlessStyle = getComputedStyle(axolUnless)
-      const unlessInitialOffset =
-        unlessStyle.getPropertyValue('--initial-offset')
-      const unlessAnimationOffset =
-        unlessStyle.getPropertyValue('--animation-offset')
+        const unlessStyle = getComputedStyle(axolUnless)
+        const unlessInitialOffset =
+          unlessStyle.getPropertyValue('--initial-offset')
+        const unlessAnimationOffset =
+          unlessStyle.getPropertyValue('--animation-offset')
 
-      axolUnless.style.setProperty('--active-offset', unlessAnimationOffset)
+        axolUnless.style.setProperty('--active-offset', unlessAnimationOffset)
 
-      const handleCloudObserver = (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            axolUnless.style.setProperty('--active-offset', unlessInitialOffset)
-          }
+        const handleCloudObserver = (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              axolUnless.style.setProperty(
+                '--active-offset',
+                unlessInitialOffset
+              )
+            }
+          })
+        }
+
+        const cloudObserver = new IntersectionObserver(handleCloudObserver, {
+          threshold: 0.66,
         })
+        cloudObserver.observe(cloud)
       }
-
-      const cloudObserver = new IntersectionObserver(handleCloudObserver, {
-        threshold: 0.66,
-      })
-      cloudObserver.observe(cloud)
     </script>
 
     <h2 class="text-center uppercase leading1 relative accessible">
