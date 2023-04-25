@@ -6,56 +6,117 @@ Understanding how to pass and use state is fundamental to building a dynamic app
 
 ## State object
 
-Every Enhance element [pure function](https://en.wikipedia.org/wiki/Pure_function) is passed a state object comprising of `attrs`; an object containing the attributes and their values from your custom element, a `store`; an object containing your application state. You can use them independently or use attributes as keys for looking up nested application data from your store, `context`; an object that can be mutated to pass contextual data to direct child elements and an `instanceID`; a unique identifier string to be used for instance specific scoping.
+Every Enhance element [pure function](https://en.wikipedia.org/wiki/Pure_function) is passed a state object comprising of:
+
+- `attrs` an object containing the attributes and their values from your custom element
+- `context` an object that can be mutated to pass contextual data to direct child Custom Elements so as to avoid "prop drilling"
+- `instanceID` a unique identifier string to be used for instance specific scoping
+- `store` an object containing your application state populated by your [API routes](/docs/learn/starter-project/api)
+
+### Page component
 
 ```javascript
-export default function MyElement({ html, state }) {
-  const { attrs,store } = state
-  const { message = '', bookId = '' } = attrs
-  const { books = {} } = store
-  const book = books.find(book => book.id === bookId)
-  const bookTitle = book.title || ''
-
+export default function MyPage({ html }) {
   return html`
-    <div>
-      <h3>${bookTitle}</h3>
-    </div>
+    <my-library
+      user="Axol"
+      class="
+        grid
+        gap0
+      "
+    >
+      <unread-books></unread-books>
+      <read-books></read-books>
+    </my-library>
   `
 }
 ```
 
+### Library component
 
 ```javascript
-export default function MyInstanceID({ html, state }) {
-  const { instanceID='' } = state
+export default function MyLibrary({ html, state }) {
+  const { attrs, context, store } = state
+  const { books = [] } = store
+  const read = books.filter(book => book.read === true)
+    .map(b => book(b))
+    .join('\n')
+  const unread = books.filter(book => book.read === false)
+    .map(b => book(b))
+    .join('\n')
+
+  // Pass filtered data collections via context instead of passing props multiple levels
+  context.read = read
+  context.unread = unread
+
   return html`
-<p>${instanceID}</p>
-  `
-}
-
-```
-
-```javascript
-export default function MyContextParent({ html, state }) {
-  const { attrs, context } = state
-  const { message } = attrs
-  context.message = message
-
-  return html`
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <h1 class="mb1">My Library</h1>
     <slot></slot>
   `
 }
+```
 
+### Book lists components
 
-export default function MyContextChild({ html, state }) {
-  const { context } = state
-  const { message } = context
+```javascript
+import ListItem from './li.mjs'
+
+export default function ReadBooks({ html, state }) {
+  const { context = {} } = state
+  const { read = [] } = context
+  const readBookItems = read.map(book => ListItem(book))
+
   return html`
-    <span>${ message }</span>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <ul class="list-none">
+      ${readBookItems}
+    </ul>
   `
 }
-
 ```
+
+```javascript
+import ListItem from './li.mjs'
+
+export default function UnreadBooks({ html, state }) {
+  const { context = {} } = state
+  const { unread = [] } = context
+  const unreadBookItems = unread.map(book => ListItem(book))
+
+  return html`
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <ul class="list-none">
+      ${unreadBookItems}
+    </ul>
+  `
+}
+```
+
+```javascript
+export default function li(book) {
+  const { author='', title='', isbn='' } = book
+
+  return `
+    <h4>${title}</h4>
+    <h5>${author}</h5>
+    <p>${isbn}</p>
+  `
+}
+```
+
 
 <doc-callout level="none" mark="🗝">
 

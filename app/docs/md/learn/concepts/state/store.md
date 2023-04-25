@@ -9,32 +9,16 @@ The Enhance store is a single source of truth and how you get access to complex 
 The `store` is available from the `state` argument passed to your Custom Element pure function.
 
 ```javascript
-export default function MyMessage({ html, state }) {
+export default function UnreadBooks({ html, state }) {
   const { store } = state
-  const { message } = store
+  const { books=[] } = store
+  const unreadBooks = books.filter(book => book.read === false)
+  const unreadBooksCount = unreadBooks.length
 
   return html`
-    <h1>${message}</h1>
-  `
-}
-```
-
-## Use `attrs` as keys
-
-One powerful technique is to use your element's attributes as keys to access complex data from your `store`
-
-```javascript
-export default function MyElement({ html, state }) {
-  const { attrs, store } = state
-  const { message = '', bookId = '' } = attrs
-  const { books = {} } = store
-  const book = books[bookId]
-  const bookTitle = book.title || ''
-
-  return html`
-    <div>
-      <h3>${bookTitle}</h3>
-    </div>
+    <h1>
+      ${unreadBooksCount} Books left to read
+    </h1>
   `
 }
 ```
