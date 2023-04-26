@@ -41,7 +41,7 @@ export default function MyParagraph({ html }) {
 
 ## Logical properties
 
-Enhance Styles' utility class system makes use of [CSS logical properties](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties), which account for every flavour of [writing mode](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Writing_Modes), as opposed to just left to right (LTR).
+Enhance Styles' utility class system makes use of [CSS logical properties](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties), which account for every flavor of [writing mode](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Writing_Modes), as opposed to just left to right (LTR).
 
 For those who are used to thinking of CSS properties with physical directions (e.g. `margin-top`), getting used to logical properties (e.g. `margin-block-start`) can take some work, but we believe it’s an extremely worthwhile practice. This also makes Enhance Styles well suited for designers and developers working in writing modes other than LTR, or even with multiple writing modes.
 
