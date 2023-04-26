@@ -2,10 +2,16 @@
 export default function CloudAndCode({ html }) {
   return html`
     <style>
+      /* Allow SVG text to scale below iOS Safari's minimum */
+      text {
+        -webkit-text-size-adjust: 100%;
+      }
+
       text,
       tspan {
         white-space: pre;
       }
+
       .magenta { fill: #f24eff; }
       .cyan { fill: #74f1ff; }
       .green { fill: #00f500; }

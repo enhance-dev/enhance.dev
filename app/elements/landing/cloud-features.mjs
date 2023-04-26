@@ -2,6 +2,11 @@
 export default function CloudFeatures({ html }) {
   return html`
     <style>
+      /* Allow SVG text to scale below iOS Safari's minimum */
+      text {
+        -webkit-text-size-adjust: 100%;
+      }
+
       text,
       tspan {
         white-space: pre;
