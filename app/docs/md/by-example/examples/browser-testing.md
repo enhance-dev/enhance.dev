@@ -77,7 +77,7 @@ Inside `./tests` create a new Enhance app:
 
 ```shell
 cd tests/ &&\
-npx "@enhance/create@latest" mock -y
+npx "@enhance/cli@latest" new mock -y
 ```
 
 _Be sure dependencies are installed in your mock app._

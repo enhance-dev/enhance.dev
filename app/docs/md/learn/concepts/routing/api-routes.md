@@ -82,7 +82,7 @@ To demonstrate building out dynamic API routes and then progressively enhancing 
 
 ### Part 1: basic HTML form handling
 
-1. Create a new Enhance app `npx "@enhance/create@latest" ./counter-app`. This generates a starter project with `app/pages/index.html`, and static assets in `public/`.
+1. Create a new Enhance app `npx "@enhance/cli@latest" new ./counter-app`. This generates a starter project with `app/pages/index.html`, and static assets in `public/`.
 2. Create a form for incrementing at `app/elements/form-counter.mjs`:
 
 <doc-code filename="app/elements/form-counter.mjs" numbered>

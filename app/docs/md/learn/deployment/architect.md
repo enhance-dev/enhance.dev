@@ -13,7 +13,7 @@ Install the Architect CLI with npm: `npm i -g @architect/architect`.
 ### Generate a new project
 
 ```bash
-npx "@enhance/create@latest" ./my-enhance-project
+npx "@enhance/cli@latest" new ./my-enhance-project
 ```
 
 ### Preview in your browser
