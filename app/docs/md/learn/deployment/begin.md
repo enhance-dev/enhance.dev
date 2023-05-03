@@ -22,27 +22,27 @@ npx "@enhance/cli@latest" new my-enhance-project
 
 ```bash
 cd my-enhance-project
-enhance dev
+npx enhance dev
 ```
 
 ### Add a new HTML page
 
 ```bash
-enhance generate page --path hello/world
+npx enhance generate page --path hello/world
 ```
 > Creates app/pages/hello/world.html
 
 ### Add a dynamic page
 
 ```bash
-enhance generate page --path boom --type js
+npx enhance generate page --path boom --type js
 ```
 > Creates app/pages/boom.mjs
 
 ### Back that page with an API route
 
 ```bash
-enhance generate api --path boom
+npx enhance generate api --path boom
 ```
 > Creates `app/api/boom.mjs`
 
@@ -51,7 +51,7 @@ enhance generate api --path boom
 Create a real HTML form for CRUDL (create, read, update, destroy, and list) backed by DynamoDB.
 
 ```bash
-enhance generate scaffold Cat name:string birthday:date email:email
+npx enhance generate scaffold Cat name:string birthday:date email:email
 ```
 
 ### Deploy
