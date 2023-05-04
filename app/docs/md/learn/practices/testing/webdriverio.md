@@ -41,4 +41,4 @@ describe('Enhance Framework', () => {
 ```
 
 You can find the WebdriverIO API docs at [webdriver.io/docs/api](https://webdriver.io/docs/api) and the full example for Enhance component testing [on GitHub](https://github.com/webdriverio/component-testing-examples/tree/main/enhance).
-If you have any questions, join the project's [Gitter channel](https://gitter.im/webdriverio/webdriverio).
+If you have any questions, join the project's [Discord](https://discord.webdriver.io/) server.
