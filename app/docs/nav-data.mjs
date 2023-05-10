@@ -65,7 +65,13 @@ export const data = [
           {
             slug: 'styling',
             path: '/docs/learn/concepts/styling/',
-            items: ['utility-classes', 'element-styles'],
+            items: [
+              'utility-classes',
+              'logical-properties',
+              'customization',
+              'modular-scales',
+              'element-styles',
+            ],
           },
           {
             slug: 'routing',

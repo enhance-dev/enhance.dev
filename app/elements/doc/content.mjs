@@ -79,6 +79,7 @@ export default function DocContent({ html }) {
         overflow-wrap: break-word;
         background-color: var(--smoke-indigo);
         font-family: Menlo, Monaco, Consolas, monospace;
+        font-size: 0.9375em; /* Fixed width fonts tend to have larger x height */
         border-radius: 0.25rem;
       }
 

@@ -35,6 +35,10 @@ export default function Callout({ html, state }) {
         border-radius: 0.333rem;
       }
 
+      :not(pre) code {
+        background: var(--callout-code-bg);
+      }
+
       callout-mark {
         background-color: transparent;
         text-shadow: 0 1px 2px #555;
