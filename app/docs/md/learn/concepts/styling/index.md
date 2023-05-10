@@ -36,7 +36,7 @@ Enhance Styles’ utility class system is built with logical properties in mind.
 
 ## Customization
 
-Enhance Styles is built with paramaetric design systems in mind. A huge number of configurable options are available, with sensible defaults baked into all new projects.
+Enhance Styles is built with parametric design systems in mind. A huge number of configurable options are available, with sensible defaults baked into all new projects.
 
 <doc-callout level="none" mark="🎛️">
 
