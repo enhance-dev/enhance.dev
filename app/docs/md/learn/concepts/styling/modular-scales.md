@@ -38,7 +38,7 @@ Type and space scales contain a configurable number of steps. This number should
 
 <doc-callout level="info">
 
-For **type scales**, the `steps` option indicates the base step plus the number of positive steps to be generated. For example, 6 steps would produce 1 base step plus 5 positive steps. **Two negative steps will also be generated**, for setting type at sub-body copy sizes.
+For **type scales**, the `steps` option indicates the base step plus the number of positive steps to be generated. For example, 6 steps would produce 1 base step plus 5 positive steps. **Two negative steps will also be generated**, for setting type at sub-body copy sizes. Additional negative steps are not generated as this would result in illegible font sizes.
 
 </doc-callout>
 
