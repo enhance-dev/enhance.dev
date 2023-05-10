@@ -1,13 +1,15 @@
 ---
-title: Utility classes
+title: Utility Classes
 links:
   - enhance-styles: https://github.com/enhance-dev/enhance-styles#readme
   - Sample styleguide.json: https://raw.githubusercontent.com/enhance-dev/enhance-styles/main/config.json
 ---
 
-Utility classes are an optimized way to apply general styling.
+Utility classes (also known as ‘atomic CSS’ or ‘functional CSS’) are an optimized way to apply general styling.
 They remove large amounts of duplication from your stylesheets and lend visual harmony to your app.
 Utility class stylesheets tend to be tiny — around ~30k on disk and 9k over the wire.
+
+For a deep dive on why we use utility classes, [check out this article on the Begin blog](https://begin.com/blog/posts/2023-01-10-past-informs-the-present-our-approach-to-css).
 
 ## Styleguide
 
@@ -16,12 +18,12 @@ As a basis of styleguides, utility classes are unparalleled in providing a usabl
 ## Ready to go
 
 Enhance comes preconfigured with a [customizable utility class system](https://github.com/enhance-dev/enhance-styles#readme).
-During development a stylesheet is generated and served via `/enhance-styles.css` and included by default in your document's `<head>` section.
+These styles are [customizable](/docs/learn/concepts/styling/customization), and are included by default in your document's `<head>` section.
 
 <doc-callout level="caution">
 
 If you use a [custom Head function](/docs/learn/starter-project/head), `enhance-styles.css` will **not** be included by default.
-To add Enhance Styles utility classes with a custom `head.mjs`, it is recommended to use the helper function [described below](#getstyles) to include Enhance Styles.
+To add Enhance Styles utility classes with a custom `head.mjs`, we recommend using the helper function [described below](#getstyles).
 
 </doc-callout>
 
@@ -32,41 +34,17 @@ Apply utility classes to your element markup
 ```javascript
 export default function MyParagraph({ html }) {
   return html`
-    <p class="font-serif p1 mb-1">
+    <!-- Paragraph set in serif type, with padding on all sides and a margin on the block-end dimension -->
+    <p class="font-serif p0 mbe0">
       <slot></slot>
     </p>
   `
 }
 ```
 
-## Logical properties
+## Local stylesheet
 
-Enhance Styles' utility class system makes use of [CSS logical properties](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties), which account for every flavor of [writing mode](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Writing_Modes), as opposed to just left to right (LTR).
-
-For those who are used to thinking of CSS properties with physical directions (e.g. `margin-top`), getting used to logical properties (e.g. `margin-block-start`) can take some work, but we believe it’s an extremely worthwhile practice. This also makes Enhance Styles well suited for designers and developers working in writing modes other than LTR, or even with multiple writing modes.
-
-The table below provides a quick comparison between the logical directions and their physical equivalents in LTR.
-
-| Logical direction | Equivalent in LTR |
-|-|-|
-| block | top + bottom |
-| block-start | top |
-| block-end | bottom |
-| inline | left + right |
-| inline-start | left |
-| inline-end | right |
-
-These logical properties are also accounted for in our class naming. For example:
-
-| Class | Effect | Equivalent in LTR |
-|-|-|-|
-| `.mi-auto` | `margin-inline: auto` | `margin-left: auto; margin-right: auto` |
-| `.pbe<N>` | `padding-block-end: <N>` | `padding-bottom: <N>` |
-| `.inset-be-0` | `inset-block-end: 0` | `bottom: 0` |
-
-## `generated.css`
-
-Enhance Styles stores a copy of generated styles at the root `/.enhance/generated.css`.
+During local development, Enhance Styles stores a copy of the generated stylesheet at `/.enhance/generated.css`.
 This file can be used as a helpful reference for class names available to your HTML.
 
 We're working on providing a dynamic, project-specific styleguide that will contain this reference. Stay tuned 📡
@@ -77,36 +55,9 @@ This `/.enhance` directory should be ignored from your project's version control
 
 </doc-callout>
 
-## Customize
-
-It is possible to completely customize your project's utility classes.
-To do so you will need to do two things:
-
-### 1. JSON config file
-
-Add a `styleguide.json` (or choose another name) file to the root of your project.
-
-<doc-link-callout link="https://raw.githubusercontent.com/enhance-dev/enhance-styles/main/config.json" mark="📄">
-  Copy this one to get started
-</doc-link-callout>
-
-### 2. Update `.arc`
-
-Edit your project's `.arc` file to tell it where to grab the config.
-Add these lines at the bottom of your `.arc` file in the root of your project.
-
-```arc
-@enhance-styles
-config styleguide.json
-```
-
-<doc-link-callout link="https://github.com/enhance-dev/enhance-styles#readme" mark="💅🏽">
-  Read more about the available styleguide customizations
-</doc-link-callout>
-
 ## `getStyles`
 
-By default Enhance Styles is automatically included in HTML documents rendered by Enhance.
+By default, Enhance Styles is automatically included in HTML documents rendered by Enhance.
 However, you may want to include these utility classes elsewhere or in a [custom Head function](/docs/learn/starter-project/head).
 
 A utility function is provided to access your generated stylesheet.
