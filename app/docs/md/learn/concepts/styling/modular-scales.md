@@ -1,5 +1,7 @@
 ---
 title: Modular Scales
+links:
+  - "Modular Scale Demo": https://color-ig2.begin.app
 ---
 
 Enhance Styles uses fluid, modular scales for type sizing and layout spacing. This page reviews the concept of these scales, describes how fluid scales improve on previous solutions, and demonstrates how you can configure these scales for best results.
