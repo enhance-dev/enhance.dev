@@ -22,6 +22,9 @@ Traditionally, designers and developers have taken to using different scale valu
 
 Fluid scales allow font sizes, margins, padding, and other aspects of layouts to scale in size gradually across a range of viewport sizes, as opposed to changing suddenly at discrete breakpoints via media queries. Taking the previous example with our `h1`, a fluid scale would allow the heading’s font size to scale gradually between 2rem and 4rem based on the current viewport size (as long as that viewport size is between your chosen minimum and maximum width). This approach has been popularized by tools like [Utopia](https://utopia.fyi/).
 
+Here’s an example of a fluid modular scale for type in action — you can also [explore the live version of this demo](https://color-ig2.begin.app)!
+<img alt='Animation loop showing a browser window shrink and growing in width, with a typographic scale shrinking and growing in tandem' src='/_static/img/gif/example-fluid-type.gif' class='m-auto mt0 mb0' />
+
 In addition to gracefully scaling across a range of viewport widths, using fluid type and spacing can reduce the amount of CSS you need to write (especially when it comes to CSS scoped with media queries). Of course, this strategy requires alignment between designers and developers; [the Utopia blog](https://utopia.fyi/blog) has some great reading on this subject.
 
 ## `typeScale` and `fontScale`
