@@ -33,6 +33,7 @@ export default function Head(state) {
     <link rel="icon" type="image/png" sizes="16x16" href="${arc.static(
       '/img/favicon/favicon-16x16.png'
     )}">
+    <link href="https://fosstodon.org/@enhance_dev" rel="me">
 
     <meta name="image" content="/_public/img/enhance-open-graph.png" />
     <meta name="og:image" content="/_public/img/enhance-open-graph.png" />
