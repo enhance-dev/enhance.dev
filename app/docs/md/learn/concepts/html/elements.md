@@ -10,7 +10,7 @@ Enhance single-file components are designed to be used without needing to import
 
 ## Naming convention
 
-Per the [spec](https://html.spec.whatwg.org/multipage/custom-elements.html#prod-potentialcustomelementname), custom element tag names are two or more words separated by a dash.
+Per the [spec](https://html.spec.whatwg.org/multipage/custom-elements.html#prod-potentialcustomelementname), custom element tag names have two or more words separated by a dash ([MDN docs](https://developer.mozilla.org/en-US/docs/Web/API/Web_Components/Using_custom_elements)). So your elements need to look like `<foo-bar>`. `<foo>` won't work.
 In your Enhance project the names of the files in your project's `app/elements` file correspond to the tag name of your custom element. Meaning `my-header.mjs` will be authored as `<my-header></my-header>` in your HTML page.
 
 ## Expansion

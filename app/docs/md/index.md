@@ -66,7 +66,7 @@ Your project should now look like this:
 
 ```
 app
-├── elements .......... custom element pure functions
+├── elements .......... HTML custom element pure functions
 └── pages ............. file-based routing
     ├── about.html
     └── index.html
@@ -75,7 +75,7 @@ app
 Add a [pure function](https://en.wikipedia.org/wiki/Pure_function) that returns an HTML string.
 Your function will be passed an object containing an `html` render function for expanding custom elements.
 
-Add a `my-header.mjs` file in the `app/elements/` folder.
+Add a `my-header.mjs` file in the `app/elements/` folder. Notice that we're using a two-word-or-more name for our custom element.
 
 The contents of `my-header.mjs` should look like this:
 
