@@ -6,7 +6,7 @@ Elements are the reusable building blocks of your Enhance application. They are 
 
 ## Naming
 
-The file name of your element will be the tag name you author with. Meaning `app/elements/my-message.mjs` will be authored as `<my-message></my-message>` in your HTML page.
+The file name of your element will be the tag name you author with. Meaning `app/elements/my-message.mjs` will be authored as `<my-message></my-message>` in your HTML page. Enhance elements are HTML custom elements, so they [require two or more words separated by a dash](/docs/learn/concepts/html/elements).
 
 ```
 app/elements/my-message → <my-message></my-message>
