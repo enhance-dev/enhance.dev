@@ -32,6 +32,7 @@ Intellisense
 JSDoc
 JSDOM
 LTR
+MDN
 natively
 Netlify
 polyfills
