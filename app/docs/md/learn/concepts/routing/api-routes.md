@@ -16,7 +16,7 @@ This is an example of a `get` request handler for the index API route.
 export async function get (req) {
   return {
     json: {
-      favorties: ['coffee crisp', 'smarties']
+      favorites: ['coffee crisp', 'smarties']
     }
   }
 }
