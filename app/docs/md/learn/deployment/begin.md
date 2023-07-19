@@ -15,34 +15,34 @@ Install the Begin CLI by opening your terminal and entering the following comman
 ### Generate a new project
 
 ```bash
-begin new my-enhance-project
+npx "@enhance/cli@latest" new my-enhance-project
 ```
 
 ### Preview in your browser
 
 ```bash
 cd my-enhance-project
-begin dev
+npx enhance dev
 ```
 
 ### Add a new HTML page
 
 ```bash
-begin generate page --path hello/world
+npx enhance generate page --path hello/world
 ```
 > Creates app/pages/hello/world.html
 
 ### Add a dynamic page
 
 ```bash
-begin generate page --path boom --type js
+npx enhance generate page --path boom --type js
 ```
 > Creates app/pages/boom.mjs
 
 ### Back that page with an API route
 
 ```bash
-begin generate api --path boom
+npx enhance generate api --path boom
 ```
 > Creates `app/api/boom.mjs`
 
@@ -51,7 +51,7 @@ begin generate api --path boom
 Create a real HTML form for CRUDL (create, read, update, destroy, and list) backed by DynamoDB.
 
 ```bash
-begin generate scaffold Cat name:string birthday:date email:email
+npx enhance generate scaffold Cat name:string birthday:date email:email
 ```
 
 ### Deploy
