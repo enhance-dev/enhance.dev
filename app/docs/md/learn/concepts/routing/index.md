@@ -51,7 +51,7 @@ Enhance's API routes are backend JSON routes designed for seamless client-side p
 export async function get (req) {
   return {
     json: {
-      favorties: ['coffee crisp', 'smarties']
+      favorites: ['coffee crisp', 'smarties']
     }
   }
 }
