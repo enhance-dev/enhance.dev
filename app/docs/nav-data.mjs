@@ -42,6 +42,7 @@ export const data = [
           'browser',
           'public',
           'head',
+          'configuration',
           '404-errors',
         ],
       },
@@ -72,6 +73,11 @@ export const data = [
               'modular-scales',
               'element-styles',
             ],
+          },
+          {
+            slug: 'images',
+            path: '/docs/learn/concepts/images/',
+            items: ['component', 'customization'],
           },
           {
             slug: 'routing',

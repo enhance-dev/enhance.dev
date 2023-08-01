@@ -48,6 +48,23 @@ export default function DocContent({ html }) {
         padding-left: 0.8rem;
       }
 
+      dt {
+        font-weight: 600;
+      }
+
+      dd {
+        margin-top: 0.25rem;
+        margin-left: 1rem;
+      }
+
+      dd + dt {
+        margin-top: 1rem;
+      }
+
+      dd p + p {
+        margin-top: 1rem;
+      }
+
       table {
         width: 100%;
         border: 1px solid var(--smoke-indigo);
