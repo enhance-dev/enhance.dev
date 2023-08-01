@@ -4,6 +4,8 @@
 (w|W)?alkthrough
 (v|V)?iewpor(t|ts)
 \d+(k)
+\d+px
+\d+em
 \d+rem
 Algolia's
 autocomplete
@@ -32,7 +34,7 @@ Intellisense
 JSDoc
 JSDOM
 LTR
-MDN
+MD(N|N's)
 natively
 Netlify
 polyfills
@@ -52,6 +54,7 @@ tailwindcss
 tbeseda
 TLDR
 tradeoffs
+unitless
 unscoped
 unstyled
 urls
@@ -59,3 +62,4 @@ viewportMax
 viewportMin
 WebdriverIO
 WebDriver
+webp

@@ -2,7 +2,7 @@
 title: Customizing Responsive Images
 ---
 
-Our on demand image transformation service works by taking a source image from your project and applying transformations based on size, image format, and image quality. It will also generate image transformations ahead of runtime for any bitmap image stored in a given directory, so that this task is completed before these images are requested by a user’s brower.
+Our on demand image transformation service works by taking a source image from your project and applying transformations based on size, image format, and image quality. It will also generate image transformations ahead of runtime for any bitmap image stored in a given directory, so that this task is completed before these images are requested by a user’s browser.
 
 Settings for these configuration options can be specified in [your project's `enhance.json`](/docs/learn/starter-project/configuration), under the `plugins` key. For example:
 
@@ -33,7 +33,7 @@ The above configuration will tell the image transformation service that, for eve
   <dt>widths (optional)</dt>
   <dd>
 
-  The `widths` option takes an array of unitless integers. A variant of your source image will be generated for every width specified, with a height corresponding to the source image's intrinsic aspect ratio. The image transformation service will *not* enlarge images, so a source image that is smaller than a specified width will be returned at its maximum instinsic width. The default widths are 2400, 1200, and 800.
+  The `widths` option takes an array of unitless integers. A variant of your source image will be generated for every width specified, with a height corresponding to the source image's intrinsic aspect ratio. The image transformation service will *not* enlarge images, so a source image that is smaller than a specified width will be returned at its maximum intrinsic width. The default widths are 2400, 1200, and 800.
 
   </dd>
 
