@@ -1,6 +1,16 @@
 export default function DocShowcase({ html, state }) {
   const { attrs } = state
-  const { title, image, url, author = 'the Enhance team' } = attrs
+  const {
+    title,
+    image,
+    url,
+    contributor = '',
+    'contributor-url': contributorUrl = '',
+  } = attrs
+
+  const contributorMarkup = contributor
+    ? `<p class="mt0">Contributed by: <a class="underline" href="${contributorUrl}">${contributor}</a></p>`
+    : ''
 
   return html`
     <style>
@@ -19,21 +29,25 @@ export default function DocShowcase({ html, state }) {
         border-radius: var(--radius);
       }
 
+      p {
+        max-width: 64ch;
+      }
+
       a {
         color: inherit;
       }
     </style>
     <article class="mt0 mb2 p0 p2-lg">
       <a href="${url}" target="_blank">
-        <figure>
-          <img src="${image}" alt="" class="mb0" />
+        <figure class="mb1">
+          <img src="${image}" alt="" />
         </figure>
-        <h1 class="font-medium">${title}</h1>
-        <p class="mt0 leading3">
+        <h1 class="font-medium mb0">${title}</h1>
+        <p class="leading3">
           <slot></slot>
         </p>
-        <p class="mt0"><span class="font-medium">Author:</span> ${author}</p>
       </a>
+      ${contributorMarkup}
     </article>
   `
 }
