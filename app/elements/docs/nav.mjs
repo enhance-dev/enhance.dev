@@ -5,7 +5,8 @@ function List(items, classes = []) {
     .map((item) => {
       return `
 <li class="">
-  ${item.type === 'doc' || item.type === 'link' ? Link(item) : ''}
+  ${item.type === 'doc' ? Doc(item) : ''}
+  ${item.type === 'link' ? Link(item) : ''}
   ${item.type === 'category' ? Category(item) : ''}
   ${item.items?.length > 0 && item.type !== 'category' ? List(item.items) : ''}
 </li>
@@ -16,7 +17,7 @@ function List(items, classes = []) {
     `.trim()
 }
 
-function Link(item) {
+function Doc(item) {
   return `
 <a href="${item.path}" class="p-4 block${item.active ? ' active' : ''}">
   <div class="${item.type}-label">${item.label}</div>
@@ -25,9 +26,18 @@ function Link(item) {
     `.trim()
 }
 
+function Link(item) {
+  return `
+<a href="${item.path}" class="p-4 mb0 block${item.active ? ' active' : ''}">
+  <div class="${item.type}-label">${item.label}</div>
+  ${Description(item, ['mt-4'])}
+</a>
+    `.trim()
+}
+
 function Category(item) {
   return `
-<div>
+<div class="mt3">
   <div class="category-label font-medium mb-4 uppercase">${item.label}</div>
   ${Description(item)}
 </div>
@@ -54,9 +64,6 @@ export default function DocsNav({ html, state }) {
 
   return html`
     <style>
-      nav > ul > li {
-        margin-bottom: 2rem;
-      }
       li a {
         color: var(--rift-princess);
       }
