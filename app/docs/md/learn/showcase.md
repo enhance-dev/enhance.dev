@@ -2,8 +2,6 @@
 title: Showcase
 ---
 
-Enhance is for designed and built to be used by everyone — from teams of senior developers to those just getting started with writing HTML.
-
 We regularly build new example applications to demonstrate what's possible with Enhance (spoiler: the sky's the limit). Along with our own example applications, you'll also find real world applications here, built by users of Enhance.
 
 <doc-callout level="info" mark="🤝">
