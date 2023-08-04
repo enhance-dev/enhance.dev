@@ -4,7 +4,7 @@ export async function get({ query }) {
 
   const cacheControl =
     process.env.ARC_ENV === 'production'
-      ? 'max-age=300'
+      ? 'max-age=86400'
       : 'no-cache, no-store, must-revalidate, max-age=0, s-maxage=0'
 
   return {
