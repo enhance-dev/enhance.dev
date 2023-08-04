@@ -1,6 +1,6 @@
 {
   "name": "enhance.dev",
-  "version": "1.7.0",
+  "version": "1.7.1",
   "description": "Enhance landing page, docs, and tutorial",
   "type": "module",
   "scripts": {
