@@ -14,7 +14,7 @@ Want to have your Enhance project featured? [Open a PR](https://github.com/enhan
 Our movies app is built with Enhance and The Movie Database API. With a strong focus on simplicity, performance, progressive enhancement, and offline local development capabilities, this application is set to transform your understanding of what can be done by focusing on the web platform.
 </doc-showcase>
 
-<doc-showcase title="Perfwork" contributor="Tim Kadlec" contributor-url="https://timkadlec.com/" image="/_public/img/showcase/perfwork.jpg" url="https://enhance-movies.com">
+<doc-showcase title="Perfwork" contributor="Tim Kadlec" contributor-url="https://timkadlec.com/" image="/_public/img/showcase/perfwork.jpg" url="https://www.perfwork.com">
 The job board for web performance professionals and people who want to work in the web performance industry.
 </doc-showcase>
 
