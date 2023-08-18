@@ -37,7 +37,7 @@ Again, use whatever CSS tooling you like. Just configure it to output a CSS file
 
 ## Enhance styles
 
-Enhance is a "batteries included" full-stack framework so we've preconfigured a styling system that is the culmination of decades of CSS research and development into a "best of all worlds" approach to styling. It isn't what all the cool kids are using... yet, but we feel that if you give it a chance the benefits of our **deep** styling experience will become apparent.
+Enhance is a "batteries included" full-stack framework and comes with a preconfigured (and customizable) "best of all worlds" styling system, comprising decades of CSS research and development. It isn't what all the cool kids are using — yet! — but we feel that if you give it a chance, the benefits of our **deep** styling experience will become apparent.
 
 <doc-callout level="none" mark="✨">
 
