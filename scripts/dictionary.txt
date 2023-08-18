@@ -20,6 +20,7 @@ CommonJS
 counterintuitive
 cowboying
 cribsheet
+cheatsheet
 CRUDL
 customizations
 dev-tools

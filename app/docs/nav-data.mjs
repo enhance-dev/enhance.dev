@@ -75,7 +75,7 @@ export const data = [
             items: [
               {
                 slug: 'CSS',
-                description: 'Modern CSS is pretty good',
+                description: 'Modern CSS is amazing!',
                 path: '/docs/learn/concepts/styling/css',
               },
               'using-tailwind',
