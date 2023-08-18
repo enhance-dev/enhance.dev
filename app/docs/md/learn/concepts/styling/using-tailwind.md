@@ -4,7 +4,7 @@ links:
   - "Example app": https://github.com/enhance-dev/enhance-example-tailwind
 ---
 
-[Tailwind](https://tailwindcss.com) is a popular utility CSS library. For those looking to use Tailwind with Enhance, simply follow Tailwind’s [installation instructions using the Tailwind CLI](https://tailwindcss.com/docs/installation), keeping the following in mind:
+[Tailwind](https://tailwindcss.com) is a popular utility CSS library. For those looking to use Tailwind with Enhance, follow Tailwind’s [installation instructions using the Tailwind CLI](https://tailwindcss.com/docs/installation), keeping the following in mind:
 
 - Your `tailwind.config.js` file’s `content` value should be set to: `["./app/**/*.{html,mjs}"]`
 - The path supplied to the Tailwind CLI’s output (`-o`) argument should reside in [your project’s public folder](/docs/learn/starter-project/public)
@@ -16,7 +16,7 @@ To get a feel for how this all comes together, check out [this basic example app
 
 ## Considerations
 
-We want Enhance users to be successful first and foremost — and if success for you includes using libraries like Tailwind, that’s fine! With that said, we do feel Enhance Styles, our built in styling library, offers some significant advantages in comparison to Tailwind.
+We want Enhance users to be successful first and foremost — and if success for you includes using libraries like Tailwind, that’s fine! With that said, we do feel [Enhance Styles](/docs/learn/concepts/styling/enhance-styles), our built in styling library, offers some significant advantages in comparison to Tailwind.
 
 ### Defaults and customization
 
@@ -42,7 +42,7 @@ Finally, should you wish to include additional global styles or classes, this ca
 
 ### Styleguide
 
-Every new Enhance project ships with [a "cribsheet"](https://github.com/enhance-dev/enhance-styles-cribsheet) — a reference to all the utility classes defined in your project, which will autogenerate to include any customizations you may have made. This allows everyone on your team to quickly look up the exact classes (and their definitions) in use on your specific project.
+Every new Enhance project ships with [a cribsheet](https://github.com/enhance-dev/enhance-styles-cribsheet) — a reference to all the utility classes defined in your project, which will autogenerate to include any customizations you may have made. This allows everyone on your team to quickly look up the exact classes (and their definitions) in use on your specific project.
 
 ## Summary
 
