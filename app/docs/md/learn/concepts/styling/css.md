@@ -2,8 +2,8 @@
  title: Styling with CSS
 ---
 
-Using CSS with Enhance is as easy adding CSS to a`<style>` tag.
-Just edit the `head.mjs` file in the root of your project and add a `<style>` tag. It's that easy.
+Using CSS with Enhance can be as easy as adding a`<style>` tag to the head of your HTML document.
+Just edit the `head.mjs` file in the root of your project and add a `<style>` tag. That's it.
 
 ## Adding a style tag to your `head.mjs`
 
@@ -40,8 +40,8 @@ export default function Head () {
 
 </doc-code>
 
-The benefits of adding styles to a style tag in the head is that the styles will be immediately available when the page loads which will help avoid FOUCing your users.
-Downsides are too much CSS can weigh down your page as well as make it hard to edit.
+The benefits of adding a style tag to the head is that the styles will be immediately available when the page loads which will help avoid [FOUCing](https://en.wikipedia.org/wiki/Flash_of_unstyled_content) your users.
+Downsides are too much CSS in the head can weigh down your page as well as make harder to edit.
 
 ## Linking to CSS file
 
@@ -56,11 +56,12 @@ app
 └── head.mjs .......... custom <head> component
 ```
 
-Then open up the `head.mjs` file and link to your new `styles.css` file at `/_public/styles.css`. Obviously you can put your CSS file in any nested folder you like in the public folder and name the file whatever you like, just remember update the path in your link tag.
+Then open up the `head.mjs` file and link to your new `styles.css` file at `/_public/styles.css`. Obviously you can put your CSS file anywhere you like in the public folder as well as name it whatever you like, just remember update the `href` in your link tag.
 
 <doc-callout level="none" mark="🔔">
 
-  `/_public` is a special path that will automatically forward to a fingerprinted version of your static assets.
+  `/_public` is a special path that will automatically forward to a fingerprinted version of your static assets.</br>
+  [Read more about fingerprinting here](/docs/learn/starter-project/public#automatic-%E2%80%9Cfingerprinting%E2%80%9D) →
 
 </doc-callout>
 

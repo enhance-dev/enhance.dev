@@ -2,7 +2,7 @@
 title: Styling
 ---
 
-Since Enhance is standards based you are free to style however you like. You can add a stylesheet to the public folder and start cowboying styles like an absolute badass or bring whatever tooling you like as long as it can output a static CSS file to the public folder of your app you are good to go.
+Since Enhance is standards based you are free to style however you like. You can add a stylesheet to the public folder and start cowboying styles like an absolute badass or bring whatever tooling you like. As long as your CSS tooling can output a static CSS file to the public folder of your app will be good to go.
 
 ## Plain old CSS like we used to do, but better
 
@@ -17,7 +17,7 @@ Enhance outputs an HTML page so you can add `<style>` or `<link>` tags to the [`
 
 ## Tailwind
 
-You can use whatever CSS tooling you are used to. Just configure it to output a CSS file to the public folder then reference it in your [`head`](/docs/learn/starter-project/head).
+You can add whatever CSS tooling you are used to. Just configure it to output a CSS file to the public folder then reference it in your [`head`](/docs/learn/starter-project/head).
 
 <doc-callout level="none" mark="🐈💨">
 
