@@ -60,7 +60,8 @@ Then open up the `head.mjs` file and link to your new `styles.css` file at `/_pu
 
 <doc-callout level="none" mark="🔔">
 
-  `/_public` is a special path that will automatically forward to a fingerprinted version of your static assets.</br>
+  [`/_public`](/docs/learn/starter-project/public) is a special path that will automatically forward to a fingerprinted version of your static assets.</br>
+
   [Read more about fingerprinting here](/docs/learn/starter-project/public#automatic-%E2%80%9Cfingerprinting%E2%80%9D) →
 
 </doc-callout>
