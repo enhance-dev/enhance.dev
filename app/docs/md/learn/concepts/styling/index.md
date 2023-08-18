@@ -2,7 +2,7 @@
 title: Styling
 ---
 
-Since Enhance is standards based you are free to style however you like. You can add a stylesheet to the public folder and start cowboying styles like an absolute badass or bring whatever tooling you like. As long as your CSS tooling can output a static CSS file to the public folder of your app will be good to go.
+Since Enhance is standards based you are free to style however you like. You can add a stylesheet to the public folder and start cowboying styles like an absolute badass or bring whatever tooling you like. As long as your CSS tooling can output a static CSS file to the public folder of your app you will be good to go.
 
 ## Plain old CSS like we used to do, but better
 
