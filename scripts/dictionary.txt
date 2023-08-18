@@ -4,9 +4,11 @@
 (w|W)?alkthrough
 (v|V)?iewpor(t|ts)
 \d+(k)
+\d+(kb)
 \d+rem
 Algolia's
 autocomplete
+autogenerate
 Booleans
 badass
 baseMax
@@ -15,6 +17,7 @@ breakpoint
 CodeMirror
 colocating
 CommonJS
+counterintuitive
 cowboying
 CRUDL
 customizations
@@ -42,6 +45,7 @@ polyfills
 pre-defined
 preconfigured
 preloaded
+rulese(t|ts)
 scaleMax
 scaleMin
 scriptable
