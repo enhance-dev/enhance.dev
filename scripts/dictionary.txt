@@ -19,6 +19,7 @@ colocating
 CommonJS
 counterintuitive
 cowboying
+Cribsheet
 cribsheet
 cheatsheet
 CRUDL

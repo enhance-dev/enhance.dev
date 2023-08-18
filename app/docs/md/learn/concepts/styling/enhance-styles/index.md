@@ -70,11 +70,11 @@ Certain styles are never reused so are not appropriate as a utility class. For t
 
 Every Enhance app ships with a preconfigured, dynamic cribsheet to help you find the right class for the job.
 
-Just start your project (`npm start`) and navigate to `/_styleguide/cribsheet`. Here you'll be able to search through all the utility clases and custom properties available to your app. Any customizations you make to your styleguide will automatically be reflected in your cribsheet.
+Just start your project (`npm start`) and navigate to `/_styleguide/cribsheet`. Here you'll be able to search through all the utility classes and custom properties available to your app. Any customizations you make to your styleguide will automatically be reflected in your cribsheet.
 
 <doc-callout level="none" mark="🫠">
 
- Fun fact: cribsheet was originally called cheatsheet but we discovered while trying to publish the module that `npm` does not allow the publishing oof modules with the word cheatsheet in them. ( Except for the ones they do. )
+ Fun fact: cribsheet was originally called cheatsheet but we discovered while trying to publish the module that `npm` does not allow the publishing of modules with the word cheatsheet in them. ( Except for the ones they do. )
 
 </doc-callout>
 
