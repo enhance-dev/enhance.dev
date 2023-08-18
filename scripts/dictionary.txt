@@ -8,6 +8,7 @@
 Algolia's
 autocomplete
 Booleans
+badass
 baseMax
 baseMin
 breakpoint
