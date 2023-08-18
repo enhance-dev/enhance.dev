@@ -26,3 +26,8 @@ config styleguide.json
   Read more about the available styleguide customizations
 </doc-link-callout>
 
+## Cribsheet
+
+Every Enhance app ships with a preconfigured, dynamic cribsheet to help you find the right class for the job.
+
+Just start your project (`npm start`) and navigate to `/_styleguide/cribsheet`. Here you'll be able to search through all the utility classes and custom properties available to your app. Any customizations you make to your styleguide will automatically be reflected in your cribsheet.
