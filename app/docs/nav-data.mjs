@@ -73,11 +73,24 @@ export const data = [
             slug: 'styling',
             path: '/docs/learn/concepts/styling/',
             items: [
-              'utility-classes',
-              'logical-properties',
-              'customization',
-              'modular-scales',
-              'element-styles',
+              {
+                slug: 'CSS',
+                description: 'Modern CSS is pretty good',
+                path: '/docs/learn/concepts/styling/css',
+              },
+              'using-tailwind',
+              'using-sass',
+              {
+                slug: 'enhance-styles',
+                path: '/docs/learn/concepts/styling/enhance-styles',
+                items: [
+                  'utility-classes',
+                  'logical-properties',
+                  'customization',
+                  'modular-scales',
+                  'element-styles',
+                ],
+              },
             ],
           },
           {

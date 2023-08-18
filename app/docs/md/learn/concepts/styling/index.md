@@ -2,64 +2,45 @@
 title: Styling
 ---
 
-An important part of both user experience and developer experience is applying styles to your app.
-There are a lot of solutions for approaching CSS, but very few that are designed for both the user and the developer in mind.
+Since Enhance is standards based you are free to style however you like. You can add a stylesheet to the public folder and start cowboying styles like an absolute badass or bring whatever tooling you like as long as it can output a static CSS file to the public folder of your app you are good to go.
 
-## Optimal styling
+## Plain old CSS like we used to do, but better
 
-Enhance projects are set up in a way to enable developers to add styles without compromising user experience via slow load times or flash of unstyled content.
-This is done by returning to first principles and thinking about what a developer could do by hand that would be both optimal and specific.
+Modern CSS is pretty damn good nowadays. Most things you used to have to drag in a build pipeline for are now part of the Web Platform. It's pretty amazing really.
+Enhance outputs an HTML page so you can add `<style>` or `<link>` tags to the [`head`](/docs/learn/starter-project/head) and start writing CSS right away.
 
-Enhance [single-file components](/docs/learn/concepts/single-file-components) allow you to co-locate your styles (using `<style>` tags) with your markup.
-Enhance projects also come preconfigured with [a customizable utility class system](/docs/learn/concepts/styling/utility-classes).
-This enables you to reuse utility classes without bloating your stylesheets for general styling while also use element styling for specific CSS that utility classes are not designed for.
+<doc-callout level="none" mark="💅🏽">
 
-## Utility classes
-
-Utility classes (also referred to as ‘atomic classes’ or ‘functional classes’) are small, composable, single purpose classes which do one thing well. Enhance comes preloaded with Enhance Styles, a customizable and parametric suite of utility classes for working with nearly every aspect of styling. This approach lends itself extremely well to design systems, and a great experience for both users and developers.
-
-<doc-callout level="none" mark="🖍️">
-
-**[Read more about Enhance utility classes →](/docs/learn/concepts/styling/utility-classes)**
+**[Read more about using plain old CSS →](/docs/learn/concepts/styling/css)**
 
 </doc-callout>
 
-## Logical properties
+## Tailwind
 
-Enhance Styles’ utility class system is built with logical properties in mind. These properties make it easy to compose styles that are resilient across multiple writing modes.
+You can use whatever CSS tooling you are used to. Just configure it to output a CSS file to the public folder then reference it in your [`head`](/docs/learn/starter-project/head).
 
-<doc-callout level="none" mark="🔀">
+<doc-callout level="none" mark="🐈💨">
 
-**[Read more about logical properties →](/docs/learn/concepts/styling/logical-properties)**
-
-</doc-callout>
-
-## Customization
-
-Enhance Styles is built with parametric design systems in mind. A huge number of configurable options are available, with sensible defaults baked into all new projects.
-
-<doc-callout level="none" mark="🎛️">
-
-**[Read more about customization →](/docs/learn/concepts/styling/customization)**
+**[Read more about using Tailwind →](/docs/learn/concepts/styling/using-tailwind)**
 
 </doc-callout>
 
-## Modular scales
+## Sass
 
-For styling typography and layouts, Enhance Styles’ fluid, modular scales reduce the amount of breakpoint specific code you need to write, while allowing these styles to scale gracefully across a wide range of viewports.
+Again, use whatever CSS tooling you like. Just configure it to output a CSS file to the public folder then reference it in your [`head`](/docs/learn/starter-project/head).
 
-<doc-callout level="none" mark="📏">
+<doc-callout level="none" mark="📠 > 📠">
 
-**[Read more about modular scales→](/docs/learn/concepts/styling/modular-scales)**
+**[Read more about using Sass →](/docs/learn/concepts/styling/using-sass)**
 
 </doc-callout>
 
-## Element styles
+## Enhance styles
 
-Certain styles would not be appropriate as a utility class. For these cases, you can write specific styles using the `<style>` tag in your custom element. These styles will be scoped to the element they’re declared in (and its children), and can take advantage of Enhance Styles’ generated custom properties.
+Enhance is a "batteries included" full-stack framework so we've preconfigured a styling system that is the culmination of decades of CSS research and development into a "best of all worlds" approach to styling. It isn't what all the cool kids are using... yet, but we feel that if you give it a chance the benefits of our **deep** styling experience will become apparent.
 
-<doc-callout level="none" mark="🎨">
+<doc-callout level="none" mark="✨">
 
-**[Read more about element styles →](/docs/learn/concepts/styling/element-styles)**
+**[Read more about using Enhance styles →](/docs/learn/concepts/styling/enhance-styles)**
 
 </doc-callout>
