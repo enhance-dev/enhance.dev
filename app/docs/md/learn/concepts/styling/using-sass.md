@@ -17,7 +17,7 @@ To get a feel for how this all comes together, check out [this basic example app
 
 ## Considerations
 
-While Sass was a popular choice for many years — and many existing websites still rely on it — we don’t find it to be the best choice for new projects where other options are avaialable. Instead, we recommend using Enhance Styles, our built in styling library, which we believe offers a number of advantages over writing styles in Sass.
+While Sass was a popular choice for many years — and many existing websites still rely on it — we don’t find it to be the best choice for new projects where other options are available. Instead, we recommend using Enhance Styles, our built in styling library, which we believe offers a number of advantages over writing styles in Sass.
 
 ### No build step required
 

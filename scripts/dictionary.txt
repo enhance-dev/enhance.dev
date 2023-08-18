@@ -19,6 +19,7 @@ colocating
 CommonJS
 counterintuitive
 cowboying
+cribsheet
 CRUDL
 customizations
 dev-tools
@@ -35,16 +36,19 @@ htmx
 implemente(r|rs)
 ing
 Intellisense
+jQuery
 JSDoc
 JSDOM
 LTR
 MDN
+mixi(n|ns)
 natively
 Netlify
 polyfills
 pre-defined
 preconfigured
 preloaded
+preprocessing
 rulese(t|ts)
 scaleMax
 scaleMin
@@ -52,6 +56,7 @@ scriptable
 shadowDOM
 SFC(s)
 SSR
+superset
 SWC
 Tada
 tagName
