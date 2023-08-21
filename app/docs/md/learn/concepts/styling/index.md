@@ -17,7 +17,7 @@ Enhance outputs an HTML page so you can add `<style>` or `<link>` tags to the [`
 
 ## Tailwind
 
-You can add whatever CSS tooling you are used to. Just configure it to output a CSS file to the public folder then reference it in your [`head`](/docs/learn/starter-project/head).
+You can add whatever CSS tooling you are comfortable with. Just configure it to output a CSS file to the public folder then reference it in your [`head`](/docs/learn/starter-project/head).
 
 <doc-callout level="none" mark="🐈💨">
 
@@ -27,7 +27,7 @@ You can add whatever CSS tooling you are used to. Just configure it to output a 
 
 ## Sass
 
-Again, use whatever CSS tooling you like. Just configure it to output a CSS file to the public folder then reference it in your [`head`](/docs/learn/starter-project/head).
+Feel free to bring any CSS tooling you like. Just configure it to output a CSS file to the public folder then reference it in your [`head`](/docs/learn/starter-project/head).
 
 <doc-callout level="none" mark="📠 > 📠">
 
