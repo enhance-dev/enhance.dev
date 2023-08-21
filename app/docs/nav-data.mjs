@@ -83,6 +83,7 @@ export const data = [
               {
                 slug: 'enhance-styles',
                 path: '/docs/learn/concepts/styling/enhance-styles/',
+                description: 'Configurable, performant styling',
                 items: [
                   'utility-classes',
                   'logical-properties',
