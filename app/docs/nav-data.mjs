@@ -82,7 +82,7 @@ export const data = [
               'using-sass',
               {
                 slug: 'enhance-styles',
-                path: '/docs/learn/concepts/styling/enhance-styles',
+                path: '/docs/learn/concepts/styling/enhance-styles/',
                 items: [
                   'utility-classes',
                   'logical-properties',
