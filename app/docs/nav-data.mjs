@@ -150,19 +150,14 @@ export const data = [
         slug: 'deployment',
         items: [
           {
-            slug: 'architect',
-            label: 'Architect',
-            description: 'Deploy to AWS directly',
-          },
-          {
             slug: 'begin',
             label: 'Begin',
             description: 'The recommended FWA approach',
           },
           {
-            slug: 'fastify',
-            label: 'Fastify',
-            description: 'The best Node web server',
+            slug: 'architect',
+            label: 'Architect',
+            description: 'Deploy to AWS directly',
           },
         ],
       },
