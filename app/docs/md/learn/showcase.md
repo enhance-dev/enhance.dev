@@ -10,6 +10,10 @@ Want to have your Enhance project featured? [Open a PR](https://github.com/enhan
 
 </doc-callout>
 
+<doc-showcase title="Enhance Music" image="/_public/img/showcase/enhance-music.webp" url="https://enhance-music.com">
+Enhance Music is a music library and audio player app built with HTML and CSS, and progressively enhanced with a couple pinches of JavaScript. Despite being built as a traditional multipage website, Enhance Music features an audio player that persists across page loads, and some gorgeous interactive UI built entirely with web standards.
+</doc-showcase>
+
 <doc-showcase title="Enhance Movies" image="/_public/img/showcase/enhance-movies.jpg" url="https://enhance-movies.com">
 Our movies app is built with Enhance and The Movie Database API. With a strong focus on simplicity, performance, progressive enhancement, and offline local development capabilities, this application is set to transform your understanding of what can be done by focusing on the web platform.
 </doc-showcase>
