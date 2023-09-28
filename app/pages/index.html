@@ -46,7 +46,7 @@
 
   nav {
     background-color: #c9ecff;
-    background-image: linear-gradient(to bottom, white 33%, transparent);
+    background-image: linear-gradient(to bottom, hsla(0deg 0% 100% / 0.85), hsla(0deg 0% 100% / 0.35));
     color: var(--rift);
     z-index: 3;
   }
@@ -59,6 +59,19 @@
     aspect-ratio: 56 / 51;
     translate: 0 -6.25%;
     width: 2.5rem;
+  }
+
+  nav a:not(.get-started) {
+    color: var(--dark-purple);
+    transition: color 0.15s ease;
+  }
+
+  nav a:not(.get-started):hover {
+    color: var(--princess);
+  }
+
+  nav a:not(.get-started):focus-visible {
+    outline-offset: 2px;
   }
 
   .get-started {
@@ -161,9 +174,20 @@
       Enhance
     </h1>
 
-    <a class='relative ml-auto text-1 text0-lg uppercase tracking2 font-medium pt-2 pb-2 pl0 pr0 get-started' href='/docs'>
-      Get Started!
-    </a>
+    <div class='ml-auto flex items-center align-right gap-1 font-medium text-1 text0-lg'>
+      <a href='/docs' class='hidden inline-lg'>
+        Documentation
+      </a>
+      <a href='/docs/learn/showcase' class='hidden inline-lg'>
+        Showcase
+      </a>
+      <a href='/docs/learn/why-enhance' class='hidden inline-lg'>
+        Why Enhance?
+      </a>
+      <a class='relative uppercase tracking2 p-2 get-started' href='/docs'>
+        Get Started
+      </a>
+    </div>
   </div>
 </nav>
 
