@@ -15,7 +15,7 @@ export default function PlaygroundPage({ html, state = {} }) {
     </style>
     <div class="bg-p2 text-p1">
       <nav-bar></nav-bar>
-      <div class="m-auto ">
+      <div class="mi-auto ">
         <noscript>
           <button
             class=" text0 border1 border-dark border-solid radius0 p-4 "
@@ -38,14 +38,14 @@ export default function PlaygroundPage({ html, state = {} }) {
           Share
         </button>
         <div
-          class="grid  col-1  col-2-lg flow-row text1 m1 m-none-lg justify-between">
+          class="grid  col-1  col-2-lg flow-row text1 m1 m-none-lg justify-content-between">
           <tab-container
             quantity="${components?.length + 1}"
             tab-group-name="openEditor"
             tab-state-form="run-repl"
             add-tabs="true"
             default-tab="${openEditor}"
-            class=" w-full h-screen ">
+            class=" si-100 h-screen ">
             <span slot="title1">index</span>
             <code-editor
               slot="content1"
@@ -76,7 +76,7 @@ export default function PlaygroundPage({ html, state = {} }) {
             default-tab="${openPreview}"
             tab-state-form="run-repl"
             quantity="2"
-            class=" w-full h-screen ">
+            class=" si-100 h-screen ">
             <span slot="title1">Preview</span>
             <enhance-preview slot="content1" doc-src="previewDoc">
             </enhance-preview>

@@ -12,13 +12,13 @@ export default function NoJsRequired({ html }) {
       }
 
       h2 {
-        font-size: var(--text-2);
+        font-size: var(--landing-text-2);
         margin-left: -0.025em;
         color: var(--dark-purple);
       }
 
       .accessible {
-        font-size: min(var(--text-3), 7vw);
+        font-size: min(var(--landing-text-3), 7vw);
         margin-top: var(--space-m);
         margin-bottom: var(--space-l);
         padding-block: var(--space-l);
@@ -290,29 +290,28 @@ export default function NoJsRequired({ html }) {
         grid
         gap4
         gap2-lg
-        items-center
+        align-items-center
         col-1
         col-2-lg
-        pt4
         pb4
         features
       ">
-      <div class="m-auto get-productive">
+      <div class="mi-auto get-productive">
         <h2
           class="
-           mb2
+           mbe2
            uppercase
            font-extrabold
            tracking-1
          ">
           Get productive
         </h2>
-        <p class="leading3 mb2">
+        <p class="leading3 mbe2">
           Enhance ships with everything you need to build a production ready
           app.
         </p>
 
-        <dl class="pl4 leading3">
+        <dl class="pis4 leading3">
           <dt class="font-semibold">File-based routing</dt>
           <dd>Organize your pages as easily as a desktop&nbsp;folder.</dd>
 
@@ -327,7 +326,7 @@ export default function NoJsRequired({ html }) {
         </dl>
       </div>
       <landing-cloud-features
-        class="w-full block font-mono"></landing-cloud-features>
+        class="si-100 block font-mono"></landing-cloud-features>
     </section>
 
     <section class="relative">
@@ -339,7 +338,8 @@ export default function NoJsRequired({ html }) {
 
       <landing-star-filled class="absolute"></landing-star-filled>
 
-      <figure class="flex items-center justify-end relative z1 heart js-heart">
+      <figure
+        class="flex align-items-center justify-content-end relative z1 heart js-heart">
         <landing-axol-no-js-required
           class="absolute"></landing-axol-no-js-required>
         <img
@@ -356,12 +356,12 @@ export default function NoJsRequired({ html }) {
           src="/_public/img/landing/cloud-pink-thin-extra.svg"
           alt=""
           loading="lazy"
-          class="cloud-pink-thin-extra absolute bottom0" />
+          class="cloud-pink-thin-extra absolute inset-be-0" />
         <img
           src="/_public/img/landing/cloud-blue-wide.svg"
           alt=""
           loading="lazy"
-          class="cloud-blue-wide absolute bottom0 z1" />
+          class="cloud-blue-wide absolute inset-be-0 z1" />
       </figure>
 
       <figure class="unless flex relative z1">
@@ -384,7 +384,7 @@ export default function NoJsRequired({ html }) {
           src="/_public/img/landing/cloud-blue-chunky.svg"
           alt=""
           loading="lazy"
-          class="cloud-blue-chunky-right absolute right0" />
+          class="cloud-blue-chunky-right absolute inset-ie-0" />
       </figure>
     </section>
   `

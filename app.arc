@@ -9,7 +9,7 @@ enhance/arc-plugin-enhance
 
 @enhance-styles
 filename css/styles.css
-config css-config.json
+config styleguide.json
 
 @bundles
 mux-player 'node_modules/@mux/mux-player'

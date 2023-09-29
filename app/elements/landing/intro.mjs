@@ -102,13 +102,13 @@ export default function LandingIntro({ html }) {
           alt=""
           class="absolute top-cloud" />
 
-        <landing-axol-introducing class="flex justify-center pl5 pr5">
+        <landing-axol-introducing class="flex justify-content-center pi5">
         </landing-axol-introducing>
       </div>
 
       <h1>
         <landing-enhance-type-animated
-          class="m-auto"></landing-enhance-type-animated>
+          class="mi-auto"></landing-enhance-type-animated>
         <span class="clip">Enhance</span>
       </h1>
 
@@ -126,7 +126,8 @@ export default function LandingIntro({ html }) {
         <div class="flare-blue absolute z-1" />
       </figure>
 
-      <figure class="bottom-clouds flex items-center justify-center">
+      <figure
+        class="bottom-clouds flex align-items-center justify-content-center">
         <p class="font-medium uppercase text-center relative">
           The HTML first<br />
           Full Stack <br />

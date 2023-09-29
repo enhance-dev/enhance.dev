@@ -5,7 +5,7 @@ export default function ContentContainerTemplate({ html }) {
         max-width: 1024px;
       }
     </style>
-    <div class="content-container m-auto p1 text2 font-sans font-thin">
+    <div class="content-container mi-auto p1 text2 font-sans font-thin">
       <slot></slot>
     </div>
 

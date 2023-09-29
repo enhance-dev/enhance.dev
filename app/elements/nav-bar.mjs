@@ -79,9 +79,9 @@ export default function NavBarTemplate({ html, state = {} }) {
     </style>
 
     <header class="bg-p0">
-      <nav class="m-auto p0" aria-label="mobile menu">
+      <nav class="mi-auto p0" aria-label="mobile menu">
         <div
-          class="mobile-menu hidden-lg w-full flex items-center justify-between border-b border-p1">
+          class="mobile-menu hidden-lg si-100 flex align-items-center justify-content-between border-b border-p1">
           <div class="mobile-logo">
             <a
               style="height:2rem;"
@@ -133,7 +133,8 @@ export default function NavBarTemplate({ html, state = {} }) {
             </ul>
           </div>
         </div>
-        <div class="hidden flex-lg flex-row items-center justify-between">
+        <div
+          class="hidden flex-lg flex-row align-items-center justify-content-between">
           <div>
             <a
               style="height:2rem;"

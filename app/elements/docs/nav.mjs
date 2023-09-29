@@ -28,7 +28,7 @@ function Doc(item) {
 
 function Link(item) {
   return `
-<a href="${item.path}" class="p-4 mb0 block${item.active ? ' active' : ''}">
+<a href="${item.path}" class="p-4 mbe0 block${item.active ? ' active' : ''}">
   <div class="${item.type}-label">${item.label}</div>
   ${Description(item, ['mt-4'])}
 </a>

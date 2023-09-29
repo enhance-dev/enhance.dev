@@ -52,12 +52,12 @@ export default function Marquee({ html }) {
     <figure>
       <div class="marquee-wrapper flex overflow-hidden">
         <div
-          class="marquee flex flex-shrink-0 items-center justify-around font-extrabold uppercase">
+          class="marquee flex flex-shrink-0 align-items-center justify-content-around font-extrabold uppercase">
           <slot name="text"></slot>
           <slot name="image"></slot>
         </div>
         <div
-          class="marquee flex-shrink-0 items-center justify-around font-extrabold uppercase"
+          class="marquee flex-shrink-0 align-items-center justify-content-around font-extrabold uppercase"
           aria-hidden="true">
           <slot name="text" aria-hidden="true"></slot>
           <slot name="image"></slot>

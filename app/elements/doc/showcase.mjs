@@ -9,7 +9,7 @@ export default function DocShowcase({ html, state }) {
   } = attrs
 
   const contributorMarkup = contributor
-    ? `<p class="mt0">Contributed by: <a class="underline" href="${contributorUrl}">${contributor}</a></p>`
+    ? `<p class="mbs0">Contributed by: <a class="underline" href="${contributorUrl}">${contributor}</a></p>`
     : ''
 
   return html`
@@ -42,7 +42,7 @@ export default function DocShowcase({ html, state }) {
         <figure class="mb1">
           <img src="${image}" alt="" />
         </figure>
-        <h1 class="font-medium mb0">${title}</h1>
+        <h1 class="font-medium mbe0">${title}</h1>
         <p class="leading3">
           <slot></slot>
         </p>

@@ -21,7 +21,7 @@ export default function DocsThemeToggle({ html }) {
       }
     </style>
 
-    <div class="flex gap-2 items-center pt-4 pb-4 pr-3 pl-3">
+    <div class="flex gap-2 align-items-center pt-4 pb-4 pr-3 pl-3">
       <label title="Light theme" class="cursor-pointer">
         <input
           id="use-light"

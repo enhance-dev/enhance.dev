@@ -81,7 +81,7 @@ export default function Cta({ html, state }) {
 
     <main
       class="
-      m-auto
+      mi-auto
       pt4
       pr2
       pb2
@@ -91,12 +91,12 @@ export default function Cta({ html, state }) {
     ">
       <div
         class="
-        m-auto
+        mi-auto
         pr2
         pl2
-        mb0
+        mbe0
      ">
-        <cherub-mascot class="axol m-auto"></cherub-mascot>
+        <cherub-mascot class="axol mi-auto"></cherub-mascot>
       </div>
       <div
         class="
@@ -120,7 +120,7 @@ export default function Cta({ html, state }) {
         font-bold
         leading5
         flex
-        justify-center
+        justify-content-center
       ">
         <div class="inline-block">
           <p class="mb-1">
@@ -139,7 +139,7 @@ export default function Cta({ html, state }) {
           </p>
         </div>
       </section>
-      <section class="flex justify-center">
+      <section class="flex justify-content-center">
         <cta-qrcode></cta-qrcode>
       </section>
     </main>

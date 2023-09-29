@@ -138,8 +138,8 @@ export default function FourOh4({ html, state }) {
       <div
         class="
          flex
-         justify-start
-         items-center
+         justify-content-start
+         align-items-center
         ">
         <cherub-head class="mr0"></cherub-head>
         <h2 class="text1 pt-3 font-bold">Enhance</h2>
@@ -150,15 +150,15 @@ export default function FourOh4({ html, state }) {
           flex
           flex-col
           grid-lg
-          justify-start
-          m-auto
+          justify-content-start
+          mi-auto
           font-sans
         ">
       <div
         class="
           heading
           text-center
-          self-center
+          align-self-center
           mb5
           m-none-lg
         ">
@@ -169,7 +169,7 @@ export default function FourOh4({ html, state }) {
         class="
           flex
           flex-col
-          justify-center
+          justify-content-center
           p1
           p3-lg
         ">
@@ -187,8 +187,8 @@ export default function FourOh4({ html, state }) {
       <cherub-mascot
         class="
             block
-            self-end
-            self-start-lg
+            align-self-end
+            align-self-start-lg
             pt5
             p-none-lg
           "></cherub-mascot>

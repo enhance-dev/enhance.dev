@@ -145,8 +145,10 @@ export default function DocsHeader({ html, state }) {
       name="open-burger"
       autocomplete="off"
       aria-label="Open navigation" />
-    <div id="logo" class="flex gap-1 justify-between items-center">
-      <div class="flex items-center">
+    <div
+      id="logo"
+      class="flex gap-1 justify-content-between align-items-center">
+      <div class="flex align-items-center">
         <div class="relative axol-and-accessories">
           <img
             class="axol"
@@ -176,7 +178,7 @@ export default function DocsHeader({ html, state }) {
       </label>
     </div>
 
-    <nav id="menu" class="flex gap-1 justify-end items-center">
+    <nav id="menu" class="flex gap-1 justify-content-end align-items-center">
       <!-- GitHub
       <svg height="24" width="24">
         <use xlink:href="#svg-github"></use>

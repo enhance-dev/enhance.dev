@@ -37,16 +37,16 @@ export default function SwingingAxols({ html }) {
       }
     </style>
 
-    <figure class="flex justify-center relative">
+    <figure class="flex justify-content-center relative">
       <landing-star-cross class="absolute"></landing-star-cross>
       <landing-star-cross class="absolute"></landing-star-cross>
       <landing-star-filled class="absolute"></landing-star-filled>
       <landing-star-filled class="absolute"></landing-star-filled>
 
       <landing-axol-swing-pink
-        class="relative flex justify-center"></landing-axol-swing-pink>
+        class="relative flex justify-content-center"></landing-axol-swing-pink>
       <landing-axol-swing-blue
-        class="relative flex justify-center"></landing-axol-swing-blue>
+        class="relative flex justify-content-center"></landing-axol-swing-blue>
     </figure>
   `
 }

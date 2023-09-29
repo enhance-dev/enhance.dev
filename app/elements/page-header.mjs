@@ -4,15 +4,15 @@ export default function PageHeaderTemplate({ html }) {
       class="
         flex
         flex-col
-        justify-center
-        items-center
-        m-auto
+        justify-content-center
+        align-items-center
+        mi-auto
         p1
         p2-lg
       ">
       <h1
         class="
-          mb0
+          mbe0
           bg-gradient
           bg-clip-text
           select-none

@@ -17,8 +17,8 @@ export default function EmailSignup({ html }) {
           flex
           flex-col
           flex-row-lg
-          justify-between
-          mb0
+          justify-content-between
+          mbe0
           border-solid
           border1
           border-gradient
@@ -41,7 +41,7 @@ export default function EmailSignup({ html }) {
               p0
               text0
               text-center
-              text-left-lg
+              text-start-lg
               border-none
               radius0-lg
               radius-b-none

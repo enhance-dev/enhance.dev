@@ -67,7 +67,7 @@ export default function TutorialPage({ html, state = {} }) {
                 default-tab="${openPreview}"
                 tab-state-form="run-repl"
                 quantity="2"
-                class=" w-full  ">
+                class=" si-100  ">
                 <span slot="title1">Preview</span>
                 <enhance-preview slot="content1" doc-src="previewDoc">
                 </enhance-preview>

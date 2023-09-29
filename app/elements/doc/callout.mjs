@@ -53,10 +53,10 @@ export default function Callout({ html, state }) {
         ${thin ? 'callout-thin' : ''}
         flex
         gap-1
-        items-center
+        align-items-center
       ">
       ${mark.length > 0 && mark !== 'none'
-        ? `<callout-mark class="text2 self-start">${mark}</callout-mark>`
+        ? `<callout-mark class="text2 align-self-start">${mark}</callout-mark>`
         : ''}
       <div>
         <slot></slot>

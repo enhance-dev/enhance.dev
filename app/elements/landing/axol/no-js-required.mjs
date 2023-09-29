@@ -18,7 +18,7 @@ export default function AxolNoJSRequired({ html }) {
         top: 4vw;
       }
     </style>
-    <div class="flex items-center">
+    <div class="flex align-items-center">
       <img
         src="/_public/img/landing/axol.svg"
         alt=""

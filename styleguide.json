@@ -1,8 +1,21 @@
 {
-  "base": 16,
-  "scale": {
-    "ratio": "majorThird",
-    "steps": 10
+  "typeScale": {
+    "steps": 12,
+    "viewportMin": 320,
+    "viewportMax": 1500,
+    "baseMin": 16,
+    "baseMax": 16,
+    "scaleMin": "major-third",
+    "scaleMax": "major-third"
+  },
+  "spaceScale": {
+    "steps": 12,
+    "viewportMin": 320,
+    "viewportMax": 1500,
+    "baseMin": 16,
+    "baseMax": 16,
+    "scaleMin": "major-third",
+    "scaleMax": "major-third"
   },
   "fonts": {
     "sans": "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",

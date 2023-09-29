@@ -62,7 +62,7 @@ export default function CodeEditorTemplate({ html, state = {} }) {
     <div class="grid">
       <div class="js-editor hidden font-mono text-p1 text0"></div>
       <textarea
-        class="no-js-editor block  h-screen p0 w-full h-full font-mono text0  text-p2 leading1"
+        class="no-js-editor block  h-screen p0 si-100 sb-100 font-mono text0  text-p2 leading1"
         name="${docName}"
         form="${formName}"
         placeholder="Enter HTML Source Code"

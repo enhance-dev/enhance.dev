@@ -94,7 +94,7 @@ export default function WebNative({ html }) {
       }
 
       .container p:first-of-type {
-        font-size: var(--text-1);
+        font-size: var(--landing-text-1);
         margin-bottom: var(--space-m);
         max-width: 28ch;
       }
@@ -142,23 +142,24 @@ export default function WebNative({ html }) {
       loading="lazy"
       class="rainbow-bottom" />
 
-    <figure class="cloud-and-axol absolute top0 left0 flex items-center w-full">
+    <figure
+      class="cloud-and-axol absolute inset-bs-0 inset-is-0 flex align-items-center si-100">
       <img
         src="/_public/img/landing/cloud-cyan-chunky-light.svg"
         alt=""
         loading="lazy"
         class="inline-block flex-none cloud-blue-chunky" />
 
-      <landing-axol-face-front class="absolute top0 left0 flex-none">
+      <landing-axol-face-front class="absolute inset-bs-0 inset-is-0 flex-none">
       </landing-axol-face-front>
 
       <button
-        class="relative m-auto flex-none uppercase tracking2 font-medium rewindButton js-rewindButton">
+        class="relative mi-auto flex-none uppercase tracking2 font-medium rewindButton js-rewindButton">
         &olarr; Rewind!
       </button>
     </figure>
 
-    <figure class="flex justify-end">
+    <figure class="flex justify-content-end">
       <img
         src="/_public/img/landing/cloud-cyan-wide.svg"
         alt=""
@@ -166,7 +167,7 @@ export default function WebNative({ html }) {
         class="cloud-wide" />
     </figure>
 
-    <div class="container m-auto">
+    <div class="container mi-auto">
       <h2 class="uppercase font-extrabold tracking-1">
         Stable<br />
         Forever
@@ -182,7 +183,7 @@ export default function WebNative({ html }) {
       </p>
     </div>
 
-    <figure class="flex justify-end">
+    <figure class="flex justify-content-end">
       <landing-axol-on-rainbow-and-cloud></landing-axol-on-rainbow-and-cloud>
     </figure>
 

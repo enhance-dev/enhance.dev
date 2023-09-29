@@ -95,7 +95,9 @@ export default function AxolRainbowButtslide({ html }) {
       }
     </script>
 
-    <figure id="axol-sliding-static" class="items-center justify-center">
+    <figure
+      id="axol-sliding-static"
+      class="align-items-center justify-content-center">
       <img src="/_public/img/landing/axol-sliding.svg" alt="" />
     </figure>
 
