@@ -5,7 +5,7 @@ function readNext(nextLink) {
         <a class="font-medium" href="${nextLink.path}">${nextLink.label} →</a>
         ${
           nextLink.description
-            ? `<p class="mt-4 leading2">${nextLink.description}</p>`
+            ? `<p class="mbs-4 leading2">${nextLink.description}</p>`
             : ''
         }
       </doc-callout>
@@ -27,7 +27,7 @@ function communityResources(communityLinks) {
           <dt>
             <a href="${url}" target="_blank">${label}</a>
           </dt>
-          <dd class="mb-4">
+          <dd class="mbe-4">
             ${description}
           </dd>
         `
@@ -36,8 +36,8 @@ function communityResources(communityLinks) {
 
     return /* html */ `
       <footer class="p0">
-        <h3 class="mb-2">Community Resources</h3>
-        <dl class="ml-2 list-none leading2">${links}</dl>
+        <h3 class="mbe-2">Community Resources</h3>
+        <dl class="mis-2 list-none leading2">${links}</dl>
       </footer>
     `
   } else {
@@ -66,7 +66,7 @@ export default function Footer({ html, state }) {
 
     ${readNext(doc.frontmatter?.['read-next'])}
 
-    <hr class="block mt3 mb3 border1" />
+    <hr class="block mb3 border1" />
 
     <docs-pager></docs-pager>
 

@@ -37,9 +37,9 @@ export default function DocShowcase({ html, state }) {
         color: inherit;
       }
     </style>
-    <article class="mt0 mb2 p0 p2-lg">
+    <article class="mbs0 mbe2 p0 p2-lg">
       <a href="${url}" target="_blank">
-        <figure class="mb1">
+        <figure class="mbe1">
           <img src="${image}" alt="" />
         </figure>
         <h1 class="font-medium mbe0">${title}</h1>

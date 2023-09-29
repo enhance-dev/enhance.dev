@@ -1,6 +1,6 @@
 function List(items, classes = []) {
   return `
-<ul role="list" class="${['list-none pl-1', ...classes].join(' ')}">
+<ul role="list" class="${['list-none pis-1', ...classes].join(' ')}">
   ${items
     .map((item) => {
       return `
@@ -21,7 +21,7 @@ function Doc(item) {
   return `
 <a href="${item.path}" class="p-4 block${item.active ? ' active' : ''}">
   <div class="${item.type}-label">${item.label}</div>
-  ${Description(item, ['mt-4'])}
+  ${Description(item, ['mbs-4'])}
 </a>
     `.trim()
 }
@@ -30,15 +30,15 @@ function Link(item) {
   return `
 <a href="${item.path}" class="p-4 mbe0 block${item.active ? ' active' : ''}">
   <div class="${item.type}-label">${item.label}</div>
-  ${Description(item, ['mt-4'])}
+  ${Description(item, ['mbs-4'])}
 </a>
     `.trim()
 }
 
 function Category(item) {
   return `
-<div class="mt3">
-  <div class="category-label font-medium mb-4 uppercase">${item.label}</div>
+<div class="mbs3">
+  <div class="category-label font-medium mbe-4 uppercase">${item.label}</div>
   ${Description(item)}
 </div>
 ${item.items?.length > 0 ? List(item.items) : ''}

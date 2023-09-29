@@ -14,7 +14,7 @@ export default function DocsHeader({ html, state }) {
       .filter((i) => i.type === 'tab')
       .forEach((tab) => {
         navItems.push(
-          `<li class="inline-block whitespace-no-wrap ml3 mr3 ${
+          `<li class="inline-block whitespace-no-wrap mi3 ${
             tab.activeTab ? 'active font-semibold' : ''
           }">
             <a class="text-center" href="${tab.path}/">${tab.label}</a>
@@ -160,7 +160,7 @@ export default function DocsHeader({ html, state }) {
               src="${arc.static('img/bluebeanie.png')}"
               alt="Axol's blue beanie" />`}
         </div>
-        <h1 class="text1 ml-1">
+        <h1 class="text1 mis-1">
           <a href="/" class="enhance-link inline-block font-semibold"
             >Enhance</a
           >

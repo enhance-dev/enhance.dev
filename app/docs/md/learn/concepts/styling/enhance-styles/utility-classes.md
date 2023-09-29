@@ -86,7 +86,7 @@ getStyles.path()      // root-relative path to the .css file
 
 Though `@enhance/arc-plugin-styles` is already a dependency of Enhance, you may want to declare it as a direct dependency of your project:
 
-<div class="mt-1">
+<div class="mbs-1">
 
 ```bash
 npm i @enhance/arc-plugin-styles

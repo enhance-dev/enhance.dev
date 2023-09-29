@@ -113,23 +113,23 @@ export default function DocsLayout({ html, state }) {
 
     <docs-symbols></docs-symbols>
 
-    <docs-header id="header" class="pt0 pr1 pb0 pl-1"></docs-header>
+    <docs-header id="header" class="pb0 pie1 pis-1"></docs-header>
 
-    <nav id="sidebar" class="pt1-lg overflow-y-auto-lg" aria-label="sidebar">
+    <nav id="sidebar" class="pbs1-lg overflow-y-auto-lg" aria-label="sidebar">
       <docs-nav></docs-nav>
     </nav>
 
-    <doc-content id="content" class="overflow-y-auto-lg p1-lg pb2">
+    <doc-content id="content" class="overflow-y-auto-lg p1-lg pbe2">
       <article slot="doc" class="block leading3">
         ${doc.title ? `<h1>${doc.title}</h1>` : ''} ${doc.html}
       </article>
     </doc-content>
 
-    <docs-outline id="outline" class="pt1-lg overflow-y-auto-lg">
+    <docs-outline id="outline" class="pbs1-lg overflow-y-auto-lg">
       ${doc.tocHtml?.indexOf('<li>') > 0
         ? /* html */ `
       <div slot="toc">
-        <h3 class="mb-2 font-medium">On this page</h3>
+        <h3 class="mbe-2 font-medium">On this page</h3>
         ${doc.tocHtml}
       </div>`
         : ''}

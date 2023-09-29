@@ -82,37 +82,34 @@ export default function Cta({ html, state }) {
     <main
       class="
       mi-auto
-      pt4
-      pr2
-      pb2
-      pl2
+      pbs4
+      pbe2
+      pi2
       color-light
       font-sans
     ">
       <div
         class="
         mi-auto
-        pr2
-        pl2
+        pi2
         mbe0
      ">
         <cherub-mascot class="axol mi-auto"></cherub-mascot>
       </div>
       <div
         class="
-        pr1
-        pl1
-        mb2
+        pi1
+        mbe2
       ">
         <img src="/_public/img/svg/enhance-type.svg" alt="Enhance" />
       </div>
-      <div class="pr1 pl1 mb2 font-semibold color-lilac text3 text-center">
+      <div class="pi1 mbe2 font-semibold color-lilac text3 text-center">
         <h2>The HTML framework</h2>
       </div>
       <section
         class="
         p2
-        mb1
+        mbe1
         text0
         text1-lg
         bg-lilac
@@ -123,11 +120,11 @@ export default function Cta({ html, state }) {
         justify-content-center
       ">
         <div class="inline-block">
-          <p class="mb-1">
+          <p class="mbe-1">
             <span class="inline-block cta">Read the Docs:</span>
             <a class="" href="https://enhance.dev/docs/">enhance.dev/docs</a>
           </p>
-          <p class="mb-1">
+          <p class="mbe-1">
             <span class="inline-block cta">Join our Discord:</span>
             <a href="https://enhance.dev/discord">enhance.dev/discord</a>
           </p>
