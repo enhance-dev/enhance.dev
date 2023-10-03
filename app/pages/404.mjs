@@ -129,20 +129,20 @@ export default function FourOh4({ html, state }) {
 
     <header
       class="
-        mb5
-        mb-none-lg
-        pl3
-        pt1
+        mbe5
+        mbe-none-lg
+        pis3
+        pbs1
         font-sans
       ">
       <div
         class="
          flex
-         justify-start
-         items-center
+         justify-content-start
+         align-items-center
         ">
-        <cherub-head class="mr0"></cherub-head>
-        <h2 class="text1 pt-3 font-bold">Enhance</h2>
+        <cherub-head class="mie0"></cherub-head>
+        <h2 class="text1 pbs-3 font-bold">Enhance</h2>
       </div>
     </header>
     <main
@@ -150,16 +150,16 @@ export default function FourOh4({ html, state }) {
           flex
           flex-col
           grid-lg
-          justify-start
-          m-auto
+          justify-content-start
+          mi-auto
           font-sans
         ">
       <div
         class="
           heading
           text-center
-          self-center
-          mb5
+          align-self-center
+          mbe5
           m-none-lg
         ">
         <h1 class="tracking-1">Not Found - 404</h1>
@@ -169,13 +169,13 @@ export default function FourOh4({ html, state }) {
         class="
           flex
           flex-col
-          justify-center
+          justify-content-center
           p1
           p3-lg
         ">
         <p
           class="
-          mb2
+          mbe2
           text2
           text3-lg
           text-center
@@ -187,9 +187,9 @@ export default function FourOh4({ html, state }) {
       <cherub-mascot
         class="
             block
-            self-end
-            self-start-lg
-            pt5
+            align-self-end
+            align-self-start-lg
+            pbs5
             p-none-lg
           "></cherub-mascot>
     </main>

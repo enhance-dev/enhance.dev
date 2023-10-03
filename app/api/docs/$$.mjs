@@ -12,7 +12,7 @@ import HljsLineWrapper from '../../docs/hljs-line-wrapper.mjs'
 const arcdown = new Arcdown({
   pluginOverrides: {
     markdownItToc: {
-      containerClass: 'toc mb2 ml-2',
+      containerClass: 'toc mbe2 mis-2',
       listType: 'ul',
     },
   },

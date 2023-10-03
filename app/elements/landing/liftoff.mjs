@@ -89,7 +89,7 @@ export default function Liftoff({ html }) {
       src="/_public/img/landing/axol-balloons.svg"
       alt=""
       loading="lazy"
-      class="axol absolute top0 z1" />
+      class="axol absolute inset-bs-0 z1" />
 
     <p class="leading3">
       Enhance apps are designed with deployment in mind.

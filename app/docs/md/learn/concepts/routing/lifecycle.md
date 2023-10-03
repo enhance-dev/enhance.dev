@@ -8,7 +8,7 @@ The journey of an HTTP request through Enhance isn't complicated, but it's helpf
 
 </doc-callout>
 
-<doc-enhance-diagram class="block mb2">
+<doc-enhance-diagram class="block mbe2">
 </doc-enhance-diagram>
 
 ## Routing

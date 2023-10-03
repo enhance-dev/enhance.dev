@@ -50,9 +50,9 @@ export default function EmailThankPage({ html }) {
         }
       }
     </style>
-    <main class="flex flex-col items-center p3">
-      <h1 class="mb-2">Thanks!</h1>
-      <h2 class="mb5">We'll be in touch</h2>
+    <main class="flex flex-col align-items-center p3">
+      <h1 class="mbe-2">Thanks!</h1>
+      <h2 class="mbe5">We'll be in touch</h2>
       <axol-wink></axol-wink>
     </main>
     <script type="module">

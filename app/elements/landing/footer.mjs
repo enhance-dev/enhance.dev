@@ -5,7 +5,6 @@ export default function Footer({ html }) {
         background-color: var(--denim);
         display: block;
         color: #32ff47;
-        font-size: var(--text--0);
       }
 
       footer {
@@ -23,22 +22,22 @@ export default function Footer({ html }) {
         height: 1.25rem;
       }
     </style>
-    <footer class="pl0 pr0 m-auto">
-      <h2 class="font-semibold text-center mb4">
+    <footer class="pi0 mi-auto">
+      <h2 class="font-semibold text-center mbe4">
         <img
           src="/_public/img/landing/axol-face.svg"
           alt=""
           class="inline"
           loading="lazy" />
-        <span class="pl0">Enhance</span>
+        <span class="pis0">Enhance</span>
       </h2>
-      <div class="flex gap-3 items-center justify-center">
+      <div class="flex gap-3 align-items-center justify-content-center">
         <a href="/docs" class="inline-block font-medium uppercase p0">Docs</a>
 
         <a href="https://fosstodon.org/@enhance_dev" class="inline-block p0">
           <img
             src="/_public/img/landing/mastodon-logo.svg"
-            class="social-logo m-auto"
+            class="social-logo mi-auto"
             loading="lazy"
             alt="Mastodon" />
         </a>
@@ -46,7 +45,7 @@ export default function Footer({ html }) {
         <a href="/discord" class="inline-block p0">
           <img
             src="/_public/img/landing/discord-logo.svg"
-            class="social-logo m-auto"
+            class="social-logo mi-auto"
             loading="lazy"
             alt="Discord" />
         </a>
@@ -54,13 +53,13 @@ export default function Footer({ html }) {
         <a href="https://github.com/enhance-dev" class="inline-block p0">
           <img
             src="/_public/img/landing/github-logo.svg"
-            class="social-logo m-auto"
+            class="social-logo mi-auto"
             loading="lazy"
             alt="GitHub" />
         </a>
       </div>
 
-      <div class="mt4 text-center">
+      <div class="mbs4 text-center">
         <a href="#top" class="underline text0">Back to the top!</a>
       </div>
     </footer>

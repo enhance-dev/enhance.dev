@@ -10,15 +10,17 @@
     --space-xl: clamp(3rem, 1.3rem + 8.48vw, 7.88rem);
     --space-2xl: clamp(4rem, 1.74rem + 11.3vw, 10.5rem);
     --space-3xl: clamp(5rem, 2.17rem + 14.13vw, 13.13rem);
+  }
 
-    /* Fluid type */
-    --text-multiplier: 1.00;
-    --text-0: clamp(1.00rem, 0.83rem + 0.87vw, 1.50rem * var(--text-multiplier));
-    --text-1: clamp(1.20rem, 0.83rem + 1.83vw, 2.25rem * var(--text-multiplier));
-    --text-2: clamp(1.44rem, 0.77rem + 3.37vw, 3.38rem * var(--text-multiplier));
-    --text-3: clamp(1.73rem, 0.57rem + 5.80vw, 5.06rem * var(--text-multiplier));
-    --text-4: clamp(2.07rem, 0.15rem + 9.60vw, 7.59rem * var(--text-multiplier));
-    --text-5: clamp(2.49rem, -0.61rem + 15.48vw, 11.39rem * var(--text-multiplier));
+  :root {
+    /* Fluid type, bespoke values for landing page before Enhance Styles 5 fluid type*/
+    --text-multiplier: 1;
+    --landing-text-0: clamp(1rem, 0.83rem + 0.87vw, 1.5rem * var(--text-multiplier));
+    --landing-text-1: clamp(1.2rem, 0.83rem + 1.83vw, 2.25rem * var(--text-multiplier));
+    --landing-text-2: clamp(1.44rem, 0.77rem + 3.37vw, 3.38rem * var(--text-multiplier));
+    --landing-text-3: clamp(1.73rem, 0.57rem + 5.8vw, 5.06rem * var(--text-multiplier));
+    --landing-text-4: clamp(2.07rem, 0.15rem + 9.6vw, 7.59rem * var(--text-multiplier));
+    --landing-text-5: clamp(2.49rem, -0.61rem + 15.48vw, 11.39rem * var(--text-multiplier));
   }
 
   @media screen and (min-width: 120em) {
@@ -41,7 +43,7 @@
   }
 
   body {
-    font-size: var(--text-0);
+    font-size: var(--landing-text-0);
   }
 
   nav {
@@ -167,14 +169,15 @@
   }
 </style>
 
-<nav class='pt-2 pb-2 pt0-lg pb0-lg' id='top'>
-  <div class='nav-content m-auto flex items-center'>
-    <h1 class='text0 text1-lg font-medium flex items-center'>
-      <img src="/_public/img/svg/enhance-axol.svg" alt="" class="inline mr-1" />
+<nav class='pb-2 pb0-lg' id='top'>
+  <div class='nav-content mi-auto flex align-items-center'>
+    <h1 class='text0 text1-lg font-medium flex align-items-center'>
+      <img src="/_public/img/svg/enhance-axol.svg" alt="" class="inline mie-1" />
       Enhance
     </h1>
 
-    <div class='ml-auto flex items-center align-right gap-1 font-medium text-1 text0-lg'>
+    <!-- .text0 needed to override body's --landing-text-0 default size -->
+    <div class='mis-auto flex align-items-center gap-1 font-medium text0'>
       <a href='/docs' class='hidden inline-lg'>
         Documentation
       </a>
@@ -197,7 +200,7 @@
   <img
     src="/_public/img/landing/cloud-purple-section-bottom.svg"
     alt=""
-    class="z1 absolute top0 clouds-purple-section-bottom" />
+    class="z1 absolute inset-bs-0 clouds-purple-section-bottom" />
 
   <landing-swinging-axols></landing-swinging-axols>
   <landing-no-js-required></landing-no-js-required>

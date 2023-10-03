@@ -47,7 +47,7 @@ export default function DocsPager({ html, state }) {
 
   return prevDoc || nextDoc
     ? html`
-        <nav class="flex justify-around mb2">
+        <nav class="flex justify-content-around mbe2">
           ${prevDoc
             ? `<a href="${prevDoc.path}">← Prev: ${prevDoc.label}</a>`
             : ''}

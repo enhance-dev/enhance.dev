@@ -14,7 +14,7 @@ export default function AxolUnlessYouWantIt({ html }) {
         padding-inline: 3vw;
       }
     </style>
-    <div class="flex items-center">
+    <div class="flex align-items-center">
       <p class="banner font-bold italic uppercase flex-none">
         Unless you want it
       </p>

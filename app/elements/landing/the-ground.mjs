@@ -5,12 +5,12 @@ export default function TheGround({ html, state }) {
   const emailUpdate = emailThanks
     ? `
         <a id="email-thanks"></a>
-        <h2 class="uppercase font-extrabold tracking-1 text-center m-auto">
+        <h2 class="uppercase font-extrabold tracking-1 text-center mi-auto">
           We'll talk soon!
         </h2>
         `
     : `
-        <h2 class="uppercase font-extrabold tracking-1 text-center m-auto">
+        <h2 class="uppercase font-extrabold tracking-1 text-center mi-auto">
           <svg viewBox="0 0 672 48" xmlns="http://www.w3.org/2000/svg">
             <text
               fill="#003451"
@@ -27,9 +27,9 @@ export default function TheGround({ html, state }) {
           action="/email/interest/add"
           method="POST"
           name="enhance-newsletter-signup"
-          class="m-auto"
+          class="mi-auto"
         >
-          <label for="email" class="inline-block mb-2 font-medium">
+          <label for="email" class="inline-block mbe-2 font-medium">
             Stay informed via email:
           </label>
           <div class="form-layout grid flow-col">
@@ -39,10 +39,10 @@ export default function TheGround({ html, state }) {
               id="email"
               name="email"
               placeholder="you@your-email.com"
-              class="block w-full pt0 pb0" />
+              class="block si-100 pb0" />
             <button
               type="submit"
-              class="flex items-center justify-center relative">
+              class="flex align-items-center justify-content-center relative">
               <span class="clip">Submit</span>
               <img src="/_public/img/landing/submit-arrow.svg" alt="" loading="lazy" />
             </button>
@@ -71,7 +71,7 @@ export default function TheGround({ html, state }) {
       }
 
       h2 {
-        font-size: var(--text-3);
+        font-size: var(--landing-text-3);
         margin-bottom: var(--space-m);
       }
 
@@ -159,18 +159,17 @@ export default function TheGround({ html, state }) {
         width: 110vw;
       }
     </style>
-    <section class="ground-bottom">
-      <div class="pl0 pr0">
-
+    <section>
+      <div class="pi0 ground-bottom">
         ${emailUpdate}
 
-        <landing-axol-gills-down class="m-auto"></landing-axol-gills-down>
-
+        <landing-axol-gills-down class="mi-auto"></landing-axol-gills-down>
+      </div>
+      <img
+        src="/_public/img/landing/footer-background-trim.svg"
+        alt=""
+        loading="lazy"
+        class="footer-trim" />
     </section>
-    <img
-      src="/_public/img/landing/footer-background-trim.svg"
-      alt=""
-      loading="lazy"
-      class="footer-trim" />
   `
 }

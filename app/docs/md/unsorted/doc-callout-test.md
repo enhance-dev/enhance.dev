@@ -12,7 +12,7 @@ This 👇 code block is rendered and highlighted on the server with arcdown + hl
 <doc-callout level="info" mark="🤘">
 ```
 
-<hr class="block mt3 mb3 border1" />
+<hr class="block mb3 border1" />
 
 <doc-callout>
 
@@ -66,7 +66,7 @@ Luckily Enhance sets you up for success by preconfiguring your app to pass state
 
 </doc-callout>
 
-<hr class="block mt3 mb3 border1" />
+<hr class="block mb3 border1" />
 
 Empty "mark", set `mark="none"`.
 
@@ -76,7 +76,7 @@ Not all things need emoji. Most things do, but not all.
 
 </doc-callout>
 
-<hr class="block mt3 mb3 border1" />
+<hr class="block mb3 border1" />
 
 Callouts can be "thin", too. Add an empty `thin` attribute.
 
@@ -86,7 +86,7 @@ This style is good for one-liners
 
 </doc-callout>
 
-<hr class="block mt3 mb3 border1" />
+<hr class="block mb3 border1" />
 
 ## `<doc-link-callout>` Test
 

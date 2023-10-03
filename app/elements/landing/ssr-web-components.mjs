@@ -38,9 +38,9 @@ export default function SSRWebComponents({ html }) {
         transform: translateX(-33%);
       }
     </style>
-    <div class="text-center pl0 pr0">
-      <h2 class="font-extrabold uppercase m-auto">
-        <landing-ssr-type class="w-full mb0"></landing-ssr-type>
+    <div class="text-center pi0">
+      <h2 class="font-extrabold uppercase mi-auto">
+        <landing-ssr-type class="si-100 mbe0"></landing-ssr-type>
         <span class="clip">SSR</span>
         <svg
           viewBox="0 0 969 75"
@@ -52,12 +52,12 @@ export default function SSRWebComponents({ html }) {
         </svg>
       </h2>
 
-      <p class="text-center leading3 m-auto">
+      <p class="text-center leading3 mi-auto">
         Build server rendered custom elements<br class="hidden block-lg" />
         that seamlessly upgrade to interactive Web Components.
       </p>
 
-      <figure class="cloud-and-puffs flex justify-between">
+      <figure class="cloud-and-puffs flex justify-content-between">
         <img
           src="/_public/img/landing/cloud-blue-wide.svg"
           alt=""

@@ -14,7 +14,7 @@ export default function DocsHeader({ html, state }) {
       .filter((i) => i.type === 'tab')
       .forEach((tab) => {
         navItems.push(
-          `<li class="inline-block whitespace-no-wrap ml3 mr3 ${
+          `<li class="inline-block whitespace-no-wrap mi3 ${
             tab.activeTab ? 'active font-semibold' : ''
           }">
             <a class="text-center" href="${tab.path}/">${tab.label}</a>
@@ -145,8 +145,10 @@ export default function DocsHeader({ html, state }) {
       name="open-burger"
       autocomplete="off"
       aria-label="Open navigation" />
-    <div id="logo" class="flex gap-1 justify-between items-center">
-      <div class="flex items-center">
+    <div
+      id="logo"
+      class="flex gap-1 justify-content-between align-items-center">
+      <div class="flex align-items-center">
         <div class="relative axol-and-accessories">
           <img
             class="axol"
@@ -158,7 +160,7 @@ export default function DocsHeader({ html, state }) {
               src="${arc.static('img/bluebeanie.png')}"
               alt="Axol's blue beanie" />`}
         </div>
-        <h1 class="text1 ml-1">
+        <h1 class="text1 mis-1">
           <a href="/" class="enhance-link inline-block font-semibold"
             >Enhance</a
           >
@@ -176,7 +178,7 @@ export default function DocsHeader({ html, state }) {
       </label>
     </div>
 
-    <nav id="menu" class="flex gap-1 justify-end items-center">
+    <nav id="menu" class="flex gap-1 justify-content-end align-items-center">
       <!-- GitHub
       <svg height="24" width="24">
         <use xlink:href="#svg-github"></use>

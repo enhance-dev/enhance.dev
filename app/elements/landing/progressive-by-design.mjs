@@ -45,11 +45,11 @@ export default function ProgressiveByDesign({ html }) {
       }
     </style>
     <h2 class="uppercase font-extrabold tracking-2">
-      <span class="block text-right">Progressive</span>
+      <span class="block text-end">Progressive</span>
       <span class="block">By Design</span>
     </h2>
     <div class="paragraph-safety">
-      <p class="text-center-lg leading3 m-auto relative">
+      <p class="text-center-lg leading3 mi-auto relative">
         Enhance makes the right way the easy&nbsp;way.
         <br class="hidden block-lg" />
         Start with a version that works everywhere for&nbsp;everyone.
@@ -57,7 +57,7 @@ export default function ProgressiveByDesign({ html }) {
         Incrementally upgrade interactive elements from&nbsp;there.
       </p>
     </div>
-    <figure class="flex justify-end">
+    <figure class="flex justify-content-end">
       <img
         src="/_public/img/landing/cloud-blue-wide.svg"
         alt=""
@@ -70,7 +70,7 @@ export default function ProgressiveByDesign({ html }) {
         alt=""
         loading="lazy" />
       <landing-axol-rainbow-buttslide
-        class="absolute top0 left0"></landing-axol-rainbow-buttslide>
+        class="absolute inset-bs-0 inset-is-0"></landing-axol-rainbow-buttslide>
     </figure>
   `
 }

@@ -37,7 +37,7 @@ export default function LandingLinkButton({ html, state }) {
       }
     </style>
     <a
-      class="inline-block relative uppercase pt0 pb0 tracking1 font-medium"
+      class="inline-block relative uppercase pb0 tracking1 font-medium"
       href="${href}">
       <slot></slot>
     </a>

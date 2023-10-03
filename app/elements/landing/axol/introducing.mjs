@@ -12,7 +12,7 @@ export default function AxolIntroducing({ html }) {
       }
 
       span {
-        font-size: var(--text-1);
+        font-size: var(--landing-text-1);
         padding-top: calc(0.25rem + var(--space-2xs));
         padding-bottom: var(--space-2xs);
       }
@@ -30,19 +30,25 @@ export default function AxolIntroducing({ html }) {
         transform: scale(-1, 1);
       }
     </style>
-    <figure class="grid items-center">
-      <img src="/_public/img/landing/axol.svg" alt="" class="axol w-full" />
+    <figure class="grid align-items-center">
+      <img src="/_public/img/landing/axol.svg" alt="" class="axol si-100" />
       <div>
-        <img src="/_public/img/landing/swash.svg" alt="" class="swash m-auto" />
+        <img
+          src="/_public/img/landing/swash.svg"
+          alt=""
+          class="swash mi-auto" />
         <span class="block font-semibold uppercase text-center">
           Introducing
         </span>
-        <img src="/_public/img/landing/swash.svg" alt="" class="swash m-auto" />
+        <img
+          src="/_public/img/landing/swash.svg"
+          alt=""
+          class="swash mi-auto" />
       </div>
       <img
         src="/_public/img/landing/axol.svg"
         alt=""
-        class="axol w-full mirror" />
+        class="axol si-100 mirror" />
     </figure>
   `
 }

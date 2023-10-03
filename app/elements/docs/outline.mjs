@@ -2,14 +2,14 @@ function FurtherReading(links) {
   const items = links.map((link) => {
     let item
     for (const label in link) {
-      item = `<li class="mb-4"><a href="${link[label]}" target="_blank">${label}</a></li>`
+      item = `<li class="mbe-4"><a href="${link[label]}" target="_blank">${label}</a></li>`
     }
     return item
   })
 
   return /* html */ `
-    <h3 class="mb-2 font-semibold">Further Reading</h3>
-    <ul class="mb2 ml-2 list-none leading2">
+    <h3 class="mbe-2 font-semibold">Further Reading</h3>
+    <ul class="mbe2 mis-2 list-none leading2">
       ${items.join('')}
     </ul>
   `
@@ -17,14 +17,14 @@ function FurtherReading(links) {
 
 function CommunityLinks(links) {
   const items = links.map((link) => {
-    return `<li class="mb-4"><a href="${link.url}" target="_blank" ${
+    return `<li class="mbe-4"><a href="${link.url}" target="_blank" ${
       link.rel ? `rel=${link.rel}` : ''
     }>${link.label}</a></li>`
   })
 
   return /* html */ `
-    <h3 class="mb-2 font-semibold">Community</h3>
-    <ul class="mb2 ml-2 list-none leading2">
+    <h3 class="mbe-2 font-semibold">Community</h3>
+    <ul class="mbe2 mis-2 list-none leading2">
       ${items.join('')}
     </ul>
   `
@@ -70,7 +70,7 @@ export default function DocOutline({ html, state }) {
       <!-- "Edit this page" -->
       ${gitHubLink
         ? /* html  */ `
-        <p class="mb2">
+        <p class="mbe2">
           <a href="${gitHubLink}" target="_blank">Edit this page</a>
         </p>
           `

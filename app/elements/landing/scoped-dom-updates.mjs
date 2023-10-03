@@ -19,7 +19,7 @@ export default function ScopedDOMUpdates({ html }) {
       }
 
       p:first-of-type {
-        font-size: var(--text-1);
+        font-size: var(--landing-text-1);
         max-width: 24ch;
       }
 
@@ -53,14 +53,14 @@ export default function ScopedDOMUpdates({ html }) {
         alt="" />
     </landing-marquee>
 
-    <div class="grid gap4 gap2-lg items-center col-1 col-2-lg pb4">
+    <div class="grid gap4 gap2-lg align-items-center col-1 col-2-lg pbe4">
       <landing-cloud-and-code
-        class="block w-full font-mono"></landing-cloud-and-code>
-      <div class="pl0 pr0 pl-none-lg pr5-lg pb5-lg m-auto m-none-lg">
-        <p class="leading2 mb0">
+        class="block si-100 font-mono"></landing-cloud-and-code>
+      <div class="pi0 pis-none-lg pi5-lg mi-auto m-none-lg">
+        <p class="leading2 mbe0">
           No need for a full page render to update one element
         </p>
-        <p class="leading3 mb5">
+        <p class="leading3 mbe5">
           Ditch throbbers and loading screens by removing framework bloat and
           authoring only the code you&nbsp;need.
         </p>
