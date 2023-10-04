@@ -9,7 +9,7 @@ export default function LandingIntro({ html }) {
 
       landing-enhance-type-animated {
         padding-top: var(--space-l);
-        width: 85vw;
+        width: 87.5vw;
       }
 
       .top-cloud {

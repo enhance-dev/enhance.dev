@@ -29,78 +29,18 @@
     }
   }
 
-  html,
-  body {
-    font-family: Rubik, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    overflow-x: hidden;
-    text-rendering: optimizeLegibility;
-  }
-
-  @media (prefers-reduced-motion: no-preference) {
-    html {
-      scroll-behavior: smooth;
-    }
-  }
-
   body {
     font-size: var(--landing-text-0);
   }
 
-  nav {
+  .header-wrapper {
+    display: block;
     background-color: #c9ecff;
-    background-image: linear-gradient(to bottom, hsla(0deg 0% 100% / 0.85), hsla(0deg 0% 100% / 0.35));
-    color: var(--rift);
-    z-index: 3;
-  }
-
-  .nav-content {
-    width: 85vw;
-  }
-
-  nav h1 img {
-    aspect-ratio: 56 / 51;
-    translate: 0 -6.25%;
-    width: 2.5rem;
-  }
-
-  nav a:not(.get-started) {
-    color: var(--dark-purple);
-    transition: color 0.15s ease;
-  }
-
-  nav a:not(.get-started):hover {
-    color: var(--princess);
-  }
-
-  nav a:not(.get-started):focus-visible {
-    outline-offset: 2px;
-  }
-
-  .get-started {
-    background: var(--dark-purple);
-    border-radius: 5px;
-    color: white;
-  }
-
-  .get-started:after {
-    content: '';
-    position: absolute;
-    inset: -2px;
-    box-shadow: 0 0 0 2px var(--dark-purple);
-    border-radius: 6px;
-    opacity: 0;
-    transform: scale(0.75);
-    transition: opacity 150ms linear, transform 150ms linear;
-  }
-
-  .get-started:focus {
-    outline: none;
-  }
-
-  .get-started:hover:after,
-  .get-started:focus:after {
-    opacity: 1;
-    transform: scale(1);
+    background-image: linear-gradient(
+      to bottom,
+      hsla(0deg 0% 100% / 0.85),
+      hsla(0deg 0% 100% / 0.35)
+    );
   }
 
   .clip {
@@ -169,30 +109,11 @@
   }
 </style>
 
-<nav class='pb-2 pb0-lg' id='top'>
-  <div class='nav-content mi-auto flex align-items-center'>
-    <h1 class='text0 text1-lg font-medium flex align-items-center'>
-      <img src="/_public/img/svg/enhance-axol.svg" alt="" class="inline mie-1" />
-      Enhance
-    </h1>
+<docs-symbols></docs-symbols>
 
-    <!-- .text0 needed to override body's --landing-text-0 default size -->
-    <div class='mis-auto flex align-items-center gap-1 font-medium text0'>
-      <a href='/docs' class='hidden inline-lg'>
-        Documentation
-      </a>
-      <a href='/docs/learn/showcase' class='hidden inline-lg'>
-        Showcase
-      </a>
-      <a href='/docs/learn/why-enhance' class='hidden inline-lg'>
-        Why Enhance?
-      </a>
-      <a class='relative uppercase tracking2 p-2 get-started' href='/docs'>
-        Get Started
-      </a>
-    </div>
-  </div>
-</nav>
+<div class='header-wrapper'>
+  <editorial-header id='top'></editorial-header>
+</div>
 
 <landing-intro class='block relative'></landing-intro>
 

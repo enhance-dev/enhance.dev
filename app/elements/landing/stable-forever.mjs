@@ -104,7 +104,6 @@ export default function WebNative({ html }) {
       }
 
       landing-axol-on-rainbow-and-cloud {
-        aspect-ratio: 789 / 550;
         width: 40vw;
         transform: translateX(20%);
         margin-top: 1rem;

@@ -13,18 +13,6 @@ export const data = [
     slug: 'learn',
     items: [
       {
-        type: TYPE.link,
-        slug: 'why-enhance',
-        label: 'Why Enhance?',
-        description: 'Our core philosophy',
-      },
-      {
-        type: TYPE.link,
-        slug: 'showcase',
-        label: 'Showcase',
-        description: 'Built with Enhance',
-      },
-      {
         type: TYPE.category,
         slug: 'get-started',
         items: [

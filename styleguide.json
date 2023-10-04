@@ -50,11 +50,12 @@
     "rift": "#01040D",
     "smoke": "#F3F3F3"
   },
-  "properties": [
-    {
-      "bg-gradient": "linear-gradient(125deg, var(--orange), var(--magenta), var(--purple))"
-    }
-  ],
+  "properties": {
+    "bg-gradient": "linear-gradient(125deg, var(--orange), var(--magenta), var(--purple))",
+    "docs-nav-width": "16rem",
+    "nav-height": "4rem",
+    "editorial-width": "max(320px - var(--space-0), 87.5vw)"
+  },
   "queries": {
     "lg": "48em",
     "xl": "72em"

@@ -37,7 +37,6 @@ export default function DocsLayout({ html, state }) {
       /* single col */
       :host {
         display: grid;
-        grid-template-rows: minmax(auto, 8rem) auto;
         grid-template-areas:
           'header'
           'content';
@@ -67,7 +66,7 @@ export default function DocsLayout({ html, state }) {
           overflow: auto;
           height: 100vh;
 
-          grid-template-columns: 16rem 1fr;
+          grid-template-columns: var(--docs-nav-width) 1fr;
           grid-template-rows: minmax(auto, 4.5rem) auto;
           grid-template-areas:
             'header   header'
@@ -94,12 +93,10 @@ export default function DocsLayout({ html, state }) {
       @media (min-width: 72em) {
         /* 3-col */
         :host {
-          position: fixed;
           overflow: auto;
           height: 100vh;
-          width: 100vw;
 
-          grid-template-columns: 16rem 4fr 16rem;
+          grid-template-columns: var(--docs-nav-width) 1fr var(--docs-nav-width);
           grid-template-areas:
             'header  header   header'
             'sidebar content outline'
@@ -113,11 +110,12 @@ export default function DocsLayout({ html, state }) {
 
     <docs-symbols></docs-symbols>
 
-    <docs-header id="header" class="pb0 pie1 pis-1"></docs-header>
+    <enhance-header id="header"></enhance-header>
 
-    <nav id="sidebar" class="pbs1-lg overflow-y-auto-lg" aria-label="sidebar">
-      <docs-nav></docs-nav>
-    </nav>
+    <docs-nav
+      id="sidebar"
+      class="overflow-y-auto-lg"
+      aria-label="sidebar"></docs-nav>
 
     <doc-content id="content" class="overflow-y-auto-lg p1-lg pbe2">
       <article slot="doc" class="block leading3">

@@ -3,6 +3,7 @@ export default function AxolOnRainbowAndCloud({ html }) {
     <style>
       :host {
         display: block;
+        aspect-ratio: 789 / 550;
       }
 
       #eye-left,

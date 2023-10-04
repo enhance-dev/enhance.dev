@@ -1,0 +1,96 @@
+<style scope='global'>
+  main {
+    color: var(--ateneo);
+  }
+
+  #showcase-header {
+    inline-size: var(--editorial-width);
+  }
+
+  h1 span:nth-child(2) {
+    color: var(--dark-purple);
+  }
+
+  p {
+    max-inline-size: 42ch;
+  }
+
+  #cloud-wide {
+    translate: -20% 50%;
+    z-index: -1;
+    inline-size: max(300px, 60vw);
+    opacity: 0.5;
+  }
+
+  #cloud-small {
+    translate: 20% -50%;
+    z-index: -1;
+    inline-size: max(100px, 40vw);
+    opacity: 0.33;
+  }
+
+  @media screen and (min-width: 48em) {
+    #cloud-small {
+      translate: 25% -35%;
+    }
+  }
+</style>
+
+<docs-symbols></docs-symbols>
+
+<editorial-header></editorial-header>
+
+<main class='leading3'>
+  <header id='showcase-header' class='relative mi-auto'>
+    <h1 class='text3 text6-lg text7-xl text-center tracking-2 leading1 pb5 pb8-lg'>
+      <span class='block'>Start with HTML.</span>
+      <span class='block font-semibold'>Build your wildest dreams.</span>
+    </h1>
+    <p class='text2-lg text-center mi-auto'>
+      With Enhance’s foundation in web standards, exceptionally fast performance, and peerless stability, the only limit to what you can build is your&nbsp;imagination.
+    </p>
+    <p class='text1-lg text-center mbs4 mi-auto'>
+      In this showcase, you’ll find some of our own example projects, as well as real world applications built by Enhance users across the&nbsp;globe.
+    </p>
+
+    <figure class='mb4'>
+      <p class='text-center font-medium mi-auto'>Want to have your Enhance project featured? <a class='underline' href='https://github.com/enhance-dev/enhance.dev/pulls'>Open a pull request</a> or <a class='underline' href='https://enhance.dev/discord'>let us know on&nbsp;Discord</a>!</p>
+    </figure>
+
+    <img class='mb5 mb8-lg mi-auto' src='/_public/img/landing/swash.svg' alt='' />
+
+    <img id='cloud-wide' class='absolute mb-auto inset-b-0 inset-is-0' src='/_public/img/landing/cloud-blue-wide.svg' alt='' />
+    <img id='cloud-small' class='absolute mb-auto inset-b-0 inset-ie-0' src='/_public/img/landing/cloud-blue-small.svg' alt='' />
+  </header>
+
+  <white-to-blue class='block pbe4 pi-2'>
+    <div class='flex flex-col gap0-lg relative z1'>
+      <showcase-project title="Enhance Music" image="/_public/img/showcase/enhance-music.webp" url="https://enhance-music.com">
+        Enhance Music is a music library and audio player app built with HTML and CSS, and progressively enhanced with a couple pinches of JavaScript. Despite being built as a traditional multipage website, Enhance Music features an audio player that persists across page loads, and some gorgeous interactive UI built entirely with web standards.
+      </showcase-project>
+
+      <showcase-project title="Enhance Movies" image="/_public/img/showcase/enhance-movies.jpg" url="https://enhance-movies.com">
+        Our movies app is built with Enhance and The Movie Database API. With a strong focus on simplicity, performance, progressive enhancement, and offline local development capabilities, this application is set to transform your understanding of what can be done by focusing on the web platform.
+      </showcase-project>
+
+      <showcase-project title="Perfwork" contributor="Tim Kadlec" contributor-url="https://timkadlec.com/" image="/_public/img/showcase/perfwork.jpg" url="https://www.perfwork.com">
+        The job board for web performance professionals and people who want to work in the web performance industry.
+      </showcase-project>
+
+      <showcase-project title="Air Quality Index" image="/_public/img/showcase/aqi.jpg" url="https://invent-k6b.begin.app/">
+        With wildfire season well upon us in North America, it’s a good idea to keep an eye on local air quality. Let’s get some real time data from the US EPA’s AirNow program. Even with a limited API request budget, we can get snappy results by caching and refreshing data on demand. All with features already built into Enhance.
+      </showcase-project>
+
+      <showcase-project title="Design Portfolio" image="/_public/img/showcase/design-portfolio.jpg" url="https://snow-wfi.begin.app/">
+        With clean and easy to follow code, and a modern, responsive interface, this example application demonstrates just how sophisticated you can get when building UI with web standards. This example app can also serve as a starting point for your own portfolio.
+      </showcase-project>
+
+      <showcase-project title="Notes from the Underdark" contributor="Jonathan Lipps" contributor-url="https://jlipps.com/" image="/_public/img/showcase/underdark.jpg" url="https://underdark.quest/">
+        Stories created by a group of friends while playing Dungeons & Dragons.
+      </showcase-project>
+    </div>
+  </white-to-blue>
+
+</main>
+
+<landing-footer class='pb4'></landing-footer>

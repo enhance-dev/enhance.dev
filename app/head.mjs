@@ -3,21 +3,13 @@ import { getStyles } from '@enhance/arc-plugin-styles'
 
 /** @type {import('@enhance/types').EnhanceHeadFn} */
 export default function Head(state) {
-  const { store } = state
+  const { req, store } = state
   const { doc = {} } = store
   const { title: docTitle } = doc
 
   const title = docTitle ? `${docTitle} — Enhance` : 'Enhance'
 
-  const docsCSS = docTitle
-    ? `
-      <link rel="stylesheet" href="${arc.static('/css/docs-colors.css')}" />
-      <link rel="stylesheet" href="${arc.static('/css/docs-highlight.css')}" />
-      <link rel="stylesheet" href="${arc.static(
-        '/bundles/docsearch-css.css'
-      )}" />
-    `
-    : ''
+  store.path = req.path || ''
 
   return /* html */ `
 <!DOCTYPE html>
@@ -35,10 +27,14 @@ export default function Head(state) {
     )}">
     <link href="https://fosstodon.org/@enhance_dev" rel="me">
 
+    <link rel="stylesheet" href="${arc.static('/css/docs-colors.css')}" />
+    <link rel="stylesheet" href="${arc.static('/css/docs-highlight.css')}" />
+    <link rel="stylesheet" href="${arc.static('/bundles/docsearch-css.css')}" />
+
     <meta name="image" content="/_public/img/enhance-open-graph.png" />
     <meta name="og:image" content="/_public/img/enhance-open-graph.png" />
     <meta name="og:type" content="website" />
-    ${docsCSS}
+
     <link rel="manifest" href="${arc.static('/img/favicon/site.webmanifest')}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -57,6 +53,20 @@ export default function Head(state) {
         font-weight: 400 900;
         font-style: italic;
       }
+
+      html,
+      body {
+        font-family: Rubik, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        overflow-x: hidden;
+        text-rendering: optimizeLegibility;
+      }
+
+      @media (prefers-reduced-motion: no-preference) {
+        html {
+          scroll-behavior: smooth;
+        }
+      }
+
     </style>
   </head>
 `
