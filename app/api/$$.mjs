@@ -1,42 +1,10 @@
-import data from '@begin/data'
+import { checkRedirects } from '../lib/redirect.mjs'
 
-const redirects = {
-  '/backend-workshop': '/workshop',
-  '/learn-backend': '/workshop',
-  '/backend': '/workshop',
-}
-
-const snakeToCamel = (str) =>
-  str
-    .toLowerCase()
-    .replace(/([-_][a-z])/g, (group) =>
-      group.toUpperCase().replace('-', '').replace('_', '')
-    )
-
-export async function get(req) {
-  const path = req.requestContext.http.path
-  const isPath = Object.keys(redirects).includes(path)
-
-  if (isPath) {
-    let prop = path.startsWith('/') ? path.substring(1) : path
-    await data.incr({
-      table: 'views',
-      key: 'cta',
-      prop: snakeToCamel(prop),
-    })
-
-    return {
-      statusCode: 301,
-      headers: {
-        location: redirects[path],
-      },
-    }
-  } else {
-    return {
-      statusCode: 301,
-      headers: {
-        location: '/404',
-      },
-    }
+async function catchAll() {
+  return {
+    statusCode: 302,
+    location: '/404',
   }
 }
+
+export const get = [checkRedirects, catchAll]
