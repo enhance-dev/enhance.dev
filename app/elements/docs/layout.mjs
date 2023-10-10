@@ -41,7 +41,8 @@ export default function DocsLayout({ html, state }) {
           'header'
           'content';
         gap: 0 1rem;
-        height: 100vh;
+        block-size: 100dvh;
+        inline-size: 100vw;
       }
       #header {
         grid-area: header;
