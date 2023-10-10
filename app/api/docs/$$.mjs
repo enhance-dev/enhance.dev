@@ -8,6 +8,7 @@ import navDataLoader, {
   other as otherLinks,
 } from '../../docs/nav-data.mjs'
 import HljsLineWrapper from '../../docs/hljs-line-wrapper.mjs'
+import redirects from '../../lib/redirects.mjs'
 
 const arcdown = new Arcdown({
   pluginOverrides: {
@@ -27,6 +28,14 @@ const arcdown = new Arcdown({
 export async function get(request) {
   const { path: activePath } = request
   let docPath = activePath.replace(/^\/?docs\//, '') || 'index'
+
+  if (redirects[activePath]) {
+    return {
+      statusCode: 301,
+      location: redirects[activePath],
+    }
+  }
+
   if (docPath.endsWith('/')) {
     docPath += 'index' // trailing slash == index.md file
   }
