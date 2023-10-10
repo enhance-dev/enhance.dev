@@ -8,16 +8,16 @@ export default function DocsThemeToggle({ html }) {
         width: ${size}px;
       }
       input + svg {
-        opacity: 0.3;
         padding-bottom: 2px;
+        color: var(--purple-princess);
       }
       input:hover + svg,
       input:checked + svg {
         opacity: 1;
-        color: var(--black-princess);
+        color: var(--rift-white);
       }
       input:checked + svg {
-        border-bottom: 2px solid var(--black-princess);
+        border-bottom: 2px solid var(--rift-white);
       }
     </style>
 

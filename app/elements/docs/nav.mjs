@@ -1,6 +1,6 @@
 function List(items, classes = []) {
   return `
-<ul role="list" class="${['list-none pis-1', ...classes].join(' ')}">
+<ul role="list" class="${['list-none pis-2', ...classes].join(' ')}">
   ${items
     .map((item) => {
       return `
