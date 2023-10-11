@@ -23,32 +23,41 @@ export default function Header({ html, state }) {
 
   const isDocs = path.includes('docs')
 
+  const darkModeExtras = `
+    --docsearch-footer-background: var(--smoke-halite);
+    --docsearch-hit-background: var(--white-denim);
+    --docsearch-hit-color: var(--rift);
+    --docsearch-modal-background: var(--smoke-halite);
+    --docsearch-searchbox-background: hsla(0deg 0% 0% / 0.5);
+    --docsearch-searchbox-focus-background: var(--white-denim);
+    --docsearch-text-color: var(--rift-white);
+    --mobile-nav-background: hsla(0deg 0% 0% / 0.33);
+  `
+
+  const docsExtras = isDocs
+    ? `<style scope="global">
+      :root[data-force-theme='dark'] {${darkModeExtras}}
+      @media (prefers-color-scheme: dark) {:root {${darkModeExtras}}}
+    </style>`
+    : ''
+
   return html`
     <style scope="global">
       /* Docsearch overrides */
       :root {
-        --docsearch-highlight-color: var(--purple);
-        --docsearch-searchbox-background: hsla(0deg 0% 0% / 0.075);
-        --docsearch-searchbox-shadow: inset 0 0 0 2px var(--purple);
-        --docsearch-text-color: var(--rift-white);
-        --docsearch-searchbox-focus-background: var(--white-denim);
-        --docsearch-modal-background: var(--smoke-halite);
-        --docsearch-footer-background: var(--smoke-halite);
-        --docsearch-modal-shadow: 0 2px 6px hsla(0deg 0% 0% / 0.5);
-        --docsearch-hit-background: var(--white-denim);
-        --docsearch-hit-shadow: 0 1px 2px hsla(0deg 0% 0% / 0.125);
-        --docsearch-hit-color: var(--rift-white);
+        --docsearch-footer-background: var(--smoke);
         --docsearch-footer-shadow: none;
-      }
-
-      :root[data-force-theme='dark'] {
-        --docsearch-searchbox-background: hsla(0deg 0% 0% / 0.5);
-      }
-
-      @media (prefers-color-scheme: dark) {
-        :root {
-          --docsearch-searchbox-background: hsla(0deg 0% 0% / 0.5);
-        }
+        --docsearch-highlight-color: var(--purple);
+        --docsearch-hit-background: var(--white);
+        --docsearch-hit-color: var(--rift);
+        --docsearch-hit-shadow: 0 1px 2px hsla(0deg 0% 0% / 0.125);
+        --docsearch-modal-background: var(--smoke);
+        --docsearch-modal-shadow: 0 2px 6px hsla(0deg 0% 0% / 0.5);
+        --docsearch-searchbox-background: hsla(0deg 0% 0% / 0.075);
+        --docsearch-searchbox-focus-background: var(--white);
+        --docsearch-searchbox-shadow: inset 0 0 0 2px var(--purple);
+        --docsearch-text-color: var(--rift);
+        --mobile-nav-background: hsla(0deg 0% 100% / 0.85);
       }
 
       .DocSearch-Button {
@@ -97,22 +106,7 @@ export default function Header({ html, state }) {
       }
     </style>
 
-    <style scope="global">
-      /* Mobile nav custom properties */
-      :root {
-        --mobile-nav-background: hsla(0deg 0% 100% / 0.75);
-      }
-
-      :root[data-force-theme='dark'] {
-        --mobile-nav-background: hsla(0deg 0% 0% / 0.33);
-      }
-
-      @media (prefers-color-scheme: dark) {
-        :root {
-          --mobile-nav-background: hsla(0deg 0% 0% / 0.33);
-        }
-      }
-    </style>
+    ${docsExtras}
 
     <style>
       :host {
@@ -188,12 +182,12 @@ export default function Header({ html, state }) {
       }
 
       .global-nav-link {
-        color: var(--purple-princess);
+        color: ${isDocs ? 'var(--purple-princess)' : 'var(--purple)'};
         transition: 0.15s color ease;
       }
 
       .global-nav-link:hover {
-        color: var(--denim-white);
+        color: ${isDocs ? 'var(--denim-white)' : 'var(--denim)'};
       }
     </style>
     <header class="relative z1 flex align-items-center ${isDocs ? 'p-2' : ''}">
