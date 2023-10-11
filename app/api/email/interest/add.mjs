@@ -7,6 +7,6 @@ export async function post(req) {
   await data.set({ table: 'email', email, timestamp })
   return {
     statusCode: 303,
-    location: '/?thanks=true#email-thanks',
+    location: '/workshop-thanks',
   }
 }

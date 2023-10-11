@@ -62,7 +62,7 @@ export default function EmailSignup({ html }) {
             font-bold
             radius-l-none
           ">
-          yes please
+          Yes Please!
         </button>
       </form>
     </div>

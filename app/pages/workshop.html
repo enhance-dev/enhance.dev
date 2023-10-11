@@ -1,0 +1,64 @@
+<style scope="global">
+  body {
+    height: 100vh;
+    background-color: #C1FFFB;
+    background-image: url('/_public/img/svg/background.svg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  main {
+    max-inline-size: 42rem;
+  }
+
+  .color-light {
+    color: var(--light);
+  }
+
+  .bg-purple {
+    background-color: var(--purple);
+  }
+
+  .bg-hover-dark-purple:hover {
+    background-color: var(--dark-purple);
+  }
+
+  .header-wrapper {
+    display: block;
+    background-image: linear-gradient(
+      to bottom,
+      hsla(0deg 0% 100% / 0.85),
+      hsla(0deg 0% 100% / 0.35)
+    );
+  }
+
+</style>
+
+<docs-symbols></docs-symbols>
+
+<div class='header-wrapper'>
+  <editorial-header></editorial-header>
+</div>
+
+<main class='mb4 pi0 mi-auto'>
+  <h1 class='mb5'>
+    <img src='/_public/img/enhance-text-and-subtitle.svg' alt='' class='mi-auto' />
+    <span class='clip'>Enhance: the HTML first full stack framework</span>
+  </h1>
+
+  <h2 class="
+    mbs2
+    mbs6-lg
+    mbe2
+    text1
+    text2-lg
+    text-center
+  ">
+    Sign up for the workshop?
+  </h2>
+
+  <email-signup></email-signup>
+
+  <cherub-mascot class="mb4 mb5-lg mi-auto"></cherub-mascot>
+</main>
