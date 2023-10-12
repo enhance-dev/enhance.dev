@@ -31,7 +31,7 @@ export default function Header({ html, state }) {
     --docsearch-searchbox-background: hsla(0deg 0% 0% / 0.5);
     --docsearch-searchbox-focus-background: var(--white-denim);
     --docsearch-text-color: var(--rift-white);
-    --mobile-nav-background: hsla(0deg 0% 0% / 0.33);
+    --mobile-nav-background: hsla(0deg 0% 0% / 0.66);
   `
 
   const docsExtras = isDocs
@@ -90,6 +90,7 @@ export default function Header({ html, state }) {
 
       .DocSearch-Container {
         backdrop-filter: blur(2px) contrast(50%);
+        -webkit-backdrop-filter: blur(2px) contrast(50%);
         font-size: var(--text-0);
       }
 
@@ -162,6 +163,7 @@ export default function Header({ html, state }) {
       #mobileNav {
         background: var(--mobile-nav-background);
         backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
         box-shadow: 0 2px 6px hsla(0deg 0% 0% / 0.25);
         inset-block-start: var(--nav-height);
         display: none;
