@@ -71,7 +71,7 @@ export default function DocShowcase({ html, state }) {
     </style>
     ${contributor ? '' : axolStyles}
     <article
-      class="mbs0 mbe2 p0 p2-lg relative ${contributor ? '' : 'show-axol'}"
+      class="mbs0 mbe2 p0 p2-lg relative ${contributor ? '' : 'show-axol'}">
       <a href="${url}" target="_blank">
         <figure class="mbe1">
           <img src="${image}" alt="" />
