@@ -169,13 +169,13 @@ export default function Header({ html, state }) {
         display: none;
       }
 
-      @media screen and (width < 48em) {
+      @media screen and (width < 56em) {
         :host:has(#navToggleInput:checked) #mobileNav {
           display: block;
         }
       }
 
-      @media screen and (min-width: 48em) {
+      @media screen and (min-width: 56em) {
         #header-logo {
           inline-size: var(--docs-nav-width);
           /* Negative margin accounts for padding on header */
@@ -190,6 +190,18 @@ export default function Header({ html, state }) {
 
       .global-nav-link:hover {
         color: ${isDocs ? 'var(--denim-white)' : 'var(--denim)'};
+      }
+
+      .deployButton {
+        background: ${isDocs ? 'var(--purple-princess)' : 'var(--purple)'};
+        color: ${isDocs ? 'var(--white-denim)' : 'white'};
+        border-radius: 4px;
+        outline-offset: 2px;
+        transition: background 0.15s ease;
+      }
+
+      .deployButton:hover {
+        background: ${isDocs ? 'var(--rift-white)' : 'var(--dark-purple)'};
       }
     </style>
     <header class="relative z1 flex align-items-center ${isDocs ? 'p-2' : ''}">
@@ -218,7 +230,7 @@ export default function Header({ html, state }) {
         ${isDocs
           ? '<docs-theme-toggle class="hidden block-lg"></docs-theme-toggle >'
           : ''}
-        <article id="search"></article>
+        <search id="search"></search>
         <label
           id="navToggle"
           class="hidden-lg mis-auto flex align-items-center gap-5 pb-3 pi-2">
@@ -231,6 +243,12 @@ export default function Header({ html, state }) {
             type="checkbox"
             aria-label="Toggle site navigation" />
         </label>
+        <a
+          href="https://begin.com/docs/getting-started/installing-the-begin-cli?from=enhance"
+          class="hidden inline-flex-lg gap-4 mis-2 pb-3 pi-2 font-medium deployButton">
+          <begin-logo class="flex-none"></begin-logo>
+          <span class="inline-block">Deploy</span>
+        </a>
       </div>
     </header>
 
@@ -243,7 +261,14 @@ export default function Header({ html, state }) {
       ${isDocs
         ? '<docs-theme-toggle class="block mbe-2"></docs-theme-toggle>'
         : ''}
-      ${globalNavItems} ${path.includes('docs') ? `<docs-nav></docs-nav >` : ''}
+      ${globalNavItems}
+      <a
+        href="https://begin.com/docs/getting-started/installing-the-begin-cli?from=enhance"
+        class="inline-flex gap-4 mis-2 mb-2 pb-3 pi-2 font-medium deployButton">
+        <begin-logo class="flex-none"></begin-logo>
+        <span class="inline-block">Deploy</span>
+      </a>
+      ${path.includes('docs') ? `<docs-nav></docs-nav >` : ''}
     </nav>
 
     <script type="module">

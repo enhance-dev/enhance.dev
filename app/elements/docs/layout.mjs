@@ -60,7 +60,7 @@ export default function DocsLayout({ html, state }) {
         display: none;
       }
 
-      @media only screen and (min-width: 48em) {
+      @media only screen and (min-width: 56em) {
         /* 2-col + */
         :host {
           position: fixed;

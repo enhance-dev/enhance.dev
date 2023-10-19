@@ -57,7 +57,7 @@ export default function Cta({ html, state }) {
         border-radius: 5px;
       }
 
-      @media only screen and (min-width: 48em) {
+      @media only screen and (min-width: 56em) {
         :host > main {
           display: grid;
           grid-template-columns: repeat(5, 1fr);

@@ -72,7 +72,7 @@ export default function NoJsRequired({ html }) {
         padding-inline: 1rem;
       }
 
-      @media screen and (min-width: 48em) {
+      @media screen and (min-width: 56em) {
         .features {
           padding-block: var(--space-3xl);
         }

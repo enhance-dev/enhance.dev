@@ -38,7 +38,7 @@ export default function EmailThankPage({ html }) {
         max-width: 20rem;
       }
 
-      @media only screen and (min-width: 48em) {
+      @media only screen and (min-width: 56em) {
         :host > main > h1 {
           font-size: 6rem;
           font-weight: 700;

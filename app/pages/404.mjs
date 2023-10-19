@@ -92,7 +92,7 @@ export default function FourOh4({ html, state }) {
         color: initial;
       }
 
-      @media only screen and (min-width: 48em) {
+      @media only screen and (min-width: 56em) {
         :host > main {
           grid-template-columns: repeat(5, 1fr);
           grid-template-rows: 15rem 5rem 11rem 1fr;

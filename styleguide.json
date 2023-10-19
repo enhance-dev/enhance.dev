@@ -57,7 +57,7 @@
     "editorial-width": "max(320px - var(--space-0), 87.5vw)"
   },
   "queries": {
-    "lg": "48em",
+    "lg": "56em",
     "xl": "72em"
   },
   "radius": [

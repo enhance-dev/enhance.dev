@@ -145,7 +145,7 @@ export default function TheGround({ html, state }) {
         transform: scale(0.75);
       }
 
-      @media screen and (min-width: 48em) {
+      @media screen and (min-width: 56em) {
         figure img {
           transform: scale(1);
         }

@@ -10,7 +10,7 @@ export default function Liftoff({ html }) {
         z-index: 1;
       }
 
-      @media screen and (min-width: 48em) {
+      @media screen and (min-width: 56em) {
         :host {
           max-width: 80vw;
           padding-inline: 0;
@@ -58,7 +58,7 @@ export default function Liftoff({ html }) {
         right: 5vw;
       }
 
-      @media screen and (min-width: 48em) {
+      @media screen and (min-width: 56em) {
         .axol {
           right: -5vw;
         }
