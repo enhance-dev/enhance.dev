@@ -9,13 +9,13 @@
 Algolia's
 autocomplete
 autogenerate
-Booleans
+(B|b)ooleans
 badass
 baseMax
 baseMin
 breakpoint
 CodeMirror
-colocating
+colocat(ing|ion)
 CommonJS
 counterintuitive
 cowboying
@@ -24,8 +24,10 @@ cribsheet
 cheatsheet
 CRUDL
 customizations
+deduplicated
 dev-tools
 DOM
+DOMs
 DX
 Fastify
 favicon
@@ -42,7 +44,9 @@ jQuery
 JSDoc
 JSDOM
 LTR
+lowercas(e|ed)
 MDN
+MDN's
 mixi(n|ns)
 natively
 Netlify
@@ -57,6 +61,7 @@ scaleMin
 scriptable
 shadowDOM
 SFC(s)
+skillset
 SSR
 superset
 SWC
@@ -73,3 +78,12 @@ viewportMax
 viewportMin
 WebdriverIO
 WebDriver
+html
+es6-string-html
+literally-html
+vim-javascript
+vim-html-template-literals
+Neovim
+nvim-treesitter
+Treesitter's
+parsers

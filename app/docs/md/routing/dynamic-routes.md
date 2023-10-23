@@ -28,7 +28,7 @@ export async function get (req) {
 
 In the above example, the `users/$id.mjs` API route will match any URL pointing to `/users/*`.
 
-The dynamic segment of the URL will be made availble to the API handler as a path parameter, named by the key following the `$` in the filename (in this case: `id`). For example:
+The dynamic segment of the URL will be made available to the API handler as a path parameter, named by the key following the `$` in the filename (in this case: `id`). For example:
 
 | API route | Example URL | `req.params` |
 | - | - | - |
@@ -59,7 +59,7 @@ Enhance supports multiple path parameters. For example:
 
 ## Route precedence
 
-Static routes take precendence over dynamic routes.
+Static routes take precedence over dynamic routes.
 
 For example, consider a project with the following API routes:
 

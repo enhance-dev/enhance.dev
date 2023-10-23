@@ -6,7 +6,7 @@ links: # Further Reading
   - "Simon Willison's walk-through": https://til.simonwillison.net/web-components/understanding-single-file-web-component
 ---
 
-Components are a cornerstore of modern web frameworks. Typically, these components emphasize colocation of concerns (content, styling, and functionality) while also enabling ease of reuse. However, most frameworks require you to learn a non-standard dialect in order to use those components.
+Components are a cornerstone of modern web frameworks. Typically, these components emphasize colocation of concerns (content, styling, and functionality) while also enabling ease of reuse. However, most frameworks require you to learn a non-standard dialect in order to use those components.
 
 Enhance Elements are designed to offer these same benefits without the requirement of learning a new syntax. They can be authored using the HTML, CSS, and JavaScript you already know and love.
 
@@ -97,7 +97,7 @@ export default function MyButton({ html, state }) {
 
 ## Declare
 
-Once your element is to your liking, you can use it anywhere else in your project just like HTML — by declaring its custom element tag (which is dervied from its file name).
+Once your element is to your liking, you can use it anywhere else in your project just like HTML — by declaring its custom element tag (which is derived from its file name).
 
 <doc-code filename="app/pages/index.html">
 

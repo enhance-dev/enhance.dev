@@ -23,7 +23,7 @@ export async function get(req) {
 ```
 </doc-code>
 
-Because catch all routes don’t have explicitly labelled dynamic segments, your request’s path parameters object will contain a `proxy` key whose value is a string containing the matching path segments. For example:
+Because catch all routes don’t have explicitly labeled dynamic segments, your request’s path parameters object will contain a `proxy` key whose value is a string containing the matching path segments. For example:
 
 | API route | Example URL | `req.params` |
 | - | - | - |
