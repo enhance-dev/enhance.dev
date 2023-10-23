@@ -26,12 +26,8 @@ const arcdown = new Arcdown({
 
 /** @type {import('@enhance/types').EnhanceApiFn} */
 export async function get(request) {
-  console.log(JSON.stringify(request, null, 2))
   const { path: activePath } = request
   let docPath = activePath.replace(/^\/?docs\//, '') || 'index'
-
-  // Remove 'learn' path segment (used in previous version of docs)
-  // if (docPath.startsWith('learn')) docPath = docPath.replace('learn/', '')
 
   // Redirects for new marketing pages
   if (redirects[docPath]) {
