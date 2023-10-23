@@ -1,4 +1,4 @@
-import { checkRedirects } from '../lib/redirect.mjs'
+import { checkRedirects } from '../lib/marketing-redirects.mjs'
 
 async function catchAll() {
   return {

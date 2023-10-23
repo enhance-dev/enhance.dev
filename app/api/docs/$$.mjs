@@ -8,7 +8,7 @@ import navDataLoader, {
   other as otherLinks,
 } from '../../docs/nav-data.mjs'
 import HljsLineWrapper from '../../docs/hljs-line-wrapper.mjs'
-import redirects from '../../lib/redirects.mjs'
+import redirects from '../../lib/docs-redirects.mjs'
 
 const arcdown = new Arcdown({
   pluginOverrides: {
