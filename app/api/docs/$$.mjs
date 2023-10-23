@@ -26,13 +26,18 @@ const arcdown = new Arcdown({
 
 /** @type {import('@enhance/types').EnhanceApiFn} */
 export async function get(request) {
+  console.log(JSON.stringify(request, null, 2))
   const { path: activePath } = request
   let docPath = activePath.replace(/^\/?docs\//, '') || 'index'
 
-  if (redirects[activePath]) {
+  // Remove 'learn' path segment (used in previous version of docs)
+  // if (docPath.startsWith('learn')) docPath = docPath.replace('learn/', '')
+
+  // Redirects for new marketing pages
+  if (redirects[docPath]) {
     return {
       statusCode: 301,
-      location: redirects[activePath],
+      location: redirects[docPath],
     }
   }
 
@@ -54,7 +59,7 @@ export async function get(request) {
     }
   }
 
-  const sidebarData = navDataLoader('docs', activePath)
+  const navData = navDataLoader('docs', activePath)
 
   let docMarkdown
   try {
@@ -73,7 +78,7 @@ export async function get(request) {
         html: `<docs-404 search-term="${searchTerm}"></docs-404>`,
       },
       otherLinks,
-      sidebarData,
+      navData,
       searchTerm,
       gacode,
     }
@@ -89,7 +94,7 @@ export async function get(request) {
     doc,
     gitHubLink,
     otherLinks,
-    sidebarData,
+    navData,
     gacode,
   }
 

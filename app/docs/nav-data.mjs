@@ -1,116 +1,130 @@
 const TYPE = {
   category: 'category',
   doc: 'doc',
-  link: 'link',
-  tab: 'tab',
+  parentDoc: 'parentDoc',
 }
 
 export const data = [
-  // only tabs allowed at top level
   {
-    type: TYPE.tab,
-    label: 'Learn',
-    slug: 'learn',
+    type: TYPE.category,
+    slug: 'get-started',
     items: [
       {
-        type: TYPE.category,
-        slug: 'get-started',
-        items: [
-          {
-            // verbose
-            type: TYPE.doc, // default
-            label: 'Quick Start',
-            path: '/docs/', // optional, absolute
-            slug: 'quick-start',
-          },
-          'editor-setup',
-        ],
+        // verbose
+        type: TYPE.doc, // default
+        label: 'Quick Start',
+        path: '/docs/', // optional, absolute
+        slug: 'quick-start',
+      },
+      'editor-setup',
+      'glossary',
+    ],
+  },
+  {
+    type: TYPE.category,
+    slug: 'conventions',
+    items: [
+      'structure',
+      'head',
+      { slug: 'css', label: 'CSS' },
+      'pages',
+      'elements',
+      { slug: 'api', label: 'APIs' },
+      'browser',
+      'public',
+      '404-errors',
+    ],
+  },
+  {
+    type: TYPE.category,
+    slug: 'routing',
+    items: [
+      {
+        slug: '',
+        label: 'Overview',
+      },
+      'lifecycle',
+      {
+        slug: 'dynamic-routes',
+        label: 'Dynamic Routes',
       },
       {
-        type: TYPE.category,
-        slug: 'starter-project',
-        items: [
-          'structure',
-          'pages',
-          'elements',
-          { slug: 'api', label: 'API' },
-          'browser',
-          'public',
-          'head',
-          '404-errors',
-        ],
+        slug: 'catch-all-routes',
+        label: 'Catch All Routes',
       },
       {
-        type: TYPE.category,
-        slug: 'concepts',
-        items: [
-          'single-file-components',
-          {
-            slug: 'html',
-            label: 'html',
-            path: '/docs/learn/concepts/html/',
-            description: 'The HTML render function',
-            items: ['elements', 'slots'],
-          },
-          {
-            slug: 'state',
-            path: '/docs/learn/concepts/state/',
-            items: ['attributes', 'store'],
-          },
-          {
-            slug: 'styling',
-            path: '/docs/learn/concepts/styling/',
-            items: [
-              {
-                slug: 'CSS',
-                description: 'Modern CSS is amazing!',
-                path: '/docs/learn/concepts/styling/css',
-              },
-              'using-tailwind',
-              'using-sass',
-              {
-                slug: 'enhance-styles',
-                path: '/docs/learn/concepts/styling/enhance-styles/',
-                description: 'Configurable, performant styling',
-                items: [
-                  'utility-classes',
-                  'logical-properties',
-                  'customization',
-                  'modular-scales',
-                  'element-styles',
-                ],
-              },
-            ],
-          },
-          {
-            slug: 'routing',
-            path: '/docs/learn/concepts/routing/',
-            items: [
-              'lifecycle',
-              'dynamic-routes',
-              'catch-all-routes',
-              { slug: 'api-routes', label: 'API Routes' },
-            ],
-          },
-          'glossary',
-        ],
+        slug: 'api-routes',
+        path: '/docs/routing/api-routes/',
+        label: 'API Routes',
+        hasChildren: true,
+        items: ['middleware', 'tutorial'],
+      },
+    ],
+  },
+  {
+    type: TYPE.category,
+    slug: 'elements',
+    items: [
+      {
+        slug: '',
+        label: 'Overview',
       },
       {
-        type: TYPE.category,
-        slug: 'practices',
-        items: [
-          'progressive-enhancement',
-          {
-            slug: 'testing',
-            path: '/docs/learn/practices/testing/',
-            items: [{ slug: 'webdriverio', label: 'WebdriverIO' }],
-          },
-          { slug: 'types', label: 'Type Definitions' },
-          { slug: 'env-vars', label: 'Environment Variables' },
-          'architect-migration',
-        ],
+        slug: 'html',
+        path: '/docs/elements/html/',
+        label: 'HTML',
+        hasChildren: true,
+        items: ['slots'],
       },
-      /*
+      {
+        slug: 'state',
+        path: '/docs/elements/state/',
+        label: 'State',
+        hasChildren: true,
+        items: ['attributes', 'store'],
+      },
+    ],
+  },
+  {
+    type: TYPE.category,
+    slug: 'enhance-styles',
+    label: 'Enhance Styles',
+    items: [
+      {
+        slug: '',
+        label: 'Overview',
+      },
+      'utility-classes',
+      'logical-properties',
+      'customization',
+      'modular-scales',
+      'element-styles',
+      {
+        slug: 'alternatives',
+        path: '/docs/enhance-styles/alternatives/',
+        hasChildren: true,
+        items: ['tailwind', 'sass'],
+      },
+    ],
+  },
+  {
+    type: TYPE.category,
+    slug: 'patterns',
+    items: [
+      'progressive-enhancement',
+      'browser-modules',
+      {
+        slug: 'testing',
+        path: '/docs/patterns/testing/',
+        hasChildren: true,
+        items: [{ slug: 'webdriverio', label: 'WebdriverIO' }],
+      },
+      { slug: 'types', label: 'Type Definitions' },
+      { slug: 'env-vars', label: 'Environment Variables' },
+      'architect-migration',
+    ],
+  },
+  /*
       {
         type: TYPE.category,
         slug: 'features',
@@ -133,84 +147,20 @@ export const data = [
         ],
       },
       */
-      {
-        type: TYPE.category,
-        slug: 'deployment',
-        items: [
-          {
-            slug: 'begin',
-            label: 'Begin',
-            description: 'The recommended FWA approach',
-          },
-          {
-            slug: 'architect',
-            label: 'Architect',
-            description: 'Deploy to AWS directly',
-          },
-        ],
-      },
-    ],
-  },
-  /*
   {
-    type: TYPE.tab,
-    label: 'Reference',
-    slug: 'reference',
+    type: TYPE.category,
+    slug: 'deployment',
     items: [
       {
-        type: TYPE.category,
-        label: 'Enhance SSR',
-        slug: 'enhance-ssr',
-        description: 'The main power source.',
-        items: [
-          { slug: 'intro', label: 'Introduction' },
-          { slug: 'api', label: 'API' },
-        ],
+        slug: 'begin',
+        label: 'Begin',
+        description: 'The recommended FWA approach',
       },
       {
-        type: TYPE.category,
-        label: 'Complementary Libraries',
-        slug: 'libraries',
-        items: [
-          'enhance-style-transform',
-          'enhance-import-transform',
-          {
-            slug: 'enhance-styles',
-            path: '/docs/reference/libraries/enhance-styles/',
-            items: [{ slug: 'api', label: 'API' }, 'examples'],
-          },
-          {
-            slug: 'enhance-data',
-            path: '/docs/reference/libraries/enhance-data/',
-            items: [{ slug: 'api', label: 'API' }],
-          },
-        ],
+        slug: 'architect',
+        label: 'Architect',
+        description: 'Deploy to AWS directly',
       },
-    ],
-  },
-  */
-  {
-    type: TYPE.tab,
-    label: 'By Example',
-    slug: 'by-example',
-    items: [
-      {
-        type: TYPE.category,
-        label: 'Examples',
-        slug: 'examples',
-        items: ['standalone-enhance', 'browser-testing'],
-      },
-      {
-        type: TYPE.category,
-        label: 'Integrations',
-        slug: 'integrations',
-        items: [
-          { slug: 'custom-elements-in-md', label: 'Custom Elements in .md' },
-          { slug: 'with-tailwind', label: 'With tailwind' },
-          { slug: 'with-alpinejs', label: 'With Alpine.js' },
-        ],
-      },
-      'videos',
     ],
   },
 ]

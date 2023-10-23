@@ -55,7 +55,7 @@ export default function Callout({ html, state }) {
         gap-1
         align-items-center
       ">
-      ${mark.length > 0 && mark !== 'none'
+      ${mark?.length > 0 && mark !== 'none'
         ? `<callout-mark class="text2 align-self-start">${mark}</callout-mark>`
         : ''}
       <div>

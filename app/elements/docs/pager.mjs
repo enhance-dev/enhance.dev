@@ -1,6 +1,6 @@
 export default function DocsPager({ html, state }) {
   const {
-    store: { sidebarData = [], doc },
+    store: { navData = [], doc },
   } = state
 
   if (doc?.frontmatter?.['docs-pager'] === false) {
@@ -20,9 +20,7 @@ export default function DocsPager({ html, state }) {
       : []
   }
 
-  const flattenedItems = flattenItems(
-    sidebarData.find((tab) => tab.activeTab)?.items
-  )
+  const flattenedItems = flattenItems(navData)
   const activeIndex = flattenedItems.findIndex((i) => i.active)
   let prevDoc
   let nextDoc
