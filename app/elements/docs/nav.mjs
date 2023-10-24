@@ -1,12 +1,11 @@
 function List(items, classes = []) {
   return `
-<ul role="list" class="${['list-none pis-2', ...classes].join(' ')}">
+<ul role="list" class="${['list-none', ...classes].join(' ')}">
   ${items
     .map((item) => {
       return `
-<li class="">
+<li class="${item.hasChildren ? 'hasChildren' : ''}">
   ${item.type === 'doc' ? Doc(item) : ''}
-  ${item.type === 'link' ? Link(item) : ''}
   ${item.type === 'category' ? Category(item) : ''}
   ${item.items?.length > 0 && item.type !== 'category' ? List(item.items) : ''}
 </li>
@@ -19,16 +18,7 @@ function List(items, classes = []) {
 
 function Doc(item) {
   return `
-<a href="${item.path}" class="p-4 block${item.active ? ' active' : ''}">
-  <div class="${item.type}-label">${item.label}</div>
-  ${Description(item, ['mbs-4'])}
-</a>
-    `.trim()
-}
-
-function Link(item) {
-  return `
-<a href="${item.path}" class="p-4 mbe0 block${item.active ? ' active' : ''}">
+<a href="${item.path}" class="block pb-4 ${item.active ? 'active' : ''}">
   <div class="${item.type}-label">${item.label}</div>
   ${Description(item, ['mbs-4'])}
 </a>
@@ -38,7 +28,9 @@ function Link(item) {
 function Category(item) {
   return `
 <div class="mbs3">
-  <div class="category-label font-medium mbe-4 uppercase">${item.label}</div>
+  <div class="category-label font-medium text-1 tracking2 mbe-4 uppercase">${
+    item.label
+  }</div>
   ${Description(item)}
 </div>
 ${item.items?.length > 0 ? List(item.items) : ''}
@@ -57,34 +49,41 @@ function Description(item, classes = []) {
 
 export default function DocsNav({ html, state }) {
   const { store } = state
-  const { sidebarData } = store
-
-  const tabs = sidebarData.filter((i) => i.type === 'tab')
-  const activeTab = tabs.find((tab) => tab.activeTab) || tabs[0]
+  const { navData } = store
 
   return html`
     <style>
+      :host {
+        display: block;
+        padding-inline: var(--space--2);
+      }
+
       li a {
+        margin-inline: calc(var(--space--4) * -1 - 4px);
+        padding-inline: var(--space--4);
+        border-inline-start: 4px solid transparent;
         color: var(--rift-princess);
       }
-      li a:hover {
-        margin-left: -5px;
-        border-left: 5px solid var(--purple-princess);
-        background-color: var(--cloud-ateneo);
-      }
+
+      li a:hover,
       li a.active {
-        margin-left: -5px;
-        border-left: 5px solid var(--purple-princess);
         background-color: var(--cloud-ateneo);
+        border-color: var(--purple-princess);
       }
+
       .category-label {
         color: var(--purple-white);
       }
+
       .description {
         color: var(--inky-lily);
       }
+
+      .hasChildren ul {
+        padding-inline-start: var(--space--2);
+      }
     </style>
 
-    <nav>${List(activeTab.items)}</nav>
+    <nav>${List(navData)}</nav>
   `
 }

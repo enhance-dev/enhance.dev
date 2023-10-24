@@ -41,11 +41,20 @@ export default function DocContent({ html }) {
         color: var(--inky-lily);
       }
 
-      li {
+      ul li {
         list-style-position: inside;
       }
+
       li > ul {
-        padding-left: 0.8rem;
+        padding-left: var(--space-0);
+      }
+
+      ol {
+        padding-left: var(--space-0);
+      }
+
+      ol li {
+        list-style-position: outside;
       }
 
       table {

@@ -8,7 +8,7 @@ import navDataLoader, {
   other as otherLinks,
 } from '../../docs/nav-data.mjs'
 import HljsLineWrapper from '../../docs/hljs-line-wrapper.mjs'
-import redirects from '../../lib/redirects.mjs'
+import redirects from '../../lib/docs-redirects.mjs'
 
 const arcdown = new Arcdown({
   pluginOverrides: {
@@ -29,10 +29,11 @@ export async function get(request) {
   const { path: activePath } = request
   let docPath = activePath.replace(/^\/?docs\//, '') || 'index'
 
-  if (redirects[activePath]) {
+  // Redirects for new marketing pages
+  if (redirects[docPath]) {
     return {
       statusCode: 301,
-      location: redirects[activePath],
+      location: redirects[docPath],
     }
   }
 
@@ -54,7 +55,7 @@ export async function get(request) {
     }
   }
 
-  const sidebarData = navDataLoader('docs', activePath)
+  const navData = navDataLoader('docs', activePath)
 
   let docMarkdown
   try {
@@ -73,7 +74,7 @@ export async function get(request) {
         html: `<docs-404 search-term="${searchTerm}"></docs-404>`,
       },
       otherLinks,
-      sidebarData,
+      navData,
       searchTerm,
       gacode,
     }
@@ -89,7 +90,7 @@ export async function get(request) {
     doc,
     gitHubLink,
     otherLinks,
-    sidebarData,
+    navData,
     gacode,
   }
 
