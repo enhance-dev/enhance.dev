@@ -57,12 +57,15 @@ const enhanceStyles = getRedirects(
   ]
 )
 
+const configuration = getRedirects('learn/practices', '/docs/configuration', [
+  'env-vars',
+  'types',
+])
+
 const patterns = getRedirects('learn/practices', '/docs/patterns', [
   'progressive-enhancement',
   'testing',
   'testing/webdriverio',
-  'types',
-  'env-vars',
   'architect-migration',
 ])
 
@@ -90,6 +93,7 @@ export default {
   ...styling,
   'learn/concepts/styling/css': '/docs/conventions/css',
   ...enhanceStyles,
+  ...configuration,
   ...patterns,
   'unsorted/browser-modules': '/docs/patterns/browser-modules',
 }

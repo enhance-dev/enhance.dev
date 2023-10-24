@@ -109,6 +109,14 @@ export const data = [
   },
   {
     type: TYPE.category,
+    slug: 'configuration',
+    items: [
+      { slug: 'env-vars', label: 'Environment Variables' },
+      { slug: 'types', label: 'Type Definitions' },
+    ],
+  },
+  {
+    type: TYPE.category,
     slug: 'patterns',
     items: [
       'progressive-enhancement',
@@ -119,8 +127,6 @@ export const data = [
         hasChildren: true,
         items: [{ slug: 'webdriverio', label: 'WebdriverIO' }],
       },
-      { slug: 'types', label: 'Type Definitions' },
-      { slug: 'env-vars', label: 'Environment Variables' },
       'architect-migration',
     ],
   },
