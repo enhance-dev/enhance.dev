@@ -1,5 +1,5 @@
 ---
-title: API
+title: APIs
 ---
 
 The `app/api` folder is for adding data to your app.

@@ -1,5 +1,5 @@
 ---
-title: Static Assets
+title: Public (Static Assets)
 links:
   - Rails Guides on fingerprinting: https://guides.rubyonrails.org/asset_pipeline.html#what-is-fingerprinting-and-why-should-i-care-questionmark
 ---

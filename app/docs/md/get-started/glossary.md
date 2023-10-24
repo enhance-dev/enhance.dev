@@ -1,5 +1,5 @@
 ---
-title: Glossary of Important Terms
+title: Glossary
 links: # Further Reading
   - Functional Web Apps: https://fwa.dev
   - Architect: https://arc.codes

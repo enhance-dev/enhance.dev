@@ -1,5 +1,5 @@
 ---
-title: Progressive enhancement
+title: Progressive Enhancement
 ---
 
 The Enhance ethos is to build your app incrementally from prototype to production. First, start with working HTML. Next, break out Custom Elements as the need for reuse arises. Develop against your own APIs by returning hard-coded data until you’re ready to invest the time to hook up your database. Once you know what the data returned from your API should look like, add reading and writing from your database—finally, layer on user input interactions and data reactivity in the browser. Progressively enhance your application from a working prototype to a production-ready product with the same codebase.

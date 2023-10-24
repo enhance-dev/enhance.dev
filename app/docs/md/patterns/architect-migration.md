@@ -1,5 +1,5 @@
 ---
-title: Migrating to or from Architect
+title: Architect Migration
 links:
   - "arc.codes": https://arc.codes
 ---

@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: incrementing a counter"
+title: "Tutorial: Incrementing a Counter"
 ---
 
 To demonstrate building out dynamic API routes and then progressively enhancing them we'll build an incrementing counter. First rough in the HTML.

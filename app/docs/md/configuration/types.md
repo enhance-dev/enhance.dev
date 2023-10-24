@@ -1,5 +1,5 @@
 ---
-title: Enhance Types
+title: Type Definitions
 links:
   - "@enhance/types": https://github.com/enhance-dev/types
 ---
