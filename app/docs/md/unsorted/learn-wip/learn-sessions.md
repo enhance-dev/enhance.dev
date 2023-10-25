@@ -1,24 +1,25 @@
 ---
-title: "Module 8: Sessions and Simple Authentication"
+title: "Sessions Best Practice"
 ---
 
-[Module Index](/enhance-workshop)
 
-# Module 8: Sessions and Simple Authentication
+Sessions are a critical tool for building on the web platform.
+This section covers best practices for using Enhance sessions.
+It also explains the underlying platform API's that make sessions work. 
 
 ## Outline
 
 - What are Sessions
 - HTTP Only Cookies
 - Enhance Sessions
-- Simple Auth with Sessions
+- Example: Simple Auth with Sessions
 
 
 ## Sessions
-We are missing a few tools to finish our CRUDL routes from the last module.
-We need a way to maintain a persistent state between the request and responses back and forth between the browser and the server.
+In most web apps we need a way to maintain a persistent state between the request and responses back and forth between the browser and the server.
 Sessions give us that.
 They are the best way to add authentication and to close the loop on form validation from the server.
+Sessions are also useful for things like a shopping cart.
 
 When you visit a website, by default, it doesn't remember anything about you - it's like starting a new conversation every time you go to the website or even loading a new page on the same website you are already visiting.
 HTTP is a stateless protocol.
@@ -51,7 +52,7 @@ By taking the time to implement these security measures correctly, you'll be abl
 
 ## Implementing a session with set-cookie
 
-Lets look at how we might build a session out of cookies for our app.
+Lets look at how we might build a session out of cookies for an app.
 
 Add an API route at `/app/api/cookie.mjs` with the following:
 
@@ -81,11 +82,12 @@ export default function cookie ({html, state}) {
 
 When you first hit the `/cookie` route the server will send a cookie to the user.
 The first time through it is sent to the browser.
-Then when you refresh the page it is sent back with that request and it show up in the `req.cookies` and is displayed on the page.
+Then when you refresh the page it is sent back with that request and it shows up in the `req.cookies` and is displayed on the page.
 
 ## Enhance Sessions
 
-Enhance has session functionality built-in using `set-cookie` behind the scenes. That code is open source, has been audited by thousands, and has more affordances for better security.
+Enhance has session functionality built-in using `set-cookie` behind the scenes.
+That code is open source, has been audited by thousands, and has more affordances for better security.
 
 Lets check it out.
 
@@ -117,7 +119,7 @@ Stateless sessions are nice because they don’t involve more moving parts like 
 
 Enhance, supports both.
 
-# Implementing a basic login flow on top of session
+## Example: Implementing a basic login flow on top of session
 
 Getting back to the portfolio we are building one of the things that we need sessions for is authentication.
 We want any guests to be able to see the portfolio, résumé, and link tree pages, but we don't want them to be able to create new links.
