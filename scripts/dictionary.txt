@@ -75,6 +75,8 @@ tradeoffs
 unscoped
 unstyled
 urls
+validator
+Validator
 viewportMax
 viewportMin
 WebdriverIO

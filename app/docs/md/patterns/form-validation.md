@@ -4,7 +4,7 @@ title: Form Validation
 ---
 
 HTML forms are very powerful on their own.
-It does not take much markup to cature all kinds of data.
+It does not take much markup to capture all kinds of data.
 But for most applications we need to validate the data sent to avoid user error or intentional misuse.
 This section covers validation best practices using Enhance. It includes:
 
