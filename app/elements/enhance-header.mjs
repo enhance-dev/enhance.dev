@@ -154,7 +154,9 @@ export default function Header({ html, state }) {
       }
 
       /* Show outline on entire #navToggle when its (invisible) input is focused */
-      #navToggle:has(#navToggleInput:focus-visible) {
+      /* When :has() gets GA, change selector to: */
+      /* #navToggle:has(#navToggleInput:focus-visible) { */
+      #navToggleInput:focus-visible ~ * > #navToggle {
         outline: 2px auto Highlight;
         outline: 2px auto -webkit-focus-ring-color;
         outline-offset: 2px;
@@ -170,7 +172,9 @@ export default function Header({ html, state }) {
       }
 
       @media screen and (width < 56em) {
-        :host:has(#navToggleInput:checked) #mobileNav {
+        /* When :has() gets GA, change selector to: */
+        /* :host:has(#navToggleInput:checked) #mobileNav { */
+        #navToggleInput:checked ~ #mobileNav {
           display: block;
         }
       }
@@ -226,22 +230,32 @@ export default function Header({ html, state }) {
 
       <nav class="hidden block-lg text0">${globalNavItems}</nav>
 
+      <!-- remove input when :has() gets GA: -->
+      <input
+        id="navToggleInput"
+        type="checkbox"
+        aria-label="Toggle site navigation" />
+
       <div class="mis-auto flex align-items-center text0">
         ${isDocs
           ? '<docs-theme-toggle class="hidden block-lg"></docs-theme-toggle >'
           : ''}
         <search id="search"></search>
+        <!-- remove label.for when :has() gets GA -->
         <label
           id="navToggle"
+          for="navToggleInput"
           class="hidden-lg mis-auto flex align-items-center gap-5 pb-3 pi-2">
           <svg height="24" width="24">
             <use xlink:href="#svg-hamburger"></use>
           </svg>
           Menu
+          <!-- when :has() gets GA:
           <input
             id="navToggleInput"
             type="checkbox"
             aria-label="Toggle site navigation" />
+          -->
         </label>
         <a
           href="https://begin.com/docs/getting-started/installing-the-begin-cli?from=enhance"
@@ -250,26 +264,26 @@ export default function Header({ html, state }) {
           <span class="inline-block">Deploy</span>
         </a>
       </div>
-    </header>
 
-    <!-- mobile nav -->
-    <nav
-      id="mobileNav"
-      class="hidden-lg text0 fixed inset-i-0 pb0 overflow-auto ${isDocs
-        ? 'inset-be-0'
-        : ''}">
-      ${isDocs
-        ? '<docs-theme-toggle class="block mbe-2"></docs-theme-toggle>'
-        : ''}
-      ${globalNavItems}
-      <a
-        href="https://begin.com/docs/getting-started/installing-the-begin-cli?from=enhance"
-        class="inline-flex gap-4 mis-2 mb-2 pb-3 pi-2 font-medium deployButton">
-        <begin-logo class="flex-none"></begin-logo>
-        <span class="inline-block">Deploy</span>
-      </a>
-      ${path.includes('docs') ? `<docs-nav></docs-nav >` : ''}
-    </nav>
+      <!-- mobile nav -->
+      <nav
+        id="mobileNav"
+        class="hidden-lg text0 fixed inset-i-0 pb0 overflow-auto ${isDocs
+          ? 'inset-be-0'
+          : ''}">
+        ${isDocs
+          ? '<docs-theme-toggle class="block mbe-2"></docs-theme-toggle>'
+          : ''}
+        ${globalNavItems}
+        <a
+          href="https://begin.com/docs/getting-started/installing-the-begin-cli?from=enhance"
+          class="inline-flex gap-4 mis-2 mb-2 pb-3 pi-2 font-medium deployButton">
+          <begin-logo class="flex-none"></begin-logo>
+          <span class="inline-block">Deploy</span>
+        </a>
+        ${path.includes('docs') ? `<docs-nav></docs-nav >` : ''}
+      </nav>
+    </header>
 
     <script type="module">
       import docsearch from '/_static/bundles/docsearch-js.mjs'
