@@ -29,7 +29,7 @@ Here’s an example of a fluid modular scale for type in action — you can also
 
 In addition to gracefully scaling across a range of viewport widths, using fluid type and spacing can reduce the amount of CSS you need to write (especially when it comes to CSS scoped with media queries). Of course, this strategy requires alignment between designers and developers; [the Utopia blog](https://utopia.fyi/blog) has some great reading on this subject.
 
-## `typeScale` and `fontScale`
+## `typeScale` and `spaceScale`
 
 Enhance Styles uses fluid scales for its font size utility classes via our `typeScale` configuration, and for margins, padding, and gaps (for use in flexbox and grid layouts) via our `spaceScale`. We also emit custom properties for each step of the type and space scales, so that these values can be used in your own [element styles](/docs/enhance-styles/element-styles).
 
