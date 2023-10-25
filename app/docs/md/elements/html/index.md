@@ -8,15 +8,16 @@ As discussed in the [Elements Overview](/docs/elements), Enhance Elements are au
 
 This is powered by the `html` function, which is made available as a required parameter on each Enhance Element function.
 
+
 ## The `html` function
 
-<doc-callout level="tip">
+Enhance’s `html` function (which is [a JavaScript tag function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals)) is responsible for two critical pieces of functionality: custom element expansion, and style and script transformations.
 
-The `html` function is a special kind of JavaScript function, referred to as a ‘tag function’. If you’re unfamiliar with these, [check out MDN’s docs on template literals and tag functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals).
+<doc-callout level="info">
+
+The `html` function runs as part of Enhance’s server side execution. This means custom element expansions, style transforms, and script transforms are performed at request time, leading to improved performance and reducing [flashes of unstyled content (FOUC)](https://en.wikipedia.org/wiki/Flash_of_unstyled_content).
 
 </doc-callout>
-
-Enhance’s `html` function is responsible for two critical pieces of functionality: custom element expansion, and style and script transformations.
 
 ### Custom element expansion
 
