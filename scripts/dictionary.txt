@@ -53,6 +53,7 @@ Netlify
 polyfills
 pre-defined
 preconfigured
+prepended
 preloaded
 preprocessing
 rulese(t|ts)
