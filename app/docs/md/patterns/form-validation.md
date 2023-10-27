@@ -24,7 +24,7 @@ As a best practice we recommend adding a data schema and validating requests aga
 ## Data Validator
 
 The `@begin/validator` will validate a form response against a given JSON schema.
-The example below shows a how to integrate the validator into a data access layer that can be reused in multiple routes.
+The example below shows how to integrate the validator into a data access layer that can be reused in multiple routes.
 
 First we install the validator into the project.
 ```bash
@@ -33,9 +33,9 @@ npm i @begin/validator
 
 In the Data Access layer we add a data schema for books (`/app/models/schema/books.mjs`).
 
+<doc-code filename="/app/models/schema/books.mjs"
 
 ```javascript
-// /app/models/schema/books.mjs
 export const Book = {
   "id": "Book",
   "type": "object",
@@ -57,14 +57,17 @@ export const Book = {
 }
 ```
 
+</doc-code>
+
 
 The schema represents rules for the shape of the object we accept.
 
 Now we can use the validator to check that the request matches the schema.
 Below is data access layer that includes a validate function.
 
+<doc-code filename="/app/models/books.mjs">
+
 ```javascript
-// /app/models/books.mjs
 import data from '@begin/data'
 import { validator } from '@begin/validator'
 import { Book } from './schemas/book.mjs'
@@ -127,6 +130,8 @@ export {
 }
 ```
 
+</doc-code>
+
 The `@begin/validator` combines a few features:
   - It creates a nested object from the flat form key/values pairs.
   - It normalizes the values into numbers, booleans, floats, etc. based on the Schema.
@@ -134,8 +139,9 @@ The `@begin/validator` combines a few features:
 
 We can use the data access in a typical route handler as follows:
 
+<doc-code filename="/app/api/books.mjs">
+
 ```javascript
-// /app/api/books.mjs
 import { upsertBook, validate } from '../models/books.mjs'
 
 export async function postBooks (req) {
@@ -147,6 +153,8 @@ export async function postBooks (req) {
   }
 }
 ```
+
+<doc-code>
 
 The handler above is now running validation which returns any problems in the data.
 But what do we do with them?
@@ -170,9 +178,9 @@ The example below shows the full round trip of server validation.
 The code is annotated with the steps.
 It can be difficult to follow because the problems loop will pass through this API file several times if validation fails.
 
+<doc-code filename="/app/api/books.mjs">
 
 ```javascript
-// /app/api/books.mjs
 import { upsertBook, validate } from '../models/books.mjs'
 
 export async function get (req) {
@@ -206,7 +214,6 @@ export async function post(req) {
   }
 
   // If validation is successful the problems and old values are removed from the session
-  // eslint-disable-next-line no-unused-vars
   let { problems: removedProblems, book: removed, ...newSession } = session
   try {
     const result = await upsertBook(book)
@@ -226,6 +233,8 @@ export async function post(req) {
 }
 ```
 
+</doc-code>
+
 ## Add Problems to HTML
 To surface the problems in the frontend so that users can make adjustments we add the problems to the HTML page.
 
@@ -234,18 +243,18 @@ As mentioned previously client side validation is the best way to intercept erro
 For this example both a `url` and `text` input are required for the book tree so we will add the `required` attribute to those inputs so the browser will check for that before even submitting.
 
 Let's add the server side validation and client side validation to the page as follows:
-1. Problems and initial form values pulled out of the store.
-2. If the form is hidden by default (i.e. in summary/details) set it to open to show problems.
-3. Form problem messages at the beginning of the form.
-4. Error messages on each input with the custom element `error`
-5. Set the `value` attributes with the previous state
-6. Add client-side validation attributes to inputs
-
+1. Pull the `problems` and initial form values out of the store.
+2. If the form is hidden by default, (i.e. in summary/details) set it to open to show problems.
+3. Show form problem messages at the beginning of the form.
+4. Show error messages on each input with the custom element `error`.
+5. Set the `value` attributes with the previous state.
+6. Add client-side validation attributes to inputs.
 
 Here is the example code annotated with these changes.
 
+<doc-code filename="/app/pages/books.mjs">
+
 ```javascript
-// /app/pages/books.mjs
 
 export default function books({ html, state }) {
   const { store } = state
@@ -278,4 +287,6 @@ ${'' /* 4,5,6. Problems, initial values, and validation attributes added */}
   `
 }
 ```
+
+</doc-code>
 
