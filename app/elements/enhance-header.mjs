@@ -234,6 +234,7 @@ export default function Header({ html, state }) {
       <input
         id="navToggleInput"
         type="checkbox"
+        autocomplete="off"
         aria-label="Toggle site navigation" />
 
       <div class="mis-auto flex align-items-center text0">
@@ -254,6 +255,7 @@ export default function Header({ html, state }) {
           <input
             id="navToggleInput"
             type="checkbox"
+            autocomplete="off"
             aria-label="Toggle site navigation" />
           -->
         </label>
