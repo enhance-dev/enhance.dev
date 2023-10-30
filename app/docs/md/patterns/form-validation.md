@@ -154,7 +154,7 @@ export async function postBooks (req) {
 }
 ```
 
-<doc-code>
+</doc-code>
 
 The handler above is now running validation which returns any problems in the data.
 But what do we do with them?
