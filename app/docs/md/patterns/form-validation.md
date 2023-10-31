@@ -32,7 +32,7 @@ npm i @begin/validator
 
 In the Data Access layer we add a data schema for books (`/app/models/schema/books.mjs`).
 
-<doc-code filename="/app/models/schema/books.mjs"
+<doc-code filename="/app/models/schema/books.mjs">
 
 ```javascript
 export const Book = {
