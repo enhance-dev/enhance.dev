@@ -121,6 +121,7 @@ export const data = [
     items: [
       'progressive-enhancement',
       'browser-modules',
+      'form-validation',
       {
         slug: 'testing',
         path: '/docs/patterns/testing/',
