@@ -44,7 +44,7 @@ export default function ProgressiveByDesign({ html }) {
         width: 100vw;
       }
     </style>
-    <h2 class="uppercase font-extrabold tracking-2">
+    <h2 class="uppercase font-black tracking-1">
       <span class="block text-end">Progressive</span>
       <span class="block">By Design</span>
     </h2>

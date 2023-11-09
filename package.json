@@ -13,6 +13,7 @@
   "dependencies": {
     "@architect/functions": "^5.3.3",
     "@begin/data": "^4.0.2",
+    "@begin/masthead": "github:beginner-corp/masthead",
     "@docsearch/js": "^3.3.0",
     "@enhance/arc-plugin-enhance": "^6.2.4",
     "@enhance/arc-plugin-styles": "^3.0.4",

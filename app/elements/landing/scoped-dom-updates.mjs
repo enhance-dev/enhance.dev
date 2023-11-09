@@ -57,7 +57,7 @@ export default function ScopedDOMUpdates({ html }) {
       <landing-cloud-and-code
         class="block si-100 font-mono"></landing-cloud-and-code>
       <div class="pi0 pis-none-lg pi5-lg mi-auto m-none-lg">
-        <p class="leading2 mbe0">
+        <p class="font-semibold leading2 mbe0">
           No need for a full page render to update one element
         </p>
         <p class="leading3 mbe5">

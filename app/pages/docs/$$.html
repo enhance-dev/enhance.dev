@@ -1,1 +1,40 @@
+<style scope="global">
+  begin-masthead {
+    --max-inline-size: var(--docs-max-width);
+  }
+
+  /* Allow masthead to set its own link colours */
+  begin-masthead a {
+    color: unset;
+  }
+</style>
+
+<begin-masthead product="Enhance" active="products" breakpoint="56em">
+  <span slot="product-page">Docs</span>
+  <div slot="product-nav">
+    <masthead-slice>
+      <h2 class="semibold">
+        <a href="/">Home</a>
+      </h2>
+    </masthead-slice>
+    <masthead-slice>
+      <h2 class="semibold">
+        <a href="/docs">Why Enhance</a>
+      </h2>
+    </masthead-slice>
+    <masthead-slice>
+      <h2 class="semibold">
+        Docs
+      </h2>
+      <docs-nav></docs-nav>
+    </masthead-slice>
+  </div>
+  <div slot="product-nav-lg" class="flex align-items-center">
+    <masthead-product-link href="/">Home</masthead-product-link>
+    <masthead-product-link href="/docs" active>Docs</masthead-product-link>
+    <masthead-product-link href="/why-enhance">
+      Why Enhance?
+    </masthead-product-link>
+  </div>
+</begin-masthead>
 <docs-layout></docs-layout>

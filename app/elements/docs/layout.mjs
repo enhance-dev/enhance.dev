@@ -8,7 +8,6 @@ export default function DocsLayout({ html, state }) {
       body {
         background-color: var(--white-denim);
         color: var(--rift-white);
-        font-family: rubik;
       }
       a {
         color: var(--purple-princess);
@@ -18,13 +17,16 @@ export default function DocsLayout({ html, state }) {
       body {
         scrollbar-color: var(--grey-greyer) transparent;
       }
+
       ::-webkit-scrollbar {
         height: 8px;
         width: 8px;
       }
+
       ::-webkit-scrollbar-track {
         background-color: transparent;
       }
+
       ::-webkit-scrollbar-thumb {
         border-radius: 8px;
         background-color: var(--grey-greyer);
@@ -32,107 +34,69 @@ export default function DocsLayout({ html, state }) {
     </style>
 
     <style>
-      /* Layout */
-
-      /* single col */
       :host {
-        display: grid;
-        grid-template-areas:
-          'header'
-          'content';
-        gap: 0 1rem;
-        block-size: 100dvh;
-        inline-size: 100vw;
-      }
-      #header {
-        grid-area: header;
-      }
-      #sidebar {
-        grid-area: sidebar;
-        display: none;
-      }
-      #content {
-        grid-area: content;
-        overflow-y: auto;
-      }
-      #outline {
-        grid-area: outline;
-        display: none;
+        display: block;
+        padding-inline: var(--space--2);
+        max-inline-size: 100vw;
       }
 
       @media only screen and (min-width: 56em) {
         /* 2-col + */
         :host {
+          max-inline-size: var(--docs-max-width);
+          margin-inline: auto;
           position: fixed;
-          overflow: auto;
-          height: 100vh;
-
+          padding-inline: 0;
+          inset-block-start: var(--masthead-max-height);
+          inset-block-end: 0;
+          inset-inline: 0;
+          display: grid;
           grid-template-columns: var(--docs-nav-width) 1fr;
-          grid-template-rows: minmax(auto, 4.5rem) auto;
-          grid-template-areas:
-            'header   header'
-            'sidebar content'
-            'sidebar content';
-        }
-
-        #sidebar {
-          display: block;
-        }
-
-        #header,
-        #sidebar,
-        #outline {
-          position: sticky;
+          container: layout / size;
         }
 
         #sidebar,
+        #content,
         #outline {
-          top: 1rem;
+          max-block-size: 100cqb;
+          overflow-y: scroll;
+          overflow-x: hidden;
         }
       }
 
       @media (min-width: 72em) {
         /* 3-col */
         :host {
-          overflow: auto;
-          height: 100vh;
-
           grid-template-columns: var(--docs-nav-width) 1fr var(--docs-nav-width);
-          grid-template-areas:
-            'header  header   header'
-            'sidebar content outline'
-            'sidebar content outline';
-        }
-        #outline {
-          display: block;
         }
       }
     </style>
 
-    <docs-symbols></docs-symbols>
+    <docs-symbols class="hidden"></docs-symbols>
 
-    <enhance-header id="header"></enhance-header>
+    <div id="sidebar" class="hidden block-lg pi-2 pbe2">
+      <docs-nav aria-label="sidebar"></docs-nav>
+    </div>
 
-    <docs-nav
-      id="sidebar"
-      class="overflow-y-auto-lg"
-      aria-label="sidebar"></docs-nav>
+    <div id="content" class="pbs0 pbs-none-lg pbe2">
+      <doc-content>
+        <article slot="doc" class="block leading4 p1-lg">
+          ${doc.title ? `<h1>${doc.title}</h1>` : ''} ${doc.html}
+        </article>
+      </doc-content>
+    </div>
 
-    <doc-content id="content" class="overflow-y-auto-lg p1-lg pbe2">
-      <article slot="doc" class="block leading3">
-        ${doc.title ? `<h1>${doc.title}</h1>` : ''} ${doc.html}
-      </article>
-    </doc-content>
-
-    <docs-outline id="outline" class="pbs1-lg overflow-y-auto-lg">
-      ${doc.tocHtml?.indexOf('<li>') > 0
-        ? /* html */ `
-      <div slot="toc">
-        <h3 class="mbe-2 font-medium">On this page</h3>
-        ${doc.tocHtml}
-      </div>`
-        : ''}
-    </docs-outline>
+    <div id="outline" class="hidden block-xl">
+      <docs-outline class="block pbs3 pis0">
+        ${doc.tocHtml?.indexOf('<li>') > 0
+          ? /* html */ `
+        <div slot="toc">
+          <h3 class="mbe-2 font-medium">On this page</h3>
+          ${doc.tocHtml}
+        </div>`
+          : ''}
+      </docs-outline>
+    </div>
 
     <google-analytics code="${state.store.gacode}"></google-analytics>
 

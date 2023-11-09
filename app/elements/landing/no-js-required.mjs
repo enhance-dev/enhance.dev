@@ -282,7 +282,7 @@ export default function NoJsRequired({ html }) {
 
     <h2 class="text-center uppercase leading1 relative accessible">
       Build your entire app <br />
-      with <span class="font-semibold">accessible</span> HTML
+      with <span class="font-bold">accessible</span> HTML
     </h2>
 
     <section
@@ -312,16 +312,16 @@ export default function NoJsRequired({ html }) {
         </p>
 
         <dl class="pis4 leading3">
-          <dt class="font-semibold">File-based routing</dt>
+          <dt class="font-bold">File-based routing</dt>
           <dd>Organize your pages as easily as a desktop&nbsp;folder.</dd>
 
-          <dt class="font-semibold">Database-backed APIs</dt>
+          <dt class="font-bold">Database-backed APIs</dt>
           <dd>Access and store data with simple JavaScript&nbsp;functions.</dd>
 
-          <dt class="font-semibold">SSR composable HTML Custom Elements</dt>
+          <dt class="font-bold">SSR composable HTML Custom Elements</dt>
           <dd>Build reusable components with HTML and scoped&nbsp;CSS.</dd>
 
-          <dt class="font-semibold">Web Component progressive enhancement</dt>
+          <dt class="font-bold">Web Component progressive enhancement</dt>
           <dd>Add client-side interaction just where you need&nbsp;it.</dd>
         </dl>
       </div>

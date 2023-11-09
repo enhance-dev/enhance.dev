@@ -1,10 +1,14 @@
 <style scope='global'>
+  body {
+    margin-block-start: var(--global-bar-height);
+  }
+
   main {
     color: var(--ateneo);
   }
 
   #showcase-header {
-    inline-size: var(--editorial-width);
+    max-inline-size: var(--editorial-width);
   }
 
   h1 span:nth-child(2) {
@@ -34,17 +38,35 @@
       translate: 25% -35%;
     }
   }
+
+  begin-masthead {
+    --max-inline-size: 100vw;
+  }
+
+  @media screen and (min-width: 56em) {
+    begin-masthead {
+      --max-inline-size: var(--editorial-width);
+    }
+  }
 </style>
 
 <docs-symbols></docs-symbols>
 
-<editorial-header></editorial-header>
+<begin-masthead active="showcase" breakpoint="56em">
+  <div slot="product-nav-lg" class="flex align-items-center">
+    <masthead-product-link href="/">Home</masthead-product-link>
+    <masthead-product-link href="/docs">Docs</masthead-product-link>
+    <masthead-product-link href="/why-enhance">
+      Why Enhance?
+    </masthead-product-link>
+  </div>
+</begin-masthead>
 
-<main class='leading3'>
+<main class='leading4'>
   <header id='showcase-header' class='relative mi-auto'>
     <h1 class='text3 text6-lg text7-xl text-center tracking-2 leading1 pb5 pb8-lg'>
       <span class='block'>Start with HTML.</span>
-      <span class='block font-semibold'>Build your wildest dreams.</span>
+      <span class='block font-bold'>Build your wildest dreams.</span>
     </h1>
     <p class='text2-lg text-center mi-auto'>
       With Enhance’s foundation in web standards, exceptionally fast performance, and peerless stability, the only limit to what you can build is your&nbsp;imagination.
@@ -54,7 +76,7 @@
     </p>
 
     <figure class='mb4'>
-      <p class='text-center font-medium mi-auto'>Want to have your Enhance project featured? <a class='underline' href='https://github.com/enhance-dev/enhance.dev/pulls'>Open a pull request</a> or <a class='underline' href='https://enhance.dev/discord'>let us know on&nbsp;Discord</a>!</p>
+      <p class='text-center font-semibold mi-auto'>Want to have your Enhance project featured? <a class='underline' href='https://github.com/enhance-dev/enhance.dev/pulls'>Open a pull request</a> or <a class='underline' href='https://enhance.dev/discord'>let us know on&nbsp;Discord</a>!</p>
     </figure>
 
     <img class='mb5 mb8-lg mi-auto' src='/_public/img/landing/swash.svg' alt='' />

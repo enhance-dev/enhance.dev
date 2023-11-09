@@ -23,7 +23,7 @@ export default function AxolNoJSRequired({ html }) {
         src="/_public/img/landing/axol.svg"
         alt=""
         class="axol relative z1" />
-      <p class="banner font-bold uppercase pr0 flex-none relative">
+      <p class="banner font-extrabold uppercase pr0 flex-none relative">
         No Javascript required
       </p>
     </div>

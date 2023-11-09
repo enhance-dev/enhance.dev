@@ -11,10 +11,9 @@ export default function TheGround({ html, state }) {
         `
     : `
         <h2 class="uppercase font-extrabold tracking-1 text-center mi-auto">
-          <svg viewBox="0 0 672 48" xmlns="http://www.w3.org/2000/svg">
+          <svg viewBox="0 0 586 48" xmlns="http://www.w3.org/2000/svg">
             <text
               fill="#003451"
-              font-family="Rubik"
               font-size="65"
               font-weight="800"
               letter-spacing="0em"
