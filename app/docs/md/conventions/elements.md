@@ -51,22 +51,46 @@ export default function MyHeader({ html }) {
 Your element function is also passed a `state` object in the arguments object.
 This `state` object is comprised of [`attrs`](/docs/elements/state/attributes): an object of key value pairs representing the attributes added to your custom element tag, and [`store`](/docs/elements/state/store): an object containing application state.
 
+In this example you create an element with a default description then use an API route to populate the store description data. This allows you to supply a different description per page.
+
+<doc-code filename="app/element/my-header.mjs">
+
 ```javascript
 export default function MyHeader({ html, state }) {
-  const { attrs, store } = state
+  const { attrs, store={} } = state
   const { heading = 'Default' } = attrs
-  const href = store.aboutPath
+  const href = store.description || 'A default description'
 
   return html`
     <header>
       <h1>
         ${heading}
       </h1>
-      <my-link href="${href}"></my-link>
+      <p>
+        ${description}
+      </p>
     </header>
   `
 }
 ```
+
+</doc-code>
+
+Your index API route could return a JSON payload to update the description in the `<my-header>` element on the index page.
+
+<doc-code filename="app/api/index.mjs">
+
+```javascript
+export async function get() {
+  return {
+    json: {
+      description: 'Welcome to the index page'
+    }
+  }
+}
+```
+
+</doc-code>
 
 <doc-callout level="none" mark="🎛️">
 
