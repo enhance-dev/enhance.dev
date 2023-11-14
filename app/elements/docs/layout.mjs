@@ -13,23 +13,25 @@ export default function DocsLayout({ html, state }) {
         color: var(--purple-princess);
       }
 
-      /* Scrollbars */
-      body {
-        scrollbar-color: var(--grey-greyer) transparent;
-      }
+      @media screen and (min-width: 56em) {
+        /* Scrollbars */
+        body {
+          scrollbar-color: var(--grey-greyer) transparent;
+        }
 
-      ::-webkit-scrollbar {
-        height: 8px;
-        width: 8px;
-      }
+        ::-webkit-scrollbar {
+          height: 8px;
+          width: 8px;
+        }
 
-      ::-webkit-scrollbar-track {
-        background-color: transparent;
-      }
+        ::-webkit-scrollbar-track {
+          background-color: transparent;
+        }
 
-      ::-webkit-scrollbar-thumb {
-        border-radius: 8px;
-        background-color: var(--grey-greyer);
+        ::-webkit-scrollbar-thumb {
+          border-radius: 8px;
+          background-color: var(--grey-greyer);
+        }
       }
     </style>
 
