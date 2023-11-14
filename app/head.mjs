@@ -60,12 +60,10 @@ export default function Head(state) {
         font-family: Montserrat, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         text-rendering: optimizeLegibility;
         font-weight: 450;
+        overflow-x: hidden;
+        overflow-y: auto;
       }
     
-      body {
-        overflow-x: hidden;
-      }
-
       @media (prefers-reduced-motion: no-preference) {
         html {
           scroll-behavior: smooth;
