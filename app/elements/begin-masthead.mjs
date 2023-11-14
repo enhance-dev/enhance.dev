@@ -1,1 +1,2 @@
-export { Masthead as default } from '@begin/masthead'
+import { Masthead } from '@begin/masthead'
+export default Masthead
