@@ -83,8 +83,15 @@ export default function Head(state) {
 
       begin-masthead {
         --inline-padding: var(--space--2);
+        --max-inline-size: 100vw;
         --accent: var(--mid-purple);
         font-size: var(--text-0);
+      }
+
+      @media screen and (min-width: 56em) {
+        begin-masthead {
+          --max-inline-size: var(--docs-max-width);
+        }
       }
     </style>
   </head>
