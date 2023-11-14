@@ -1,4 +1,4 @@
-export default function MarketingNav({ html }) {
+export default function ProductNav({ html }) {
   return html`
     <masthead-slice>
       <h2 class="semibold">
@@ -14,6 +14,7 @@ export default function MarketingNav({ html }) {
       <h2 class="semibold">
         <a href="/docs">Docs</a>
       </h2>
+      <docs-nav></docs-nav>
     </masthead-slice>
   `
 }

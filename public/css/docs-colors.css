@@ -1,7 +1,7 @@
 /* Light Theme */
 :root,
 :root[data-force-theme='light'] {
-  --grey-greyer: var(--grey-100);
+  --grey-greyer: var(--gray-100);
 
   --cloud-ateneo: var(--cloud);
   --denim-white: var(--denim);
@@ -27,7 +27,7 @@
 
 /* Dark Theme */
 :root[data-force-theme='dark'] {
-  --grey-greyer: var(--grey-600);
+  --grey-greyer: var(--gray-600);
 
   --cloud-ateneo: var(--ateneo);
   --denim-white: var(--white);
@@ -55,7 +55,7 @@
 /* This should be a copy of the above block */
 @media (prefers-color-scheme: dark) {
   :root {
-    --grey-greyer: var(--grey-600);
+    --grey-greyer: var(--gray-600);
 
     --cloud-ateneo: var(--ateneo);
     --denim-white: var(--white);
