@@ -13,7 +13,7 @@ import redirects from '../../lib/docs-redirects.mjs'
 const arcdown = new Arcdown({
   pluginOverrides: {
     markdownItToc: {
-      containerClass: 'toc mbe2 mis-2',
+      containerClass: 'toc mbe2 mis-2 leading2',
       listType: 'ul',
     },
   },

@@ -1,9 +1,6 @@
 export default function DocContent({ html }) {
   return html`
     <style>
-      :host {
-        padding: 1rem;
-      }
       :host > * {
         max-width: 52rem;
         margin: auto;
@@ -18,7 +15,15 @@ export default function DocContent({ html }) {
       :host > ::slotted([slot]) > h3,
       :host > ::slotted([slot]) > h4 {
         margin-bottom: 0.75rem;
-        font-weight: 500;
+      }
+      :host > ::slotted([slot]) > h1 {
+        font-weight: 700;
+      }
+      :host > ::slotted([slot]) > h2,
+      :host > ::slotted([slot]) > h3,
+      :host > ::slotted([slot]) > h4 {
+        margin-bottom: 0.75rem;
+        font-weight: 600;
       }
       h1 {
         font-size: 1.953rem;
@@ -34,7 +39,7 @@ export default function DocContent({ html }) {
       }
 
       strong {
-        font-weight: 500;
+        font-weight: 600;
         color: var(--black-white);
       }
       small {

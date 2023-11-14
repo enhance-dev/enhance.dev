@@ -43,24 +43,27 @@ export default function Head(state) {
     <meta name='description' content='The HTML first full stack web framework.' />
     <style>
       @font-face {
-        font-family: "Rubik";
-        src: url("/_public/font/rubik-var.woff2") format("woff2-variations");
-        font-weight: 400 900;
+        font-family: "Montserrat";
+        src: url("https://fonts.begin.com/montserrat/montserrat-subset-var.woff2") format("woff2-variations");
+        font-weight: 100 900;
       }
+
       @font-face {
-        font-family: "Rubik";
-        src: url("/_public/font/rubik-italic-var.woff2") format("woff2-variations");
+        font-family: "Montserrat";
+        src: url("https://fonts.begin.com/montserrat/montserrat-italic-subset-var.woff2") format("woff2-variations");
         font-weight: 400 900;
         font-style: italic;
       }
 
       html,
       body {
-        font-family: Rubik, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        overflow-x: hidden;
+        font-family: Montserrat, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         text-rendering: optimizeLegibility;
+        font-weight: 450;
+        overflow-x: hidden;
+        overflow-y: auto;
       }
-
+    
       @media (prefers-reduced-motion: no-preference) {
         html {
           scroll-behavior: smooth;
@@ -78,6 +81,11 @@ export default function Head(state) {
         position: absolute;
       }
 
+      begin-masthead {
+        --inline-padding: var(--space--2);
+        --accent: var(--mid-purple);
+        font-size: var(--text-0);
+      }
     </style>
   </head>
 `

@@ -93,6 +93,16 @@ export default function WebNative({ html }) {
         margin-left: -0.025em;
       }
 
+      .kern-st {
+        letter-spacing: -0.075em;
+      }
+
+      .kern-s,
+      .kern-ab,
+      .kern-ev {
+        letter-spacing: 0;
+      }
+
       .container p:first-of-type {
         font-size: var(--landing-text-1);
         margin-bottom: var(--space-m);
@@ -153,7 +163,7 @@ export default function WebNative({ html }) {
       </landing-axol-face-front>
 
       <button
-        class="relative mi-auto flex-none uppercase tracking2 font-medium rewindButton js-rewindButton">
+        class="relative mi-auto flex-none uppercase tracking2 font-semibold rewindButton js-rewindButton">
         &olarr; Rewind!
       </button>
     </figure>
@@ -167,12 +177,13 @@ export default function WebNative({ html }) {
     </figure>
 
     <div class="container mi-auto">
-      <h2 class="uppercase font-extrabold tracking-1">
-        Stable<br />
-        Forever
+      <h2 class="uppercase font-bold tracking-1">
+        <span class="kern-st"><span class="kern-s">S</span>t</span
+        ><span class="kern-ab">ab</span>le<br />
+        For<span class="kern-ev">ev</span>er
       </h2>
 
-      <p class="leading3">
+      <p class="leading3 font-medium">
         The web platform has what you need and never goes out of&nbsp;fashion
       </p>
 

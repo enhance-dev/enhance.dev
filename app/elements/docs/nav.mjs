@@ -28,7 +28,7 @@ function Doc(item) {
 function Category(item) {
   return `
 <div class="mbs3">
-  <div class="category-label font-medium text-1 tracking2 mbe-4 uppercase">${
+  <div class="category-label font-semibold text-1 tracking2 mbe-4 uppercase">${
     item.label
   }</div>
   ${Description(item)}
@@ -55,7 +55,6 @@ export default function DocsNav({ html, state }) {
     <style>
       :host {
         display: block;
-        padding-inline: var(--space--2);
       }
 
       li a {

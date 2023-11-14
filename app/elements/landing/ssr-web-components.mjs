@@ -43,7 +43,7 @@ export default function SSRWebComponents({ html }) {
         <landing-ssr-type class="si-100 mbe0"></landing-ssr-type>
         <span class="clip">SSR</span>
         <svg
-          viewBox="0 0 969 75"
+          viewBox="0 0 1072 75"
           xmlns="http://www.w3.org/2000/svg"
           class="webComponentsType">
           <text fill="#E8F8FF" font-size="101.48">

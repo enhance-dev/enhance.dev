@@ -31,6 +31,21 @@ export default function Liftoff({ html }) {
         text-fill-color: transparent;
         font-size: min(10rem, 10vw);
         margin-block: var(--space-l);
+        text-indent: 0.05em;
+      }
+
+      .kern-a,
+      .kern-ea,
+      .kern-ft {
+        letter-spacing: 0;
+      }
+
+      .kern-lway {
+        letter-spacing: -0.04em;
+      }
+
+      .kern-ift {
+        letter-spacing: -0.06em;
       }
 
       p {
@@ -72,11 +87,12 @@ export default function Liftoff({ html }) {
       }
     </style>
 
-    <h2 class="font-extrabold uppercase tracking-1">
-      Always<br />
-      Ready<br />
+    <h2 class="font-black uppercase tracking-1">
+      <span class="kern-a">A</span><span class="kern-lway">lway</span>s<br />
+      R<span class="kern-ea">ea</span>dy<br />
       for<br />
-      liftoff!<br />
+      l<span class="kern-ift">i<span class="kern-ft">ft</span></span
+      >off!<br />
     </h2>
 
     <img
@@ -91,7 +107,7 @@ export default function Liftoff({ html }) {
       loading="lazy"
       class="axol absolute inset-bs-0 z1" />
 
-    <p class="leading3">
+    <p class="leading3 font-medium">
       Enhance apps are designed with deployment in mind.
       <br class="hidden block-lg" />
       When you're ready to launch, we've got you covered with

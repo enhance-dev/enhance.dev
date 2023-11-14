@@ -81,8 +81,8 @@ export default function LandingIntro({ html }) {
       }
 
       landing-marquee [slot='text'] {
-        -webkit-text-stroke: 0.33vw white;
-        color: transparent;
+        font-weight: 200;
+        color: white;
         font-size: 15vw;
       }
 

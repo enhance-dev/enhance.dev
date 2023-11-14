@@ -30,6 +30,10 @@
   }
 
   body {
+    margin-block-start: var(--masthead-max-height);
+  }
+
+  body > *:not(begin-masthead) {
     font-size: var(--landing-text-0);
   }
 
@@ -96,13 +100,31 @@
       transform: scale(0.985);
     }
   }
+
+  begin-masthead {
+    --max-inline-size: 100vw;
+  }
+
+  @media screen and (min-width: 56em) {
+    begin-masthead {
+      --max-inline-size: var(--editorial-width);
+    }
+  }
 </style>
 
 <docs-symbols></docs-symbols>
 
-<div class='header-wrapper'>
-  <editorial-header id='top'></editorial-header>
-</div>
+<begin-masthead product="Enhance" active="products" breakpoint="56em">
+  <span slot="product-page">Home</span>
+  <marketing-nav slot="product-nav"></marketing-nav>
+  <div slot="product-nav-lg" class="flex align-items-center">
+    <masthead-product-link active href="/">Home</masthead-product-link>
+    <masthead-product-link href="/docs">Docs</masthead-product-link>
+    <masthead-product-link href="/why-enhance">
+      Why Enhance?
+    </masthead-product-link>
+  </div>
+</begin-masthead>
 
 <landing-intro class='block relative'></landing-intro>
 
