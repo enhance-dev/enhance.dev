@@ -1,4 +1,14 @@
 <style scope="global">
+  body {
+    margin-block-start: var(--masthead-max-height);
+  }
+
+  @media screen and (min-width: 56em) {
+    body {
+      margin: 0;
+    }
+  }
+
   begin-masthead {
     --max-inline-size: var(--docs-max-width);
   }
