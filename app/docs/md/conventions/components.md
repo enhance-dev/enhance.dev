@@ -183,7 +183,7 @@ Once added the `MorphdomMixin` will handle updating the DOM whenever an `observe
 
 ### Lists
 
-When working with lists of data in the DOM it is highly advisable to add a unique attribute to the list item like an `id` or `key`. This will assist MorphDOM in determining what items have changed in the list.
+When working with lists of data in the DOM it is highly advisable to add a unique attribute to the list item like an `id` or `key`. This will assist `morphdom` in determining what items have changed in the list.
 
 </doc-callout>
 
