@@ -29,6 +29,7 @@ export const data = [
       { slug: 'css', label: 'CSS' },
       'pages',
       'elements',
+      'components',
       { slug: 'api', label: 'APIs' },
       'browser',
       'public',
