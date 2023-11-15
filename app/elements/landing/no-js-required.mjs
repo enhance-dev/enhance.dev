@@ -2,7 +2,7 @@ export default function NoJsRequired({ html }) {
   return html`
     <style>
       :host {
-        color: var(--dark-purple);
+        color: #5c2e94; /* darker dark-purple */
         display: block;
         position: relative;
       }
@@ -14,7 +14,6 @@ export default function NoJsRequired({ html }) {
       h2 {
         font-size: var(--landing-text-2);
         margin-left: -0.025em;
-        color: var(--dark-purple);
       }
 
       .accessible {
@@ -22,7 +21,6 @@ export default function NoJsRequired({ html }) {
         margin-top: var(--space-m);
         margin-bottom: var(--space-l);
         padding-block: var(--space-l);
-        color: var(--dark-purple);
       }
 
       .accessible:before {
