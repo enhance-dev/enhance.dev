@@ -91,5 +91,4 @@ nvim-treesitter
 Treesitter's
 parsers
 renderable
-(R|r)ehydration
 performant

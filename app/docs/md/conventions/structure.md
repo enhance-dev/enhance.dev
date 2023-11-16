@@ -50,7 +50,7 @@ Elements must be [named](https://html.spec.whatwg.org/multipage/custom-elements.
 </doc-callout>
 
 ## Components
-The components folder is where you keep your single file web components. These components are rendered server side but also include client-side code for additional interactivity. Allowing you to add progressive enhancements to your component in one file.
+The components folder is where you keep your single file web components. These components are rendered server-side, but also include client-side code for additional interactivity. This allows you to add progressive enhancements to your component in one file.
 
 Components follow the same rule as Elements and must be [named](https://html.spec.whatwg.org/multipage/custom-elements.html#prod-potentialcustomelementname) with one or more words separated by a dash `my-card.mjs` which corresponds to the tag name you author in your HTML pages — for example `<my-card></my-card>`.
 

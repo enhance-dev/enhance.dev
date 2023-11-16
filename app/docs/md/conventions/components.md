@@ -6,14 +6,14 @@ Components are another option for reusable building blocks of your Enhance appli
 
 ## Naming
 
-The file name of your component will be the tag name you author with. Meaning `app/components/my-card.mjs` will be authored as `<my-card></my-card>` in your HTML page. Enhance components are HTML custom elements, so they [require two or more words separated by a dash](/docs/elements).
+The tag name of your component is determined by its file name. Meaning `app/components/my-card.mjs` will be authored as `<my-card></my-card>` in your HTML page. Enhance components are HTML custom elements, so they [require two or more words separated by a dash](/docs/elements).
 
 ```
 app/components/my-message → <my-message></my-message>
 app/components/my-link → <my-link></my-link>
 ```
 
-When a project grows to include more elements than can comfortably fit in a single folder, they can be divided into sub-directories inside `app/components/`.
+When a project grows to include more components than can comfortably fit in a single folder, they can be divided into sub-directories inside `app/components/`.
 The folder name becomes part of the custom element tag name:
 
 ```
@@ -28,7 +28,7 @@ app/components/blog/comment-form → <blog-comment-form></blog-comment-form>
 </doc-callout -->
 
 ## @enhance/custom-element
-Components are web components — meaning: they extend `HTMLElement` like a vanilla web components and provide you all the [lifecycle methods](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_elements#using_the_lifecycle_callbacks) `connectedCallback`, `disconnectedCallback`, `adoptedCallback`, and `attributeChangedCallback` you would expect.
+Components are web components — meaning: they extend `HTMLElement` like vanilla web components and provide you all the [lifecycle methods](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_elements#using_the_lifecycle_callbacks) you would expect (`connectedCallback`, `disconnectedCallback`, `adoptedCallback`, and `attributeChangedCallback`).
 
 When you write an Enhance component you will extend the `CustomElement` class from the `@enhance/custom-element` package. These single file components allow you to take advantage of slotting and style scoping in the [light DOM](https://en.wikipedia.org/wiki/Document_Object_Model) while avoiding [some of the issues](https://begin.com/blog/posts/2023-11-10-head-toward-the-light-dom) the [shadow DOM](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_shadow_DOM) creates.
 
@@ -106,7 +106,7 @@ When an Enhance component is server-side rendered it is "enhanced" with an attri
 
 The client-side code will look for this attribute and only run if your component hasn’t already been "enhanced". Thus avoiding an unnecessary render pass.
 
-If you are have an existing Enhance Element you can always import it into your Component and use it as your `render` function.
+If you have an existing Enhance Element you can always import it into your Component and use it as your `render` function.
 
 <doc-callout level="none" mark="✨">
 
@@ -114,11 +114,11 @@ If you are have an existing Enhance Element you can always import it into your C
 
 </doc-callout>
 
-## Rehydration
-Enhance Components handle rehydration by listening to attribute changes. Any change to an attribute listed in the `observedAttributes` will trigger a `<attribute name>Changed` method. For example if you are observing the `title` attribute of our `my-card` component any time that attribute value is updated the `titleChanged` method will be executed. This enables you to write surgical DOM updates which will always be the most performant way to update your page.
+## UI Updates
+Updates to Enhance Components are triggered by attribute changes. Any change to an attribute listed in the `observedAttributes` will trigger a `<attribute name>Changed` method. For example if you are observing the `title` attribute of our `my-card` component any time that attribute value is updated the `titleChanged` method will be executed. This enables you to write surgical DOM updates which will always be the most performant way to update your page.
 
 ## DOM Diffing
-Other frameworks supply a DOM diffing solution and Enhance Components are no different but we believe it should be on an opt-in basis. To enabled DOM diffing in our `my-card` component we will add the `MorphdomMixin` class from `@enhance/morphdom-mixin`.
+Other frameworks supply a DOM diffing solution, and Enhance Components are no different. However, we believe DOM diffing should be enabled on an opt-in basis. To enable DOM diffing in our `my-card` component, we will add the `MorphdomMixin` class from `@enhance/morphdom-mixin`.
 
 <doc-code filename="app/components/my-card.mjs">
 
@@ -178,6 +178,12 @@ customElements.define('my-card', MyCard)
 </doc-code>
 
 Once added the `MorphdomMixin` will handle updating the DOM whenever an `observedAttributes` is modified. The `<attribute name>Changed` methods are no longer necessary. Instead on an attribute change the `render` method will be re-run and the output will be compared against the current DOM. Only the modified DOM nodes will be updated.
+
+<doc-callout level="info" mark="ℹ️">
+
+`morphdom` does string based diffing on the actual HTML element and not a virtual DOM diff so every element you want compared needs to have a string change or unique id.
+
+</doc-callout>
 
 <doc-callout level="caution" mark="⚠️">
 
