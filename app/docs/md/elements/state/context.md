@@ -4,11 +4,11 @@ title: Context
 
 The context object enables passing state to child elements without needing to resort to passing attributes down through multiple elements.
 
-## Update context
+## Set parent context
 
 The context object is passed as a key on the state object. Add data to the context object and it will be available to child elements.
 
-[Follow along by checking out the context demo from GitHub](https://github.com/enhance-dev/context-demo)
+[Follow along by checking out the context demo from GitHub →](https://github.com/enhance-dev/context-demo)
 
 Given this markup you can use the context object to pass state directly to a deeply nested child element.
 
