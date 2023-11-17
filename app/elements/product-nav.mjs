@@ -14,7 +14,7 @@ export default function ProductNav({ html }) {
       <h2 class="semibold">
         <a href="/docs">Docs</a>
       </h2>
-      <docs-nav></docs-nav>
+      <docs-nav searchid="search-mobile"></docs-nav>
     </masthead-slice>
   `
 }

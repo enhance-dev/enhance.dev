@@ -48,8 +48,9 @@ function Description(item, classes = []) {
 }
 
 export default function DocsNav({ html, state }) {
-  const { store } = state
+  const { attrs, store } = state
   const { navData } = store
+  const { searchid } = attrs
 
   return html`
     <style>
@@ -61,27 +62,51 @@ export default function DocsNav({ html, state }) {
         margin-inline: calc(var(--space--4) * -1 - 4px);
         padding-inline: var(--space--4);
         border-inline-start: 4px solid transparent;
-        color: var(--rift-princess);
       }
 
       li a:hover,
       li a.active {
-        background-color: var(--cloud-ateneo);
-        border-color: var(--purple-princess);
+        background-color: var(--lily);
+        border-color: var(--purple);
       }
 
       .category-label {
-        color: var(--purple-white);
+        color: var(--purple);
       }
 
       .description {
-        color: var(--inky-lily);
+        color: var(--inky);
       }
 
       .hasChildren ul {
         padding-inline-start: var(--space--2);
       }
+
+      @media screen and (min-width: 56em) {
+        li a {
+          color: var(--rift-princess);
+        }
+
+        li a:hover,
+        li a.active {
+          background-color: var(--cloud-ateneo);
+          border-color: var(--purple-princess);
+        }
+
+        .category-label {
+          color: var(--purple-white);
+        }
+
+        .description {
+          color: var(--inky-lily);
+        }
+      }
     </style>
+
+    <div class="pbs2 flex gap0 align-items-center">
+      <docs-search searchid="${searchid}"></docs-search>
+      <docs-theme-toggle></docs-theme-toggle>
+    </div>
 
     <nav>${List(navData)}</nav>
   `

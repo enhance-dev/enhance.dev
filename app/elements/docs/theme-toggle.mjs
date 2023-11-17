@@ -7,17 +7,36 @@ export default function DocsThemeToggle({ html }) {
         height: ${size}px;
         width: ${size}px;
       }
+
       input + svg {
         padding-bottom: 2px;
-        color: var(--purple-princess);
+        color: var(--purple);
       }
+
       input:hover + svg,
       input:checked + svg {
         opacity: 1;
-        color: var(--rift-white);
+        color: var(--rift);
       }
+
       input:checked + svg {
-        border-bottom: 2px solid var(--rift-white);
+        border-bottom: 2px solid var(--rift);
+      }
+
+      /* Allow dark mode styles when shown in widescreen layout */
+      @media screen and (min-width: 56em) {
+        input + svg {
+          color: var(--purple-princess);
+        }
+
+        input:hover + svg,
+        input:checked + svg {
+          color: var(--rift-white);
+        }
+
+        input:checked + svg {
+          border-bottom: 2px solid var(--rift-white);
+        }
       }
     </style>
 

@@ -77,7 +77,7 @@ export default function DocsLayout({ html, state }) {
     <docs-symbols class="hidden"></docs-symbols>
 
     <div id="sidebar" class="hidden block-lg pi-2 pbe2">
-      <docs-nav aria-label="sidebar"></docs-nav>
+      <docs-nav aria-label="sidebar" searchid="search-widescreen"></docs-nav>
     </div>
 
     <div id="content" class="pbs0 pbs-none-lg pbe2">
