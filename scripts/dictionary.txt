@@ -90,3 +90,5 @@ Neovim
 nvim-treesitter
 Treesitter's
 parsers
+renderable
+performant
