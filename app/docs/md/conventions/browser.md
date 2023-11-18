@@ -77,7 +77,7 @@ Write a pure function for returning the HTML markup for the `my-message.mjs` cus
 
 ```javascript
 export default function MyMessage({ html, state }) {
-  const { attrs=[] } = state
+  const { attrs={} } = state
   const { message='' } = attrs
 
   return html`<h1>${ message }</h1>`
@@ -117,12 +117,7 @@ class MyMessageElement extends HTMLElement {
   }
 
   html(strings, ...values) {
-    const collect = []
-    for (let i = 0; i < strings.length - 1; i++) {
-      collect.push(strings[i], values[i])
-    }
-    collect.push(strings[strings.length - 1])
-    return collect.join('')
+    return String.raw({ raw: strings }, ...values)
   }
 
   static get observedAttributes() {
