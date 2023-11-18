@@ -48,6 +48,7 @@ lowercas(e|ed)
 MDN
 MDN's
 mixi(n|ns)
+Morphdom
 natively
 Netlify
 polyfills
