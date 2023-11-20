@@ -29,7 +29,7 @@ Given this markup you can use the context object to pass state directly to a dee
 </doc-code>
 
 
-Add a heading key to context in the parent element
+Add a heading key to the context object in the parent element:
 
 <doc-code filename="app/pages/index.html">
 
