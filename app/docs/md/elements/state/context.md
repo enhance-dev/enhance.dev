@@ -20,8 +20,8 @@ Given this markup you can use the context object to pass state directly to a dee
     <my-container>
       <my-container>
         <context-heading></context-heading>
-      </my-contaier>
-    </my-contaier>
+      </my-container>
+    </my-container>
   </my-container>
 </context-parent>
 ```
