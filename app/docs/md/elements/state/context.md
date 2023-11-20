@@ -54,7 +54,7 @@ export default function ContextParent({ html, state }) {
 
 </doc-code>
 
-Render the heading passed via context in the deeply nested child element
+Render the heading passed via context in the deeply nested child element:
 <doc-code filenam="app/elements/context/heading.mjs">
 
 ```javascript
