@@ -10,7 +10,7 @@ The context object is passed as a key on the state object. Add data to the conte
 
 [Follow along by checking out the context demo from GitHub →](https://github.com/enhance-dev/context-demo)
 
-Given this markup you can use the context object to pass state directly to a deeply nested child element.
+Given this markup you can use the context object to pass state directly to a deeply nested child element. Consider the page structure in the example below:
 
 <doc-code filename="app/pages/index.html">
 
