@@ -43,8 +43,7 @@ export default function DocsThemeToggle({ html }) {
     <div class="flex gap-2 align-items-center pb-4 pi-3">
       <label title="Light theme" class="cursor-pointer">
         <input
-          id="use-light"
-          class="hidden"
+          class="hidden js-use-light"
           type="checkbox"
           name="light-toggle"
           value="light"
@@ -55,8 +54,7 @@ export default function DocsThemeToggle({ html }) {
       </label>
       <label title="Dark theme" class="cursor-pointer">
         <input
-          id="use-dark"
-          class="hidden"
+          class="hidden js-use-dark"
           type="checkbox"
           name="dark-toggle"
           value="dark"
@@ -74,8 +72,8 @@ export default function DocsThemeToggle({ html }) {
         constructor() {
           super()
 
-          this.inputs.dark = this.querySelector('input#use-dark')
-          this.inputs.light = this.querySelector('input#use-light')
+          this.inputs.dark = this.querySelector('input.js-use-dark')
+          this.inputs.light = this.querySelector('input.js-use-light')
 
           const modeOverride = window.localStorage.getItem('theme-mode')
           if (typeof modeOverride === 'string') this.changeMode(modeOverride)
