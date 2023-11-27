@@ -82,7 +82,15 @@ export const data = [
         path: '/docs/elements/state/',
         label: 'State',
         hasChildren: true,
-        items: ['attributes', 'store'],
+        items: [
+          'attributes',
+          'store',
+          {
+            slug: 'instance-id',
+            label: 'Instance ID',
+          },
+          'context',
+        ],
       },
     ],
   },

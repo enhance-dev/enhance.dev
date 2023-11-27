@@ -38,12 +38,14 @@ export default function MyElement ({ html, state }) {
 
 </doc-code>
 
-The state object contains two top level entries:
+The state object contains four top level keys:
 
 - `attrs`, which contains all the key value pairs of attributes passed into your custom element’s instance
 - `store`, which contains the global state of your Enhance application
+- `instanceID`, which is a unique ID per instance of Custom Element
+- `context`, which is an Object that can be used to pass state to child elements to avoid prop drilling
 
-These two different entries allow you to work with both basic and complex state in powerful ways without the need for complex abstractions or third party libraries.
+These keys allow you to work with both basic and complex state in powerful ways without the need for complex abstractions or third party libraries.
 
 <doc-callout level="none" mark="✏️">
 
