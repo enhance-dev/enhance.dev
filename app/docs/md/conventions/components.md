@@ -203,7 +203,7 @@ Revisiting our `my-card` component we get:
 ```javascript
 import enhance from '@enhance/element'
 
-enhance('my-card', {
+const MyCard = {
   attrs: [ 'title' ],
   init(element) {
     console.log('My Card: ', element)
@@ -253,7 +253,10 @@ enhance('my-card', {
   disconnected() {
     console.log('DISCONNECTED')
   }
-})
+}
+
+enhance("my-card", MyCard);
+export default MyCard
 ```
 
 </doc-code>
