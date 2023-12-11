@@ -1,1 +1,1 @@
-export { SectionDropdown as default } from '@begin/masthead'
+export { SectionDropdown as default } from '@begin/imprint'

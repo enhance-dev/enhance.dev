@@ -1,1 +1,1 @@
-export { Slice as default } from '@begin/masthead'
+export { Slice as default } from '@begin/imprint'

@@ -1,1 +1,1 @@
-export { DeployButton as default } from '@begin/masthead'
+export { DeployButton as default } from '@begin/imprint'

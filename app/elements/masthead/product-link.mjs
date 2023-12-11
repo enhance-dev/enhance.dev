@@ -1,1 +1,1 @@
-export { ProductLink as default } from '@begin/masthead'
+export { ProductLink as default } from '@begin/imprint'

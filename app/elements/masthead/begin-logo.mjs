@@ -1,1 +1,1 @@
-export { BeginLogo as default } from '@begin/masthead'
+export { BeginLogo as default } from '@begin/imprint'

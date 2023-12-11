@@ -1,1 +1,1 @@
-export { SectionLink as default } from '@begin/masthead'
+export { SectionLink as default } from '@begin/imprint'

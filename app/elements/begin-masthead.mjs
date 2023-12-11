@@ -1,2 +1,2 @@
-import { Masthead } from '@begin/masthead'
+import { Masthead } from '@begin/imprint'
 export default Masthead

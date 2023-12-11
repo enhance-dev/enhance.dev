@@ -1,1 +1,1 @@
-export { Symbols as default } from '@begin/masthead'
+export { Symbols as default } from '@begin/imprint'
