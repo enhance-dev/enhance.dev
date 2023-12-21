@@ -64,7 +64,7 @@ API responses are merged with the default state returned from preflight allowing
 
 
 
-### Example of overriding default preflight data with an API response
+### Overriding default preflight data with an API response
 
 <doc-code filename="app/preflight.mjs">
 
