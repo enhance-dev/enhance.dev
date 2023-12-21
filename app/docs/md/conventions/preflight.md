@@ -35,7 +35,7 @@ API responses are merged with the default state returned from preflight allowing
 
 
 
-### Example of setting the page title using preflight
+### Setting the page title using preflight
 
 <doc-code filename="app/preflight.mjs">
 
