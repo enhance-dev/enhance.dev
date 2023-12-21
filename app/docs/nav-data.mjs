@@ -34,6 +34,7 @@ export const data = [
       'browser',
       'public',
       '404-errors',
+      'preflight',
     ],
   },
   {

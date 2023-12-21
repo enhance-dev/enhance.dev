@@ -57,6 +57,8 @@ preconfigured
 prepended
 preloaded
 preprocessing
+preflight
+Preflight
 rulese(t|ts)
 scaleMax
 scaleMin
