@@ -76,3 +76,69 @@ API routes always return a `response` object:
 | `headers`      | `object` | Set response headers as key/value pairs
 | `session`      | `object` | Writes passed object to the session
 
+## Requesting Data Example
+
+Perhaps you would like to progressively enhances your web component to avoid a full page reload when requesting data from an Enhance backend. Here is an example of using `fetch` in the browser to make that request.
+
+```javascript
+const response = await fetch('/', {
+  headers: { 'accept': 'application/json' },
+  method: 'get'
+})
+
+const json = await res.json()
+// json: { favorites: ['coffee crisp', 'smarties'] }
+```
+
+## Sending Data Example
+
+Conversely, you may want to avoid doing a form post to prevent a full page reload in the browser. In order send data to an Enhance back end you must properly set the `Content-Type` header.
+
+### JSON
+
+```javascript
+const response = await fetch('/', {
+  headers: {
+    'accept': 'application/json'
+    'content-type': 'application/json'
+  },
+  method: 'post',
+  body: JSON.stringify({
+    favourite: 'crispy crunch'
+  })
+})
+```
+
+### Forms
+
+When sending form data you have a couple of options. The first is using `URLSearchParams` to send data using the mime type `application/x-url-form-encoded`.
+
+```javascript
+const form = document.querySelector('form')
+const response = await fetch('/', {
+  headers: {
+    'accept': 'application/json'
+    'content-type': 'application/x-url-form-encoded'
+  },
+  method: 'post',
+  body: new URLSearchParams(new FormData(form))
+})
+```
+
+The second is converting your form data to JSON and sending it along as the mime type of `application/json`.
+
+```javascript
+const form = document.querySelector('form')
+const response = await fetch('/', {
+  headers: {
+    'accept': 'application/json'
+    'content-type': 'application/json'
+  },
+  method: 'post',
+  body: JSON.stringify(
+    Object.fromEntries(
+      new FormData(form)
+    )
+  )
+})
+```
