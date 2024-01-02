@@ -33,7 +33,7 @@ export async function get (req) {
 
 Given a corresponding `app/pages/index.html`, any Enhance Element rendered on that page will have access to the `favorites` array via [`state.store`](/docs/elements/state/store). For example:
 
-```js
+```javascript
 export default function MyFavorites ({ html, state }) {
   const { store } = state
   const { favorites } = store
@@ -76,9 +76,9 @@ API routes always return a `response` object:
 | `headers`      | `object` | Set response headers as key/value pairs
 | `session`      | `object` | Writes passed object to the session
 
-## Requesting Data Example
+## Requesting data on the client
 
-Perhaps you would like to progressively enhances your web component to avoid a full page reload when requesting data from an Enhance backend. Here is an example of using `fetch` in the browser to make that request.
+Web components can be progressively enhanced to avoid full page reloads when requesting data from an Enhance backend. Here is an example of using `fetch` in the browser to make that request.
 
 ```javascript
 const response = await fetch('/', {
@@ -90,11 +90,13 @@ const json = await res.json()
 // json: { favorites: ['coffee crisp', 'smarties'] }
 ```
 
-## Sending Data Example
+## Sending data from the client
 
-Conversely, you may want to avoid doing a form post to prevent a full page reload in the browser. In order send data to an Enhance back end you must properly set the `Content-Type` header.
+Data can also be posted to Enhance backends via the client to avoid full page reloads.
 
-### JSON
+In order to send data to an Enhance back end, you must properly set the `Content-Type` and `accept` headers. The `Content-Type` header informs the API route about the type of data that’s being sent, while the `accept` header instructs the API route as to what type of data to return.
+
+### Sending JSON data
 
 ```javascript
 const response = await fetch('/', {
@@ -109,9 +111,11 @@ const response = await fetch('/', {
 })
 ```
 
-### Forms
+### Sending form data
 
-When sending form data you have a couple of options. The first is using `URLSearchParams` to send data using the mime type `application/x-url-form-encoded`.
+When sending form data, you have a couple of options. Deciding which option to use is up to you and what your backend supports. If your data schema is complex (i.e. arrays and nested objects) you may want to rely on the `@begin/validator` package to convert form encoding to JSON and validating it against your schema. For flat data structures you may want to default to sending JSON from the client.
+
+The first is using [`URLSearchParams`](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams) to send data using the content type `application/x-url-form-encoded`.
 
 ```javascript
 const form = document.querySelector('form')
@@ -125,7 +129,7 @@ const response = await fetch('/', {
 })
 ```
 
-The second is converting your form data to JSON and sending it along as the mime type of `application/json`.
+The second option is converting your form data to JSON and sending it along as the content type of `application/json`.
 
 ```javascript
 const form = document.querySelector('form')

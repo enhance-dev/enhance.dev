@@ -22,7 +22,7 @@ You can customize the contents of the Head component by editing the included `ap
 
 <doc-code filename='app/head.mjs'>
 
-```js
+```javascript
 import { getStyles }  from '@enhance/arc-plugin-styles'
 
 const { linkTag } = getStyles
