@@ -8,7 +8,7 @@ The preflight function is passed the request object enabling you to populate the
 
 You can use the preflight file as a way to incrementally build your data layer. Start with a static version of your store data to get everything working then progress to using API functions and a database as needed.
 
-Preflight can also work as a global middleware replacement for pages that require data but you may not want to be required to write an API endpoint for. A common pattern that can be solved with preflight is needing authenticated account data on a page that doesn't have an API endpoint.
+Preflight can also work as a global middleware replacement for pages that require data in common with other pages that otherwise would not require an API route. A typical pattern that can be solved with preflight is needing authenticated account data on multiple pages without writing an API endpoint for each page.
 
 Enhance looks for the preflight file in the root of your app.
 
