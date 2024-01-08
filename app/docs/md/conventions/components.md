@@ -96,6 +96,16 @@ customElements.define('my-card', MyCard)
 
 </doc-code>
 
+<doc-callout level="info" mark="ℹ️">
+
+Before you can use the `CustomElement` you will need to add it to your project:
+
+```bash
+npm install @enhance/custom-element
+```
+
+</doc-callout>
+
 You may be thinking that the `render` function looks familiar and you would be right. These `render` functions are Enhance Elements. This enables us to share rendering logic between the client side and server side so any Enhance Component will be server side renderable.
 
 When an Enhance component is server-side rendered it is "enhanced" with an attribute to indicate that the slotting algorithm and style transform have already been run. The attribute look like this:
@@ -176,6 +186,16 @@ customElements.define('my-card', MyCard)
 ```
 
 </doc-code>
+
+<doc-callout level="info" mark="ℹ️">
+
+Before you can use `MorphdomMixin` you will need to add it to your project:
+
+```bash
+npm install @enhance/morphdom-mixin
+```
+
+</doc-callout>
 
 Once added the `MorphdomMixin` will handle updating the DOM whenever an `observedAttributes` is modified. The `<attribute name>Changed` methods are no longer necessary. Instead on an attribute change the `render` method will be re-run and the output will be compared against the current DOM. Only the modified DOM nodes will be updated.
 
@@ -260,3 +280,15 @@ export default MyCard
 ```
 
 </doc-code>
+
+</doc-code>
+
+<doc-callout level="info" mark="ℹ️">
+
+Before you can use `EnhanceElement` you will need to add it to your project:
+
+```bash
+npm install @enhance/element
+```
+
+</doc-callout>
