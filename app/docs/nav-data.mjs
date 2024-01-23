@@ -18,6 +18,10 @@ export const data = [
       },
       'editor-setup',
       'glossary',
+      {
+        slug: 'tutorial',
+        label: 'Tutorial: Todo-MVC',
+      },
     ],
   },
   {
