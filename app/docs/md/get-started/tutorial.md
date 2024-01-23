@@ -37,6 +37,30 @@ But it allows for the comparison of frameworks by keeping those aspects similar.
 The project has a specification [here](https://github.com/tastejs/todomvc/blob/master/app-spec.md) for reference.
 The Enhance version tries to follow as closely as possible only deviating in a few instances to highlight Enhance patterns that are improved over other frameworks (i.e. HTML structure is changed to allow the app to work without JavaScript enabled).
 
+### Features
+The following features are from the [Todo MVC Specification Functionality](https://github.com/tastejs/todomvc/blob/master/app-spec.md#functionality).
+There are slight variations from the specification where Enhance has better built in options for features like persistence. 
+
+* **No todos**: 
+   * When there are no todos, #main and #footer should be hidden.
+*  **New todo**: 
+   * New todos are entered in the input at the top of the app. The input element should be focused when the page is loaded, preferably by using the autofocus input attribute. Pressing Enter creates the todo, appends it to the todo list, and clears the input. Make sure to .trim() the input and then check that it's not empty before creating a new todo.
+*  **Mark all as complete**: 
+   * This checkbox toggles all the todos to the same state as itself. Make sure to clear the checked state after the "Clear completed" button is clicked. The "Mark all as complete" checkbox should also be updated when single todo items are checked/unchecked. Eg. When all the todos are checked it should also get checked.
+*  **Item**: 
+   * A todo item has three possible interactions:
+     1. Clicking the checkbox marks the todo as complete by updating its completed value and toggling the class completed on its parent <li>
+     2. Double-clicking the <label> activates editing mode, by toggling the .editing class on its <li>
+     3. Hovering over the todo shows the remove button (.destroy)
+* **Editing**: 
+  * When editing mode is activated it will hide the other controls and bring forward an input that contains the todo title, which should be focused (.focus()). The edit should be saved on both blur and enter, and the editing class should be removed. Make sure to .trim() the input and then check that it's not empty. If it's empty the todo should instead be destroyed. If escape is pressed during the edit, the edit state should be left and any changes be discarded.
+* **Counter**: 
+  * Displays the number of active todos in a pluralized form. Make sure the number is wrapped by a <strong> tag. Also make sure to pluralize the item word correctly: 0 items, 1 item, 2 items. Example: 2 items left
+* **Clear completed button**: 
+  * Removes completed todos when clicked. Should be hidden when there are no completed todos.
+* **Persistence**: Handled by Enhance's build in database. 
+* **Routing**: Handled by Enhance's server routing.
+  
 
 ## Get Started & Development Server
 
@@ -123,6 +147,8 @@ We can generate these with:
 
 Note key is omitted because it is the default id for CRUD routes.
 
+This one command generates seven files listed below that handle the requests to a range of HTTP requests.
+
 **Files**
   * API data routes
     * /app/api/links.mjs
@@ -147,14 +173,24 @@ Note key is omitted because it is the default id for CRUD routes.
 
 > Why do we have a POST `/links/$id/delete` route instead of a DELETE `/links/$id` route? It is because browsers only support GET and POST and we want to be able to support non-JavaScript use cases with our forms.
 
+### File Based Routing and Dynamic Routes
+Enhance uses file based routing to map files in the /app/api and /app/pages folders with the HTTP request path that they handle.
+All named files in these folders respond to requests that match their path (i.e. http://example.com/right/here would be handled by /app/api/right/here.mjs and /app/pages/right/here.html).
+For paths and path parts that need to respond to a range of requests Enhance uses the "$there.mjs" convention.
+Any path part that starts with a $ is dynamic and can respond to any string in that part. 
+If two dollar signs are used (i.e. /app/api/right/$$.mjs) then it will match anything for the rest of the path. 
+For more details on this refer to the docs for [Dynamic Routes](/docs/routing/dynamic-routes)
 
-This creates the api route for create and list at the `/todos` where a POST will create a new todo and a GET will list all of the todos.
+Now lets take a closer look at what was generated for our CRUD in our the following sections. 
+
+### Enhance API Routes
+
+Generate created the api route for create and list at the `/todos` where a POST will create a new todo and a GET will list all of the todos.
 This route file is `/app/api/todos.mjs`.
 The read and update route is at `/todos/{id}` where a GET will read the todo and a POST will update it.
 The file is at `/app/api/todos/$id.mjs`.
 And finally a POST to `/todos/{id}/delete` will delete the task.
 
-### Enhance API Routes
 Enhance API routes respond to HTTP requests for data (either JSON, or any other text data).
 These api routes are in `/app/api` following the file based routing.
 They also provide a way to prepare pass data on to the HTML render function to combine that data with markup before responding. 
@@ -233,12 +269,12 @@ For more details on this refer to the [Problems Loop](/docs/patterns/form-valida
 
 ### Database and Data Access
 Every Enhance app comes with its own database.
-It is batteries included? @begin/data is just a thin wrapper around DynamoDB which is an incredibly fast, truly serverless database.
-If you don’t need or use it, it will not get in your way nor will you be charged for it.
+It's batteries included with no overhead. 
+@begin/data is just a thin wrapper around DynamoDB which is an incredibly fast, truly serverless database.
 
-The generated api routes use a generated data access layer to read and write to the database.
+The generated api routes use a generated data access layer to read and write to this database.
 This code is generated into the `/app/models/todos.mjs` and `/app/models/schemas/todo.mjs` files.
-The schema file is a JSON schema used in the generator command.
+The schema file is a JSON schema that matches the schema passed to the generate command.
 The data access is shown below.
 
 ```javascript
@@ -305,15 +341,19 @@ export {
 }
 ```
 
+This exports all the CRUD methods we need as well as methods to validate that the passed data matches the schema.
+
 
 
 The generator also creates html pages for each of these routes in the pages folder.
-These pages can be deleted because we will build a new page for the todo app.
-The files in the elements folder can also be deleted.
 
 To test the generated pages start the development server (`npm start`) and load the todo list at [http://localhost:3333/todos](http://localhost:3333/todos).
 From here you can create new tasks and edit existing tasks.
-This page is ugly and the it does not have the features required for todoMVC, but it is a starting point to build from. 
+This page is ugly and the it does not have the features required for todoMVC, but it is can be a starting point to build from. 
+
+These generated pages will eventually be deleted for this app. 
+They are useful for debugging and testing CRUD operations so we will leave them for now. 
+The generated files in the elements folder will also be deleted for this app, but we can leave them for now.
 
 
 ## App Structure 
@@ -335,8 +375,6 @@ Add the following markup there:
 
 This will be the roadmap for breaking up the sections of the app into components.
 There will be six components in total (5 of which are shown here).
-
-
 
 
 * `<todo-app>` Is a container for the dynamic pieces of the app.
@@ -598,7 +636,10 @@ This form will rely implicit submission.
 After entering a new task the user only needs to hit enter to submit this task.
 
 
-```html 
+```javascript
+// /app/elements/todo-header.mjs
+export default TodoHeader({html}){
+return html`
 <style>
 .new-todo {
 	position: relative;
@@ -641,29 +682,37 @@ h1 {
       <input autofocus="autofocus" autocomplete="off" placeholder="What needs to be done?" name="task" class="new-todo">
     </form>
   </header>
+  `
+  }
 ```
 
 Note that this component is fully functional with no additional JavaScript. 
 So far the HTML First approach is going well.
+A simple form tag and input tag and we have a large chunk of functionality.
+
+## HTML First and Forms First
+Forms are the best method for sending data from a browser to the server. 
+They have been around almost as long as the web itself.
+For a long time they were the only way.
+With JavaScript Frameworks the `<form>` has fallen out of fasion. 
+Most frameworks scrap forms in favor of bespoke libraries to send data to the server in some other way. 
+
+With the HTML first approach we will lean heavily on forms.
+This will result in more bulletproof interaction, faster development, and less code.
 
 ## Update API route redirect after POST
-We now need to update some of our API routes so that after we submit data they will redirect back to the desired location. 
+With the form for creating tasks in place we need to update the API routes to redirect back to the root after we submit data. 
 The user interface for the todo list is at the root (`/`).
 The generated CRUD routes are hosted at `/todos`. 
 When we post to `/todos` with a successful task the browser will redirect back to '/todos' to GET the list of tasks.
 We need to change that redirect to return to the root.
+This is done by changing the location property in the return statement. 
+Location is a shortcut property that sets response headers for a '302' redirect.
+The updated api file is shown below.
 
 ```javascript
-
-// View documentation at: https://enhance.dev/docs/learn/starter-project/api
-/**
-  * @typedef {import('@enhance/types').EnhanceApiFn} EnhanceApiFn
-  */
 import { upsertTodo, validate } from '../models/todos.mjs'
 
-/**
- * @type {EnhanceApiFn}
- */
 export async function post (req) {
   const session = req.session
   // Validate
@@ -697,13 +746,107 @@ export async function post (req) {
 
 ```
 
+To test creating a task we can start the dev server with `npm start` and navigate to [http://localhost:3333](http://localhost:3333).
+Now we can enter a task in the input.
+We have no list of tasks yet so to test if a task was created navigate to [http://localhost:3333/todos](http://localhost:3333/todos).
+The task should appear at the top of the list on this page.
+
+We can make the same change in the edit (`/app/api/todos/$id.mjs`) and delete (`/app/api/todos/$id/delete.mjs`) api files. 
+Change their corresponding location redirects to `/` as well.
 
 
+## List and Item Components
+Now we need to create the list of tasks. 
+Following our app structure layed out earlier this requires two components.
+We will build them together since they relate closely to each other. 
 
-## List Component
+Unlike the header component that has static markup with a form, these components are dynamic.
+The contents depends on what tasks are in the database. 
+This introduces the need for state dependent elements. 
+
+### Passing State to Elements
+Every Enhance element has optional access to Enhance’s state object, made available through the Enhance element `state` property.
+The state object contains four top level keys:
+
+*  attrs, which contains all the key value pairs of attributes passed into your custom element’s instance
+*  store, which contains the global state of your Enhance application
+*  instanceID, which is a unique ID per instance of Custom Element
+*  context, which is an Object that can be used to pass state to child elements to avoid prop drilling
+
+For more details refer to [State](/docs/elements/state) in the docs.
+
+For our list element we will use the `store` and then the item will also use `attrs` (attributes). 
+
+First lets start with the todo item. 
+Copy and paste the following into `/app/elements/todo-list.mjs`.
+
+For now we will omit the styles because they are taken directly from the reference app and they will get in the way initally.
+Following our pattern of using forms first this item is made of two forms. The first form allows editing exising items. 
+The second form allows deleting items. 
+
+Attributes are the primary element API of the web platform so we use them for the todo item.
+One important caveat is that attributes are always strings.
+This means boolean attributes (i.e. completed) and numbers (not used in this component) will both become strings in the attrs object.
+For more details refer to [Attributes](/docs/elements/state/attributes) in the docs. 
+The state of the `completed` attribute for the item results in the `checked` attribute being added to the completed checkbox.
 
 
 ```javascript
+// /app/elements/todo-item.mjs
+
+export default function TodoItem({html,state}){
+    const { attrs = {} } = state
+    const { completed = '', key = '', task = '' } = attrs
+    const checked = completed === 'true' ? 'checked' : ''
+
+    return html`
+<style>
+ /* Styles Omitted */
+</style>
+<div class="view">
+  <form  action="/todos/${key}" class=" update-todo " method="POST" >
+    <button class="edit-task hidden" type=submit >update</button>
+    <input class="hidden toggle" name="completed" type="checkbox" ${checked} >
+    <button class="set-complete" type=submit formaction="/todos/${key}?toggle" aria-label="toggle complete"></button>
+    <input type="text" name="task" value="${task}" class="edit" >
+    <input type="hidden" name="key" value="${key}">
+  </form>
+
+  <form class="delete-todo" action="/todos/${key}/delete" method="POST" >
+    <input type="hidden" name="key" value="${key}">
+    <button class="destroy"></button>
+  </form>
+</div>
+  `
+  }
+```
+
+The delete form posts to the delete route and the edit form submits to the edit route by the form action attribute.
+But notice that the edit form has two submit buttons.
+
+Since we are building this form to work without JavaScript as much as possible there is one feature that is slightly challenging.
+We can edit the task description and submit the form by hitting enter.
+This does an implicit submit updating the description.
+To toggle the completed state of the form we need to update the checkbox and then submit. 
+This is two actions. 
+We can do it with one action by using a feature of form submission. 
+We can add another submit button that changes the action of the form. 
+This is the second button in the first form.
+We add the `?toggle` query string to the end of the formaction attribute.
+When this button is used it submits the form with this new path.
+We will also need to update the post function on the server to respond to this.
+In order for the implicit submit of the form to stay the same we need to add a hidden submit button with the default submit action above our new submit. 
+Implicit submit will use the first submit button in the form.
+
+
+Now we have items that display, edit and delete todos.
+Next we need a list item to add these todo-items. 
+Copy and paste the following into `/app/elements/todo-list.mjs`.
+
+
+```javascript
+// /app/element/todo-list.mjs
+
 export default function TodoList({html,state}){
     const { store ={}} = state
     const { todos =[]} = store
@@ -733,10 +876,106 @@ return html`
 `}
 ```
 
+This component uses the store to get the list of tasks and adds them to a `<ul>` list wrapped in `<li>`'s.
+In addition the list adds another form to handle the mark all as complete functionality. 
+This form submits to a `/todos/toggle` post api route that does not yet exist. 
+Add that api route to /app/api/todos/toggle.mjs by coping the following code to that file.
+
+```javascript
+// /app/api/todos/toggle.mjs
+import { upsertTodo, getTodos } from '../../models/todos.mjs'
+
+export async function post (req) {
+
+  const session = req.session
+  let { problems: removedProblems, ...newSession } = session
+  let todos = await getTodos()
+  let active = todos.filter(todo=>!todo.completed)
+  let completed = todos.filter(todo=>todo.completed)
+
+  try {
+    if (active.length > 0) {
+      await Promise.all(active.map(todo=>upsertTodo({...todo, completed: true})))
+    } else {
+      await Promise.all(completed.map(todo=>upsertTodo({...todo, completed: false})))
+    }
+
+    todos = await getTodos()
+    active = todos.filter(todo => !todo.completed)
+    completed = todos.filter(todo => todo.completed)
+
+    return {
+      session: newSession,
+      json: { problems: {}, todos, active, completed },
+      location: '/'
+    }
+  }
+  catch (err) {
+    return {
+      session: { ...newSession, error: err.message },
+      json: { error: err.message },
+      location: '/'
+    }
+  }
+}
+
+```
+
+Our full todo list with most features should be working now.
+We just need to add the css for the list and item components.
+To do this copy the following css blocks to inside the todo-list and todo-item elements inside the `<style>` block.
 
 
 ```css
- .todo-list li .toggle + button {
+/* todo-item styles */
+.view {
+  display:grid;
+  grid-direction:row;
+  grid-template-columns: 1fr 50px;
+}
+form.update-todo {
+  display:grid;
+  grid-direction:row;
+  grid-template-columns: 50px 1fr;
+}
+input.edit[name=task] {
+  border: none;
+  box-shadow: none;
+}
+button.destroy{
+  display: block;
+}
+form .destroy:after {
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+.edit {
+	position: relative;
+	margin: 0;
+	width: 100%;
+	font-size: 24px;
+	font-family: inherit;
+	font-weight: inherit;
+	line-height: 1.4em;
+	color: inherit;
+	padding: 6px;
+	border: 1px solid #999;
+	box-shadow: inset 0 -1px 5px 0 rgba(0, 0, 0, 0.2);
+	box-sizing: border-box;
+}
+.view:focus-within {
+	box-shadow: 0 0 2px 2px #CF7D7D;
+	outline: 0;
+
+}
+```
+
+
+
+```css
+    /* css for todo-list component */
+
+    .todo-list li .toggle + button {
       background-image: url('data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%22-10%20-18%20100%20135%22%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2250%22%20fill%3D%22none%22%20stroke%3D%22%23949494%22%20stroke-width%3D%223%22/%3E%3C/svg%3E');
       background-repeat: no-repeat;
       background-position: center left;
@@ -756,6 +995,8 @@ return html`
     button.edit-task.edit-task {
       display: none;
     }
+
+
 
 
 .main {
@@ -912,6 +1153,7 @@ return html`
 	.todo-list li .toggle {
 		background: none;
 	}
+
 	.todo-list li .toggle {
 		height: 40px;
 	}
@@ -921,6 +1163,7 @@ return html`
 	.footer {
 		height: 50px;
 	}
+
 	.filters {
 		bottom: 10px;
 	}
@@ -930,9 +1173,8 @@ return html`
 	box-shadow: 0 0 2px 2px #CF7D7D;
 	outline: 0;
 }
+
 ```
-
-
 
 ## JavaScript First
 
