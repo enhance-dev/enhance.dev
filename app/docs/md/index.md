@@ -4,7 +4,7 @@ title: Quick Start
 
 ## Welcome!
 
-Enhance is an HTML-first full-stack web framework that gives you everything you need to build standards-based multi-page web apps that perform and scale.
+Enhance is an HTML-first full-stack web framework that gives you everything you need to build standards-based multi-page web apps that perform and scale. Enhance apps and their elements are server-side rendered for incredible performance and seamless progressive enhancement.
 
 ## Video walkthrough
 

@@ -2,7 +2,9 @@
 title: Elements
 ---
 
-Elements are the reusable building blocks of your Enhance application. They are [pure functions](https://en.wikipedia.org/wiki/Pure_function) authored as single-file components and can be static or update dynamically to state changes. Elements live in the `app/elements/` folder in the Enhance starter project.
+Elements are the reusable building blocks of your Enhance application. They are [pure functions](https://en.wikipedia.org/wiki/Pure_function) authored as single-file components. They’re also server-side rendered out of the box, offering incredible performance and a seamless path for progressive enhancement.
+
+Elements live in the `app/elements/` folder in the Enhance starter project.
 
 ## Naming
 

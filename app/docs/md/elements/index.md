@@ -10,7 +10,7 @@ Components are a cornerstone of modern web frameworks. Typically, these componen
 
 Enhance Elements are designed to offer these same benefits without the requirement of learning a new syntax. They can be authored using the HTML, CSS, and JavaScript you already know and love.
 
-Additionally, Enhance Elements are use Server Side Rendering (SSR) out of the box, providing incredible performance for end users, and providing you with a fantastic base for [progressive enhancement](/docs/patterns/progressive-enhancement).
+Additionally, Enhance Elements are server-side rendered out of the box, providing incredible performance for end users, and providing you with a fantastic base for [progressive enhancement](/docs/patterns/progressive-enhancement).
 
 ## Define
 
