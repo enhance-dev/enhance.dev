@@ -746,6 +746,30 @@ export async function post (req) {
 
 ```
 
+Now that we are serving the app from the root instead of `/todos` we need to move the `get` function from the /app/api/todos.mjs into a new /app/api/index.mjs file instead.
+Cut and paste the get function from the todos.mjs into index.mjs as follows.
+
+```javascript
+import { getTodos } from '../models/todos.mjs'
+
+export async function get (req) {
+  let todos = await getTodos()
+
+  if (req.session.problems) {
+    let { problems, todo, ...session } = req.session
+    return {
+      session,
+      json: { problems, todos, todo }
+    }
+  }
+
+  return {
+    json: { todos }
+  }
+}
+```
+
+
 To test creating a task we can start the dev server with `npm start` and navigate to [http://localhost:3333](http://localhost:3333).
 Now we can enter a task in the input.
 We have no list of tasks yet so to test if a task was created navigate to [http://localhost:3333/todos](http://localhost:3333/todos).
@@ -838,6 +862,21 @@ We will also need to update the post function on the server to respond to this.
 In order for the implicit submit of the form to stay the same we need to add a hidden submit button with the default submit action above our new submit. 
 Implicit submit will use the first submit button in the form.
 
+To handle the `toggle` query parameter add the following lines to the /app/api/todos/$id.mjs inside the top of the post function.
+If the toggle parameter is present the completed flag is switched. 
+
+```javascript
+  const toggle = req.query.hasOwnProperty('toggle')
+  const body = { ...req.body }
+  body.completed = toggle ? !body.completed : body.completed
+```
+
+The line of code that validates the task should use this modified body property instead of the passed body as follows.
+
+```javascript
+let { problems, todo } = await validate.update({ ...req, body })
+```
+
 
 Now we have items that display, edit and delete todos.
 Next we need a list item to add these todo-items. 
@@ -921,7 +960,7 @@ export async function post (req) {
 
 ```
 
-Our full todo list with most features should be working now.
+Our full todo list with most features are in place now.
 We just need to add the css for the list and item components.
 To do this copy the following css blocks to inside the todo-list and todo-item elements inside the `<style>` block.
 
@@ -1176,6 +1215,244 @@ form .destroy:after {
 
 ```
 
+The last critical functions of the app include the ability to filter the list. 
+These will be built into the todo-footer component.
+The features needed are to filter tasks to all, active, or completed.
+We also need to be able to clear (delete) all the completed tasks.
+
+For an HTML first approach to this we can use regular links (anchor tags) for filtering.
+The clear feature should use a post request since it is destructive.
+For this we can use a form. 
+
+Copy and paste the following into /app/elements/todo-footer.mjs.
+
+```javascript
+// /app/elements/todo-footer.mjs
+
+export default function TodoFooter({html,state}){
+    const { store = {} } = state
+    const { todos = [], active = [], completed = [], filter = 'all' } = store
+    const display = (todos.length || active.length || completed.length) ? 'block' : 'none'
+
+    return html`
+<style>
+/* styles omitted */
+</style>
+  <footer class="footer" style="display: ${display};">
+    <span class="todo-count"><strong>${active.length}</strong> items left</span>
+    <ul class="filters">
+      <li><a href="/" class="${filter === 'all' ? 'selected' : ''}">All</a></li>
+      <li><a href="/?filter=active" class="${filter === 'active' ? 'selected' : ''}">Active</a></li>
+      <li><a href="/?filter=completed" class="${filter === 'completed' ? 'selected' : ''}">Completed</a></li>
+    </ul>
+    <form action="/todos/completed/delete" method="POST">
+      <button class="clear-completed" style="display: ${completed.length ? 'block' : 'none'};">Clear completed</button>
+    </form>
+  </footer>
+    `
+  }
+}
+```
+
+In order to support the filtering query parameters used in the links above we need to update the /app/api/index.mjs to filter the list accordingly. 
+
+```javascript
+import { getTodos } from '../models/todos.mjs'
+
+export async function get (req) {
+  let todos = await getTodos()
+  let active = todos.filter(todo => !todo.completed)
+  let completed = todos.filter(todo => todo.completed)
+
+  if (req.session.problems) {
+    let { problems, todo, ...session } = req.session
+    return {
+      session,
+      json: { problems, todos, todo }
+    }
+  }
+
+  const filter = req.query.filter
+  if (filter==='active') todos = active
+  if (filter==='completed') todos = completed
+
+  return {
+    json: { todos, active, completed, filter }
+  }
+}
+```
+
+To clear all completed tasks add the following new api route to respond to the new clear completed form in the footer component.
+
+```javascript
+// /app/api/todos/completed/delete.mjs
+
+import { deleteTodo, getTodos } from '../../../models/todos.mjs'
+
+export async function post (req) {
+
+  const session = req.session
+  // eslint-disable-next-line no-unused-vars
+  let { problems: removedProblems, ...newSession } = session
+  const todos = await getTodos()
+  const completed = todos.filter(todo=>todo.completed)
+  try {
+    await Promise.all(completed.map(todo=>deleteTodo(todo.key)))
+    return {
+      session: newSession,
+      location: '/'
+    }
+  }
+  catch (err) {
+    return {
+      session: { ...newSession, error: err.message },
+      json: { error: err.message },
+      location: '/'
+    }
+  }
+}
+```
+
+And to add the styles from the Todo MVC for the footer past the following css into the todo-footer elment inside the `<style>` tag.
+
+```css
+/* todo-footer css */
+
+footer.footer {
+	padding: 10px 15px;
+	height: 20px;
+	text-align: center;
+	font-size: 15px;
+	border-top: 1px solid #e6e6e6;
+}
+
+footer.footer:before {
+	content: '';
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	height: 50px;
+	overflow: hidden;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2),
+	            0 8px 0 -3px #f6f6f6,
+	            0 9px 1px -3px rgba(0, 0, 0, 0.2),
+	            0 16px 0 -6px #f6f6f6,
+	            0 17px 2px -6px rgba(0, 0, 0, 0.2);
+}
+
+
+.todo-count {
+	float: left;
+	text-align: left;
+}
+
+.todo-count strong {
+	font-weight: 300;
+}
+
+.filters {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	position: absolute;
+	right: 0;
+	left: 0;
+}
+
+.filters li {
+	display: inline;
+}
+
+.filters li a {
+	color: inherit;
+	margin: 3px;
+	padding: 3px 7px;
+	text-decoration: none;
+	border: 1px solid transparent;
+	border-radius: 3px;
+}
+
+.filters li a:hover {
+	border-color: #DB7676;
+}
+
+.filters li a.selected {
+	border-color: #CE4646;
+}
+
+.clear-completed,
+html .clear-completed:active {
+	float: right;
+	position: relative;
+	line-height: 19px;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.clear-completed:hover {
+	text-decoration: underline;
+}
+
+```
+
+
+We have just one finishing touch to add to the app.
+We need a footer component with some attribution and directions. 
+This is another static element similar to the header.
+
+Copy and paste the following to /app/elements/todo-app-footer.mjs.
+
+```javascript
+export default function TodoAppFooter({ html }) {
+  return html`
+<style>
+.info {
+	margin: 65px auto 0;
+	color: #4d4d4d;
+	font-size: 11px;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+	text-align: center;
+}
+
+.info p {
+	line-height: 1;
+}
+
+.info a {
+	color: inherit;
+	text-decoration: none;
+	font-weight: 400;
+}
+
+.info a:hover {
+	text-decoration: underline;
+}
+</style>
+    <footer class="info">
+        <p>Double-click to edit a todo</p>
+        <p>Written by the <a href="https://enhance.dev">Enhance Team</a></p>
+        <p>Part of <a href="https://todomvc.com">TodoMVC</a></p>
+    </footer>
+    `
+}
+```
+
+
+
+## HTML First goes far
+We now have a complete todo list app with all the required functionality and not a single line of client side JavaScript.
+There are additional things we could add (and we will in the next section), but if these were the requirements of a greenfield project this could be released as is for testing and feedback.
+We believe this should be recommended best practice, and we think that it is by far the fastest way to get a working app.
+
+## Progressive Enhancement 
+Progressive enhancement means starting with HTML and CSS to build a working app and then incrementally improve it with a little JavaScript if necessary.
+This is an incremental additive approach and it should not require building your app twice.
+As previously mentioned we have a fully functional app that meets all our reqirements. 
+What could we add with PE?
+The biggest thing that could be improved is allowing for updates to the todo list without a full page reload.
+
+
 ## JavaScript First
 
 
@@ -1200,7 +1477,8 @@ The goal is to:
 3. Minimal extra JavaScript
 4. Avoid stalling the main UI thread with long running tasks
 
-With the CRUDL (Create, Read, Update, Delete, and List) operations already fully implemented the simplest approach is to plug in between this exchange. A typical form post and response for a CRUD route is shown below. 
+With the CRUDL (Create, Read, Update, Delete, and List) operations already fully implemented the simplest approach is to plug in between this exchange.
+A typical form post and response for a CRUD route is shown below. 
 
 
 1. **Reactive data store** to share state changes throughout the app
