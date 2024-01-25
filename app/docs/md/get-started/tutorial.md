@@ -1450,10 +1450,14 @@ Progressive enhancement means starting with HTML and CSS to build a working app 
 This is an incremental additive approach and it should not require building your app twice.
 As previously mentioned we have a fully functional app that meets all our reqirements. 
 What could we add with PE?
+
 The biggest thing that could be improved is allowing for updates to the todo list without a full page reload.
+The next sections following the JavaScript first approach will add those features.
 
 
 ## JavaScript First
+If you are following the JavaScript first path welcome and lets get started. 
+If you followed the HTML first path and want to see how to improve the app to avoid full page reloads continue reading. 
 
 
 ## Clientside State Management
