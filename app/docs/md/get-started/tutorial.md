@@ -12,7 +12,7 @@ One of these fissures is between HTML First and JavaScript First approaches.
 JavaScript First means that JavaScript is the primary means of building all the features and functions of the app.
 With this approach HTML is more of a compile target.
 
-HTML First means that the app is built to work with HTML and CSS as much as possible. It can then be enhanced with a little JavaScript if needed.
+HTML First means that the app is built to work with HTML and CSS as much as possible. It can then be enhanced with a little JavaScript as needed.
 
 Both approaches can be successful depending on your goals.
 The path taken is usually a result of comfort and experience with the tools required.
@@ -21,9 +21,9 @@ However, Enhance can work with either approach.
 It was designed to enable HTML First where other frameworks make that approach difficult.
 
 
-This tutorial will show how to build the same app (a to-do list) with both approaches using Enhance.
-If you are coming from a framework that is primarily JavaScript first, you can follow that path to better leverage your experience and comfort.
-Or if you would prefer, you can follow the HTML First path to maximize performance and resilience from the start.
+This tutorial will show how to build the same app (a todo list) with both approaches using Enhance.
+If you are coming from a primarily JavaScript framework first, you can follow that path to better leverage your experience and comfort.
+Or you can follow the HTML First path to maximize performance and resilience from the start.
 
 
 
@@ -35,47 +35,53 @@ It has been implemented in most popular frameworks.
 The design is dated, and the features are limited.
 But it allows for the comparison of frameworks by keeping those aspects similar.
 The project has a specification [here](https://github.com/tastejs/todomvc/blob/master/app-spec.md) for reference.
-The Enhance version tries to follow as closely as possible only deviating in a few instances to highlight Enhance patterns that are improved over other frameworks (i.e. HTML structure is changed to allow the app to work without JavaScript enabled).
+The Enhance version tries to follow as closely as possible, only deviating in a few instances to highlight Enhance patterns that are improved over other frameworks (i.e., the HTML structure is changed to allow the app to work without JavaScript enabled).
 
 ### Features
 The following features are from the [Todo MVC Specification Functionality](https://github.com/tastejs/todomvc/blob/master/app-spec.md#functionality).
-There are slight variations from the specification where Enhance has better built in options for features like persistence. 
+There are slight variations from the specification where Enhance has better built in options for features like persistence.
 
-* **No todos**: 
+* **No todos**:
    * When there are no todos, #main and #footer should be hidden.
-*  **New todo**: 
+*  **New todo**:
    * New todos are entered in the input at the top of the app. The input element should be focused when the page is loaded, preferably by using the autofocus input attribute. Pressing Enter creates the todo, appends it to the todo list, and clears the input. Make sure to .trim() the input and then check that it's not empty before creating a new todo.
-*  **Mark all as complete**: 
+*  **Mark all as complete**:
    * This checkbox toggles all the todos to the same state as itself. Make sure to clear the checked state after the "Clear completed" button is clicked. The "Mark all as complete" checkbox should also be updated when single todo items are checked/unchecked. Eg. When all the todos are checked it should also get checked.
-*  **Item**: 
+*  **Item**:
    * A todo item has three possible interactions:
-     1. Clicking the checkbox marks the todo as complete by updating its completed value and toggling the class completed on its parent <li>
-     2. Double-clicking the <label> activates editing mode, by toggling the .editing class on its <li>
+     1. Clicking the checkbox marks the todo as complete by updating its completed value and toggling the class completed on its parent `<li>`
+     2. Double-clicking the `<label>` activates editing mode, by toggling the .editing class on its `<li>`
      3. Hovering over the todo shows the remove button (.destroy)
-* **Editing**: 
+* **Editing**:
   * When editing mode is activated it will hide the other controls and bring forward an input that contains the todo title, which should be focused (.focus()). The edit should be saved on both blur and enter, and the editing class should be removed. Make sure to .trim() the input and then check that it's not empty. If it's empty the todo should instead be destroyed. If escape is pressed during the edit, the edit state should be left and any changes be discarded.
-* **Counter**: 
-  * Displays the number of active todos in a pluralized form. Make sure the number is wrapped by a <strong> tag. Also make sure to pluralize the item word correctly: 0 items, 1 item, 2 items. Example: 2 items left
-* **Clear completed button**: 
+* **Counter**:
+  * Displays the number of active todos in a pluralized form. Make sure the number is wrapped by a `<strong>` tag. Also make sure to pluralize the item word correctly: 0 items, 1 item, 2 items. Example: 2 items left
+* **Clear completed button**:
   * Removes completed todos when clicked. Should be hidden when there are no completed todos.
-* **Persistence**: Handled by Enhance's build in database. 
+* **Persistence**: Handled by Enhance's build in database.
 * **Routing**: Handled by Enhance's server routing.
-  
+
 
 ## Get Started & Development Server
 
-First, let's create an app and get oriented to the Enhance project structure ([https://enhance.dev/docs/conventions/structure](https://enhance.dev/docs/conventions/structure)).
+First, let's create an app and get oriented to the [Enhance project structure](https://enhance.dev/docs/conventions/structure).
 Create a starting app with the following command:
 
-* `npx "@enhance/cli@latest" new ./enhance-todo -y`
+```bash
+npx "@enhance/cli@latest" new ./enhance-todo -y`
+```
 
 This new project now has a boilerplate page in `/app/pages/index.mjs`.
 
 
-Next make sure that all the project dependencies are updated by running `npm install`.
+Next make sure that all the project dependencies are updated by running
+
+```bash
+npm install
+```
 
 To start the Enhance development server you can use the enhance cli with `npx enhance dev`, or you can use the shortcut setup in the starter project with `npm start`.
-Once started your project is served at `http:localhost:3333`.
+Once started your project is served at `http://localhost:3333`.
 Load that page into your browser to view your project.
 This server has built in live reload so that changes to most of the project files and configuration will trigger the browser to reload immediately.
 
@@ -109,14 +115,14 @@ app
 
 
 
-* **Head**: The head.mjs file is for customizing your document’s <head> tag. 
+* **Head**: The head.mjs file is for customizing your document’s `<head>` tag.
 * **Pages**: The pages folder enables file-based routing. To add a route just add an HTML file to this directory (or another directory within it). The name of the file will be the URL you view it at. For example, `app/pages/about.html` will be viewed at `/about`.
-* **Elements**: The elements folder is where you keep your [Enhance Elements](https://enhance.dev/docs/elements). These are custom element templates that get rendered server side and set your HTML page up for progressive enhancement.
-* **Components**: The components folder is where you keep your single file web components. These components are rendered server-side, but also include client-side code for additional interactivity. This allows you to add progressive enhancements to your component in one file.
-* **API**: The api folder is preconfigured to expose data to your file-based routes. For example, the file app/api/index.mjs will automatically pass state to app/pages/index.mjs as well as expose an endpoint for standard REST verbs like get and post.
-* **Browser**: The browser folder is preconfigured to output a bundle to be used when progressively enhancing your pages in the browser. Files in app/browser are bundled to /public/browser/.
+* **Elements**: The elements folder is where you keep your [Enhance Elements](/docs/elements). These are custom element templates that get rendered server side and set your HTML page up for progressive enhancement.
+* **Components**: The components folder is where you keep your [single file web components](/docs/components). These components are rendered server-side, but also include client-side code for additional interactivity. This allows you to add progressive enhancements to your component in one file.
+* **API**: The api folder is preconfigured to expose data to your file-based routes. For example, the file `app/api/index.mjs` will automatically pass state to `app/pages/index.mjs` as well as expose an endpoint for standard REST verbs like GET and POST.
+* **Browser**: The browser folder is preconfigured to output a bundle to be used when progressively enhancing your pages in the browser. Files in `app/browser` are bundled to `/public/browser/`.
 
-For more details on these folders and the structure of an Enhance application refer to [enhance.dev/docs/conventions/structure](https://enhance.dev/docs/conventions/structure).
+For more details on these folders and the structure of an Enhance application refer to [Enhance Project Structure](/docs/conventions/structure).
 
 
 ## Scaffold API Routes and Data Layer
@@ -143,9 +149,11 @@ When we run the CLI generator command we specify the shape of the data by lookin
 We have `task` as a string value, `completed` as a boolean, and `key` as a string.
 We can generate these with:
 
-* `npx enhance gen scaffold Todo task:string completed:boolean` 
+```bash
+npx enhance gen scaffold Todo task:string completed:boolean
+```
 
-Note key is omitted because it is the default id for CRUD routes.
+Note: key is omitted because it is the default id for CRUD routes.
 
 This one command generates seven files listed below that handle the requests to a range of HTTP requests.
 
@@ -157,7 +165,7 @@ This one command generates seven files listed below that handle the requests to 
   * HTML pages
     * /app/pages/links.mjs
     * /app/pages/links/$id.mjs
-  * Data Access Layer 
+  * Data Access Layer
     * /app/models/links.mjs
     * /app/models/schema/links.mjs
 
@@ -174,14 +182,14 @@ This one command generates seven files listed below that handle the requests to 
 > Why do we have a POST `/links/$id/delete` route instead of a DELETE `/links/$id` route? It is because browsers only support GET and POST and we want to be able to support non-JavaScript use cases with our forms.
 
 ### File Based Routing and Dynamic Routes
-Enhance uses file based routing to map files in the /app/api and /app/pages folders with the HTTP request path that they handle.
-All named files in these folders respond to requests that match their path (i.e. http://example.com/right/here would be handled by /app/api/right/here.mjs and /app/pages/right/here.html).
+Enhance uses file based routing to map files in the `/app/api` and `/app/pages` folders with the HTTP request path that they handle.
+All named files in these folders respond to requests that match their path (i.e. http://example.com/right/here would be handled by `/app/api/right/here.mjs` and `/app/pages/right/here.html`).
 For paths and path parts that need to respond to a range of requests Enhance uses the "$there.mjs" convention.
-Any path part that starts with a $ is dynamic and can respond to any string in that part. 
-If two dollar signs are used (i.e. /app/api/right/$$.mjs) then it will match anything for the rest of the path. 
+Any path part that starts with a $ is dynamic and can respond to any string in that part.
+If two dollar signs are used (i.e. `/app/api/right/$$.mjs`) then it will match anything for the rest of the path.
 For more details on this refer to the docs for [Dynamic Routes](/docs/routing/dynamic-routes)
 
-Now lets take a closer look at what was generated for our CRUD in our the following sections. 
+Now lets take a closer look at what was generated for our CRUD in our the following sections.
 
 ### Enhance API Routes
 
@@ -191,13 +199,13 @@ The read and update route is at `/todos/{id}` where a GET will read the todo and
 The file is at `/app/api/todos/$id.mjs`.
 And finally a POST to `/todos/{id}/delete` will delete the task.
 
-Enhance API routes respond to HTTP requests for data (either JSON, or any other text data).
+Enhance API routes respond to HTTP requests for data (usually JSON, or any other mime-type).
 These api routes are in `/app/api` following the file based routing.
-They also provide a way to prepare pass data on to the HTML render function to combine that data with markup before responding. 
-If an HTTP request has headers for `application/json` the data returned from the api function in the `json` property will be returned directly.
-If the request is for `text/html` the data returned for the api is passed to the page rendering function.
+They also provide a way to pass data on to the HTML render function where the data will be combined with markup before responding.
+If an HTTP request has an `Accept` header for the mime-type `application/json` the data returned from the api function in the `json` property will be returned directly.
+If the request has an `Accept` header with the mime-type `text/html` the data returned for the api is passed to the page rendering function.
 
-The api routes export named functions corresponding to the HTTP method handled. 
+The api routes export named functions corresponding to the HTTP method handled.
 For more details refer to the docs on [API Routes](/docs/routing/api-routes/)
 
 
@@ -247,34 +255,31 @@ export async function post (req) {
     }
   }
 }
-
 ```
 
-This file handles GET requests and POST requests. 
-One challenge using the generator is that we get a lot of code that may be challenging to understand initially. 
+This file handles GET requests and POST requests.
+One challenge using the generator is that we get a lot of code that may be challenging to understand initially.
 
 We will cover more of the details of this code later in the tutorial, but here is a brief overview.
 First the data access methods used to validate data and write to the database are imported.
-Data validation is a critical requirement for real applications. 
+Data validation is a critical requirement for real applications.
 Much of the code in this generated api helps with this validation.
 The post function validates the submitted task data which returns validation errors as a problems object.
 If problems are present the function short circuits before writing to the database.
-It will add the problems and the initial task to the sesson and and redirects back to the todos page so that the user can fix these problems.
+It will add the problems and the initial task to the session and and redirects back to the todos page so that the user can fix these problems.
 The get function looks for these problems and passes them to the page render function so that they can be displayed for the user.
-We call this HTML first server validation the "Problems Loop". 
-Todo MVC does not include validation so we will not either. 
+We call this HTML first server validation the "Problems Loop".
+Todo MVC does not include validation so we will not either.
 For more details on this refer to the [Problems Loop](/docs/patterns/form-validation) section of the enhance docs.
-
-
 
 ### Database and Data Access
 Every Enhance app comes with its own database.
-It's batteries included with no overhead. 
-@begin/data is just a thin wrapper around DynamoDB which is an incredibly fast, truly serverless database.
+It's batteries included with no overhead.
+`@begin/data` is just a thin wrapper around DynamoDB which is an incredibly fast, truly serverless database.
 
-The generated api routes use a generated data access layer to read and write to this database.
-This code is generated into the `/app/models/todos.mjs` and `/app/models/schemas/todo.mjs` files.
-The schema file is a JSON schema that matches the schema passed to the generate command.
+The api routes use a generated data access layer to read and write to this database.
+This code is written into the `/app/models/todos.mjs` and `/app/models/schemas/todo.mjs` files.
+The schema file is a [JSON schema](https://json-schema.org/) that matches the shape of the data passed to the generate command.
 The data access is shown below.
 
 ```javascript
@@ -341,27 +346,23 @@ export {
 }
 ```
 
-This exports all the CRUD methods we need as well as methods to validate that the passed data matches the schema.
+This exports all the CRUD methods we will need as well as methods to validate that the passed data matches the schema.
 
-
-
-The generator also creates html pages for each of these routes in the pages folder.
+The generator also creates HTML pages for each of these routes in the pages folder.
 
 To test the generated pages start the development server (`npm start`) and load the todo list at [http://localhost:3333/todos](http://localhost:3333/todos).
 From here you can create new tasks and edit existing tasks.
-This page is ugly and the it does not have the features required for todoMVC, but it is can be a starting point to build from. 
+This page is ugly and the it does not have the features required for todoMVC, but it is can be a starting point to build from.
 
-These generated pages will eventually be deleted for this app. 
-They are useful for debugging and testing CRUD operations so we will leave them for now. 
-The generated files in the elements folder will also be deleted for this app, but we can leave them for now.
+These generated pages will eventually be deleted for this app.
+They are useful for debugging and testing CRUD operations so we will leave them for now.
+The generated files in the elements folder will also be deleted for this app.
 
-
-## App Structure 
+## App Structure
 
 Following the reference design of Todo MVC we will structure the app similarly.
 Start by making an HTML page in `/app/pages/index.html` as a shell for the app.
 Add the following markup there:
-
 
 ```html
 <todo-app>
@@ -371,7 +372,6 @@ Add the following markup there:
 </todo-app>
 <todo-app-footer></todo-app-footer>
 ```
-
 
 This will be the roadmap for breaking up the sections of the app into components.
 There will be six components in total (5 of which are shown here).
@@ -390,11 +390,10 @@ There will be six components in total (5 of which are shown here).
 ## Styles
 
 Design and styling is not the main focus of this tutorial.
-For information on Enhance styling best practice refer to [enhance.dev/docs/enhance-styles/](https://enhance.dev/docs/enhance-styles/.).
+For information on Enhance styling best practice refer to [Enhance Styles/](/docs/enhance-styles/.).
 This tutorial uses styles from the TodoMVC project with minor changes.
 The CSS from TodoMVC will be broken into sections and scoped to each component above following recommended Enhance patterns.
 Some changes are made to accommodate the HTML structure needed to function without JavaScript as much as possible.
-
 
 To start, we will copy some of the basic styles from the Todo MVC project into the static asset.
 Copy the following css to the public folder at `/public/styles.css`.
@@ -445,12 +444,10 @@ body {
 }
 ```
 
-
-
 ## Static Assets: Public folder → /_public/ route
 
 Static assets like images, scripts, and the CSS file above are required for most web application.
-Enhance handles fingerprinting and serving assets from the root public directory via the convenient /_public/ route.
+Enhance handles fingerprinting and serving assets from the root public directory via the convenient `/_public` route.
 
 These assets are dropped in your Enhance project’s public folder.
 They can be organized with any sort of directory structure you’d like.
@@ -467,13 +464,9 @@ They can be organized with any sort of directory structure you’d like.
 Asset can then be accessed from anywhere by adding `/_public/` to the beginning of the url route.
 For this project we will add a link in the `<head>` pointing to `styles.css`:
 
-
-
 ```html
 <link rel="stylesheet" href="/_public/styles.css">
 ```
-
-
 
 ### Note: Automatic “fingerprinting”
 
@@ -485,7 +478,7 @@ As a developer, you don’t need to worry about creating hashed file names, keep
 Enhance (via [Architect](https://arc.codes/)) will create and track fingerprinted files for you.
 When your project code uses the `/public` route to reference files, Enhance will help update references with the fingerprinted filename wherever they are used.
 
-For more information on the Public folder and static assets in general refer to the docs ( [https://enhance.dev/docs/conventions/public](https://enhance.dev/docs/conventions/public)).
+For more information on the Public folder and static assets in general refer to the docs [Public (Static Assets)](https://enhance.dev/docs/conventions/public).
 
 
 ## Head
@@ -496,8 +489,8 @@ Lets look at how to customize it by adding our link.
 
 
 The `<head>` tag is a very important point of customization for your app, allowing you to add things like a page titles, favicons, social/Open Graph metadata, etc.
-However, the <head> tag cannot be written as a custom element (or an enhance component), and it can’t contain other custom elements.
-This is because, as defined by the HTML spec, only a subset of existing HTML tags are permitted in the <head> tag.
+However, the `<head>` tag cannot be written as a custom element (or an enhance component), and it can’t contain other custom elements.
+This is because, as defined by the HTML spec, only a subset of existing HTML tags are permitted in the `<head>` tag.
 As Custom Elements are elements which are defined by HTML authors, they are not included in this subset of permitted tags.
 
 Enhance projects come with a default Head component to get you started, but we expect you’ll need to make changes to it.
@@ -529,9 +522,8 @@ export default function Head () {
 
 
 We will override it by removing the first two lines of code that add add the Enhance styles (since we are using todoMVC styles instead).
-Then we need to remove the `${linkTag()}` line in the middle.
-Finally we will add the link tag to our styles below the title boilerplate: `<link rel="stylesheet" href="/_public/styles.css">`.
-For more information on the head refer to the docs [https://enhance.dev/docs/conventions/head](https://enhance.dev/docs/conventions/head).
+Then we will replace the `${linkTag()}` line in the middle with the link tag to our styles CSS file: `<link rel="stylesheet" href="/_public/styles.css">`.
+For more information on the head refer to the docs, [Head](https://enhance.dev/docs/conventions/head).
 
 
 ## Choose Your Own Adventure
@@ -547,15 +539,15 @@ But if you would like to follow the JavaScript First approach jump ahead to the 
 
 With the skeleton HTML page for our app already created lets build the components needed.
 These components are built as custom elements using the Enhance `elements` folder.
-Cut and paste the following code into the `/app/elements/todo-app.html` file.
+Copy and paste the following code into the `/app/elements/todo-app.html` file.
 The file name (todo-app.html) will use this code as a server rendered custom element with the HTML in this file rendered.
-Notice that the style tag with css for the todo app is included here.
-Enhance will add scoping to these styles so they only target the instance of todo-app and then this style tag will be hoisted to the head so that the styles will be loaded prior to the page rendering.
+Notice that the style tag with CSS for the todo app is included here.
+Enhance will add scoping to these styles so they only target the instance of `todo-app` and then this style tag will be hoisted to the head so that the styles will be loaded prior to the page rendering.
 
 
 
 ```html
-<!-- /app/elements/todo-app.html --> 
+<!-- /app/elements/todo-app.html -->
 <style>
   section.todoapp {
 	background: #fff;
@@ -579,37 +571,36 @@ Enhance will add scoping to these styles so they only target the instance of tod
 ```
 
 ### Enhance Elements
-This is the first "Enhance Element" in this project. 
-Elements are the reusable building blocks of your Enhance application. 
-They are pure functions authored as single-file components and can be static or update dynamically to state changes. 
-Elements live in the app/elements/ folder in the Enhance starter project.
+This is the first "Enhance Element" in this project.
+Elements are the reusable building blocks of your Enhance application.
+They are pure functions authored as single-file components and can be static or update dynamically to state changes.
+Elements live in the `app/elements/` folder in the Enhance starter project.
 
-These elements use the plantforms "custom element" API to create components that can be reused anywhere in our app.
-We will look at adding dynamic clientside capapilities to these elements later. 
-But in this case we just have HTML, CSS and composibility with slots.
+These elements use the platforms "custom element" API to create components that can be reused anywhere in our app.
+We will look at adding dynamic clientside capabilities to these elements later.
+But in this case we just have HTML, CSS and composability with slots.
 
-With this element created we can use it in any page by adding `<todo-app></todo-app>`. 
-We already did this with our index.html page.
-Now this element will expand into that component when a page is rendered. 
+With this element created we can use it in any page by adding `<todo-app></todo-app>`.
+We already did this with our `index.html` page.
+Now this element will expand into that component when a page is rendered.
 * When naming these custom elements they must contain a "-" to distinguish them from regular HTML elements.
-* By specification these custom elements cannot be used as self closing tags so the full opening and closing tag is required. 
+* By specification these custom elements cannot be used as self closing tags so the full opening and closing tag is required.
 
-For more information on how Elements refer to the documentation on [Elements](http://localhost:3333/docs/elements). 
+For more information on how Elements refer to the documentation on [Elements](/docs/elements).
 
 
 ### Slots
-To add composibility to these elements we can use both attributes and slots. 
+To add composability to these elements we can use both attributes and slots.
 With HTML the `<slot>` element is generally for use in the shadow DOM.
-The Shadow DOM is a platform API that creates an isolated DOM inside an element that encapsulates styles (and more). 
+The Shadow DOM is a platform API that creates an isolated DOM inside an element that encapsulates styles (and more).
 It is best to avoid using the shadow DOM unless strong isolation is required.
 Enhance will server render the slotted content in place of these.
 This allows for composition of components using the convenience of slots without having to use the shadow DOM.
-For more information on how Enhance uses slots refer to the documentation on [Enhance Slots](http://localhost:3333/docs/elements/html/slots). 
+For more information on how Enhance uses slots refer to the documentation on [Enhance Slots](/docs/elements/html/slots).
 
 Looking at `app/pages/index.html` we can see the authored use of the `<todo-app>` element.
 Any child elements with a `slot="header"` attribute will be rendered where the element has the `<slot name="header"></slot>`.
-In this way we can pass children to the component and control what the output markup looks like. 
-
+In this way we can pass children to the component and control what the output markup looks like.
 
 ```html
 <todo-app>
@@ -623,14 +614,14 @@ In this way we can pass children to the component and control what the output ma
 
 
 ## Header component
-Now that we have the todo-app component that serves as the container for the app we will fill in the dynamic components with the required features. 
-The first of these is the `todo-header`. 
+Now that we have the todo-app component that serves as the container for the app we will fill in the dynamic components with the required features.
+The first of these is the `todo-header`.
 This component has the input form for adding new tasks to the list.
 To begin copy and paste the following code to `/app/elements/todo-header.mjs`.
-As mentioned previously the css here is taken from the reference app for consistent design. 
+As mentioned previously the css here is taken from the reference app for consistent design.
 
-The markup has an `h1` and a form with a single input. 
-The form posts to `/todos`. 
+The markup has an `h1` and a form with a single input.
+The form posts to `/todos`.
 This is the endpoint we generated to create new tasks.
 This form will rely implicit submission.
 After entering a new task the user only needs to hit enter to submit this task.
@@ -686,27 +677,27 @@ h1 {
   }
 ```
 
-Note that this component is fully functional with no additional JavaScript. 
+Note that this component is fully functional with no additional JavaScript.
 So far the HTML First approach is going well.
 A simple form tag and input tag and we have a large chunk of functionality.
 
 ## HTML First and Forms First
-Forms are the best method for sending data from a browser to the server. 
+Forms are the best method for sending data from a browser to the server.
 They have been around almost as long as the web itself.
 For a long time they were the only way.
-With JavaScript Frameworks the `<form>` has fallen out of fasion. 
-Most frameworks scrap forms in favor of bespoke libraries to send data to the server in some other way. 
+With JavaScript Frameworks the `<form>` has fallen out of fashion.
+Most frameworks scrap forms in favor of bespoke libraries to send data to the server in some other way.
 
 With the HTML first approach we will lean heavily on forms.
 This will result in more bulletproof interaction, faster development, and less code.
 
 ## Update API route redirect after POST
-With the form for creating tasks in place we need to update the API routes to redirect back to the root after we submit data. 
+With the form for creating tasks in place we need to update the API routes to redirect back to the root after we submit data.
 The user interface for the todo list is at the root (`/`).
-The generated CRUD routes are hosted at `/todos`. 
+The generated CRUD routes are hosted at `/todos`.
 When we post to `/todos` with a successful task the browser will redirect back to '/todos' to GET the list of tasks.
 We need to change that redirect to return to the root.
-This is done by changing the location property in the return statement. 
+This is done by changing the location property in the return statement.
 Location is a shortcut property that sets response headers for a '302' redirect.
 The updated api file is shown below.
 
@@ -746,7 +737,7 @@ export async function post (req) {
 
 ```
 
-Now that we are serving the app from the root instead of `/todos` we need to move the `get` function from the /app/api/todos.mjs into a new /app/api/index.mjs file instead.
+Now that we are serving the app from the root instead of `/todos` we need to move the `get` function from the `/app/api/todos.mjs` into a new `/app/api/index.mjs` file instead.
 Cut and paste the get function from the todos.mjs into index.mjs as follows.
 
 ```javascript
@@ -775,43 +766,43 @@ Now we can enter a task in the input.
 We have no list of tasks yet so to test if a task was created navigate to [http://localhost:3333/todos](http://localhost:3333/todos).
 The task should appear at the top of the list on this page.
 
-We can make the same change in the edit (`/app/api/todos/$id.mjs`) and delete (`/app/api/todos/$id/delete.mjs`) api files. 
+We can make the same change in the edit (`/app/api/todos/$id.mjs`) and delete (`/app/api/todos/$id/delete.mjs`) api files.
 Change their corresponding location redirects to `/` as well.
 
 
 ## List and Item Components
-Now we need to create the list of tasks. 
-Following our app structure layed out earlier this requires two components.
-We will build them together since they relate closely to each other. 
+Now we need to create the list of tasks.
+Following our app structure laid out earlier this requires two components.
+We will build them together since they relate closely to each other.
 
 Unlike the header component that has static markup with a form, these components are dynamic.
-The contents depends on what tasks are in the database. 
-This introduces the need for state dependent elements. 
+The contents depends on what tasks are in the database.
+This introduces the need for state dependent elements.
 
 ### Passing State to Elements
 Every Enhance element has optional access to Enhance’s state object, made available through the Enhance element `state` property.
 The state object contains four top level keys:
 
-*  attrs, which contains all the key value pairs of attributes passed into your custom element’s instance
-*  store, which contains the global state of your Enhance application
-*  instanceID, which is a unique ID per instance of Custom Element
-*  context, which is an Object that can be used to pass state to child elements to avoid prop drilling
+*  `attrs`, which contains all the key value pairs of attributes passed into your custom element’s instance
+*  `store`, which contains the global state of your Enhance application
+*  `instanceID`, which is a unique ID per instance of Custom Element
+*  `context`, which is an Object that can be used to pass state to child elements to avoid prop drilling
 
 For more details refer to [State](/docs/elements/state) in the docs.
 
-For our list element we will use the `store` and then the item will also use `attrs` (attributes). 
+For our list element we will use the `store` and then the item will also use `attrs` (attributes).
 
-First lets start with the todo item. 
+First lets start with the todo item.
 Copy and paste the following into `/app/elements/todo-list.mjs`.
 
-For now we will omit the styles because they are taken directly from the reference app and they will get in the way initally.
-Following our pattern of using forms first this item is made of two forms. The first form allows editing exising items. 
-The second form allows deleting items. 
+For now we will omit the styles because they are taken directly from the reference app and they will get in the way initially.
+Following our pattern of using forms first this item is made of two forms. The first form allows editing existing items.
+The second form allows deleting items.
 
 Attributes are the primary element API of the web platform so we use them for the todo item.
 One important caveat is that attributes are always strings.
-This means boolean attributes (i.e. completed) and numbers (not used in this component) will both become strings in the attrs object.
-For more details refer to [Attributes](/docs/elements/state/attributes) in the docs. 
+This means boolean attributes (i.e. completed) and numbers (not used in this component) will both become strings in the `attrs` object.
+For more details refer to [Attributes](/docs/elements/state/attributes) in the docs.
 The state of the `completed` attribute for the item results in the `checked` attribute being added to the completed checkbox.
 
 
@@ -851,19 +842,19 @@ But notice that the edit form has two submit buttons.
 Since we are building this form to work without JavaScript as much as possible there is one feature that is slightly challenging.
 We can edit the task description and submit the form by hitting enter.
 This does an implicit submit updating the description.
-To toggle the completed state of the form we need to update the checkbox and then submit. 
-This is two actions. 
-We can do it with one action by using a feature of form submission. 
-We can add another submit button that changes the action of the form. 
+To toggle the completed state of the form we need to update the checkbox and then submit.
+This is two actions.
+We can do it with one action by using a feature of form submission.
+We can add another submit button that changes the action of the form.
 This is the second button in the first form.
 We add the `?toggle` query string to the end of the formaction attribute.
 When this button is used it submits the form with this new path.
 We will also need to update the post function on the server to respond to this.
-In order for the implicit submit of the form to stay the same we need to add a hidden submit button with the default submit action above our new submit. 
+In order for the implicit submit of the form to stay the same we need to add a hidden submit button with the default submit action above our new submit.
 Implicit submit will use the first submit button in the form.
 
-To handle the `toggle` query parameter add the following lines to the /app/api/todos/$id.mjs inside the top of the post function.
-If the toggle parameter is present the completed flag is switched. 
+To handle the `toggle` query parameter add the following lines to the `/app/api/todos/$id.mjs` inside the top of the post function.
+If the toggle parameter is present the completed flag is switched.
 
 ```javascript
   const toggle = req.query.hasOwnProperty('toggle')
@@ -879,7 +870,7 @@ let { problems, todo } = await validate.update({ ...req, body })
 
 
 Now we have items that display, edit and delete todos.
-Next we need a list item to add these todo-items. 
+Next we need a list item to add these todo-items.
 Copy and paste the following into `/app/elements/todo-list.mjs`.
 
 
@@ -916,9 +907,9 @@ return html`
 ```
 
 This component uses the store to get the list of tasks and adds them to a `<ul>` list wrapped in `<li>`'s.
-In addition the list adds another form to handle the mark all as complete functionality. 
-This form submits to a `/todos/toggle` post api route that does not yet exist. 
-Add that api route to /app/api/todos/toggle.mjs by coping the following code to that file.
+In addition the list adds another form to handle the mark all as complete functionality.
+This form submits to a `/todos/toggle` post api route that does not yet exist.
+Add that api route to `/app/api/todos/toggle.mjs` by coping the following code to that file.
 
 ```javascript
 // /app/api/todos/toggle.mjs
@@ -1215,14 +1206,14 @@ form .destroy:after {
 
 ```
 
-The last critical functions of the app include the ability to filter the list. 
+The last critical functions of the app include the ability to filter the list.
 These will be built into the todo-footer component.
 The features needed are to filter tasks to all, active, or completed.
 We also need to be able to clear (delete) all the completed tasks.
 
 For an HTML first approach to this we can use regular links (anchor tags) for filtering.
 The clear feature should use a post request since it is destructive.
-For this we can use a form. 
+For this we can use a form.
 
 Copy and paste the following into /app/elements/todo-footer.mjs.
 
@@ -1254,7 +1245,7 @@ export default function TodoFooter({html,state}){
 }
 ```
 
-In order to support the filtering query parameters used in the links above we need to update the /app/api/index.mjs to filter the list accordingly. 
+In order to support the filtering query parameters used in the links above we need to update the `/app/api/index.mjs` to filter the list accordingly.
 
 ```javascript
 import { getTodos } from '../models/todos.mjs'
@@ -1313,7 +1304,7 @@ export async function post (req) {
 }
 ```
 
-And to add the styles from the Todo MVC for the footer past the following css into the todo-footer elment inside the `<style>` tag.
+And to add the styles from the Todo MVC for the footer past the following css into the todo-footer element inside the `<style>` tag.
 
 ```css
 /* todo-footer css */
@@ -1398,7 +1389,7 @@ html .clear-completed:active {
 
 
 We have just one finishing touch to add to the app.
-We need a footer component with some attribution and directions. 
+We need a footer component with some attribution and directions.
 This is another static element similar to the header.
 
 Copy and paste the following to /app/elements/todo-app-footer.mjs.
@@ -1445,10 +1436,10 @@ We now have a complete todo list app with all the required functionality and not
 There are additional things we could add (and we will in the next section), but if these were the requirements of a greenfield project this could be released as is for testing and feedback.
 We believe this should be recommended best practice, and we think that it is by far the fastest way to get a working app.
 
-## Progressive Enhancement 
+## Progressive Enhancement
 Progressive enhancement means starting with HTML and CSS to build a working app and then incrementally improve it with a little JavaScript if necessary.
 This is an incremental additive approach and it should not require building your app twice.
-As previously mentioned we have a fully functional app that meets all our reqirements. 
+As previously mentioned we have a fully functional app that meets all our requirements.
 What could we add with PE?
 The biggest thing that could be improved is allowing for updates to the todo list without a full page reload.
 
@@ -1478,7 +1469,7 @@ The goal is to:
 4. Avoid stalling the main UI thread with long running tasks
 
 With the CRUDL (Create, Read, Update, Delete, and List) operations already fully implemented the simplest approach is to plug in between this exchange.
-A typical form post and response for a CRUD route is shown below. 
+A typical form post and response for a CRUD route is shown below.
 
 
 1. **Reactive data store** to share state changes throughout the app
@@ -1649,7 +1640,7 @@ function create(data){
   worker.postMessage(data)
 }
 function createMutation(result){
-  //update store 
+  //update store
 }
 ///////////////////////////////////////
 // Worker
@@ -1690,4 +1681,4 @@ Following the same patterns above we can easily implement optimistic delete by h
 1. Delete they item from the clientside store and put it in a `deletedItems` list in the store.
 2. Request the worker to do the fetch to delete on the server.
 3. If worker receives a success nothing else happens.
-4. If worker receives a failure or error the store delete is reverted by pulling it off the `deletedItems` and restoring it to the 
+4. If worker receives a failure or error the store delete is reverted by pulling it off the `deletedItems` and restoring it to the
