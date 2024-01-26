@@ -1,5 +1,5 @@
 ---
-title: Todo-MVC Tutorial
+title: TodoMVC Tutorial
 ---
 
 A Choose Your Own Adventure tutorial for building a to-do list web app.
@@ -80,13 +80,13 @@ Next make sure that all the project dependencies are updated by running
 npm install
 ```
 
-To start the Enhance development server you can use the enhance cli with `npx enhance dev`, or you can use the shortcut setup in the starter project with `npm start`.
+To start the Enhance development server you can use the Enhance CLI with `npx enhance dev`, or you can use the shortcut setup in the starter project with `npm start`.
 Once started your project is served at `http://localhost:3333`.
 Load that page into your browser to view your project.
 This server has built in live reload so that changes to most of the project files and configuration will trigger the browser to reload immediately.
 
 
-Before moving on lets briefly talk about the structure of enhance apps and what goes in the app folder.
+Before moving on lets briefly talk about the structure of Enhance apps and what goes in the app folder.
 
 
 ## Enhance Project Structure
@@ -266,7 +266,7 @@ Data validation is a critical requirement for real applications.
 Much of the code in this generated api helps with this validation.
 The post function validates the submitted task data which returns validation errors as a problems object.
 If problems are present the function short circuits before writing to the database.
-It will add the problems and the initial task to the session and and redirects back to the todos page so that the user can fix these problems.
+It will add the problems and the initial task to the session and redirects back to the todos page so that the user can fix these problems.
 The get function looks for these problems and passes them to the page render function so that they can be displayed for the user.
 We call this HTML first server validation the "Problems Loop".
 Todo MVC does not include validation so we will not either.
@@ -396,7 +396,7 @@ The CSS from TodoMVC will be broken into sections and scoped to each component a
 Some changes are made to accommodate the HTML structure needed to function without JavaScript as much as possible.
 
 To start, we will copy some of the basic styles from the Todo MVC project into the static asset.
-Copy the following css to the public folder at `/public/styles.css`.
+Copy the following CSS to the public folder at `/public/styles.css`.
 
 
 ```css
@@ -461,7 +461,7 @@ They can be organized with any sort of directory structure you’d like.
 ```
 
 
-Asset can then be accessed from anywhere by adding `/_public/` to the beginning of the url route.
+Asset can then be accessed from anywhere by adding `/_public/` to the beginning of the URL route.
 For this project we will add a link in the `<head>` pointing to `styles.css`:
 
 ```html
@@ -521,14 +521,14 @@ export default function Head () {
 ```
 
 
-We will override it by removing the first two lines of code that add add the Enhance styles (since we are using todoMVC styles instead).
+We will override it by removing the first two lines of code that add the Enhance styles (since we are using todoMVC styles instead).
 Then we will replace the `${linkTag()}` line in the middle with the link tag to our styles CSS file: `<link rel="stylesheet" href="/_public/styles.css">`.
 For more information on the head refer to the docs, [Head](https://enhance.dev/docs/conventions/head).
 
 
 ## Choose Your Own Adventure
 
-With the serverside API routes and data access layer created and the shell of the app defined it is now time to choose which path to take in this adventure.
+With the server side API routes and data access layer created and the shell of the app defined it is now time to choose which path to take in this adventure.
 If you want to follow the HTML First path continue reading the next paragraph.
 But if you would like to follow the JavaScript First approach jump ahead to the paragraph by that name.
 
@@ -577,7 +577,7 @@ They are pure functions authored as single-file components and can be static or 
 Elements live in the `app/elements/` folder in the Enhance starter project.
 
 These elements use the platforms "custom element" API to create components that can be reused anywhere in our app.
-We will look at adding dynamic clientside capabilities to these elements later.
+We will look at adding dynamic client side capabilities to these elements later.
 But in this case we just have HTML, CSS and composability with slots.
 
 With this element created we can use it in any page by adding `<todo-app></todo-app>`.
@@ -618,7 +618,7 @@ Now that we have the todo-app component that serves as the container for the app
 The first of these is the `todo-header`.
 This component has the input form for adding new tasks to the list.
 To begin copy and paste the following code to `/app/elements/todo-header.mjs`.
-As mentioned previously the css here is taken from the reference app for consistent design.
+As mentioned previously the CSS here is taken from the reference app for consistent design.
 
 The markup has an `h1` and a form with a single input.
 The form posts to `/todos`.
@@ -870,7 +870,7 @@ let { problems, todo } = await validate.update({ ...req, body })
 
 
 Now we have items that display, edit and delete todos.
-Next we need a list item to add these todo-items.
+Next we need a list item to add these items.
 Copy and paste the following into `/app/elements/todo-list.mjs`.
 
 
@@ -952,8 +952,8 @@ export async function post (req) {
 ```
 
 Our full todo list with most features are in place now.
-We just need to add the css for the list and item components.
-To do this copy the following css blocks to inside the todo-list and todo-item elements inside the `<style>` block.
+We just need to add the CSS for the list and item components.
+To do this copy the following CSS blocks to inside the todo-list and todo-item elements inside the `<style>` block.
 
 
 ```css
@@ -1304,10 +1304,10 @@ export async function post (req) {
 }
 ```
 
-And to add the styles from the Todo MVC for the footer past the following css into the todo-footer element inside the `<style>` tag.
+And to add the styles from the Todo MVC for the footer past the following CSS into the todo-footer element inside the `<style>` tag.
 
 ```css
-/* todo-footer css */
+/* todo-footer CSS */
 
 footer.footer {
 	padding: 10px 15px;
@@ -1451,7 +1451,7 @@ If you are following the JavaScript first path welcome and lets get started.
 If you followed the HTML first path and want to see how to improve the app to avoid full page reloads continue reading. 
 
 
-## Clientside State Management
+## Client side State Management
 
 The goal is to build apps that are full featured (or as close as possible) without JavaScript.
 From there they can be improved using some JavaScript.
@@ -1461,7 +1461,7 @@ When the app is feature complete using this approach, it may not be necessary to
 
 
 One common enhancement for a typical CRUD app is to avoid full page reloads when submitting form data.
-To do this we need a clientside data store.
+To do this we need a client side data store.
 Since the app is fully functional, we can use the HTML and existing backend routes to minimize this work.
 The goal is to:
 
@@ -1491,7 +1491,7 @@ First lets examine some of the key pieces of this architecture before looking at
 The client API handler, represented by the large green circle above, handles communication between the parts of this architecture.
 A simplified example including an HTML page with a form is shown below.
 The `API` function is a wrapper over the message passing to the worker and updates to the store so that that code can stay out of individual components.
-It exposes methods to do the CRUD operations (simplifed to just create for this example) and to subscribe to updates.
+It exposes methods to do the CRUD operations (simplified to just create for this example) and to subscribe to updates.
 The `processForm` function translates the form data to be handled by the worker.
 In a typical application the API function would be externalized in its own file so that it can be imported and used in any component that needs access to the state.
 
@@ -1499,7 +1499,7 @@ In a typical application the API function would be externalized in its own file 
 A limitation of HTML forms is that all the data is represented in flat key value pairs of strings.
 In many cases the CRUD object may be nested with other types of values like numbers or booleans.
 The Enhance approach to this is to normalize and reshape this form data when it is received by the server using a JSON schema.
-With the clientside store we can do the same process in the API function using the same JSON schema.
+With the client side store we can do the same process in the API function using the same JSON schema.
 
 
 
@@ -1559,7 +1559,7 @@ With the clientside store we can do the same process in the API function using t
 
 ## Reactive Data Store
 
-The `Store` is a light weight (~100loc) reactive data store (`@enhance/store`).
+The `Store` is a light weight (~100 lines of code) reactive data store (`@enhance/store`).
 It is abstracted into a package because the code does not generally need to be modified for different projects and the interface for it is small.
 Once added to your app you can store objects and subscribe to updates to those objects from anywhere.
 The store is basically a single JavaScript object that is shared across all components that need access to it.
@@ -1682,7 +1682,7 @@ Following the same patterns above we can easily implement optimistic delete by h
 
 
 
-1. Delete they item from the clientside store and put it in a `deletedItems` list in the store.
+1. Delete they item from the client side store and put it in a `deletedItems` list in the store.
 2. Request the worker to do the fetch to delete on the server.
 3. If worker receives a success nothing else happens.
 4. If worker receives a failure or error the store delete is reverted by pulling it off the `deletedItems` and restoring it to the
