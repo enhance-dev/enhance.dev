@@ -113,8 +113,6 @@ app
 
 ```
 
-
-
 * **Head**: The head.mjs file is for customizing your document’s `<head>` tag.
 * **Pages**: The pages folder enables file-based routing. To add a route just add an HTML file to this directory (or another directory within it). The name of the file will be the URL you view it at. For example, `app/pages/about.html` will be viewed at `/about`.
 * **Elements**: The elements folder is where you keep your [Enhance Elements](/docs/elements). These are custom element templates that get rendered server side and set your HTML page up for progressive enhancement.
@@ -125,9 +123,13 @@ app
 For more details on these folders and the structure of an Enhance application refer to [Enhance Project Structure](/docs/conventions/structure).
 
 
-## Scaffold API Routes and Data Layer
+## API Routes and Data Layer
+To handle the persistence of tasks for the todo app we need a server with API routes and a database. 
+The original Todo MVC app was entirely client side, built as a single page app with tasks saved to local storage.
+We could build a similar SPA with Enhance, but using the full power of Enhance we can do better.
 
-For the todoMVC tasks we need the description of the task, its completion status and a key or id to reference it in the database.
+Lets build a full CRUD (Create Read Update Delete) API for our tasks.
+The tasks we need a description, completion status, created time, and a key or id to reference it in the database.
 The JSON representation of this might look something like:
 
 
@@ -135,152 +137,82 @@ The JSON representation of this might look something like:
 {
   "task": "Wash the Car",
   "completed": false,
+  "created": "2024-01-01T13:51:50.417-07:00",
   "key": "Mqx159x7U"
 }
 ```
 
-We are building a server rendered app so lets start by shaping an API to handle these tasks.
-This API needs to create new tasks, edit existing tasks and mark them as completed, delete tasks and list all the tasks filtered by their completed status.
-This is often referred to as CRUD or CRUDL for Create, Read, Update, Delete, and sometimes List.
-We can either build these API routes by hand or take advantage of the Enhance CLI CRUD generator to build most of the boilerplate to save time.
-We will use the generator to scaffold them and then edit them as needed.
+### Enhance API Routes
+Enhance API routes respond to HTTP requests for data (usually JSON, or any other mime-type).
+These api routes are in `/app/api` and they follow the file based routing.
+[**File based routing**](/docs/routing/api-routes) means all named files in these folders respond to requests that match their path (i.e. http://example.com/right/here would be handled by `/app/api/right/here.mjs` and `/app/pages/right/here.html`).
 
-When we run the CLI generator command we specify the shape of the data by looking at the JSON for a task shown above.
-We have `task` as a string value, `completed` as a boolean, and `key` as a string.
-We can generate these with:
+These API files also provide a way to pass data on to the HTML render function where the data will be combined with markup before responding.
+If an HTTP request has an `Accept` header for the mime-type `application/json` the data returned from the api function in the `json` property will be returned directly.
+If the request has an `Accept` header with the mime-type `text/html` the data returned from the api is passed to the page rendering function (described later).
 
-```bash
-npx enhance gen scaffold Todo task:string completed:boolean
-```
-
-Note: key is omitted because it is the default id for CRUD routes.
-
-This one command generates seven files listed below that handle the requests to a range of HTTP requests.
-
-**Files**
-  * API data routes
-    * /app/api/links.mjs
-    * /app/api/links/$id.mjs
-    * /app/api/links/$id/delete.mjs
-  * HTML pages
-    * /app/pages/links.mjs
-    * /app/pages/links/$id.mjs
-  * Data Access Layer
-    * /app/models/links.mjs
-    * /app/models/schema/links.mjs
-
-**Corresponding HTTP Routes**
-  * `/todos` - List and Create
-    * GET - List and Create form in one page
-    * POST - Create Post endpoint
-  * `/todos/$id` - Read and Update
-    * GET - Read and Update form
-    * POST - Update Post endpoint
-  * `/todos/$id/delete` - Delete
-    * POST - Deletes object
-
-> Why do we have a POST `/links/$id/delete` route instead of a DELETE `/links/$id` route? It is because browsers only support GET and POST and we want to be able to support non-JavaScript use cases with our forms.
-
-### File Based Routing and Dynamic Routes
-Enhance uses file based routing to map files in the `/app/api` and `/app/pages` folders with the HTTP request path that they handle.
-All named files in these folders respond to requests that match their path (i.e. http://example.com/right/here would be handled by `/app/api/right/here.mjs` and `/app/pages/right/here.html`).
-For paths and path parts that need to respond to a range of requests Enhance uses the "$there.mjs" convention.
+For API paths and path parts that need to respond to a range of requests Enhance uses the "$there.mjs" convention to create [**Dynamic Routes**](/docs/routing/dynamic-routes).
 Any path part that starts with a $ is dynamic and can respond to any string in that part.
 If two dollar signs are used (i.e. `/app/api/right/$$.mjs`) then it will match anything for the rest of the path.
-For more details on this refer to the docs for [Dynamic Routes](/docs/routing/dynamic-routes)
 
-Now lets take a closer look at what was generated for our CRUD in our the following sections.
+For our tasks API we will use the following routes to handle CRUD operations:
 
-### Enhance API Routes
-
-Generate created the api route for create and list at the `/todos` where a POST will create a new todo and a GET will list all of the todos.
-This route file is `/app/api/todos.mjs`.
-The read and update route is at `/todos/{id}` where a GET will read the todo and a POST will update it.
-The file is at `/app/api/todos/$id.mjs`.
-And finally a POST to `/todos/{id}/delete` will delete the task.
-
-Enhance API routes respond to HTTP requests for data (usually JSON, or any other mime-type).
-These api routes are in `/app/api` following the file based routing.
-They also provide a way to pass data on to the HTML render function where the data will be combined with markup before responding.
-If an HTTP request has an `Accept` header for the mime-type `application/json` the data returned from the api function in the `json` property will be returned directly.
-If the request has an `Accept` header with the mime-type `text/html` the data returned for the api is passed to the page rendering function.
-
-The api routes export named functions corresponding to the HTTP method handled.
-For more details refer to the docs on [API Routes](/docs/routing/api-routes/)
+**Routes**
+  * `/` (root) 
+    * GET - List of all tasks
+  * `/todos` 
+    * POST - Create new tasks
+  * `/todos/$id` 
+    * GET - Read task details by `id`
+    * POST - Update task
+  * `/todos/$id/delete` 
+    * POST - Delete task
 
 
-The `/todos` api route generated by the scaffold command is shown below.
+> Why do we have a POST `/todos/$id/delete` route instead of a DELETE `/todos/$id` route? 
+> It is because browsers only support GET and POST and we want to be able to support non-JavaScript use cases with our forms.
+
+
+Lets start by creating the route handler for the list of all tasks served from the `/`(root) path.
+This handler is named `index.mjs` and located at `/app/api/index.mjs`.
+Copy the following code to that file:
 
 ```javascript
-// /app/api/todos.mjs
-import { upsertTodo, validate } from '../models/todos.mjs'
+// /app/api/index.mjs
 
 export async function get (req) {
-  if (req.session.problems) {
-    let { problems, todo, ...session } = req.session
-    return {
-      session,
-      json: { problems, todo }
+  let todos = [
+    {
+      "task": "Wash the Car",
+      "completed": false,
+      "created": "2024-01-01T13:51:50.417-07:00",
+      "key": "Mqx159x7U"
     }
+  ]
+
+  return {
+    json: { todos }
   }
 }
 
-export async function post (req) {
-  const session = req.session
-  // Validate
-  let { problems, todo } = await validate.create(req)
-  if (problems) {
-    return {
-      session: { ...session, problems, todo },
-      json: { problems, todo },
-      location: '/todos'
-    }
-  }
-
-  // eslint-disable-next-line no-unused-vars
-  let { problems: removedProblems, todo: removed, ...newSession } = session
-  try {
-    const result = await upsertTodo(todo)
-    return {
-      session: newSession,
-      json: { todo: result },
-      location: '/todos'
-    }
-  }
-  catch (err) {
-    return {
-      session: { ...newSession, error: err.message },
-      json: { error: err.message },
-      location: '/todos'
-    }
-  }
-}
 ```
 
-This file handles GET requests and POST requests.
-One challenge using the generator is that we get a lot of code that may be challenging to understand initially.
+This file handles GET requests requests so the exported function is called `get`.
+If we start the developement server (`npm start`) and navigate to `https://localhost:3333` we see the JSON output for our list of tasks.
 
-We will cover more of the details of this code later in the tutorial, but here is a brief overview.
-First the data access methods used to validate data and write to the database are imported.
-Data validation is a critical requirement for real applications.
-Much of the code in this generated api helps with this validation.
-The post function validates the submitted task data which returns validation errors as a problems object.
-If problems are present the function short circuits before writing to the database.
-It will add the problems and the initial task to the session and redirects back to the todos page so that the user can fix these problems.
-The get function looks for these problems and passes them to the page render function so that they can be displayed for the user.
-We call this HTML first server validation the "Problems Loop".
-Todo MVC does not include validation so we will not either.
-For more details on this refer to the [Problems Loop](/docs/patterns/form-validation) section of the enhance docs.
+Instead of a static list of tasks we want to store them in out database.
+The code to read to and from the database would result in duplication across multiple api files so lets build a data access layer to group those functions.
 
 ### Database and Data Access
 Every Enhance app comes with its own database.
 It's batteries included with no overhead.
 `@begin/data` is just a thin wrapper around DynamoDB which is an incredibly fast, truly serverless database.
 
-The api routes use a generated data access layer to read and write to this database.
-This code is written into the `/app/models/todos.mjs` and `/app/models/schemas/todo.mjs` files.
-The schema file is a [JSON schema](https://json-schema.org/) that matches the shape of the data passed to the generate command.
-The data access is shown below.
+The following code is a basic data access layer for CRUD operations.
+It is similar to what the Enhance CLI will scaffold for you if you use the [CRUD Generator](/docs/deployment/begin#generate-crudl-routes).
+
+You can copy and paste it into `/app/models/todos.mjs`. 
+It uses the `@begin/data` wrapper and exports methods for all the CRUD operation.
 
 ```javascript
 
@@ -346,17 +278,140 @@ export {
 }
 ```
 
-This exports all the CRUD methods we will need as well as methods to validate that the passed data matches the schema.
+This code also uses the `@begin/validator` to do server side validation of data.
+The Todo MVC does not focus on validating data so we will not include it in this tutorial, but for a real app it's a critical requirement (for reference see [Problems Loop](/docs/patterns/form-validation)).
+On thing that the validator does for us and the reason we use it here is to convert data into the format for the server. 
 
-The generator also creates HTML pages for each of these routes in the pages folder.
+HTML forms (which we will use for our app) send data as string values. 
+The data fields in our sample task include completed status and created.
+These will be sent by the browser as strings so we need to know how to convert them. 
 
-To test the generated pages start the development server (`npm start`) and load the todo list at [http://localhost:3333/todos](http://localhost:3333/todos).
-From here you can create new tasks and edit existing tasks.
-This page is ugly and the it does not have the features required for todoMVC, but it is can be a starting point to build from.
+To do this we can build a simple schema for a task and then our validator will use that schema to know how to coerce them into the correct type.
+The schema file is shown below stored in `/app/models/schema/todo.mjs`. It follows the [JSON schema](https://json-schema.org/) standard.
 
-These generated pages will eventually be deleted for this app.
-They are useful for debugging and testing CRUD operations so we will leave them for now.
-The generated files in the elements folder will also be deleted for this app.
+
+```json
+
+export const Todo = {
+  "id": "Todo",
+  "type": "object",
+  "properties": {
+    "task": {
+      "type": "string"
+    },
+    "completed": {
+      "type": "boolean"
+    },
+    "created": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "key": {
+      "type": "string"
+    }
+  }
+}
+```
+
+### Finishing API Routes
+
+
+Now using our data access layer we can write the next api route to create new tasks.
+Copy and paste the following code to `/app/api/todos.mjs`.
+
+
+```javascript
+// `/app/api/todos.mjs`
+
+import { upsertTodo, validateTodo } from '../models/todos.mjs'
+
+export async function post (req) {
+
+  if (!req.body?.created) {
+    req.body.created = new Date().toISOString()
+  }
+
+  let { todo } = await validateTodo.create(req)
+
+  const result = await upsertTodo(todo)
+  return {
+    json: { todo: result },
+    location: '/'
+  }
+}
+```
+
+In this case we create tasks with a POST request so the handler is exported as a post function.
+We import the upsertTodo and validateTodo functions.
+Validate will convert the data and then upsert is used to create and update tasks.
+
+Notice this post function returns an object with a `json` property and a `location` property. 
+If the HTTP request is for `application/json` data the `todo` that was created is returned.
+But if the request was for `text/html` then the `location` property causes a 302 redirect to `/` to be sent. 
+This will cause the browser to redirect back to the root to show the updated list of tasks.
+
+The `index.mjs` handler we built first retured only static data. 
+Update it with the following to serve the list of tasks from the database.
+
+```javascript
+// /app/api/index.mjs
+
+import { getTodos } from '../models/todos.mjs'
+
+export async function get (req) {
+  let todos = await getTodos()
+
+  return {
+    json: { todos }
+  }
+}
+```
+
+To handle updating tasks we need an api at `/app/api/todos/$id.mjs`.
+Copy the following code to that file.
+
+```javascript
+// `/app/api/todos/$id.mjs`.
+
+import { getTodo, upsertTodo, validateTodo } from '../../models/todos.mjs'
+
+export async function post(req) {
+  const id = req.pathParameters?.id
+
+  let { todo } = await validateTodo.update(req)
+
+  const result = await upsertTodo({ key: id, ...todo })
+  return {
+    json: { todo: result },
+    location: '/'
+  }
+}
+
+```
+
+This route uses the `pathParameter` to get the `id` from the dynamic path variable.
+
+Finally, to delete tasks we need a `/app/api/todos/$id/delete.mjs`.
+Copy and paste the code below into the delete handler.
+
+```javascript
+
+import { deleteTodo } from '../../../models/todos.mjs'
+
+export async function post (req) {
+  const id = req.pathParameters?.id
+
+  let todo = await deleteTodo(id)
+  return {
+    json: { todo },
+    location: '/'
+  }
+}
+```
+
+Now we have all the basic API features ready to build the Todo App.
+
+
 
 ## App Structure
 
@@ -395,54 +450,9 @@ This tutorial uses styles from the TodoMVC project with minor changes.
 The CSS from TodoMVC will be broken into sections and scoped to each component above following recommended Enhance patterns.
 Some changes are made to accommodate the HTML structure needed to function without JavaScript as much as possible.
 
-To start, we will copy some of the basic styles from the Todo MVC project into the static asset.
-Copy the following CSS to the public folder at `/public/styles.css`.
+To start, we will copy some of the styles from the Todo MVC project into the static asset.
+Copy the CSS in https://github.com/enhance-dev/todo-mvc/blob/main/public/index.css to the public folder at `/public/styles.css`.
 
-
-```css
-/* /public/styles.css */
-@charset 'utf-8';
-
-html,
-body {
-	margin: 0;
-	padding: 0;
-}
-
-button {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	background: none;
-	font-size: 100%;
-	vertical-align: baseline;
-	font-family: inherit;
-	font-weight: inherit;
-	color: inherit;
-	-webkit-appearance: none;
-	appearance: none;
-}
-
-body {
-	font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
-	line-height: 1.4em;
-	background: #f5f5f5;
-	color: #111111;
-	min-width: 230px;
-	max-width: 550px;
-	margin: 0 auto;
-	font-weight: 300;
-}
-
-.hidden {
-	display: none;
-}
-
-:focus {
-	box-shadow: 0 0 2px 2px #CF7D7D;
-	outline: 0;
-}
-```
 
 ## Static Assets: Public folder → /_public/ route
 
@@ -541,28 +551,12 @@ With the skeleton HTML page for our app already created lets build the component
 These components are built as custom elements using the Enhance `elements` folder.
 Copy and paste the following code into the `/app/elements/todo-app.html` file.
 The file name (todo-app.html) will use this code as a server rendered custom element with the HTML in this file rendered.
-Notice that the style tag with CSS for the todo app is included here.
 Enhance will add scoping to these styles so they only target the instance of `todo-app` and then this style tag will be hoisted to the head so that the styles will be loaded prior to the page rendering.
 
 
 
 ```html
 <!-- /app/elements/todo-app.html -->
-<style>
-  section.todoapp {
-	background: #fff;
-	margin: 130px 0 40px 0;
-	position: relative;
-	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2),
-	            0 25px 50px 0 rgba(0, 0, 0, 0.1);
-  }
-
-  input::placeholder {
-	font-style: italic;
-	font-weight: 400;
-	color: rgba(0, 0, 0, 0.4);
-  }
-</style>
 <section class="todoapp">
   <slot name="header"></slot>
   <slot name="list"></slot>
