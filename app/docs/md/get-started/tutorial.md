@@ -551,6 +551,7 @@ With the skeleton HTML page for our app already created lets build the component
 These components are built as custom elements using the Enhance `elements` folder.
 Copy and paste the following code into the `/app/elements/todo-app.html` file.
 The file name (todo-app.html) will use this code as a server rendered custom element with the HTML in this file rendered.
+Notice that the style tag with CSS for the todo app is included here.
 Enhance will add scoping to these styles so they only target the instance of `todo-app` and then this style tag will be hoisted to the head so that the styles will be loaded prior to the page rendering.
 
 
@@ -625,42 +626,6 @@ After entering a new task the user only needs to hit enter to submit this task.
 // /app/elements/todo-header.mjs
 export default TodoHeader({html}){
 return html`
-<style>
-.new-todo {
-	position: relative;
-	margin: 0;
-	width: 100%;
-	font-size: 24px;
-	font-family: inherit;
-	font-weight: inherit;
-	line-height: 1.4em;
-	color: inherit;
-	padding: 6px;
-	border: 1px solid #999;
-	box-shadow: inset 0 -1px 5px 0 rgba(0, 0, 0, 0.2);
-	box-sizing: border-box;
-}
-
-.new-todo {
-	padding: 16px 16px 16px 60px;
-	height: 65px;
-	border: none;
-	background: rgba(0, 0, 0, 0.003);
-	box-shadow: inset 0 -2px 1px rgba(0,0,0,0.03);
-}
-
-h1 {
-	position: absolute;
-	top: -140px;
-	width: 100%;
-	font-size: 80px;
-	font-weight: 200;
-	text-align: center;
-	color: #b83f45;
-	text-rendering: optimizeLegibility;
-}
-</style>
-
   <header class="header">
     <h1>todos</h1>
     <form action="/todos" method="POST">
@@ -684,84 +649,6 @@ Most frameworks scrap forms in favor of bespoke libraries to send data to the se
 
 With the HTML first approach we will lean heavily on forms.
 This will result in more bulletproof interaction, faster development, and less code.
-
-## Update API route redirect after POST
-With the form for creating tasks in place we need to update the API routes to redirect back to the root after we submit data.
-The user interface for the todo list is at the root (`/`).
-The generated CRUD routes are hosted at `/todos`.
-When we post to `/todos` with a successful task the browser will redirect back to '/todos' to GET the list of tasks.
-We need to change that redirect to return to the root.
-This is done by changing the location property in the return statement.
-Location is a shortcut property that sets response headers for a '302' redirect.
-The updated api file is shown below.
-
-```javascript
-import { upsertTodo, validate } from '../models/todos.mjs'
-
-export async function post (req) {
-  const session = req.session
-  // Validate
-  let { problems, todo } = await validate.create(req)
-  if (problems) {
-    return {
-      session: { ...session, problems, todo },
-      json: { problems, todo },
-      location: '/'
-    }
-  }
-
-  // eslint-disable-next-line no-unused-vars
-  let { problems: removedProblems, todo: removed, ...newSession } = session
-  try {
-    const result = await upsertTodo(todo)
-    return {
-      session: newSession,
-      json: { todo: result },
-      location: '/'
-    }
-  }
-  catch (err) {
-    return {
-      session: { ...newSession, error: err.message },
-      json: { error: err.message },
-      location: '/'
-    }
-  }
-}
-
-```
-
-Now that we are serving the app from the root instead of `/todos` we need to move the `get` function from the `/app/api/todos.mjs` into a new `/app/api/index.mjs` file instead.
-Cut and paste the get function from the todos.mjs into index.mjs as follows.
-
-```javascript
-import { getTodos } from '../models/todos.mjs'
-
-export async function get (req) {
-  let todos = await getTodos()
-
-  if (req.session.problems) {
-    let { problems, todo, ...session } = req.session
-    return {
-      session,
-      json: { problems, todos, todo }
-    }
-  }
-
-  return {
-    json: { todos }
-  }
-}
-```
-
-
-To test creating a task we can start the dev server with `npm start` and navigate to [http://localhost:3333](http://localhost:3333).
-Now we can enter a task in the input.
-We have no list of tasks yet so to test if a task was created navigate to [http://localhost:3333/todos](http://localhost:3333/todos).
-The task should appear at the top of the list on this page.
-
-We can make the same change in the edit (`/app/api/todos/$id.mjs`) and delete (`/app/api/todos/$id/delete.mjs`) api files.
-Change their corresponding location redirects to `/` as well.
 
 
 ## List and Item Components
@@ -809,9 +696,6 @@ export default function TodoItem({html,state}){
     const checked = completed === 'true' ? 'checked' : ''
 
     return html`
-<style>
- /* Styles Omitted */
-</style>
 <div class="view">
   <form  action="/todos/${key}" class=" update-todo " method="POST" >
     <button class="edit-task hidden" type=submit >update</button>
@@ -859,7 +743,7 @@ If the toggle parameter is present the completed flag is switched.
 The line of code that validates the task should use this modified body property instead of the passed body as follows.
 
 ```javascript
-let { problems, todo } = await validate.update({ ...req, body })
+let { todo } = await validate.update({ ...req, body })
 ```
 
 
@@ -885,9 +769,6 @@ export default function TodoList({html,state}){
 
 return html`
 
-<style>
-/* Styles omitted */
-</style>
 <section class="main" style="display: ${display};">
   <form action="/todos/toggle" method="POST">
     <button id="toggle-all" type="submit" class="toggle-all"></button>
@@ -911,294 +792,28 @@ import { upsertTodo, getTodos } from '../../models/todos.mjs'
 
 export async function post (req) {
 
-  const session = req.session
-  let { problems: removedProblems, ...newSession } = session
   let todos = await getTodos()
   let active = todos.filter(todo=>!todo.completed)
   let completed = todos.filter(todo=>todo.completed)
 
-  try {
-    if (active.length > 0) {
-      await Promise.all(active.map(todo=>upsertTodo({...todo, completed: true})))
-    } else {
-      await Promise.all(completed.map(todo=>upsertTodo({...todo, completed: false})))
-    }
-
-    todos = await getTodos()
-    active = todos.filter(todo => !todo.completed)
-    completed = todos.filter(todo => todo.completed)
-
-    return {
-      session: newSession,
-      json: { problems: {}, todos, active, completed },
-      location: '/'
-    }
+  if (active.length > 0) {
+    await Promise.all(active.map(todo=>upsertTodo({...todo, completed: true})))
+  } else {
+    await Promise.all(completed.map(todo=>upsertTodo({...todo, completed: false})))
   }
-  catch (err) {
-    return {
-      session: { ...newSession, error: err.message },
-      json: { error: err.message },
-      location: '/'
-    }
+
+  todos = await getTodos()
+  active = todos.filter(todo => !todo.completed)
+  completed = todos.filter(todo => todo.completed)
+
+  return {
+    json: { todos, active, completed },
+    location: '/'
   }
 }
-
 ```
 
 Our full todo list with most features are in place now.
-We just need to add the CSS for the list and item components.
-To do this copy the following CSS blocks to inside the todo-list and todo-item elements inside the `<style>` block.
-
-
-```css
-/* todo-item styles */
-.view {
-  display:grid;
-  grid-direction:row;
-  grid-template-columns: 1fr 50px;
-}
-form.update-todo {
-  display:grid;
-  grid-direction:row;
-  grid-template-columns: 50px 1fr;
-}
-input.edit[name=task] {
-  border: none;
-  box-shadow: none;
-}
-button.destroy{
-  display: block;
-}
-form .destroy:after {
-  position: absolute;
-  transform: translate(-50%, -50%);
-}
-.edit {
-	position: relative;
-	margin: 0;
-	width: 100%;
-	font-size: 24px;
-	font-family: inherit;
-	font-weight: inherit;
-	line-height: 1.4em;
-	color: inherit;
-	padding: 6px;
-	border: 1px solid #999;
-	box-shadow: inset 0 -1px 5px 0 rgba(0, 0, 0, 0.2);
-	box-sizing: border-box;
-}
-.view:focus-within {
-	box-shadow: 0 0 2px 2px #CF7D7D;
-	outline: 0;
-
-}
-```
-
-
-
-```css
-    /* css for todo-list component */
-
-    .todo-list li .toggle + button {
-      background-image: url('data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%22-10%20-18%20100%20135%22%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2250%22%20fill%3D%22none%22%20stroke%3D%22%23949494%22%20stroke-width%3D%223%22/%3E%3C/svg%3E');
-      background-repeat: no-repeat;
-      background-position: center left;
-    }
-    .todo-list li .toggle:checked + button {
-      background-image: url('data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%22-10%20-18%20100%20135%22%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2250%22%20fill%3D%22none%22%20stroke%3D%22%2359A193%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20fill%3D%22%233EA390%22%20d%3D%22M72%2025L42%2071%2027%2056l-4%204%2020%2020%2034-52z%22%2F%3E%3C%2Fsvg%3E');
-    }
-    .todo-list li button {
-      overflow-wrap: break-word;
-      padding: 15px 15px 15px 60px;
-      display: block;
-      line-height: 1.2;
-      transition: color 0.4s;
-      font-weight: 400;
-      color: #484848;
-    }
-    button.edit-task.edit-task {
-      display: none;
-    }
-
-
-
-
-.main {
-	position: relative;
-	z-index: 2;
-	border-top: 1px solid #e6e6e6;
-}
-
-.toggle-all {
-	width: 1px;
-	height: 1px;
-	border: none; /* Mobile Safari */
-	opacity: 0;
-	position: absolute;
-	right: 100%;
-	bottom: 100%;
-}
-
-.toggle-all + label {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	width: 45px;
-	height: 65px;
-	font-size: 0;
-	position: absolute;
-	top: -65px;
-	left: -0;
-}
-
-.toggle-all + label:before {
-	content: '❯';
-	display: inline-block;
-	font-size: 22px;
-	color: #949494;
-	padding: 10px 27px 10px 27px;
-	-webkit-transform: rotate(90deg);
-	transform: rotate(90deg);
-}
-
-.toggle-all:checked + label:before {
-	color: #484848;
-}
-
-.todo-list {
-	margin: 0;
-	padding: 0;
-	list-style: none;
-}
-
-.todo-list li {
-	position: relative;
-	font-size: 24px;
-	border-bottom: 1px solid #ededed;
-}
-
-.todo-list li:last-child {
-	border-bottom: none;
-}
-
-.todo-list li.editing {
-	border-bottom: none;
-	padding: 0;
-}
-
-.todo-list li.editing .edit {
-	display: block;
-	width: calc(100% - 43px);
-	padding: 12px 16px;
-	margin: 0 0 0 43px;
-}
-
-
-.todo-list li .toggle {
-	text-align: center;
-	width: 40px;
-	/* auto, since non-WebKit browsers doesn't support input styling */
-	height: auto;
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	margin: auto 0;
-	border: none; /* Mobile Safari */
-	-webkit-appearance: none;
-	appearance: none;
-}
-
-.todo-list li .toggle {
-	opacity: 0;
-}
-
-.todo-list li .toggle + label {
-	background-image: url('data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%22-10%20-18%20100%20135%22%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2250%22%20fill%3D%22none%22%20stroke%3D%22%23949494%22%20stroke-width%3D%223%22/%3E%3C/svg%3E');
-	background-repeat: no-repeat;
-	background-position: center left;
-}
-
-.todo-list li .toggle:checked + label {
-	background-image: url('data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%22-10%20-18%20100%20135%22%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2250%22%20fill%3D%22none%22%20stroke%3D%22%2359A193%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20fill%3D%22%233EA390%22%20d%3D%22M72%2025L42%2071%2027%2056l-4%204%2020%2020%2034-52z%22%2F%3E%3C%2Fsvg%3E');
-}
-
-.todo-list li label {
-	overflow-wrap: break-word;
-	padding: 15px 15px 15px 60px;
-	display: block;
-	line-height: 1.2;
-	transition: color 0.4s;
-	font-weight: 400;
-	color: #484848;
-}
-
-.todo-list li.completed label {
-	color: #949494;
-	text-decoration: line-through;
-}
-
-.todo-list li .destroy {
-	/* display: none; */
-	position: absolute;
-	top: 0;
-	right: 10px;
-	bottom: 0;
-	width: 40px;
-	height: 40px;
-	margin: auto 0;
-	font-size: 30px;
-	color: #949494;
-	transition: color 0.2s ease-out;
-}
-
-.todo-list li .destroy:hover,
-.todo-list li .destroy:focus {
-	color: #C18585;
-}
-
-.todo-list li .destroy:after {
-	content: '×';
-	display: block;
-	height: 100%;
-	line-height: 1.1;
-}
-
-.todo-list li:hover .destroy {
-	display: block;
-}
-
-
-.todo-list li.editing:last-child {
-	margin-bottom: -1px;
-}
-
-@media screen and (-webkit-min-device-pixel-ratio:0) {
-	.toggle-all,
-	.todo-list li .toggle {
-		background: none;
-	}
-
-	.todo-list li .toggle {
-		height: 40px;
-	}
-}
-
-@media (max-width: 430px) {
-	.footer {
-		height: 50px;
-	}
-
-	.filters {
-		bottom: 10px;
-	}
-}
-
-.toggle-all:focus + label {
-	box-shadow: 0 0 2px 2px #CF7D7D;
-	outline: 0;
-}
-
-```
 
 The last critical functions of the app include the ability to filter the list.
 These will be built into the todo-footer component.
@@ -1220,9 +835,6 @@ export default function TodoFooter({html,state}){
     const display = (todos.length || active.length || completed.length) ? 'block' : 'none'
 
     return html`
-<style>
-/* styles omitted */
-</style>
   <footer class="footer" style="display: ${display};">
     <span class="todo-count"><strong>${active.length}</strong> items left</span>
     <ul class="filters">
@@ -1240,6 +852,7 @@ export default function TodoFooter({html,state}){
 ```
 
 In order to support the filtering query parameters used in the links above we need to update the `/app/api/index.mjs` to filter the list accordingly.
+The query parameters for the api can be pulled from the `req.query` propety.
 
 ```javascript
 import { getTodos } from '../models/todos.mjs'
@@ -1248,14 +861,6 @@ export async function get (req) {
   let todos = await getTodos()
   let active = todos.filter(todo => !todo.completed)
   let completed = todos.filter(todo => todo.completed)
-
-  if (req.session.problems) {
-    let { problems, todo, ...session } = req.session
-    return {
-      session,
-      json: { problems, todos, todo }
-    }
-  }
 
   const filter = req.query.filter
   if (filter==='active') todos = active
@@ -1267,6 +872,7 @@ export async function get (req) {
 }
 ```
 
+
 To clear all completed tasks add the following new api route to respond to the new clear completed form in the footer component.
 
 ```javascript
@@ -1275,110 +881,13 @@ To clear all completed tasks add the following new api route to respond to the n
 import { deleteTodo, getTodos } from '../../../models/todos.mjs'
 
 export async function post (req) {
-
-  const session = req.session
-  // eslint-disable-next-line no-unused-vars
-  let { problems: removedProblems, ...newSession } = session
   const todos = await getTodos()
   const completed = todos.filter(todo=>todo.completed)
-  try {
-    await Promise.all(completed.map(todo=>deleteTodo(todo.key)))
-    return {
-      session: newSession,
-      location: '/'
-    }
-  }
-  catch (err) {
-    return {
-      session: { ...newSession, error: err.message },
-      json: { error: err.message },
-      location: '/'
-    }
+  await Promise.all(completed.map(todo=>deleteTodo(todo.key)))
+  return {
+    location: '/'
   }
 }
-```
-
-And to add the styles from the Todo MVC for the footer past the following CSS into the todo-footer element inside the `<style>` tag.
-
-```css
-/* todo-footer CSS */
-
-footer.footer {
-	padding: 10px 15px;
-	height: 20px;
-	text-align: center;
-	font-size: 15px;
-	border-top: 1px solid #e6e6e6;
-}
-
-footer.footer:before {
-	content: '';
-	position: absolute;
-	right: 0;
-	bottom: 0;
-	left: 0;
-	height: 50px;
-	overflow: hidden;
-	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2),
-	            0 8px 0 -3px #f6f6f6,
-	            0 9px 1px -3px rgba(0, 0, 0, 0.2),
-	            0 16px 0 -6px #f6f6f6,
-	            0 17px 2px -6px rgba(0, 0, 0, 0.2);
-}
-
-
-.todo-count {
-	float: left;
-	text-align: left;
-}
-
-.todo-count strong {
-	font-weight: 300;
-}
-
-.filters {
-	margin: 0;
-	padding: 0;
-	list-style: none;
-	position: absolute;
-	right: 0;
-	left: 0;
-}
-
-.filters li {
-	display: inline;
-}
-
-.filters li a {
-	color: inherit;
-	margin: 3px;
-	padding: 3px 7px;
-	text-decoration: none;
-	border: 1px solid transparent;
-	border-radius: 3px;
-}
-
-.filters li a:hover {
-	border-color: #DB7676;
-}
-
-.filters li a.selected {
-	border-color: #CE4646;
-}
-
-.clear-completed,
-html .clear-completed:active {
-	float: right;
-	position: relative;
-	line-height: 19px;
-	text-decoration: none;
-	cursor: pointer;
-}
-
-.clear-completed:hover {
-	text-decoration: underline;
-}
-
 ```
 
 
@@ -1391,29 +900,6 @@ Copy and paste the following to /app/elements/todo-app-footer.mjs.
 ```javascript
 export default function TodoAppFooter({ html }) {
   return html`
-<style>
-.info {
-	margin: 65px auto 0;
-	color: #4d4d4d;
-	font-size: 11px;
-	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
-	text-align: center;
-}
-
-.info p {
-	line-height: 1;
-}
-
-.info a {
-	color: inherit;
-	text-decoration: none;
-	font-weight: 400;
-}
-
-.info a:hover {
-	text-decoration: underline;
-}
-</style>
     <footer class="info">
         <p>Double-click to edit a todo</p>
         <p>Written by the <a href="https://enhance.dev">Enhance Team</a></p>
@@ -1422,7 +908,6 @@ export default function TodoAppFooter({ html }) {
     `
 }
 ```
-
 
 
 ## HTML First goes far
@@ -1458,8 +943,6 @@ One common enhancement for a typical CRUD app is to avoid full page reloads when
 To do this we need a client side data store.
 Since the app is fully functional, we can use the HTML and existing backend routes to minimize this work.
 The goal is to:
-
-
 
 1. Send data to the server and update the UI without reloading the page
 2. Minimal changes to the working HTML
