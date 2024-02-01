@@ -114,3 +114,6 @@ todoMVC
 formaction
 composability
 Eg
+CustomElement
+upsertTodo
+validateTodo

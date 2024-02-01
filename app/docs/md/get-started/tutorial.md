@@ -198,7 +198,7 @@ export async function get (req) {
 ```
 
 This file handles GET requests requests so the exported function is called `get`.
-If we start the developement server (`npm start`) and navigate to `https://localhost:3333` we see the JSON output for our list of tasks.
+If we start the development server (`npm start`) and navigate to `https://localhost:3333` we see the JSON output for our list of tasks.
 
 Instead of a static list of tasks we want to store them in out database.
 The code to read to and from the database would result in duplication across multiple api files so lets build a data access layer to group those functions.
@@ -350,7 +350,7 @@ If the HTTP request is for `application/json` data the `todo` that was created i
 But if the request was for `text/html` then the `location` property causes a 302 redirect to `/` to be sent. 
 This will cause the browser to redirect back to the root to show the updated list of tasks.
 
-The `index.mjs` handler we built first retured only static data. 
+The `index.mjs` handler we built first returned only static data. 
 Update it with the following to serve the list of tasks from the database.
 
 ```javascript
@@ -848,7 +848,7 @@ export default function TodoFooter({html,state}){
 ```
 
 In order to support the filtering query parameters used in the links above we need to update the `/app/api/index.mjs` to filter the list accordingly.
-The query parameters for the api can be pulled from the `req.query` propety.
+The query parameters for the api can be pulled from the `req.query` property.
 
 ```javascript
 import { getTodos } from '../models/todos.mjs'
@@ -1074,7 +1074,7 @@ The header component uses the Web Component lifecycle hooks to add the code for 
 Notice that this component extends `CustomElement` instead of `HTMLElement`. 
 This class extends the platform `HTMLElement` to add Enhance custom element expansion, style scoping, and slot expansion to the client.
 For more details check out the docs for [Enhance Components Folder](/docs/conventions/components).
-This will allow us to add new task direcly in the client with JavaScript and the CustomElement will expand the component markup as needed.
+This will allow us to add new task directly in the client with JavaScript and the CustomElement will expand the component markup as needed.
 
 ### Browser folder
 This component uses `API` imported from '../browser/api.mjs'.
@@ -1105,7 +1105,7 @@ The clientside API includes:
   - `../browser/api.mjs`
 
 It looks a bit complicated but the basic pattern is that the API function wraps the methods for interacting with the serverside api.
-When an api.create() is called it passes the form values and sends them to a worker to communciate with the server on a different thread.
+When an api.create() is called it passes the form values and sends them to a worker to communicate with the server on a different thread.
 When the server is updated and sends its results component that has subscribed to the update gets notified.
 For more details check out the [Enhance client side state Management](https://begin.com/blog/posts/2023-11-30-clientside-state-management) blog post on begin.com.
 
@@ -1582,7 +1582,8 @@ This is almost always the most performant option.
 The other option is to use a DOM diffing library that responds to any changes in the component and rerenders it. 
 We will do this using `@enhance/morphdom-mixin` from Enhance (`npm i @enhance/morphdom-mixin`).
 
-This mixin will add morphdom to monitor for any chance in attributes and then rerender the components.
+This mixin will add MorphDOM to monitor for any chance in attributes and then rerender the components.
+
 
 
 
@@ -1833,7 +1834,7 @@ customElements.define('todo-footer',TodoFooter)
 ```
 
 In order to support the filtering query parameters used in the links above we need to update the `/app/api/index.mjs` to filter the list accordingly.
-The query parameters for the api can be pulled from the `req.query` propety.
+The query parameters for the api can be pulled from the `req.query` property.
 
 ```javascript
 import { getTodos } from '../models/todos.mjs'
