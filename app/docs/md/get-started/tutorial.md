@@ -532,7 +532,7 @@ export default function Head () {
 
 
 We will override it by removing the first two lines of code that add the Enhance styles (since we are using todoMVC styles instead).
-Then we will replace the `${linkTag()}` line in the middle with the link tag to our styles CSS file: `<link rel="stylesheet" href="/_public/styles.css">`.
+Then we will replace the `${linkTag()}` line in the middle with the link tag to our styles CSS file: `<link rel="stylesheet" href="/_public/index.css">`.
 For more information on the head refer to the docs, [Head](https://enhance.dev/docs/conventions/head).
 
 
@@ -551,8 +551,6 @@ With the skeleton HTML page for our app already created lets build the component
 These components are built as custom elements using the Enhance `elements` folder.
 Copy and paste the following code into the `/app/elements/todo-app.html` file.
 The file name (todo-app.html) will use this code as a server rendered custom element with the HTML in this file rendered.
-Notice that the style tag with CSS for the todo app is included here.
-Enhance will add scoping to these styles so they only target the instance of `todo-app` and then this style tag will be hoisted to the head so that the styles will be loaded prior to the page rendering.
 
 
 
@@ -613,7 +611,6 @@ Now that we have the todo-app component that serves as the container for the app
 The first of these is the `todo-header`.
 This component has the input form for adding new tasks to the list.
 To begin copy and paste the following code to `/app/elements/todo-header.mjs`.
-As mentioned previously the CSS here is taken from the reference app for consistent design.
 
 The markup has an `h1` and a form with a single input.
 The form posts to `/todos`.
@@ -676,7 +673,6 @@ For our list element we will use the `store` and then the item will also use `at
 First lets start with the todo item.
 Copy and paste the following into `/app/elements/todo-list.mjs`.
 
-For now we will omit the styles because they are taken directly from the reference app and they will get in the way initially.
 Following our pattern of using forms first this item is made of two forms. The first form allows editing existing items.
 The second form allows deleting items.
 
@@ -928,143 +924,394 @@ The next sections following the JavaScript first approach will add those feature
 ## JavaScript First
 If you are following the JavaScript first path welcome and lets get started. 
 If you followed the HTML first path and want to see how to improve the app to avoid full page reloads continue reading. 
+The goal (even if we start with JavaScript) is to build apps that are full featured (or as close as possible) without JavaScript.
 
 
-## Client side State Management
-
-The goal is to build apps that are full featured (or as close as possible) without JavaScript.
-From there they can be improved using some JavaScript.
-This approach leverages HTML as much as possible with real forms and anchor tags.
-Most of the application state is stored in the form and the URL.
-When the app is feature complete using this approach, it may not be necessary to add much JavaScript.
-
-
-One common enhancement for a typical CRUD app is to avoid full page reloads when submitting form data.
-To do this we need a client side data store.
-Since the app is fully functional, we can use the HTML and existing backend routes to minimize this work.
-The goal is to:
-
-1. Send data to the server and update the UI without reloading the page
-2. Minimal changes to the working HTML
-3. Minimal extra JavaScript
-4. Avoid stalling the main UI thread with long running tasks
-
-With the CRUDL (Create, Read, Update, Delete, and List) operations already fully implemented the simplest approach is to plug in between this exchange.
-A typical form post and response for a CRUD route is shown below.
-
-
-1. **Reactive data store** to share state changes throughout the app
-2. A **web worker** to move slow operations like Fetching off the main (UI) thread
-3. An **API helper** to wrap up these pieces of code and handle message passing between them
-
-
-It looks a bit complicated, but this pattern can be reduced to a very minimal footprint and extended to a large complicated application.
-First lets examine some of the key pieces of this architecture before looking at the code.
-
-
-
-## Client API Handler
-
-The client API handler, represented by the large green circle above, handles communication between the parts of this architecture.
-A simplified example including an HTML page with a form is shown below.
-The `API` function is a wrapper over the message passing to the worker and updates to the store so that that code can stay out of individual components.
-It exposes methods to do the CRUD operations (simplified to just create for this example) and to subscribe to updates.
-The `processForm` function translates the form data to be handled by the worker.
-In a typical application the API function would be externalized in its own file so that it can be imported and used in any component that needs access to the state.
-
-
-A limitation of HTML forms is that all the data is represented in flat key value pairs of strings.
-In many cases the CRUD object may be nested with other types of values like numbers or booleans.
-The Enhance approach to this is to normalize and reshape this form data when it is received by the server using a JSON schema.
-With the client side store we can do the same process in the API function using the same JSON schema.
+With the skeleton HTML page for our app already created lets build the components needed.
+These components are built as custom elements using the Enhance `elements` folder.
+Copy and paste the following code into the `/app/elements/todo-app.html` file.
+The file name (todo-app.html) will use this code as a server rendered custom element with the HTML in this file rendered.
 
 
 
 ```html
-<h1>Tasks</h1>
-<ul>
-  <li>First Task</li>
-</ul>
-<form action="/todos" method="POST">
-  <input type="text" name="task"/>
-</form>
-
-<script>
-  import Store from '@enhance/store'
-  function API(){
-    const store = Store({tasks:['First Task']})
-    let worker =  new Worker('/worker.mjs')
-    worker.onmessage = createMutation
-
-    function processForm(form){
-      return JSON.stringify(new FormData(form))
-    }
-    function create(form) {
-      const data = processForm(form)
-      worker.postMessage({
-        data: form
-      })
-    }
-    function createMutation({ task = '' }) {
-      const copy = store.tasks?.slice() || []
-      copy.push(task)
-      store.tasks = copy
-    }
-    return {
-      create,
-      subscribe: store.subscribe,
-      unsubscribe: store.unsubscribe
-    }
-  }
-
-  const api = API()
-  const myForm = document.querySelector('form')
-  myForm.addEventListener('submit', (event)=> {
-    event.preventDefault()
-    api.create(myForm)
-  })
-  const list = document.querySelector('ul')
-  api.subscribe(update, ['tasks'])
-  function update(tasks){
-    list.innerHTML = tasks.map(task => `<li>${task}</li>`).join('')
-  }
-
-</script>
+<!-- /app/elements/todo-app.html -->
+<section class="todoapp">
+  <slot name="header"></slot>
+  <slot name="list"></slot>
+  <slot name="footer"></slot>
+</section>
 ```
 
+### Enhance Elements
+This is the first "Enhance Element" in this project.
+Elements are the reusable building blocks of your Enhance application.
+They are pure functions authored as single-file components and can be static or update dynamically to state changes.
+Elements live in the `app/elements/` folder in the Enhance starter project.
+
+These elements use the platforms "custom element" API to create components that can be reused anywhere in our app.
+We will look at adding dynamic client side capabilities to these elements later.
+But in this case we just have HTML, CSS and composability with slots.
+
+With this element created we can use it in any page by adding `<todo-app></todo-app>`.
+We already did this with our `index.html` page.
+Now this element will expand into that component when a page is rendered.
+* When naming these custom elements they must contain a "-" to distinguish them from regular HTML elements.
+* By specification these custom elements cannot be used as self closing tags so the full opening and closing tag is required.
+
+For more information on how Elements refer to the documentation on [Elements](/docs/elements).
 
 
-## Reactive Data Store
+### Slots
+To add composability to these elements we can use both attributes and slots.
+With HTML the `<slot>` element is generally for use in the shadow DOM.
+The Shadow DOM is a platform API that creates an isolated DOM inside an element that encapsulates styles (and more).
+It is best to avoid using the shadow DOM unless strong isolation is required.
+Enhance will server render the slotted content in place of these.
+This allows for composition of components using the convenience of slots without having to use the shadow DOM.
+For more information on how Enhance uses slots refer to the documentation on [Enhance Slots](/docs/elements/html/slots).
 
-The `Store` is a light weight (~100 lines of code) reactive data store (`@enhance/store`).
-It is abstracted into a package because the code does not generally need to be modified for different projects and the interface for it is small.
-Once added to your app you can store objects and subscribe to updates to those objects from anywhere.
-The store is basically a single JavaScript object that is shared across all components that need access to it.
-You can add or modify data by setting or getting as with any object (i.e. `store.myData = ['one', two']`).
-Your components become reactive to that data by subscribing to changes in certain keys (i.e. `store.subscribe(updateFunc, ['myData'])`).
-This works by using a JavaScript [Proxy](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) so that when data is set the subscribed handlers will be called using the <code>[requestAnimationFrame](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame)</code> so that updates are grouped to UI updates.
-There are many reactive data patterns used in modern web applications (event buses, useState, signals, Redux, etc.).
-This Enhance Store pattern is simple to get started with, but can scale to very advanced use cases.
+Looking at `app/pages/index.html` we can see the authored use of the `<todo-app>` element.
+Any child elements with a `slot="header"` attribute will be rendered where the element has the `<slot name="header"></slot>`.
+In this way we can pass children to the component and control what the output markup looks like.
+
+```html
+<todo-app>
+  <todo-header slot="header"></todo-header>
+  <todo-list slot="list"></todo-list>
+  <todo-footer slot="footer"></todo-footer>
+</todo-app>
+<todo-app-footer></todo-app-footer>
+```
+
+We have one more purely static component for this app.
+
+### Static Footer Component
+We need a footer component with some attribution and directions.
+This is another static element similar to the header.
+
+Copy and paste the following to /app/elements/todo-app-footer.mjs.
+
+```javascript
+export default function TodoAppFooter({ html }) {
+  return html`
+    <footer class="info">
+        <p>Double-click to edit a todo</p>
+        <p>Written by the <a href="https://enhance.dev">Enhance Team</a></p>
+        <p>Part of <a href="https://todomvc.com">TodoMVC</a></p>
+    </footer>
+    `
+}
+```
+
+With the static components done we now need to build some dynamic components. 
 
 
+## Header component
+Now that we have the todo-app component that serves as the container for the app we will fill in the dynamic components with the required features.
+The first of these is the `todo-header`.
+This component has the input form for adding new tasks to the list.
+To begin copy and paste the following code to `/app/components/todo-header.mjs`.
 
-## Web Worker
+The HTML markup in this component has a form with an input to add new tasks. 
+Even though we are building this as a JavaScript component this will allow us to fall back to the form if there is a problem.
+We will intercept the form submission and use JavaScript instead.
 
-The whole point of this enhancement over full page reloads is for the UI to remain interactive and stable all the time.
-Updating data may require fetching data to and from the server which can be slow.
-If we can offload this slow work somewhere we can avoid stalling the interactivity of the UI.
-Web workers allow us to run a script on an entirely separate thread so that the code in the main thread that is responsible for our UI remains responsive.
-The [Worker API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers) does just that.
-The code for this worker is externalized into a separate file because the `new Worker()` API loads the code from a URL.
-That is why it is represented as a dotted line inside the API in the architectural diagram above.
-The messages from the worker are sent from the API and returned there even though the code is run in a different thread as an independent script.
+This being the first dynamic component passing data in the client we need to introduce a few new patterns below.
+
+```javascript
+// /app/components/todo-header.mjs
+
+/* globals customElements */
+import CustomElement from '@enhance/custom-element'
+import API from '../browser/api.mjs'
+const api = API()
+
+
+export default class TodoHeader extends CustomElement  {
+  constructor(){
+    super()
+    this.api = api
+  }
+
+  connectedCallback(){
+    this.form = this.querySelector('form')
+    this.addNewTask = this.addNewTask.bind(this)
+    this.form.addEventListener('submit', this.addNewTask)
+  }
+
+  disconnectedCallback() {
+    this.form.removeEventListener('submit', this.addNewTask)
+  }
+
+  addNewTask(event){
+    event.preventDefault()
+    this.api.create(this.form)
+    this.form.reset()
+  }
+
+  render({html}){
+    return html`
+  <header class="header">
+    <h1>todos</h1>
+    <form action="/todos" method="POST">
+      <input autofocus="autofocus" autocomplete="off" placeholder="What needs to be done?" name="task" class="new-todo">
+    </form>
+  </header>
+    `
+  }
+}
+
+customElements.define('todo-header', TodoHeader)
+```
+
+To understand the header code we need to understand:
+1. Clientside components using the Components folder and @enhance/custom-element
+2. Client State management with api.mjs (bundled with the browser)
+
+### Components folder and CustomElement Class
+The header component uses the Web Component lifecycle hooks to add the code for adding new tasks.  
+Notice that this component extends `CustomElement` instead of `HTMLElement`. 
+This class extends the platform `HTMLElement` to add Enhance custom element expansion, style scoping, and slot expansion to the client.
+For more details check out the docs for [Enhance Components Folder](/docs/conventions/components).
+This will allow us to add new task direcly in the client with JavaScript and the CustomElement will expand the component markup as needed.
+
+### Browser folder
+This component uses `API` imported from '../browser/api.mjs'.
+We will discuss the api file itself next but the browser folder where it is loaded from is another important convention in Enhance projects.
+The [Browser Folder](/docs/conventions/browser) is for JavaScript that is loaded in the browser.
+Anything in this folder will be bundled too include all imports and then put in the static asset folder `/public/browser`.
+
+## Client side State Management
+The `api.mjs` file is our client side api handler.
+With the CRUDL (Create, Read, Update, Delete, and List) operations already fully implemented in the server we will add client state management to interface with it.
+Our component uses HTML forms so that the markup is usable without JavaScript. 
+Then we intercept the form submission and pass it to the client side api so the page will update without a reload.
+A typical form POST and response for a CRUD route is shown below.
+
+![Typical form Post and Response](/img/docs/crud-wo-js.jpg)
+
+We will insert our state management client API in between this exchange as shown below:
+
+![Post and Response using Client side state management](/img/docs/crud-with-js.jpg)
+
+The clientside API includes:
+
+1. **Reactive data store** to share state changes throughout the app
+  - `@enhance/store`
+2. A **web worker** to move slow operations like Fetching off the main (UI) thread
+  - `../browser/worker.mjs`
+3. An **API helper** to wrap up these pieces of code and handle message passing between them
+  - `../browser/api.mjs`
+
+It looks a bit complicated but the basic pattern is that the API function wraps the methods for interacting with the serverside api.
+When an api.create() is called it passes the form values and sends them to a worker to communciate with the server on a different thread.
+When the server is updated and sends its results component that has subscribed to the update gets notified.
+For more details check out the [Enhance client side state Management](https://begin.com/blog/posts/2023-11-30-clientside-state-management) blog post on begin.com.
+
+First we need to install dependencies with `npm i @enhance/store @begin/validator`.
+Then we copy and paste the following code to `/app/browser/api.mjs`.
 
 
 ```javascript
-// worker.mjs
-self.onmessage = work
 
-async function work ({ data }) {
+/* global HTMLFormElement, Worker */
+import Store from '@enhance/store'
+import convertToNestedObject from '@begin/validator/src/convert-to-nested-object.js'
+import formEncodingToSchema from '@begin/validator/src/form-encoding-to-schema.js'
+import {Todo} from '../models/schemas/todo.mjs'
+
+
+function processForm(form){
+  let data = form
+  if (!form) return;
+  if (form instanceof HTMLFormElement) data = new FormData(form)
+  if (!data.has('created')) {
+    data.set('created', new Date().toISOString())
+  }
+  return JSON.stringify(formEncodingToSchema(convertToNestedObject(data), Todo))
+}
+
+// API actions
+const  CREATE  = 'create'
+const  UPDATE  = 'update'
+const  DESTROY = 'destroy'
+const  DESTROY_FAILED = 'destroy-failed'
+const  LIST    = 'list'
+const  CLEAR   = 'clear'
+const  TOGGLE  = 'toggle'
+
+const store = Store()
+
+let worker
+export default function API() {
+
+  if (!worker) {
+    worker =  new Worker('/_public/browser/worker.mjs')
+    worker.onmessage = workerResponse
+
+    initialize()
+  }
+
+  return {
+    create,
+    update,
+    destroy,
+    list,
+    clear,
+    toggle,
+    store,
+    subscribe: store.subscribe,
+    unsubscribe: store.unsubscribe
+  }
+}
+
+function initialize() {
+  list()
+}
+
+function create(form) {
+  const item = processForm(form)
+  worker.postMessage({
+    type: CREATE,
+    data: item
+  })
+}
+
+function destroy (form) {
+  const item = processForm(form)
+  let copy = store?.todos?.slice() || []
+  let key = JSON.parse(item).key
+  let index = copy.findIndex(i => i.key === key)
+  const deleted = copy.slice().splice(index,1)
+  if (!store.deletedTodos) store.initialize({deletedTodos:[]});
+  store.deletedTodos.push(deleted[0])
+  copy.splice(index, 1)
+  updateStore(copy)
+
+  worker.postMessage({
+    type: DESTROY,
+    data: item
+  })
+}
+
+
+function list () {
+  worker.postMessage({
+    type: LIST
+  })
+}
+
+function update (form) {
+  const item = processForm(form)
+  worker.postMessage({
+    type: UPDATE,
+    data: item
+  })
+}
+
+function clear () {
+  worker.postMessage({
+    type: CLEAR
+  })
+}
+
+function toggle () {
+  worker.postMessage({
+    type: TOGGLE
+  })
+}
+
+
+function workerResponse(e) {
+  const { data } = e
+  const { result, type } = data
+  switch (type) {
+  case CREATE:
+    createMutation(result)
+    break
+  case UPDATE:
+    updateMutation(result)
+    break
+  case DESTROY_FAILED:
+    revertDestroy(result)
+    break
+  case LIST:
+    listMutation(result)
+    break
+  case CLEAR:
+    updateStore(store.active)
+    break
+  case TOGGLE:
+    listMutation(result)
+    break
+  }
+}
+
+
+function updateStore(todos) {
+  store.todos = todos
+  store.active = todos.filter((todo) => !todo.completed)
+  store.completed = todos.filter((todo) => todo.completed)
+}
+
+function createMutation({ problems={}, todo = {} }) {
+  const copy = store?.todos?.slice() || []
+  copy.push(todo)
+  updateStore(copy)
+  store.problems = problems
+}
+
+function updateMutation({ problems={}, todo={} }) {
+  const copy = store?.todos?.slice() || []
+  copy.splice(copy.findIndex(i => i.key === todo.key), 1, todo)
+  updateStore(copy)
+  store.problems = problems
+}
+
+function revertDestroy({ key }) {
+  let copy = store?.todos?.slice() || []
+  const index = store.deletedTodos.findIndex(i => i.key === key)
+  const deletedTodo = store.deletedTodos.splice(index, 1)
+  store.deletedTodos.splice(index,1)
+  copy.push(deletedTodo[0])
+  updateStore(copy)
+}
+
+function listMutation({ problems={}, todos =[] }) {
+  if (store.todos) {
+    updateStore(todos)
+    store.problems = problems
+  } else {
+    let active = todos.filter((todo) => !todo.completed)
+    let completed = todos.filter((todo) => todo.completed)
+    store.initialize({todos, active, completed, problems})
+  }
+}
+```
+
+When this file is imported and used in a component (like todo-header) it creates a data store and exports CRUD methods for modifying the application state.
+It also creates a web worker to do the actual fetching of data with the backend.
+To create the worker copy and paste the following code to `/app/browser/worker.mjs`.
+
+
+```javascript
+
+/* global self */
+const CREATE = 'create'
+const UPDATE = 'update'
+const DESTROY = 'destroy'
+const DESTROY_FAILED = 'destroy-failed'
+const LIST = 'list'
+const CLEAR = 'clear'
+const TOGGLE = 'toggle'
+
+self.onmessage = stateMachine
+
+async function stateMachine ({ data }) {
+  const { data: payload, type } = data
+  switch (type) {
+  case CREATE:
     try {
       const result = await (await fetch(
         `/todos`, {
@@ -1078,88 +1325,550 @@ async function work ({ data }) {
         })).json()
 
       self.postMessage({
+        type: CREATE,
         result
       })
     }
     catch (err) {
-      // RESPOND WITH ERROR
-      console.error(err)
+      console.log(err)
     }
+    break
+  case UPDATE:
+    try {
+      const key = JSON.parse(payload).key
+      const result = await (await fetch(
+        `/todos/${key}`, {
+          body: payload,
+          credentials: 'same-origin',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
+          method: 'POST'
+        }
+      )).json()
+
+      self.postMessage({
+        type: UPDATE,
+        result
+      })
+    }
+    catch (err) {
+      console.log(err)
+    }
+    break
+  case DESTROY: {
+    let key
+    try {
+      key = JSON.parse(payload).key
+      const result = await (await fetch(
+        `/todos/${key}/delete`, {
+          body: payload,
+          credentials: 'same-origin',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
+          method: 'POST'
+        })).json()
+      if (result.problems){
+        console.log(result.problems)
+      }
+    }
+    catch (err) {
+      self.postMessage({
+        type: DESTROY_FAILED,
+        result:{key}
+      })
+    }
+    break
+  }
+  case LIST:
+    try {
+      const result = await (await fetch(
+        `/`, {
+          credentials: 'same-origin',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
+          method: 'GET'
+        }
+      )).json()
+
+      self.postMessage({
+        type: LIST,
+        result
+      })
+    } catch (err) {
+      console.log(err)
+    }
+    break
+  case CLEAR:
+    try {
+      await fetch(
+        `/todos/completed/delete`, {
+          credentials: 'same-origin',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
+          method: 'POST'
+        }
+      )
+
+      self.postMessage({
+        type: CLEAR
+      })
+    } catch (err) {
+      console.log(err)
+    }
+    break
+  case TOGGLE:
+    try {
+      const result = await (await fetch(
+        `/todos/toggle`, {
+          credentials: 'same-origin',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
+          method: 'POST'
+        }
+      )).json()
+
+      self.postMessage({
+        type: TOGGLE,
+        result
+      })
+    } catch (err) {
+      console.log(err)
+    }
+    break
+  }
 }
+
 ```
 
 
+## List and Item Components
+Now we need to create the list of tasks.
+Following our app structure laid out earlier this requires two components.
+We will build them together since they relate closely to each other.
 
-## Worker to Client Message State Machine
+Unlike the header component that has static markup with a form, the markup for the list and items is dynamic.
+The contents depends on what tasks are in the database.
+This introduces the need for state in the render function.
 
-Web Workers pass messages back and forth between the main thread using the built in `postMessage`, and respond to messages using the `onmessage` subscription.
-In a simple case we can manually wire these together.
-If the worker and the store are doing multiple operations like most CRUD apps there are different messages to route back and forth.
-A good way to handle this is with a small state machine using a switch/case to route.
+### Passing State to render function
+Every Enhance element has optional access to Enhance’s state object, made available through the Enhance element `state` property.
+The state object contains four top level keys:
 
+*  `attrs`, which contains all the key value pairs of attributes passed into your custom element’s instance
+*  `store`, which contains the global state of your Enhance application
+*  `instanceID`, which is a unique ID per instance of Custom Element
+*  `context`, which is an Object that can be used to pass state to child elements to avoid prop drilling
+
+For more details refer to [State](/docs/elements/state) in the docs.
+
+For our list element we will use the `store` and then the item will also use `attrs` (attributes).
+
+First lets start with the todo item.
+Copy and paste the following into `/app/components/todo-list.mjs`.
+
+Following our pattern of using forms and intercepting submit events this item is made of two forms. 
+The first form allows editing existing items.
+The second form allows deleting items.
+
+Attributes are the primary element API of the web platform so we use them for the todo item.
+One important caveat is that attributes are always strings.
+This means boolean attributes (i.e. completed) and numbers (not used in this component) will both become strings in the `attrs` object.
+For more details refer to [Attributes](/docs/elements/state/attributes) in the docs.
+The state of the `completed` attribute for the item results in the `checked` attribute being added to the completed checkbox.
 
 
 ```javascript
-// Main Thread Client
-/////////////////////////
-const CREATE = 'create'
-const UPDATE = 'update'
-worker.onmessage = workerResponse
-function workerResponse(e) {
-  const { data } = e
-  const { result, type } = data
-  switch (type) {
-  case CREATE:
-    createMutation(result)
-    break
-  case UPDATE:
-    updateMutation(result)
-    break
+// /app/components/todo-item.mjs
+
+/* globals customElements */
+import CustomElement from '@enhance/custom-element'
+import MorphdomMixin from '@enhance/morphdom-mixin'
+import API from '../browser/api.mjs'
+const api = API()
+
+
+export default class TodoItem extends MorphdomMixin(CustomElement)  {
+  constructor(){
+    super()
+    this.api = api
+  }
+
+  static get observedAttributes() {
+    return ['key', 'completed', 'task' ]
+  }
+
+  connectedCallback(){
+    this.updateForm = this.querySelector('form.update-todo')
+    this.completed = this.querySelector('form.update-todo input[name=completed]')
+    this.task = this.querySelector('form.update-todo input[name=task]')
+    this.update = this.update.bind(this)
+    this.setComplete = this.querySelector('button.set-complete')
+    this.destroy = this.destroy.bind(this)
+    this.revert = this.revert.bind(this)
+    this.deleteForm = this.querySelector('form.delete-todo')
+    this.updateFormKeyInput = this.querySelector('form.update-todo input[name=key]')
+    this.destroyFormKeyInput = this.querySelector('form.delete-todo input[name=key]')
+    this.task.addEventListener('blur', this.revert)
+    this.deleteForm.addEventListener('submit', this.destroy)
+    this.updateForm.addEventListener('submit', this.update)
+  }
+
+  disconnectedCallback() {
+    this.task.removeEventListener('blur', this.revert)
+    this.deleteForm.removeEventListener('submit', this.destroy)
+    this.updateForm.removeEventListener('submit', this.update)
+  }
+
+  destroy(event){
+    event.preventDefault()
+    this.api.destroy(this.deleteForm)
+  }
+
+  revert() {
+    this.task.value = this.getAttribute('task')
+  }
+
+  update(event){
+    event.preventDefault()
+    if (event.submitter === this.setComplete) {
+      this.completed.checked = !this.completed?.checked
+    }
+    this.api.update(this.updateForm)
+  }
+
+  render({html,state}){
+    const { attrs = {} } = state
+    const { completed = '', key = '', task = '' } = attrs
+    const checked = completed === 'true' ? 'checked' : ''
+
+    return html`
+<div class="view">
+  <form  action="/todos/${key}" class=" update-todo " method="POST" >
+    <button class="edit-task hidden" type=submit >update</button>
+    <input class="hidden toggle" name="completed" type="checkbox" ${checked} >
+    <button class="set-complete" type=submit formaction="/todos/${key}?toggle" aria-label="toggle complete"></button>
+    <input type="text" name="task" value="${task}" class="edit" >
+    <input type="hidden" name="key" value="${key}">
+  </form>
+
+  <form class="delete-todo" action="/todos/${key}/delete" method="POST" >
+    <input type="hidden" name="key" value="${key}">
+    <button class="destroy"></button>
+  </form>
+</div>
+  `
   }
 }
-function create(data){
-  worker.postMessage(data)
-}
-function createMutation(result){
-  //update store
-}
-///////////////////////////////////////
-// Worker
-const CREATE = 'create'
-const UPDATE = 'update'
-self.onmessage = stateMachine
-async function stateMachine ({ data }) {
-  const { data: payload, type } = data
-  switch (type) {
-  case CREATE:
-    createFetch(payload)
-    break
-  case UPDATE:
-    updateFetch(payload)
+
+customElements.define('todo-item', TodoItem)
+```
+
+### DOM Diffing with MorphDOM
+There are two options for dealing with attribute changes on the client side.
+We can use the Web Component hooks by setting observed attributes and using the attrubuteChangedCallback.
+This lets us write surgical DOM updates that only need to account for the limited ways we know our components can change. 
+This is almost always the most performant option. 
+
+The other option is to use a DOM diffing library that responds to any changes in the component and rerenders it. 
+We will do this using `@enhance/morphdom-mixin` from Enhance (`npm i @enhance/morphdom-mixin`).
+
+This mixin will add morphdom to monitor for any chance in attributes and then rerender the components.
+
+
+
+The delete form posts to the delete route and the edit form submits to the edit route by the form action attribute.
+But notice that the edit form has two submit buttons.
+
+Since we are building this form to work without JavaScript as much as possible there is one feature that is slightly challenging.
+We can edit the task description and submit the form by hitting enter.
+This does an implicit submit updating the description.
+To toggle the completed state of the form we need to update the checkbox and then submit.
+This is two actions.
+We can do it with one action by using a feature of form submission.
+We can add another submit button that changes the action of the form.
+This is the second button in the first form.
+We add the `?toggle` query string to the end of the formaction attribute.
+When this button is used it submits the form with this new path.
+We will also need to update the post function on the server to respond to this.
+In order for the implicit submit of the form to stay the same we need to add a hidden submit button with the default submit action above our new submit.
+Implicit submit will use the first submit button in the form.
+
+To handle the `toggle` query parameter add the following lines to the `/app/api/todos/$id.mjs` inside the top of the post function.
+If the toggle parameter is present the completed flag is switched.
+
+```javascript
+  const toggle = req.query.hasOwnProperty('toggle')
+  const body = { ...req.body }
+  body.completed = toggle ? !body.completed : body.completed
+```
+
+The line of code that validates the task should use this modified body property instead of the passed body as follows.
+
+```javascript
+let { todo } = await validate.update({ ...req, body })
+```
+
+
+Now we have items that display, edit and delete todos.
+Next we need a list item to add these items.
+Copy and paste the following into `/app/elements/todo-list.mjs`.
+
+
+```javascript
+// /app/element/todo-list.mjs
+/* globals customElements */
+import CustomElement from '@enhance/custom-element'
+import API from '../browser/api.mjs'
+const api = API()
+
+
+export default class TodoList extends CustomElement  {
+  constructor(){
+    super()
+    this.api = api
+  }
+
+  connectedCallback(){
+    this.update = this.update.bind(this)
+    this.toggle = this.toggle.bind(this)
+    this.section = this.querySelector('section')
+    this.list = this.querySelector('ul.todo-list')
+    this.toggleBtn = this.querySelector('button.toggle-all')
+    this.api.subscribe(this.update,['todos', 'filter'])
+    this.toggleBtn.addEventListener('click', this.toggle)
+  }
+
+  disconnectedCallback(){
+    this.toggleBtn.removeEventListener('click', this.toggle)
+  }
+
+  update(){
+    let filter = this.api.store.filter
+    this.section.style.display = this.api.store.todos.length > 0 ? 'block' : 'none'
+    let items = filter === 'all' ? this.api.store.todos : this.api.store[filter]
+    this.list.innerHTML = items.map(todo => `
+      <li id="${todo.key}" >
+        <todo-item  class="todo" key="${todo.key}" completed="${todo.completed}" task="${todo.task}"></todo-item>
+      </li>
+    `).join('')
+  }
+
+  toggle(event) {
+    event.preventDefault()
+    this.api.toggle()
+  }
+
+  render({html,state}){
+    const { store ={}} = state
+    const { todos =[]} = store
+
+    const display = todos.length ? 'block' : 'none'
+
+    const listItems = todos.map(todo => `
+      <li id="${todo.key}" >
+      <todo-item class="todo" key="${todo.key}" completed="${todo.completed}" task="${todo.task}"></todo-item>
+      </li>
+      `).join('')
+
+    return html`
+    <section class="main" style="display: ${display};">
+      <form action="/todos/toggle" method="POST">
+        <button id="toggle-all" type="submit" class="toggle-all"></button>
+        <label for="toggle-all">Mark all as complete</label>
+      </form>
+      <ul class="todo-list">
+        ${listItems}
+      </ul>
+    </section>
+    `
   }
 }
-function createFetch(payload){
-  ...
-  self.postMessage(result)
+
+customElements.define('todo-list', TodoList)
+```
+
+This component uses the store to get the list of tasks and adds them to a `<ul>` list wrapped in `<li>`'s.
+In addition the list adds another form to handle the mark all as complete functionality.
+This form submits to a `/todos/toggle` post api route that does not yet exist.
+Add that api route to `/app/api/todos/toggle.mjs` by coping the following code to that file.
+
+```javascript
+// /app/api/todos/toggle.mjs
+import { upsertTodo, getTodos } from '../../models/todos.mjs'
+
+export async function post (req) {
+
+  let todos = await getTodos()
+  let active = todos.filter(todo=>!todo.completed)
+  let completed = todos.filter(todo=>todo.completed)
+
+  if (active.length > 0) {
+    await Promise.all(active.map(todo=>upsertTodo({...todo, completed: true})))
+  } else {
+    await Promise.all(completed.map(todo=>upsertTodo({...todo, completed: false})))
+  }
+
+  todos = await getTodos()
+  active = todos.filter(todo => !todo.completed)
+  completed = todos.filter(todo => todo.completed)
+
+  return {
+    json: { todos, active, completed },
+    location: '/'
+  }
+}
+```
+
+Our full todo list with most features are in place now.
+
+The last critical functions of the app include the ability to filter the list.
+These will be built into the todo-footer component.
+The features needed are to filter tasks to all, active, or completed.
+We also need to be able to clear (delete) all the completed tasks.
+
+For an HTML first approach to this we can use regular links (anchor tags) for filtering.
+The clear feature should use a post request since it is destructive.
+For this we can use a form.
+
+Copy and paste the following into /app/elements/todo-footer.mjs.
+
+```javascript
+// /app/elements/todo-footer.mjs
+
+/* globals customElements, document */
+import CustomElement from '@enhance/custom-element'
+import API from '../browser/api.mjs'
+const api = API()
+
+
+export default class TodoFooter extends CustomElement  {
+  constructor(){
+    super()
+    this.api = api
+    const params = new URLSearchParams(document.location.search)
+    const initialFilter = params.get("filter")
+    this.api.store.initialize({filter:initialFilter || 'all'})
+  }
+
+  connectedCallback() {
+    this.footer = this.querySelector('footer')
+    this.counter = this.querySelector('strong')
+    this.filters = this.querySelector('ul.filters')
+    this.button = this.querySelector('button')
+    this.clearCompleted = this.querySelector('button.clear-completed')
+
+    this.handleIntercept = this.handleIntercept.bind(this)
+    this.update = this.update.bind(this)
+    this.clear = this.clear.bind(this)
+    this.api.subscribe(this.update, [ 'active', 'completed', 'todos' ])
+
+    this.filters.addEventListener('click', this.handleIntercept)
+    this.filters.addEventListener('keydown', this.handleIntercept)
+    this.clearCompleted.addEventListener('click', this.clear)
+  }
+
+  disconnectedCallback() {
+    this.filters.removeEventListener('click', this.handleIntercept)
+    this.filters.removeEventListener('keydown', this.handleIntercept)
+    this.clearCompleted.removeEventListener('click', this.clear)
+  }
+
+  update(data) {
+    let { active = [], completed = [], todos = [] } = data
+    this.counter.innerText = active.length
+    this.footer.style.display = todos.length > 0 ? 'block' : 'none'
+    this.button.style.display = completed.length > 0 ? 'block' : 'none'
+  }
+
+  clear(event) {
+    event.preventDefault()
+    this.api.clear()
+  }
+
+  handleIntercept(event) {
+    if (event.type === 'click' || (event.type === 'keydown' && event.key === 'Enter')) {
+      event.preventDefault()
+      let list = Array.from(this.filters.querySelectorAll('a'))
+      list.map(anchor => {
+        anchor === event.target ? anchor.classList.add('selected') : anchor.classList.remove('selected')
+      })
+      const url = new URL(event.target.href);
+      const filter = url.searchParams.get("filter") || 'all'
+      this.api.store.filter = filter
+    }
+  }
+
+  render({html,state}){
+    const { store = {} } = state
+    const { todos = [], active = [], completed = [], filter = 'all' } = store
+    const display = (todos.length || active.length || completed.length) ? 'block' : 'none'
+
+    return html`
+  <footer class="footer" style="display: ${display};">
+    <span class="todo-count"><strong>${active.length}</strong> items left</span>
+    <ul class="filters">
+      <li><a href="/todos" class="${filter === 'all' ? 'selected' : ''}">All</a></li>
+      <li><a href="/todos?filter=active" class="${filter === 'active' ? 'selected' : ''}">Active</a></li>
+      <li><a href="/todos?filter=completed" class="${filter === 'completed' ? 'selected' : ''}">Completed</a></li>
+    </ul>
+    <form action="/todos/completed/delete" method="POST">
+      <button class="clear-completed" style="display: ${completed.length ? 'block' : 'none'};">Clear completed</button>
+    </form>
+  </footer>
+    `
+  }
+}
+
+customElements.define('todo-footer',TodoFooter)
+```
+
+In order to support the filtering query parameters used in the links above we need to update the `/app/api/index.mjs` to filter the list accordingly.
+The query parameters for the api can be pulled from the `req.query` propety.
+
+```javascript
+import { getTodos } from '../models/todos.mjs'
+
+export async function get (req) {
+  let todos = await getTodos()
+  let active = todos.filter(todo => !todo.completed)
+  let completed = todos.filter(todo => todo.completed)
+
+  const filter = req.query.filter
+  if (filter==='active') todos = active
+  if (filter==='completed') todos = completed
+
+  return {
+    json: { todos, active, completed, filter }
+  }
 }
 ```
 
 
+To clear all completed tasks add the following new api route to respond to the new clear completed form in the footer component.
 
-## Optimistic UI updates
+```javascript
+// /app/api/todos/completed/delete.mjs
 
-An additional optimization that can be made is to let the UI respond to data changes optimistically instead of waiting for the server to respond.
-In the above example a `create` is started using the data given by the user.
-That data is then passed to the worker which sends it to the server where it is added to the database.
-Now let's consider the `delete` operation.
-One way to make the UI feel very fast is for deleted data to disappear instantly.
-In reality for the data to be truly deleted the worker still needs to make a `fetch` request to the `/things/{id}/delete` route.
-That takes some time.
-Following the same patterns above we can easily implement optimistic delete by having the `API.delete(key)`:
+import { deleteTodo, getTodos } from '../../../models/todos.mjs'
+
+export async function post (req) {
+  const todos = await getTodos()
+  const completed = todos.filter(todo=>todo.completed)
+  await Promise.all(completed.map(todo=>deleteTodo(todo.key)))
+  return {
+    location: '/'
+  }
+}
+```
 
 
-
-1. Delete they item from the client side store and put it in a `deletedItems` list in the store.
-2. Request the worker to do the fetch to delete on the server.
-3. If worker receives a success nothing else happens.
-4. If worker receives a failure or error the store delete is reverted by pulling it off the `deletedItems` and restoring it to the
