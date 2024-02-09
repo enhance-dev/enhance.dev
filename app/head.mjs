@@ -44,14 +44,14 @@ export default function Head(state) {
     <style>
       @font-face {
         font-family: "Montserrat";
-        src: url("https://fonts.begin.com/montserrat/montserrat-subset-var.woff2") format("woff2-variations");
-        font-weight: 100 900;
+        src: url("/_public/fonts/montserrat-subset-var.woff2") format("woff2-variations");
+        font-weight: 300 900;
       }
 
       @font-face {
         font-family: "Montserrat";
-        src: url("https://fonts.begin.com/montserrat/montserrat-italic-subset-var.woff2") format("woff2-variations");
-        font-weight: 400 900;
+        src: url("/_public/fonts/montserrat-italic-subset-var.woff2") format("woff2-variations");
+        font-weight: 400 700;
         font-style: italic;
       }
 
