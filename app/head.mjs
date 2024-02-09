@@ -63,6 +63,10 @@ export default function Head(state) {
         overflow-x: hidden;
         overflow-y: auto;
       }
+
+      em {
+        font-weight: 400;
+      }
     
       @media (prefers-reduced-motion: no-preference) {
         html {

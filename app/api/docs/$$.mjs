@@ -15,6 +15,7 @@ const arcdown = new Arcdown({
     markdownItToc: {
       containerClass: 'toc mbe2 mis-2 leading2',
       listType: 'ul',
+      level: [1, 2, 3],
     },
   },
   plugins: [arcStaticImg],

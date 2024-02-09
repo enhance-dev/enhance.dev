@@ -119,6 +119,11 @@ export const data = [
   },
   {
     type: TYPE.category,
+    slug: 'components',
+    items: [{ slug: 'image', label: 'Image' }],
+  },
+  {
+    type: TYPE.category,
     slug: 'configuration',
     items: [
       { slug: 'env-vars', label: 'Environment Variables' },
