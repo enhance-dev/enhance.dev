@@ -101,7 +101,7 @@ const getBooks = async function () {
   return books
 }
 
-const validateBook = {
+const validate = {
   shared (req) {
     return validator(req, Book)
   },
@@ -125,7 +125,7 @@ export {
   getBook,
   getBooks,
   upsertBook,
-  validateBook
+  validate
 }
 ```
 
