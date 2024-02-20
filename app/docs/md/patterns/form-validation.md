@@ -243,7 +243,7 @@ First we install the some basic form elements into the project.
 npm i @enhance/form-elements
 ```
 
-Then we run a ccc script to import the elements into our project:
+Then we run a convenience script to import the elements into our project:
 
 ```bash
 node node_modules/@enhance/form-elements/create-elements.js
