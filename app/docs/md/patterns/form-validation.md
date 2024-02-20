@@ -30,9 +30,9 @@ First we install the validator into the project.
 npm i @begin/validator
 ```
 
-In the Data Access layer we add a data schema for books (`/app/models/schema/books.mjs`).
+In the Data Access layer we add a data schema for books (`/app/models/schemas/books.mjs`).
 
-<doc-code filename="/app/models/schema/books.mjs">
+<doc-code filename="/app/models/schemas/books.mjs">
 
 ```javascript
 export const Book = {
@@ -237,6 +237,18 @@ export async function post(req) {
 ## Add Problems to HTML
 To surface the problems in the frontend so that users can make adjustments we add the problems to the HTML page.
 
+First we install the some basic form elements into the project.
+
+```bash
+npm i @enhance/form-elements
+```
+
+Then we run a ccc script to import the elements into our project:
+
+```bash
+node node_modules/@enhance/form-elements/create-elements.js
+```
+
 ### Client-side Validation
 As mentioned previously client side validation is the best way to intercept errors before they are ever sent to the server so we will setup the client side validation at the same time.
 For this example both a `url` and `text` input are required for the book tree so we will add the `required` attribute to those inputs so the browser will check for that before even submitting.
@@ -289,3 +301,8 @@ ${'' /* 4,5,6. Problems, initial values, and validation attributes added */}
 
 </doc-code>
 
+## Next Steps
+
+- Use the `getBooks` method from `app/models/books.mjs` to get all the books in the database.
+- Return this list of books from the `get` method of the `app/api/books.mjs` file.
+- Update the `app/pages/books.mjs` file to display the list of books.
