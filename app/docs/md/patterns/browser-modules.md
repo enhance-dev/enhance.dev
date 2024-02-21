@@ -1,6 +1,22 @@
 ---
-title: Browser Modules
+title: Building for the browser
 ---
+
+## The `@bundles` plugin
+
+For most of your browser needs you can use Enhance's built-in [browser pattern](/docs/conventions/browser) but at times you may have a component that has special imports like `css-in-js` that requires the abilities of ESBuild. In these situations you can use [plugin-bundles](https://github.com/architect/plugin-bundles) to make your component available to the browser.
+
+### Install
+
+`npm i npm i @architect/plugin-bundles`
+
+Add to your `.arc file`
+
+```arc
+@bundles
+autocomplete '/utils/autocomplete.mjs'
+```
+
 
 ### Basic Example
 
