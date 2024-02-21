@@ -8,11 +8,14 @@ For most of your browser needs you can use Enhance's built-in [browser pattern](
 
 ### Install
 
-`npm i npm i @architect/plugin-bundles`
+`npm i @architect/plugin-bundles`
 
-Add to your `.arc file`
+Add the plugin and the components you want to bundle to your `.arc file`
 
 ```arc
+@plugins 
+architect/plugin-bundles
+
 @bundles
 autocomplete '/utils/autocomplete.mjs'
 ```
