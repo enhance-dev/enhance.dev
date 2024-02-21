@@ -13,7 +13,7 @@
   "dependencies": {
     "@architect/functions": "^7.0.0",
     "@begin/data": "^4.0.2",
-    "@begin/imprint": "github:beginner-corp/imprint#v3.1.3",
+    "@begin/imprint": "github:beginner-corp/imprint#v4.0.0",
     "@docsearch/js": "^3.3.0",
     "@enhance/arc-plugin-enhance": "^9.1.2",
     "@enhance/arc-plugin-styles": "^5.0.0",
