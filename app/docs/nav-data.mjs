@@ -262,6 +262,6 @@ function parseItems(items, root, activePath) {
   return parsedItems
 }
 
-export default function(docsRoute, activePath) {
+export default function (docsRoute, activePath) {
   return parseItems(data, docsRoute, activePath)
 }
