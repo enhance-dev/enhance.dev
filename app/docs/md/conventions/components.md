@@ -2,7 +2,22 @@
 title: Components
 ---
 
-Components are another option for reusable building blocks of your Enhance application. They are single file components wrapping your HTML, CSS and JavaScript in a portable web component. Components live in the `app/components/` folder in Enhance projects.
+When building applications with Enhance we recommend starting with [Elements](/docs/elements). Elements are the perfect solution when you need server side rendering and don't require client side interactivity. Let's face it the majority of your application is presentation only so why would you want to author that with client side JavaScript.
+
+When you need to provide client side interactivity Components are what to reach for. They wrap your HTML, CSS and JavaScript in a portable web component. They are portable since these components can render themselves client side outside of Enhance applications. However, when they are included in an Enhance application they gain the super power of being rendered on the server and then hydrate themselves on the client. Components live in the `app/components/` folder in Enhance projects.
+
+## Lifecycle
+
+Let's look at the lifecycle of a component we'll call `DeleteButton`. This component will act like a normal submit button when JavaScript is not available but will override the default behavior of the submit button when JavaScript is available.
+
+1. Client requests a page including a `<delete-button></delete-button>` tag.
+2. Enhance SSR finds the component in `app/components/delete-button.mjs`.
+3. Enhance SSR runs the `render` method of the `DeleteButton` class on the server.
+4. The entire page is returned to the client.
+5. The client encounters a `script` tag and downloads it from the server.
+6. This `script` tag includes the code for `DeleteButton` so it is evaluated and executed. When executed the `custom-elements.define('delete-button', DeleteButton)` method will be called registering your web component with the browser.
+
+This progressively enhances your, presentation only element, into an interactive client side web component.
 
 ## Naming
 
