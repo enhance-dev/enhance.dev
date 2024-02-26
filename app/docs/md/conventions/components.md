@@ -2,9 +2,9 @@
 title: Components
 ---
 
-When building UI elements for Enhance applications, we recommend starting with [Elements](/docs/elements). Elements are the perfect solution when you need server side rendering and don't require client side interactivity. We find that most applications are composed with a majority of strictly presentational components, and authoring that code with client side JavaScript can be counterproductive.
+When building UI elements for Enhance applications, we recommend starting with [Elements](/docs/elements). Elements are the perfect solution for starting with server side rendering and, optionally, iteratively upgrading to client side interaction. We find that most applications are composed with a majority of strictly presentational components, and authoring that code with client side JavaScript can be counterproductive.
 
-When you need to provide client side interactivity, Components are what to reach for. They wrap your HTML, CSS and JavaScript in a portable web component. They are ‘portable’ because these components can render themselves client side outside of Enhance applications. However, when they are used in an Enhance application, they gain the super power of being rendered on the server and then hydrating themselves on the client. Components live in the `app/components/` folder in Enhance projects.
+Components, meanwhile, provide several shortcuts to client side interactivity while maintaining server side rendering. They wrap your HTML, CSS and JavaScript in a portable web component. They are ‘portable’ because these components can render themselves client side outside of Enhance applications. However, when they are used in an Enhance application, they gain the super power of being rendered on the server and then hydrating themselves on the client. Components live in the `app/components/` folder in Enhance projects.
 
 ## Lifecycle
 
@@ -131,7 +131,7 @@ If you have an existing Enhance Element you can always import it into your Compo
 
 ### Making Components available in the browser
 
-Now that we have written a client side component we need to register it with the browser at runtime. To do this we will create a new file `app/browser/index.mjs`. This is the file where we will import all of the components that will be rendered client-side. Using our `MyCard` component as an example our `app/browser/index.mjs` would look like this:
+Now that we have written a client side component, we need to register it with the browser at runtime. To do this, we will create a new file: `app/browser/index.mjs`. This file will be used to import our Components at runtime in order to make them available to the browser. Using our `MyCard` component as an example our `app/browser/index.mjs` would look like this:
 
 ```javascript
 // app/browser/index.mjs
@@ -147,7 +147,7 @@ This will create a file called `public/browser/index.mjs` that you include as a 
 
 <doc-callout level="info" mark="ℹ️">
 
-At this point, you may wonder why doesn't Enhance automatically make all components available to the browser at run-time? We've debated this internally and decided that what is best for users is for you to have complete control over which components are available on every page. This way, you can customize each route with a `script` tag that only includes the required components on that page. This reduces the amount of JavaScript needed for each route.
+You may wonder why Enhance doesn’t automatically make all components available to the browser at run-time. This is because we believe application authors should have complete control over which components are available on every page. This way, you can customize each route with a `script` tag that only includes the components required by an individual page. This reduces the amount of JavaScript needed for each route.
 
 </doc-callout>
 
