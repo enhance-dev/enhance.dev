@@ -15,7 +15,7 @@ Let's look at the lifecycle of a component we'll call `DeleteButton`. This compo
 3. Enhance SSR runs the `render` method of the `DeleteButton` class on the server.
 4. The entire page is returned to the client as HTML and CSS.
 5. The client encounters a `script` tag and downloads it from the server.
-6. This `script` tag includes the code for `DeleteButton` so it is evaluated and executed. When executed the `custom-elements.define('delete-button', DeleteButton)` method will be called registering your web component with the browser.
+6. This `script` tag includes the code for `DeleteButton` so it is evaluated and executed. When executed the `custom-elements.define('delete-button', DeleteButton)` method will be called, thus registering your web component with the browser.
 
 This progressively enhances your, presentation only element, into an interactive client side web component.
 
