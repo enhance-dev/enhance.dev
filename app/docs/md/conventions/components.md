@@ -139,7 +139,7 @@ import MyCard from "../components/my-card.mjs"
 export { MyCard }
 ```
 
-This will create a file called `public/browser/index.mjs` that you include as a `script` tag on any pages you want to use the `MyCard` component. For example:
+This will create a new client side bundle, available at `public/browser/index.mjs`. You can use this file as a `script` tag’s source on any pages in which you want to use the `MyCard` component. For example:
 
 ```html
 <script type="module" src="/_public/browser/index.mjs"></script>
