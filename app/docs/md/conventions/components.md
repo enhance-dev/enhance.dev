@@ -2,7 +2,7 @@
 title: Components
 ---
 
-When building applications with Enhance we recommend starting with [Elements](/docs/elements). Elements are the perfect solution when you need server side rendering and don't require client side interactivity. Let's face it the majority of your application is presentation only so why would you want to author that with client side JavaScript.
+When building UI elements for Enhance applications, we recommend starting with [Elements](/docs/elements). Elements are the perfect solution when you need server side rendering and don't require client side interactivity. We find that most applications are composed with a majority of strictly presentational components, and authoring that code with client side JavaScript can be counterproductive.
 
 When you need to provide client side interactivity Components are what to reach for. They wrap your HTML, CSS and JavaScript in a portable web component. They are portable since these components can render themselves client side outside of Enhance applications. However, when they are included in an Enhance application they gain the super power of being rendered on the server and then hydrate themselves on the client. Components live in the `app/components/` folder in Enhance projects.
 
