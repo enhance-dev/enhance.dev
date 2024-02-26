@@ -129,6 +129,29 @@ If you have an existing Enhance Element you can always import it into your Compo
 
 </doc-callout>
 
+### Making Components available in the browser
+
+Now that we have written a client side component we need to register it with the browser at runtime. To do this we will create a new file `app/browser/index.mjs`. This is the file where we will import all of the components that will be rendered client-side. Using our `MyCard` component as an example our `app/browser/index.mjs` would look like this:
+
+```javascript
+// app/browser/index.mjs
+import MyCard from "../components/my-card.mjs"
+export { MyCard }
+```
+
+This will create a file called `public/browser/index.mjs` that you include as a `script` tag on any pages you want to use the `MyCard` component. For example:
+
+```html
+<script type="module" src="/_public/browser/index.mjs"></script>
+```
+
+<doc-callout level="info" mark="ℹ️">
+
+At this point, you may wonder why doesn't Enhance automatically make all components available to the browser at run-time? We've debated this internally and decided that what is best for users is for you to have complete control over which components are available on every page. This way, you can customize each route with a `script` tag that only includes the required components on that page. This reduces the amount of JavaScript needed for each route.
+
+</doc-callout>
+
+
 ## UI Updates
 Updates to Enhance Components are triggered by attribute changes. Any change to an attribute listed in the `observedAttributes` will trigger a `<attribute name>Changed` method. For example if you are observing the `title` attribute of our `my-card` component any time that attribute value is updated the `titleChanged` method will be executed. This enables you to write surgical DOM updates which will always be the most performant way to update your page.
 
