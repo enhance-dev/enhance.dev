@@ -17,7 +17,7 @@ Let's look at the lifecycle of a component we'll call `DeleteButton`. This compo
 5. The client encounters a `script` tag and downloads it from the server.
 6. This `script` tag includes the code for `DeleteButton` so it is evaluated and executed. When executed the `custom-elements.define('delete-button', DeleteButton)` method will be called, thus registering your web component with the browser.
 
-This progressively enhances your, presentation only element, into an interactive client side web component.
+This progressively enhances your presentational element into an interactive client side web component.
 
 ## Naming
 
