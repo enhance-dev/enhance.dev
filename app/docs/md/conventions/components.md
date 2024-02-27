@@ -2,7 +2,22 @@
 title: Components
 ---
 
-Components are another option for reusable building blocks of your Enhance application. They are single file components wrapping your HTML, CSS and JavaScript in a portable web component. Components live in the `app/components/` folder in Enhance projects.
+When building UI elements for Enhance applications, we recommend starting with [Elements](/docs/elements). Elements are the perfect solution for starting with server side rendering and, optionally, iteratively upgrading to client side interaction. We find that most applications are composed with a majority of strictly presentational components, and authoring that code with client side JavaScript can be counterproductive.
+
+Components, meanwhile, provide several shortcuts to client side interactivity while maintaining server side rendering. They wrap your HTML, CSS and JavaScript in a portable web component. They are ‘portable’ because these components can render themselves client side outside of Enhance applications. However, when they are used in an Enhance application, they gain the super power of being rendered on the server and then hydrating themselves on the client. Components live in the `app/components/` folder in Enhance projects.
+
+## Lifecycle
+
+Let's look at the lifecycle of a component we'll call `DeleteButton`. This component will act like a normal submit button when JavaScript is not available but will override the default behavior of the submit button when JavaScript is available.
+
+1. Client requests a page including a `<delete-button></delete-button>` tag.
+2. Enhance SSR finds the component in `app/components/delete-button.mjs`.
+3. Enhance SSR runs the `render` method of the `DeleteButton` class on the server.
+4. The entire page is returned to the client as HTML and CSS.
+5. The client encounters a `script` tag and downloads it from the server.
+6. This `script` tag includes the code for `DeleteButton` so it is evaluated and executed. When executed the `custom-elements.define('delete-button', DeleteButton)` method will be called, thus registering your web component with the browser.
+
+This progressively enhances your presentational element into an interactive client side web component.
 
 ## Naming
 
@@ -113,6 +128,29 @@ If you have an existing Enhance Element you can always import it into your Compo
 **[Learn about the HTML render function](/docs/elements/html)**
 
 </doc-callout>
+
+### Making Components available in the browser
+
+Now that we have written a client side component, we need to register it with the browser at runtime. To do this, we will create a new file: `app/browser/index.mjs`. This file will be used to import our Components at runtime in order to make them available to the browser. Using our `MyCard` component as an example our `app/browser/index.mjs` would look like this:
+
+```javascript
+// app/browser/index.mjs
+import MyCard from "../components/my-card.mjs"
+export { MyCard }
+```
+
+This will create a new client side bundle, available at `public/browser/index.mjs`. You can use this file as a `script` tag’s source on any pages in which you want to use the `MyCard` component. For example:
+
+```html
+<script type="module" src="/_public/browser/index.mjs"></script>
+```
+
+<doc-callout level="info" mark="ℹ️">
+
+You may wonder why Enhance doesn’t automatically make all components available to the browser at run-time. This is because we believe application authors should have complete control over which components are available on every page. This way, you can customize each route with a `script` tag that only includes the components required by an individual page. This reduces the amount of JavaScript needed for each route.
+
+</doc-callout>
+
 
 ## UI Updates
 Updates to Enhance Components are triggered by attribute changes. Any change to an attribute listed in the `observedAttributes` will trigger a `<attribute name>Changed` method. For example if you are observing the `title` attribute of our `my-card` component any time that attribute value is updated the `titleChanged` method will be executed. This enables you to write surgical DOM updates which will always be the most performant way to update your page.
