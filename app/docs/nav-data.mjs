@@ -119,7 +119,8 @@ export const data = [
   },
   {
     type: TYPE.category,
-    slug: 'components',
+    label: 'Enhance UI',
+    slug: 'enhance-ui',
     items: [{ slug: 'image', label: 'Image' }],
   },
   {
@@ -267,6 +268,6 @@ function parseItems(items, root, activePath) {
   return parsedItems
 }
 
-export default function(docsRoute, activePath) {
+export default function (docsRoute, activePath) {
   return parseItems(data, docsRoute, activePath)
 }
