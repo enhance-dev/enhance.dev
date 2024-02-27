@@ -105,8 +105,9 @@ export const data = [
         label: 'Overview',
       },
       'utility-classes',
-      'logical-properties',
       'customization',
+      'cribsheet',
+      'logical-properties',
       'modular-scales',
       'element-styles',
       {
