@@ -227,7 +227,7 @@ Once added the `MorphdomMixin` will handle updating the DOM whenever an `observe
 
 ### Lists
 
-When working with lists of data in the DOM it is highly advisable to add a unique `id` attribute to the list item. [The `state` object passed to an element's render function has a unique `instanceID` property available for this purpose]('/docs/elements/state/instance-id'). This will assist `morphdom` in determining what items have changed in the list.
+When working with lists of data in the DOM it is highly advisable to add a unique `id` attribute to the list item. [The `state` object passed to an element's render function has a unique `instanceID` property available for this purpose](/docs/elements/state/instance-id). This will assist `morphdom` in determining what items have changed in the list.
 
 </doc-callout>
 
