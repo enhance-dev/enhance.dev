@@ -7,14 +7,14 @@ export default function DocContent({ html }) {
       }
 
       :host > ::slotted([slot]) > * {
-        margin-bottom: 1.5rem;
+        margin-block-end: 1.5rem;
       }
 
       :host > ::slotted([slot]) > h1,
       :host > ::slotted([slot]) > h2,
       :host > ::slotted([slot]) > h3,
       :host > ::slotted([slot]) > h4 {
-        margin-bottom: 0.75rem;
+        margin-block-end: 0.75rem;
       }
       :host > ::slotted([slot]) > h1 {
         font-weight: 700;
@@ -22,13 +22,13 @@ export default function DocContent({ html }) {
       :host > ::slotted([slot]) > h2,
       :host > ::slotted([slot]) > h3,
       :host > ::slotted([slot]) > h4 {
-        margin-bottom: 0.75rem;
         font-weight: 600;
       }
       h1 {
         font-size: 1.953rem;
       }
       h2 {
+        margin-block-start: 1.5em;
         font-size: 1.563rem;
       }
       h3 {
@@ -62,14 +62,34 @@ export default function DocContent({ html }) {
         list-style-position: outside;
       }
 
+      dt {
+        font-weight: 600;
+        margin-block-end: 0.25rem;
+      }
+
+      dd + dt {
+        margin-block-start: 1.5rem;
+      }
+
+      dd {
+        border: 2px solid var(--cloud-ateneo);
+        border-radius: 0.25rem;
+        font-size: 0.875em;
+        padding: 0.875rem 1rem;
+      }
+
+      dd > *:not(:last-child) {
+        margin-block-end: 1rem;
+      }
+
       table {
         width: 100%;
-        border: 1px solid var(--smoke-indigo);
+        border: 1px solid var(--cloud-ateneo);
       }
       table thead th,
       table tfoot th {
         color: var(--inky-lily);
-        background: var(--smoke-indigo);
+        background: var(--cloud-ateneo);
       }
       table caption {
         padding: 0.5rem;
@@ -77,24 +97,27 @@ export default function DocContent({ html }) {
       table th,
       table td {
         padding: 0.5rem;
-        border: 1px solid var(--smoke-indigo);
+        border: 1px solid var(--cloud-ateneo);
       }
 
       blockquote {
         padding: 0.8rem 0.6rem 0.6rem;
-        background-color: var(--smoke-indigo);
+        background-color: var(--cloud-ateneo);
         box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 1px 0px;
-        border-radius: 0.333rem;
+        border-radius: 0.25rem;
       }
 
       :not(pre) > code {
         padding: 0.1rem 0.2rem;
         line-height: 1rem;
         overflow-wrap: break-word;
-        background-color: var(--smoke-indigo);
+        background-color: var(--cloud-ateneo);
         font-family: Menlo, Monaco, Consolas, monospace;
-        font-size: 0.9375em; /* Fixed width fonts tend to have larger x height */
         border-radius: 0.25rem;
+      }
+
+      :not(pre, dt) > code {
+        font-size: 0.9375em; /* Fixed width fonts tend to have larger x height */
       }
 
       blockquote :not(pre) > code {
@@ -108,7 +131,8 @@ export default function DocContent({ html }) {
         padding: 0.7rem 0.9rem;
         font-family: 'Roboto Mono', monospace;
         color: var(--hl-color);
-        background-color: var(--hl-bg);
+        background-color: var(--cloud-ateneo);
+        border-radius: 0.25rem;
         white-space: pre;
         tab-size: 2;
         -webkit-overflow-scrolling: touch;
@@ -137,7 +161,7 @@ export default function DocContent({ html }) {
       }
 
       hr {
-        border-color: var(--smoke-indigo);
+        border-color: var(--cloud-ateneo);
       }
     </style>
 
