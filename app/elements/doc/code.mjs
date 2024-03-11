@@ -12,7 +12,7 @@ export default function DocCode({ html }) {
         display: inline-block;
         padding: 0.5rem 1rem;
         color: var(--hl-color);
-        background: var(--hl-bg);
+        background: var(--cloud-ateneo);
       }
 
       pre span.code-line {

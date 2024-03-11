@@ -5,7 +5,10 @@
 (v|V)?iewpor(t|ts)
 \d+(k)
 \d+(kb)
+\d+em
+\d+px
 \d+rem
+\d+x
 Algolia's
 autocomplete
 autogenerate
@@ -55,6 +58,7 @@ Netlify
 polyfills
 pre-defined
 preconfigured
+pregenerat(e|ed)
 prepended
 preloaded
 preprocessing
@@ -65,7 +69,7 @@ scaleMax
 scaleMin
 scriptable
 shadowDOM
-SFC(s)
+SF(C|Cs)
 skillset
 SSR
 superset
@@ -76,6 +80,7 @@ tailwindcss
 tbeseda
 TLDR
 tradeoffs
+unitless
 unscoped
 unstyled
 urls
@@ -85,6 +90,7 @@ viewportMax
 viewportMin
 WebdriverIO
 WebDriver
+webp
 html
 es6-string-html
 literally-html

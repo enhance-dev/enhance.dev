@@ -120,6 +120,12 @@ export const data = [
   },
   {
     type: TYPE.category,
+    label: 'Enhance UI',
+    slug: 'enhance-ui',
+    items: [{ slug: 'image', label: 'Image (beta)' }],
+  },
+  {
+    type: TYPE.category,
     slug: 'configuration',
     items: [
       { slug: 'env-vars', label: 'Environment Variables' },
