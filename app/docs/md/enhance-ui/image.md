@@ -223,6 +223,12 @@ jobs:
 
 This will ensure that your image caches are warmed each time a production deploy is made.
 
+## Walkthrough
+
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/UYfBreIx7W8?si=5vRH9wToaUgqhD7t" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+This walkthrough video covers installing Enhance Image, using the component, configuring the transformation options, and using the `loading` and `fetchpriority` attributes to improve performance.
+
 ## Examples
 
 ### Basic usage
@@ -316,6 +322,7 @@ Therefore, if you specify an absolute length in your `sizes` attribute (for exam
 For this reason, it’s often advantageous (and makes for a clearer implementation) to specify the lengths in your `sizes` attribute using `vw` units.
 
 For further details, see [MDN’s documentation on the `sizes` attribute](https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/sizes), or their [documentation of the `img` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img).
+
 
 ## Roadmap
 
