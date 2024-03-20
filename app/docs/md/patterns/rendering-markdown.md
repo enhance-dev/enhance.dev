@@ -10,6 +10,12 @@ Enhance can be used to render Markdown with minimal effort — in fact, this ver
 
 When rendering Markdown to HTML in Enhance projects, we rely on [Arcdown](https://github.com/architect/arcdown), which packages together our preferred conventions for parsing Markdown files. Under the hood, Arcdown makes use of [markdown-it](https://markdown-it.github.io/), an excellent JavaScript Markdown parser that is highly configurable via a wealth of plugins.
 
+Add the Arcdown package to your project:
+
+```bash
+npm install arcdown
+```
+
 Here's a quick example of parsing a markdown string with Arcdown:
 
 ```javascript
@@ -202,6 +208,14 @@ export default function DocContent ({ html, state }) {
 ```
 
 </doc-code>
+
+Test it out by starting the development server:
+
+```bash
+enhance dev
+```
+
+Then open a browser tab to [localhost:3333/markdown/example](https://localhost:3333/markdown/example) and you’ll see the rendered markdown file.
 
 That's all you need in order to get started using markdown in an Enhance app.
 
