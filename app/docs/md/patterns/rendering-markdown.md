@@ -223,7 +223,7 @@ That's all you need in order to get started using markdown in an Enhance app.
 
 It is totally possible to include custom elements in Markdown source files and then have the generated markup rendered by Enhance SSR.
 
-When authoring Markdown with custom elements, it is best to add blank lines around opening and closing tags. For example on this page we use the `doc-code` custom element to provide syntax highlighting of source code. In markdown, use of a custom element would look like:
+When authoring Markdown with custom elements, it is best to add blank lines around opening and closing tags. For example on this page we use the `doc-code` custom element to provide syntax highlighting of source code. In Markdown, use of a custom element would look like:
 
 ```
 # Custom Elements in Markdown
@@ -242,7 +242,7 @@ Hey, that's pretty neat!
 ```
 ### Render order matters
 
-When rendering HTML from Markdown that includes custom elements the rendering order matters. First, render the markdown to HTML with Arcdown then "enhance" that HTML by running it through Enhance SSR before sending it to the browser.
+When rendering HTML from Markdown which includes custom elements, the rendering order matters. First, render the Markdown to HTML with Arcdown. Then, "enhance" that HTML by running it through Enhance SSR before sending it to the browser.
 
 ```
 .md → [Arcdown] → HTML → [Enhance SSR] → browser
