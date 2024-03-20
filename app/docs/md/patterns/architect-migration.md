@@ -12,7 +12,31 @@ Enhance uses file-based routing so that a route handler responds based on its fi
 Enhance project routes are in effect an Architect route handler with the data API and HTML response split into two files. Enhance also includes the Enhance SSR renderer for expanding Custom Elements on the server.
 
 ## Shared code (shared, views, models, and app)
-If you are familiar with Architect apps they use the convention of a `src/views` and `src/shared` folder to share code between handlers. View code is available only to `GET` routes and shared is available to all handlers. Enhance renames these folders so that views becomes `/app` and shared becomes `/models`.
+If you are familiar with Architect apps they use the convention of a `src/views` and `src/shared` folder to share code between handlers. View code is available only to `GET` routes and shared is available to all handlers. Enhance renames these folders so that views becomes `/app` and shared becomes `/shared`.
+
+Any code placed in the `/shared` folder will be accessible from both the Enhance and Architect parts of your project. However, importing it is a bit odd.
+
+In your Architect routes, use the `@architect/shared` package as you normally would. For example:
+
+<doc-code filename="src/http/get-notes/index.mjs">
+
+```javascript
+import data from '@architect/shared/notes.mjs'
+```
+
+</doc-code>
+
+From an Enhance API in `app/api` you would use a relative path in your import. For example:
+
+<doc-code filename="app/api/notes.mjs">
+
+```javascript
+import notes from '../../shared/notes.mjs'
+```
+
+</doc-code>
+
+For reference an [example project](https://github.com/macdonst/shared-code) is available.
 
 ## Convert routes from Architect and Enhance
 An Architect route is defined in the `app.arc` manifest.
