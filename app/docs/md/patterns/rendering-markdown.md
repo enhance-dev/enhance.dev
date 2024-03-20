@@ -116,8 +116,9 @@ Once we have the markdown string, we can transform it into HTML using Arcdown an
 
 The entire function looks like this:
 
+<doc-code filename="app/api/markdown/$$.mjs">
+
 ```javascript
-// app/api/markdown/$$.mjs
 import { readFileSync } from 'fs'
 import { URL } from 'url'
 import { Arcdown } from 'arcdown'
@@ -142,6 +143,8 @@ export async function get (req) {
  }
 }
 ```
+
+</doc-code>
 
 > **Note:** I'm omitting a lot of error checking for the sake of brevity but check out this [hardened example](https://github.com/enhance-dev/enhance.dev/blob/main/app/api/docs/%24%24.mjs) for more details on how to handle 404's.
 
@@ -173,15 +176,19 @@ app
 
 Our `app/pages/markdown/$$.html` file will look really simple as we will just hand everything over to our web component to handle. Feel free to make this page more advanced by adding headers, footers, etc. as required by your design.
 
+<doc-code filename="app/pages/markdown/$$.html">
+
 ```html
-// app/pages/markdown/$$.html
 <doc-content></doc-content>
 ```
 
+</doc-code>
+
 Over in `app/elements/doc-content.mjs` we will read the result of the transformation off the `store`. Then we'll return the rendered content to be displayed on our page:
 
+<doc-code filename="app/elements/doc-content.mjs">
+
 ```javascript
-// app/elements/doc-content.mjs
 export default function DocContent ({ html, state }) {
  const { store } = state
  const { doc } = store
@@ -193,5 +200,7 @@ export default function DocContent ({ html, state }) {
 `
 }
 ```
+
+</doc-code>
 
 That's all you need in order to get started using markdown in an Enhance app.
