@@ -204,3 +204,32 @@ export default function DocContent ({ html, state }) {
 </doc-code>
 
 That's all you need in order to get started using markdown in an Enhance app.
+
+## Using custom elements in markdown
+
+It is totally possible to include custom elements in Markdown source files and then have the generated markup rendered by Enhance SSR.
+
+When authoring Markdown with custom elements, it is best to add blank lines around opening and closing tags. For example on this page we use the `doc-code` custom element to provide syntax highlighting of source code. In markdown, use of a custome element would look like:
+
+```
+# Custom Elements in Markdown
+
+Custom HTML elements in Markdown are awesome!
+
+<my-rad-elem hype="9001">
+
+## Some really cool info
+
+> This is rendered as `<h2>` and `<blockquote>` inside `<my-rad-elem>`
+
+</my-rad-elem>
+
+Hey, that's pretty neat!
+```
+### Render order matters
+
+When rendering HTML from Markdown that includes custom elements the rendering order matters. First, render the markdown to HTML with Arcdown then "enhance" that HTML by running it through Enhance SSR before sending it to the browser.
+
+```
+.md → [Arcdown] → HTML → [Enhance SSR] → browser
+```
