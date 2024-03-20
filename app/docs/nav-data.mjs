@@ -146,6 +146,7 @@ export const data = [
         items: [{ slug: 'webdriverio', label: 'WebdriverIO' }],
       },
       'architect-migration',
+      'rendering-markdown',
     ],
   },
   /*
