@@ -240,10 +240,3 @@ Custom HTML elements in Markdown are awesome!
 
 Hey, that's pretty neat!
 ```
-### Render order matters
-
-When rendering HTML from Markdown which includes custom elements, the rendering order matters. First, render the Markdown to HTML with Arcdown. Then, "enhance" that HTML by running it through Enhance SSR before sending it to the browser.
-
-```
-.md → [Arcdown] → HTML → [Enhance SSR] → browser
-```
