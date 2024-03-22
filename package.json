@@ -40,24 +40,9 @@
   },
   "eslintConfig": {
     "extends": [
-      "@architect/eslint-config",
-      "plugin:prettier/recommended"
-    ],
-    "plugins": [
-      "prettier"
+      "@architect/eslint-config"
     ],
     "rules": {
-      "prettier/prettier": [
-        "error",
-        {
-          "semi": false,
-          "singleQuote": true,
-          "tabWidth": 2,
-          "useTabs": false,
-          "trailingComma": "es5",
-          "bracketSameLine": true
-        }
-      ],
       "filenames/match-regex": "off"
     },
     "parserOptions": {

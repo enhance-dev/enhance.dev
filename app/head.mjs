@@ -86,7 +86,7 @@ export default function Head(state) {
       }
 
       begin-masthead {
-        --inline-padding: var(--space--2);
+        --inline-padding: var(--space-0);
         --max-inline-size: 100vw;
         --accent: var(--mid-purple);
         font-size: var(--text-0);
