@@ -1,4 +1,4 @@
-export default function AxolUnlessYouWantIt({ html }) {
+export default function AxolUnlessYouWantIt ({ html }) {
   return html`
     <style>
       .axol {

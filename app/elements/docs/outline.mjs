@@ -1,4 +1,4 @@
-function FurtherReading(links) {
+function FurtherReading (links) {
   const items = links.map((link) => {
     let item
     for (const label in link) {
@@ -15,7 +15,7 @@ function FurtherReading(links) {
   `
 }
 
-function CommunityLinks(links) {
+function CommunityLinks (links) {
   const items = links.map((link) => {
     return `<li class="mbe-4"><a href="${link.url}" target="_blank" ${
       link.rel ? `rel=${link.rel}` : ''
@@ -30,7 +30,7 @@ function CommunityLinks(links) {
   `
 }
 
-export default function DocOutline({ html, state }) {
+export default function DocOutline ({ html, state }) {
   const {
     store: { doc, otherLinks, gitHubLink },
   } = state
@@ -64,22 +64,22 @@ export default function DocOutline({ html, state }) {
 
       <!-- "Further Reading" -->
       ${doc?.frontmatter?.links?.length > 0
-        ? FurtherReading(doc.frontmatter.links)
-        : ''}
+    ? FurtherReading(doc.frontmatter.links)
+    : ''}
 
       <!-- "Edit this page" -->
       ${gitHubLink
-        ? /* html  */ `
+    ? /* html  */ `
         <p class="mbe2">
           <a href="${gitHubLink}" target="_blank">Edit this page</a>
         </p>
           `
-        : ''}
+    : ''}
 
       <!-- "Community" -->
       ${otherLinks?.community?.items?.length > 0
-        ? CommunityLinks(otherLinks.community.items)
-        : ''}
+    ? CommunityLinks(otherLinks.community.items)
+    : ''}
     </aside>
   `
 }

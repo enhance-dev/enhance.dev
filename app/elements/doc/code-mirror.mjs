@@ -1,6 +1,6 @@
 import arc from '@architect/functions'
 
-export default function DocCodeMirror({ html /* state */ }) {
+export default function DocCodeMirror ({ html /* state */ }) {
   // const { attrs = {} } = state
   // let {
   //   lang = 'javascript',

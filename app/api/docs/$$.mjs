@@ -15,18 +15,18 @@ const arcdown = new Arcdown({
     markdownItToc: {
       containerClass: 'toc mbe2 mis-2 leading2',
       listType: 'ul',
-      level: [1, 2, 3],
+      level: [ 1, 2, 3 ],
     },
   },
-  plugins: [arcStaticImg],
+  plugins: [ arcStaticImg ],
   hljs: {
-    sublanguages: { javascript: ['xml', 'css'] },
-    plugins: [new HljsLineWrapper({ className: 'code-line' })],
+    sublanguages: { javascript: [ 'xml', 'css' ] },
+    plugins: [ new HljsLineWrapper({ className: 'code-line' }) ],
   },
 })
 
 /** @type {import('@enhance/types').EnhanceApiFn} */
-export async function get(request) {
+export async function get (request) {
   const { path: activePath } = request
   let docPath = activePath.replace(/^\/?docs\//, '') || 'index'
 
@@ -61,7 +61,8 @@ export async function get(request) {
   let docMarkdown
   try {
     docMarkdown = readFileSync(docURL.pathname, 'utf-8')
-  } catch (_err) {
+  }
+  catch (_err) {
     let searchTerm = null
     if (!docPath.endsWith('/index')) {
       const docPathParts = docPath.split('/')

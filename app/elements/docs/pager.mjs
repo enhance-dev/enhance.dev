@@ -1,4 +1,4 @@
-export default function DocsPager({ html, state }) {
+export default function DocsPager ({ html, state }) {
   const {
     store: { navData = [], doc },
   } = state
@@ -7,16 +7,16 @@ export default function DocsPager({ html, state }) {
     return ''
   }
 
-  function flattenItems(items) {
+  function flattenItems (items) {
     return items
       ? items.reduce(
-          (flattened, item) => [
-            ...flattened,
-            item,
-            ...flattenItems(item.items),
-          ],
-          []
-        )
+        (flattened, item) => [
+          ...flattened,
+          item,
+          ...flattenItems(item.items),
+        ],
+        []
+      )
       : []
   }
 
@@ -47,11 +47,11 @@ export default function DocsPager({ html, state }) {
     ? html`
         <nav class="flex justify-content-around mbe2">
           ${prevDoc
-            ? `<a href="${prevDoc.path}">← Prev: ${prevDoc.label}</a>`
-            : ''}
+    ? `<a href="${prevDoc.path}">← Prev: ${prevDoc.label}</a>`
+    : ''}
           ${nextDoc
-            ? `<a href="${nextDoc.path}">Next: ${nextDoc.label} →</a>`
-            : ''}
+    ? `<a href="${nextDoc.path}">Next: ${nextDoc.label} →</a>`
+    : ''}
         </nav>
       `
     : ''

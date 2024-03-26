@@ -1,4 +1,4 @@
-export default function EmailThankPage({ html }) {
+export default function EmailThankPage ({ html }) {
   return html`
     <style scope="global">
       body {

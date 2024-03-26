@@ -1,4 +1,4 @@
-export default function CherubMascot({ html }) {
+export default function CherubMascot ({ html }) {
   return html`
     <style>
       :host {

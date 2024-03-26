@@ -1,4 +1,4 @@
-export default function WebNative({ html }) {
+export default function WebNative ({ html }) {
   return html`
     <style>
       :host {

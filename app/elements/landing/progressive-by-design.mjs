@@ -1,4 +1,4 @@
-export default function ProgressiveByDesign({ html }) {
+export default function ProgressiveByDesign ({ html }) {
   return html`
     <style>
       /* Allow Axol to stack over the next page section */

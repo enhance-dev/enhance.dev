@@ -1,4 +1,4 @@
-export default function AxolFaceFront({ html }) {
+export default function AxolFaceFront ({ html }) {
   return html`
     <style>
       :host {

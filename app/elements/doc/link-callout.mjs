@@ -1,4 +1,4 @@
-export default function LinkCallout({ html, state }) {
+export default function LinkCallout ({ html, state }) {
   const { attrs } = state
   const link = attrs.link || '/'
   const mark = attrs.mark || 'none'

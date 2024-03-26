@@ -1,4 +1,4 @@
-export default function DocsThemeToggle({ html }) {
+export default function DocsThemeToggle ({ html }) {
   const size = 20
 
   return html`

@@ -1,4 +1,4 @@
-export default function FourOh4({ html, state }) {
+export default function FourOh4 ({ html, state }) {
   const hasSearchTerm = state.store?.searchTerm
 
   if (hasSearchTerm) return html`<docs-layout></docs-layout>`

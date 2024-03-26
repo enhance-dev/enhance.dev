@@ -1,5 +1,5 @@
 // For use when a collection of paths was just moved to a new route
-function getRedirects(oldRoute, newRoute, paths) {
+function getRedirects (oldRoute, newRoute, paths) {
   return paths.reduce((redirects, path) => {
     redirects[`${oldRoute}/${path}`] = `${newRoute}/${path}`
     return redirects

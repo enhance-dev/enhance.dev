@@ -1,5 +1,4 @@
-/* eslint-disable prettier/prettier */
-export default function Symbols({ html }) {
+export default function Symbols ({ html }) {
   return html`
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="0" height="0" style="display:none;">
   <symbol id="svg-hamburger" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"></path></symbol>

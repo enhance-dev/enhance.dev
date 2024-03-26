@@ -1,4 +1,4 @@
-export default function NoJsRequired({ html }) {
+export default function NoJsRequired ({ html }) {
   return html`
     <style>
       :host {

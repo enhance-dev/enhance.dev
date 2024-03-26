@@ -1,5 +1,5 @@
-const LEVELS = ['note', 'tip', 'info', 'caution', 'danger']
-const MARKS = ['📝', '💡', 'ℹ️', '⚠️', '🔥']
+const LEVELS = [ 'note', 'tip', 'info', 'caution', 'danger' ]
+const MARKS = [ '📝', '💡', 'ℹ️', '⚠️', '🔥' ]
 const generatedStyles = LEVELS.map(
   (level) => `
 callout-container.callout-${level} {
@@ -7,7 +7,7 @@ callout-container.callout-${level} {
 }`
 ).join('\n')
 
-export default function Callout({ html, state }) {
+export default function Callout ({ html, state }) {
   const { attrs } = state
   const thin = typeof attrs.thin !== 'undefined'
   const level = attrs.level || 'note'
@@ -56,8 +56,8 @@ export default function Callout({ html, state }) {
         align-items-center
       ">
       ${mark?.length > 0 && mark !== 'none'
-        ? `<callout-mark class="text2 align-self-start">${mark}</callout-mark>`
-        : ''}
+    ? `<callout-mark class="text2 align-self-start">${mark}</callout-mark>`
+    : ''}
       <div>
         <slot></slot>
       </div>

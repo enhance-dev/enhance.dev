@@ -1,4 +1,4 @@
-export default function Marquee({ html }) {
+export default function Marquee ({ html }) {
   return html`
     <style>
       :host {

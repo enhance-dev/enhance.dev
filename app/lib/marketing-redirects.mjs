@@ -13,7 +13,7 @@ const snakeToCamel = (str) =>
       group.toUpperCase().replace('-', '').replace('_', '')
     )
 
-export async function checkRedirects(req) {
+export async function checkRedirects (req) {
   const path = req.requestContext.http.path
   const isPath = Object.keys(redirects).includes(path)
 

@@ -1,4 +1,4 @@
-export default function Cta({ html, state }) {
+export default function Cta ({ html, state }) {
   return html`<style scope="global">
       body {
         height: 100vh;

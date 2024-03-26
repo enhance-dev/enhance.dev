@@ -1,4 +1,4 @@
-export default function Heading({ html }) {
+export default function Heading ({ html }) {
   return html`
     <style>
       h1 {

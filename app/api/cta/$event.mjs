@@ -1,7 +1,7 @@
 import QRCode from 'qrcode'
 import data from '@begin/data'
 
-export async function get(req) {
+export async function get (req) {
   const { event } = req.pathParameters
   const dataUrl = await QRCode.toDataURL(`https://enhance.dev/cta/${event}`)
   const gacode =

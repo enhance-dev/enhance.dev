@@ -1,4 +1,4 @@
-export default function LandingLinkButton({ html, state }) {
+export default function LandingLinkButton ({ html, state }) {
   const { attrs } = state
   const { href } = attrs
 

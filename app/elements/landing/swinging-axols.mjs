@@ -1,4 +1,4 @@
-export default function SwingingAxols({ html }) {
+export default function SwingingAxols ({ html }) {
   return html`
     <style>
       :host {

@@ -1,4 +1,4 @@
-export default function ga({ html, state }) {
+export default function ga ({ html, state }) {
   const { code } = state.attrs
   return html`
     <script

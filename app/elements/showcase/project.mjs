@@ -1,4 +1,4 @@
-export default function DocShowcase({ html, state }) {
+export default function DocShowcase ({ html, state }) {
   const { attrs } = state
   const {
     title,

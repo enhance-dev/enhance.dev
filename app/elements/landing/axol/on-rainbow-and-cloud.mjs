@@ -1,4 +1,4 @@
-export default function AxolOnRainbowAndCloud({ html }) {
+export default function AxolOnRainbowAndCloud ({ html }) {
   return html`
     <style>
       :host {

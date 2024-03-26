@@ -1,4 +1,4 @@
-export default function AxolIntroducing({ html }) {
+export default function AxolIntroducing ({ html }) {
   return html`
     <style>
       :host {

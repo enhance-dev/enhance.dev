@@ -2,7 +2,7 @@ import arc from '@architect/functions'
 import { getStyles } from '@enhance/arc-plugin-styles'
 
 /** @type {import('@enhance/types').EnhanceHeadFn} */
-export default function Head(state) {
+export default function Head (state) {
   const { req, store } = state
   const { doc = {} } = store
   const { title: docTitle } = doc
@@ -17,14 +17,14 @@ export default function Head(state) {
   <head>
     <meta charset="UTF-8">
     <link rel="apple-touch-icon" sizes="180x180" href="${arc.static(
-      '/img/favicon/apple-touch-icon.png'
-    )}">
+    '/img/favicon/apple-touch-icon.png'
+  )}">
     <link rel="icon" type="image/png" sizes="32x32" href="${arc.static(
-      '/img/favicon/favicon-32x32.png'
-    )}">
+    '/img/favicon/favicon-32x32.png'
+  )}">
     <link rel="icon" type="image/png" sizes="16x16" href="${arc.static(
-      '/img/favicon/favicon-16x16.png'
-    )}">
+    '/img/favicon/favicon-16x16.png'
+  )}">
     <link href="https://fosstodon.org/@enhance_dev" rel="me">
 
     <link rel="stylesheet" href="${arc.static('/css/docs-colors.css')}" />

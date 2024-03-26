@@ -1,4 +1,4 @@
-export default function AxolWink({ html }) {
+export default function AxolWink ({ html }) {
   return html`
     <style>
       :host {

@@ -1,4 +1,4 @@
-export default function BeginLogo({ html }) {
+export default function BeginLogo ({ html }) {
   return html`
     <svg
       width="16"

@@ -1,6 +1,6 @@
-function List(items, classes = []) {
+function List (items, classes = []) {
   return `
-<ul role="list" class="${['list-none', ...classes].join(' ')}">
+<ul role="list" class="${[ 'list-none', ...classes ].join(' ')}">
   ${items
     .map((item) => {
       return `
@@ -16,38 +16,38 @@ function List(items, classes = []) {
     `.trim()
 }
 
-function Doc(item) {
+function Doc (item) {
   return `
 <a href="${item.path}" class="block pb-4 ${item.active ? 'active' : ''}">
   <div class="${item.type}-label">${item.label}</div>
-  ${Description(item, ['mbs-4'])}
+  ${Description(item, [ 'mbs-4' ])}
 </a>
     `.trim()
 }
 
-function Category(item) {
+function Category (item) {
   return `
 <div class="mbs3">
   <div class="category-label font-semibold text-1 tracking2 mbe-4 uppercase">${
-    item.label
-  }</div>
+  item.label
+}</div>
   ${Description(item)}
 </div>
 ${item.items?.length > 0 ? List(item.items) : ''}
     `.trim()
 }
 
-function Description(item, classes = []) {
+function Description (item, classes = []) {
   return item.description
     ? `
-<div class="${['description text-1', ...classes].join(' ')}">
+<div class="${[ 'description text-1', ...classes ].join(' ')}">
   ${item.description}
 </div>
       `.trim()
     : ''
 }
 
-export default function DocsNav({ html, state }) {
+export default function DocsNav ({ html, state }) {
   const { attrs, store } = state
   const { navData } = store
   const { searchid } = attrs

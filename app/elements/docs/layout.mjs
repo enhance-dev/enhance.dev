@@ -1,4 +1,4 @@
-export default function DocsLayout({ html, state }) {
+export default function DocsLayout ({ html, state }) {
   const { store } = state
   const { doc = {} } = store
 
@@ -91,12 +91,12 @@ export default function DocsLayout({ html, state }) {
     <div id="outline" class="hidden block-xl">
       <docs-outline class="block pbs3 pis0">
         ${doc.tocHtml?.indexOf('<li>') > 0
-          ? /* html */ `
+    ? /* html */ `
         <div slot="toc">
           <h3 class="mbe-2 font-medium">On this page</h3>
           ${doc.tocHtml}
         </div>`
-          : ''}
+    : ''}
       </docs-outline>
     </div>
 

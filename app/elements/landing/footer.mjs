@@ -1,4 +1,4 @@
-export default function Footer({ html }) {
+export default function Footer ({ html }) {
   return html`
     <style>
       :host {
