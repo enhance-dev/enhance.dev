@@ -48,7 +48,7 @@ export default function Implementations ({ html }) {
 
       .logo-grid img {
         inline-size: clamp(100px, 16.667vw, 16rem);
-        max-block-size: 4rem;
+        max-block-size: 5rem;
       }
     </style>
     <section>

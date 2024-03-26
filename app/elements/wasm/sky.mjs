@@ -3,7 +3,7 @@ export default function Sky ({ html }) {
     <style>
       :host {
         display: block;
-        background-image: linear-gradient(to bottom, #fff0fe, #c9ecff, #7e60f3);
+        background-image: linear-gradient(to bottom, #fff0fe, #c9ecff, var(--indigo));
         padding-block-start: clamp(var(--space-7), 12vw, 16em);
         position: relative;
         z-index: 1;
