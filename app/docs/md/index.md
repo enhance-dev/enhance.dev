@@ -70,27 +70,30 @@ app
     └── index.html
 ```
 
-Add a [pure function](https://en.wikipedia.org/wiki/Pure_function) that returns an HTML string.
-Your function will be passed an object containing an `html` render function for expanding custom elements.
+Start with simple `.html` files for your app's custom elements.
+Your custom elements will be automatically expanded when their tags are used in your pages.
 
-Add a `my-header.mjs` file in the `app/elements/` folder. Notice that we're using a two-word-or-more name for our custom element.
+<doc-callout level="info">
 
-The contents of `my-header.mjs` should look like this:
+Beginning with simple HTML elements helps get an app off the ground and gives a great baseline for enhancement.  
+Converting to dynamic `.mjs` is an easy upgrade when needed! [Further docs](/docs/conventions/elements) cover that in more detail.
 
-<doc-code filename="app/elements/my-header.mjs" >
+</doc-callout>
 
-```javascript
-export default function MyHeader({ html }) {
-  return html`
-    <header>
-      <h1>Header</h1>
-      <nav>
-        <a href=/>home</a>
-        <a href=/about>about</a>
-      </nav>
-    </header>
-  `
-}
+Create a `my-header.html` file in the `app/elements/` folder. Notice that we're using a two-word-or-more name for our custom element.
+
+The contents of `my-header.html` should look like this:
+
+<doc-code filename="app/elements/my-header.html" >
+
+```html
+<header>
+  <h1>Header</h1>
+  <nav>
+    <a href=/>home</a>
+    <a href="/about">about</a>
+  </nav>
+</header>
 ```
 
 </doc-code>
@@ -99,8 +102,8 @@ Your project should now look like this:
 
 ```
 app
-├── elements .......... custom element pure functions
-│   └── my-header.mjs
+├── elements .......... custom elements
+│   └── my-header.html
 └── pages ............. file-based routing
     ├── about.html
     └── index.html
