@@ -1,4 +1,4 @@
-export default function SSRWebComponents({ html }) {
+export default function SSRWebComponents ({ html }) {
   return html`
     <style>
       :host {

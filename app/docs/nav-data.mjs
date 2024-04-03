@@ -59,7 +59,7 @@ export const data = [
         path: '/docs/routing/api-routes/',
         label: 'API Routes',
         hasChildren: true,
-        items: ['middleware', 'tutorial'],
+        items: [ 'middleware', 'tutorial' ],
       },
     ],
   },
@@ -76,7 +76,7 @@ export const data = [
         path: '/docs/elements/html/',
         label: 'HTML',
         hasChildren: true,
-        items: ['slots'],
+        items: [ 'slots' ],
       },
       {
         slug: 'state',
@@ -114,7 +114,7 @@ export const data = [
         slug: 'alternatives',
         path: '/docs/enhance-styles/alternatives/',
         hasChildren: true,
-        items: ['tailwind', 'sass'],
+        items: [ 'tailwind', 'sass' ],
       },
     ],
   },
@@ -122,7 +122,7 @@ export const data = [
     type: TYPE.category,
     label: 'Enhance UI',
     slug: 'enhance-ui',
-    items: [{ slug: 'image', label: 'Image (beta)' }],
+    items: [ { slug: 'image', label: 'Image (beta)' } ],
   },
   {
     type: TYPE.category,
@@ -143,7 +143,7 @@ export const data = [
         slug: 'testing',
         path: '/docs/patterns/testing/',
         hasChildren: true,
-        items: [{ slug: 'webdriverio', label: 'WebdriverIO' }],
+        items: [ { slug: 'webdriverio', label: 'WebdriverIO' } ],
       },
       'architect-migration',
       'rendering-markdown',
@@ -216,13 +216,13 @@ export const other = {
   },
 }
 
-export function unslug(string) {
+export function unslug (string) {
   return string
     .replace(/-/g, ' ')
     .replace(/(^\w{1})|(\s+\w{1})/g, (l) => l.toUpperCase())
 }
 
-function parseItems(items, root, activePath) {
+function parseItems (items, root, activePath) {
   const parsedItems = items.map((item) => {
     if (typeof item === 'string') {
       // create full item from shorthand item
@@ -232,7 +232,8 @@ function parseItems(items, root, activePath) {
         path: `/${root}/${item}`,
         label: unslug(item),
       }
-    } else {
+    }
+    else {
       if (!item.type) {
         item.type = 'doc'
       }
@@ -253,7 +254,7 @@ function parseItems(items, root, activePath) {
     return item
   })
 
-  function testForActive(i) {
+  function testForActive (i) {
     return i.active || i.items?.some(testForActive)
   }
 

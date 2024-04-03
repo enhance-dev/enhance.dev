@@ -1,4 +1,4 @@
-export default function SSRType({ html }) {
+export default function SSRType ({ html }) {
   return html`
     <style>
       :host {

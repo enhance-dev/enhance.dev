@@ -1,6 +1,6 @@
 import arc from '@architect/functions'
 
-export default function DocVideo({ html, state }) {
+export default function DocVideo ({ html, state }) {
   const { attrs } = state
   const playbackId = attrs['playback-id']
   const name = attrs.name || 'Enhance Video'

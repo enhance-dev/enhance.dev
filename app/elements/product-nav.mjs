@@ -1,4 +1,4 @@
-export default function ProductNav({ html }) {
+export default function ProductNav ({ html }) {
   return html`
     <masthead-slice>
       <h2 class="semibold">

@@ -1,4 +1,4 @@
-export default function TheGround({ html, state }) {
+export default function TheGround ({ html, state }) {
   const { store } = state
   const { thanks = false } = store
   const emailThanks = thanks === 'true'

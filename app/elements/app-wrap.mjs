@@ -1,4 +1,4 @@
-export default function AppWrap({ html, state = {} }) {
+export default function AppWrap ({ html, state = {} }) {
   // const modals = Array(Math.parseInt(state.attrs?.quantity || 1)).fill(0)
   // space or comma separated values for modal names "one,two three"
   const modals = state?.attrs?.modals?.split(/[\s*,?\s*]/) || []
@@ -60,8 +60,8 @@ export default function AppWrap({ html, state = {} }) {
 
 
       ${modals
-        .map(
-          (modalName) => /* css*/ `
+    .map(
+      (modalName) => /* css*/ `
             /* Hide main content when modal opens. Hidden from screen readers and traps focus */
             :host
               > input[name='group-click-${modalName}']:not(:checked)
@@ -81,12 +81,12 @@ export default function AppWrap({ html, state = {} }) {
               display: block;
             }
           `
-        )
-        .join('\n')}
+    )
+    .join('\n')}
     </style>
     ${modals
-      .map(
-        (modalName) => /* html*/ `
+    .map(
+      (modalName) => /* html*/ `
             <input
               tabindex="-1"
               aria-hidden="true"
@@ -102,13 +102,13 @@ export default function AppWrap({ html, state = {} }) {
               name="group-key-${modalName}"
               type="radio" />
           `
-      )
-      .join('')}
+    )
+    .join('')}
 
     <slot name="main"></slot>
     ${modals
-      .map(
-        (modalName) => /* html*/ `
+    .map(
+      (modalName) => /* html*/ `
             <div class="modal-container" id="modal-container-${modalName}">
               <button
                 class="overlay"
@@ -131,8 +131,8 @@ export default function AppWrap({ html, state = {} }) {
             </div>
           <form id="modal-form-${modalName}"></form>
           `
-      )
-      .join('')}
+    )
+    .join('')}
     <script>
       // TODO: set aria-hidden on main
       // TODO: change main to inert and not display none when dialog open

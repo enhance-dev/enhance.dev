@@ -1,4 +1,4 @@
-export default function PinkToCyan({ html }) {
+export default function PinkToCyan ({ html }) {
   return html`
     <style>
       :host {

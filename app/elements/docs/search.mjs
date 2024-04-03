@@ -1,4 +1,4 @@
-export default function DocsSearch({ html, state }) {
+export default function DocsSearch ({ html, state }) {
   const { attrs, store } = state
   const { searchTerm } = store
   const { searchid } = attrs

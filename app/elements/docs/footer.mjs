@@ -1,21 +1,22 @@
-function readNext(nextLink) {
+function readNext (nextLink) {
   if (nextLink && nextLink.label && nextLink.path) {
     return /* html */ `
       <doc-callout level="none" mark="${nextLink.mark || 'none'}">
         <a class="font-medium" href="${nextLink.path}">${nextLink.label} →</a>
         ${
-          nextLink.description
-            ? `<p class="mbs-4 leading2">${nextLink.description}</p>`
-            : ''
-        }
+  nextLink.description
+    ? `<p class="mbs-4 leading2">${nextLink.description}</p>`
+    : ''
+}
       </doc-callout>
     `
-  } else {
+  }
+  else {
     return ''
   }
 }
 
-function communityResources(communityLinks) {
+function communityResources (communityLinks) {
   if (communityLinks?.length > 0) {
     const links = communityLinks
       .map((link) => {
@@ -40,12 +41,13 @@ function communityResources(communityLinks) {
         <dl class="mis-2 list-none leading2">${links}</dl>
       </footer>
     `
-  } else {
+  }
+  else {
     return ''
   }
 }
 
-export default function Footer({ html, state }) {
+export default function Footer ({ html, state }) {
   const {
     store: { doc, otherLinks },
   } = state

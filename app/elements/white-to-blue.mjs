@@ -1,4 +1,4 @@
-export default function WhiteToBlue({ html }) {
+export default function WhiteToBlue ({ html }) {
   return html`
     <style>
       :host {

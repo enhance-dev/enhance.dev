@@ -1,11 +1,11 @@
 /* eslint-disable fp/no-class */
 
 export default class {
-  constructor(options) {
+  constructor (options) {
     this.className = options.className
   }
 
-  'after:highlight'(result) {
+  'after:highlight' (result) {
     const tokens = []
 
     const safelyTagged = result.value.replace(
@@ -17,7 +17,8 @@ export default class {
 
         if (match === '</span>') {
           tokens.pop()
-        } else {
+        }
+        else {
           tokens.push(match)
         }
 

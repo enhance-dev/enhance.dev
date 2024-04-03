@@ -1,7 +1,7 @@
 import arc from '@architect/functions'
 const moduleUrl = arc.static('js/elements/doc-code.mjs')
 
-export default function DocCode({ html }) {
+export default function DocCode ({ html }) {
   return html`
     <style>
       :host {

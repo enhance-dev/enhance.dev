@@ -1,4 +1,4 @@
-export default function CherubHead({ html }) {
+export default function CherubHead ({ html }) {
   return html`
     <style>
       :host {

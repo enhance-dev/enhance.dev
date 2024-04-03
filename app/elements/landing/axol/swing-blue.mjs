@@ -1,4 +1,4 @@
-export default function AxolSwingBlue({ html }) {
+export default function AxolSwingBlue ({ html }) {
   return html`
     <style>
       @media (prefers-reduced-motion: no-preference) {

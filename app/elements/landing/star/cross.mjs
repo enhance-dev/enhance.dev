@@ -1,4 +1,4 @@
-export default function StarCross({ html }) {
+export default function StarCross ({ html }) {
   return html`
     <style>
       @media (prefers-reduced-motion: no-preference) {

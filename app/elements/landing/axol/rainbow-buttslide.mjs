@@ -1,6 +1,6 @@
 const slideTransition = '2000ms cubic-bezier(0.33, 0.8, 0.29, 0.96)'
 
-export default function AxolRainbowButtslide({ html }) {
+export default function AxolRainbowButtslide ({ html }) {
   return html`
     <style>
       :host {

@@ -1,4 +1,4 @@
-export default function AxolNoJSRequired({ html }) {
+export default function AxolNoJSRequired ({ html }) {
   return html`
     <style>
       .axol {

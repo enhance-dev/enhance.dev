@@ -1,4 +1,4 @@
-export default function EmailSignup({ html }) {
+export default function EmailSignup ({ html }) {
   return html`
     <style scope="global">
       .radius1 {

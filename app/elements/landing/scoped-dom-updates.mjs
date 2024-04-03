@@ -1,4 +1,4 @@
-export default function ScopedDOMUpdates({ html }) {
+export default function ScopedDOMUpdates ({ html }) {
   return html`
     <style>
       :host {

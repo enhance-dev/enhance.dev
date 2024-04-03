@@ -1,4 +1,4 @@
-export default function LandingIntro({ html }) {
+export default function LandingIntro ({ html }) {
   return html`
     <style>
       .intro {

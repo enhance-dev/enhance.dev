@@ -1,7 +1,7 @@
 import navDataLoader from '../docs/nav-data.mjs'
 
 /** @type {import('@enhance/types').EnhanceApiFn} */
-export async function get({ query }) {
+export async function get ({ query }) {
   const { thanks } = query
 
   const cacheControl =

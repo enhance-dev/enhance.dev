@@ -1,4 +1,4 @@
-export default function AxolGillsDown({ html }) {
+export default function AxolGillsDown ({ html }) {
   return html`
     <style>
       :host {

@@ -1,4 +1,4 @@
-export default function EnhanceTypeAnimated({ html }) {
+export default function EnhanceTypeAnimated ({ html }) {
   return html`
     <style>
       :host {

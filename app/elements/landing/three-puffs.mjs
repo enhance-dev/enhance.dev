@@ -1,4 +1,4 @@
-export default function ThreePuffs({ html }) {
+export default function ThreePuffs ({ html }) {
   return html`
     <style>
       :host {

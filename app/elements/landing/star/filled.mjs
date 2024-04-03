@@ -1,4 +1,4 @@
-export default function StarFilled({ html }) {
+export default function StarFilled ({ html }) {
   return html`
     <style>
       @media (prefers-reduced-motion: no-preference) {

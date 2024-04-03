@@ -1,6 +1,6 @@
 import navDataLoader from '../docs/nav-data.mjs'
 
-export async function get() {
+export async function get () {
   const navData = navDataLoader('docs', '/why-enhance')
 
   const cacheControl =

@@ -1,4 +1,4 @@
-export default function Liftoff({ html }) {
+export default function Liftoff ({ html }) {
   return html`
     <style>
       :host {

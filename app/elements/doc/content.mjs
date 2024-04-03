@@ -1,4 +1,4 @@
-export default function DocContent({ html }) {
+export default function DocContent ({ html }) {
   return html`
     <style>
       :host > * {
