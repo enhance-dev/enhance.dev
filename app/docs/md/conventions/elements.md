@@ -59,20 +59,20 @@ In this example you create an element with a default description then use an API
 
 ```javascript
 export default function MyHeader({ html, state }) {
-  const { attrs, store={} } = state
+  const { attrs, store } = state
   const { heading = 'Default' } = attrs
-  const href = store.description || 'A default description'
+  const { description = 'A default description' } = store
 
   return html`
-    <header>
-      <h1>
-        ${heading}
-      </h1>
-      <p>
-        ${description}
-      </p>
-    </header>
-  `
+      <header>
+        <h1>
+          ${heading}
+        </h1>
+        <p>
+          ${description}
+        </p>
+      </header>
+    `
 }
 ```
 
