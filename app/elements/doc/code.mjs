@@ -61,6 +61,8 @@ export default function DocCode ({ html }) {
 
     <slot></slot>
 
+    <js-naked-day>
     <script type="module" src="${moduleUrl}"></script>
+    </js-naked-day>
   `
 }

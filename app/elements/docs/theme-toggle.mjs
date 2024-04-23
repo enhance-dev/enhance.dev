@@ -65,6 +65,7 @@ export default function DocsThemeToggle ({ html }) {
       </label>
     </div>
 
+    <js-naked-day>
     <script type="module">
       class DocsThemeToggle extends HTMLElement {
         inputs = { light: null, dark: null }
@@ -121,5 +122,6 @@ export default function DocsThemeToggle ({ html }) {
 
       customElements.define('docs-theme-toggle', DocsThemeToggle)
     </script>
-  `
+    </js-naked-day>
+    `
 }

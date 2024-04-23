@@ -102,6 +102,7 @@ export default function DocsLayout ({ html, state }) {
 
     <google-analytics code="${state.store.gacode}"></google-analytics>
 
+    <js-naked-day>
     <script type="module">
       class Layout extends HTMLElement {
         constructor() {
@@ -120,5 +121,6 @@ export default function DocsLayout ({ html, state }) {
       }
       customElements.define('docs-layout', Layout)
     </script>
-  `
+    </js-naked-day>
+    `
 }

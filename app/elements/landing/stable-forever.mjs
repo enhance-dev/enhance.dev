@@ -133,6 +133,7 @@ export default function WebNative ({ html }) {
       }
     </style>
 
+    <js-naked-day>
     <script type="module">
       const rewindButton = document.querySelector('.js-rewindButton')
       const axolSliding = document.getElementById('axol-sliding')
@@ -144,6 +145,7 @@ export default function WebNative ({ html }) {
         axolSliding.classList.remove('animated')
       })
     </script>
+    </js-naked-day>
 
     <img
       src="/_public/img/landing/cloud-and-rainbow-bottom.svg"

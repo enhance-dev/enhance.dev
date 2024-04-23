@@ -107,6 +107,7 @@ export default function DocsSearch ({ html, state }) {
 
     <search id="${searchid}"></search>
 
+    <js-naked-day>
     <script type="module">
       import docsearch from '/_static/bundles/docsearch-js.mjs'
 
@@ -118,5 +119,6 @@ export default function DocsSearch ({ html, state }) {
         initialQuery: ${searchTerm ? `'${searchTerm}'` : 'null'},
       })
     </script>
-  `
+    </js-naked-day>
+    `
 }

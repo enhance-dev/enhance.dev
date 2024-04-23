@@ -8,6 +8,7 @@ export default function ({ html, state }) {
     ${searchTerm &&
     `<button class="underline">Search for "${searchTerm}"</button>`}
 
+    <js-naked-day>
     <script type="module">
       class FourOh4 extends HTMLElement {
         constructor() {
@@ -30,5 +31,6 @@ export default function ({ html, state }) {
 
       customElements.define('docs-404', FourOh4)
     </script>
+    </js-naked-day>
   `
 }

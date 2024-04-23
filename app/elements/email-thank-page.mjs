@@ -55,10 +55,12 @@ export default function EmailThankPage ({ html }) {
       <h2 class="mbe5">We'll be in touch</h2>
       <axol-wink></axol-wink>
     </main>
+    <js-naked-day>
     <script type="module">
       window.setTimeout(() => {
         window.location.href = '/'
       }, 3000)
     </script>
-  `
+    </js-naked-day>
+    `
 }

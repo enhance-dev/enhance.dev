@@ -215,6 +215,7 @@ export default function NoJsRequired ({ html }) {
       }
     </style>
 
+    <js-naked-day>
     <script type="module">
       const allowAnimation = window.matchMedia(
         '(prefers-reduced-motion: no-preference)'
@@ -277,6 +278,7 @@ export default function NoJsRequired ({ html }) {
         cloudObserver.observe(cloud)
       }
     </script>
+    </js-naked-day>
 
     <h2 class="text-center uppercase leading1 relative accessible">
       Build your entire app <br />

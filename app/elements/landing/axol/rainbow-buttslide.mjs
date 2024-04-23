@@ -54,6 +54,7 @@ export default function AxolRainbowButtslide ({ html }) {
       }
     </style>
 
+    <js-naked-day>
     <script type="module">
       const allowAnimation = window.matchMedia(
         '(prefers-reduced-motion: no-preference)'
@@ -94,6 +95,7 @@ export default function AxolRainbowButtslide ({ html }) {
         observer.observe(nextSection)
       }
     </script>
+    </js-naked-day>
 
     <figure
       id="axol-sliding-static"
