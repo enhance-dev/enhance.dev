@@ -109,7 +109,7 @@ export default function DocsSearch ({ html, state }) {
 
     <js-naked-day>
     <script type="module">
-      import docsearch from '/_static/bundles/docsearch-js.mjs'
+      import docsearch from '/_public/bundles/docsearch-js.mjs'
 
       docsearch({
         appId: '1QR8CXPN0C',
