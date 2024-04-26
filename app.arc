@@ -3,6 +3,7 @@ enhance-dev
 
 @static
 fingerprint true
+prune true
 
 @plugins
 enhance/arc-plugin-enhance
