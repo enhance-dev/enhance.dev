@@ -96,14 +96,14 @@ That works great, but if we want to follow best practices, we should clean up ou
 import CustomElement from '@enhance/custom-element'
 
 export default class CustomButton extends CustomElement {
-  handleClick (event) {
-    alert('I was clicked')
-  }
-
   constructor () {
     super()
     this.button = this.querySelector('button')
     this.handleClick = this.handleClick.bind(this)
+  }
+
+  handleClick (event) {
+    alert('I was clicked')
   }
 
   connectedCallback () {
