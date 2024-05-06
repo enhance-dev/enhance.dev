@@ -129,6 +129,23 @@ If you have an existing Enhance Element you can always import it into your Compo
 
 </doc-callout>
 
+### A note about attribute changed handlers
+
+`@enhance/custom-element` provides syntactical sugar for reacting to attribute changes. Instead of having to implement your own `attributeChangedCallback` function `@enhance/custom-element` will check to see if the attribute changed is one of your observed attributes and whether or not the new value is different than previous value. If these conditions are met, `@enhance/custom-element` will call your `[attribute name]Changed` function if it exists.
+
+| case | attribute | changed function |
+|---|---|---|
+| lower | `imagewidth` | `imagewidthChanged` |
+| kebab<sup>1</sup> | `image-width` | `imageWidthChanged` |
+| snake | `image_width` | `image_widthChanged` |
+| camel<sup>2</sup> | `imageWidth` | ❌ |
+
+<sup>1</sup>kebab cased attribute names are converted to camel case.
+
+<sup>2</sup>camel cased attribute do not trigger change listeners.
+
+**[Learn more about attribute names](/docs/elements/state/attributes#attribute-names)**
+
 ### Making Components available in the browser
 
 Now that we have written a client side component, we need to register it with the browser at runtime. To do this, we will create a new file: `app/browser/index.mjs`. This file will be used to import our Components at runtime in order to make them available to the browser. Using our `MyCard` component as an example our `app/browser/index.mjs` would look like this:
