@@ -147,6 +147,7 @@ export const data = [
       },
       'architect-migration',
       'rendering-markdown',
+      'event-listeners',
     ],
   },
   /*
