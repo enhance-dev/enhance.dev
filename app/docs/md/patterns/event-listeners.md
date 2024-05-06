@@ -82,7 +82,7 @@ customElements.define('custom-button', CustomButton)
 
 </doc-code>
 
-That works great but if we truly do want to follow best practices we should clean up our event listeners when our component is removed from the DOM. We'll remove that event listener in the `disconnectedCallback` method. In order to do that we'll need to refactor our component slightly.
+That works great, but if we want to follow best practices, we should clean up our event listeners when our component is removed from the DOM. We'll remove that event listener in the `disconnectedCallback` method. In order to do that, we'll need to refactor our component slightly.
 
 1. Extract our click handler to a method named `clickHander`.
 1. Save a reference to the `button` element in the `constructor`.
@@ -134,7 +134,7 @@ customElements.define('custom-button', CustomButton)
 
 <doc-callout level="info" mark="ℹ️">
 
-If the bind syntax offends you, then you can always use a public class field and an arrow function instead.
+If [the `bind` method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_objects/Function/bind) offends you, then you can always use [a public class field and an arrow function](https://www.aleksandrhovhannisyan.com/blog/javascript-fields-vs-methods/#alternatives-for-this-binding) instead.
 
 ```javascript
   handleClick = (event) => {
@@ -146,7 +146,7 @@ If the bind syntax offends you, then you can always use a public class field and
 
 ## Reducing Boilerplate
 
-Many other web components provide a way of reducing the amount of boilerplate code one needs to write. Enhance provides the `@enhance/element` package which builds upon the `CustomElement` and `EventHandlerMixin` classes while providing a more succinct way of writing Enhance Components.
+Many web component libraries provide a way of reducing boilerplate when authoring web components. Enhance provides the `@enhance/element` package, which builds upon the [`CustomElement`](https://github.com/enhance-dev/enhance-custom-element) and [`EventHandlerMixin`](https://github.com/enhance-dev/enhance-event-handler-mixin) classes while providing a more succinct way of writing Enhance Components.
 
 Revisiting our `custom-button` component we get:
 
