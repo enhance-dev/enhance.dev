@@ -8,9 +8,9 @@ title: Begin
 
 Install the Begin CLI by opening your terminal and entering the following command:
 
-- Mac, Linux: `curl -sS https://dl.begin.com/install.sh | sh`
-  - Then follow the printed instructions to add Begin to your `$PATH`.
-- Windows: `iwr https://dl.begin.com/install.ps1 -useb | iex`
+```bash
+npm i --global @begin/deploy
+```
 
 ### Generate a new project
 
@@ -54,18 +54,24 @@ Create a real HTML form for CRUDL (create, read, update, destroy, and list) back
 npx enhance generate scaffold Cat name:string birthday:date email:email
 ```
 
-### Deploy
+### Log in
 
-<doc-callout level="caution" mark="🛠️">
-
-The new version of Begin is under active development and not yet generally available.
-Account registration and `deploy` features will not work.
-In the meantime, you can still use the `begin` CLI, `dev` Sandbox, and generators.
-
-Sign up for early access at [Begin.com](https://begin.com).
-
-</doc-callout>
+Create a Begin account by running the following command in your terminal, then following the instructions to authorize with GitHub.
 
 ```bash
-begin deploy
+npx begin login
 ```
+
+### Deploy
+
+Time to ship your brand new project to a fresh environment!
+
+```bash
+npx begin deploy
+```
+
+<doc-callout level="info" mark="📖">
+
+Read more about how automating releases via [GitHub Actions](https://begin.com/deploy/docs/getting-started/github-actions).
+
+</doc-callout>
