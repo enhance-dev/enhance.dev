@@ -12,6 +12,11 @@ export default function ProductNav ({ html }) {
     </masthead-slice>
     <masthead-slice>
       <h2 class="semibold">
+        <a href="/wasm">Enhance WASM</a>
+      </h2>
+    </masthead-slice>
+    <masthead-slice>
+      <h2 class="semibold">
         <a href="/docs">Docs</a>
       </h2>
       <docs-nav searchid="search-mobile"></docs-nav>
