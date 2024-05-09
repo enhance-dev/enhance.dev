@@ -23,10 +23,10 @@ export default function DocShowcase ({ html, state }) {
       aspect-ratio: 215 / 117;
       position: absolute;
       margin: auto;
-      inset-block: 0;
+      inset-block-start: 50%;
       inset-inline-start: 0;
       inset-inline-end: initial;
-      translate: -56% 0;
+      translate: -56% -50%;
       rotate: -20deg;
       z-index: -1;
     }
@@ -34,7 +34,7 @@ export default function DocShowcase ({ html, state }) {
     :host:nth-of-type(odd) .show-axol:after {
       inset-inline-start: initial;
       inset-inline-end: 0;
-      translate: 56% 0;
+      translate: 56% -50%;
       rotate: 20deg;
     }
   }
