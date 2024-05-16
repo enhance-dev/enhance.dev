@@ -1,5 +1,5 @@
 ---
-title: Event Listeners
+title: Use event listeners
 ---
 
 An event is a signal that something has happened on your page. The browser notifies you so you can react to them.

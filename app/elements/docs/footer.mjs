@@ -3,8 +3,7 @@ function readNext (nextLink) {
     return /* html */ `
       <doc-callout level="none" mark="${nextLink.mark || 'none'}">
         <a class="font-medium" href="${nextLink.path}">${nextLink.label} →</a>
-        ${
-  nextLink.description
+        ${nextLink.description
     ? `<p class="mbs-4 leading2">${nextLink.description}</p>`
     : ''
 }
@@ -25,20 +24,18 @@ function communityResources (communityLinks) {
         const description = link?.description || ''
 
         return /* html */ `
-          <dt>
-            <a href="${url}" target="_blank">${label}</a>
-          </dt>
-          <dd class="mbe-4">
+          <h4 class="font-medium"><a href="${url}" target="_blank">${label}</a></h4>
+          <p class="mbe0">
             ${description}
-          </dd>
+          </p>
         `
       })
       .join('')
 
     return /* html */ `
-      <footer class="p0">
-        <h3 class="mbe-2">Community Resources</h3>
-        <dl class="mis-2 list-none leading2">${links}</dl>
+      <footer class="p0 leading3">
+        <h3 class="mbe0">Community Resources</h3>
+        ${links}
       </footer>
     `
   }

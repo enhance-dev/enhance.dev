@@ -1,7 +1,5 @@
 ---
-title: Rendering Markdown
-links:
-  - "Arcdown": https://github.com/architect/arcdown/blob/main/readme.md
+title: Render Markdown
 ---
 
 Enhance can be used to render Markdown with minimal effort — in fact, this very site is itself an Enhance app that renders Markdown to HTML on demand. You can dig into the [source code](https://github.com/enhance-dev/enhance.dev) to see exactly how we've set it up, or follow along below.

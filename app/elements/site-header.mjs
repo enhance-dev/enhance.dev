@@ -7,7 +7,7 @@ export default function SiteHeader ({ html, state }) {
   const productPageLabels = {
     '/': 'Home',
     '/docs': 'Docs',
-    '/resources': 'Resources',
+    '/cookbook': 'Cookbook',
     '/wasm': 'WASM',
     '/why-enhance': 'Why Enhance',
   }
@@ -18,6 +18,18 @@ export default function SiteHeader ({ html, state }) {
         margin-block-start: var(--masthead-max-height);
       }
 
+      begin-masthead {
+        --inline-padding: var(--space-0);
+        --max-inline-size: 100vw;
+        --accent: var(--mid-purple);
+        font-size: var(--text-0);
+      }
+
+      @media screen and (min-width: 56em) {
+        begin-masthead {
+          --max-inline-size: var(--docs-max-width);
+        }
+      }
       /* Allow masthead to set its own link colours */
       begin-masthead a {
         color: unset;
