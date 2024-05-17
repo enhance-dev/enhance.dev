@@ -1,14 +1,6 @@
 export default function Recipe ({ html, state }) {
   const { attrs } = state
-  const { href, name, type } = attrs
-
-  const types = [
-    'article',
-    'codepen',
-    'walkthrough',
-  ]
-
-  if (!types.includes(type?.toLowerCase()) || !type) console.error(`cookbook-recipe: type attribute must be one of: ${types.join(', ')}`)
+  const { href, name } = attrs
 
   return html`
     <style>
@@ -48,10 +40,6 @@ export default function Recipe ({ html, state }) {
 
         <slot name="description"></slot>
       </figure>
-
-      <span class="text-1 pb-4 pi-2 mbs-auto mbe0 mi0">
-        ${type?.toLowerCase()}
-      </span>
     </a>
   `
 }
