@@ -12,10 +12,6 @@ export default function Recipe ({ html, state }) {
         transition: background-color 0.15s linear;
       }
 
-      a:hover {
-
-      }
-
       h3 {
         color: var(--dark-purple);
         border-block-end: 1px solid var(--gray-100);
