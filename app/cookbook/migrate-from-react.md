@@ -34,7 +34,7 @@ const element = <h1>{title}</h1>;
 <doc-code filename="JavaScript">
 
 ```javascript
-const image = `<img src="${href}" alt="${altText}" />`;
+const image = `<img src="${href}" />`;
 ```
 
 </doc-code>
@@ -43,7 +43,7 @@ const image = `<img src="${href}" alt="${altText}" />`;
 <doc-code filename="React">
 
 ```javascript
-const image = <img src={href} alt={altText} />
+const image = <img src={href} />
 ```
 
 </doc-code>
