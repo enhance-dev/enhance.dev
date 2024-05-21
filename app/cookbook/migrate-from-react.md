@@ -81,4 +81,4 @@ const todoList = <ul>
 
 </code-compare>
 
-For a more verbose description the different between Enhance and React components [read this post](https://begin.com/blog/posts/2024-03-08-a-react-developers-guide-to-writing-enhance-components).
+For a more verbose description on the differences between Enhance and React components [read this post](https://begin.com/blog/posts/2024-03-08-a-react-developers-guide-to-writing-enhance-components).
