@@ -47,6 +47,16 @@ Components are web components — meaning: they extend `HTMLElement` like vanill
 
 When you write an Enhance component you will extend the `CustomElement` class from the `@enhance/custom-element` package. These single file components allow you to take advantage of slotting and style scoping in the [light DOM](https://en.wikipedia.org/wiki/Document_Object_Model) while avoiding [some of the issues](https://begin.com/blog/posts/2023-11-10-head-toward-the-light-dom) the [shadow DOM](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_shadow_DOM) creates.
 
+<doc-callout level="info" mark="🔧">
+
+Don't forget to install the `@enhance/custom-element` dependency.
+
+```bash
+npm install @enhance/custom-element
+```
+
+</doc-callout>
+
 <doc-code filename="app/components/my-card.mjs">
 
 ```javascript
@@ -174,6 +184,16 @@ Updates to Enhance Components are triggered by attribute changes. Any change to 
 
 ## DOM Diffing
 Other frameworks supply a DOM diffing solution, and Enhance Components are no different. However, we believe DOM diffing should be enabled on an opt-in basis. To enable DOM diffing in our `my-card` component, we will add the `MorphdomMixin` class from `@enhance/morphdom-mixin`.
+
+<doc-callout level="info" mark="🔧">
+
+Don't forget to install the `@enhance/morphdom-mixin` dependency.
+
+```bash
+npm install @enhance/morphdom-mixin
+```
+
+</doc-callout>
 
 <doc-code filename="app/components/my-card.mjs">
 
@@ -315,3 +335,13 @@ export default MyCard
 ```
 
 </doc-code>
+
+<doc-callout level="info" mark="🔧">
+
+Don't forget to install the `@enhance/element` dependency.
+
+```bash
+npm install @enhance/element
+```
+
+</doc-callout>
