@@ -11,28 +11,28 @@
     "test": "npm run spellcheck && npm run lint && npm run tape"
   },
   "dependencies": {
-    "@architect/functions": "^7.0.0",
-    "@begin/data": "^4.0.2",
+    "@architect/functions": "^8.1.6",
+    "@begin/data": "^5.0.5",
     "@begin/imprint": "github:beginner-corp/imprint#v4.1.0",
     "@docsearch/js": "^3.3.0",
-    "@enhance/arc-plugin-enhance": "^9.1.2",
-    "@enhance/arc-plugin-styles": "^5.0.0",
-    "@mux/mux-player": "^1.5.1",
+    "@enhance/arc-plugin-enhance": "^11.0.1",
+    "@enhance/arc-plugin-styles": "^5.0.6",
+    "@mux/mux-player": "^2.7.0",
     "arcdown": "^2.3.0",
     "markdown-it-arc-static-img": "^2.1.0",
-    "qrcode": "^1.5.1"
+    "qrcode": "^1.5.3"
   },
   "devDependencies": {
-    "@architect/architect": "^10.16.1",
+    "@architect/architect": "^11.0.13",
     "@architect/eslint-config": "^2.0.1",
-    "@architect/sandbox": "^5.9.2",
+    "@architect/sandbox": "^6.0.5",
     "@architect/spellcheck-dictionary": "github:architect/spellcheck-dictionary#v0.1.7",
-    "@enhance/types": "^0.6.1",
+    "@enhance/types": "^0.7.0",
     "eslint": "^8.30.0",
-    "spellchecker-cli": "^6.1.0",
-    "tap-arc": "^0.3.5",
-    "tape": "^5.6.1",
-    "tiny-json-http": "^7.4.2"
+    "spellchecker-cli": "^6.2.0",
+    "tap-arc": "^1.2.2",
+    "tape": "^5.7.5",
+    "tiny-json-http": "^7.5.1"
   },
   "eslintConfig": {
     "extends": [
