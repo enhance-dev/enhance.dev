@@ -4,7 +4,6 @@ import { URL } from 'url'
 import { Arcdown } from 'arcdown'
 import arcStaticImg from 'markdown-it-arc-static-img'
 import navDataLoader, {
-  unslug,
   other as otherLinks,
 } from '../../docs/nav-data.mjs'
 import HljsLineWrapper from '../../docs/hljs-line-wrapper.mjs'
@@ -63,25 +62,7 @@ export async function get (request) {
     docMarkdown = readFileSync(docURL.pathname, 'utf-8')
   }
   catch (_err) {
-    let searchTerm = null
-    if (!docPath.endsWith('/index')) {
-      const docPathParts = docPath.split('/')
-      searchTerm = docPathParts.pop()
-      searchTerm = unslug(searchTerm)
-    }
-    const initialState = {
-      doc: {
-        title: '404',
-        path: docPath,
-        html: `<docs-404 search-term="${searchTerm}"></docs-404>`,
-      },
-      otherLinks,
-      navData,
-      searchTerm,
-      gacode,
-    }
-
-    return { statusCode: 404, json: initialState }
+    return { location: '/404' }
   }
   const doc = await arcdown.render(docMarkdown)
 
