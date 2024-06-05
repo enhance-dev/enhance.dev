@@ -1,8 +1,8 @@
 ---
-title: A React Developers Guide to Writing Enhance Components
+title: Translate React syntax to Enhance elements
 ---
 
-Frequently, we are asked by React developers why patterns they have learned while writing components using JSX do not translate to writing web components. In this doc, we'll describe some common gotchas that developers coming from React or other JavaScript frameworks may run into when writing plain vanilla web components.
+We’re often asked by React developers why patterns they’ve learned while writing JSX don’t translate to writing web components. In this doc, we’ll describe some common gotchas that developers coming from React or other JavaScript frameworks may run into when writing plain vanilla web components.
 
 ## String Interpolation
 
@@ -81,4 +81,4 @@ const todoList = <ul>
 
 </code-compare>
 
-For a more verbose description on the differences between Enhance and React components [read this post](https://begin.com/blog/posts/2024-03-08-a-react-developers-guide-to-writing-enhance-components).
+For a more in depth look at the differences between Enhance and React components, [read this post on the Begin blog](https://begin.com/blog/posts/2024-03-08-a-react-developers-guide-to-writing-enhance-components).

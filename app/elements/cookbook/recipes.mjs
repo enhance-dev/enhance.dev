@@ -37,9 +37,9 @@ export default function CookbookRecipes ({ html }) {
         </p>
       </cookbook-recipe-card>
 
-      <cookbook-recipe-card name="A React Developers Guide to Writing Enhance Components" href="/cookbook/migrate-from-react">
+      <cookbook-recipe-card name="Translate React syntax to Enhance elements" href="/cookbook/translate-react">
         <p slot="description">
-        Learn how to migrate your React app to an Enhance app.
+        Watch out for common gotchas when coming from React and JSX.
         </p>
       </cookbook-recipe-card>
 
