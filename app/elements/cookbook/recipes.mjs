@@ -43,6 +43,12 @@ export default function CookbookRecipes ({ html }) {
         </p>
       </cookbook-recipe-card>
 
+      <cookbook-recipe-card name="TypeScript Template" href="/cookbook/typescript-template">
+        <p slot="description">
+        Work with TypeScript in their Enhance projects.
+        </p>
+      </cookbook-recipe-card>
+
     </cookbook-recipe-box>
   `
 }
