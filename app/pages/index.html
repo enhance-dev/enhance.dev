@@ -31,7 +31,6 @@
 
   body {
     background: white;
-    margin-block-start: var(--masthead-max-height);
   }
 
   body > *:not(begin-masthead) {
@@ -105,18 +104,7 @@
 
 <docs-symbols></docs-symbols>
 
-<begin-masthead product="Enhance" active="products" breakpoint="56em">
-  <span slot="product-page">Home</span>
-  <product-nav slot="product-nav"></product-nav>
-  <div slot="product-nav-lg" class="flex align-items-center">
-    <masthead-product-link active href="/">Home</masthead-product-link>
-    <masthead-product-link href="/docs">Docs</masthead-product-link>
-    <masthead-product-link href="/wasm">Enhance WASM</masthead-product-link>
-    <masthead-product-link href="/why-enhance">
-      Why Enhance?
-    </masthead-product-link>
-  </div>
-</begin-masthead>
+<site-header active="/"></site-header>
 
 <landing-intro class='block relative'></landing-intro>
 

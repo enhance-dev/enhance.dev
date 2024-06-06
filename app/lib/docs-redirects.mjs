@@ -62,12 +62,14 @@ const configuration = getRedirects('learn/practices', '/docs/configuration', [
   'types',
 ])
 
-const patterns = getRedirects('learn/practices', '/docs/patterns', [
-  'progressive-enhancement',
-  'testing',
-  'testing/webdriverio',
-  'architect-migration',
-])
+const patterns = {
+  'patterns/building-for-the-browser': '/cookbook/build-for-the-browser',
+  'patterns/form-validation': '/cookbook/validate-forms',
+  'patterns/testing/': '/cookbook/write-unit-tests',
+  'patterns/architect-migration': '/cookbook/migrate-from-architect',
+  'patterns/rendering-markdown': '/cookbook/render-markdown',
+  'patterns/event-listeners': '/cookbook/use-event-listeners',
+}
 
 /* Docs redirects
  * All keys presume the incoming path starts with 'docs/'

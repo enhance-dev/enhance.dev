@@ -1,7 +1,5 @@
 ---
-title: Architect Migration
-links:
-  - "arc.codes": https://arc.codes
+title: Migrate from Architect
 ---
 
 Enhance uses [Architect](https://arc.codes) under the hood for local development and deployment. It is possible to migrate between a typical Architect project structure and the Enhance file-based routing. It is also possible to mix the two approaches together in the same app. They are incrementally adoptable in both directions.

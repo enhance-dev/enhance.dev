@@ -1,5 +1,5 @@
 ---
-title: Building for the browser
+title: Build for the browser
 ---
 
 ## The `@bundles` plugin

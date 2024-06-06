@@ -1,5 +1,5 @@
 ---
-title: Form Validation
+title: Validate forms
 ---
 
 HTML forms are very powerful on their own.

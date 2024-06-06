@@ -1,5 +1,5 @@
 ---
-title: Testing
+title: Write unit tests
 ---
 
 A big benefit of Enhance custom element [pure functions](https://en.wikipedia.org/wiki/Pure_function) is that they return a string that you can test against an expected output. It doesn't need to get any more complicated than that to get started.

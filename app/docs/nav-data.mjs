@@ -137,17 +137,6 @@ export const data = [
     slug: 'patterns',
     items: [
       'progressive-enhancement',
-      'building-for-the-browser',
-      'form-validation',
-      {
-        slug: 'testing',
-        path: '/docs/patterns/testing/',
-        hasChildren: true,
-        items: [ { slug: 'webdriverio', label: 'WebdriverIO' } ],
-      },
-      'architect-migration',
-      'rendering-markdown',
-      'event-listeners',
     ],
   },
   /*
