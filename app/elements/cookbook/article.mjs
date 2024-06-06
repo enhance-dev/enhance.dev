@@ -210,7 +210,7 @@ export default function CookbookArticle ({ html }) {
     <hr class="mbs4 pbs4 border-bs1 border-solid mi-auto" />
 
     <aside class="mi-auto leading4 mbe6">
-      <h1 class="text3 leading1 tracking-1 font-bold mbe2">Find more recipes in the Enhance Cookbook!</h1>
+      <h2 class="text3 leading1 tracking-1 font-bold mbe2">Find more recipes in the Enhance Cookbook!</h2>
       <p class="text1 mbe4">Learning new things can be fun — but also challenging. The Enhance Cookbook is here to show you around the kitchen and help you get your hands dirty.</p>
 
       <a class="linkButton pi2 pb0 font-semibold no-underline" href="/cookbook/">

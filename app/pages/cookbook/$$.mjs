@@ -4,6 +4,16 @@ export default function CookbookPage ({ html, state }) {
   const { title, html: recipeHtml } = recipe
 
   return html`
+    <style scope="global">
+      /* Colors */
+      body {
+        background-color: var(--white-denim);
+        color: var(--rift-white);
+      }
+      a {
+        color: var(--purple-princess);
+      }
+    </style>
     <site-header active="/cookbook"></site-header>
     <site-container>
       <cookbook-article>

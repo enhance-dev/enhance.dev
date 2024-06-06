@@ -7,8 +7,14 @@ export default function CookbookHeader ({ html }) {
         padding-block: var(--space-6);
       }
 
+      @media (prefers-color-scheme: dark) {
+        :host {
+          background: linear-gradient(to bottom, var(--dark-purple), var(--denim));
+        }
+      }
+
       h1 {
-        color: var(--dark-purple);
+        color: var(--purple-princess);
       }
 
       figure {

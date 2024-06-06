@@ -9,6 +9,7 @@ export default function Recipe ({ html, state }) {
         border: 1px solid var(--gray-200);
         border-radius: 0.25em;
         box-shadow: 0 2px 8px hsla(0deg 0% 0% / 0.1);
+        color: var(--rift);
         transition: background-color 0.15s linear;
       }
 
