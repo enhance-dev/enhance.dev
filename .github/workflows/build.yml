@@ -40,16 +40,6 @@ jobs:
         env:
           CI: true
 
-      - name: Notify
-        uses: homoluctus/slatify@master
-        if: github.ref == 'refs/heads/main' && failure()
-        with:
-          type: ${{ job.status }}
-          job_name: "*Build*"
-          url: ${{ secrets.SLACK_NOTIFY }}
-          commit: true
-          token: ${{ secrets.GITHUB_TOKEN }}
-
   # Assuming all that went fine (and it's main): deploy!
   deploy:
     # Setup
@@ -87,12 +77,3 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
-      - name: Notify
-        uses: homoluctus/slatify@master
-        if: always()
-        with:
-          type: ${{ job.status }}
-          job_name: "*Publish*"
-          url: ${{ secrets.SLACK_NOTIFY }}
-          commit: true
-          token: ${{ secrets.GITHUB_TOKEN }}
