@@ -129,8 +129,8 @@ export default function LandingIntro ({ html }) {
       <figure
         class="bottom-clouds flex align-items-center justify-content-center">
         <p class="font-medium uppercase text-center relative">
-          The HTML first<br />
-          Full Stack <br />
+          The HTML-First<br />
+          Full-Stack <br />
           Web Framework<br />
         </p>
       </figure>
