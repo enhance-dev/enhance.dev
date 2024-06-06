@@ -6,6 +6,7 @@ fingerprint true
 prune true
 
 @plugins
+architect/plugin-bundles
 enhance/arc-plugin-enhance
 enhance/arc-plugin-styles
 

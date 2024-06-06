@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@architect/functions": "^8.1.6",
+    "@architect/plugin-bundles": "^3.2.0",
     "@begin/data": "^5.0.5",
     "@begin/imprint": "github:beginner-corp/imprint#v4.1.0",
     "@docsearch/js": "^3.3.0",
