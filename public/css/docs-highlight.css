@@ -52,8 +52,8 @@
   --hl-namespace: var(--dk-pink);
 
   --hl-highlight-line: #202641;
-  --hl-deletion: #461e1f;
-  --hl-addition: #14301d;
+  --hl-deletion: #ec5f67;
+  --hl-addition: #99c794;
 }
 
 /* Dark Theme: System */
@@ -72,9 +72,9 @@
     --hl-namespace: var(--dk-pink);
 
     --hl-highlight-line: #202641;
-    --hl-deletion: #461e1f;
-    --hl-addition: #14301d;
-  }
+    --hl-deletion: #ec5f67;
+    --hl-addition: #99c794;
+    }
 }
 
 .hljs-subst {
