@@ -107,6 +107,5 @@ export default function ({ html, state }) {
       </begin-container>
     </div>
     <site-footer></site-footer>
-    <script type="module" src="/_public/browser/docs.mjs"></script>
   `
 }
