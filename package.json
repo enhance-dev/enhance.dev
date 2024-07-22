@@ -18,6 +18,7 @@
     "@docsearch/js": "^3.3.0",
     "@enhance/arc-plugin-enhance": "^11.0.1",
     "@enhance/arc-plugin-styles": "^5.0.6",
+    "@enhance/image": "^1.0.0",
     "@mux/mux-player": "^2.7.0",
     "arcdown": "^2.3.0",
     "feed": "^4.2.2",

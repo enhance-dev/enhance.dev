@@ -7,6 +7,7 @@ prune true
 
 @plugins
 architect/plugin-bundles
+enhance/arc-image-plugin
 enhance/arc-plugin-enhance
 enhance/arc-plugin-styles
 create-post-metadata
