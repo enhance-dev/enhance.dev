@@ -10,6 +10,7 @@ export default function SiteHeader ({ html, state }) {
     '/cookbook': 'Cookbook',
     '/wasm': 'WASM',
     '/why-enhance': 'Why Enhance',
+    '/blog': 'Blog',
   }
 
   return html`
@@ -73,6 +74,12 @@ export default function SiteHeader ({ html, state }) {
           ${checkActive('/why-enhance')}
         >
           Why Enhance?
+        </masthead-product-link>
+        <masthead-product-link
+          href="/blog"
+          ${checkActive('/blog')}
+        >
+          Blog
         </masthead-product-link>
       </div>
     </begin-masthead>
