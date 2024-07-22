@@ -15,3 +15,9 @@ public/pages/
 .DS_Store
 .vscode
 *-lock.yaml
+
+# RSS feed
+app/api/blog/posts.json
+app/api/blog/series.json
+app/api/blog/rss.xml
+app/api/blog/rss.br
