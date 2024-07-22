@@ -2,15 +2,16 @@ import path from 'path'
 import url from 'url'
 import { readFileSync } from 'fs'
 import { parseDate } from '../../lib/parseDate.mjs'
+import navDataLoader from '../../docs/nav-data.mjs'
 
-function isPublished(str) {
+function isPublished (str) {
   return process.env.DISABLE_DATE_CHECK === 'true'
     ? true
     : parseDate(str) < Date.now()
 }
 
 /** @type {import('@enhance/types').EnhanceApiFn} */
-export async function get(req) {
+export async function get (req) {
   const account = req.session.account
 
   let here = path.dirname(url.fileURLToPath(import.meta.url))
@@ -25,15 +26,19 @@ export async function get(req) {
   const offset = parsedOffset >= 0 ? parsedOffset : 0
   const total = posts.length
 
+  const { path: activePath } = req
+  const navData = navDataLoader('blog', activePath)
+
   return {
     json: {
       posts,
-      pageTitle: 'Blog — Begin',
+      pageTitle: 'Blog — Enhance.dev',
       limit,
       offset,
       total,
       account,
       activeRoute: 'blog',
+      navData,
     },
   }
 }

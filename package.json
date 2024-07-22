@@ -20,9 +20,11 @@
     "@enhance/arc-plugin-styles": "^5.0.6",
     "@mux/mux-player": "^2.7.0",
     "arcdown": "^2.3.0",
+    "feed": "^4.2.2",
     "markdown-it-arc-static-img": "^2.1.0",
     "markdown-it-footnote": "^4.0.0",
-    "qrcode": "^1.5.3"
+    "qrcode": "^1.5.3",
+    "reading-time": "^1.5.0"
   },
   "devDependencies": {
     "@architect/architect": "^11.0.13",

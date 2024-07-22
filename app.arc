@@ -9,6 +9,9 @@ prune true
 architect/plugin-bundles
 enhance/arc-plugin-enhance
 enhance/arc-plugin-styles
+create-post-metadata
+create-series-metadata
+create-rss-feed
 
 @enhance-styles
 filename css/styles.css
