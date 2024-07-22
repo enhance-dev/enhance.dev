@@ -2,7 +2,7 @@ import path from 'path'
 import url from 'url'
 import { readFileSync } from 'fs'
 
-export async function get(req) {
+export async function get (req) {
   let here = path.dirname(url.fileURLToPath(import.meta.url))
 
   let acceptEncoding = (req.headers && req.headers['accept-encoding'] ||
@@ -21,7 +21,8 @@ export async function get(req) {
     resp.body = readFileSync(postsFilePath, 'utf-8')
     resp.isBase64Encoded = true
     resp.headers['content-encoding'] = 'br'
-  } else {
+  }
+  else {
     let postsFilePath = path.join(here, 'rss.xml')
     resp.body = readFileSync(postsFilePath, 'utf-8')
   }
