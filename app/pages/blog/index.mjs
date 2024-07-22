@@ -5,9 +5,12 @@ export default function ({ html, state }) {
 
   return html`
     <style scope="global">
+      :root {
+        --site-max-width: 1440px;
+      }
       body {
-        background-color: var(--accent-transparent);
-        color: var(--blue-900);
+        background-color: var(--denim);
+        color: var(--rift);
         margin-block-start: var(--global-bar-height);
       }
 
@@ -17,7 +20,9 @@ export default function ({ html, state }) {
         font-weight: 400 700;
       }
     </style>
-    <site-masthead active="blog"></site-masthead>
+
+    <site-header active="/blog"></site-header>
+
     <main class="pbs2 pi-2">
       <begin-container>
         <blog-posts></blog-posts>
