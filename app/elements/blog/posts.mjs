@@ -1,4 +1,4 @@
-export default function BlogPosts({ html, state }) {
+export default function BlogPosts ({ html, state }) {
   const { store } = state
   const { posts = [], offset, limit } = store
 
@@ -22,7 +22,6 @@ export default function BlogPosts({ html, state }) {
     <style>
       section {
         max-width: 60rem;
-        color: var(--dark);
       }
     </style>
     <section class="mi-auto pb0 pb2-sm pb4-md grid gap2">

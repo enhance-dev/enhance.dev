@@ -39,7 +39,7 @@
 
 /* Dark Theme */
 :root[data-force-theme='dark'] {
-  --hl-bg: var(--dark);
+  --hl-bg: var(--halite);
   --hl-color: var(--white);
   --hl-comment: var(--inky);
   --hl-punctuation: var(--light);
@@ -59,7 +59,7 @@
 /* Dark Theme: System */
 @media (prefers-color-scheme: dark) {
   :root {
-    --hl-bg: var(--dark);
+    --hl-bg: var(--halite);
     --hl-color: var(--white);
     --hl-comment: var(--inky);
     --hl-punctuation: var(--light);
