@@ -13,6 +13,7 @@ export async function get () {
       'cache-control': cacheControl,
     },
     json: {
+      pageTitle: 'Why Enhance?',
       navData,
     },
   }
