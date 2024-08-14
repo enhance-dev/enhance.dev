@@ -101,7 +101,7 @@ export default function MarkdownContent ({ html }) {
 
         code {
           font-family: var(--font-mono);
-          font-size: 0.95em; /* match body/heading x-height */
+          font-size: 0.925em; /* match body/heading x-height */
         }
 
         h1 code,
@@ -112,15 +112,15 @@ export default function MarkdownContent ({ html }) {
         }
 
         :not(pre, h1, h2, h3) > code {
-          padding: 0.1rem 0.2rem;
+          padding: 0.125rem 0.25rem;
           line-height: 1rem;
           overflow-wrap: break-word;
-          background-color: var(--gray-50);
+          background-color: var(--smoke-halite);
           border-radius: 0.25rem;
         }
 
         blockquote :not(pre) > code {
-          background-color: var(--gray-50);
+          background-color: var(--smoke-halite);
         }
 
         pre code {
