@@ -1,14 +1,14 @@
-export default function BlogSeries({ html, state }) {
+export default function BlogSeries ({ html, state }) {
   const { store } = state
   const { post: activePost, series } = store
 
-  const seriesMarkup = series.map((seriesPost, index) => `<blog-series-entry ${seriesPost.title === activePost.frontmatter.title ? "active" : ""} index="${index + 1}" href="${seriesPost.href}" title="${seriesPost.title}"></blog-series-entry>`).join('')
+  const seriesMarkup = series.map((seriesPost, index) => `<blog-series-entry ${seriesPost.title === activePost.frontmatter.title ? 'active' : ''} index="${index + 1}" href="${seriesPost.href}" title="${seriesPost.title}"></blog-series-entry>`).join('')
 
   return html`
     <style>
       nav {
-        background-color: var(--smoke);
-        border-color: var(--green);
+        background-color: var(--smoke-halite);
+        border-color: var(--princess);
       }
 
       ol {

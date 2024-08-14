@@ -55,7 +55,8 @@
     "docs-nav-width": "16rem",
     "nav-height": "4rem",
     "editorial-width": "max(320px - var(--space-0), 87.5vw)",
-    "docs-max-width": "100rem"
+    "docs-max-width": "100rem",
+    "font-mono": "Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace"
   },
   "queries": {
     "lg": "56em",

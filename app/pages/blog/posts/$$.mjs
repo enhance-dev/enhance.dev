@@ -1,4 +1,4 @@
-import { parseDate }  from '../../../lib/parseDate.mjs'
+import { parseDate } from '../../../lib/parseDate.mjs'
 
 function mastodonUrl (handle) {
   // create https://indieweb.social/@tbeseda from @tbeseda@indieweb.social
@@ -20,30 +20,23 @@ export default function ({ html, state }) {
 
   return html`
     <style scope="global">
-      :root {
-        --site-max-width: 1440px;
-      }
       body {
-        background-color: var(--denim);
-        color: var(--rift);
+        background-color: var(--cloud-ateneo);
         margin-block-start: var(--global-bar-height);
-      }
-
-      @font-face {
-        font-family: "Source Code";
-        src: url("/_public/fonts/SourceCodeVF.otf.woff2") format("woff2-variations");
-        font-weight: 400 700;
       }
     </style>
     <style>
       :host {
         display: block;
-        padding-block-start: var(--space-0);
       }
 
-      begin-container {
-        background-color: white;
+      site-container {
+        background-color: var(--white-denim);
         border-radius: 0.5em;
+      }
+
+      article {
+        max-width: 86ch;
       }
 
       .avatar {
@@ -52,32 +45,21 @@ export default function ({ html, state }) {
       }
 
       @media screen and (min-width: 56em) {
-        article {
-          max-width: 58rem;
-        }
-
         .avatar {
           width: 60px;
         }
       }
-
-      @media screen and (min-width: 76em) {
-        article {
-          max-width: 64rem;
-        }
-      }
-
     </style>
     <link rel="stylesheet" href="/_public/css/docs-colors.css" />
 
     <site-header active="/blog"></site-header>
 
-    <div class="mi0">
-      <begin-container class="relative">
+    <div class="mi0 mi4-lg">
+      <site-container>
         <article
-          class="h-entry font-sans leading4 mi-auto mb0 mb4-lg p0 p5-lg pi6-xl"
+          class="h-entry leading4 mi-auto mb0 mb4-lg p0 p5-lg pi6-xl"
         >
-          <begin-h1 class="p-name mbe2-lg">${post.frontmatter.title}</begin-h1>
+          <h1 class="text4 text5-lg leading1 font-bold p-name mbe2-lg">${post.frontmatter.title}</h1>
 
           <div class="flex align-items-center mb0 mbe2-lg">
             <img
@@ -104,7 +86,7 @@ export default function ({ html, state }) {
           <h-card class="hidden" name="${author}" photo="/_public/blog/${avatar}" ${mastodon ? `url="${mastodonUrl(mastodon)}"` : ''}></h-card>
           ${webmentions}
         </article>
-      </begin-container>
+      </site-container>
     </div>
     <site-footer></site-footer>
   `

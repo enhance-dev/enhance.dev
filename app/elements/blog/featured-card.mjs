@@ -7,7 +7,7 @@ export default function BlogFeaturedPost ({ html, state }) {
     <style>
       :host {
         display: block;
-        background-color: white;
+        background-color: var(--cloud-ateneo);
         border-radius: 0.5em;
       }
 
