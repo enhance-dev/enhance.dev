@@ -32,7 +32,7 @@ export async function get (req) {
   return {
     json: {
       posts,
-      pageTitle: 'Blog — Enhance.dev',
+      pageTitle: 'Blog',
       limit,
       offset,
       total,
