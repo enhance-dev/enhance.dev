@@ -74,7 +74,7 @@ export async function get (req) {
     },
     json: {
       post,
-      pageTitle: `${post.frontmatter.title.replaceAll(/"/g, "'")} — Enhance Blog`,
+      pageTitle: `${post.frontmatter.title.replaceAll(/"/g, "'")}`,
       pageDescription: post.frontmatter.description
         ? post.frontmatter.description.replaceAll(/"/g, "'")
         : undefined,
