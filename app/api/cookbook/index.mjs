@@ -15,6 +15,7 @@ export async function get (req) {
       'cache-control': cacheControl,
     },
     json: {
+      pageTitle: 'Cookbook',
       navData,
     },
   }
