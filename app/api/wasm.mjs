@@ -16,6 +16,7 @@ export async function get ({ query }) {
       'cache-control': cacheControl,
     },
     json: {
+      pageTitle: 'Enhance WASM',
       thanks,
       navData,
     },
