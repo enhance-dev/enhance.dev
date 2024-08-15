@@ -12,6 +12,9 @@ export default function DocsLayout ({ html, state }) {
       a {
         color: var(--purple-princess);
       }
+      site-header {
+        --site-header-background: var(--lily);
+      }
 
       @media screen and (min-width: 56em) {
         /* Scrollbars */
@@ -49,7 +52,7 @@ export default function DocsLayout ({ html, state }) {
           margin-inline: auto;
           position: fixed;
           padding-inline: 0;
-          inset-block-start: var(--masthead-max-height);
+          inset-block-start: var(--nav-height);
           inset-block-end: 0;
           inset-inline: 0;
           display: grid;
@@ -103,24 +106,24 @@ export default function DocsLayout ({ html, state }) {
     <google-analytics code="${state.store.gacode}"></google-analytics>
 
     <js-naked-day>
-    <script type="module">
-      class Layout extends HTMLElement {
-        constructor() {
-          super()
-          let sidebar = this.querySelector('#sidebar')
+      <script type="module">
+        class Layout extends HTMLElement {
+          constructor() {
+            super()
+            let sidebar = this.querySelector('#sidebar')
 
-          let top = sessionStorage.getItem('docs-sidebar-scroll')
-          if (top !== null) {
-            sidebar.scrollTop = parseInt(top, 10)
+            let top = sessionStorage.getItem('docs-sidebar-scroll')
+            if (top !== null) {
+              sidebar.scrollTop = parseInt(top, 10)
+            }
+
+            window.addEventListener('beforeunload', () => {
+              sessionStorage.setItem('docs-sidebar-scroll', sidebar.scrollTop)
+            })
           }
-
-          window.addEventListener('beforeunload', () => {
-            sessionStorage.setItem('docs-sidebar-scroll', sidebar.scrollTop)
-          })
         }
-      }
-      customElements.define('docs-layout', Layout)
-    </script>
+        customElements.define('docs-layout', Layout)
+      </script>
     </js-naked-day>
     `
 }

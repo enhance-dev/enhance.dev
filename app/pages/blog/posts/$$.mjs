@@ -22,7 +22,6 @@ export default function ({ html, state }) {
     <style scope="global">
       body {
         background-color: var(--cloud-ateneo);
-        margin-block-start: var(--global-bar-height);
       }
     </style>
     <style>
@@ -52,7 +51,7 @@ export default function ({ html, state }) {
     </style>
     <link rel="stylesheet" href="/_public/css/docs-colors.css" />
 
-    <site-header active="/blog"></site-header>
+    <site-header></site-header>
 
     <div class="mi0 mi4-lg">
       <site-container>

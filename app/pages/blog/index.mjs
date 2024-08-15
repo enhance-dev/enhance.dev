@@ -7,7 +7,7 @@ export default function ({ html, state }) {
     <style scope="global">
       /* Colors */
       body {
-        background-color: var(--white-denim);
+        background-color: var(--cloud-ateneo);
         color: var(--rift-white);
       }
     </style>

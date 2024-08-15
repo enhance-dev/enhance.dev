@@ -15,73 +15,80 @@ export default function SiteHeader ({ html, state }) {
 
   return html`
     <style scope="global">
-      body {
-        margin-block-start: var(--masthead-max-height);
-      }
-
-      begin-masthead {
-        --inline-padding: var(--space-0);
-        --max-inline-size: 100vw;
-        --accent: var(--mid-purple);
-        font-size: var(--text-0);
-      }
-
-      @media screen and (min-width: 56em) {
-        begin-masthead {
-          --max-inline-size: var(--docs-max-width);
-        }
-      }
-      /* Allow masthead to set its own link colours */
-      begin-masthead a {
-        color: unset;
+      :root {
+        --nav-height: var(--space-6);
       }
     </style>
 
-    <begin-masthead product="Enhance" active="products" breakpoint="56em">
-      <span slot="product-page">${productPageLabels[active]}</span>
-      <product-nav slot="product-nav"></product-nav>
-      <div slot="product-nav-lg" class="flex align-items-center">
-        <masthead-product-link
-          href="/"
-          ${checkActive('/')}
-        >
-          Home
-        </masthead-product-link>
+    <style>
+      :host {
+        --background: var(--site-header-background, var(--cloud));
+        background-color: color-mix(in srgb, var(--background) 75%, transparent);
+        backdrop-filter: blur(10px);
+        display: block;
+        padding-inline: var(--space-0);
+        position: fixed;
+        inset-block-start: 0;
+        inset-inline: 0;
+        z-index: 3;
+      }
 
-        <masthead-product-link
-          href="/docs"
-          ${checkActive('/docs')}
-        >
-          Docs
-        </masthead-product-link>
+      nav {
+        max-inline-size: var(--docs-max-width);
+        block-size: var(--nav-height);
+      }
 
-        <masthead-product-link
-          href="/cookbook"
-          ${checkActive('/cookbook')}
-        >
-          Cookbook
-        </masthead-product-link>
+      h1 {
+        color: var(--rift);
+      }
 
-        <masthead-product-link
-          href="/wasm"
-          ${checkActive('/wasm')}
-        >
-          Enhance WASM
-        </masthead-product-link>
+      axol-portrait {
+        block-size: var(--space-4);
+        aspect-ratio: 1 / 1;
+        translate: 0 -3px;
+      }
 
-        <masthead-product-link
-          href="/why-enhance"
-          ${checkActive('/why-enhance')}
-        >
-          Why Enhance?
-        </masthead-product-link>
-        <masthead-product-link
-          href="/blog"
-          ${checkActive('/blog')}
-        >
-          Blog
-        </masthead-product-link>
-      </div>
-    </begin-masthead>
+      a {
+        color: var(--dark-purple);
+        transition: color 0.125s linear;
+      }
+
+      a:hover {
+        color: var(--magenta);
+      }
+    </style>
+
+    <nav class="flex align-items-center gap0 mi-auto">
+      <a href="/">
+        <h1 class="text0 font-semibold flex gap0 align-items-center uppercase tracking2">
+          <axol-portrait></axol-portrait>
+          Enhance
+        </h1>
+      </a>
+
+      <ul class="mis-auto flex gap2 align-items-center list-none font-semibold text-1 uppercase tracking2">
+        <li>
+          <a href="/">Home</a>
+        </li>
+        <li>
+          <a href="/docs">Docs</a>
+        </li>
+        <li>
+          <a href="/cookbook">Cookbook</a>
+        </li>
+        <li>
+          <a href="/blog">Blog</a>
+        </li>
+        <li>
+          <a href="/showcase">Showcase</a>
+        </li>
+        <li>
+          <a href="/wasm">Enhance WASM</a>
+        </li>
+        <li>
+          <a href="/why-enhance">Why Enhance?</a>
+        </li>
+      </ul>
+    </nav>
   `
 }
