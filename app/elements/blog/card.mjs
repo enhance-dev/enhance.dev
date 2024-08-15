@@ -8,7 +8,7 @@ export default function BlogPost ({ html, state }) {
     <style>
       :host {
         display: block;
-        background-color: var(--cloud-ateneo);
+        background-color: var(--white-denim);
         border-radius: 0.5em;
       }
 

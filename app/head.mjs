@@ -112,6 +112,10 @@ export default function Head (state) {
         overflow-y: auto;
       }
 
+      body {
+        margin-block-start: var(--nav-height); /* set in site-header.mjs */
+      }
+
       em {
         font-weight: 400;
       }
