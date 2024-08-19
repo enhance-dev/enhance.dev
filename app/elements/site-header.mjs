@@ -1,17 +1,8 @@
 export default function SiteHeader ({ html, state }) {
-  const { attrs } = state
-  const { active = '' } = attrs
+  const { store } = state
+  const { path } = store
 
-  const checkActive = href => active === href ? 'active' : ''
-
-  const productPageLabels = {
-    '/': 'Home',
-    '/docs': 'Docs',
-    '/cookbook': 'Cookbook',
-    '/wasm': 'WASM',
-    '/why-enhance': 'Why Enhance',
-    '/blog': 'Blog',
-  }
+  const checkActive = route => path.split('/')[1] === route ? 'active' : ''
 
   return html`
     <style scope="global">
@@ -34,6 +25,7 @@ export default function SiteHeader ({ html, state }) {
 
       #site-header-links {
         background-color: var(--background);
+        border-block-end: 1px solid color-mix(in srgb, var(--background) 90%, black);
         inset-block-start: var(--nav-height);
       }
 
@@ -46,8 +38,10 @@ export default function SiteHeader ({ html, state }) {
           backdrop-filter: blur(10px);
         }
 
+        /* Reset mobile styles */
         #site-header-links {
           background: transparent;
+          border-block-end: none;
           inset-block-start: unset;
         }
       }
@@ -69,11 +63,33 @@ export default function SiteHeader ({ html, state }) {
 
       a {
         color: var(--dark-purple);
+        border-radius: 0.25em;
         transition: color 0.125s linear;
       }
 
       a:hover {
         color: var(--magenta);
+      }
+
+      a.active {
+        color: var(--fore);
+        position: relative;
+      }
+
+      .active:before {
+        content: '•';
+        position: absolute;
+        inline-size: 2ch;
+        inset-inline-start: -2ch;
+      }
+
+      @media (min-width: 56em) {
+        .active:before {
+          inset-inline-start: unset;
+          inset-inline-end: 0;
+          inset-block-start: 0;
+          text-align: right;
+        }
       }
 
       /* Mobile menu + toggle UI */
@@ -161,29 +177,30 @@ export default function SiteHeader ({ html, state }) {
         flex-col
         flex-row-lg
         gap2
+        gap-2-lg
         mis-auto-lg
         align-items-center-lg
       ">
         <li>
-          <a href="/">Home</a>
+          <a href="/" class="p-4 ${checkActive('')}">Home</a>
         </li>
         <li>
-          <a href="/docs">Docs</a>
+          <a href="/docs" class="p-4 ${checkActive('docs')}">Docs</a>
         </li>
         <li>
-          <a href="/cookbook">Cookbook</a>
+          <a href="/cookbook" class="p-4 ${checkActive('cookbook')}">Cookbook</a>
         </li>
         <li>
-          <a href="/blog">Blog</a>
+          <a href="/blog" class="p-4 ${checkActive('blog')}">Blog</a>
         </li>
         <li>
-          <a href="/showcase">Showcase</a>
+          <a href="/showcase" class="p-4 ${checkActive('showcase')}">Showcase</a>
         </li>
         <li>
-          <a href="/wasm">Enhance WASM</a>
+          <a href="/wasm" class="p-4 ${checkActive('wasm')}">Enhance WASM</a>
         </li>
         <li>
-          <a href="/why-enhance">Why Enhance?</a>
+          <a href="/why-enhance" class="p-4 ${checkActive('why-enhance')}">Why Enhance?</a>
         </li>
       </ul>
     </nav>
