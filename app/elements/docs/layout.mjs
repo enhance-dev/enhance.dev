@@ -136,7 +136,7 @@ export default function DocsLayout ({ html, state }) {
       />
       <label
         for="docs-nav-menu-toggle"
-        class="hidden-lg relative flex align-items-center font-semibold"
+        class="hidden-lg relative flex align-items-center font-semibold cursor-pointer"
       >
         <span class="open">
           <?xml version="1.0" encoding="UTF-8"?><svg width="1em" height="1em" stroke-width="2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" color="currentColor"><path d="M9 6L15 12L9 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
