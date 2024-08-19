@@ -4,14 +4,21 @@ export default function DocsLayout ({ html, state }) {
 
   return html`
     <style scope="global">
+      :root {
+        --docs-nav-menu-toggle-height: var(--space-4);
+      }
+
       /* Colors */
       body {
         background-color: var(--white-denim);
         color: var(--rift-white);
+        margin-block-start: calc(var(--nav-height) + var(--docs-nav-menu-toggle-height));
       }
+
       a {
         color: var(--purple-princess);
       }
+
       site-header {
         --site-header-background: var(--lily);
       }
@@ -45,6 +52,30 @@ export default function DocsLayout ({ html, state }) {
         max-inline-size: 100vw;
       }
 
+      #sidebar {
+        background-color: var(--white-denim);
+        border-block-end: 1px solid var(--grey-greyer);
+        inset-block-start: var(--nav-height);
+        max-block-size: 75dvh;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        z-index: 3;
+      }
+
+      @media (width < 56em) {
+        #docs-nav-menu-toggle:not(:checked) ~ docs-nav { display: none; }
+        #docs-nav-menu-toggle:checked ~ docs-nav { display: block; }
+
+        label[for="docs-nav-menu-toggle"] {
+          height: var(--docs-nav-menu-toggle-height);
+        }
+
+        #docs-nav-menu-toggle:not(:checked) ~ label span.open { display: inline-block; }
+        #docs-nav-menu-toggle:not(:checked) ~ label span.close { display: none; }
+        #docs-nav-menu-toggle:checked ~ label span.open { display: none; }
+        #docs-nav-menu-toggle:checked ~ label span.close { display: inline-block; }
+      }
+
       @media only screen and (min-width: 56em) {
         /* 2-col + */
         :host {
@@ -60,6 +91,13 @@ export default function DocsLayout ({ html, state }) {
           container: layout / size;
         }
 
+        /* Sidebar resets */
+        #sidebar {
+          background-color: transparent;
+          border-block-end: none;
+          inset-block-start: unset;
+        }
+
         #sidebar,
         #content,
         #outline {
@@ -67,6 +105,7 @@ export default function DocsLayout ({ html, state }) {
           overflow-y: scroll;
           overflow-x: hidden;
         }
+
       }
 
       @media (min-width: 72em) {
@@ -79,8 +118,37 @@ export default function DocsLayout ({ html, state }) {
 
     <docs-symbols class="hidden"></docs-symbols>
 
-    <div id="sidebar" class="hidden block-lg pi-2 pbe2">
-      <docs-nav aria-label="sidebar" searchid="search-widescreen"></docs-nav>
+    <div id="sidebar" class="
+      fixed
+      inset-i-0
+      static-lg
+      block-lg
+      pi-2
+    ">
+      <input
+        type="checkbox"
+        role="button"
+        aria-haspopup="true"
+        id="docs-nav-menu-toggle"
+        name="docs nav menu toggle"
+        class="clip absolute opacity-0 hidden-lg"
+        autocomplete="off"
+      />
+      <label
+        for="docs-nav-menu-toggle"
+        class="hidden-lg relative flex align-items-center font-semibold"
+      >
+        <span class="open">
+          <?xml version="1.0" encoding="UTF-8"?><svg width="1em" height="1em" stroke-width="2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" color="currentColor"><path d="M9 6L15 12L9 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        </span>
+        <span class="close">
+          <?xml version="1.0" encoding="UTF-8"?><svg width="1em" height="1em" stroke-width="2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" color="currentColor"><path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        </span>
+        <span class="pis-6">
+          Docs
+        </span>
+      </label>
+      <docs-nav aria-label="sidebar" searchid="search-widescreen" class="pbe2"></docs-nav>
     </div>
 
     <div id="content" class="pbs0 pbs-none-lg pbe2">
