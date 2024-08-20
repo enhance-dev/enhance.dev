@@ -197,7 +197,7 @@ export default function SiteHeader ({ html, state }) {
           <a href="/showcase" class="p-4 ${checkActive('showcase')}">Showcase</a>
         </li>
         <li>
-          <a href="/wasm" class="p-4 ${checkActive('wasm')}">Enhance WASM</a>
+          <a href="/wasm" class="p-4 ${checkActive('wasm')}">WASM</a>
         </li>
         <li>
           <a href="/why-enhance" class="p-4 ${checkActive('why-enhance')}">Why Enhance?</a>
