@@ -77,7 +77,8 @@ export default function SiteHeader ({ html, state }) {
       }
 
       .active:before {
-        content: '•';
+        content: '⏺';
+        scale: 0.66;
         position: absolute;
         inline-size: 2ch;
         inset-inline-start: -2ch;
@@ -85,8 +86,9 @@ export default function SiteHeader ({ html, state }) {
 
       @media (min-width: 56em) {
         .active:before {
+          scale: 0.5;
           inset-inline-start: unset;
-          inset-inline-end: 0;
+          inset-inline-end: -0.5ch;
           inset-block-start: 0;
           text-align: right;
         }
