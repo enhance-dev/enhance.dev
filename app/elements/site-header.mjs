@@ -97,7 +97,7 @@ export default function SiteHeader ({ html, state }) {
       /* Mobile menu + toggle UI */
       @media (width < 56em) {
         label[for="mobile-menu-toggle"] figure:after {
-          content: url("data:image/svg+xml,%3Csvg width='22' height='21' viewBox='0 0 22 21' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0.830078' y='-0.00317383' width='21.0552' height='2.95288' rx='1.47644' fill='%23003451'/%3E%3Crect x='0.830078' y='8.60938' width='21.0552' height='2.95288' rx='1.47644' fill='%23003451'/%3E%3Crect x='0.830078' y='17.2219' width='21.0552' height='2.95288' rx='1.47644' fill='%23003451'/%3E%3C/svg%3E%0A"); /* burger icon */
+          content: url("data:image/svg+xml;utf8,<svg width='24px' height='24px' stroke-width='2' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg' color='currentColor'><path d='M3 5H21' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'></path><path d='M3 12H21' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'></path><path d='M3 19H21' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'></path></svg> "); /* burger icon */
           cursor: pointer;
           display: inline-flex;
           align-items: center;
@@ -107,7 +107,7 @@ export default function SiteHeader ({ html, state }) {
         }
 
         #mobile-menu-toggle:checked ~ label[for="mobile-menu-toggle"] figure:after {
-          content: url("data:image/svg+xml,%3Csvg width='15' height='16' viewBox='0 0 15 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11.3717 11.8736L3.64752 4.14941' stroke='%23003451' stroke-width='4.86818' stroke-miterlimit='10' stroke-linecap='square' stroke-linejoin='round'/%3E%3Cpath d='M11.3067 4.21436L3.58252 11.9385' stroke='%23003451' stroke-width='4.86818' stroke-miterlimit='10' stroke-linecap='square' stroke-linejoin='round'/%3E%3C/svg%3E%0A"); /* close icon */
+          content: url("data:image/svg+xml;utf8,<svg width='24px' height='24px' stroke-width='2' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg' color='currentColor'><path d='M6.75827 17.2426L12.0009 12M17.2435 6.75736L12.0009 12M12.0009 12L6.75827 6.75736M12.0009 12L17.2435 17.2426' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'></path></svg>"); /* close icon */
         }
 
         #mobile-menu-toggle:checked ~ label .expanded { display: inline; }
