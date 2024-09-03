@@ -29,6 +29,10 @@ export default function ({ html, state }) {
         display: block;
       }
 
+      site-header {
+        --site-header-background: white;
+      }
+
       site-container {
         background-color: var(--white-denim);
         border-radius: 0.5em;

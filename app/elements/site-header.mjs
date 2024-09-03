@@ -72,7 +72,7 @@ export default function SiteHeader ({ html, state }) {
       }
 
       a.active {
-        color: var(--fore);
+        color: var(--rift);
         position: relative;
       }
 
