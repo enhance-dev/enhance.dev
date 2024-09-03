@@ -14,7 +14,7 @@ export default function Head (state) {
   const { title: docTitle } = doc
 
   const title = (docTitle || pageTitle) ? `${docTitle || pageTitle} — Enhance` : 'Enhance'
-  const description = pageDescription ? pageDescription : 'rhe HTML first full stack web framework'
+  const description = pageDescription ? pageDescription : 'The HTML first full stack web framework'
   const ogImage = pageImage ? pageImage : '/_public/img/enhance-open-graph.png'
 
   store.path = req.path || ''
