@@ -10,6 +10,10 @@ export default function ({ html, state }) {
         background-color: var(--cloud-ateneo);
         color: var(--rift-white);
       }
+
+      site-header {
+        --site-header-background: white;
+      }
     </style>
 
     <site-header active="/blog"></site-header>
