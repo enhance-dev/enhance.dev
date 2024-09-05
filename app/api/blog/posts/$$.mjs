@@ -7,7 +7,6 @@ import { URL } from 'url'
 import { default as defaultClassMapping } from '../../markdown-class-mappings.mjs'
 // import { getWebMentions } from '../../../../shared/webmentions.mjs'
 import { readFileSync } from 'fs'
-import navDataLoader from '../../../docs/nav-data.mjs'
 
 /** @type {import('@enhance/types').EnhanceApiFn} */
 export async function get (req) {
@@ -66,8 +65,6 @@ export async function get (req) {
     ? 'max-age=3600;'
     : 'no-cache, no-store, must-revalidate, max-age=0, s-maxage=0'
 
-  const navData = navDataLoader('docs', activePath)
-
   return {
     headers: {
       'cache-control': cacheControl,
@@ -83,7 +80,6 @@ export async function get (req) {
       // mentions,
       account,
       activeRoute: 'blog',
-      navData,
     },
   }
 }

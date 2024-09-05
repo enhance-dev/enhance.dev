@@ -2,7 +2,6 @@ import path from 'path'
 import url from 'url'
 import { readFileSync } from 'fs'
 import { parseDate } from '../../lib/parseDate.mjs'
-import navDataLoader from '../../docs/nav-data.mjs'
 
 function isPublished (str) {
   return process.env.DISABLE_DATE_CHECK === 'true'
@@ -26,9 +25,6 @@ export async function get (req) {
   const offset = parsedOffset >= 0 ? parsedOffset : 0
   const total = posts.length
 
-  const { path: activePath } = req
-  const navData = navDataLoader('docs', activePath)
-
   return {
     json: {
       posts,
@@ -38,7 +34,6 @@ export async function get (req) {
       total,
       account,
       activeRoute: 'blog',
-      navData,
     },
   }
 }
