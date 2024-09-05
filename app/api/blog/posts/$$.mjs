@@ -67,6 +67,7 @@ export async function get (req) {
     : 'no-cache, no-store, must-revalidate, max-age=0, s-maxage=0'
 
   const navData = navDataLoader('docs', activePath)
+  console.log('nav data loader called from api/blog/posts')
 
   return {
     headers: {
