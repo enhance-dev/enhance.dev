@@ -31,8 +31,6 @@ export async function get (request) {
   let recipeURL = new URL(`../../${recipePath}.md`, import.meta.url)
 
   const navData = navDataLoader('docs', activePath)
-  console.log('nav data loader called from api/cookbook')
-
 
   let recipeMarkdown
   try {

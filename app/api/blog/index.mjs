@@ -28,7 +28,6 @@ export async function get (req) {
 
   const { path: activePath } = req
   const navData = navDataLoader('docs', activePath)
-  console.log('nav data loader called from api/blog/index')
 
   return {
     json: {
