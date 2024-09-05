@@ -27,7 +27,7 @@ export async function get (req) {
   const total = posts.length
 
   const { path: activePath } = req
-  const navData = navDataLoader('blog', activePath)
+  const navData = navDataLoader('docs', activePath)
 
   return {
     json: {
