@@ -60,7 +60,7 @@ const image = <img src={href} />
 const todoList = `<ul>
   ${todos.map((todo) => (
     `<li key="${todo.id}">${todo.text}</li>`
-  ))}.join('')
+  )).join('')}
 </ul>`
 ```
 
