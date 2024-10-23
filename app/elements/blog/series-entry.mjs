@@ -1,4 +1,4 @@
-export default function SeriesEntry({ html, state }) {
+export default function SeriesEntry ({ html, state }) {
   const { attrs } = state
   const { href, title } = attrs
 

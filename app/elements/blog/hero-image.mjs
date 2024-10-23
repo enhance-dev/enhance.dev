@@ -1,24 +1,27 @@
-function createUrl(label, url) {
+function createUrl (label, url) {
   if (label && url) {
     return `<a href="${url}" class="underline">${label}</a>`
-  } else if (label) {
+  }
+  else if (label) {
     return label
   }
   return null
 }
 
-function createCaption(photographer, site) {
+function createCaption (photographer, site) {
   if (photographer && site) {
     return `<small>Photo by ${photographer} on ${site}</small>`
-  } else if (photographer) {
+  }
+  else if (photographer) {
     return `<small>Photo by ${photographer}</small>`
-  } else if (site) {
+  }
+  else if (site) {
     return `<small>Photo on ${site}</small>`
   }
   return null
 }
 
-export default function BlogHeroImage({ html, state }) {
+export default function BlogHeroImage ({ html, state }) {
   const { store } = state
   const { frontmatter } = store.post
   const { image, image_alt, image_site, image_site_url, photographer, photographer_url } =

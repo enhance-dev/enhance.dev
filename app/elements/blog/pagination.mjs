@@ -1,4 +1,4 @@
-export default function BlogPagination({ html, state }) {
+export default function BlogPagination ({ html, state }) {
   const { store } = state
   const { limit = 20, offset = 0, total = 1 } = store
 

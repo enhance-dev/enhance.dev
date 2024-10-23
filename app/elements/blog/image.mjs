@@ -1,6 +1,6 @@
 export default function BlogImage ({ html, state }) {
   const { attrs } = state
-  const { src, alt, fetchpriority = "auto", loading = "eager" } = attrs
+  const { src, alt, fetchpriority = 'auto', loading = 'eager' } = attrs
 
   return html`
     <enhance-image
