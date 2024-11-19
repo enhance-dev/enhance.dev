@@ -93,6 +93,10 @@ export const data = [
           'context',
         ],
       },
+      {
+        slug: 'sharing',
+        label: 'Sharing',
+      },
     ],
   },
   {
