@@ -24,7 +24,5 @@ docsearch-js 'node_modules/@docsearch/js'
 docsearch-css 'node_modules/@docsearch/css/dist/style.css'
 
 @aws
-runtime nodejs20.x
-architecture arm64
 region us-west-2
-profile smallwins
+profile openjsf
