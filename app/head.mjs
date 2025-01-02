@@ -36,6 +36,10 @@ export default function Head (state) {
     }
   }
 
+  const indexMe = process.env.ARC_ENV === 'production'
+    ? ''
+    : `<meta name="robots" content="noindex">`
+
   return /* html */ `
 <!DOCTYPE html>
 <html lang='en'>
@@ -88,6 +92,7 @@ export default function Head (state) {
     <meta name="twitter:image:src" content="${ogImage}" />
 
     ${extraBlogMeta.join('\n')}
+    ${indexMe}
 
     <style>
       @font-face {
@@ -119,7 +124,7 @@ export default function Head (state) {
       em {
         font-weight: 400;
       }
-    
+
       @media (prefers-reduced-motion: no-preference) {
         html {
           scroll-behavior: smooth;
