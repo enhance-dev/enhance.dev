@@ -59,7 +59,7 @@ export const data = [
         path: '/docs/routing/api-routes/',
         label: 'API Routes',
         hasChildren: true,
-        items: [ 'middleware', 'tutorial' ],
+        items: [ 'middleware', 'tutorial', 'webhooks' ],
       },
     ],
   },
