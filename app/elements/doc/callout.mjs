@@ -31,6 +31,9 @@ export default function Callout ({ html, state }) {
       callout-container.callout-thin {
         padding: 0.35rem 0.5rem;
       }
+      callout-container > div {
+        min-width: 0;
+      }
       callout-container pre code {
         border-radius: 0.333rem;
       }
